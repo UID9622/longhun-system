@@ -1,3 +1,5 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂 · Web 前端模板
 
 <details>
@@ -73,7 +75,7 @@ GPG：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 - **页脚模板**：
   ```html
   <footer class="lh-footer">
-    🐉 龍魂系统 · DNA: #龍芯⚡️丙午·辛未·丙戌 · UID: 9622
+    🐉 龍魂系统 · DNA: #龍芯⚡️丙午·辛未·丙戌·甲午·䷕贲 · UID: 9622
     <br>#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
   </footer>
   ```
@@ -83,7 +85,7 @@ GPG：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 ```
 🐉 交付完成
 
-DNA: #龍芯⚡️丙午·辛未·丙戌·亥时·需-web-xxx-v1-a1b2c3d4
+DNA: #龍芯⚡️丙午·辛未·丙戌·亥时·䷄需-web-xxx-v1-a1b2c3d4
 UID: 9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 时间: 丙午·辛未·丙戌·亥时

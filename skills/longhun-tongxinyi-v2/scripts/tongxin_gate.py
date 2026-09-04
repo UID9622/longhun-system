@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 """
 通心译 v2.0 · 龍魂前置翻译门控 | Tongxinyi Gate v2.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 UID: 9622
-DNA: #龍芯⚡️2026-07-01-LONGHUN-TONGXINYI-v2.0-GATE
+DNA: #龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGHUN-TONGXINYI-v2.0-GATE
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -34,7 +35,7 @@ except Exception:
 # DNA 与常量
 # ═══════════════════════════════════════════════════════════════
 
-DNA = "#龍芯⚡️2026-07-01-LONGHUN-TONGXINYI-v2.0-GATE"
+DNA = "#龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGHUN-TONGXINYI-v2.0-GATE"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 SEAL = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 

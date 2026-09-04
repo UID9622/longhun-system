@@ -1,6 +1,9 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-ac67d1c7
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-EXPAND-CHINESE-2000-v1.0
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 LonghunFont 中文字元扩展脚本 v1.0
 
 在现有 龍魂字元库_v0010_主权完整版.json 基础上，再追加约 1000 个

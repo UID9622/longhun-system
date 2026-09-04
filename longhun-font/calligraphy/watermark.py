@@ -1,9 +1,11 @@
-# #龍芯⚡️20260624010825157-AUTO-DNA-C8621837 自动注入·分层治理自愈引擎 · 来源可查
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-0b7a763d
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # DNA追溯码:#龍芯⚡️2026-06-23-LONGHUN-FONT-WATERMARK-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
-龍纹主权水印
+龙纹主权水印
 
 1. 可见水印：把「龍」字以低透明度压印在右下角/全图平铺。
 2. 频域水印：在 Y 通道 8x8 DCT 中嵌入 UID9622 身份指纹，抗截图/压缩/裁剪。
@@ -40,7 +42,7 @@ def _find_font(size: int):
 def add_visible_watermark(img: Image.Image, text: str = WATERMARK_TEXT, opacity: int = 50,
                           corner: bool = True, tile: bool = False) -> Image.Image:
     """
-    添加可见龍纹水印。
+    添加可见龙纹水印。
 
     Args:
         img: 原图

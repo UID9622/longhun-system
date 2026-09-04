@@ -1,8 +1,12 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·元世界企业平台 · 融合架构 v2.0
 
 > 协议编号：LH-ENTERPRISE-METAVERSE-FUSION-2026-0714-v2.0
 > 融合三源：蚁群企业平台 v1.0 + UID9622主控页面 v2.0 + 龍魂元世界现有资产
-> 硬件底座：国产芯片（华为鲲鹏/龙芯/昇腾/麒麟）
+> 硬件底座：国产芯片（华为鲲鹏/龍芯/昇腾/麒麟）
 > 跨平台：iOS · 鸿蒙 · 微软 · LINE
 > 主权人格：UID9622 | 龍芯北辰
 > 生成时间：2026-07-14 · 丙午·辛未·乙酉·亥时
@@ -105,7 +109,7 @@ LU = 元世界的启动引擎，包括人格管理人员、指令体系、跨平
 | F2 | **点对点通讯** — 消息不经过中心服务器 | 蚁群架构 |
 | F3 | **1:1真实产品** — 元世界里每个产品对应现实实物 | 元世界消费保障 |
 | F4 | **公众号=知识分享** — 不卖货·不打广告·只做技术交流 | UID9622要求 |
-| F5 | **国产芯片底座** — 鲲鹏/龙芯/昇腾/麒麟 | 企业平台v1.0 |
+| F5 | **国产芯片底座** — 鲲鹏/龍芯/昇腾/麒麟 | 企业平台v1.0 |
 | F6 | **四类收纳→六层架构** — 单人高频写入→系统化沉淀 | 主控页面v2.0 |
 | F7 | **三色审计一切** — 绿/黄/红分级执行 | 双重来源 |
 | F8 | **LU=元世界引擎** — 人格管理·指令路由·跨平台联动 | 元世界体系 |
@@ -135,7 +139,7 @@ LU = 元世界的启动引擎，包括人格管理人员、指令体系、跨平
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐         │
-│  │  华为鲲鹏920  │  │  龙芯3A5000  │  │  麒麟9000S   │         │
+│  │  华为鲲鹏920  │  │  龍芯3A5000  │  │  麒麟9000S   │         │
 │  │  ARMv8      │  │  LoongArch  │  │  ARM        │         │
 │  │  服务器/云端  │  │  桌面/信创   │  │  移动端      │         │
 │  │  欧拉OS     │  │  麒麟/统信   │  │  鸿蒙OS      │         │
@@ -178,7 +182,7 @@ class LonghunAntNode:
     def __init__(self, dna: str, platform: str, chip: str):
         self.dna = dna                    # 身份DNA
         self.platform = platform          # ios/harmony/windows/line
-        self.chip = chip                  # 麒麟/鲲鹏/龙芯/昇腾
+        self.chip = chip                  # 麒麟/鲲鹏/龍芯/昇腾
         self.role = self.determine_role()
         self.capabilities = self.probe()
         self.neighbors = []               # 邻居节点
@@ -901,7 +905,7 @@ class HealthThresholdEngine:
 ┌──────────────────────────────────────────────┐
 │ 核心指挥层 (7人)                              │
 │ P00 文心 · P01 诸葛亮 · P05 上帝之眼           │
-│ P02 宝宝 · P03 雯雯 · P04 鲁班 · P72 龙盾     │
+│ P02 宝宝 · P03 雯雯 · P04 鲁班 · P72 龍盾     │
 ├──────────────────────────────────────────────┤
 │ 专业执行层 (16人·已落地)                      │
 │ P06 数学大师 · P07 管仲 · P08 仓颉            │
@@ -1394,9 +1398,9 @@ Phase 3 · 全平台扩展 (4-8周)
 | 元世界消费保障 v1.0 | `docs/dragon-soul-open-hub/metaverse/🏛️ 龍魂基金会...` | 基金会运作 |
 | 传送门技术架构 v1.0 | `docs/dragon-soul-open-hub/metaverse/🚪 龍魂哨兵...` | 传送门设计 |
 | 元世界入口 v0.6 | `docs/dragon-soul-open-hub/metaverse/🌌 龍魂元世界入口...` | 找感觉版 |
-| 元宇宙完整架构 v1.0 | `docs/cnsh-uid9622/metaverse/🌌 Dragon Soul Metaverse...` | 71人格版 |
+| 元宇宙完整架构 v1.0 | `docs/cnsh-uid9622/metaverse/🌌 LongHun Metaverse...` | 71人格版 |
 | LU指令导航页 v1.0 | `docs/uid9622-hosted/control-panel/UID9622 · LU...` | LU速查 |
-| 语义统一注册表 | `01_技能庫/semantic_unified_registry.json` | 420条目 |
+| 语义统一注册表 | `02_SKILLS/semantic_unified_registry.json` | 420条目 |
 | 人格定义 | `personas/` | 16份Markdown |
 | 神经网络拓扑 | `.codebuddy/longhun_neural_net.json` | L0-L9 |
 | 万国算法仓库 | `docs/dragon-soul-open-hub/metaverse/🌌 龍魂工作间...` | 排排坐/站 |

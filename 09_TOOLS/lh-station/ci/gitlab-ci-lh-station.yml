@@ -1,0 +1,145 @@
+# 龍魂代码中转站 · GitLab CI/CD
+# DNA: #龍芯⚡️丙午·丙申·戊申·亥时·䷗复-LH-STATION-GITLAB-CI-v1.0-B8D4E9F2
+# 创建者: 诸葛鑫（UID9622）
+# 协议: CC BY-NC-SA 4.0（核心思想层）
+#
+# 使用方式:
+#   cp ci/gitlab-ci-lh-station.yml .gitlab-ci.yml
+#   git add .gitlab-ci.yml && git commit -m "ci: 龍魂 lh-station CI"
+#   git push
+
+default:
+  image: rust:1.80-slim-bookworm
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq pkg-config libssl-dev build-essential 2>/dev/null || true
+    - rustc --version && cargo --version
+    - cd tools/lh-station
+
+variables:
+  CARGO_TERM_COLOR: always
+  RUST_BACKTRACE: 1
+  CARGO_HOME: ${CI_PROJECT_DIR}/.cargo
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - .cargo/
+    - tools/lh-station/target/
+
+stages:
+  - audit
+  - build
+  - test
+  - security
+  - deploy
+
+# ═══════════════════════════════════════
+# Stage 1: 主权审计
+# ═══════════════════════════════════════
+
+clippy:
+  stage: audit
+  script:
+    - rustup component add clippy
+    - cargo clippy -- -D warnings
+  allow_failure: false
+
+fmt-check:
+  stage: audit
+  script:
+    - rustup component add rustfmt
+    - cargo fmt -- --check
+  allow_failure: false
+
+# ═══════════════════════════════════════
+# Stage 2: 构建
+# ═══════════════════════════════════════
+
+build-release:
+  stage: build
+  script:
+    - cargo build --release
+  artifacts:
+    paths:
+      - tools/lh-station/target/release/lh-station
+      - tools/lh-station/target/release/lh-station.d
+    expire_in: 30 days
+
+# 交叉编译 · 鲲鹏 (aarch64)
+build-aarch64:
+  stage: build
+  script:
+    - apt-get install -y -qq gcc-aarch64-linux-gnu
+    - rustup target add aarch64-unknown-linux-gnu
+    - cargo build --release --target aarch64-unknown-linux-gnu
+  artifacts:
+    paths:
+      - tools/lh-station/target/aarch64-unknown-linux-gnu/release/lh-station
+    expire_in: 30 days
+  allow_failure: true
+
+# ═══════════════════════════════════════
+# Stage 3: 测试
+# ═══════════════════════════════════════
+
+unit-tests:
+  stage: test
+  script:
+    - cargo test --release -- --nocapture
+  coverage: '/\d+\.\d+% coverage/'
+
+supplement-tests:
+  stage: test
+  script:
+    - cargo test --test supplement_tests -- --nocapture --test-threads=1
+  allow_failure: false
+
+# ═══════════════════════════════════════
+# Stage 4: 安全扫描
+# ═══════════════════════════════════════
+
+cargo-audit:
+  stage: security
+  script:
+    - cargo install cargo-audit --locked 2>/dev/null || echo "cargo-audit already installed"
+    - cargo audit
+  allow_failure: true
+
+dependency-license:
+  stage: security
+  script:
+    - cargo install cargo-deny --locked 2>/dev/null || echo "cargo-deny already installed"
+    - cargo deny check licenses || true
+  allow_failure: true
+
+# ═══════════════════════════════════════
+# Stage 5: 部署 (手动触发)
+# ═══════════════════════════════════════
+
+deploy-kunpeng:
+  stage: deploy
+  when: manual
+  script:
+    - echo "🚀 部署到鲲鹏 (119.13.90.27)..."
+    - |
+      if [ -n "${KUNPENG_SSH_KEY}" ]; then
+        mkdir -p ~/.ssh
+        echo "${KUNPENG_SSH_KEY}" > ~/.ssh/longhun_kunpeng_ed25519
+        chmod 600 ~/.ssh/longhun_kunpeng_ed25519
+        scp -i ~/.ssh/longhun_kunpeng_ed25519 \
+          -o StrictHostKeyChecking=no \
+          tools/lh-station/target/release/lh-station \
+          root@119.13.90.27:/opt/longhun/bin/lh-station
+        ssh -i ~/.ssh/longhun_kunpeng_ed25519 \
+          -o StrictHostKeyChecking=no \
+          root@119.13.90.27 'chmod +x /opt/longhun/bin/lh-station && systemctl restart longhun-station || true'
+        echo "🟢 鲲鹏部署完成"
+      else
+        echo "⚠️ 未配置 KUNPENG_SSH_KEY 变量，跳过部署"
+      fi
+  only:
+    - main
+    - master
+  environment:
+    name: production/kunpeng
+    url: https://uid9622.cn

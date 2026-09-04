@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂投喂器 — 硬核全量记录脚本
@@ -9,7 +13,7 @@
   python3 龍魂投喂器.py
   然后直接输入，空行退出。
 
-DNA: #龍芯⚡️2026-07-01-LONGHUN-RAW-FEEDER-v1.0
+DNA: #龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGHUN-RAW-FEEDER-v1.0
 """
 import argparse
 import datetime

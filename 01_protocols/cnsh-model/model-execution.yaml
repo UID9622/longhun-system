@@ -1,0 +1,8 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+# License: CC BY-NC-SA 4.0（核心思想层·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# model-execution.yaml — L3 执行层：推理请求/流式响应/上下文管理
+# DNA: #龍芯⚡️丙午·丙申·庚申·壬午·䷸巽为风-MODEL_EXECUTION-v1.1
+# 🔶 占位：v1.1 仅落地接口约定（见主文档 §3），详细字段规范待 v1.2 补全
+version: "1.1"
+status: "placeholder"

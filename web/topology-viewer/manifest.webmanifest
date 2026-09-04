@@ -1,0 +1,42 @@
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+{
+  "name": "龍魂拓扑 · 神经网络全览",
+  "short_name": "龍魂拓扑",
+  "description": "龍魂系统 L0-L9 九层架构 / 人格矩阵 / 神经网络可视化（离线可用）",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a0e14",
+  "theme_color": "#0a0e14",
+  "lang": "zh-CN",
+  "categories": [
+    "productivity",
+    "developer"
+  ],
+  "version": "v1.5",
+  "dna": "#龍芯⚡️丙午·丙申·丙辰·亥时·需-LONGHUN-NEURAL-NET-TOPOLOGY-v3.0-PERSONA-FULL",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

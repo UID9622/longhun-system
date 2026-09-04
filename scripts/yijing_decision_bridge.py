@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 🐉☯️ 易经 → 根治理决策链 联动桥接 v1.0
 ═══════════════════════════════════════════════════════════════════════════
 
@@ -14,7 +15,7 @@
        → decision_chain / decision_chain_cnsh
        → 输出 {M::, CNSH::}
 
-DNA：    #龍芯⚡️2026-06-29-YIJING-DECISION-BRIDGE-v1.0-LINKAGE
+DNA：    #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-YIJING-DECISION-BRIDGE-v1.0-LINKAGE
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL:    #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG:     A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -205,7 +206,7 @@ def selftest() -> None:
     pkg = yijing_to_decision_cnsh(
         "测试问题",
         timestamp=1782710383.0,
-        dna="#龍芯⚡️2026-06-29-YIJING-DECISION-CNSH-TEST"
+        dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-YIJING-DECISION-CNSH-TEST"
     )
     assert "M::" in pkg and "CNSH::" in pkg
     assert pkg["CNSH::"]["gate"] == fchain.CONFIRM_CODE
@@ -221,7 +222,7 @@ def selftest() -> None:
 
     print("=" * 80)
     print("🟢 易经 → 决策链联动桥接自检通过")
-    print("   DNA: #龍芯⚡️2026-06-29-YIJING-DECISION-BRIDGE-v1.0-LINKAGE")
+    print("   DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-YIJING-DECISION-BRIDGE-v1.0-LINKAGE")
     print("=" * 80)
 
 

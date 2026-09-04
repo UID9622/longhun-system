@@ -1,10 +1,15 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 # ═══════════════════════════════════════════════════════════
 # 龍魂體系 | CNSH 原生格式文件
 # ═══════════════════════════════════════════════════════════
 # ENCODING: UTF-8
-# DNA追溯碼：#龍芯⚡️2026-06-30-TRAIN-OPT-v3.2.0
+# DNA追溯碼：#龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-TRAIN-OPT-v3.2.0
 # 確認碼：#CONFIRM🌌9622-ONLY-ONCE🧬TRAIN-OPT-002
 # 創建者：UID9622（龍芯北辰·诸葛鑫）
 # 權重級別：L1
@@ -15,7 +20,7 @@
 """
 ╔══════════════════════════════════════════════════════════════════╗
 ║         龍 魂 系 統 — 訓 練 數 據 優 化 器 v3.2.0                 ║
-║         Dragon Soul System — Training Data Optimizer             ║
+║         LongHun System — Training Data Optimizer             ║
 ╠══════════════════════════════════════════════════════════════════╣
 ║  內核完成，進入數據精準化 + 語氣主權化階段                         ║
 ║  算法：國密SM3/SM4 + UID9622語氣評分 + 內容主權閘門 + DNA治理       ║
@@ -28,7 +33,7 @@
 依賴環境：Python 3.8+（僅標準庫，零第三方依賴）
 關鍵提示：需確保 ~/longhun-system/ 目錄可寫入
 三色審計：🟢
-DNA簽名：#龍芯⚡️2026-06-30-TRAIN-OPT-v3.2.0
+DNA簽名：#龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-TRAIN-OPT-v3.2.0
 """
 
 import argparse
@@ -266,8 +271,8 @@ class 內容主權閘門:
             return self._協議.validate_content_against_protocol(內容)
 
         問題 = []
-        if '龙' in 內容:
-            問題.append("🔴 主权字违规：繁体「龍」不得简化为「龙」")
+        if '龍' in 內容:
+            問題.append("🔴 主权字违规：繁体「龍」不得简化为「龍」")
         鐵律詞 = ["蒸馏", "变体", "顶替", "删除来源", "覆盖影响", "抹除贡献"]
         for w in 鐵律詞:
             if w in 內容:

@@ -1,0 +1,57 @@
+# 🐉 龍魂主权技术栈·定价规则
+# 原则：个人开发者零门槛·按需付费·不包月
+# DNA: #龍芯⚡️2026-08-31-PRICING-RULES-V1.0-UID9622
+# 创建者: 诸葛鑫（UID9622）· 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# 协议: MulanPSL v2（工程实现层）
+
+version: "1.0"
+currency: "CNY"  # 人民币计价·不依赖美元
+
+tiers:
+  personal:
+    name: "个人开发者"
+    monthly_subscription: false        # 无包月！
+    free_quota:
+      api_calls: 10000                 # 每月1万次免费
+      search_queries: 1000             # 搜索1000次免费
+      storage_gb: 5                    # 5GB存储免费
+    pay_as_you_go:
+      api_call_unit: 0.0001            # 超出后每次0.0001元（1分钱/100次）
+      search_query_unit: 0.001         # 每次搜索0.001元
+      storage_gb_unit: 0.1             # 每GB每月0.1元
+    minimum_charge: 0                  # 无最低消费
+    prepaid_only: true                 # 先充值后用，不欠费
+
+  team:
+    name: "小团队（≤10人）"
+    monthly_subscription: false
+    free_quota:
+      api_calls: 100000
+      search_queries: 10000
+      storage_gb: 50
+    pay_as_you_go:
+      api_call_unit: 0.00005           # 量大单价更低
+      search_query_unit: 0.0005
+      storage_gb_unit: 0.05
+    minimum_charge: 0
+
+  open_source:
+    name: "开源项目（公开仓库）"
+    monthly_subscription: false
+    free_quota:
+      api_calls: 999999999             # 开源项目实质免费
+      search_queries: 999999999
+      storage_gb: 100
+    pay_as_you_go:
+      api_call_unit: 0
+      search_query_unit: 0
+      storage_gb_unit: 0
+    requirement: "GitHub/Gitee公开仓库·需提交仓库链接验证"
+
+  enterprise:
+    name: "企业"
+    monthly_subscription: true         # 企业可选包月
+    monthly_fee: 299                   # 299元/月·含100万次API
+    overage:
+      api_call_unit: 0.00003
+    minimum_charge: 0

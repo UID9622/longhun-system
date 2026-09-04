@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂 Notion 大脑同步引擎 v2.0
 Notion Brain Sync — 用 Notion 免费 API 作为外部知识脑
 
-DNA: #龍芯⚡️丙午·乙未·壬辰·午时·需-NOTION-BRAIN-v2.0
+DNA: #龍芯⚡️丙午·乙未·壬辰·午时·䷄需-NOTION-BRAIN-v2.0
 📇 项目身份 · 联系 · 支持 → assets/PUBLIC_IDENTITY.md
 
 设计原则:

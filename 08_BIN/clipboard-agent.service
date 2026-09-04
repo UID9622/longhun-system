@@ -1,0 +1,25 @@
+[Unit]
+Description=龍魂·剪贴板容器中心
+Documentation=file:///opt/longhun-system/08_BIN/lh_clipboard_hub.py
+After=network.target neo4j.service
+
+[Service]
+Type=simple
+User=longhun
+Group=longhun
+WorkingDirectory=/opt/longhun-system
+Environment="PYTHONPATH=/opt/longhun-system"
+Environment="LONGHUN_CLIPBOARD_TOKENS=%TOKEN_LIST%"
+Environment="LONGHUN_CLIPBOARD_CERT=/opt/longhun-system/certs/fullchain.pem"
+Environment="LONGHUN_CLIPBOARD_KEY=/opt/longhun-system/certs/privkey.pem"
+Environment="NEO4J_HTTP_URL=http://localhost:7474/db/neo4j/tx/commit"
+Environment="NEO4J_USER=neo4j"
+Environment="NEO4J_PASSWORD=longhun123"
+ExecStart=/usr/bin/python3 /opt/longhun-system/08_BIN/lh_clipboard_hub.py --host 0.0.0.0 --port 8765
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

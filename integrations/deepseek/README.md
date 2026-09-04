@@ -1,6 +1,9 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # DeepSeek API 龍魂底座适配器
 
-> **DNA:** `#龍芯⚡️2026-07-01-DEEPSEEK-CLIENT-v1.0`  
+> **DNA:** `#龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-DEEPSEEK-CLIENT-v1.0`  
 > **归属:** 龍魂系统 · UID9622 · 龍芯北辰·诸葛鑫  
 > **底座原则:** 数据主权归人民，调用留痕可追溯，Key 只走环境变量
 

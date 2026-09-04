@@ -1,0 +1,16 @@
+[Unit]
+Description=龍魂系统健康全景图 API v1.0
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/longhun
+ExecStart=/usr/bin/python3 bin/lh_health_api.py 9636
+Restart=always
+RestartSec=5
+StandardOutput=append:/var/log/longhun-health-panorama.log
+StandardError=append:/var/log/longhun-health-panorama-error.log
+
+[Install]
+WantedBy=multi-user.target

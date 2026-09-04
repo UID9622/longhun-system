@@ -1,0 +1,10 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# 龍魂·鲲鹏连接配置
+# DNA: #龍芯⚡️2026-07-06-KUNPENG-CONFIG-v2.0
+KUNPENG_MGMT_IP="119.13.90.27"
+KUNPENG_USER="root"
+KUNPENG_SSH_PORT="22"
+KUNPENG_DEPLOY_PATH="/opt/longhun-system"
+KUNPENG_RUN_USER="longhun"
+KUNPENG_KEY="/Users/zuimeidedeyihan/.ssh/longhun_kunpeng_ed25519"
+KUNPENG_DOMAIN=""

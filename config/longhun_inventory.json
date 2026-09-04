@@ -60,8 +60,8 @@
       "sha256": "834d42d4318a301be946dbd10876f9b63dd385a9da12f2b983d4c65c58234771",
       "category": "01-CNSH-协议规范",
       "dna_codes": [
-        "#龙芯⚡️2026-01-28-终端-v2",
-        "#龙芯⚡️2026-01-28-TERMINAL-v2"
+        "#龍芯⚡️2026-01-28-终端-v2",
+        "#龍芯⚡️2026-01-28-TERMINAL-v2"
       ],
       "versions": [
         "v2.0"
@@ -108,17 +108,17 @@
     {
       "path": "01-CNSH-协议规范/CNSH-v1.0-测试/签名与终端系统-v2.0-完成报告.md",
       "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH-v1.0-测试/签名与终端系统-v2.0-完成报告.md",
-      "title": "🔐🖥️ 龙魂签名与智能终端系统 v2.0 - 完成报告",
+      "title": "🔐🖥️ 龍魂签名与智能终端系统 v2.0 - 完成报告",
       "size": 15290,
       "mtime": "2026-02-07T10:33:22+00:00",
       "mime": "text/markdown",
       "sha256": "24020e8584e805e5019a7b4ac5b3c8336ff10d9574785af773e13340b279aa10",
       "category": "01-CNSH-协议规范",
       "dna_codes": [
-        "#龙芯⚡️2026-01-28-终端-v2",
-        "#龙芯⚡️2026-01-28-创新版本-v2",
-        "#龙芯⚡️2026-01-28-数字签名震撼版-v2",
-        "#龙芯⚡️2026-01-28-SIGNATURE-TERMINAL-REPORT-v2"
+        "#龍芯⚡️2026-01-28-终端-v2",
+        "#龍芯⚡️2026-01-28-创新版本-v2",
+        "#龍芯⚡️2026-01-28-数字签名震撼版-v2",
+        "#龍芯⚡️2026-01-28-SIGNATURE-TERMINAL-REPORT-v2"
       ],
       "versions": [
         "v2.0"
@@ -127,23 +127,23 @@
     {
       "path": "01-CNSH-协议规范/CNSH-v1.0-测试/签名与终端系统-v2.0-完整指南.md",
       "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH-v1.0-测试/签名与终端系统-v2.0-完整指南.md",
-      "title": "🔐🖥️ 龙魂签名与智能终端系统 v2.0 - 完整指南",
+      "title": "🔐🖥️ 龍魂签名与智能终端系统 v2.0 - 完整指南",
       "size": 8849,
       "mtime": "2026-02-07T10:33:22+00:00",
       "mime": "text/markdown",
       "sha256": "b0e613d4eb5c1acc1b58d1dae8ac8a740f8fb337a686cadcebef6cf97457790d",
       "category": "01-CNSH-协议规范",
       "dna_codes": [
-        "#龙芯⚡️2026-01-28-SIGNATURE-TERMINAL-GUIDE-v2"
+        "#龍芯⚡️2026-01-28-SIGNATURE-TERMINAL-GUIDE-v2"
       ],
       "versions": [
         "v2.0"
       ]
     },
     {
-      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/龙魂智能终端-v3.0-漂移版.html",
-      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH-v1.0-测试/龙魂智能终端-v3.0-漂移版.html",
-      "title": "🐉 龙魂智能终端 v3.0 - 漂移版",
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/龍魂智能终端-v3.0-漂移版.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH-v1.0-测试/龍魂智能终端-v3.0-漂移版.html",
+      "title": "🐉 龍魂智能终端 v3.0 - 漂移版",
       "size": 40800,
       "mtime": "2026-06-21T23:45:40.482404+00:00",
       "mime": "text/html",
@@ -157,25 +157,25 @@
       ]
     },
     {
-      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/龙魂签名管理系统-v2.0.html",
-      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH-v1.0-测试/龙魂签名管理系统-v2.0.html",
-      "title": "🔐 龙魂签名管理系统 v2.0",
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/龍魂签名管理系统-v2.0.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH-v1.0-测试/龍魂签名管理系统-v2.0.html",
+      "title": "🔐 龍魂签名管理系统 v2.0",
       "size": 33948,
       "mtime": "2026-02-07T10:33:22+00:00",
       "mime": "text/html",
       "sha256": "a5cf96a2a40c1866326f507df9b4be7f5ea63bcb654dc04f074fb997bf95399e",
       "category": "01-CNSH-协议规范",
       "dna_codes": [
-        "#龙芯⚡️2026-01-28-SIGNATURE-SYSTEM-v2"
+        "#龍芯⚡️2026-01-28-SIGNATURE-SYSTEM-v2"
       ],
       "versions": [
         "v2.0"
       ]
     },
     {
-      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/龙魂终端v3.0-使用指南.md",
-      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH-v1.0-测试/龙魂终端v3.0-使用指南.md",
-      "title": "🐉 龙魂智能终端 v3.0 - 漂移版 | 使用指南",
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/龍魂终端v3.0-使用指南.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH-v1.0-测试/龍魂终端v3.0-使用指南.md",
+      "title": "🐉 龍魂智能终端 v3.0 - 漂移版 | 使用指南",
       "size": 5363,
       "mtime": "2026-06-21T23:45:40.484385+00:00",
       "mime": "text/markdown",
@@ -190,9 +190,9 @@
       ]
     },
     {
-      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/龙魂终端v3.0-完成报告.md",
-      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH-v1.0-测试/龙魂终端v3.0-完成报告.md",
-      "title": "🐉 龙魂智能终端 v3.0 - 漂移版 | 完成报告",
+      "path": "01-CNSH-协议规范/CNSH-v1.0-测试/龍魂终端v3.0-完成报告.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/01-CNSH-协议规范/CNSH-v1.0-测试/龍魂终端v3.0-完成报告.md",
+      "title": "🐉 龍魂智能终端 v3.0 - 漂移版 | 完成报告",
       "size": 7698,
       "mtime": "2026-02-07T10:33:22+00:00",
       "mime": "text/markdown",
@@ -382,7 +382,7 @@
         "#龍芯⚡️2026-04-05-原点不变性-f",
         "#龍芯⚡️2026-04-02-熔断规则-数字根闸门-v1",
         "#龍芯⚡️2026-02-26-Lu指令生态-v1",
-        "#龍芯⚡️2026-02-05-龙魂权重算法-v1"
+        "#龍芯⚡️2026-02-05-龍魂权重算法-v1"
       ],
       "versions": [
         "v1.0"
@@ -1161,9 +1161,9 @@
       "versions": []
     },
     {
-      "path": "03-身份安全-DNA/龙魂数字主权体系_学术论文_v2.0.md",
-      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/03-身份安全-DNA/龙魂数字主权体系_学术论文_v2.0.md",
-      "title": "龙魂数字主权体系：基于三位一体架构的去中心化数字身份与意识延续解决方案",
+      "path": "03-身份安全-DNA/龍魂数字主权体系_学术论文_v2.0.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/03-身份安全-DNA/龍魂数字主权体系_学术论文_v2.0.md",
+      "title": "龍魂数字主权体系：基于三位一体架构的去中心化数字身份与意识延续解决方案",
       "size": 51053,
       "mtime": "2026-06-21T23:45:36.632546+00:00",
       "mime": "text/markdown",
@@ -1700,9 +1700,9 @@
       "versions": []
     },
     {
-      "path": "06-工具脚本/龍魂API/龙魂系统_API接口完整实现_v1.0.py",
-      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/06-工具脚本/龍魂API/龙魂系统_API接口完整实现_v1.0.py",
-      "title": "龙魂系统 API接口完整实现 v1.0",
+      "path": "06-工具脚本/龍魂API/龍魂系统_API接口完整实现_v1.0.py",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/06-工具脚本/龍魂API/龍魂系统_API接口完整实现_v1.0.py",
+      "title": "龍魂系统 API接口完整实现 v1.0",
       "size": 28629,
       "mtime": "2026-02-18T16:37:54+00:00",
       "mime": "text/x-python",
@@ -1871,9 +1871,9 @@
       "versions": []
     },
     {
-      "path": "09-杂项备忘/CNSH-v1.0-测试/龙魂主页-导航中心.html",
-      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/CNSH-v1.0-测试/龙魂主页-导航中心.html",
-      "title": "🐉 龙魂系统 - 导航中心",
+      "path": "09-杂项备忘/CNSH-v1.0-测试/龍魂主页-导航中心.html",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/CNSH-v1.0-测试/龍魂主页-导航中心.html",
+      "title": "🐉 龍魂系统 - 导航中心",
       "size": 15197,
       "mtime": "2026-02-07T10:33:22+00:00",
       "mime": "text/html",
@@ -2667,7 +2667,7 @@
     {
       "path": "09-杂项备忘/浏览器字体包/README_GITHUB.md",
       "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/浏览器字体包/README_GITHUB.md",
-      "title": "🐉 龍魂系统 | Longhun System",
+      "title": "🐉 龍魂系统 | LongHun System",
       "size": 1513,
       "mtime": "2026-02-28T08:25:40+00:00",
       "mime": "text/markdown",
@@ -2830,9 +2830,9 @@
       ]
     },
     {
-      "path": "09-杂项备忘/龙魂多平台账号破局模板.md",
-      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/龙魂多平台账号破局模板.md",
-      "title": "🐉 龙魂多平台账号破局模板 v1.0",
+      "path": "09-杂项备忘/龍魂多平台账号破局模板.md",
+      "absolute": "/Users/zuimeidedeyihan/龍魂待整理/09-杂项备忘/龍魂多平台账号破局模板.md",
+      "title": "🐉 龍魂多平台账号破局模板 v1.0",
       "size": 12960,
       "mtime": "2026-02-19T15:40:16+00:00",
       "mime": "text/markdown",
@@ -2885,7 +2885,7 @@
       "category": "06-工具脚本",
       "dna_codes": [
         "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
-        "#龙芯⚡️2026-01-28-数字签名震撼版-v2",
+        "#龍芯⚡️2026-01-28-数字签名震撼版-v2",
         "#ZHUGEXIN⚡️2025-WEBSITE-GUIDE-V1",
         "#ZHUGEXIN⚡️2025-DRAGONSOUL-HOME-V1",
         "#龍芯⚡️2026-04-22-记忆压缩-001",
@@ -2893,18 +2893,18 @@
         "#龍芯⚡️2026-04-29-",
         "#ZHUGEXIN⚡️2025-TERMINAL-V3",
         "#龍芯⚡2026-05-19-SESSION-DELIVERY-COMPLETE-v1",
-        "#龙芯⚡️2026-01-28-终端-v2",
+        "#龍芯⚡️2026-01-28-终端-v2",
         "#龍芯⚡️2026-04-28-主控台-v2",
         "#龍芯⚡2026-05-19-CNSH-FIRST-PRINCIPLES-SUPPLEMENT-v1",
         "#龍芯⚡️2026-04-22-CNSH-ALIGNMENT-v2",
         "#龍芯⚡️2026-06-28-LONGHUN-INVENTORY-v1",
-        "#龙芯⚡️2026-01-28-创新版本-v2",
+        "#龍芯⚡️2026-01-28-创新版本-v2",
         "#龍芯⚡️2026-04-22-xxx",
-        "#龙芯⚡️2026-01-28-SIGNATURE-SYSTEM-v2",
-        "#龙芯⚡️2026-01-28-SIGNATURE-TERMINAL-GUIDE-v2",
-        "#龙芯⚡️2026-01-28-SIGNATURE-TERMINAL-REPORT-v2",
+        "#龍芯⚡️2026-01-28-SIGNATURE-SYSTEM-v2",
+        "#龍芯⚡️2026-01-28-SIGNATURE-TERMINAL-GUIDE-v2",
+        "#龍芯⚡️2026-01-28-SIGNATURE-TERMINAL-REPORT-v2",
         "#龍芯⚡️2026-04-22-术语对照表-v3",
-        "#龙芯⚡️2026-01-28-TERMINAL-v2",
+        "#龍芯⚡️2026-01-28-TERMINAL-v2",
         "#龍芯⚡️2026-05-03-ATTRIBUTION-REPO"
       ],
       "versions": []

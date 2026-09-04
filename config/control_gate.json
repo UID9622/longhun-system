@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "name": "龍魂·操盘网关",
+    "version": "v1.0",
+    "creator": "诸葛鑫(UID9622)",
+    "purpose": "国产AI设备操盘统一入口·仅内部私有·不对外发布"
+  },
+  "master_key": "bd532c12606d9e993db674a4ca167519",
+  "enable_write": false,
+  "allow_shell": true,
+  "command_timeout": 120,
+  "ais": {
+    "kimi": {
+      "key": "6f9fa6a131a96a65d6f0bcfa5e466d6e",
+      "enabled": true,
+      "name": "kimi",
+      "created_at": "2026-08-17T23:14:00.386798"
+    },
+    "deepseek": {
+      "key": "e7ed62b9145c0137db958f1340128482",
+      "enabled": true,
+      "name": "deepseek",
+      "created_at": "2026-08-17T23:14:00.386813"
+    },
+    "hunyuan": {
+      "key": "e4fe06c3ea317024790ead8d19fca6e3",
+      "enabled": true,
+      "name": "hunyuan",
+      "created_at": "2026-08-17T23:14:00.386819"
+    },
+    "qwen": {
+      "key": "a3848d90858f1d7367825b96e3aba46b",
+      "enabled": true,
+      "name": "qwen",
+      "created_at": "2026-08-17T23:14:00.386825"
+    },
+    "zhipu": {
+      "key": "c1031a2f2bc9e90eb8cb99ddc266a927",
+      "enabled": true,
+      "name": "zhipu",
+      "created_at": "2026-08-17T23:14:00.386830"
+    },
+    "baichuan": {
+      "key": "fd16298f78c1766f6150a889bccaa604",
+      "enabled": true,
+      "name": "baichuan",
+      "created_at": "2026-08-17T23:14:00.386835"
+    }
+  },
+  "whitelist": {
+    "paths": [
+      "/Users/zuimeidedeyihan/longhun-system"
+    ],
+    "commands": []
+  },
+  "blacklist": {
+    "patterns": [
+      "^\\s*rm\\s+-rf\\s+/\\s*$",
+      "^\\s*rm\\s+-rf\\s+~?\\s*$",
+      "^\\s*rm\\s+-rf\\s+[^ ]*\\.(gnupg|ssh)\\b",
+      "^\\s*rm\\s+-rf\\s+[^ ]*\\blibrary\\b",
+      "^\\s*git\\s+push\\s+.*--force.*(main|master)\\b",
+      "^\\s*mkfs\\.",
+      "^\\s*dd\\s+if=.*of=\\s*/dev/",
+      "^\\s*shutdown\\b",
+      "^\\s*poweroff\\b",
+      "^\\s*reboot\\b",
+      "^\\s*halt\\b",
+      "^\\s*init\\s+0\\b",
+      "^\\s*sudo\\s+rm\\b",
+      "^\\s*rm\\s+-rf\\s+[^ ]*\\b(Windows|System)\\b"
+    ],
+    "files": [
+      "id_rsa",
+      "id_ed25519",
+      "secring",
+      "gpg-agent.conf",
+      "secret_blacklist",
+      "secrets.env",
+      "key.bin"
+    ]
+  },
+  "audit": {
+    "enabled": true,
+    "max_days": 90
+  }
+}

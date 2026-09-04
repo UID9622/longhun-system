@@ -1,7 +1,9 @@
-# #龍芯⚡️20260624010825157-AUTO-DNA-A0E5EEB9 自动注入·分层治理自愈引擎 · 来源可查
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-2fae6265
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # DNA追溯码:#龍芯⚡️2026-06-23-LONGHUN-FONT-WORK-ID-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 书法作品编号系统
 
@@ -55,7 +57,7 @@ def generate_work_id(category_code: str, artist_code: str, text: str, classic: s
     return work_id
 
 
-def parse_work_id(work_id: str) -> dict[str, Any]:
+def parse_work_id(work_id: str) -> dict:
     """解析作品编号。"""
     parts = work_id.split("-")
     if len(parts) != 7 or parts[0] != "LH" or parts[1] != "CAL":

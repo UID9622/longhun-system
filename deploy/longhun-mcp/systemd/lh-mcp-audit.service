@@ -1,0 +1,22 @@
+# 🐉 龍魂 · 鲲鹏 MCP Server · 审计层 (8764)
+# DNA: #龍芯⚡️2026-09-04-LONGHUN-KUNPENG-MCP-AUDIT-SERVICE-v1.0-UID9622
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# 由 deploy_to_kunpeng.sh 安装 → /etc/systemd/system/
+
+[Unit]
+Description=🐉 Longhun MCP Server - audit (8764)
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/longhun-system
+Environment=LH_ROOT=/opt/longhun-system
+ExecStart=/usr/bin/python3 /opt/longhun-system/deploy/longhun-mcp/lh_mcp_audit.py --host 127.0.0.1 --port 8764
+Restart=on-failure
+RestartSec=5
+StandardOutput=append:/var/log/longhun-mcp/audit.log
+StandardError=append:/var/log/longhun-mcp/audit.log
+
+[Install]
+WantedBy=multi-user.target

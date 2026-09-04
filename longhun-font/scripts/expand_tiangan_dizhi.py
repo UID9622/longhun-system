@@ -1,6 +1,9 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-7aecf22b
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-FRAGMENT-TIANGAN_DIZHI-v1.0
 """
 LonghunFont fragment generator: 天干地支 symbolic icons.
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 Generates 22 seal/ancient-script style glyph definitions for the 10 Heavenly Stems
 and 12 Earthly Branches, starting at PUA codepoint U+E400.
 """

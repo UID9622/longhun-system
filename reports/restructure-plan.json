@@ -1,0 +1,440 @@
+{
+  "dna": "#龍芯⚡️20260804082819646-RESTRUCTURE-PLAN-B8FD3A8B",
+  "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "timestamp": "2026-08-04T08:28:19.649882+00:00",
+  "root": "/Users/zuimeidedeyihan/longhun-system",
+  "target_root": "/Users/zuimeidedeyihan/longhun-system",
+  "operations_count": 71,
+  "operations": [
+    {
+      "type": "rename",
+      "src": "01_技能庫",
+      "dst": "02_SKILLS",
+      "reason": "目录命名规范化"
+    },
+    {
+      "type": "rename",
+      "src": "layers",
+      "dst": "03_LAYERS",
+      "reason": "目录命名规范化"
+    },
+    {
+      "type": "rename",
+      "src": "engines",
+      "dst": "04_ENGINES",
+      "reason": "目录命名规范化"
+    },
+    {
+      "type": "rename",
+      "src": "services",
+      "dst": "05_SERVICES",
+      "reason": "目录命名规范化"
+    },
+    {
+      "type": "rename",
+      "src": "apps",
+      "dst": "06_APPS",
+      "reason": "目录命名规范化"
+    },
+    {
+      "type": "rename",
+      "src": "portal",
+      "dst": "07_PORTAL",
+      "reason": "目录命名规范化"
+    },
+    {
+      "type": "rename",
+      "src": "articles",
+      "dst": "11_ARTICLES",
+      "reason": "目录命名规范化"
+    },
+    {
+      "type": "rename",
+      "src": "docs",
+      "dst": "12_DOCS",
+      "reason": "目录命名规范化"
+    },
+    {
+      "type": "rename",
+      "src": "data",
+      "dst": "10_DATA",
+      "reason": "目录命名规范化"
+    },
+    {
+      "type": "rename",
+      "src": "archive",
+      "dst": "16_ARCHIVE",
+      "reason": "目录命名规范化"
+    },
+    {
+      "type": "rename",
+      "src": "_archive",
+      "dst": "16_ARCHIVE/_legacy_archive",
+      "reason": "目录命名规范化"
+    },
+    {
+      "type": "rename",
+      "src": "_work",
+      "dst": "22_WORK",
+      "reason": "目录命名规范化"
+    },
+    {
+      "type": "rename",
+      "src": "_private",
+      "dst": "21_PRIVATE",
+      "reason": "目录命名规范化"
+    },
+    {
+      "type": "rename",
+      "src": "android-auto",
+      "dst": "24_ANDROID",
+      "reason": "目录命名规范化"
+    },
+    {
+      "type": "rename",
+      "src": "baobao-guardian",
+      "dst": "25_BAOBAO",
+      "reason": "目录命名规范化"
+    },
+    {
+      "type": "rename",
+      "src": "25_TASK_ENGINE",
+      "dst": "26_TASK_ENGINE",
+      "reason": "目录命名规范化"
+    },
+    {
+      "type": "rename",
+      "src": "CNSH_修复输出",
+      "dst": "15_LABS/CNSH_修复输出",
+      "reason": "目录命名规范化"
+    },
+    {
+      "type": "rename",
+      "src": "CNSH_加工输出",
+      "dst": "15_LABS/CNSH_加工输出",
+      "reason": "目录命名规范化"
+    },
+    {
+      "type": "rename",
+      "src": "CNSH_护盾数据",
+      "dst": "15_LABS/CNSH_护盾数据",
+      "reason": "目录命名规范化"
+    },
+    {
+      "type": "rename",
+      "src": "CNSH_监管数据",
+      "dst": "15_LABS/CNSH_监管数据",
+      "reason": "目录命名规范化"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "02_rules",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "02_執行記錄",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "03_compiler",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "04_決策日誌",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "05_系統報告",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "06_技術文檔",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "L1_内核层",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "L1_身份层",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "L2_技能层",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "L2_主权层",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "L3_数据层",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "L3_语义层",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "L3_执行层",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "L4_数据层",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "L5_服务层",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "L6_集成层",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "L6_记忆层",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "L6_同步层",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "L7_表达层",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "L7_数据层",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "L8_分发层",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "L8_治理层",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "L9_子系统",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "rag_indexes",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "calendar-context-logger",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "skill-standards.integrated",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "forensic_kernel",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "memory-universe",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "ops-console",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "core",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "training",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "backend",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "backups",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "benchmarks",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "arxiv",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "knowledge-graph",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "mobile-monitoring.integrated",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "sovereign-registry",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "统一入口",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "人民维权助手",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "remove_symlink",
+      "src": "字体",
+      "dst": null,
+      "reason": "清理非必要 Symlink"
+    },
+    {
+      "type": "move_config",
+      "src": ".cnsh",
+      "dst": "20_CONFIG/.cnsh",
+      "reason": "隐藏工具目录归集到 20_CONFIG/"
+    },
+    {
+      "type": "move_config",
+      "src": ".codebuddy",
+      "dst": "20_CONFIG/.codebuddy",
+      "reason": "隐藏工具目录归集到 20_CONFIG/"
+    },
+    {
+      "type": "move_config",
+      "src": ".commander",
+      "dst": "20_CONFIG/.commander",
+      "reason": "隐藏工具目录归集到 20_CONFIG/"
+    },
+    {
+      "type": "move_config",
+      "src": ".daoyin_workspace",
+      "dst": "20_CONFIG/.daoyin_workspace",
+      "reason": "隐藏工具目录归集到 20_CONFIG/"
+    },
+    {
+      "type": "move_config",
+      "src": ".devcontainer",
+      "dst": "20_CONFIG/.devcontainer",
+      "reason": "隐藏工具目录归集到 20_CONFIG/"
+    },
+    {
+      "type": "move_config",
+      "src": ".githooks",
+      "dst": "20_CONFIG/.githooks",
+      "reason": "隐藏工具目录归集到 20_CONFIG/"
+    },
+    {
+      "type": "move_config",
+      "src": ".longhun",
+      "dst": "20_CONFIG/.longhun",
+      "reason": "隐藏工具目录归集到 20_CONFIG/"
+    },
+    {
+      "type": "move_config",
+      "src": ".obsidian",
+      "dst": "20_CONFIG/.obsidian",
+      "reason": "隐藏工具目录归集到 20_CONFIG/"
+    },
+    {
+      "type": "move_config",
+      "src": ".vscode",
+      "dst": "20_CONFIG/.vscode",
+      "reason": "隐藏工具目录归集到 20_CONFIG/"
+    },
+    {
+      "type": "rename",
+      "src": "bin",
+      "dst": "08_BIN",
+      "reason": "bin/ 重命名为 08_BIN/"
+    }
+  ],
+  "warnings": [
+    "目标目录已存在，跳过: 01_PROTOCOLS"
+  ],
+  "errors": []
+}

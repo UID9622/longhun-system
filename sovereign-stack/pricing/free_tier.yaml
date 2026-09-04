@@ -1,0 +1,37 @@
+# 个人开发者免费配额·永久有效·无需信用卡
+# DNA: #龍芯⚡️2026-08-31-FREE-TIER-V1.0-UID9622
+# 创建者: 诸葛鑫（UID9622）· 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# 协议: MulanPSL v2（工程实现层）
+
+free_forever:
+  # 这些功能永久免费，不限用量
+  - feature: "本地部署（self-hosted）"
+    limit: "无限"
+    note: "自己部署的，当然免费"
+
+  - feature: "CLI 命令行工具"
+    limit: "无限"
+    note: "工具本身永远免费"
+
+  - feature: "文档和教程"
+    limit: "无限"
+    note: "知识本身不应该有门槛"
+
+  - feature: "社区支持"
+    limit: "无限"
+    note: "GitHub Issues 永远开放"
+
+  - feature: "开源代码"
+    limit: "无限"
+    note: "MulanPSL v2 协议，可自由使用"
+
+monthly_reset:
+  # 每月重置的免费额度（个人账户）
+  api_calls: 10000
+  search_queries: 1000
+  storage_gb: 5
+  reset_day: 1  # 每月1日重置
+
+no_credit_card: true      # 注册不需要信用卡
+no_phone_required: false  # 需要手机号（防滥用）
+no_id_verification: true  # 不需要身份证

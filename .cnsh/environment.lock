@@ -1,0 +1,13 @@
+{
+  "version": "v2.0.0",
+  "timestamp": "2026-08-02T06:44:54.771459",
+  "uid": "UID9622",
+  "checksums": {
+    "cnsh_env.sh": "a7ae7ce4ca5ae8c1",
+    "cnsh_prompt.zsh": "9bb8aca4c7d5f2e4",
+    "cnsh_create.sh": "0c39af9482fba60c",
+    "cnsh_print.py": "fc38673449195aa2",
+    "cnsh_constants.py": "f71f7696f59fd8bb"
+  },
+  "locked_by": "zuimeidedeyihan"
+}

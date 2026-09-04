@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂 · 华为云自动同步守护
-# DNA: #龍芯⚡️丙午·丙申·乙卯·辰时·同人-SYNC-WORKER-v1.0
+# DNA: #龍芯⚡️丙午·丙申·乙卯·辰时·䷌同人-SYNC-WORKER-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #
 # 用途：定时检测华为云连通性，连通即增量同步。
 # 部署：cron 每10分钟执行一次
@@ -61,6 +63,11 @@ EXCLUDES=(
     "*.dSYM/" ".codebuddy/" "backups/"
     "deploy/.kunpeng_*" "deploy/.env*"
     "*.db" "*.sqlite" "*.sqlite3"
+    # ─── 8/28 大目录排除（防全仓同步踩坑）───
+    "08_BIN/story_factory/third_party/" "龍魂成片/" "videos/" "voices/"
+    "models/" "11_DATA/" "_work/" "archive/"
+    "_private/" "browser_profile/" "dist/" "build_ide/" "dist_ide/" "_QUARANTINE/"
+    "*/target/" "*.app/" "*.ckpt" "*.safetensors"
 )
 
 EXC_ARGS=""

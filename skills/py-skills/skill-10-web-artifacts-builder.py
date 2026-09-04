@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 
 """
 龍魂 Web 工件构建器 v1.0
-Longhun Web Artifacts Builder
+LongHun Web Artifacts Builder
 
-DNA:#龍芯⚡️2026-06-07-WEB-ARTIFACTS-BUILDER-FILE2-v1.0
+DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-WEB-ARTIFACTS-BUILDER-FILE2-v1.0
 """
 
 import json
@@ -23,7 +27,7 @@ class ArtifactMetadata:
     version: str
     created_at: str
     updated_at: str
-    author: str = "Longhun"
+    author: str = "LongHun"
     tags: List[str] = None
     description: str = ""
     
@@ -212,7 +216,7 @@ class ArtifactBuilder:
             "timestamp": datetime.now().isoformat(),
             "artifact_count": len(self.artifacts),
             "artifacts": [],
-            "dna": "#龍芯⚡️2026-06-07-WEB-ARTIFACTS-BUILDER-v1.0"
+            "dna": "#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-WEB-ARTIFACTS-BUILDER-v1.0"
         }
         
         for artifact in self.artifacts.values():

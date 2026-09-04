@@ -1,0 +1,3 @@
+{"event": "submitted", "task_id": "TASK-1786773335-0323A3", "type": "query", "persona": "P00", "status": "pending", "dna": "#龍芯⚡️20260815-TASK-2B1AF975-9622", "timestamp": "2026-08-15T13:55:35.301718", "content_preview": "测试查询龙魂系统"}
+{"event": "running", "task_id": "TASK-1786773335-0323A3", "type": "query", "persona": "P00", "status": "running", "dna": "#龍芯⚡️20260815-TASK-2B1AF975-9622", "timestamp": "2026-08-15T13:55:35.301894", "content_preview": "测试查询龙魂系统"}
+{"event": "done", "task_id": "TASK-1786773335-0323A3", "type": "query", "persona": "P00", "status": "done", "dna": "#龍芯⚡️20260815-TASK-2B1AF975-9622", "timestamp": "2026-08-15T13:55:35.301942", "content_preview": "测试查询龙魂系统"}

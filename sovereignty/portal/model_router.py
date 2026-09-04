@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂模型路由 · LongHun Model Router
@@ -6,7 +10,7 @@
 本地模型优先，云端能力降级：
   Ollama (localhost:11434) → Kimi API → Azure OpenAI
 
-DNA:#龍芯⚡️2026-06-19-LONGHUN-MODEL-ROUTER-v1.0
+DNA:#龍芯⚡️丙午·甲午·甲子·庚午·䷙大畜-LONGHUN-MODEL-ROUTER-v1.0
 """
 
 import os
@@ -88,28 +92,35 @@ def probe_deepseek() -> Dict[str, Any]:
             "provider": "deepseek",
             "status": "offline",
             "latency_ms": None,
-            "models": ["deepseek-chat", "deepseek-reasoner"],
+            "models": ["deepseek-v4-flash", "deepseek-v4-pro"],
             "privacy": "cloud",
             "error": "DEEPSEEK_API_KEY not configured",
         }
     start = time.time()
     try:
+        # 官方余额接口：/models通不代表可用（欠费冻结时/models仍200）
         r = requests.get(
-            f"{DEEPSEEK_BASE_URL}/models",
+            f"{DEEPSEEK_BASE_URL}/user/balance",
             headers={"Authorization": f"Bearer {DEEPSEEK_API_KEY}"},
             timeout=8,
         )
         r.raise_for_status()
         data = r.json()
-        models = [m.get("id") for m in data.get("data", [])]
+        balances = data.get("balance_infos", [])
+        # 多币种账户: is_available 仅在顶层(账户总开关); 任一币种余额>0 即可用(实测 balance_infos 无 is_available 字段)
+        top_available = bool(data.get("is_available", False))
+        usable = [b for b in balances if float(b.get("total_balance", 0) or 0) > 0]
+        available = top_available and bool(usable)
         latency = int((time.time() - start) * 1000)
+        status = "online" if available else "depleted"
         return {
             "name": "DeepSeek API",
             "provider": "deepseek",
-            "status": "online",
+            "status": status,
             "latency_ms": latency,
-            "models": models or ["deepseek-chat"],
+            "models": ["deepseek-v4-flash", "deepseek-v4-pro"],
             "privacy": "cloud",
+            "error": "" if available else "余额不足(欠费冻结)·待充值",
         }
     except Exception as e:
         return {
@@ -117,7 +128,7 @@ def probe_deepseek() -> Dict[str, Any]:
             "provider": "deepseek",
             "status": "offline",
             "latency_ms": None,
-            "models": ["deepseek-chat"],
+            "models": ["deepseek-v4-flash", "deepseek-v4-pro"],
             "privacy": "cloud",
             "error": str(e)[:120],
         }
@@ -149,7 +160,7 @@ def chat_ollama(messages: List[Dict[str, str]], model: Optional[str], temperatur
 
 
 def chat_deepseek(messages: List[Dict[str, str]], model: Optional[str], temperature: float, max_tokens: int) -> Dict[str, Any]:
-    model = model or "deepseek-chat"
+    model = model or "deepseek-v4-flash"
     body = {
         "model": model,
         "messages": messages,

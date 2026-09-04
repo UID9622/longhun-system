@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-c1ee6048
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/bin/bash
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-RELEASE-v1.0
@@ -12,10 +14,10 @@ DNA="#龍芯⚡️2026-06-22-LONGHUN-FONT-RELEASE-v1.0"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
-RELEASE_REPO="/Users/zuimeidedeyihan/LonghunFont"
+RELEASE_REPO="${HOME}/longhun-system/_work/repos/LonghunFont"
 
 # 稳定版字元库路径
-GLYPH_LIBRARY="${PROJECT_DIR}/glyphs/龍魂字元库_v0019_龍纹书法版.json"
+GLYPH_LIBRARY="${PROJECT_DIR}/glyphs/龍魂字元库_v0013_稳定版.json"
 
 # 输出目录
 SOURCE_OUTPUT_DIR="${PROJECT_DIR}/output"
@@ -55,8 +57,8 @@ else
     echo "📌 使用指定版本号: ${VERSION}"
 fi
 
-SAMPLE_HTML="sample_${VERSION}.html"
-SVG_DIR="all_glyphs_${VERSION}"
+SAMPLE_HTML="sample_v${VERSION}.html"
+SVG_DIR="all_glyphs_v${VERSION}"
 OTF_FILE="LonghunFont-Regular.otf"
 TAG_NAME="${VERSION}"
 
@@ -97,28 +99,11 @@ fi
 mkdir -p "${RELEASE_OUTPUT_DIR}"
 cp -v "${SOURCE_OUTPUT_DIR}/${OTF_FILE}" "${RELEASE_OUTPUT_DIR}/${OTF_FILE}"
 cp -v "${SOURCE_OUTPUT_DIR}/${SAMPLE_HTML}" "${RELEASE_OUTPUT_DIR}/${SAMPLE_HTML}"
-if [ -f "${SOURCE_OUTPUT_DIR}/LonghunFont-WuwuColor.otf" ]; then
-    cp -v "${SOURCE_OUTPUT_DIR}/LonghunFont-WuwuColor.otf" "${RELEASE_OUTPUT_DIR}/LonghunFont-WuwuColor.otf"
-fi
 cp -v "${GLYPH_LIBRARY}" "${RELEASE_REPO}/"
 cp -v "${PROJECT_DIR}/README.md" "${RELEASE_REPO}/"
 cp -v "${PROJECT_DIR}/操作清单.md" "${RELEASE_REPO}/"
-cp -v "${PROJECT_DIR}/wuwu_demo.html" "${RELEASE_REPO}/"
-mkdir -p "${RELEASE_REPO}/css"
-cp -v "${PROJECT_DIR}/css/wuwu.css" "${RELEASE_REPO}/css/"
-mkdir -p "${RELEASE_REPO}/js"
-cp -v "${PROJECT_DIR}/js/wuwu.js" "${RELEASE_REPO}/js/"
-mkdir -p "${RELEASE_REPO}/examples/harmonyos"
-cp -v "${PROJECT_DIR}/examples/harmonyos/WuwuFontPage.ets" "${RELEASE_REPO}/examples/harmonyos/"
-if [ -d "${PROJECT_DIR}/packages/wuwu-renderer" ]; then
-    mkdir -p "${RELEASE_REPO}/packages"
-    cp -R "${PROJECT_DIR}/packages/wuwu-renderer" "${RELEASE_REPO}/packages/"
-fi
 mkdir -p "${RELEASE_REPO}/docs"
 cp -v "${PROJECT_DIR}/docs/PUA编码表.md" "${RELEASE_REPO}/docs/"
-cp -v "${PROJECT_DIR}/docs/字体覆盖报告.md" "${RELEASE_REPO}/docs/"
-cp -v "${PROJECT_DIR}/docs/女娲五彩石渲染指南.md" "${RELEASE_REPO}/docs/"
-cp -v "${PROJECT_DIR}/docs/五彩石彩色字体原型.md" "${RELEASE_REPO}/docs/"
 echo
 
 # 5. 在发布仓库提交

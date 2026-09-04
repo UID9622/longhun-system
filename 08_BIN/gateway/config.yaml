@@ -1,0 +1,48 @@
+# 龙魂API网关配置 v1.2（五锁融合版）
+# DNA: #龍芯⚡️2026-08-31-GATEWAY-CONFIG-v1.2-UID9622
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+
+gateway:
+  host: 127.0.0.1
+  port: 8092
+  debug: false
+
+# 计费规则
+pricing:
+  free_quota: 100  # 每日免费调用次数
+
+  pay_as_you_go:
+    tier_1: { up_to: 10000, price_per_call: 0.05 }
+    tier_2: { up_to: 100000, price_per_call: 0.04 }
+    tier_3: { up_to: null, price_per_call: 0.03 }
+
+  subscription:
+    basic:  { price: 99, calls: 3000, kb_access: "basic" }
+    pro:    { price: 299, calls: 15000, kb_access: "all", priority: true }
+    enterprise: { price: 999, calls: null, kb_access: "all", priority: true, sla: true }
+
+# 限流（第二锁 · 四层令牌桶）
+rate_limit:
+  default: 60          # 普通用户 次/分钟
+  enterprise: 600      # 企业版 次/分钟
+  global_per_min: 10000
+  endpoint_per_min: 100
+  ip_per_hour: 1000
+
+# 安全（第一/三/四锁）
+security:
+  nonce_ttl: 300                 # 防重放时间窗（秒）
+  signature_required: false      # true=强制 HMAC 签名（公网建议开）
+  redis_url: ""                  # 留空=内存版；多实例填 redis://localhost:6379/0
+  ip_whitelist:
+    enabled: false
+    allowed_ips: []              # 例: ["203.0.113.42", "198.51.100.0/24"]
+
+# 密钥轮换（第五锁）
+key_rotation:
+  max_age_days: 90               # 超 90 天未轮换 → 提示轮换
+
+# 数据库
+database:
+  path: ./gateway.db

@@ -1,0 +1,12 @@
+龍魂系统 · 分层许可治理
+
+本目录下的工程代码（.py / .sh / .yml / Dockerfile 等）适用：
+  木兰宽松许可证第 2 版 (MulanPSL v2)
+  https://license.coscl.org.cn/MulanPSL2
+
+本目录下的思想/协议/白皮书文档（.md）适用：
+  Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+  (CC BY-NC-SA 4.0)
+
+文化归属：龍魂核心思想层归 UID9622（诸葛鑫）所有；工程实现可自由集成，
+但不得删除 DNA 追溯码、不得伪称原创。

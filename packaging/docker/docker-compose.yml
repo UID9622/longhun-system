@@ -1,0 +1,32 @@
+# 🐉 longhun-cli 网关容器编排 — 龍魂 CIL API Gateway
+# DNA: #龍芯⚡️丙午·丁酉·乙亥·巳时·䷝离-DOCKER-COMPOSE-v1.0
+# 创建者: 诸葛鑫（UID9622）
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+# 配套: Dockerfile（同目录）· 用法见 docs/安装指南.md「方式四 · Docker 网关」
+
+services:
+  longhun-gateway:
+    build:
+      context: ../..
+      dockerfile: packaging/docker/Dockerfile
+    image: longhun-gateway:4.0.0
+    container_name: longhun-gateway
+    ports:
+      # 默认只绑宿主本机（安全）；需对外开放时显式改为 "0.0.0.0:9622:9622"
+      - "127.0.0.1:9622:9622"
+    volumes:
+      # 持久化：日志/PID/密钥等运行时数据（容器内 /root/.longhun ↔ 宿主机 ~/.longhun）
+      - ~/.longhun:/root/.longhun
+    environment:
+      # 龙魂源码树挂载点（lh_api.py 通过它定位 bin/lh.py）
+      LONGHUN_ROOT: /app
+    healthcheck:
+      # 存活探测：GET /health 失败即重启
+      test: ["CMD-SHELL", "curl -f http://localhost:9622/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped

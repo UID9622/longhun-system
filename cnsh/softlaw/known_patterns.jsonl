@@ -1,0 +1,5 @@
+{"id":"KP-001","type":"翻译权重雷","signal":"中性词与负面词共现率>60%","action":"cnsh-warn","public":false}
+{"id":"KP-002","type":"换词不算创新","signal":"新词与母稿概念语义距离<0.2","action":"flag_换词","public":false}
+{"id":"KP-003","type":"情绪负载植入","signal":"情绪极性分数偏移>1.5σ","action":"cnsh-bias","public":false}
+{"id":"KP-004","type":"出海失根模式","signal":"行为转变节点×3 + 回国负面言论","action":"cnsh-diaspora","public":false}
+{"id":"KP-005","type":"漏洞免责套路","signal":"走流程但绕核心+重复触发","action":"cnsh-alert --type loophole","public":false}

@@ -1,19 +1,8 @@
-# 龍魂宇宙 · 鸿蒙 .gitignore
-# UID9622 | 2026-07-18
-
-/node_modules
-/oh_modules
-/.preview
-/build
-/.hvigor
-
-# 签名文件（勿提交）
-*.p12
-*.p7b
-*.csr
-*.cer
-
-# IDE
-.idea/
-*.iml
-/local.properties
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# 龍魂双节点同步层 .gitignore
+# 密钥文件不提交
+.dual_node_keys
+*.key
+__pycache__/
+*.pyc

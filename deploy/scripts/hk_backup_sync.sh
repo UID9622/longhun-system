@@ -1,3 +1,6 @@
+#!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env bash
 # ═══════════════════════════════════════════════════════════
 # 华为云香港 · 备份自动同步脚本 v1.0
@@ -25,7 +28,7 @@
 #   - GPG 密钥已配置（用于签名）
 #   - 环境变量或 .env 中配置 HK_* 变量
 #
-# DNA: #龍芯⚡️2026-07-12-HK-BACKUP-SYNC-v1.0
+# DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-HK-BACKUP-SYNC-v1.0
 # ═══════════════════════════════════════════════════════════
 
 set -euo pipefail
@@ -213,7 +216,7 @@ create_backup_archive() {
   "longhun_root": "$LONGHUN_ROOT",
   "backup_size_bytes": $(du -sb "$BACKUP_DIR" 2>/dev/null | awk '{print $1}' || echo 0),
   "files_count": $(find "$BACKUP_DIR" -type f | wc -l | tr -d ' '),
-  "dna": "#龍芯⚡️2026-07-12-HK-BACKUP-${timestamp}"
+  "dna": "#龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-HK-BACKUP-${timestamp}"
 }
 MANIFEST
     
@@ -366,7 +369,7 @@ main() {
     echo ""
     echo "╔══════════════════════════════════════════════════════╗"
     echo "║  华为云香港 · 备份自动同步 v1.0                       ║"
-    echo "║  DNA: #龍芯⚡️2026-07-12-HK-BACKUP-AUTO-SYNC         ║"
+    echo "║  DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-HK-BACKUP-AUTO-SYNC         ║"
     echo "╚══════════════════════════════════════════════════════╝"
     echo ""
     

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>龍魂 · 服务控制台</title>
+  <style>
+    :root{
+      --bg:#0a0a0f; --panel:#12121c; --card:#1c1c2a;
+      --gold:#c9a84c; --gold-dim:#8f7a3e; --green:#4caf50; --red:#f44336; --yellow:#ff9800;
+      --text:#e8e6df; --muted:#8b8a84; --border:#2a2a3d;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans SC",sans-serif;line-height:1.5}
+    a{color:var(--gold);text-decoration:none}
+    header{position:sticky;top:0;z-index:10;background:rgba(10,10,15,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+    header h1{margin:0;font-size:18px;display:flex;align-items:center;gap:10px}
+    header .status{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--muted)}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--red);box-shadow:0 0 8px var(--red)}
+    .dot.on{background:var(--green);box-shadow:0 0 8px var(--green)}
+    .wrap{max-width:1200px;margin:0 auto;padding:20px}
+    .grid{display:grid;grid-template-columns:1.3fr .7fr;gap:18px}
+    @media(max-width:920px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px}
+    .card h2{margin:0 0 14px;font-size:16px;color:var(--gold);display:flex;align-items:center;gap:8px}
+    .toolbar{display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+    button{border:1px solid var(--gold);background:transparent;color:var(--gold);padding:8px 14px;border-radius:8px;cursor:pointer;font-size:13px;transition:.15s;display:inline-flex;align-items:center;gap:6px}
+    button:hover{background:rgba(201,168,76,.15)}
+    button.primary{background:var(--gold);color:#111;border-color:var(--gold)}
+    button.primary:hover{background:var(--gold-dim)}
+    button.danger{border-color:var(--red);color:var(--red)}
+    button.danger:hover{background:rgba(244,67,54,.12)}
+    button:disabled{opacity:.5;cursor:not-allowed}
+    table{width:100%;border-collapse:collapse;font-size:13px}
+    th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--border)}
+    th{color:var(--muted);font-weight:500}
+    td .badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;background:#222;color:var(--muted)}
+    td .badge.RUNNING{background:rgba(76,175,80,.18);color:var(--green)}
+    td .badge.LOADED{background:rgba(255,152,0,.18);color:var(--yellow)}
+    td .badge.NOT-LOADED{background:rgba(139,138,132,.18);color:var(--muted)}
+    td .pid{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);font-size:12px}
+    .actions{display:flex;gap:8px}
+    .actions button{padding:6px 10px;font-size:12px}
+    .frozen-list{list-style:none;margin:0;padding:0}
+    .frozen-list li{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+    .frozen-list li:last-child{border-bottom:none}
+    .frozen-list .meta{font-size:12px;color:var(--muted)}
+    .log{height:320px;overflow:auto;background:#0d0d14;border:1px solid var(--border);border-radius:8px;padding:12px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:#b8c4a8;line-height:1.6}
+    .log .line{white-space:pre-wrap;word-break:break-all}
+    .empty{color:var(--muted);text-align:center;padding:30px}
+    .toast{position:fixed;bottom:18px;right:18px;background:var(--panel);border:1px solid var(--border);padding:12px 16px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.4);font-size:13px;max-width:320px;z-index:100;transition:.2s}
+    .toast.ok{border-color:var(--green)}
+    .toast.err{border-color:var(--red)}
+    .hint{font-size:12px;color:var(--muted);margin-top:8px}
+    .code{display:inline-block;background:#0d0d14;padding:2px 6px;border-radius:4px;border:1px solid var(--border);font-family:monospace}
+  </style>
+</head>
+<body>
+<header>
+  <h1>🐉 龍魂 · 服务控制台</h1>
+  <div class="status">
+    <span id="api-text">API 未连接</span>
+    <div id="api-dot" class="dot"></div>
+  </div>
+</header>
+<div class="wrap">
+  <div class="toolbar">
+    <button class="primary" onclick="refreshAll()">🔄 刷新状态</button>
+    <button onclick="location.href='portal-index.html'">← 返回门户</button>
+  </div>
+  <div class="grid">
+    <div>
+      <div class="card" style="margin-bottom:18px">
+        <h2>🚀 launchd 服务列表</h2>
+        <div id="services-wrap">
+          <div class="empty">正在连接本地 API…</div>
+        </div>
+      </div>
+      <div class="card">
+        <h2>🖥️ 操作日志（实时）</h2>
+        <div class="toolbar">
+          <button onclick="loadLog()">刷新日志</button>
+          <button onclick="clearLog()">清空显示</button>
+        </div>
+        <div id="log" class="log"><div class="empty">暂无日志</div></div>
+        <div class="hint">日志源：<span class="code">logs/lh_service_control.log</span> · 自动轮询 5s</div>
+      </div>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:18px">
+        <h2>📦 已冻结清单（可回滚）</h2>
+        <div id="frozen-wrap"><div class="empty">暂无冻结服务</div></div>
+      </div>
+      <div class="card">
+        <h2>ℹ️ 说明</h2>
+        <p class="hint">本面板只操作 <span class="code">com.longhun.*</span> 的 launchd 服务。</p>
+        <p class="hint">冻结 = unload + plist 归档，随时可唤醒。核心守护（如 threshold-check）唤醒前会二次确认。</p>
+        <p class="hint">API 端口 <span class="code">8971</span>，仅本地访问。若未启动，请运行：<br><span class="code">python3 08_BIN/lh_service_control.py api</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+const API='http://127.0.0.1:8971';
+const CORE_GUARDS=new Set(['com.longhun.threshold-check','com.longhun.self-heal','com.longhun.loyalty-scan']);
+let frozenMap=new Map();
+
+async function api(path,opts={}){
+  const res=await fetch(API+path,opts).catch(e=>{throw new Error('API 未启动：'+e.message)});
+  if(!res.ok) throw new Error('HTTP '+res.status);
+  return res.json();
+}
+function setApi(ok){document.getElementById('api-dot').className='dot '+(ok?'on':'');document.getElementById('api-text').textContent=ok?'API 已连接':'API 未连接';}
+function toast(msg,type='ok'){const t=document.createElement('div');t.className='toast '+(type==='err'?'err':'ok');t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),3500);}
+
+async function refreshAll(){
+  try{await loadStatus();await loadLog();setApi(true);}catch(e){setApi(false);toast(e.message,'err');}
+}
+async function loadStatus(){
+  const data=await api('/status');
+  const svcs=data.services||[];
+  const frozen=data.frozen||[];
+  frozenMap=new Map(frozen.map(x=>[x.label,x]));
+  // 服务表
+  const wrap=document.getElementById('services-wrap');
+  if(!svcs.length){wrap.innerHTML='<div class="empty">未找到 com.longhun.* 服务</div>';}
+  else{
+    let html='<table><thead><tr><th>状态</th><th>服务名</th><th>PID</th><th>操作</th></tr></thead><tbody>';
+    svcs.sort((a,b)=>a.label.localeCompare(b.label));
+    for(const s of svcs){
+      const isFrozen=false;
+      const canFreeze=s.status!=='NOT-LOADED' || document.querySelectorAll(`button[data-freeze="${s.short}"]`).length===0;
+      html+=`<tr>
+        <td><span class="badge ${s.status}">${s.status}</span></td>
+        <td>${s.short}</td>
+        <td class="pid">${s.pid==='-'?'—':s.pid}</td>
+        <td class="actions">
+          <button class="danger" onclick="doFreeze(['${s.label}'])">冻结</button>
+          ${s.status==='NOT-LOADED'?`<button onclick="doWake(['${s.label}'])">唤醒</button>`:''}
+        </td>
+      </tr>`;
+    }
+    html+='</tbody></table>';
+    wrap.innerHTML=html;
+  }
+  // 冻结清单
+  const fwrap=document.getElementById('frozen-wrap');
+  if(!frozen.length){fwrap.innerHTML='<div class="empty">暂无冻结服务</div>';}
+  else{
+    let html='<ul class="frozen-list">';
+    for(const rec of frozen){
+      html+=`<li><div><div>${rec.label.replace('com.longhun.','')}</div><div class="meta">冻结于 ${rec.frozen_at}</div></div><button onclick="doWake(['${rec.label}'])">唤醒</button></li>`;
+    }
+    html+='</ul>';
+    if(frozen.length>1) html='<div class="toolbar"><button class="primary" onclick="wakeAll()">一键唤醒全部</button></div>'+html;
+    fwrap.innerHTML=html;
+  }
+}
+async function loadLog(){
+  const data=await api('/log?n=120');
+  const box=document.getElementById('log');
+  const lines=data.lines||[];
+  if(!lines.length){box.innerHTML='<div class="empty">暂无日志</div>';return;}
+  box.innerHTML=lines.map(l=>`<div class="line">${escapeHtml(l)}</div>`).join('');
+  box.scrollTop=box.scrollHeight;
+}
+function clearLog(){document.getElementById('log').innerHTML='<div class="empty">已清空显示（不影响日志文件）</div>';}
+function escapeHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+async function doFreeze(labels){
+  const names=labels.map(l=>l.replace('com.longhun.','')).join(', ');
+  if(!confirm(`确定冻结以下服务？\n${names}\n\n冻结后可从“已冻结清单”一键唤醒。`)) return;
+  toast('正在冻结…');
+  const data=await api('/freeze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({labels})});
+  if(data.ok && data.ok.length) toast(`已冻结 ${data.ok.length} 个`); else toast('冻结失败','err');
+  await refreshAll();
+}
+async function doWake(labels){
+  const core=labels.filter(l=>CORE_GUARDS.has(l));
+  if(core.length && !confirm(`⚠️ ${core.join(', ')} 是核心守护，确定唤醒？`)) return;
+  toast('正在唤醒…');
+  const data=await api('/wake',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({labels})});
+  if(data.ok && data.ok.length) toast(`已唤醒 ${data.ok.length} 个`); else toast('唤醒失败','err');
+  await refreshAll();
+}
+async function wakeAll(){
+  const labels=Array.from(frozenMap.keys());
+  if(!labels.length) return;
+  await doWake(labels);
+}
+
+refreshAll();
+setInterval(refreshAll,5000);
+</script>
+</body>
+</html>

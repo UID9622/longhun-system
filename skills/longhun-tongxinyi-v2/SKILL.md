@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
 name: longhun-tongxinyi-v2
 description: >
@@ -10,7 +13,7 @@ metadata:
   display_name: 龍魂通心译 v2.0
   version: "2.0.0"
   author: UID9622
-  dna: "#龍芯⚡️2026-07-01-LONGHUN-TONGXINYI-v2.0"
+  dna: "#龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGHUN-TONGXINYI-v2.0"
   category: internal
   status: active
   entry: "python3 /Users/zuimeidedeyihan/longhun-system/skills/longhun-tongxinyi-v2/scripts/tongxin_gate.py"
@@ -29,8 +32,8 @@ metadata:
 
 # longhun-tongxinyi-v2 | 龍魂前置翻译技能·通心译 v2.0
 
-> **DNA**: `#龍芯⚡️2026-07-01-LONGHUN-TONGXINYI-v2.0`  
-> **父DNA**: `#龍芯⚡️2026-06-19-LONGWEN-NLP-v5.0`  
+> **DNA**: `#龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGHUN-TONGXINYI-v2.0`  
+> **父DNA**: `#龍芯⚡️丙午·甲午·甲子·庚午·䷙大畜-LONGWEN-NLP-v5.0`  
 > **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 > **SEAL**: `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`
 
@@ -115,8 +118,8 @@ result = gate.translate("帮我查一下系统状态")
 ## 7. DNA 追溯
 
 ```
-本技能: #龍芯⚡️2026-07-01-LONGHUN-TONGXINYI-v2.0
-父技能: #龍芯⚡️2026-06-23-LONGHUN-TONGXINYI-v1.0-WELDED-L0
+本技能: #龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGHUN-TONGXINYI-v2.0
+父技能: #龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-TONGXINYI-v1.0-WELDED-L0
 来源:   /Users/zuimeidedeyihan/Downloads/Kimi_Agent_通心意译模型更新/
 作者:   UID9622
 ```

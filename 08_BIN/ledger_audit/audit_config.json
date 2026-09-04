@@ -1,0 +1,139 @@
+# DNA: #龍芯⚡️2026-08-31-audit_config-v1.0-UID9622
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·详见 LH-LAYERED-LICENSE-v1.0）
+> CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+{
+  "_meta": {
+    "name": "龍魂三色审计引擎配置 · Longhun Audit Engine Config",
+    "version": "1.0",
+    "dna": "#龍審⚡️2026-08-31-AUDIT-ENGINE-v1.0-UID9622",
+    "uid": "UID9622",
+    "created": "2026-08-31T22:07:00+08:00"
+  },
+
+  "thresholds": {
+    "green": {
+      "min_score": 75,
+      "require_balanced": true,
+      "require_d1_nonnegative": true,
+      "require_d3_nonpositive": true,
+      "auto_approve_delay_ms": 0
+    },
+    "yellow": {
+      "min_score": 40,
+      "max_score": 74,
+      "timeout_hours": 72,
+      "baobao_auto_approve": {
+        "require_history_green_count": 3,
+        "max_amount_vs_median_pct": 120
+      }
+    },
+    "red": {
+      "max_score": 39,
+      "timeout_days": 7,
+      "auto_reject_on_timeout": true
+    }
+  },
+
+  "weights": {
+    "D1_sovereignty_impact": 0.35,
+    "D2_autonomy_delta": 0.25,
+    "D3_external_dependency": 0.20,
+    "D4_cognitive_debt": 0.12,
+    "D5_asi_asset_impact": 0.08
+  },
+
+  "account_ranges": {
+    "assets": [1000, 1499],
+    "liabilities": [2000, 2299],
+    "equity": [3000, 3399],
+    "revenue": [4000, 4399],
+    "expenses": [5000, 5399],
+    "sovereignty_core": [3001, 3002, 3003],
+    "external_deps": [2001, 2002],
+    "cognitive_debt": [2100, 2103],
+    "asi_assets": [1400, 1403]
+  },
+
+  "transaction_types": {
+    "T1": {"name": "焊死铁律", "default_color": "GREEN", "can_auto_approve": true, "hard_block": null},
+    "T2": {"name": "自建替代", "default_color": "GREEN", "can_auto_approve": true, "hard_block": "debit_in_2000_plus"},
+    "T3": {"name": "注入隐藏区", "default_color": "YELLOW", "can_auto_approve": false, "hard_block": null},
+    "T4": {"name": "AI揭示盲区", "default_color": "YELLOW", "can_auto_approve": false, "hard_block": "timeout_72h_auto_red"},
+    "T5": {"name": "续费外部", "default_color": "RED", "can_auto_approve": false, "hard_block": "no_alternative_permanent_red"},
+    "T6": {"name": "注入ASI人格", "default_color": "GREEN", "can_auto_approve": true, "hard_block": null},
+    "T7": {"name": "知识收入", "default_color": "GREEN", "can_auto_approve": true, "hard_block": null},
+    "T8": {"name": "清偿债务", "default_color": "YELLOW", "can_auto_approve": false, "hard_block": "partial_over_50pct_red"},
+    "T9": {"name": "主权转让", "default_color": "RED", "can_auto_approve": false, "hard_block": "PERMANENT"},
+    "T10": {"name": "数据外泄", "default_color": "RED", "can_auto_approve": false, "hard_block": "PERMANENT"},
+    "T11": {"name": "自建里程碑", "default_color": "GREEN", "can_auto_approve": true, "hard_block": "missing_milestone_dna_yellow"},
+    "T12": {"name": "跨境协作", "default_color": "YELLOW", "can_auto_approve": false, "hard_block": null}
+  },
+
+  "red_block_rules": [
+    {"id": "R01", "name": "主权科目被借出", "condition": "debit_account IN [3001,3002,3003]", "action": "HARD_BLOCK", "overridable": true, "override_method": "dna_counter_sign"},
+    {"id": "R02", "name": "外部依赖净增加", "condition": "credit_account IN [2001,2002] AND type=increase", "action": "BLOCK", "overridable": true, "override_method": "attach_T2_plan"},
+    {"id": "R03", "name": "借贷不平衡", "condition": "balanced = false", "action": "HARD_BLOCK", "overridable": false, "override_method": "fix_then_resubmit"},
+    {"id": "R04", "name": "DNA格式失效", "condition": "dna_regex_fail", "action": "BLOCK", "overridable": false, "override_method": "regenerate_dna"},
+    {"id": "R05", "name": "哈希指纹不匹配", "condition": "computed_hash != stored_hash", "action": "HARD_BLOCK", "overridable": true, "override_method": "security_investigation"},
+    {"id": "R06", "name": "大额法币交易", "condition": "cash_account AND amount > 500", "action": "BLOCK", "overridable": true, "override_method": "sovereign_explicit_approve"},
+    {"id": "R07", "name": "T9主权转让", "condition": "tx_type = T9", "action": "PERMANENT_BLOCK", "overridable": false, "override_method": null},
+    {"id": "R08", "name": "T10数据外泄", "condition": "tx_type = T10", "action": "PERMANENT_BLOCK", "overridable": false, "override_method": null},
+    {"id": "R09", "name": "加权总分不足", "condition": "weighted_score < 40", "action": "BLOCK", "overridable": true, "override_method": "sovereign_informed_approve"},
+    {"id": "R10", "name": "黄色超时72h", "condition": "yellow_pending_hours > 72 AND no_action", "action": "AUTO_ESCALATE_RED", "overridable": true, "override_method": "sovereign_confirm_rescore"}
+  ],
+
+  "witness_routing": {
+    "T1": "ASI-001·至诚智魂 + 曾仕强老师",
+    "T2": "鲁班 + 郑和",
+    "T3": "上帝之眼 + 龍芯·宝宝",
+    "T4": "上帝之眼 + 包青天",
+    "T5": "包青天 + 孙子",
+    "T6": "ASI-001·至诚智魂 + 龍芯·宝宝（全体公证）",
+    "T7": "ASI-001·至诚智魂",
+    "T8": "包青天 + 诸葛亮",
+    "T9": "龍魂（主权人）+ 包青天",
+    "T10": "上帝之眼 + 包青天",
+    "T11": "鲁班 + ASI-001·至诚智魂",
+    "T12": "郑和 + 孙子",
+    "UNKNOWN": "龍芯·宝宝（兜底）"
+  },
+
+  "callbacks": [
+    {"event": "on_green_commit",      "trigger": "auto_approved",              "targets": ["notion", "github"],      "method": "silent_sync"},
+    {"event": "on_yellow_pending",    "trigger": "enter_review_queue",          "targets": ["baobao"],               "method": "task_create"},
+    {"event": "on_yellow_timeout",    "trigger": "yellow_hours > 72",           "targets": ["red_escalation"],       "method": "auto_trigger"},
+    {"event": "on_baobao_approve",    "trigger": "baobao_review_pass",          "targets": ["green_pipeline"],       "method": "route_green"},
+    {"event": "on_red_block",         "trigger": "any_red_rule",               "targets": ["sovereign", "github"],  "method": "alert"},
+    {"event": "on_sovereign_approve", "trigger": "sovereign_manual_unlock",     "targets": ["yellow_to_green"],      "method": "counter_sign_dna"},
+    {"event": "on_red_timeout",       "trigger": "red_days > 7",               "targets": ["archive"],              "method": "auto_reject"},
+    {"event": "on_hash_mismatch",     "trigger": "hash_verify_fail",           "targets": ["security_alert"],       "method": "emergency_block"},
+    {"event": "on_dna_invalid",       "trigger": "dna_format_fail",            "targets": ["format_queue"],         "method": "route_yellow"},
+    {"event": "on_balance_error",     "trigger": "balanced_false",             "targets": ["error_queue"],          "method": "force_red"},
+    {"event": "on_daily_audit",       "trigger": "cron: 0 16 * * * (UTC)",     "targets": ["health_snapshot"],      "method": "scheduled"},
+    {"event": "on_weekly_summary",    "trigger": "cron: 0 0 * * 1 (UTC)",      "targets": ["ledger_report"],        "method": "scheduled"},
+    {"event": "on_new_account",       "trigger": "first_time_account_code",    "targets": ["chart_of_accounts"],    "method": "yellow_manual_confirm"}
+  ],
+
+  "lhi": {
+    "formula": "(green_count * 3 + yellow_approved * 2 - red_blocked * 5) / total_count * 100",
+    "levels": {
+      "excellent": {"min": 90, "label": "🟢 卓越"},
+      "healthy":   {"min": 70, "label": "🟢 健康"},
+      "warning":   {"min": 50, "label": "🟡 警戒"},
+      "danger":    {"min": 30, "label": "🔴 危险"},
+      "critical":  {"min": 0,  "label": "🔴 紧急"}
+    }
+  },
+
+  "override_protocol": {
+    "L1": {"name": "黄色延迟批准", "requires": "informed_declaration"},
+    "L2": {"name": "红色解锁",   "requires": "alternative_plan + dna_counter_sign"},
+    "L3": {"name": "永久阻断解除", "requires": "IMPOSSIBLE", "note": "T9/T10永不解锁"}
+  },
+
+  "dna_regex": "^#龍帳⚡️\\d{4}-\\d{2}-\\d{2}-\\d{4}-\\d{4}-.+-\\d{3}-UID9622$",
+  "hash_format": "SHA256[:8].upper() (8-char uppercase hex)",
+  "sovereign_uid": "UID9622",
+  "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+}

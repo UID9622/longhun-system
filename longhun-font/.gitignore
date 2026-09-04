@@ -21,6 +21,10 @@ __pycache__/
 *.tmp
 *.log
 
+# Virtual environments
+.venv/
+venv/
+
 # Don't ignore output OTF/HTML/SVG (they are release artifacts)
 # If SVG dirs become too large, uncomment below:
 # output/all_glyphs_v*/

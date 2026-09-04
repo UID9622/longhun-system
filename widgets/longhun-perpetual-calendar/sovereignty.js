@@ -1,6 +1,6 @@
 /**
  * 龍魂万年历 · 主权固化层
- * DNA: #龍芯⚡️2026-06-27-LONGHUN-CALENDAR-SOVEREIGNTY-v1.0
+ * DNA: #龍芯⚡️丙午·甲午·壬申·丙午·䷙大畜-LONGHUN-CALENDAR-SOVEREIGNTY-v1.0
  *
  * 功能：
  * 1. 页面渲染完成后计算 DOM 哈希

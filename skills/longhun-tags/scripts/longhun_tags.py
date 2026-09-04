@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 """
 龍魂文化标签体系 v1.1 | LongHun Tag System v1.1
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 UID: 9622
-DNA: #龍芯⚡️2026-07-01-LONGHUN-TAG-SYSTEM-v1.1
+DNA: #龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGHUN-TAG-SYSTEM-v1.1
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -591,7 +592,7 @@ class LongHunTagSystem:
     v1.1 新增：文化解释、标准色板、扩展注册表、状态持久化
     """
 
-    DNA = "#龍芯⚡️2026-07-01-LONGHUN-TAG-SYSTEM-v1.1"
+    DNA = "#龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGHUN-TAG-SYSTEM-v1.1"
 
     def __init__(self):
         self.五行 = 五行标签

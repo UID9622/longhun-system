@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂视角下的黎曼猜想·数值验证代码
 Numerical Verification Code for the Riemann Hypothesis via Three-Talent Harmony
 
-DNA:#龍芯⚡️2026-06-08-RIEMANN_THREE_TALENT_VERIFICATION_20B1-v1.0
+DNA:#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-RIEMANN_THREE_TALENT_VERIFICATION_20B1-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -289,7 +290,7 @@ if __name__ == "__main__":
 ║   A Numerical Verification of the Riemann Hypothesis via Three-Talent        ║
 ║                           Harmony Framework                                   ║
 ║                                                                               ║
-║  DNA:#龍芯⚡️2026-06-08-RIEMANN_THREE_TALENT_VERIFICATION-v1.0                                ║
+║  DNA:#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-RIEMANN_THREE_TALENT_VERIFICATION-v1.0                                ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅                            ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅           ║
 ║                                                                               ║

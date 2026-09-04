@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂·本地优先软件DNA密文回云协议 v1.0
@@ -9,7 +13,7 @@
   2. 云端只读密文：只上传 envelope（脱敏索引）和 cipher_blob（AES-GCM 密文）。
   3. 全程可审计：每个动作写入 traces/ 时间轴，带 DNA 追溯码。
 
-DNA: #龍芯⚡️2026-06-27-LOCAL-SOFTWARE-DNA-SCAN-v1.0
+DNA: #龍芯⚡️丙午·甲午·壬申·丙午·䷙大畜-LOCAL-SOFTWARE-DNA-SCAN-v1.0
 """
 
 import os

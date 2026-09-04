@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂每日復盤引擎 v5.1
-DNA: #龍芯⚡️2026-06-29-LONGHUN-REVIEW-v5.1
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-REVIEW-v5.1
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬REVIEW-001 ✅
 
 8項三色審計：文件完整、安全、系統心跳、測試、操作日誌、評估報告、API服務、備份狀態
@@ -227,7 +229,7 @@ class 復盤引擎:
         return {
             "timestamp": time.strftime("%Y%m%d_%H%M%S"),
             "date": time.strftime("%Y-%m-%d"),
-            "dna": "#龍芯⚡️2026-06-29-LONGHUN-REVIEW-v5.1",
+            "dna": "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-REVIEW-v5.1",
             "執行DNA": 生成DNA("LONGHUN-REVIEW", "RUN"),
             "審計項": self.審計項,
             "統計": {"綠色": green, "黃色": yellow, "紅色": red, "平均分": round(avg_score, 2)},

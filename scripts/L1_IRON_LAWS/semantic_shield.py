@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 
 """
@@ -12,7 +16,7 @@
 - 术语混用（龍 vs Dragon）
 - 修辞陷阱（煽动性语言）
 
-DNA:#龍芯⚡️2026-06-07-SEMANTIC-SHIELD-L1-v1.0
+DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-SEMANTIC-SHIELD-L1-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 UID: 9622
 
@@ -97,8 +101,8 @@ class SemanticShield:
 
         # 检查 Dragon vs 龍
         if re.search(r'\bDragon\b', text, re.IGNORECASE):
-            if "Dragon Soul" in text or "Dragon soul" in text:
-                issues.append("应该用 '龍魂' 而不是 'Dragon Soul'")
+            if "LongHun" in text or "LongHun" in text:
+                issues.append("应该用 '龍魂' 而不是 'LongHun'")
 
         # 检查 Protocol vs 协议
         if re.search(r'Protocol(?!_)', text) and "协议" not in text:

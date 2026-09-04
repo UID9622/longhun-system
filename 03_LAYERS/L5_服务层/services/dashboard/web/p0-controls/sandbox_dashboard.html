@@ -1,0 +1,124 @@
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+<!--
+龍魂沙盒推演可视化面板 v1.0
+DNA:#龍芯⚡️2026-07-05-SANDBOX-DASHBOARD-v1.0
+GPG:A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+CONFIRM:#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+-->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>📊 龍魂沙盒推演可视化面板</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0f;--card:#12121a;--blue:#00d4ff;--gold:#ffd700;--green:#00ff88;--yellow:#ffd166;--red:#ff6b6b;--text:#e4e4e7;--muted:#94a3b8}
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:20px}
+.container{max-width:960px;margin:0 auto}
+header{text-align:center;padding:24px;background:var(--card);border-radius:16px;border:1px solid rgba(0,212,255,.2);margin-bottom:20px}
+header h1{font-size:24px;background:linear-gradient(135deg,var(--blue),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+header p{color:var(--muted);font-size:13px;margin-top:6px}
+.dna{font-size:11px;color:#64748b;margin-top:10px;word-break:break-all}
+.card{background:var(--card);border-radius:14px;border:1px solid rgba(255,255,255,.06);padding:18px;margin-bottom:16px}
+.card h2{font-size:16px;color:var(--blue);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.empty{text-align:center;color:var(--muted);padding:40px 20px;font-size:14px}
+.empty a{color:var(--blue);text-decoration:none}
+.item{border-left:3px solid var(--blue);padding:12px 14px;margin-bottom:12px;background:rgba(0,212,255,.04);border-radius:0 10px 10px 0}
+.item .meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:12px;color:var(--muted)}
+.item .badge{font-size:12px;padding:2px 8px;border-radius:20px;background:rgba(255,255,255,.1)}
+.dim-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:10px}
+.dim{border-radius:10px;padding:10px;background:rgba(255,255,255,.04)}
+.dim-name{font-size:12px;color:var(--muted);margin-bottom:4px}
+.dim-score{font-size:18px;font-weight:bold;color:var(--green)}
+.bar{height:6px;background:rgba(255,255,255,.1);border-radius:3px;margin-top:6px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--green));border-radius:3px}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:12px}
+.plan{padding:12px;border-radius:10px;background:rgba(255,215,0,.06);border:1px solid rgba(255,215,0,.15)}
+.plan h4{font-size:13px;color:var(--gold);margin-bottom:4px}
+.plan p{font-size:12px;color:var(--muted);line-height:1.5}
+.paste{width:100%;min-height:120px;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.1);border-radius:10px;color:var(--text);padding:12px;font-family:monospace;font-size:12px;resize:vertical}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;border:none;cursor:pointer;background:var(--blue);color:#000;font-size:13px;font-weight:600;margin-top:10px}
+.btn:hover{opacity:.9}
+footer{text-align:center;color:#475569;font-size:11px;margin-top:30px}
+footer a{color:var(--blue);text-decoration:none}
+</style>
+
+<script src="../lh-utils.js"></script>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>📊 龍魂沙盒推演可视化面板</h1>
+    <p>展示从龍魂智能中枢保存的推演结果 · 数据仅存在本地浏览器</p>
+    <div class="dna">DNA: #龍芯⚡️2026-07-05-SANDBOX-DASHBOARD-v1.0 · CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</div>
+  </header>
+
+  <div class="card">
+    <h2>🕘 推演历史</h2>
+    <div id="historyList"><div class="empty">暂无推演记录，前往 <a href="longhun_hub.html">龍魂智能中枢</a> 启动推演</div></div>
+  </div>
+
+  <div class="card">
+    <h2>📝 粘贴 JSON 可视化</h2>
+    <textarea class="paste" id="jsonInput" placeholder='粘贴龍魂智能中枢的推演结果 JSON，例如：&#10;{&#10;  "task_type": "战略分析",&#10;  "hexagram": "☰干",&#10;  "color": "🟢",&#10;  "badge": "可行",&#10;  "six_dims": {"天时":{"score":85,"desc":"..."}, ...},&#10;  "plans": {"A": {"title":"激进方案", "desc":"..."}, ...}&#10;}'></textarea>
+    <button class="btn" onclick="renderPaste()">▶ 解析并展示</button>
+  </div>
+
+  <footer>
+    <a href="longhun_hub.html">← 返回龍魂智能中枢</a> · 龍魂系统 · 中国自主可控 · 数据主权归人民
+  </footer>
+</div>
+
+<script>
+const LS_KEY = 'longhun_sandbox_results';
+
+function esc(s){ return String(s||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+function renderOne(d){
+  const dims = d.six_dims || {};
+  const dimHtml = Object.entries(dims).map(([k,v])=>{
+    const score = Math.round((v&&v.score)||0);
+    return `<div class="dim"><div class="dim-name">${esc(k)}</div><div class="dim-score">${score}</div><div class="bar"><div class="bar-fill" style="width:${score}%"></div></div></div>`;
+  }).join('');
+  const plans = d.plans || {};
+  const planHtml = Object.entries(plans).map(([k,v])=>{
+    return `<div class="plan"><h4>方案 ${esc(k)}: ${esc(v&&v.title)}</h4><p>${esc(v&&v.desc)}</p></div>`;
+  }).join('');
+  return `
+    <div class="item">
+      <div class="meta">
+        <span>${esc(d.time || new Date().toLocaleString())} · ${esc(d.task_type || '未命名')}</span>
+        <span class="badge">${esc(d.hexagram || '')} ${esc(d.badge || d.color || '')}</span>
+      </div>
+      <div class="dim-grid">${dimHtml}</div>
+      ${planHtml?`<div class="plans">${planHtml}</div>`:''}
+      ${d.dao_anchor?`<div style="margin-top:10px;font-size:12px;color:var(--muted)">📜 道德经锚点：${esc(d.dao_anchor)}</div>`:''}
+    </div>`;
+}
+
+function loadHistory(){
+  const list = JSON.parse(localStorage.getItem(LS_KEY)||'[]');
+  const el = document.getElementById('historyList');
+  if(!list.length){
+    el.innerHTML = escHtml('<div class="empty">暂无推演记录，前往 <a href="longhun_hub.html">龍魂智能中枢</a> 启动推演</div>');
+    return;
+  }
+  el.innerHTML = escHtml(list.slice().reverse().map(renderOne).join(''));
+}
+
+function renderPaste(){
+  const raw = document.getElementById('jsonInput').value.trim();
+  if(!raw) return showToast('请先粘贴 JSON');
+  try{
+    const d = JSON.parse(raw);
+    const el = document.getElementById('historyList');
+    el.innerHTML = escHtml(renderOne(d));
+  }catch(e){ showToast('JSON 解析失败: '+e.message); }
+}
+
+loadHistory();
+</script>
+</body>
+</html>

@@ -1,4 +1,6 @@
 #!/bin/bash
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ============================================================================
 # deploy-frps.sh — 公网VPS一键部署 frps 服务端
 # DNA: #龍芯⚡️丙午·辛未·FRPS-DEPLOY-v1.0

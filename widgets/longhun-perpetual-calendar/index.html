@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
   龍魂万年历 · LongHun Perpetual Calendar
-  DNA: #龍芯⚡️2026-06-27-LONGHUN-PERPETUAL-CALENDAR-v1.0
+  DNA: #龍芯⚡️丙午·甲午·壬申·丙午·䷙大畜-LONGHUN-PERPETUAL-CALENDAR-v1.0
   原则：自主渲染、自主字体、自主主权，不按苹果/谷歌/华为的标准走。
 -->
 <html lang="zh-CN">
@@ -64,6 +64,59 @@
       </section>
     </main>
 
+    <section class="scan-strip" id="scan-strip">
+      <div class="scan-item"><span id="scan-dot" class="scan-dot"></span><span id="scan-last">巡检: --</span></div>
+      <div class="scan-item"><span id="scan-next">下次: --</span></div>
+      <div class="scan-item"><span id="scan-baseline">基线: --</span></div>
+      <div class="scan-item"><span id="scan-engine">引擎: --</span></div>
+    </section>
+
+    <section class="alert-panel" id="alert-panel">
+      <div class="alert-header">
+        <span class="alert-title">🛡️ 龍魂预警通知</span>
+        <span class="alert-sub">篡改警告 · 系统事件 · 每小时自动巡检</span>
+      </div>
+      <div id="alert-list" class="alert-list">🔍 正在连接预警服务…</div>
+      <div class="alert-subscribe">
+        <span class="subscribe-label">📱 苹果 / 鸿蒙日历订阅：</span>
+        <a id="subscribe-webcal" href="#" target="_blank">webcal 订阅</a>
+        <span class="subscribe-sep">·</span>
+        <a id="subscribe-https" href="#" target="_blank">https 订阅</a>
+        <div id="subscribe-url" class="subscribe-url"></div>
+      </div>
+    </section>
+
+    <nav class="domain-tabs" id="domain-tabs">
+      <button class="domain-tab active" data-domain="longhun">🐉 龍魂史</button>
+      <button class="domain-tab" data-domain="greek">🏛️ 希腊神话</button>
+      <button class="domain-tab" data-domain="industrial">⚙️ 工业革命</button>
+    </nav>
+
+    <section class="panel" id="gene-panel">
+      <div class="panel-header">
+        <span class="panel-title">🧬 文明基因图谱</span>
+        <span class="panel-sub" id="gene-meta">加载中…</span>
+      </div>
+      <div id="gene-chain" class="gene-chain">🔍 正在推演历史周期律…</div>
+      <div id="gene-repeats" class="gene-repeats"></div>
+    </section>
+
+    <section class="panel" id="prophecy-panel">
+      <div class="panel-header">
+        <span class="panel-title">🔮 历史重演预言</span>
+        <span class="panel-sub">重演识别 → 预判下一步</span>
+      </div>
+      <div id="prophecy-list" class="prophecy-list">加载中…</div>
+    </section>
+
+    <section class="panel" id="hweapon-panel">
+      <div class="panel-header">
+        <span class="panel-title">⚔️ H武器推演</span>
+        <span class="panel-sub">太极易经 · 16维收敛解</span>
+      </div>
+      <div id="hweapon-content" class="hweapon-content">加载中…</div>
+    </section>
+
     <footer class="footer">
       <div>UID9622 · 龍芯北辰 · 主权时钟</div>
       <div id="chain-hash">链哈希: 初始化中</div>
@@ -72,10 +125,12 @@
 
   <script src="calendar.js"></script>
   <script src="sovereignty.js"></script>
+  <script src="warnings.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       LonghunCalendar.init();
       LonghunSovereignty.init();
+      LonghunWarnings.init();
     });
   </script>
 </body>

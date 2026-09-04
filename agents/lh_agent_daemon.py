@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂智能体 · L1 常驻五大人格守护进程
@@ -9,7 +13,7 @@ Resident Agent Daemon: 雯雯 / 侦察兵 / 上帝之眼 / 宝宝 / 文心
 - 只做本地扫描/计数/轻量执行，不依赖外部平台
 - 输出状态文件与心跳，供状态上报与三才审计使用
 
-DNA: #龍芯⚡️2026-06-26-LONGHUN-AGENT-DAEMON-v1.0
+DNA: #龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-LONGHUN-AGENT-DAEMON-v1.0
 """
 
 import argparse
@@ -31,7 +35,7 @@ from typing import Any, Dict, List, Optional, Set
 # ============================================================
 # 常量
 # ============================================================
-DNA = "#龍芯⚡️2026-06-26-LONGHUN-AGENT-DAEMON-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-LONGHUN-AGENT-DAEMON-v1.0"
 VERSION = "1.0.0"
 AGENT_HOME = Path.home() / "longhun-system" / "agents"
 LOG_DIR = AGENT_HOME / "daemon_logs"

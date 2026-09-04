@@ -1,0 +1,101 @@
+{
+  "dna": "#龍芯⚡️2026-08-19-BAD-EP01-E01-STORYBOARD-v1.0-UID9622",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+  "title": "坏蛋项目 · EP01-E01「东北雪夜」分镜表",
+  "source_event": "EP01-E01",
+  "total_duration_sec": 25,
+  "note": "受《坏蛋是怎样炼成的》人物关系启发，原创剧情。K3主创意，本地模型辅助格式化。",
+  "shots": [
+    {
+      "shot_id": "E01-S01",
+      "duration_sec": 6,
+      "shot_type": "全景",
+      "camera": "航拍降下",
+      "visual": "灰白东北小城，雪覆盖屋顶与街道。镜头缓缓降到地面。",
+      "characters": [],
+      "props": [],
+      "audio": "风声、远处学校铃声",
+      "dialogue": "",
+      "emotion": "苍茫",
+      "asset_refs": [
+        "ENV-01_东北校园.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E01-S02",
+      "duration_sec": 4,
+      "shot_type": "中景",
+      "camera": "跟拍",
+      "visual": "学生们涌出校门，有人推搡、笑闹。谢文东独自走在人群边缘。",
+      "characters": [
+        "HD-001-少年谢文东"
+      ],
+      "props": [],
+      "audio": "人声嘈杂",
+      "dialogue": "",
+      "emotion": "疏离",
+      "asset_refs": [
+        "HD-001_谢文东_少年锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E01-S03",
+      "duration_sec": 5,
+      "shot_type": "特写",
+      "camera": "侧拍，推近",
+      "visual": "几个学生故意撞谢文东肩膀，他踉跄一步，嘴角却仍带笑。",
+      "characters": [
+        "HD-001-少年谢文东"
+      ],
+      "props": [],
+      "audio": "撞肩声、几声嘲笑",
+      "dialogue": "学生甲：装什么装。",
+      "emotion": "隐忍",
+      "asset_refs": [
+        "HD-001_谢文东_少年锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E01-S04",
+      "duration_sec": 4,
+      "shot_type": "特写",
+      "camera": "正面慢推",
+      "visual": "谢文东抬眼，那双凤眼阴柔带笑，眼底却没有温度。",
+      "characters": [
+        "HD-001-少年谢文东"
+      ],
+      "props": [],
+      "audio": "心跳声",
+      "dialogue": "谢文东：（轻声）没事。",
+      "emotion": "静水深流",
+      "asset_refs": [
+        "HD-001_谢文东_少年锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E01-S05",
+      "duration_sec": 6,
+      "shot_type": "远景",
+      "camera": "固定长焦",
+      "visual": "谢文东独自走远，雪落在他身上。画外是向问天的声音。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-101-向问天（画外）"
+      ],
+      "props": [],
+      "audio": "龍慧慧旁白+向问天画外音",
+      "dialogue": "向问天（画外）：那年东北的雪，埋了很多事，也埋了很多人。\n旁白：那一年雪很大，没人注意这个笑得很浅的少年。",
+      "emotion": "命运伏笔",
+      "asset_refs": [
+        "ENV-01_东北校园.png",
+        "HD-101_向问天_锚点图.png"
+      ],
+      "check": "🟢"
+    }
+  ]
+}

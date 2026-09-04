@@ -1,0 +1,117 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-a7b54085 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龍魂系统 · 数据主权归人民</title>
+    <link rel="stylesheet" href="/static/official.css">
+</head>
+<body>
+    <header>
+        <a class="logo" href="/">🐉 龍魂系统</a>
+        <nav>
+            <a href="/playground">CNSH 演练场</a>
+            <a href="https://i.csdn.net/#/user-center/profile" target="_blank">CSDN</a>
+            <a href="https://github.com/UID9622" target="_blank">GitHub</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="badge">🇨🇳 中国自主可控 · 中文原生脚本</div>
+        <h1>根永远回到老百姓</h1>
+        <h2>主权永远回到中国</h2>
+        <p>
+            龍魂系统由 UID9622（龍芯北辰·诸葛鑫）创建，<br>
+            是一套以人民数据主权为不动点、以 CNSH 中文原生脚本为骨架、<br>
+            以 DNA 追溯与三色审计为血脉的自主技术体系。
+        </p>
+        <div class="dna-strip">
+            DNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-LONGHUN-OFFICIAL-v1.0-07b3da60<br>
+            CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+        </div>
+        <div class="cta">
+            <a class="cta-primary" href="/playground">🚀 进入 CNSH 演练场</a>
+            <a class="cta-secondary" href="https://csdn.net" target="_blank">📖 阅读人民标准文档</a>
+        </div>
+    </section>
+
+    <section>
+        <h3>三大核心</h3>
+        <div class="features">
+            <div class="feature-card">
+                <h4>🛡️ 数据主权</h4>
+                <p>数据根留本地，私有层与公开层界限如刀，未经 --public-mode 脱敏绝不外传。</p>
+            </div>
+            <div class="feature-card">
+                <h4>⚡ CNSH 中文脚本</h4>
+                <p>中文母语关键字、龍魂专属符号、多目标编译，让老百姓也能读懂代码。</p>
+            </div>
+            <div class="feature-card">
+                <h4>🧬 DNA 全链追溯</h4>
+                <p>每个文件、每次操作、每篇文章都带 #龍芯⚡️ DNA 码，来源可查、去向可追。</p>
+            </div>
+            <div class="feature-card">
+                <h4>🟢🟡🔴 三色审计</h4>
+                <p>天·地·人三才算法驱动，自动判定红/黄/绿状态，关键决策不黑箱。</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h3>一段 CNSH，跑在官网上</h3>
+        <div class="cnsh-demo">
+            <p style="color:#888;margin-top:0;">下面是一段 CNSH 代码。点击「运行」，官网会调用 CNSH v2.1 解释器实时执行。</p>
+            <pre id="cnsh-source"># DNA:#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-LONGHUN-OFFICIAL-DEMO-v1.0-07b3da60
+
+函数 人民宣言():
+    返回 "科技有科技的样子，技术有技术的样子，服务人民不是资本的游戏。"
+
+输出(人民宣言())
+输出("龍魂系统 · UID9622 · 已上线")
+</pre>
+            <button onclick="runDemo()">▶ 运行</button>
+            <div class="output-box" id="demo-output">等待运行...</div>
+        </div>
+    </section>
+
+    <section>
+        <h3>服务宗旨</h3>
+        <p style="color:#aaa;">
+            我们服务人民，不是资本的游戏。<br>
+            我们提供基础设施，不是钓鱼执法。<br>
+            我们让技术有技术的样子，让科技有科技的样子。
+        </p>
+        <p class="slogan">中国人的技术文档，从不用跪着写。🔥🐉🇨🇳</p>
+    </section>
+
+    <footer>
+        <p>龍魂系统 · longhun-system · 人民标准版 v1.0</p>
+        <p>创始人：UID9622 · 龍芯北辰 · 诸葛鑫 | GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</p>
+        <p>DNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-LONGHUN-OFFICIAL-v1.0-07b3da60</p>
+    </footer>
+
+    <script>
+        async function runDemo() {
+            const output = document.getElementById('demo-output');
+            output.textContent = '运行中...';
+            const source = document.getElementById('cnsh-source').textContent;
+            try {
+                const resp = await fetch('/api/run', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ source, optimize: 0, strict_types: false })
+                });
+                const data = await resp.json();
+                if (data.success) {
+                    output.textContent = (data.stdout || '') + '\n返回值: ' + data.result;
+                } else {
+                    output.textContent = '执行出错：' + (data.error || '未知错误');
+                }
+            } catch (e) {
+                output.textContent = '请求失败：' + e.message;
+            }
+        }
+    </script>
+</body>
+</html>

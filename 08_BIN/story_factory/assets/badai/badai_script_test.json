@@ -1,0 +1,14 @@
+{
+  "title": "坏蛋EP01 · 三眼初见",
+  "project": "badai",
+  "scenes": [
+    {
+      "shot_code": "EP01-S01",
+      "character": "HD-002",
+      "asset": "ENV-02_老街雨夜",
+      "line": "道上混这么久，头一回有人叫我本名。",
+      "action": "站在雨夜老街，眉心印记泛红",
+      "duration": 3
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "dna": "#龍芯⚡️丙午·丙酉·己巳·酉时·䷩益-NOTION-CMD-REGISTRY-RUN-UID9622-4CBE2766",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "timestamp": "2026-08-18T17:14:28.032696",
+  "dry_run": false,
+  "results": [
+    {
+      "name": "C1 · 文明档案馆哈希链验证",
+      "phase": "Phase C",
+      "mode": "验证",
+      "command": "python3 08_BIN/civilization_archive.py --verify",
+      "returncode": 0,
+      "stdout": "{\n  \"total\": 67,\n  \"tampered\": 0,\n  \"integrity\": \"🟢 完整\",\n  \"details\": [],\n  \"dna\": \"#龍芯⚡️2026-08-18-171420-915872-CHAIN-VERIFY-8A955D66-9622\"\n}",
+      "stderr": ""
+    },
+    {
+      "name": "D1 · 验证外网 API 合规检测",
+      "phase": "Phase D",
+      "mode": "验证",
+      "command": "curl -X POST http://119.13.90.27:8080/cnsh/api/compliance/check -H 'Content-Type: application/json' -d '{\"text\":\"测试内容\",\"lang\":\"zh\",\"persona\":\"堂吉诃德\"}'",
+      "returncode": 7,
+      "stdout": "",
+      "stderr": "% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\n  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\n  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\ncurl: (7) Failed to connect to 119.13.90.27 port 8080 after 0 ms: Couldn't connect to server"
+    },
+    {
+      "name": "D2 · API 限流压力测试",
+      "phase": "Phase D",
+      "mode": "验证",
+      "command": "for i in {1..5}; do curl -s -o /dev/null -w '%{http_code} ' -f http://119.13.90.27:8080/cnsh/api/ai/providers; done",
+      "returncode": 7,
+      "stdout": "000 000 000 000 000",
+      "stderr": ""
+    },
+    {
+      "name": "通用 · 检查鲲鹏 IDE 服务状态",
+      "phase": "通用",
+      "mode": "验证",
+      "command": "ssh -i ~/.ssh/longhun_kunpeng_ed25519 root@119.13.90.27 'systemctl status cnsh-ide.service --no-pager'",
+      "returncode": 255,
+      "stdout": "",
+      "stderr": "ssh: connect to host 119.13.90.27 port 22: Network is unreachable"
+    },
+    {
+      "name": "修复 · DNA 生成器日柱/月柱/卦象校正",
+      "phase": "修复",
+      "mode": "验证",
+      "command": "python3 08_BIN/lh_day_gua_verify.py --cross-check",
+      "returncode": 0,
+      "stdout": "==============================================================\n龍魂日卦推算脚本 v1.1 —— CB-001 交叉验证\n==============================================================\n\n目标日期：2026-08-12（当前时辰=申时，地支序数=9）\n标准四柱：丙午年·丙申月·戊午日·庚申时\n日干支序号：54（甲=0, 子=0）\n\n【算法A】黄历日卦查表法（人工归纳结论，非程序查表）\n--------------------------------------------------------------\n已实测验证的戊午日样本：2025-04-19 / 2025-08-17 / 2026-08-12（今日）\n（注：2025-03-09 实测为丁丑日，非戊午，已剔除）\n  结果：鼎卦（火风鼎）— 第50卦，稳重图变，中下卦\n  象曰：莺鹜蛤蜊落沙滩，蛤蜊莺鹜两翅扇，\n        渔人进前双得利，失走行人却自在。\n  ⚠️ 待办：将黄历日卦数据源建库，实现程序化查表\n\n【算法B】梅花易数时间起卦（农历六月三十近似 · 申时）\n--------------------------------------------------------------\n  年支数=7，月=6，日=30，时=9\n  上卦=离，下卦=震 → 离上震下\n  对应64卦：?（需卦象上下卦查表）\n  ⚠️ 与算法A可能不一致——体系不同（黄历日卦 vs 梅花易数）\n\n【算法C】河洛理数（简化版）\n--------------------------------------------------------------\n  四柱干支数：丙午(3+7) + 丙申(3+9) + 戊午(5+7) + 庚申(7+9)\n  干支数总和：50 → 卦序号：50 → 鼎卦（火风鼎）\n  ⚠️ 简化算法，完整河洛理数需综合阴阳天地数\n\n【对拍】官方生成器简化算法（bin/lh_dna_generator.py 同算法复刻）\n--------------------------------------------------------------\n  官方四柱：丙午·丙申·戊午·辛酉\n  官方卦象：上卦序=7，下卦序=2 → 64卦 #31 = 咸卦（泽山咸）\n\n  差异对照：\n    ├ 年柱：标准 丙午  vs  官方 丙午  → 一致 ✓\n    ├ 月柱：标准 丙申(节气月)  vs  官方 丙申(节气月)  → 一致 ✓\n    ├ 日柱：标准 戊午  vs  官方 戊午  → 一致 ✓\n    └ 卦象：标准梅花易数 离上震下  vs  官方日支上时支下 #31  → 起卦法不同（非错误）\n\n==============================================================\n【结论】\n==============================================================\n1. 标准算法四柱：丙午年·丙申月·戊午日·戊午时 —— 与系统时间引擎一致 ✓\n2. 算法A（黄历）鼎卦 / 算法B（梅花易数）睽卦 / 算法C（河洛）升卦 —— 体系不同，结论各异属正常\n3. 官方简化算法为对拍基准，月柱/卦象差异属简化设计，非 bug\n4. 若与本地 lh_dna_generator.py 输出不一致，以龍魂系统官方生成器为准\n==============================================================",
+      "stderr": ""
+    },
+    {
+      "name": "P1 · 列出已发现技能",
+      "phase": "P1",
+      "mode": "验证",
+      "command": "lh orchestrator list --scope kimi --limit 10",
+      "returncode": 0,
+      "stdout": "🐉 已发现技能 (0 个)",
+      "stderr": ""
+    },
+    {
+      "name": "P1 · 输入路由到技能/人格",
+      "phase": "P1",
+      "mode": "验证",
+      "command": "lh orchestrator route --text \"帮我写个部署脚本\"",
+      "returncode": 0,
+      "stdout": "🐉 路由结果\n   输入: 帮我写个部署脚本\n   推荐动作: 无匹配技能，建议人工介入或扩充索引\n   匹配技能 Top0:\n   匹配人格 Top3:\n      · P04 鲁班 (score=3.00) · 技术执行·写代码\n      · P06 张衡 (score=3.00) · 观测记录·日志遥测\n      · P07 扁鹊 (score=3.00) · 系统诊断·自愈修复",
+      "stderr": ""
+    },
+    {
+      "name": "P1 · 编排器统计",
+      "phase": "P1",
+      "mode": "验证",
+      "command": "lh orchestrator stats",
+      "returncode": 0,
+      "stdout": "🐉 Agent 编排器统计\n   技能总数: 0\n   分域统计: {}\n   路由次数: 3",
+      "stderr": ""
+    },
+    {
+      "name": "P2 · Agent 编排器守护进程状态/停止",
+      "phase": "P2",
+      "mode": "验证",
+      "command": "lh agent-daemon status  # 或 stop / restart / install",
+      "returncode": 0,
+      "stdout": "⚪ 守护进程未运行（无 PID 文件）",
+      "stderr": ""
+    },
+    {
+      "name": "P2 · 查看工作流运行历史",
+      "phase": "P2",
+      "mode": "验证",
+      "command": "lh workflow-chain history --limit 10",
+      "returncode": 0,
+      "stdout": "🐉 最近 0 次工作流运行",
+      "stderr": ""
+    },
+    {
+      "name": "P3 · 停止/查看触发器守护进程",
+      "phase": "P3",
+      "mode": "验证",
+      "command": "lh trigger status  # 或 stop",
+      "returncode": 0,
+      "stdout": "⚪ 触发器守护进程未运行",
+      "stderr": ""
+    },
+    {
+      "name": "P4 · 仪表盘 API 健康检查",
+      "phase": "P4",
+      "mode": "验证",
+      "command": "for p in 9600 9602 9603; do ok=1; for e in health event-stats skill-stats; do curl -s -m 3 \"http://127.0.0.1:$p/api/$e\" | grep -q '{' || ok=0; done; if [ $ok -eq 1 ]; then echo \"✅ 仪表盘 :$p 三端点(health/event-stats/skill-stats)全通\"; exit 0; fi; done; echo '❌ 仪表盘端口(9600/9602/9603)均不可达'; exit 1",
+      "returncode": 0,
+      "stdout": "✅ 仪表盘 :9602 三端点(health/event-stats/skill-stats)全通",
+      "stderr": ""
+    },
+    {
+      "name": "P5 · 仪表盘鲲鹏服务状态",
+      "phase": "P5",
+      "mode": "验证",
+      "command": "ssh -i ~/.ssh/longhun_kunpeng_ed25519 root@119.13.90.27 'systemctl status longhun-dashboard --no-pager && nginx -t'",
+      "returncode": 255,
+      "stdout": "",
+      "stderr": "ssh: connect to host 119.13.90.27 port 22: Network is unreachable"
+    }
+  ]
+}

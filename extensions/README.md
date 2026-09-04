@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂浏览器扩展
 
 本目录收录龍魂系统的浏览器扩展（Chrome / Edge / 基于 Chromium）。
@@ -6,6 +9,7 @@
 |------|------|------|------|
 | 龍魂宝宝 · LongHunWidget | `LongHunWidget/` | ✅ 已修复 | MV3 侧边栏 · DNA / 记忆 / 审计 / 五行 / MCP 桥接 |
 | CNSH · 龍魂语法引擎 | `cnsh-chrome-plugin/` | ✅ 已纳入 | MV3 快速入库 · Notion Inbox / DNA / 人心算法 |
+| 龍魂9622·本地引擎触角 | `longhun-ext/` | ✅ 深度集成 v2.0 | MV3 右键菜单 · 语音输入 · Python 本地引擎 · iOS Swift 伴侣（2026-09-04 自 `~/龍魂浏览器插件.zip` 收编·10 文件全标准化头·icons 补齐·922 端口占用已注明） |
 
 ---
 
@@ -27,4 +31,4 @@
 
 ---
 
-**DNA**:#龍芯⚡️2026-06-16-EXTENSIONS-v1.1
+**DNA**:#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-EXTENSIONS-v1.1

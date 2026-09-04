@@ -1,0 +1,10 @@
+{
+  "string": [
+    { "name": "app_name", "value": "龍魂·鸿蒙桥接" },
+    { "name": "sovereignty_label", "value": "主权锚定 UID9622" },
+    { "name": "dna_label", "value": "DNA追溯码" },
+    { "name": "audit_pass", "value": "🟢 审计通过" },
+    { "name": "audit_warn", "value": "🟡 待复核" },
+    { "name": "audit_fail", "value": "🔴 红线触发" }
+  ]
+}

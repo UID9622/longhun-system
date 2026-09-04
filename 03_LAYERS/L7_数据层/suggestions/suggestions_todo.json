@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "owner": "UID9622",
+  "principle": "建议即待办，二见即执行",
+  "rules": [
+    "AI 每次提出的可操作建议，自动写入本文件，状态为 pending",
+    "同一建议第二次出现（或用户再次提及），状态升级为 auto-execute，AI 直接执行",
+    "执行完成后，状态改为 done，并记录执行 DNA",
+    "高风险操作（删除、发布、密钥、sudo、git push --force）仍需触发一票否决，不自动执行",
+    "用户可手动将建议改为 dismissed"
+  ],
+  "suggestions": [
+    {
+      "id": "SG-2026-08-14-0451",
+      "source": "AI",
+      "content": "CNSH溯源验证编辑器(10_PORTAL/cnsh-validator)后续增强：对接后端lh_audit.py审计哈希链+版本库真实比对（当前仅前端localStorage）",
+      "status": "done",
+      "count": 1,
+      "first_seen": "2026-08-14T01:27:16.940318+00:00",
+      "last_seen": "2026-08-14T01:27:16.940318+00:00",
+      "executed_at": "2026-08-14T01:49:20.573061+00:00",
+      "execution_dna": "#龍芯⚡️2026-08-14-CNSH-VALIDATOR-API-v1.0-UID9622",
+      "notes": "后端审计API已落地:bin/lh_cnsh_validator_api.py(:8905)+前端对接"
+    },
+    {
+      "id": "SG-2026-08-14-A821",
+      "source": "AI",
+      "content": "排查生产遗留：/(9627)与/portal/(8789) 502 + longhun-api.service auto-restart(ExecStart失效路径)",
+      "status": "done",
+      "count": 1,
+      "first_seen": "2026-08-14T01:27:16.975274+00:00",
+      "last_seen": "2026-08-14T01:27:16.975274+00:00",
+      "executed_at": "2026-08-14T01:49:20.608764+00:00",
+      "execution_dna": "#龍芯⚡️2026-08-14-KUNPENG-FIX-v1.0-UID9622",
+      "notes": "修复/→200 /portal/→200 冻结longhun-api死服务"
+    }
+  ]
+}

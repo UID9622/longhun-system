@@ -1,0 +1,14 @@
+{
+  "persona": "P72",
+  "items": [
+    {
+      "id": "E-20260813-001",
+      "at": "2026-08-13T17:27:19",
+      "kind": "process",
+      "lesson": "熔断判定先分L0-L3级, 不搞一刀切全停",
+      "improve": "分层熔断后未受影响层继续跑",
+      "applied": false,
+      "source_task": "核心锚学习回路接入"
+    }
+  ]
+}

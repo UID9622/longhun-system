@@ -1,0 +1,17 @@
+{
+  "version": "1.1",
+  "created_at": "2026-08-11T09:36:17.361366",
+  "ring_count": 1,
+  "rings": [
+    {
+      "date": "2026-08-11",
+      "ganzhi": "丙午·丙申·丁巳·庚子",
+      "prev_hash": "0000000000000000",
+      "events_root_hash": "0050721c130504ac",
+      "event_count": 1,
+      "created_at": "2026-08-11T09:36:17.361359",
+      "hash": "5a31172693eb821e",
+      "signature": ""
+    }
+  ]
+}

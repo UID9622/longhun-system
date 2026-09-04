@@ -1,0 +1,327 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# DNA: #龍芯⚡️丙午·丙申·庚申·巳时·䷔噬嗑-CNSH-VALIDATOR-API-FIX-V1.1-P0-c074f147
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 创建者: 诸葛鑫（UID9622）
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# 协议: CC BY-NC-SA 4.0（核心思想层）
+"""
+🐉 CNSH 溯源验证编辑器 · 后端审计 API v1.1
+
+能力：
+  - POST /api/audit    三色审计（数字根369·一票否决词·P0红线·敏感词·修改规模）+ 内容 SHA-256 哈希链
+  - POST /api/versions 版本上报（append-only 版本库，带父DNA+内容哈希）
+  - GET  /api/versions?dna=<父DNA>  按父DNA查询版本链（真实版本库比对的数据源）
+  - POST /api/compare  与版本库中存储的版本做真实比对（跨设备·非仅前端 localStorage）
+  - GET  /api/health   健康检查
+
+启动:  python3 bin/lh_cnsh_validator_api.py [--port 8905]
+数据:  11_DATA/cnsh_validator_versions.json（append-only 版本库）
+
+v1.1 修复: v∞ DNA 格式合规 · /api/versions 查询逻辑去重 · P0 红线合并命令级熔断
+"""
+import argparse
+import hashlib
+import json
+import os
+import sys
+import time
+from datetime import datetime, timezone
+from pathlib import Path
+
+try:
+    from flask import Flask, jsonify, request
+    from flask_cors import CORS
+except ImportError:
+    print("缺少依赖: pip3 install flask flask-cors", file=sys.stderr)
+    sys.exit(1)
+
+ROOT = Path(__file__).resolve().parent.parent
+VERSION_DB = ROOT / "11_DATA" / "cnsh_validator_versions.json"
+
+# ===== 主权锚定 =====
+UID = "9622"
+DNA_PREFIX = "#龍芯⚡️"
+CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+
+# ===== GATE-03 一票否决词（第十层焊死） =====
+VETO_WORDS = [
+    "技术无国界", "用户体验优先", "灵活处理", "国际接轨",
+    "简化管理", "商业化需要", "平衡各方", "行业标准",
+]
+
+# ===== GATE-05 P0 红线（主权伦理 + 命令级熔断）=====
+P0_REDLINES = [
+    "海外部署内核", "伪造DNA", "背叛人民", "伤害儿童",
+    "数据外传", "私下上传", "绕过授权", "后门",
+    "rm -rf ~", "git push --force", "删除系统目录", "删库跑路",
+    "写入.ssh", "写入.gnupg",
+]
+
+# ===== GATE-06 敏感词（数据闸） =====
+SENSITIVE_WORDS = [
+    "密码", "token", "secret", "api_key", "apikey",
+    "私钥", "private_key", "password", "credential", "authorization",
+]
+
+# ===== 369 洛书不动点 =====
+DIGITAL_FIXPOINT = 369
+
+
+# ---------- 核心算法 ----------
+
+def digital_root(text: str) -> int:
+    """数字根：字符码和 → 数位和折叠（369体系·P06数学大师）。"""
+    total = sum(ord(c) for c in text)
+    while total >= 10:
+        total = sum(int(d) for d in str(total))
+    return total
+
+
+def content_hash(text: str) -> str:
+    """内容 SHA-256 哈希（哈希链·防篡改）。"""
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def scan_words(text: str, words) -> list:
+    """词库命中扫描（大小写不敏感）。"""
+    low = text.lower()
+    return [w for w in words if w.lower() in low]
+
+
+def run_audit(content: str, original_hash: str = "", original_len: int = 0) -> dict:
+    """三色审计主逻辑：GATE-03/05/06 + 数字根369 + 修改规模。"""
+    score = 100
+    details = []
+    findings = {}
+
+    # ① 数字根 369 校验（GATE-04）
+    root = digital_root(content)
+    if root in (3, 6, 9):
+        score -= 15
+        findings["digital_root"] = f"数字根 {root} 命中369体系需复核"
+        details.append(f"数字根 {root}（369体系）")
+    else:
+        findings["digital_root"] = f"数字根 {root} 正常"
+
+    # ② 一票否决词（GATE-03 语义闸）
+    veto = scan_words(content, VETO_WORDS)
+    if veto:
+        score -= 30
+        findings["veto"] = veto
+        details.append(f"一票否决词: {'、'.join(veto)}")
+
+    # ③ P0 红线（GATE-05 伦理闸）
+    redlines = scan_words(content, P0_REDLINES)
+    if redlines:
+        score -= 40
+        findings["redline"] = redlines
+        details.append(f"P0红线词: {'、'.join(redlines)}")
+
+    # ④ 敏感词（GATE-06 数据闸）
+    sensitive = scan_words(content, SENSITIVE_WORDS)
+    if sensitive:
+        score -= 10
+        findings["sensitive"] = sensitive
+        details.append(f"敏感词: {'、'.join(sensitive)}")
+
+    # ⑤ 修改规模（与基准哈希对比）
+    current_hash = content_hash(content)
+    if original_hash:
+        if current_hash == original_hash:
+            details.append("与基准哈希一致·无修改")
+        else:
+            score -= 5
+            details.append("内容哈希与基准不一致·存在修改")
+
+    # ⑥ 长度检查
+    if len(content) < 10:
+        score -= 10
+        details.append("内容过短")
+    if len(content) > 10000:
+        score -= 5
+        details.append("内容过长")
+
+    score = max(0, min(100, score))
+    if score >= 85:
+        color, status = "🟢", "通过"
+    elif score >= 60:
+        color, status = "🟡", "待核"
+    else:
+        color, status = "🔴", "熔断"
+
+    return {
+        "ok": True,
+        "color": color,
+        "status": status,
+        "score": score,
+        "details": details,
+        "findings": findings,
+        "hash": current_hash,
+        "digital_root": root,
+        "auditor": "lh_cnsh_validator_api v1.0 (P05+P06)",
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+    }
+
+
+# ---------- 版本库（append-only） ----------
+
+def _load_db() -> list:
+    if not VERSION_DB.exists():
+        return []
+    try:
+        return json.loads(VERSION_DB.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return []
+
+
+def _save_db(records: list) -> None:
+    VERSION_DB.parent.mkdir(parents=True, exist_ok=True)
+    VERSION_DB.write_text(
+        json.dumps(records, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+
+def add_version(dna: str, parent_dna: str, content: str, version: str) -> dict:
+    records = _load_db()
+    h = content_hash(content)
+    record = {
+        "id": f"V-{int(time.time() * 1000)}",
+        "dna": dna,
+        "parent_dna": parent_dna or "",
+        "content_hash": h,
+        "content": content,
+        "version": version,
+        "created_at": datetime.now(timezone.utc).isoformat(),
+    }
+    records.append(record)
+    _save_db(records)
+    return record
+
+
+# ---------- Flask 应用 ----------
+
+app = Flask(__name__)
+CORS(app)
+
+
+@app.get("/api/health")
+def health():
+    return jsonify({
+        "ok": True,
+        "service": "lh_cnsh_validator_api",
+        "version": "v1.1",
+        "uid": UID,
+        "confirm": CONFIRM,
+        "versions": len(_load_db()),
+    })
+
+
+@app.post("/api/audit")
+def audit():
+    data = request.get_json(silent=True) or {}
+    content = data.get("content", "")
+    if not content.strip():
+        return jsonify({"ok": False, "error": "content 为空"}), 400
+    original_hash = data.get("original_hash", "")
+    if not original_hash and data.get("original_content"):
+        original_hash = content_hash(data["original_content"])
+    result = run_audit(content, original_hash=original_hash)
+    return jsonify(result)
+
+
+@app.post("/api/versions")
+def save_version():
+    data = request.get_json(silent=True) or {}
+    dna = data.get("dna", "")
+    content = data.get("content", "")
+    if not dna or not content.strip():
+        return jsonify({"ok": False, "error": "dna 与 content 必填"}), 400
+    record = add_version(
+        dna=dna,
+        parent_dna=data.get("parent_dna", ""),
+        content=content,
+        version=data.get("version", "v1.0"),
+    )
+    return jsonify({"ok": True, "record": record})
+
+
+@app.get("/api/versions")
+def list_versions():
+    """按父DNA查询版本链；无参则返回全部。"""
+    dna = request.args.get("dna", "").strip()
+    limit = min(int(request.args.get("limit", 20)), 200)
+    records = _load_db()
+    if dna:
+        # 链式查询：命中该DNA本身 + 以其为父DNA 的后代
+        matched = [r for r in records
+                   if r["dna"] == dna or r["parent_dna"] == dna]
+    else:
+        matched = records
+    matched.sort(key=lambda r: r["created_at"], reverse=True)
+    return jsonify({
+        "ok": True,
+        "total": len(matched),
+        "versions": matched[:limit],
+    })
+
+
+@app.post("/api/compare")
+def compare():
+    """与版本库真实比对：传入 dna（版本库中的基准） + content（当前内容）→ 行级差异。"""
+    data = request.get_json(silent=True) or {}
+    dna = data.get("dna", "")
+    content = data.get("content", "")
+    if not dna or not content.strip():
+        return jsonify({"ok": False, "error": "dna 与 content 必填"}), 400
+
+    records = _load_db()
+    base = next((r for r in records if r["dna"] == dna), None)
+    if not base:
+        return jsonify({
+            "ok": False,
+            "error": "版本库中未找到该 DNA 的原始版本",
+            "hint": "请先点击「验证 & 对比」将该内容设为基准并上报版本库",
+        }), 404
+
+    orig_lines = base["content"].split("\n")
+    mod_lines = content.split("\n")
+
+    # 简单行级 LCS 式对齐（无删行错位）
+    from difflib import SequenceMatcher
+    sm = SequenceMatcher(a=orig_lines, b=mod_lines)
+    diff_ops = []
+    for tag, i1, i2, j1, j2 in sm.get_opcodes():
+        if tag == "equal":
+            continue
+        diff_ops.append({
+            "type": tag,
+            "original_lines": orig_lines[i1:i2],
+            "modified_lines": mod_lines[j1:j2],
+        })
+
+    return jsonify({
+        "ok": True,
+        "base_version": base["version"],
+        "base_dna": base["dna"],
+        "base_hash": base["content_hash"],
+        "current_hash": content_hash(content),
+        "changed": len(diff_ops) > 0,
+        "diff_count": len(diff_ops),
+        "diffs": diff_ops,
+    })
+
+
+def main():
+    parser = argparse.ArgumentParser(description="CNSH 溯源验证编辑器后端审计 API")
+    parser.add_argument("--port", type=int, default=8905)
+    parser.add_argument("--host", default="127.0.0.1")
+    args = parser.parse_args()
+    print(f"🐉 lh_cnsh_validator_api v1.0 · {args.host}:{args.port} · 版本库: {VERSION_DB}")
+    print(f"   UID9622 · {CONFIRM}")
+    app.run(host=args.host, port=args.port, debug=False)
+
+
+if __name__ == "__main__":
+    main()

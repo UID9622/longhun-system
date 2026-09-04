@@ -1,15 +1,17 @@
-# 🐉 Longhun System · 龍魂系统
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# 🐉 LongHun System · 龍魂系统
 
 **Creator: Zhuge Xin · UID9622**  
 **System Status: 🟢 Running**  
 **Last Updated: 2026-06-03**  
-**DNA Marker: #龍芯⚡️2026-06-03-LONGHUN-README-EN-OFFICIAL**
+**DNA Marker: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-README-EN-OFFICIAL**
 
 ---
 
 ## What is This
 
-Longhun System is a **complete native Chinese AI collaboration system**. Including:
+LongHun System is a **complete native Chinese AI collaboration system**. Including:
 
 - 🧬 **DNA Traceability System** — Every operation is immutable, permanently recorded
 - 🛡️ **Three-Color Audit** — 🟢 Pass / 🟡 Pending / 🔴 Circuit Break
@@ -73,7 +75,7 @@ Breaking any = FUSE_3 permanent circuit break (irreversible)
 1. **Submit Application**
    ```
    Email: [YOUR UPDATED EMAIL]
-   Subject: [Longhun Authorization Request] [Purpose] [Your Name]
+   Subject: [LongHun Authorization Request] [Purpose] [Your Name]
    ```
 
 2. **Receive Authorization Code**
@@ -124,8 +126,8 @@ Breaking any = FUSE_3 permanent circuit break (irreversible)
 ## File Inventory (Delivered)
 
 ### System Files (6)
-- `longhun_shield_system.py` — Longhun Shield Core Engine
-- `longhun_shield_cli.py` — Longhun Shield CLI Tool
+- `longhun_shield_system.py` — LongHun Shield Core Engine
+- `longhun_shield_cli.py` — LongHun Shield CLI Tool
 - `longhun_shield_instruction_protocol.py` — Immutable Instruction Protocol
 - `baobao_workflow_transparent.py` — Workflow Transparency
 - `algorithm_driven_seal_system.py` — Algorithm Seal System
@@ -182,7 +184,7 @@ Commercial use = Damages liability
 
 ## Contact & Authorization
 
-**UID9622 · Zhuge Xin · Longhun Creator**
+**UID9622 · Zhuge Xin · LongHun Creator**
 
 - 📧 Email: [YOUR UPDATED EMAIL]
 - 🔐 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -196,13 +198,13 @@ Commercial use = Damages liability
 
 **This system does NOT fall under any open source license (MIT, GPL, Apache, etc.).**
 
-This is Longhun's own rules with STRONGER protection.
+This is LongHun's own rules with STRONGER protection.
 
 **Violating these rules carries LEGAL LIABILITY.**
 
 ---
 
-**DNA: #龍芯⚡️2026-06-03-LONGHUN-README-EN-OFFICIAL**  
+**DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-README-EN-OFFICIAL**  
 **SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL**  
 **CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z**
 

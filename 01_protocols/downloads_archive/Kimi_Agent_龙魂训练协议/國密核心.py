@@ -1,7 +1,13 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+#!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷍大有-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-#龍芯⚡️2025-01-15-國密核心-加密模塊-v1.0.0-a1b2c3d4
+#龍芯⚡️乙巳·丁丑·甲申·庚午·䷙大畜-國密核心-加密模塊-v1.0.0-a1b2c3d4
 國密算法核心實現（SM2/SM3/SM4）
 龍魂體系支撐層
 """
@@ -159,9 +165,6 @@ class SM4密碼器:
         0xa3b1bac6, 0x56aa3350, 0x677d9197, 0xb27022dc
     ] * 8
 
-    def _循環左移(self, 值: int, 位移: int) -> int:
-        掩碼 = 0xFFFFFFFF
-        return ((值 << 位移) | (值 >> (32 - 位移))) & 掩碼
 
     def _非線性變換(self, 輸入值: int) -> int:
         結果 = 0

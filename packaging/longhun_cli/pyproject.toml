@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "longhun-cli"
+version = "4.0.0"
+description = "龍魂系统 CIL · 文化主权命令行接口（对外分发弹头 v4.0）"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "AGPL-3.0-or-later"
+authors = [
+    { name = "诸葛鑫 (UID9622)", email = "uid9622@petalmail.com" }
+]
+keywords = [
+    "longhun", "龍魂", "cil", "culture-sovereignty", "cli",
+    "bazi", "八字", "wuxing", "五行", "digital-root", "flow",
+    "chinese-culture", "ai-sovereignty",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: System :: Software Distribution",
+]
+dependencies = []
+
+# 分层许可说明:
+# 工程实现层(代码) = AGPL-3.0-or-later（开源但不白嫖·对外分发）
+# 思想/文档层 = CC BY-NC-SA 4.0（核心思想层）· 详见根 LICENSE 与
+#   longhun-system/01_protocols/LH-LAYERED-LICENSE-v1.0.md
+
+[project.urls]
+Homepage = "https://uid9622.cn"
+Documentation = "https://uid9622.cn/longhun-cli"
+Repository = "https://github.com/UID9622/longhun-system"
+Issues = "https://github.com/UID9622/longhun-system/issues"
+
+[project.scripts]
+lh = "longhun_cli.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["longhun_cli*"]

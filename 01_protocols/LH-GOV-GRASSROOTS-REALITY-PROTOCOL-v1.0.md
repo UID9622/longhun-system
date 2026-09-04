@@ -1,7 +1,15 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ⛔ 精简版（不再维护） — 完整版见 `LH-GOV-GRASSROOTS-REALITY-PROTOCOL-FULL-v1.0.md`
 
 > **本文件为精简版，保留作入口索引。完整内容见同目录下FULL版本。**
 > **变更日期**: 丙午·辛未·丙戌 (2026-07-17)
+
+> #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+> 📄 基层现实协议 | 龍魂系统 · 源头已验证
 
 ---
 
@@ -237,4 +245,4 @@
 
 **协议发起方**：龍魂系统 · 基层治理观察组  
 **创始人签名**：UID9622 / Lucky（退伍军人）  
-**DNA**：`#龍芯⚡️2026-06-25-LONGHUN-GRASSROOTS-REALITY-PROTOCOL-v1.0`
+**DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-GRASSROOTS-REALITY-PROTOCOL-v1.0`

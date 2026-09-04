@@ -1,4 +1,6 @@
-<!-- DNA: #龍芯⚡️2026-07-13-CODE-OF-CONDUCT-v2.1 · 龍魂原生版·审计校准 -->
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+<!-- DNA: #龍芯⚡️丙午·乙未·戊子·戊午·䷙大畜-CODE-OF-CONDUCT-v2.1 · 龍魂原生版·审计校准 -->
 
 # 龍魂社区 · 行为准则
 

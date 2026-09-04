@@ -1,0 +1,76 @@
+#!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# DNA: #龍芯⚡️丙午·乙未·乙巳·壬午·䷃蒙-网络限流应对-香港代理-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 创建者: 诸葛鑫（UID9622）
+# 协议: CC BY-NC-SA 4.0
+# 龍魂网络限流应对方案 · 华为云香港代理
+# 解决：GitHub/HuggingFace/外网API访问被限流
+
+# ===== 配置区（修改为你的实际值） =====
+HK_SERVER_IP="YOUR_HK_SERVER_IP"      # 华为云香港服务器IP
+HK_SSH_KEY="~/.ssh/huawei_hk.pem"     # 华为云密钥路径
+HK_USER="root"                        # 登录用户
+LOCAL_PROXY_PORT="1080"               # 本地SOCKS5代理端口
+
+# ===== 1.1 测试SSH连接 =====
+echo "[龍魂] 测试华为云香港服务器连接..."
+ssh -i $HK_SSH_KEY -o StrictHostKeyChecking=no -o ConnectTimeout=5 $HK_USER@$HK_SERVER_IP "echo 'SSH连接成功'" || {
+    echo "[龍魂] ❌ SSH连接失败，检查IP和密钥"
+    exit 1
+}
+
+# ===== 1.2 在服务器端安装tinyproxy（轻量代理） =====
+echo "[龍魂] 在香港服务器部署代理..."
+ssh -i $HK_SSH_KEY $HK_USER@$HK_SERVER_IP << 'REMOTE'
+    # 安装tinyproxy
+    apt-get update && apt-get install -y tinyproxy
+    
+    # 配置tinyproxy：允许所有IP连接，端口8888
+    cat > /etc/tinyproxy/tinyproxy.conf << 'EOF'
+User root
+Group root
+Port 8888
+Listen 0.0.0.0
+Timeout 600
+DefaultErrorFile "/usr/share/tinyproxy/default.html"
+StatFile "/usr/share/tinyproxy/stats.html"
+LogLevel Info
+MaxClients 100
+MinSpareServers 5
+MaxSpareServers 20
+StartServers 10
+MaxRequestsPerChild 0
+Allow 0.0.0.0/0
+ViaProxyName "tinyproxy"
+EOF
+    
+    # 重启服务
+    systemctl restart tinyproxy
+    systemctl enable tinyproxy
+    
+    # 防火墙放行8888
+    ufw allow 8888/tcp || iptables -I INPUT -p tcp --dport 8888 -j ACCEPT
+    
+    echo "[龍魂] tinyproxy已部署，端口8888"
+REMOTE
+
+# ===== 1.3 本地建立SSH隧道（SOCKS5代理） =====
+echo "[龍魂] 建立本地SOCKS5隧道..."
+# 后台运行SSH隧道
+ssh -i $HK_SSH_KEY -f -N -D $LOCAL_PROXY_PORT $HK_USER@$HK_SERVER_IP
+
+# 验证代理
+curl --socks5 localhost:$LOCAL_PROXY_PORT -s https://ipinfo.io/ip && echo "[龍魂] ✅ 代理生效，出口IP已切换"
+
+# ===== 1.4 写入系统代理配置 =====
+cat > ~/.longhun_proxy << EOF
+export http_proxy=socks5://127.0.0.1:$LOCAL_PROXY_PORT
+export https_proxy=socks5://127.0.0.1:$LOCAL_PROXY_PORT
+export ALL_PROXY=socks5://127.0.0.1:$LOCAL_PROXY_PORT
+export NO_PROXY=localhost,127.0.0.1,192.168.0.0/16,10.0.0.0/8
+EOF
+
+echo "[龍魂] 代理配置已写入 ~/.longhun_proxy"
+echo "[龍魂] 使用: source ~/.longhun_proxy"
+echo "[龍魂] 验证: curl -s https://ipinfo.io/ip"

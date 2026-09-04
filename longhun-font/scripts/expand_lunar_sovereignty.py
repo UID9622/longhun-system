@@ -1,6 +1,9 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-69274d30
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # 龍魂·农历主权扩展 / LongHun Lunar Sovereignty Expansion
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-LUNAR-SOVEREIGNTY-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 """
 LonghunFont 农历主权扩展
@@ -340,7 +343,7 @@ ZODIAC = {
         polyline([(280, 360), (260, 220), (300, 180), (340, 220), (320, 360)]) +
         circle(300, 380, 45, segments=10) +
         polyline([(340, 380), (380, 420)]),
-    "龍":  # S形龍身
+    "龙":  # S形龙身
         polyline([(180, 380), (220, 280), (320, 260), (420, 300), (440, 380), (380, 460), (280, 480), (180, 440), (180, 380)]) +
         circle(260, 340, 20, segments=8) +
         polyline([(420, 300), (460, 240)]),

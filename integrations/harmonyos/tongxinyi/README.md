@@ -1,6 +1,9 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 通心译 (Tongxin Translation) — 鸿蒙端
 
-> **DNA**: `#龍芯⚡️丙午·丙申·癸丑·午时·需-TONGXINYI-HARMONYOS-v1.0`
+> **DNA**: `#龍芯⚡️丙午·丙申·癸丑·午时·䷄需-TONGXINYI-HARMONYOS-v1.0`
 > **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 > **底座**: 华为芯片 + 鸿蒙操作系统
 
@@ -200,4 +203,4 @@ const explanation = translator.explainTerm('LLM');
 ---
 
 > **大哥焊死**: 通心译是华为芯片和鸿蒙的底座。别人能抄代码，抄不走"通心"二字里的文化认同。
-> `#龍芯⚡️丙午·丙申·癸丑·午时·需-TONGXINYI-HARMONYOS-v1.0-B4F1A2D8`
+> `#龍芯⚡️丙午·丙申·癸丑·午时·䷄需-TONGXINYI-HARMONYOS-v1.0-B4F1A2D8`

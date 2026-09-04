@@ -1,0 +1,68 @@
+{
+  "version": "1.0",
+  "generated": "2026-08-04T14:08:52.063427+00:00",
+  "total_risks": 6,
+  "risks": [
+    {
+      "company": "某团外卖",
+      "title": "强迫商家二选一",
+      "category": "平台垄断",
+      "severity": "critical",
+      "case_id": 1,
+      "evidence_count": 1,
+      "victims": 37200,
+      "domains": []
+    },
+    {
+      "company": "某滴出行",
+      "title": "大数据杀熟",
+      "category": "算法收割",
+      "severity": "critical",
+      "case_id": 2,
+      "evidence_count": 1,
+      "victims": 186000,
+      "domains": []
+    },
+    {
+      "company": "某输入法App",
+      "title": "键盘输入实时上传云端",
+      "category": "隐私践踏",
+      "severity": "critical",
+      "case_id": 4,
+      "evidence_count": 1,
+      "victims": 38000000,
+      "domains": []
+    },
+    {
+      "company": "某短视频平台",
+      "title": "未成年沉迷推荐算法",
+      "category": "算法收割",
+      "severity": "critical",
+      "case_id": 6,
+      "evidence_count": 1,
+      "victims": 95000000,
+      "domains": []
+    },
+    {
+      "company": "某智能家居厂商",
+      "title": "智能音箱24小时录音",
+      "category": "隐私践踏",
+      "severity": "critical",
+      "case_id": 8,
+      "evidence_count": 1,
+      "victims": 15000000,
+      "domains": []
+    },
+    {
+      "company": "某医疗健康App",
+      "title": "用户健康数据被出售",
+      "category": "数据倒卖",
+      "severity": "critical",
+      "case_id": 9,
+      "evidence_count": 1,
+      "victims": 8700000,
+      "domains": []
+    }
+  ],
+  "dna": "#龍芯⚡️丙午·乙未·丁酉·戌时·☰乾-HARMS-HISTORIAN-BRIDGE-v1.0"
+}

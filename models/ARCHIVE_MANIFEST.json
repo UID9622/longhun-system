@@ -33,5 +33,83 @@
       "_archive/models/v4_hf_cache/hf_cache",
       "_archive/models/base_model_old/base_model_old"
     ]
-  }
+  },
+  "slim_records": [
+    {
+      "slim_at": "2026-08-22T20:08:36.175530",
+      "dna": "#龍芯⚡️20260822200836-MODEL-SLIM-89899250",
+      "reason": "MAC 深层体检 v2.0 → models 瘦身: GGUF原件已导入ollama + 废弃中间checkpoint + 非keep实验版本; 保留 keep 清单(v3.6/v3.7/best) + adapter_v4.0/adapter_antenna + 全部MLX底座",
+      "deleted": [
+        {
+          "path": "models/longhun-v1.0/longhun-v43-v3-f16.gguf",
+          "size_mb": 15324.5
+        },
+        {
+          "path": "models/longhun-v1.0/longhun-v43-v3-Q4_K_M.gguf",
+          "size_mb": 4692.8
+        },
+        {
+          "path": "models/longhun-v1.0/sft_checkpoints",
+          "size_mb": 15333.1
+        },
+        {
+          "path": "models/longhun-v1.0/checkpoint_archive",
+          "size_mb": 2286.8
+        },
+        {
+          "path": "models/longhun-v1.0/lora_output/merged_v3.8",
+          "size_mb": 2959.7
+        },
+        {
+          "path": "models/longhun-v1.0/lora_output/merged_v3.8.1",
+          "size_mb": 2959.7
+        },
+        {
+          "path": "models/longhun-v1.0/lora_output/merged_v3.9",
+          "size_mb": 2959.7
+        },
+        {
+          "path": "models/longhun-v1.0/lora_output/merged_v3.9.1",
+          "size_mb": 2959.7
+        },
+        {
+          "path": "models/longhun-v1.0/lora_output/merged_v3.9.2",
+          "size_mb": 2959.7
+        },
+        {
+          "path": "models/longhun-v1.0/lora_output/gguf_v3.8",
+          "size_mb": 2950.4
+        },
+        {
+          "path": "models/longhun-v1.0/lora_output/gguf_v3.8.1",
+          "size_mb": 2950.4
+        },
+        {
+          "path": "models/longhun-v1.0/lora_output/gguf_v3.9",
+          "size_mb": 2950.4
+        },
+        {
+          "path": "models/longhun-v1.0/lora_output/gguf_v3.9.1",
+          "size_mb": 2950.4
+        },
+        {
+          "path": "models/longhun-v1.0/lora_output/gguf_v3.9.2",
+          "size_mb": 2950.4
+        },
+        {
+          "path": "models/longhun-v1.0/lora_output_deepseek_v40/merged_v4.0",
+          "size_mb": 15333.1
+        },
+        {
+          "path": "models/longhun-v1.0/lora_output_deepseek_v40/gguf_v4.0",
+          "size_mb": 15324.5
+        },
+        {
+          "path": "models/longhun-v1.0/lora_output_antenna/merged_antenna",
+          "size_mb": 16854.9
+        }
+      ],
+      "frozen": "物理删除已登记留档, 若需恢复可重训/重新导出(原路径均未入git)"
+    }
+  ]
 }

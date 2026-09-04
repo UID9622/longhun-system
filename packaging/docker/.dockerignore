@@ -1,0 +1,18 @@
+# 构建上下文排除（镜像瘦身）
+.git
+.gitignore
+__pycache__
+*.pyc
+*.log
+*.pid
+*.asc
+dist/
+build/
+_work/
+logs/
+models/
+11_DATA/
+*.mp4
+*.wav
+*.mp3
+.venv

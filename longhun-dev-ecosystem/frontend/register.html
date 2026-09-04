@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>🐉 龍魂生态 · 开发者注册</title>
+    <!-- DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DEV-REGISTER-UID9622 -->
+    <link rel="stylesheet" href="static/style.css?v=3" />
+</head>
+<body>
+<div class="page-container">
+    <div class="card">
+        <div class="logo">🐉 龍魂生态</div>
+        <div class="subtitle">
+            月度主权 · 开发者注册 <br />
+            <span class="highlight">1元/月 = 数字主权立场</span>
+        </div>
+
+        <div class="convention-box">
+            <div class="convention-title">🧬 开发者月费公约</div>
+            <ul class="convention-list">
+                <li>每月 1 元，用于确认数字主权身份</li>
+                <li>可自愿多缴，多出部分进入生态公共池</li>
+                <li>连续 3 个月未缴 → DNA 冻结，补缴后恢复</li>
+            </ul>
+        </div>
+
+        <!-- 登录方式切换：手机号快捷登录（主） / 邮箱注册（兜底） -->
+        <div class="tab-bar">
+            <button type="button" class="tab active" id="tabPhoneBtn">📱 手机号快捷登录</button>
+            <button type="button" class="tab" id="tabEmailBtn">📧 邮箱注册</button>
+        </div>
+
+        <!-- ========== 手机号快捷登录（Kimi式）========== -->
+        <form id="phoneForm">
+            <div class="form-group">
+                <label>手机号</label>
+                <div class="code-row">
+                    <input type="tel" id="phone" placeholder="请输入11位手机号" maxlength="11" autocomplete="tel" required />
+                    <button type="button" class="btn-code" id="sendCodeBtn">获取验证码</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>验证码</label>
+                <input type="text" id="smsCode" placeholder="6位验证码" maxlength="6" autocomplete="one-time-code" required />
+            </div>
+            <div id="smsHint" class="sms-hint" style="display:none;"></div>
+
+            <div class="price-tag">￥1 <small>· 每月 · 上不封顶 · 杜绝一毛不拔</small></div>
+
+            <button type="submit" class="btn" id="phoneLoginBtn">📱 登录 / 注册</button>
+
+            <!-- 新手机号：首次补资料（Kimi式一步注册） -->
+            <div id="profileGroup" style="display:none;">
+                <div class="form-group" style="margin-top:12px;">
+                    <label>昵称</label>
+                    <input type="text" id="pNickname" placeholder="在龍魂生态中的昵称" required />
+                </div>
+                <div class="form-group">
+                    <label>身份类型</label>
+                    <select id="pIdentity" style="width:100%;padding:10px;border-radius:8px;background:rgba(255,255,255,0.05);color:#e8e6e3;border:1px solid rgba(255,255,255,0.12);">
+                        <option value="personal">个人开发者（每月 1 元）</option>
+                        <option value="enterprise">企业 / 机构（自愿上浮，上不封顶）</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>GPG 公钥（可选）</label>
+                    <input type="text" id="pGpg" placeholder="粘贴你的 GPG 公钥，用于签名验证" />
+                </div>
+                <button type="button" class="btn" id="confirmJoinBtn" style="background:#4ade80;color:#0a0a12;">🚀 确认加入 · 首月费 1 元</button>
+            </div>
+        </form>
+
+        <!-- ========== 邮箱注册（兜底）========== -->
+        <form id="registerForm" style="display:none;">
+            <div class="form-group">
+                <label>真实姓名</label>
+                <input type="text" id="name" placeholder="请输入真实姓名" required />
+            </div>
+            <div class="form-group">
+                <label>邮箱</label>
+                <input type="email" id="email" placeholder="请输入邮箱（用于接收DNA凭证）" required />
+            </div>
+            <div class="form-group">
+                <label>昵称</label>
+                <input type="text" id="nickname" placeholder="在龍魂生态中的昵称" required />
+            </div>
+            <div class="form-group">
+                <label>GPG 公钥（可选）</label>
+                <input type="text" id="gpg" placeholder="粘贴你的 GPG 公钥，用于签名验证" />
+            </div>
+            <div class="form-group">
+                <label>身份类型</label>
+                <select id="identity" style="width:100%;padding:10px;border-radius:8px;background:rgba(255,255,255,0.05);color:#e8e6e3;border:1px solid rgba(255,255,255,0.12);">
+                    <option value="personal">个人开发者（每月 1 元）</option>
+                    <option value="enterprise">企业 / 机构（自愿上浮，上不封顶）</option>
+                </select>
+            </div>
+            <div class="form-group" id="amountGroup" style="display:none;">
+                <label>首月自愿金额（元，≥1）</label>
+                <input type="number" id="amount" value="10" min="1" step="1" placeholder="企业可自愿多缴" />
+                <div style="font-size:11px;color:#888;margin-top:4px;">多缴部分计入生态公共贡献池，公开透明</div>
+            </div>
+
+            <div class="price-tag">￥1 <small>· 每月 · 上不封顶 · 杜绝一毛不拔</small></div>
+
+            <button type="submit" class="btn" id="registerBtn">🚀 立即注册 · 首月费 1 元</button>
+        </form>
+
+        <div class="loading" id="loading">⏳ 处理中...</div>
+        <div class="result" id="result">
+            <div id="resultContent"></div>
+        </div>
+
+        <div class="footer">
+            🔐 支付后即生成唯一开发者DNA · 不可篡改 · 数据主权归你<br />
+            🐉 1元/月不是钱，是立场。上不封顶，是觉悟。<br />
+            <a href="dashboard">进入开发者面板 →</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ============ Tab 切换 ============
+    function switchTab(which) {
+        const isPhone = which === 'phone';
+        document.getElementById('tabPhoneBtn').classList.toggle('active', isPhone);
+        document.getElementById('tabEmailBtn').classList.toggle('active', !isPhone);
+        document.getElementById('phoneForm').style.display = isPhone ? 'block' : 'none';
+        document.getElementById('registerForm').style.display = isPhone ? 'none' : 'block';
+        document.getElementById('result').classList.remove('show');
+    }
+    document.getElementById('tabPhoneBtn').addEventListener('click', () => switchTab('phone'));
+    document.getElementById('tabEmailBtn').addEventListener('click', () => switchTab('email'));
+
+    // ============ 手机号快捷登录（Kimi式）============
+    let pendingPhone = null;   // 新用户二次提交时携带
+    let pendingCode = null;
+
+    // 获取验证码（60秒倒计时）
+    document.getElementById('sendCodeBtn').addEventListener('click', async function () {
+        const phone = document.getElementById('phone').value.trim();
+        if (!/^1[3-9]\d{9}$/.test(phone)) {
+            showResult('❌ 请输入正确的11位手机号', 'error');
+            return;
+        }
+        const btn = this;
+        btn.disabled = true;
+        try {
+            const resp = await fetch('api/sms/send-code', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ phone })
+            });
+            const data = await resp.json();
+            if (!resp.ok || !data.success) {
+                showResult(`❌ ${data.detail || '发送失败'}`, 'error');
+                btn.disabled = false;
+                return;
+            }
+            // 沙箱模式：验证码直接显示（正式短信通道接入后自动隐藏）
+            document.getElementById('smsHint').textContent = `📨 ${data.message}`;
+            document.getElementById('smsHint').style.display = 'block';
+            showResult('📨 验证码已发送，请查收（沙箱模式见上方提示）', 'success');
+            let sec = 60;
+            const timer = setInterval(() => {
+                sec--;
+                btn.textContent = `重新获取 (${sec}s)`;
+                if (sec <= 0) {
+                    clearInterval(timer);
+                    btn.textContent = '获取验证码';
+                    btn.disabled = false;
+                }
+            }, 1000);
+        } catch (e) {
+            showResult(`❌ 网络错误: ${e.message}`, 'error');
+            btn.disabled = false;
+        }
+    });
+
+    // 登录 / 注册
+    document.getElementById('phoneForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const phone = document.getElementById('phone').value.trim();
+        const code = document.getElementById('smsCode').value.trim();
+        if (!phone || !code) {
+            showResult('❌ 请输入手机号和验证码', 'error');
+            return;
+        }
+        const btn = document.getElementById('phoneLoginBtn');
+        const loading = document.getElementById('loading');
+        btn.disabled = true;
+        loading.classList.add('show');
+        document.getElementById('result').classList.remove('show');
+
+        try {
+            const resp = await fetch('api/developer/phone-login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ phone, code })
+            });
+            const data = await resp.json();
+
+            if (!resp.ok || !data.success) {
+                showResult(`❌ ${data.detail || '登录失败'}`, 'error');
+                return;
+            }
+
+            // 新手机号：先补资料再确认加入
+            if (data.need_profile) {
+                pendingPhone = phone;
+                pendingCode = code;
+                document.getElementById('profileGroup').style.display = 'block';
+                document.getElementById('phoneLoginBtn').style.display = 'none';
+                document.getElementById('smsHint').textContent = '🆕 检测到新手机号，完善以下信息即可一键加入';
+                document.getElementById('smsHint').style.display = 'block';
+                showResult('🆕 首次使用 · 请完善昵称后确认加入', 'success');
+                return;
+            }
+
+            // 老用户：直接显示身份
+            if (data.existing) {
+                renderPhoneResult(data.developer, data.order, data.message);
+                return;
+            }
+
+            // 新用户注册成功：显示支付激活
+            if (data.dna) {
+                renderPayArea(data.dna, data.order, 1.0, data.message);
+                return;
+            }
+        } catch (e) {
+            showResult(`❌ 网络错误: ${e.message}`, 'error');
+        } finally {
+            btn.disabled = false;
+            loading.classList.remove('show');
+        }
+    });
+
+    // 新用户确认加入（带昵称二次提交）
+    document.getElementById('confirmJoinBtn').addEventListener('click', async function () {
+        const nickname = document.getElementById('pNickname').value.trim();
+        if (!nickname) {
+            showResult('❌ 请填写昵称', 'error');
+            return;
+        }
+        const gpg = document.getElementById('pGpg').value.trim();
+        const identity = document.getElementById('pIdentity').value;
+        const btn = this;
+        const loading = document.getElementById('loading');
+        btn.disabled = true;
+        loading.classList.add('show');
+
+        try {
+            const resp = await fetch('api/developer/phone-login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    phone: pendingPhone,
+                    code: pendingCode,
+                    nickname,
+                    gpg_public_key: gpg || null,
+                    is_enterprise: identity === 'enterprise'
+                })
+            });
+            const data = await resp.json();
+
+            if (!resp.ok || !data.success) {
+                showResult(`❌ ${data.detail || '注册失败'}`, 'error');
+                return;
+            }
+            renderPayArea(data.dna, data.order, 1.0, data.message);
+        } catch (e) {
+            showResult(`❌ 网络错误: ${e.message}`, 'error');
+        } finally {
+            btn.disabled = false;
+            loading.classList.remove('show');
+        }
+    });
+
+    // 老用户结果渲染
+    function renderPhoneResult(dev, order, message) {
+        let html = `
+            <div style="color:#4ade80;font-weight:700;">✅ ${message}</div>
+            <div style="margin-top:12px;">
+                <span style="font-size:12px;color:#888;">🧬 开发者DNA</span>
+                <div class="dna">${dev.dna}</div>
+            </div>
+            <div style="margin-top:8px;font-size:13px;color:#aaa;">
+                昵称: ${dev.nickname || '-'} · 手机: ${dev.phone || '-'} · 状态: ${dev.status === 'active' ? '🟢 已激活' : '🟡 待激活'}
+            </div>
+        `;
+        // 未激活 → 补发订单支付激活
+        if (order && order.qr_code) {
+            html += `
+                <div class="qr-container" style="margin-top:12px;">
+                    <p style="color:#888;font-size:12px;">支付二维码 · 订单 ${order.order_id}</p>
+                    <img src="${order.qr_code}" alt="支付二维码" />
+                    <div style="font-size:11px;color:#444;margin-top:6px;">订单号: ${order.order_id} · 金额: ¥${order.amount}</div>
+                </div>
+                <button onclick="confirmPayment('${dev.dna}', '${order.order_id}')" style="margin-top:12px;width:100%;padding:12px;border:none;border-radius:12px;background:#4ade80;color:#0a0a12;font-weight:700;cursor:pointer;">✅ 我已支付，确认激活</button>
+            `;
+        } else {
+            html += `
+                <div style="margin-top:12px;">
+                    <a href="dashboard?dna=${encodeURIComponent(dev.dna)}" style="color:#d4af37;">进入开发者面板 →</a>
+                </div>
+            `;
+        }
+        showResult(html, 'success');
+    }
+
+    // 新用户注册成功 → 支付激活区
+    function renderPayArea(dna, order, amount, message) {
+        let html = `
+            <div style="color:#4ade80;font-weight:700;">✅ ${message}</div>
+            <div style="margin-bottom:12px;">
+                <span style="font-size:12px;color:#888;">🧬 你的开发者DNA</span>
+                <div class="dna">${dna}</div>
+            </div>
+            <div style="margin:12px 0;padding:12px;background:rgba(255,255,255,0.04);border-radius:8px;">
+                <span style="color:#888;">📌 请完成首月费 ${amount} 元支付激活</span>
+                <div style="font-size:13px;color:#aaa;margin-top:4px;">本月为注册月，支付后即激活 · 次月起每月 1 元起步，上不封顶</div>
+            </div>
+        `;
+        if (order && order.qr_code) {
+            html += `
+                <div class="qr-container">
+                    <p style="color:#888;font-size:12px;">支付二维码 · 订单 ${order.order_id} · ${order.channel || 'sandbox'} 通道</p>
+                    <img src="${order.qr_code}" alt="支付二维码" />
+                    <div style="font-size:11px;color:#444;margin-top:6px;">订单号: ${order.order_id} · 金额: ¥${order.amount}</div>
+                </div>
+                <div style="font-size:12px;color:#666;text-align:center;">支付完成后，点击下方按钮确认（沙箱模式）</div>
+                <button onclick="confirmPayment('${dna}', '${order.order_id}')" style="margin-top:12px;width:100%;padding:12px;border:none;border-radius:12px;background:#4ade80;color:#0a0a12;font-weight:700;cursor:pointer;">✅ 我已支付，确认激活</button>
+            `;
+        }
+        showResult(html, 'success');
+    }
+
+    // ============ 邮箱注册（兜底）============
+    document.getElementById('identity').addEventListener('change', function () {
+        document.getElementById('amountGroup').style.display = this.value === 'enterprise' ? 'block' : 'none';
+    });
+
+    document.getElementById('registerForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const nickname = document.getElementById('nickname').value.trim();
+        const gpg = document.getElementById('gpg').value.trim();
+        const identity = document.getElementById('identity').value;
+        const amount = identity === 'enterprise' ? (parseFloat(document.getElementById('amount').value) || 10) : 1.0;
+
+        if (!name || !email || !nickname) {
+            showResult('❌ 请填写完整信息', 'error');
+            return;
+        }
+
+        const btn = document.getElementById('registerBtn');
+        const loading = document.getElementById('loading');
+        btn.disabled = true;
+        loading.classList.add('show');
+        document.getElementById('result').classList.remove('show');
+
+        try {
+            const resp = await fetch('api/developer/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name, email, nickname, gpg_public_key: gpg || null,
+                    is_enterprise: identity === 'enterprise',
+                    amount: amount,
+                    channel: 'sandbox'
+                })
+            });
+            const data = await resp.json();
+
+            if (!data.success) {
+                showResult(`❌ ${data.detail || '注册失败'}`, 'error');
+                return;
+            }
+
+            const dna = data.dna;
+            const order = data.order;
+
+            let html = `
+                <div style="margin-bottom:12px;">
+                    <span style="font-size:12px;color:#888;">🧬 你的开发者DNA</span>
+                    <div class="dna">${dna}</div>
+                </div>
+                <div style="margin:12px 0;padding:12px;background:rgba(255,255,255,0.04);border-radius:8px;">
+                    <span style="color:#888;">📌 请完成首月费 ${amount} 元支付激活</span>
+                    <div style="font-size:13px;color:#aaa;margin-top:4px;">本月为注册月，支付后即激活 · 次月起每月 1 元起步，上不封顶</div>
+                </div>
+            `;
+
+            if (order && order.qr_code) {
+                html += `
+                    <div class="qr-container">
+                        <p style="color:#888;font-size:12px;">支付二维码 · 订单 ${order.order_id} · ${order.channel || 'sandbox'} 通道</p>
+                        <img src="${order.qr_code}" alt="支付二维码" />
+                        <div style="font-size:11px;color:#444;margin-top:6px;">订单号: ${order.order_id} · 金额: ¥${order.amount}</div>
+                    </div>
+                    <div style="font-size:12px;color:#666;text-align:center;">支付完成后，点击下方按钮确认（沙箱模式）</div>
+                    <button onclick="confirmPayment('${dna}', '${order.order_id}')" style="margin-top:12px;width:100%;padding:12px;border:none;border-radius:12px;background:#4ade80;color:#0a0a12;font-weight:700;cursor:pointer;">✅ 我已支付，确认激活</button>
+                `;
+            }
+
+            showResult(html, 'success');
+
+        } catch (e) {
+            showResult(`❌ 网络错误: ${e.message}`, 'error');
+        } finally {
+            btn.disabled = false;
+            loading.classList.remove('show');
+        }
+    });
+
+    // ============ 支付确认（共用）============
+    async function confirmPayment(dna, orderId) {
+        const btn = event.target;
+        btn.disabled = true;
+        btn.textContent = '⏳ 确认中...';
+
+        try {
+            const resp = await fetch('api/developer/pay', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ developer_dna: dna, order_id: orderId, amount: 1.0, payment_method: 'wechat' })
+            });
+            const data = await resp.json();
+
+            if (data.success) {
+                showResult(`
+                    <div style="color:#4ade80;font-weight:700;">✅ 支付确认成功！开发者已激活</div>
+                    <div style="margin-top:8px;color:#aaa;">你的开发者身份已激活，DNA 已绑定，首月费入账 +10 贡献分</div>
+                    <div style="margin-top:8px;font-size:12px;color:#888;">🧬 次月起每月 1 元确认身份 · 上不封顶 · 杜绝一毛不拔</div>
+                    <div style="margin-top:12px;font-size:13px;color:#666;">🧬 ${dna}</div>
+                    <div style="margin-top:12px;">
+                        <a href="dashboard?dna=${encodeURIComponent(dna)}" style="color:#d4af37;">进入开发者面板 →</a>
+                    </div>
+                `, 'success');
+            } else {
+                showResult(`❌ 支付确认失败: ${data.detail || data.error || '未知错误'}`, 'error');
+            }
+        } catch (e) {
+            showResult(`❌ 网络错误: ${e.message}`, 'error');
+        } finally {
+            btn.disabled = false;
+            btn.textContent = '✅ 我已支付，确认激活';
+        }
+    }
+
+    function showResult(html, type) {
+        const el = document.getElementById('result');
+        const content = document.getElementById('resultContent');
+        content.innerHTML = html;
+        el.classList.add('show');
+        el.classList.toggle('error-box', type === 'error');
+    }
+</script>
+</body>
+</html>

@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 from __future__ import annotations
 """
 龍魂系统 · 节点心跳上报器 v2.0
-DNA: #龍芯⚡️丙午·辛未·乙酉·卯时·讼-NODE-HEARTBEAT-v2.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·卯时·䷅讼-NODE-HEARTBEAT-v2.0
 
 功能：
 - 每5分钟向注册中心上报心跳
@@ -45,7 +48,7 @@ NODE_DNA = os.environ.get("LONGHUN_NODE_DNA",
     hashlib.sha256(NODE_ID.encode()).hexdigest()[:16])
 REGISTRY_URL = os.environ.get("LONGHUN_REGISTRY_URL", "http://localhost:9623")
 DNA_ANCHOR = os.environ.get("LONGHUN_DNA_ANCHOR",
-    "#龍芯⚡️丙午·辛未·乙酉·卯时·讼-TRAIN-DATA-SOURCES-v2.0")
+    "#龍芯⚡️丙午·辛未·乙酉·卯时·䷅讼-TRAIN-DATA-SOURCES-v2.0")
 CONFIRM = os.environ.get("LONGHUN_CONFIRM",
     "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
 

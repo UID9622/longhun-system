@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷿未济-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # core/rag/rag_service.py
 # 龍魂 · RAG检索服务 · 检索增强生成
 
@@ -38,7 +43,7 @@ class RAGService:
     
     def __init__(self, 
                  embedding_model: str = "BAAI/bge-large-zh",
-                 llm_model: str = "deepseek-chat",
+                 llm_model: str = "deepseek-v4-flash",
                  top_k: int = 5,
                  rerank: bool = True):
         self.embedding_engine = EmbeddingEngine(embedding_model)

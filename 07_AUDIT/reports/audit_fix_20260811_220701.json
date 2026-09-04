@@ -1,0 +1,197 @@
+{
+  "dna": "#龍芯⚡️丙午·丙酉·壬戌·亥时·䷭升-AUDIT-BACKLOG-FIXER-UID9622-870CCA26",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "timestamp": "2026-08-11T22:07:01.505263",
+  "dry_run": false,
+  "input_dir": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT",
+  "total_files": 24,
+  "total_fixed_records": 307,
+  "actions": {
+    "added_confirm": 149,
+    "regenerated_dna": 305
+  },
+  "results": [
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/agent_embed_audit.json",
+      "status": "fixed",
+      "fixed_records": 1,
+      "actions": {
+        "added_confirm": 1
+      }
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/audit_chain.jsonl",
+      "status": "fixed",
+      "fixed_records": 3,
+      "actions": {
+        "regenerated_dna": 3,
+        "added_confirm": 3
+      }
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/comment_samples/vague_pressure/20260730_185444_这篇写得还行但不够深刻.json",
+      "status": "error",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/compliance_evidence.json",
+      "status": "fixed",
+      "fixed_records": 1,
+      "actions": {
+        "regenerated_dna": 1
+      }
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/editor_card_update.jsonl",
+      "status": "fixed",
+      "fixed_records": 11,
+      "actions": {
+        "regenerated_dna": 11,
+        "added_confirm": 11
+      }
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/ethics_green_pass.jsonl",
+      "status": "fixed",
+      "fixed_records": 6,
+      "actions": {
+        "regenerated_dna": 6
+      }
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/ethics_quantum.jsonl",
+      "status": "fixed",
+      "fixed_records": 73,
+      "actions": {
+        "regenerated_dna": 73
+      }
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/ethics_red_fuse.jsonl",
+      "status": "fixed",
+      "fixed_records": 44,
+      "actions": {
+        "regenerated_dna": 44
+      }
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/ethics_yellow_hold.jsonl",
+      "status": "fixed",
+      "fixed_records": 23,
+      "actions": {
+        "regenerated_dna": 23
+      }
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/kb_expand_audit.jsonl",
+      "status": "fixed",
+      "fixed_records": 56,
+      "actions": {
+        "regenerated_dna": 56,
+        "added_confirm": 56
+      }
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/math_suite_cron.jsonl",
+      "status": "fixed",
+      "fixed_records": 38,
+      "actions": {
+        "regenerated_dna": 38,
+        "added_confirm": 27
+      }
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/math_suite_cron.stdout.log",
+      "status": "fixed",
+      "fixed_records": 0,
+      "actions": {}
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/offline_ai_audit.jsonl",
+      "status": "fixed",
+      "fixed_records": 17,
+      "actions": {
+        "regenerated_dna": 17,
+        "added_confirm": 17
+      }
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/persona_gate_trace.jsonl",
+      "status": "fixed",
+      "fixed_records": 9,
+      "actions": {
+        "regenerated_dna": 9,
+        "added_confirm": 9
+      }
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/platform_violations.json",
+      "status": "error",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/radar_scan.jsonl",
+      "status": "fixed",
+      "fixed_records": 3,
+      "actions": {
+        "regenerated_dna": 3,
+        "added_confirm": 3
+      }
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/sample_entity_bad.json",
+      "status": "error",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/sample_entity_good.json",
+      "status": "error",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/script_manager_audit_trail.jsonl",
+      "status": "fixed",
+      "fixed_records": 3,
+      "actions": {
+        "regenerated_dna": 3,
+        "added_confirm": 3
+      }
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/script_router_audit.json",
+      "status": "fixed",
+      "fixed_records": 1,
+      "actions": {
+        "added_confirm": 1
+      }
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/second_brain_embed.jsonl",
+      "status": "fixed",
+      "fixed_records": 1,
+      "actions": {
+        "regenerated_dna": 1,
+        "added_confirm": 1
+      }
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/second_brain_sync.jsonl",
+      "status": "fixed",
+      "fixed_records": 17,
+      "actions": {
+        "regenerated_dna": 17,
+        "added_confirm": 17
+      }
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/sheets/AUDIT-001.json",
+      "status": "error",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "file": "/Users/zuimeidedeyihan/longhun-system/07_AUDIT/sovereignty_master_audit.json",
+      "status": "error",
+      "error": "Expecting value: line 52 column 18 (char 1156)"
+    }
+  ]
+}

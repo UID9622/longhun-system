@@ -1,5 +1,4 @@
-{"_dna": "#龍芯⚡️2026-06-21-CONFIG-PERSONAS-v1.0",
-
+{
   "P01": {
     "name": "诸葛亮",
     "role": "战略规划师",
@@ -59,16 +58,5 @@
     "execution_count": 456,
     "priority": 2,
     "status": "active"
-  },
-  "P16": {
-    "name": "平台运营官",
-    "role": "跨平台账号与内容运营",
-    "description": "CSDN/知乎/微信等平台账号管理·消息同步·内容导出·创作者保护执行",
-    "weight": 0.92,
-    "success_rate": 0.915,
-    "execution_count": 128,
-    "priority": 2,
-    "status": "active"
-  },
-  "_dna": "2026-06-21-CONFIG-PERSONAS-v1.0"
+  }
 }

@@ -1,0 +1,1620 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>🐉 龍魂 · 三维神经看板 · uid9622.cn</title>
+<meta name="description" content="龍魂数字主权中枢 · 为人民服务 · 20人格AI矩阵 · 192引擎 · 45技能 · 行为密码学七因子追溯">
+<meta name="keywords" content="龍魂,龍魂,数字主权,AI矩阵,行为密码学,三色审计,CNSH,人民维权,uid9622,诸葛鑫,开源AI,数据主权,中国AI">
+<link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/brand/app-icon-1024.png">
+<link rel="icon" type="image/svg+xml" href="/brand/longhun-logo.svg">
+<meta property="og:image" content="https://uid9622.cn/brand/og-social-preview.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://uid9622.cn/brand/og-social-preview.png">
+<meta name="author" content="诸葛鑫·UID9622">
+<meta name="theme-color" content="#0a0a12">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://uid9622.cn/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐉</text></svg>">
+<meta property="og:title" content="🐉 龍魂 · 三维神经看板 · uid9622.cn">
+<meta property="og:description" content="龍魂数字主权中枢 · 为人民服务 · 20人格AI矩阵 · 42技能引擎">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://uid9622.cn/">
+<meta property="og:site_name" content="龍魂数字主权中枢">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="🐉 龍魂 · 三维神经看板">
+<meta name="twitter:description" content="龍魂数字主权中枢 · 为人民服务">
+<style>
+/* ===== 全局 ===== */
+:root {
+  --bg: #080c14; --surface: #111827; --surface2: #1a2332;
+  --border: #243044; --border-hover: #3b5998;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --gold: #f0c040; --gold-light: #f8e080; --gold-dark: #b8960c;
+  --primary: #3b82f6; --primary-glow: rgba(59,130,246,0.15);
+  --green: #22c55e; --orange: #f59e0b; --red: #ef4444;
+  --purple: #a855f7; --cyan: #06b6d4;
+  --radius: 16px; --radius-sm: 10px;
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "HarmonyOS Sans", sans-serif;
+  background: var(--bg); color: var(--text);
+  overflow-x: hidden; line-height: 1.65;
+}
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text3); }
+
+/* skip-link */
+.skip-link { position: fixed; top: -100px; left: 16px; z-index: 9999; background: var(--gold); color: #000; padding: 8px 16px; border-radius: 0 0 8px 8px; font-weight: 700; text-decoration: none; transition: top 0.3s; }
+.skip-link:focus { top: 0; }
+
+/* ===== noscript ===== */
+noscript .noscript-banner { position: fixed; top: 0; left: 0; right: 0; z-index: 10000; padding: 14px 20px; background: #f87171; color: #fff; font-weight: 700; text-align: center; font-size: 14px; }
+
+/* ===== 三维看板容器 ===== */
+#neuro-canvas-wrap { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1; }
+#neuro-canvas-wrap canvas { display: block; }
+#neuro-canvas-wrap.off { pointer-events: none; opacity: 0.3; }
+.neuro-fallback { position: fixed; z-index: 2; top: 50%; left: 50%; transform: translate(-50%,-50%); display: none; text-align: center; }
+.neuro-fallback.on { display: block; }
+.neuro-fallback .fb-icon { font-size: 4em; margin-bottom: 16px; display: block; }
+.neuro-fallback .fb-text { color: var(--gold); font-size: 1.1em; margin-bottom: 8px; }
+.neuro-fallback .fb-sub { color: var(--text3); font-size: 0.8em; }
+.neuro-fallback .fb-retry { display: inline-block; margin-top: 16px; padding: 8px 20px; border: 1px solid var(--gold); border-radius: 20px; color: var(--gold); cursor: pointer; font-size: 0.8em; background: rgba(240,192,64,0.05); transition: all .2s; }
+.neuro-fallback .fb-retry:hover { background: rgba(240,192,64,0.15); }
+
+/* ===== 悬浮导航栏 ===== */
+#topbar {
+  position: fixed; top: 0; left: 0; right: 0; height: 50px; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px;
+  background: rgba(10,10,18,0.78); backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(240,192,64,0.12);
+}
+#topbar .brand { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 700; letter-spacing: 1px; }
+#topbar .brand .gold { color: var(--gold); }
+#topbar .brand .dna { font-size: 9px; color: #555; font-weight: 400; letter-spacing: 0; display: none; }
+#topbar .links { display: flex; align-items: center; gap: 18px; }
+#topbar .links a { color: var(--text2); text-decoration: none; font-size: 0.78em; font-weight: 500; transition: color .2s; white-space: nowrap; }
+#topbar .links a:hover { color: var(--gold); }
+#topbar .links .sp { color: var(--text3); font-size: 0.6em; }
+#topbar .stat-dots { display: flex; align-items: center; gap: 10px; font-size: 11px; }
+#topbar .stat-dots .d { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 3px; }
+#topbar .stat-dots .d.g { background: var(--green); box-shadow: 0 0 6px var(--green); }
+#topbar .stat-dots .d.y { background: var(--orange); box-shadow: 0 0 6px var(--orange); }
+#topbar .stat-dots .d.r { background: var(--red); }
+
+@media (max-width: 768px) {
+  #topbar { padding: 0 12px; height: 44px; }
+  #topbar .links { gap: 10px; }
+  #topbar .links a { font-size: 0.7em; }
+  #topbar .stat-dots { display: none; }
+  #topbar .brand .dna { display: none; }
+}
+
+/* ===== 三维看板底部提示 ===== */
+#hud-hint {
+  position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%); z-index: 50;
+  padding: 10px 22px; border-radius: 30px;
+  background: rgba(10,10,18,0.7); backdrop-filter: blur(12px);
+  border: 1px solid rgba(240,192,64,0.15);
+  font-size: 12px; color: var(--text3);
+  display: flex; align-items: center; gap: 14px;
+  pointer-events: none; transition: opacity 0.5s;
+}
+#hud-hint .key { color: var(--gold); font-family: monospace; font-weight: 600; }
+
+/* ===== 工具提示 ===== */
+#tooltip {
+  position: fixed; z-index: 200; pointer-events: none;
+  background: rgba(10,10,18,0.92); backdrop-filter: blur(16px);
+  border: 1px solid rgba(240,192,64,0.2); border-radius: 12px;
+  padding: 14px 18px; min-width: 180px;
+  opacity: 0; transition: opacity 0.2s ease;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+}
+#tooltip.visible { opacity: 1; }
+#tooltip .name { font-size: 14px; font-weight: 600; color: var(--gold); }
+#tooltip .port { font-size: 11px; color: #666; margin-top: 2px; }
+#tooltip .stat { font-size: 12px; margin-top: 6px; }
+#tooltip .stat .i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+#tooltip .dna { font-size: 9px; color: #444; margin-top: 4px; font-family: monospace; }
+
+/* ===== 快捷键设置面板 ===== */
+#shortcut-panel {
+  position: fixed; right: -420px; top: 50%; transform: translateY(-50%); z-index: 500;
+  width: 390px; max-height: 85vh; overflow-y: auto;
+  background: rgba(15,15,28,0.96); backdrop-filter: blur(20px);
+  border: 1px solid rgba(240,192,64,0.2); border-radius: 20px 0 0 20px;
+  padding: 28px 24px;
+  transition: right var(--transition);
+  box-shadow: -8px 0 40px rgba(0,0,0,0.5);
+}
+#shortcut-panel.open { right: 0; }
+#shortcut-panel h3 { color: var(--gold); font-size: 1.1em; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+#shortcut-panel .close-btn {
+  position: absolute; top: 20px; right: 20px; width: 32px; height: 32px;
+  background: none; border: 1px solid var(--border); border-radius: 50%;
+  color: var(--text2); cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center;
+  transition: all .2s;
+}
+#shortcut-panel .close-btn:hover { border-color: var(--gold); color: var(--gold); }
+.platform-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px; }
+.platform-tab {
+  padding: 10px 12px; border-radius: var(--radius-sm); cursor: pointer;
+  border: 1px solid var(--border); background: var(--surface);
+  text-align: center; font-size: 0.78em; color: var(--text2);
+  transition: all var(--transition);
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.platform-tab:hover { border-color: var(--text3); }
+.platform-tab.active { border-color: var(--gold); color: var(--gold); background: rgba(240,192,64,0.06); }
+.platform-tab .icon { font-size: 1.2em; }
+
+.shortcut-table { width: 100%; }
+.shortcut-table .cat { font-size: 0.72em; color: var(--gold); font-weight: 700; margin: 16px 0 8px; padding-bottom: 4px; border-bottom: 1px solid rgba(240,192,64,0.1); }
+.shortcut-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; font-size: 0.78em; border-bottom: 1px solid rgba(255,255,255,0.03); }
+.shortcut-row .action { color: var(--text2); }
+.shortcut-row .keys { display: flex; gap: 4px; }
+.shortcut-row .k {
+  display: inline-block; padding: 3px 8px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 6px; font-family: monospace; font-size: 0.85em; color: var(--gold);
+  min-width: 22px; text-align: center;
+}
+#shortcut-panel .custom-hint {
+  margin-top: 16px; padding: 12px; border-radius: var(--radius-sm);
+  background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.2);
+  font-size: 0.7em; color: var(--text2); line-height: 1.5;
+}
+
+/* ===== 快捷键触发 + 返回顶部 ===== */
+#shortcut-trigger, #back-to-top {
+  position: fixed; right: 20px; z-index: 400;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(15,15,28,0.85); backdrop-filter: blur(12px);
+  border: 1px solid rgba(240,192,64,0.2); cursor: pointer;
+  color: var(--gold); font-size: 1.2em;
+  display: flex; align-items: center; justify-content: center;
+  transition: all var(--transition);
+}
+#shortcut-trigger { bottom: 110px; }
+#back-to-top { bottom: 60px; opacity: 0; pointer-events: none; }
+#back-to-top.visible { opacity: 1; pointer-events: auto; }
+#shortcut-trigger:hover, #back-to-top:hover { border-color: var(--gold); background: rgba(240,192,64,0.1); transform: scale(1.05); }
+
+/* ===== 蒙层 ===== */
+#overlay {
+  position: fixed; inset: 0; z-index: 450; background: rgba(0,0,0,0.4);
+  opacity: 0; pointer-events: none; transition: opacity var(--transition);
+}
+#overlay.on { opacity: 1; pointer-events: auto; }
+
+/* ===== 内容滚动区 ===== */
+#content-zone {
+  position: relative; z-index: 10; margin-top: 85vh;
+  background: linear-gradient(to bottom, transparent 0%, var(--bg) 120px, var(--bg) 100%);
+  padding: 0 24px 60px; min-height: 100vh;
+}
+.content-inner { max-width: 1200px; margin: 0 auto; }
+
+/* ===== 内容卡片 ===== */
+.section { margin-bottom: 36px; }
+.section-title { font-size: 1.15em; font-weight: 700; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+.grid-2, .grid-3, .grid-4 { display: grid; gap: 14px; }
+.grid-2 { grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.grid-4 { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+
+.engine-card { padding: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); transition: all .2s; text-decoration: none; color: var(--text); display: block; cursor: pointer; }
+.engine-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 30px var(--primary-glow); }
+.engine-card .e-icon { font-size: 2em; margin-bottom: 10px; }
+.engine-card .e-name { font-weight: 700; font-size: 1em; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.engine-card .e-desc { font-size: 0.78em; color: var(--text2); margin-bottom: 10px; }
+.engine-card .e-meta { display: flex; gap: 12px; font-size: 0.68em; color: var(--text3); flex-wrap: wrap; }
+.engine-card .e-status { display: inline-block; width: 7px; height: 7px; border-radius: 50%; }
+.engine-card .e-status.online { background: var(--green); box-shadow: 0 0 6px var(--green); }
+.engine-card .e-status.offline { background: var(--red); }
+.engine-card .e-status.checking { background: var(--orange); animation: pulse 1.5s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+.bcm-hero { padding: 28px; background: linear-gradient(135deg, #0f0a20 0%, #1a1030 50%, #0f0a20 100%); border: 1px solid var(--purple); border-radius: var(--radius); text-decoration: none; color: var(--text); display: block; transition: all .3s; }
+.bcm-hero:hover { border-color: var(--gold); box-shadow: 0 0 40px rgba(168,85,247,0.15); }
+.bcm-hero .bcm-inner { display: flex; align-items: center; gap: 24px; }
+.bcm-hero .bcm-icon { font-size: 3.5em; flex-shrink: 0; }
+.bcm-hero .bcm-info h3 { font-size: 1.3em; color: var(--gold); margin-bottom: 6px; }
+.bcm-hero .bcm-info p { font-size: 0.85em; color: var(--text2); margin-bottom: 8px; }
+.bcm-hero .bcm-features { display: flex; gap: 12px; flex-wrap: wrap; }
+.bcm-hero .bcm-feat { padding: 4px 12px; background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.3); border-radius: 20px; font-size: 0.72em; color: var(--purple); }
+
+.announce-item { padding: 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 10px; border-left: 3px solid var(--gold); }
+.announce-item .ann-date { font-size: 0.72em; color: var(--text3); margin-bottom: 4px; }
+.announce-item .ann-title { font-weight: 700; font-size: 0.95em; margin-bottom: 4px; }
+.announce-item .ann-body { font-size: 0.8em; color: var(--text2); }
+.announce-item .ann-tag { display: inline-block; padding: 2px 8px; font-size: 0.65em; border-radius: 10px; margin-right: 6px; font-weight: 600; }
+.announce-item .ann-tag.update { background: rgba(59,130,246,0.15); color: var(--primary); }
+.announce-item .ann-tag.feature { background: rgba(34,197,94,0.15); color: var(--green); }
+.announce-item .ann-tag.maintenance { background: rgba(245,158,11,0.15); color: var(--orange); }
+.announce-item .ann-tag.security { background: rgba(239,68,68,0.15); color: var(--red); }
+
+.quick-link { padding: 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; color: var(--text); display: flex; align-items: center; gap: 14px; transition: all .2s; }
+.quick-link:hover { border-color: var(--primary); transform: translateX(4px); }
+.quick-link .ql-icon { font-size: 1.6em; }
+.quick-link .ql-name { font-weight: 600; font-size: 0.9em; }
+.quick-link .ql-desc { font-size: 0.72em; color: var(--text2); margin-top: 2px; }
+
+/* ===== 右下角DNA ===== */
+#dna-ring {
+  position: fixed; bottom: 20px; right: 24px; z-index: 100;
+  text-align: right; pointer-events: none;
+}
+#dna-ring .line { font-size: 9px; color: #444; font-family: monospace; letter-spacing: 0.3px; }
+#dna-ring .line .hl { color: var(--gold-dark); }
+
+/* ===== footer ===== */
+footer { text-align: center; padding: 24px; color: var(--text2); font-size: 0.7em; }
+footer a { color: var(--primary); text-decoration: none; }
+footer .dna { color: var(--gold-dark); font-family: monospace; }
+
+/* ===== 加载 ===== */
+#loading {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--bg); display: flex; flex-direction: column; align-items: center; justify-content: center;
+  transition: opacity 0.8s ease;
+}
+#loading.hidden { opacity: 0; pointer-events: none; }
+#loading .spinner { width: 40px; height: 40px; border: 2px solid rgba(240,192,64,0.15); border-top: 2px solid var(--gold); border-radius: 50%; animation: spin 1s linear infinite; }
+#loading .text { margin-top: 16px; font-size: 14px; color: #666; letter-spacing: 2px; }
+#loading .sub { margin-top: 8px; font-size: 11px; color: #444; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  .bcm-hero .bcm-inner { flex-direction: column; text-align: center; }
+  #shortcut-panel { width: 320px; right: -340px; }
+  #hud-hint { bottom: 90px; font-size: 10px; gap: 8px; padding: 8px 16px; }
+  #shortcut-trigger, #back-to-top { right: 12px; width: 38px; height: 38px; }
+  #shortcut-trigger { bottom: 100px; }
+  #back-to-top { bottom: 54px; }
+}
+@media (max-width: 480px) {
+  #topbar .brand { font-size: 12px; gap: 6px; }
+  #shortcut-panel { width: 280px; right: -300px; padding: 20px 16px; }
+  #content-zone { padding: 0 12px 40px; }
+}
+</style>
+</head>
+<body>
+
+<!-- 无障碍跳转链接 -->
+<a href="#content-zone" class="skip-link">跳转到内容区</a>
+
+<!-- 加载 -->
+<div id="loading" role="status" aria-live="polite">
+  <div class="spinner"></div>
+  <div class="text">🐉 龍魂 · 三维神经看板加载中</div>
+  <div class="sub" id="loadSub"></div>
+</div>
+
+<noscript>
+  <div class="noscript-banner">⚠️ 请启用 JavaScript 以获得完整体验。龍魂三维神经看板需要 JS 渲染。</div>
+</noscript>
+
+<!-- 三维画布 -->
+<div id="neuro-canvas-wrap" aria-hidden="true"></div>
+
+<!-- Three.js 加载失败降级 -->
+<div class="neuro-fallback" id="neuroFallback" role="alert">
+  <span class="fb-icon">🌌</span>
+  <div class="fb-text">三维看板加载失败</div>
+  <div class="fb-sub" id="fbReason">正在重试...</div>
+  <button class="fb-retry" id="fbRetry" onclick="retryNeuroBoard()">🔄 点击重试</button>
+</div>
+
+<!-- 顶部导航 -->
+<nav id="topbar" aria-label="主导航">
+  <div class="brand">
+    <span class="gold">🐉 龍魂</span><span style="font-weight:400;color:#888;font-size:13px;">三维神经看板</span>
+    <span class="dna">DNA: #龍芯⚡️丙午·甲申·己亥·坤卦-NEURO-DASHBOARD-V1.0</span>
+  </div>
+  <div class="links">
+    <span class="stat-dots" id="topStats"><span><span class="d g"></span><span id="gCount">0</span></span><span><span class="d y"></span><span id="yCount">0</span></span><span><span class="d r"></span><span id="rCount">0</span></span></span>
+    <span class="sp">|</span>
+    <a href="#content-zone">⚡ 引擎矩阵</a>
+    <a href="/bcm/">🔬 BCM</a>
+    <a href="/changelog/">📋 公告</a>
+    <a href="/admin/">⚙️ 管理</a>
+  </div>
+</nav>
+
+<!-- 底部操作提示 -->
+<div id="hud-hint" aria-label="快捷键提示">
+  <span><span class="key">Space</span> 暂停旋转</span>
+  <span><span class="key">1-9</span> 聚焦引擎</span>
+  <span><span class="key">R</span> 重置视角</span>
+  <span><span class="key">?</span> 快捷键设置</span>
+</div>
+
+<!-- 悬停 tooltip -->
+<div id="tooltip" role="tooltip" aria-hidden="true">
+  <div class="name" id="tipName">引擎名称</div>
+  <div class="port" id="tipPort">端口: --</div>
+  <div class="stat" id="tipStatus"><span class="i" style="background:#4ade80"></span>在线</div>
+  <div class="dna" id="tipDna">DNA: --</div>
+</div>
+
+<!-- 快捷键面板 -->
+<div id="shortcut-panel" role="dialog" aria-label="快捷键设置" aria-modal="true">
+  <button class="close-btn" id="closeShortcut" aria-label="关闭快捷键面板">✕</button>
+  <h3>⌨️ 快捷键设置</h3>
+  <div class="platform-tabs" id="platformTabs" role="tablist" aria-label="平台选择">
+    <div class="platform-tab active" data-platform="auto" role="tab" aria-selected="true"><span class="icon">🖥️</span> 自动检测</div>
+    <div class="platform-tab" data-platform="macos" role="tab" aria-selected="false"><span class="icon">🍎</span> macOS</div>
+    <div class="platform-tab" data-platform="windows" role="tab" aria-selected="false"><span class="icon">🪟</span> Windows</div>
+    <div class="platform-tab" data-platform="harmonyos" role="tab" aria-selected="false"><span class="icon">🌐</span> 鸿蒙</div>
+    <div class="platform-tab" data-platform="linux" role="tab" aria-selected="false"><span class="icon">🐧</span> Linux</div>
+    <div class="platform-tab" data-platform="universal" role="tab" aria-selected="false"><span class="icon">🌍</span> 通用</div>
+  </div>
+  <div class="shortcut-table" id="shortcutTable" role="tabpanel"></div>
+  <div class="custom-hint">
+    💡 所有平台快捷键均可使用，不分优劣。选择你的操作系统可看到对应的键位显示风格。<br>
+    龍魂包容每一种选择，不为任何平台设门槛。
+  </div>
+</div>
+
+<!-- 蒙层 -->
+<div id="overlay" aria-hidden="true"></div>
+
+<!-- 按钮 -->
+<button id="shortcut-trigger" title="快捷键设置 (按 ? 键)" aria-label="打开快捷键设置">⌨️</button>
+<button id="back-to-top" title="回到顶部 (Home)" aria-label="回到顶部" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆</button>
+
+<!-- 右下角DNA -->
+<div id="dna-ring" aria-hidden="true">
+  <div class="line">DNA <span class="hl">#龍芯⚡️丙午·甲申·己亥·坤卦-NEURO-DASHBOARD-V3.1</span></div>
+  <div class="line">确认码 <span class="hl">#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</span></div>
+</div>
+
+<!-- 内容滚动区 -->
+<main id="content-zone">
+  <div class="content-inner">
+
+    <!-- BCM 入口 -->
+    <section class="section" aria-labelledby="s-bcm">
+      <a href="/bcm/" class="bcm-hero">
+        <div class="bcm-inner">
+          <div class="bcm-icon">🔬</div>
+          <div class="bcm-info">
+            <h3 id="s-bcm">行为密码学 · 七因子来源追溯引擎 v2.0</h3>
+            <p>七因子行为指纹 · 五级攻击模拟 · AIGC内容来源追溯 · 主权验证仪表板</p>
+            <div class="bcm-features">
+              <span class="bcm-feat">🧬 七因子指纹</span>
+              <span class="bcm-feat">🛡 五级攻击模拟</span>
+              <span class="bcm-feat">🔍 AIGC溯源</span>
+              <span class="bcm-feat">📊 主权仪表板</span>
+              <span class="bcm-feat">🔐 SM2/SM4加密</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- 引擎状态 -->
+    <section class="section" aria-labelledby="s-engines">
+      <h2 class="section-title" id="s-engines">⚡ 核心引擎矩阵</h2>
+      <div class="grid-3" id="engineGrid" role="list"><!-- JS填充 --></div>
+    </section>
+
+    <!-- 公告 -->
+    <section class="section" aria-labelledby="s-announce">
+      <h2 class="section-title" id="s-announce">📋 最新公告<span style="font-size:0.7em;color:var(--text3);margin-left:auto"><a href="/changelog/" style="color:var(--primary)">查看全部 →</a></span></h2>
+      <div id="announceList" role="feed" aria-live="polite"><div class="announce-item"><div class="ann-date">加载中...</div><div class="ann-title">正在获取公告...</div></div></div>
+    </section>
+
+    <!-- 子系统导航 -->
+    <section class="section" aria-labelledby="s-nav">
+      <h2 class="section-title" id="s-nav">🔗 子系统导航</h2>
+      <div class="grid-2" role="list">
+        <a href="/five-harms-expose/" class="quick-link" role="listitem"><div class="ql-icon">🛡️</div><div><div class="ql-name">五害曝光台</div><div class="ql-desc">举报提交·企业验证·数字时代包青天</div></div></a>
+        <a href="/audit-battle-hub/" class="quick-link" role="listitem"><div class="ql-icon">⚔️</div><div><div class="ql-name">审计对抗中枢</div><div class="ql-desc">左右互搏·红蓝对抗·数学建模</div></div></a>
+        <a href="/warp-lab/" class="quick-link" role="listitem"><div class="ql-icon">⚡</div><div><div class="ql-name">曲速引擎推演舱</div><div class="ql-desc">3D交互推演·多路径模拟</div></div></a>
+        <a href="/xiaoyi/" class="quick-link" role="listitem"><div class="ql-icon">🤖</div><div><div class="ql-name">小艺桥接</div><div class="ql-desc">Mac↔鲲鹏·AI对话·FRP穿透</div></div></a>
+        <a href="/api/" class="quick-link" role="listitem"><div class="ql-icon">🔌</div><div><div class="ql-name">核心API网关</div><div class="ql-desc">统一入口·速率限制·流场融合</div></div></a>
+      </div>
+    </section>
+
+    <footer role="contentinfo">
+      <div>DNA: <span class="dna">#龍芯⚡️丙午·丙申·戊申·亥时·䷗复-UID9622-CN-PORTAL-V3.1</span></div>
+      <div>创建者: 诸葛鑫（UID9622） | 华为云鲲鹏 | <a href="/admin/">管理后台</a></div>
+      <div style="margin-top:6px">协议: CC BY-NC-SA 4.0（思想层）| MulanPSL v2（工程层）| 中国法律为准绳</div>
+    </footer>
+  </div>
+</main>
+
+<!-- ===== Three.js 双源加载：CDN优先 + 本地回退 ===== -->
+<script>
+// CDN 加载 + 超时回退
+(function loadThreeJS() {
+  var loaded = false;
+  var loadSub = document.getElementById('loadSub');
+
+  function loadScript(src, isFallback) {
+    return new Promise(function(resolve, reject) {
+      if (isFallback && loadSub) loadSub.textContent = 'CDN 超时，切换本地 Three.js...';
+      var s = document.createElement('script');
+      s.src = src; s.async = true;
+      s.onload = function() { loaded = true; resolve(); };
+      s.onerror = reject;
+      var t = setTimeout(function() { if (!loaded) { s.remove(); reject(new Error('timeout')); } }, 8000);
+      s.addEventListener('load', function() { clearTimeout(t); });
+      document.head.appendChild(s);
+    });
+  }
+
+  // 主加载：CDN + 超时3秒后触发本地回退
+  var cdnTimeout;
+  function startCDN() {
+    var s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+    s.async = true;
+    cdnTimeout = setTimeout(function() {
+      if (!loaded) {
+        if (loadSub) loadSub.textContent = 'CDN 较慢，尝试本地源...';
+        s.remove();
+        loadScript('/static/js/three.min.js', true)
+          .then(loadOrbitControls)
+          .catch(function() { handleLoadFail('Three.js 加载失败，请检查网络连接'); });
+      }
+    }, 3000);
+    s.onload = function() {
+      clearTimeout(cdnTimeout);
+      loaded = true;
+      loadOrbitControls();
+    };
+    s.onerror = function() {
+      clearTimeout(cdnTimeout);
+      s.remove();
+      loadScript('/static/js/three.min.js', true)
+        .then(loadOrbitControls)
+        .catch(function() { handleLoadFail('Three.js 加载失败，请检查网络连接'); });
+    };
+    document.head.appendChild(s);
+  }
+
+  function loadOrbitControls() {
+    // CDN 优先
+    var s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js';
+    s.async = true;
+    var t = setTimeout(function() {
+      if (typeof THREE === 'undefined' || typeof THREE.OrbitControls === 'undefined') {
+        s.remove();
+        loadScript('/static/js/OrbitControls.js', true)
+          .then(initApp).catch(function() { handleLoadFail('OrbitControls 加载失败'); });
+      }
+    }, 3000);
+    s.onload = function() { clearTimeout(t); initApp(); };
+    s.onerror = function() {
+      clearTimeout(t); s.remove();
+      loadScript('/static/js/OrbitControls.js', true)
+        .then(initApp).catch(function() { handleLoadFail('OrbitControls 加载失败'); });
+    };
+    document.head.appendChild(s);
+  }
+
+  function handleLoadFail(reason) {
+    document.getElementById('fbReason').textContent = reason;
+    document.getElementById('neuroFallback').classList.add('on');
+    document.getElementById('loading').classList.add('hidden');
+    // 下方内容继续加载
+    loadBelowContent();
+  }
+
+  function initApp() {
+    if (typeof THREE !== 'undefined' && typeof THREE.OrbitControls !== 'undefined') {
+      try { initNeuroBoard(); } catch(e) {
+        console.error('3D init error:', e);
+        handleLoadFail('渲染引擎初始化失败');
+        return;
+      }
+      loadBelowContent();
+    } else {
+      handleLoadFail('库版本不兼容');
+    }
+  }
+
+  window.retryNeuroBoard = function() {
+    document.getElementById('neuroFallback').classList.remove('on');
+    document.getElementById('fbReason').textContent = '重新加载中...';
+    if (typeof THREE === 'undefined') {
+      loaded = false;
+      startCDN();
+    } else if (typeof THREE.OrbitControls === 'undefined') {
+      loadOrbitControls();
+    } else {
+      try { initNeuroBoard(); document.getElementById('fbReason').textContent = ''; document.getElementById('neuroFallback').classList.remove('on'); } catch(e) { handleLoadFail('重试失败: ' + e.message); }
+    }
+  };
+
+  startCDN();
+})();
+</script>
+
+<script>
+// ============================================================
+// §0. 平台检测 (增强版·覆盖更多鸿蒙变体)
+// ============================================================
+function detectPlatform() {
+  var ua = navigator.userAgent || '';
+  // 鸿蒙检测：覆盖 HarmonyOS, OpenHarmony, ArkWeb, 以及华为浏览器特征
+  if (/HarmonyOS|OpenHarmony|ArkWeb|HuaweiBrowser|HUAWEI-|HMSCore/i.test(ua)) return 'harmonyos';
+  // 二次检测：通过屏幕特性判断鸿蒙平板
+  if (/Linux.*Harmony|Mobile.*Harmony/i.test(ua)) return 'harmonyos';
+  if (/Mac/i.test(ua) && !/iPhone|iPad|iPod/i.test(ua)) return 'macos';
+  if (/Windows/i.test(ua)) return 'windows';
+  if (/Linux/i.test(ua) && !/Android/i.test(ua)) return 'linux';
+  return 'universal';
+}
+
+// ============================================================
+// §1. 快捷键系统
+// ============================================================
+var SHORTCUT_DEFS = [
+  { cat: '🎮 三维看板', action: '暂停/恢复旋转', keyUniversal: 'Space', keyMac: '␣', keyWin: 'Space', keyHarmony: '双击', keyLinux: 'Space' },
+  { cat: '🎮 三维看板', action: '重置视角', keyUniversal: 'R', keyMac: 'R', keyWin: 'R', keyHarmony: '三指双击', keyLinux: 'R' },
+  { cat: '🎮 三维看板', action: '前置视角', keyUniversal: 'F', keyMac: 'F', keyWin: 'F', keyHarmony: '双指下滑', keyLinux: 'F' },
+  { cat: '🎮 三维看板', action: '俯视视角', keyUniversal: 'T', keyMac: 'T', keyWin: 'T', keyHarmony: '双指上滑', keyLinux: 'T' },
+  { cat: '🎮 三维看板', action: '聚焦引擎 1-9', keyUniversal: '1-9', keyMac: '1-9', keyWin: '1-9', keyHarmony: '长按节点', keyLinux: '1-9' },
+  { cat: '🎮 三维看板', action: '旋转场景', keyUniversal: '鼠标拖拽', keyMac: '触控板拖拽', keyWin: '鼠标拖拽', keyHarmony: '单指滑动', keyLinux: '鼠标拖拽' },
+  { cat: '🎮 三维看板', action: '缩放', keyUniversal: '滚轮', keyMac: '双指捏合', keyWin: '滚轮', keyHarmony: '双指捏合', keyLinux: '滚轮' },
+  { cat: '📄 页面操作', action: '打开快捷键面板', keyUniversal: '?', keyMac: '⌘/', keyWin: 'Ctrl+/', keyHarmony: '侧边栏', keyLinux: 'Ctrl+/' },
+  { cat: '📄 页面操作', action: '关闭面板/弹窗', keyUniversal: 'Esc', keyMac: 'Esc', keyWin: 'Esc', keyHarmony: '返回手势', keyLinux: 'Esc' },
+  { cat: '📄 页面操作', action: '向下滚动', keyUniversal: '↓', keyMac: '↓ / 双指上滑', keyWin: '↓ / 滚轮', keyHarmony: '单指上滑', keyLinux: '↓ / 滚轮' },
+  { cat: '📄 页面操作', action: '回到顶部', keyUniversal: 'Home', keyMac: '⌘↑', keyWin: 'Home', keyHarmony: '双击顶栏', keyLinux: 'Home' },
+  { cat: '📄 页面操作', action: '引擎节点详情', keyUniversal: '双击节点', keyMac: '双击节点', keyWin: '双击节点', keyHarmony: '双击节点', keyLinux: '双击节点' },
+];
+
+function getKeyDisplay(def, platform) {
+  var map = { macos: def.keyMac, windows: def.keyWin, harmonyos: def.keyHarmony, linux: def.keyLinux, universal: def.keyUniversal, auto: def.keyUniversal };
+  return map[platform] || def.keyUniversal;
+}
+
+var currentPlatform = localStorage.getItem('longhun-shortcut-platform') || 'auto';
+var resolvedPlatform = currentPlatform === 'auto' ? detectPlatform() : currentPlatform;
+
+function renderShortcutTable() {
+  var p = resolvedPlatform;
+  var cats = [];
+  SHORTCUT_DEFS.forEach(function(d) { if (cats.indexOf(d.cat) === -1) cats.push(d.cat); });
+  var html = '';
+  cats.forEach(function(cat) {
+    html += '<div class="cat">' + cat + '</div>';
+    SHORTCUT_DEFS.filter(function(d) { return d.cat === cat; }).forEach(function(d) {
+      var key = getKeyDisplay(d, p);
+      var keys = key.split(/[,、]|\//).map(function(k) { return k.trim(); });
+      html += '<div class="shortcut-row"><span class="action">' + d.action + '</span><span class="keys">' + keys.map(function(k) { return '<span class="k">' + k + '</span>'; }).join('') + '</span></div>';
+    });
+  });
+  document.getElementById('shortcutTable').innerHTML = html;
+  updateHudHint(p);
+}
+
+function updateHudHint(platform) {
+  var hint = document.getElementById('hud-hint');
+  var map = {
+    macos: ['触控板拖拽', '⌘/ 设置', 'R 重置'],
+    windows: ['鼠标拖拽旋转', '? 设置', 'R 重置'],
+    harmonyos: ['单指滑动', '侧边栏', '双击重置'],
+    linux: ['鼠标拖拽旋转', '? 设置', 'R 重置'],
+    universal: ['鼠标拖拽', '? 设置', 'R 重置']
+  };
+  var tips = map[platform] || map.universal;
+  hint.innerHTML = '<span><span class="key">' + tips[0] + '</span> 旋转</span><span><span class="key">' + tips[1] + '</span> 快捷键</span><span><span class="key">' + tips[2] + '</span> 视角</span>';
+}
+
+function switchPlatform(platform) {
+  currentPlatform = platform;
+  resolvedPlatform = platform === 'auto' ? detectPlatform() : platform;
+  localStorage.setItem('longhun-shortcut-platform', platform);
+  document.querySelectorAll('.platform-tab').forEach(function(t) {
+    t.classList.toggle('active', t.dataset.platform === platform);
+    t.setAttribute('aria-selected', t.dataset.platform === platform ? 'true' : 'false');
+  });
+  renderShortcutTable();
+}
+
+function toggleShortcutPanel() {
+  var panel = document.getElementById('shortcut-panel');
+  var overlay = document.getElementById('overlay');
+  var isOpen = panel.classList.contains('open');
+  if (isOpen) {
+    panel.classList.remove('open');
+    overlay.classList.remove('on');
+    document.body.style.overflow = '';
+  } else {
+    panel.classList.add('open');
+    overlay.classList.add('on');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+// 初始化快捷键面板
+document.querySelectorAll('.platform-tab').forEach(function(tab) {
+  tab.addEventListener('click', function() { switchPlatform(tab.dataset.platform); });
+});
+document.getElementById('shortcut-trigger').addEventListener('click', toggleShortcutPanel);
+document.getElementById('closeShortcut').addEventListener('click', toggleShortcutPanel);
+document.getElementById('overlay').addEventListener('click', toggleShortcutPanel);
+renderShortcutTable();
+switchPlatform(currentPlatform);
+
+// 全局键盘事件 (修复国际键盘 /? 问题)
+document.addEventListener('keydown', function(e) {
+  // 不在输入框内时生效
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) return;
+
+  // 处理 ? 和 / 键（兼容非美式键盘）
+  if (e.key === '?' || e.key === '/' || e.code === 'Slash' || e.code === 'IntlRo' || e.code === 'IntlYen') {
+    // 如果是 Ctrl+/ 或 Cmd+/ 打开面板；单独 / 也打开面板
+    e.preventDefault();
+    toggleShortcutPanel();
+    return;
+  }
+
+  switch (e.key) {
+    case 'Escape':
+      var panel = document.getElementById('shortcut-panel');
+      if (panel.classList.contains('open')) toggleShortcutPanel();
+      break;
+    case ' ':
+      e.preventDefault();
+      if (typeof controls !== 'undefined') {
+        controls.autoRotate = !controls.autoRotate;
+        showToast(controls.autoRotate ? '▶ 旋转恢复' : '⏸ 旋转暂停');
+      }
+      break;
+    case 'r': case 'R':
+      if (typeof controls !== 'undefined' && typeof camera !== 'undefined') {
+        controls.target.set(0, 0, 0);
+        camera.position.set(12, 8, 16);
+        controls.update();
+        showToast('🔄 视角已重置');
+      }
+      break;
+    case 'f': case 'F':
+      if (typeof controls !== 'undefined' && typeof camera !== 'undefined') {
+        controls.target.set(0, 0, 0);
+        camera.position.set(0, 0, 14);
+        controls.update();
+        showToast('👁 前置视角');
+      }
+      break;
+    case 't': case 'T':
+      if (typeof controls !== 'undefined' && typeof camera !== 'undefined') {
+        controls.target.set(0, 0, 0);
+        camera.position.set(0, 14, 0.1);
+        controls.update();
+        showToast('🔽 俯视视角');
+      }
+      break;
+    case 'Home':
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      break;
+  }
+
+  // 数字键 1-9 聚焦引擎
+  var num = parseInt(e.key);
+  if (num >= 1 && num <= 9 && typeof engineMeshes !== 'undefined') {
+    var keys = Object.keys(engineMeshes);
+    var idx = num - 1;
+    if (idx < keys.length) {
+      var mesh = engineMeshes[keys[idx]];
+      if (mesh && typeof controls !== 'undefined' && typeof camera !== 'undefined') {
+        var pos = mesh.position.clone();
+        controls.target.copy(pos);
+        camera.position.set(pos.x + 3, pos.y + 2, pos.z + 5);
+        controls.update();
+        showToast('🎯 聚焦: ' + mesh.userData.name);
+      }
+    }
+  }
+});
+
+// 返回顶部按钮
+var backBtn = document.getElementById('back-to-top');
+window.addEventListener('scroll', function() {
+  var scrollY = window.scrollY || window.pageYOffset;
+  if (scrollY > 400) { backBtn.classList.add('visible'); }
+  else { backBtn.classList.remove('visible'); }
+}, { passive: true });
+
+// 滚动时降低3D渲染优先级 (性能优化)
+var scrollTimer;
+window.addEventListener('scroll', function() {
+  var wrap = document.getElementById('neuro-canvas-wrap');
+  if (wrap) wrap.classList.add('off');
+  clearTimeout(scrollTimer);
+  scrollTimer = setTimeout(function() {
+    if (wrap) wrap.classList.remove('off');
+  }, 150);
+}, { passive: true });
+
+// Toast 提示
+function showToast(msg) {
+  var toast = document.getElementById('toast-msg');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'toast-msg';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+    toast.style.cssText = 'position:fixed;bottom:140px;left:50%;transform:translateX(-50%);z-index:999;padding:8px 20px;border-radius:20px;background:rgba(15,15,28,0.9);backdrop-filter:blur(12px);border:1px solid rgba(240,192,64,0.2);color:var(--gold, #f0c040);font-size:13px;pointer-events:none;opacity:0;transition:opacity 0.3s;';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = msg;
+  toast.style.opacity = '1';
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(function() { toast.style.opacity = '0'; }, 1800);
+}
+
+// ============================================================
+// §2. 三维神经看板
+// ============================================================
+var ENGINE_DATA = [
+  { id: 'bcm', name: '行为密码学', port: 8775, group: 'left', layer: 0.9, icon: '🔬', link: '/bcm/' },
+  { id: 'tricolor', name: '三色审计', port: 8771, group: 'left', layer: 0.75, icon: '🔍', link: '/api/tricolor/' },
+  { id: 'knowledge', name: '知识中枢', port: 8766, group: 'left', layer: 0.6, icon: '🧠', link: '/api/docs/' },
+  { id: 'flow', name: '流场融合', port: 8777, group: 'center', layer: 0.9, icon: '🌊', link: '/api/' },
+  { id: 'memory', name: '统一记忆', port: 8773, group: 'center', layer: 0.75, icon: '💾', link: '#' },
+  { id: 'feishu', name: '龍智守(飞书)', port: 8783, group: 'center', layer: 0.6, icon: '🛡️', link: '#' },
+  { id: 'quantum', name: '时间引擎', port: 9000, group: 'right', layer: 0.9, icon: '☯️', link: '#' },
+  { id: 'search', name: '多源搜索', port: 9631, group: 'right', layer: 0.75, icon: '🔎', link: '/api/search/' },
+  { id: 'pay', name: '支付锚定', port: 19623, group: 'right', layer: 0.6, icon: '💳', link: '/xpay/' },
+];
+
+var CONNECTIONS = [
+  { from: 'knowledge', to: 'flow' }, { from: 'bcm', to: 'tricolor' },
+  { from: 'tricolor', to: 'flow' }, { from: 'flow', to: 'memory' },
+  { from: 'flow', to: 'feishu' }, { from: 'flow', to: 'quantum' },
+  { from: 'memory', to: 'flow' }, { from: 'quantum', to: 'search' },
+  { from: 'search', to: 'flow' }, { from: 'pay', to: 'flow' },
+  { from: 'flow', to: 'bcm' },
+];
+
+// 实际在线状态
+var engineOnlineStatus = {};
+ENGINE_DATA.forEach(function(e) { engineOnlineStatus[e.id] = 'checking'; });
+
+var scene, camera, renderer, controls;
+var engineMeshes = {};
+var connectionLines = [];
+var particles = [];
+var clock = new THREE.Clock();
+var raycaster = new THREE.Raycaster();
+var mouse = new THREE.Vector2();
+var wsReconnectTimer = null;
+var initDone = false;
+
+function initNeuroBoard() {
+  var container = document.getElementById('neuro-canvas-wrap');
+  if (!container) return;
+
+  scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x0a0a12);
+  scene.fog = new THREE.FogExp2(0x0a0a12, 0.006);
+
+  camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+  camera.position.set(12, 8, 16);
+  camera.lookAt(0, 0, 0);
+
+  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.2;
+  container.appendChild(renderer.domElement);
+
+  controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.05;
+  controls.minDistance = 4;
+  controls.maxDistance = 30;
+  controls.autoRotate = true;
+  controls.autoRotateSpeed = 0.35;
+  controls.target.set(0, 0, 0);
+
+  // 灯光
+  scene.add(new THREE.AmbientLight(0x222244, 0.4));
+  var dirLight = new THREE.DirectionalLight(0xffeedd, 1.2);
+  dirLight.position.set(5, 15, 10);
+  dirLight.castShadow = true;
+  scene.add(dirLight);
+  var backLight = new THREE.DirectionalLight(0x4466ff, 0.3);
+  backLight.position.set(-5, 0, -10);
+  scene.add(backLight);
+  var pointLight = new THREE.PointLight(0xd4af37, 0.5, 20);
+  pointLight.position.set(0, 5, 0);
+  scene.add(pointLight);
+
+  createStarfield();
+  var grid = new THREE.GridHelper(18, 12, 0x222244, 0x1a1a2e);
+  grid.position.y = -2.5;
+  scene.add(grid);
+
+  createEngineNodes();
+  createConnections();
+  createFlowParticles();
+
+  window.addEventListener('resize', onResize);
+  renderer.domElement.addEventListener('mousemove', onMouseMove);
+  renderer.domElement.addEventListener('click', onNodeClick);
+  renderer.domElement.addEventListener('dblclick', onNodeDblClick);
+
+  initDone = true;
+  animate();
+  connectWebSocket();
+
+  // 隐藏加载
+  setTimeout(function() {
+    document.getElementById('loading').classList.add('hidden');
+  }, 800);
+
+  // 定时拉取 + WebSocket 兜底
+  fetchEngineStatuses();
+  setInterval(fetchEngineStatuses, 60000); // 从30秒改为60秒，WS是主力
+}
+
+function createStarfield() {
+  var geo = new THREE.BufferGeometry();
+  var count = 2000;
+  var pos = new Float32Array(count * 3);
+  var col = new Float32Array(count * 3);
+  for (var i = 0; i < count; i++) {
+    pos[i*3] = (Math.random()-0.5)*80; pos[i*3+1] = (Math.random()-0.5)*80; pos[i*3+2] = (Math.random()-0.5)*80;
+    col[i*3] = 0.3+Math.random()*0.7; col[i*3+1] = 0.3+Math.random()*0.7; col[i*3+2] = 0.5+Math.random()*0.5;
+  }
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  var mat = new THREE.PointsMaterial({ size: 0.06, vertexColors: true, transparent: true, opacity: 0.8, blending: THREE.AdditiveBlending });
+  var stars = new THREE.Points(geo, mat);
+  stars.position.y = -2;
+  scene.add(stars);
+}
+
+function getNodePos(eng) {
+  var xMap = { left: -4.5, center: 0, right: 4.5 };
+  return new THREE.Vector3(xMap[eng.group]||0, (eng.layer-0.5)*4.5, (eng.layer-0.5)*0.8 + (Math.random()-0.5)*0.3);
+}
+
+function getStatusColor(status) {
+  if (status==='online') return {c:0x4ade80,e:0x4ade80,ei:0.3,op:0.95};
+  if (status==='warning') return {c:0xfacc15,e:0xfacc15,ei:0.5,op:0.85};
+  if (status==='checking') return {c:0x60a5fa,e:0x60a5fa,ei:0.2,op:0.7};
+  return {c:0xf87171,e:0xf87171,ei:0.15,op:0.35};
+}
+
+function createEngineNodes() {
+  var g = new THREE.Group();
+  scene.add(g);
+  ENGINE_DATA.forEach(function(eng) {
+    var pos = getNodePos(eng);
+    var status = engineOnlineStatus[eng.id]||'checking';
+    var sc = getStatusColor(status);
+    var sGeo = new THREE.SphereGeometry(0.6,32,32);
+    var sMat = new THREE.MeshPhysicalMaterial({color:sc.c,emissive:sc.e,emissiveIntensity:sc.ei,metalness:0.3,roughness:0.2,clearcoat:0.3,clearcoatRoughness:0.2,transparent:true,opacity:sc.op});
+    var s = new THREE.Mesh(sGeo, sMat);
+    s.position.copy(pos); s.castShadow = true;
+    s.userData = {id:eng.id,name:eng.name,port:eng.port,status:status,pos:pos,phase:Math.random()*Math.PI*2,link:eng.link};
+    g.add(s); engineMeshes[eng.id]=s;
+
+    var glGeo = new THREE.SphereGeometry(0.85,32,32);
+    var glMat = new THREE.MeshBasicMaterial({color:sc.c,transparent:true,opacity:status==='offline'?0.03:0.12,blending:THREE.AdditiveBlending});
+    var gl = new THREE.Mesh(glGeo, glMat);
+    gl.position.copy(pos); g.add(gl); s.userData.glow=gl;
+
+    var rGeo = new THREE.RingGeometry(0.7,0.85,64);
+    var rMat = new THREE.MeshBasicMaterial({color:sc.c,transparent:true,opacity:status==='offline'?0.03:0.2,side:THREE.DoubleSide,blending:THREE.AdditiveBlending});
+    var r = new THREE.Mesh(rGeo, rMat);
+    r.position.copy(pos); r.lookAt(0,0,0); g.add(r); s.userData.ring=r;
+  });
+}
+
+function createConnections() {
+  var g = new THREE.Group();
+  scene.add(g);
+  CONNECTIONS.forEach(function(conn) {
+    var from=engineMeshes[conn.from], to=engineMeshes[conn.to];
+    if(!from||!to) return;
+    var p1=from.position.clone(), p2=to.position.clone();
+    var mid=new THREE.Vector3().addVectors(p1,p2).multiplyScalar(0.5);
+    mid.y+=0.8+Math.random()*0.5;
+    var curve=new THREE.QuadraticBezierCurve3(p1,mid,p2);
+    var pts=curve.getPoints(32);
+    var geo=new THREE.BufferGeometry().setFromPoints(pts);
+    var mat=new THREE.LineBasicMaterial({color:0x334466,transparent:true,opacity:0.3,blending:THREE.AdditiveBlending});
+    var line=new THREE.Line(geo,mat);
+    line.userData={from:conn.from,to:conn.to,curve:curve};
+    g.add(line);
+    connectionLines.push({curve:curve,from:conn.from,to:conn.to,line:line});
+  });
+}
+
+function createFlowParticles() {
+  var g=new THREE.Group();
+  scene.add(g);
+  var colors=[0x4ade80,0xfacc15,0x60a5fa,0xd4af37];
+  connectionLines.forEach(function(conn) {
+    var count=4+Math.floor(Math.random()*4);
+    for(var i=0;i<count;i++) {
+      var color=colors[Math.floor(Math.random()*colors.length)];
+      var geo=new THREE.SphereGeometry(0.04,6,6);
+      var mat=new THREE.MeshBasicMaterial({color:color,transparent:true,opacity:0.6+Math.random()*0.3,blending:THREE.AdditiveBlending});
+      var m=new THREE.Mesh(geo,mat);
+      m.userData={curve:conn.curve,t:Math.random(),speed:0.002+Math.random()*0.004,phase:Math.random()*Math.PI*2};
+      g.add(m); particles.push(m);
+    }
+  });
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  var time=clock.getElapsedTime();
+
+  Object.values(engineMeshes).forEach(function(mesh) {
+    var phase=mesh.userData.phase||0;
+    var status=engineOnlineStatus[mesh.userData.id]||'checking';
+    var isOff=status==='offline';
+    mesh.material.emissiveIntensity=(status==='warning'?0.5:0.3)*(Math.sin(time*0.8+phase)*0.08+0.92);
+    if(mesh.userData.glow){
+      var gl=mesh.userData.glow;
+      var pulse=Math.sin(time*0.6+phase)*0.5+0.5;
+      gl.material.opacity=(isOff?0.03:0.08)+pulse*0.08;
+      gl.scale.setScalar(1+Math.sin(time*0.5+phase)*0.03);
+    }
+    if(mesh.userData.ring){mesh.userData.ring.rotation.x=Math.sin(time*0.2+phase)*0.1;mesh.userData.ring.rotation.y+=0.005;}
+  });
+
+  particles.forEach(function(p){
+    if(!p.userData.curve) return;
+    p.userData.t+=p.userData.speed;
+    if(p.userData.t>1) p.userData.t=0;
+    p.position.copy(p.userData.curve.getPoint(p.userData.t));
+    p.scale.setScalar(0.8+Math.sin(time*2+p.userData.phase)*0.4);
+  });
+
+  connectionLines.forEach(function(conn,idx){
+    conn.line.material.opacity=0.2+Math.sin(time*0.3+idx*0.5)*0.1;
+  });
+
+  controls.update();
+  renderer.render(scene,camera);
+}
+
+function onResize(){
+  var w=window.innerWidth,h=window.innerHeight;
+  camera.aspect=w/h;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w,h);
+}
+
+function onMouseMove(event){
+  if(!renderer||!renderer.domElement) return;
+  var rect=renderer.domElement.getBoundingClientRect();
+  mouse.x=((event.clientX-rect.left)/rect.width)*2-1;
+  mouse.y=-((event.clientY-rect.top)/rect.height)*2+1;
+  raycaster.setFromCamera(mouse,camera);
+  var meshes=Object.values(engineMeshes);
+  var intersects=raycaster.intersectObjects(meshes);
+  var tt=document.getElementById('tooltip');
+  if(intersects.length>0){
+    var data=intersects[0].object.userData;
+    if(data.id){
+      var status=engineOnlineStatus[data.id]||'checking';
+      var statusMap={online:'🟢 在线',warning:'🟡 告警',offline:'🔴 离线',checking:'🔵 检测中'};
+      document.getElementById('tipName').textContent=data.name;
+      document.getElementById('tipPort').textContent='端口: '+data.port;
+      document.getElementById('tipStatus').innerHTML='<span class="i" style="background:'+(status==='online'?'#4ade80':status==='warning'?'#facc15':status==='offline'?'#f87171':'#60a5fa')+'"></span>'+statusMap[status];
+      document.getElementById('tipDna').textContent='DNA: #龍芯⚡️-'+data.id.toUpperCase()+'-'+Date.now().toString(36).slice(-6);
+      tt.style.left=(event.clientX+16)+'px';
+      tt.style.top=(event.clientY-10)+'px';
+      tt.classList.add('visible');
+      renderer.domElement.style.cursor='pointer';
+    }
+  }else{
+    tt.classList.remove('visible');
+    renderer.domElement.style.cursor='default';
+  }
+}
+
+function onNodeClick(event){
+  if(!renderer||!renderer.domElement) return;
+  var rect=renderer.domElement.getBoundingClientRect();
+  mouse.x=((event.clientX-rect.left)/rect.width)*2-1;
+  mouse.y=-((event.clientY-rect.top)/rect.height)*2+1;
+  raycaster.setFromCamera(mouse,camera);
+  var intersects=raycaster.intersectObjects(Object.values(engineMeshes));
+  if(intersects.length>0){
+    var data=intersects[0].object.userData;
+    if(data.id){
+      var pos=intersects[0].object.position.clone();
+      controls.target.copy(pos);
+      camera.position.set(pos.x+3,pos.y+2,pos.z+5);
+      controls.update();
+      showToast('🎯 聚焦: '+data.name+' (:'+data.port+')');
+    }
+  }
+}
+
+// 双击节点 = 跳转到管理页
+function onNodeDblClick(event){
+  if(!renderer||!renderer.domElement) return;
+  var rect=renderer.domElement.getBoundingClientRect();
+  mouse.x=((event.clientX-rect.left)/rect.width)*2-1;
+  mouse.y=-((event.clientY-rect.top)/rect.height)*2+1;
+  raycaster.setFromCamera(mouse,camera);
+  var intersects=raycaster.intersectObjects(Object.values(engineMeshes));
+  if(intersects.length>0){
+    var data=intersects[0].object.userData;
+    if(data.id && data.link && data.link !== '#') {
+      showToast('🔗 打开: '+data.name);
+      window.open(data.link, '_blank');
+    } else if(data.id) {
+      showToast('ℹ️ '+data.name+' 暂无管理页面');
+    }
+  }
+}
+
+// ===== WebSocket 实时状态推送 =====
+function connectWebSocket() {
+  var proto = location.protocol === 'https:' ? 'wss:' : 'ws:';
+  var wsUrl = proto + '//' + location.host + '/ws/engine-status';
+  try {
+    var ws = new WebSocket(wsUrl);
+    ws.onopen = function() {
+      console.log('🔌 WebSocket 已连接 (实时引擎状态)');
+      if (wsReconnectTimer) { clearTimeout(wsReconnectTimer); wsReconnectTimer = null; }
+    };
+    ws.onmessage = function(evt) {
+      try {
+        var data = JSON.parse(evt.data);
+        if (data.engines) {
+          Object.keys(data.engines).forEach(function(id) {
+            engineOnlineStatus[id] = data.engines[id];
+          });
+          if (initDone) updateEngineVisuals();
+        }
+      } catch(e) { /* 忽略格式错误 */ }
+    };
+    ws.onclose = function() {
+      // 5秒后重连
+      wsReconnectTimer = setTimeout(connectWebSocket, 5000);
+    };
+    ws.onerror = function() {
+      ws.close(); // 触发 onclose 重连
+    };
+  } catch(e) {
+    // WebSocket 不可用，完全依赖轮询
+    wsReconnectTimer = setTimeout(connectWebSocket, 30000);
+  }
+}
+
+// 修复版: 使用 AbortController 兼容所有浏览器
+function fetchWithTimeout(url, timeoutMs) {
+  return new Promise(function(resolve, reject) {
+    var controller = new AbortController();
+    var timer = setTimeout(function() { controller.abort(); reject(new Error('timeout')); }, timeoutMs);
+    fetch(url, { signal: controller.signal })
+      .then(function(r) { clearTimeout(timer); resolve(r); })
+      .catch(function(e) { clearTimeout(timer); reject(e); });
+  });
+}
+
+async function fetchEngineStatuses() {
+  var results = await Promise.allSettled(
+    ENGINE_DATA.map(async function(e) {
+      try {
+        var resp = await fetchWithTimeout('/api/engine/' + e.port + '/health', 3000);
+        return { id: e.id, online: resp.ok };
+      } catch(err) { return { id: e.id, online: false }; }
+    })
+  );
+  results.forEach(function(r) {
+    if (r.status === 'fulfilled') {
+      engineOnlineStatus[r.value.id] = r.value.online ? 'online' : 'offline';
+    }
+  });
+  if (initDone) updateEngineVisuals();
+}
+
+function updateEngineVisuals() {
+  Object.values(engineMeshes).forEach(function(mesh) {
+    var id = mesh.userData.id;
+    var status = engineOnlineStatus[id] || 'checking';
+    mesh.userData.status = status;
+    var sc = getStatusColor(status);
+    mesh.material.color.setHex(sc.c);
+    mesh.material.emissive.setHex(sc.e);
+    mesh.material.opacity = sc.op;
+    if (mesh.userData.glow) {
+      mesh.userData.glow.material.color.setHex(sc.c);
+      mesh.userData.glow.material.opacity = status === 'offline' ? 0.03 : 0.12;
+    }
+    if (mesh.userData.ring) {
+      mesh.userData.ring.material.color.setHex(sc.c);
+      mesh.userData.ring.material.opacity = status === 'offline' ? 0.03 : 0.2;
+    }
+  });
+
+  var g=0,y=0,r=0;
+  Object.values(engineOnlineStatus).forEach(function(s) {
+    if (s==='online') g++; else if (s==='warning') y++; else if (s==='offline') r++;
+  });
+  var gEl=document.getElementById('gCount'), yEl=document.getElementById('yCount'), rEl=document.getElementById('rCount');
+  if(gEl) gEl.textContent=g; if(yEl) yEl.textContent=y; if(rEl) rEl.textContent=r;
+}
+
+// ============================================================
+// §3. 下方内容区
+// ============================================================
+function loadBelowContent() {
+  loadEngineCards();
+  loadAnnouncements();
+}
+
+function loadEngineCards() {
+  var engines = [
+    { id:'bcm',name:'行为密码学',icon:'🔬',port:8775,desc:'七因子指纹·来源追溯·主权验证',link:'/bcm/'},
+    { id:'tricolor',name:'三色审计',icon:'🔍',port:8771,desc:'三色判定·十道闸口·代码审查',link:'/api/tricolor/'},
+    { id:'knowledge',name:'知识中枢',icon:'🧠',port:8766,desc:'统一知识检索·RAG引擎',link:'/api/docs/'},
+    { id:'flow',name:'流场融合',icon:'🌊',port:8777,desc:'API网关·桥接引擎·统一入口',link:'/api/'},
+    { id:'memory',name:'统一记忆',icon:'💾',port:8773,desc:'跨会话持久化·DNA记忆',link:'#'},
+    { id:'feishu',name:'龍智守',icon:'🛡️',port:8783,desc:'飞书机器人·反诈·链接审计',link:'#'},
+    { id:'quantum',name:'时间引擎',icon:'☯️',port:9000,desc:'64卦·天干地支·梅花易数',link:'#'},
+    { id:'search',name:'多源搜索',icon:'🔎',port:9631,desc:'Bing搜索·缓存·来源审计',link:'/api/search/'},
+    { id:'pay',name:'支付锚定',icon:'💳',port:19623,desc:'XPay·订单管理·取证存证',link:'/xpay/'},
+    { id:'agents',name:'多智能体',icon:'🤖',port:8750,desc:'24人格Agent·黑板+总线·蚁群',link:'/agents/'},
+    { id:'truth',name:'真话引擎',icon:'💬',port:8760,desc:'用户真话→P0协议转化',link:'/api/truth/'},
+    { id:'video',name:'视频工坊',icon:'🎬',port:8780,desc:'文本→配音+AI图示+字幕',link:'/video/'},
+    { id:'preign',name:'协议统治',icon:'⚖️',port:8765,desc:'P0价值边境检查站',link:'/api/preign/'},
+    { id:'loyalty',name:'忠义铁律',icon:'🏛️',port:8755,desc:'永不收集用户数据·自检',link:'/api/loyalty/'},
+    { id:'compliance',name:'合规引擎',icon:'📋',port:8770,desc:'SM2/3/4·等保2.0·生成式AI',link:'/api/compliance/'},
+  ];
+
+  var cards = engines.map(function(e) {
+    var status = engineOnlineStatus[e.id] || 'checking';
+    var sClass = status === 'online' ? 'online' : status === 'checking' ? 'checking' : 'offline';
+    var sText = status === 'online' ? '🟢 在线' : status === 'checking' ? '🔵 检测中' : '🔴 离线';
+    var href = e.link && e.link !== '#' ? ' href="' + e.link + '"' : '';
+    var tag = e.link && e.link !== '#' ? 'a' : 'div';
+    return '<' + tag + ' class="engine-card"' + href + ' title="' + e.name + ' :' + e.port + '">' +
+      '<div class="e-icon">' + e.icon + '</div>' +
+      '<div class="e-name"><span class="e-status ' + sClass + '" role="img" aria-label="' + sText + '"></span>' + e.name + '</div>' +
+      '<div class="e-desc">' + e.desc + '</div>' +
+      '<div class="e-meta"><span>🔌 :' + e.port + '</span><span>' + sText + '</span></div>' +
+      '</' + tag + '>';
+  }).join('');
+  document.getElementById('engineGrid').innerHTML = cards;
+}
+
+async function loadAnnouncements() {
+  try {
+    var resp = await fetchWithTimeout('/api/announcements?limit=3', 5000);
+    if (!resp.ok) throw new Error('not ok');
+    var data = await resp.json();
+    if (!data.items || data.items.length === 0) {
+      document.getElementById('announceList').innerHTML = '<div class="announce-item"><div class="ann-date">--</div><div class="ann-title">暂无公告</div><div class="ann-body">等待第一个公告发布...</div></div>';
+      return;
+    }
+    var tagMap = { update:'更新', feature:'新功能', maintenance:'维护', security:'安全', announcement:'公告' };
+    document.getElementById('announceList').innerHTML = data.items.map(function(a) {
+      return '<div class="announce-item"><div class="ann-date"><span class="ann-tag ' + (a.tag || 'update') + '">' + (tagMap[a.tag] || '公告') + '</span> ' + esc(a.date) + '</div><div class="ann-title">' + esc(a.title) + '</div><div class="ann-body">' + esc(a.body) + '</div></div>';
+    }).join('');
+  } catch(e) {
+    document.getElementById('announceList').innerHTML = '<div class="announce-item"><div class="ann-date">公告服务离线</div><div class="ann-title">公告系统暂不可用</div><div class="ann-body">请稍后刷新重试</div></div>';
+  }
+}
+
+function esc(s) {
+  var d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+// ============================================================
+// §4. 底部控制台日志（精简化）
+// ============================================================
+if (typeof console !== 'undefined') {
+  console.log('🐉 龍魂 · 三维神经看板 v3.2 · uid9622.cn');
+  console.log('DNA: #龍芯⚡️丙午·丙申·癸丑·未时·䷔噬嗑-NEURO-DASHBOARD-V3.2');
+  console.log('引擎矩阵: 15引擎 · 20人格 · 192引擎总数 · 45技能');
+  console.log('⌨️ 按 ? 打开快捷键 · 支持 macOS / Windows / 鸿蒙 / Linux · 双击节点打开管理页');
+}
+</script>
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

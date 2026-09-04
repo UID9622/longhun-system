@@ -1,7 +1,10 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/bin/bash
 # ╔═══════════════════════════════════════════════════════════════╗
-# ║  🐉 龙魂·Bark 推送插件 v2.0 — 自建服务器版                    ║
-# ║  Longhun Bark Plugin · Self-Hosted Bark Server               ║
+# ║  🐉 龍魂·Bark 推送插件 v2.0 — 自建服务器版                    ║
+# ║  LongHun Bark Plugin · Self-Hosted Bark Server               ║
 # ╠═══════════════════════════════════════════════════════════════╣
 # ║  DNA: #龍芯⚡️丙午·辛未·BARK-PLUGIN-SELF-HOSTED-v2.0         ║
 # ║  作者: UID9622 · 诸葛鑫                                       ║
@@ -32,11 +35,11 @@ BARK_RETRY_DELAY=2
 
 # 分组定义
 declare -A BARK_GROUPS=(
-    ["运维"]="龙魂运维"
-    ["告警"]="龙魂告警"
-    ["财务"]="龙魂财务"
-    ["开发"]="龙魂开发"
-    ["紧急"]="龙魂紧急"
+    ["运维"]="龍魂运维"
+    ["告警"]="龍魂告警"
+    ["财务"]="龍魂财务"
+    ["开发"]="龍魂开发"
+    ["紧急"]="龍魂紧急"
 )
 
 # 级别颜色映射 (Bark 暂不支持颜色，保留用于日志标注)
@@ -86,7 +89,7 @@ _bark_get_url() {
 _bark_push() {
     local title="$1"
     local body="$2"
-    local group="${3:-龙魂系统}"
+    local group="${3:-龍魂系统}"
     local level="${4:-info}"
     local sound="${5:-alarm}"
 
@@ -189,7 +192,7 @@ print(json.dumps(payload, ensure_ascii=False))
 _bark_push_with_retry() {
     local title="$1"
     local body="$2"
-    local group="${3:-龙魂系统}"
+    local group="${3:-龍魂系统}"
     local level="${4:-info}"
     local sound="${5:-alarm}"
 
@@ -215,7 +218,7 @@ _bark_push_with_retry() {
 # 初始化检测
 init_bark() {
     echo "╔══════════════════════════════════════════════════╗"
-    echo "║  🐉 龙魂 Bark 插件 · 初始化检测                   ║"
+    echo "║  🐉 龍魂 Bark 插件 · 初始化检测                   ║"
     echo "╚══════════════════════════════════════════════════╝"
     echo ""
     echo "📋 环境检测:"
@@ -285,7 +288,7 @@ init_bark() {
 
     echo ""
     echo "══════════════════════════════════════════════════"
-    echo "  🐉 龙魂 Bark 插件 v2.0 · 初始化完成"
+    echo "  🐉 龍魂 Bark 插件 v2.0 · 初始化完成"
     echo "  DNA: #龍芯⚡️丙午·辛未·BARK-SELF-HOSTED-v2.0"
     echo "  $(date '+%Y-%m-%d %H:%M:%S')"
     echo "══════════════════════════════════════════════════"
@@ -298,7 +301,7 @@ bark_ops() {
     local title="${1:-运维通知}"
     local body="${2:-}"
     local group="${3:-运维}"
-    local resolved_group="${BARK_GROUPS[${group}]:-龙魂系统}"
+    local resolved_group="${BARK_GROUPS[${group}]:-龍魂系统}"
 
     if [ -z "${body}" ]; then
         echo "用法: bark_ops \"标题\" \"内容\" [分组]" >&2
@@ -313,7 +316,7 @@ bark_alert() {
     local title="${1:-告警通知}"
     local body="${2:-}"
     local group="${3:-告警}"
-    local resolved_group="${BARK_GROUPS[${group}]:-龙魂系统}"
+    local resolved_group="${BARK_GROUPS[${group}]:-龍魂系统}"
 
     if [ -z "${body}" ]; then
         echo "用法: bark_alert \"标题\" \"内容\" [分组]" >&2
@@ -328,7 +331,7 @@ bark_critical() {
     local title="${1:-紧急通知}"
     local body="${2:-}"
     local group="${3:-紧急}"
-    local resolved_group="${BARK_GROUPS[${group}]:-龙魂系统}"
+    local resolved_group="${BARK_GROUPS[${group}]:-龍魂系统}"
 
     if [ -z "${body}" ]; then
         echo "用法: bark_critical \"标题\" \"内容\" [分组]" >&2
@@ -342,7 +345,7 @@ bark_critical() {
 bark_custom() {
     local title="${1:-通知}"
     local body="${2:-}"
-    local group="${3:-龙魂系统}"
+    local group="${3:-龍魂系统}"
     local level="${4:-info}"
     local sound="${5:-alarm}"
 
@@ -358,7 +361,7 @@ bark_custom() {
 # 状态诊断
 bark_status() {
     echo "╔══════════════════════════════════════════════════╗"
-    echo "║  🐉 龙魂 Bark 插件 · 状态诊断                     ║"
+    echo "║  🐉 龍魂 Bark 插件 · 状态诊断                     ║"
     echo "╚══════════════════════════════════════════════════╝"
     echo ""
 
@@ -466,7 +469,7 @@ bark_batch() {
         total=$((total + 1))
         echo -n "  [${total}] ${title:0:40}..."
 
-        if _bark_push_with_retry "${title}" "${body}" "${group:-龙魂系统}" "${level:-info}"; then
+        if _bark_push_with_retry "${title}" "${body}" "${group:-龍魂系统}" "${level:-info}"; then
             echo " ✅"
             success=$((success + 1))
         else
@@ -494,7 +497,7 @@ bark_test() {
         echo "  目标: api.day.app (官方)"
     fi
 
-    if _bark_push_with_retry "🐉 龙魂测试" "Bark 插件 v2.0 已就绪 · $(date '+%Y-%m-%d %H:%M:%S') · 鲲鹏" "龙魂系统" "info"; then
+    if _bark_push_with_retry "🐉 龍魂测试" "Bark 插件 v2.0 已就绪 · $(date '+%Y-%m-%d %H:%M:%S') · 鲲鹏" "龍魂系统" "info"; then
         echo "✅ 测试推送成功！请查看你的 iPhone Bark App"
     else
         echo "❌ 测试推送失败，请检查配置"
@@ -520,7 +523,7 @@ fi
 bark_help() {
     cat << 'HELP'
 ╔═══════════════════════════════════════════════════════════════╗
-║  🐉 龙魂 Bark 推送插件 v2.0 · 使用帮助                        ║
+║  🐉 龍魂 Bark 推送插件 v2.0 · 使用帮助                        ║
 ╠═══════════════════════════════════════════════════════════════╣
 ║                                                               ║
 ║  📋 环境变量:                                                 ║
@@ -552,7 +555,7 @@ bark_help() {
 ║  🔄 自动重试: 3次, 间隔2秒                                    ║
 ║                                                               ║
 ║  DNA: #龍芯⚡️丙午·辛未·BARK-PLUGIN-SELF-HOSTED-v2.0          ║
-║  UID9622 · 诸葛鑫 · 龙魂系统                                  ║
+║  UID9622 · 诸葛鑫 · 龍魂系统                                  ║
 ╚═══════════════════════════════════════════════════════════════╝
 HELP
 }

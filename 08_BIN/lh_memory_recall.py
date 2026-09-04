@@ -1,0 +1,87 @@
+#!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# -*- coding: utf-8 -*-
+"""
+龍魂·统一记忆入口
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-记忆召回-v1.0
+"""
+import json
+import sys
+import argparse
+from datetime import datetime, timedelta
+from pathlib import Path
+from typing import Any, Dict, List
+
+
+MEMORY_DIR = Path.home() / ".longhun/memory"
+MEMORY_DIR.mkdir(parents=True, exist_ok=True)
+
+
+class 记忆召回:
+    """统一记忆读写接口（追加不覆盖）。"""
+
+    @classmethod
+    def 写入(cls, 标签: str, 数据: Dict[str, Any]) -> bool:
+        """写入一条记忆。"""
+        文件 = MEMORY_DIR / f"{标签}_{datetime.now().strftime('%Y%m%d')}.jsonl"
+        条目 = {
+            "时间": datetime.now().isoformat(),
+            "标签": 标签,
+            "数据": 数据,
+        }
+        try:
+            with open(文件, "a", encoding="utf-8") as f:
+                f.write(json.dumps(条目, ensure_ascii=False) + "\n")
+            return True
+        except Exception:
+            return False
+
+    @classmethod
+    def 召回(cls, 标签: str, 数量: int = 10, 天数: int = 30) -> List[Dict[str, Any]]:
+        """召回指定标签最近N天的记忆。"""
+        结果: List[Dict[str, Any]] = []
+        截止时间 = datetime.now() - timedelta(days=天数)
+
+        for 文件 in sorted(MEMORY_DIR.glob(f"{标签}_*.jsonl")):
+            try:
+                with open(文件, "r", encoding="utf-8") as f:
+                    for 行 in f:
+                        if not 行.strip():
+                            continue
+                        条目 = json.loads(行)
+                        条目时间 = datetime.fromisoformat(条目["时间"])
+                        if 条目时间 >= 截止时间:
+                            结果.append(条目)
+            except Exception:
+                continue
+
+        return 结果[-数量:]
+
+
+def main():
+    parser = argparse.ArgumentParser(description="龍魂统一记忆入口")
+    parser.add_argument("--tag", type=str, help="记忆标签")
+    parser.add_argument("--recall", type=int, default=10, help="召回数量")
+    parser.add_argument("--days", type=int, default=30, help="最近N天")
+    parser.add_argument("--write", type=str, help="写入内容（JSON字符串）")
+    args = parser.parse_args()
+
+    if args.write:
+        数据 = json.loads(args.write)
+        记忆召回.写入(args.tag or "default", 数据)
+        print("✅ 记忆已写入")
+        return
+
+    if args.tag:
+        结果 = 记忆召回.召回(args.tag, args.recall, args.days)
+        print(json.dumps(结果, ensure_ascii=False, indent=2))
+        return
+
+    parser.print_help()
+
+
+if __name__ == "__main__":
+    main()

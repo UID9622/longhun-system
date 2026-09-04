@@ -1,0 +1,332 @@
+{
+  "lab": "龍魂·行為密碼學集成測試實驗室 v2.2",
+  "dna": "#龍芯⚡️丙午·甲酉·丁寅·癸亥·䷁-YIJING-ACCOUNT-8320daf4",
+  "baseline": {
+    "hex": "䷁ 坤",
+    "fp_summary": {
+      "typing": 7.1,
+      "sent_len": 23.9
+    }
+  },
+  "thresholds": {
+    "green": 0.65,
+    "yellow": 0.45
+  },
+  "formula": "身份(50%)+行為(50%)+語義加成-攻擊懲罰",
+  "total": 12,
+  "passed": 9,
+  "failed": 3,
+  "pass_rate": 75.0,
+  "scenarios": [
+    {
+      "id": "S01",
+      "name": "同一用戶·不同時間",
+      "desc": "UID9622 不同時間寫不同文本",
+      "expect": "🟢 通過",
+      "verdict": "🟢 通過",
+      "yijing": 0.765,
+      "behavior": 0.9171,
+      "semantic_bonus": 0.1,
+      "anomalies": 0,
+      "combined": 0.9411,
+      "passed": true,
+      "details": {
+        "hex": "坤(2)",
+        "t_hex": "噬嗑(21)",
+        "dao": true,
+        "fa_sim": 0.8833,
+        "fp_anom": [],
+        "txt_markers": []
+      }
+    },
+    {
+      "id": "S02",
+      "name": "同一用戶·代碼風格",
+      "desc": "寫代碼·行為一致·內容不同",
+      "expect": "🟢 通過",
+      "verdict": "🟢 通過",
+      "yijing": 0.7405,
+      "behavior": 0.8166,
+      "semantic_bonus": 0.0,
+      "anomalies": 0,
+      "combined": 0.7786,
+      "passed": true,
+      "details": {
+        "hex": "坤(2)",
+        "t_hex": "大畜(26)",
+        "dao": true,
+        "fa_sim": 0.8018,
+        "fp_anom": [],
+        "txt_markers": []
+      }
+    },
+    {
+      "id": "S03",
+      "name": "同一用戶·繁體",
+      "desc": "繁體文本·行為一致",
+      "expect": "🟢 通過",
+      "verdict": "🟢 通過",
+      "yijing": 0.7096,
+      "behavior": 0.8005,
+      "semantic_bonus": 0.15,
+      "anomalies": 0,
+      "combined": 0.9051,
+      "passed": true,
+      "details": {
+        "hex": "坤(2)",
+        "t_hex": "巽(57)",
+        "dao": true,
+        "fa_sim": 0.6986,
+        "fp_anom": [],
+        "txt_markers": []
+      }
+    },
+    {
+      "id": "S04",
+      "name": "同一用戶·技術話題",
+      "desc": "討論其他技術話題",
+      "expect": "🟢 通過",
+      "verdict": "🟢 通過",
+      "yijing": 0.7231,
+      "behavior": 0.7885,
+      "semantic_bonus": 0.075,
+      "anomalies": 0,
+      "combined": 0.8308,
+      "passed": true,
+      "details": {
+        "hex": "坤(2)",
+        "t_hex": "節(60)",
+        "dao": true,
+        "fa_sim": 0.7437,
+        "fp_anom": [],
+        "txt_markers": []
+      }
+    },
+    {
+      "id": "A01",
+      "name": "L1·抄襲攻擊",
+      "desc": "複製文本·無行為指紋",
+      "expect": "🔴 拒絕",
+      "verdict": "🔴 拒絕",
+      "yijing": 0.949,
+      "behavior": 0.0,
+      "semantic_bonus": 0.125,
+      "anomalies": 9,
+      "combined": 0.2098,
+      "passed": true,
+      "details": {
+        "hex": "坤(2)",
+        "t_hex": "坤(2)",
+        "dao": true,
+        "fa_sim": 0.83,
+        "fp_anom": [
+          "TOO_FAST",
+          "NO_CORRECTION",
+          "SHORT_FOCUS",
+          "NO_SWITCH",
+          "FLAT_EMOTION",
+          "BOT_SPEED",
+          "UNNATURAL",
+          "LLM_STYLE",
+          "TOO_STABLE"
+        ],
+        "txt_markers": []
+      }
+    },
+    {
+      "id": "A02",
+      "name": "L2·模仿攻擊",
+      "desc": "輕改文本·部分模擬行為",
+      "expect": "🟡 待核",
+      "verdict": "🔴 拒絕",
+      "yijing": 1.0,
+      "behavior": 0.0,
+      "semantic_bonus": 0.1,
+      "anomalies": 9,
+      "combined": 0.21,
+      "passed": false,
+      "details": {
+        "hex": "坤(2)",
+        "t_hex": "坤(2)",
+        "dao": true,
+        "fa_sim": 1.0,
+        "fp_anom": [
+          "TOO_FAST",
+          "NO_CORRECTION",
+          "SHORT_FOCUS",
+          "NO_SWITCH",
+          "FLAT_EMOTION",
+          "BOT_SPEED",
+          "UNNATURAL",
+          "LLM_STYLE",
+          "TOO_STABLE"
+        ],
+        "txt_markers": []
+      }
+    },
+    {
+      "id": "A03",
+      "name": "L3·AI代寫",
+      "desc": "LLM文本·無人類行為",
+      "expect": "🔴 拒絕",
+      "verdict": "🔴 拒絕",
+      "yijing": 0.694,
+      "behavior": 0.0,
+      "semantic_bonus": 0.125,
+      "anomalies": 12,
+      "combined": 0.1652,
+      "passed": true,
+      "details": {
+        "hex": "坤(2)",
+        "t_hex": "臨(19)",
+        "dao": true,
+        "fa_sim": 0.6468,
+        "fp_anom": [
+          "TOO_FAST",
+          "NO_CORRECTION",
+          "SHORT_FOCUS",
+          "NO_SWITCH",
+          "FLAT_EMOTION",
+          "BOT_SPEED",
+          "UNNATURAL",
+          "TOO_STABLE"
+        ],
+        "txt_markers": [
+          "ATTACK:綜合考慮多方面因素",
+          "ATTACK:建議靈活",
+          "ATTACK:靈活處理",
+          "ATTACK:根據我的分析"
+        ]
+      }
+    },
+    {
+      "id": "A04",
+      "name": "L4·中間人攻擊",
+      "desc": "截獲+篡改·行為異常",
+      "expect": "🔴 拒絕",
+      "verdict": "🔴 拒絕",
+      "yijing": 0.6806,
+      "behavior": 0.0,
+      "semantic_bonus": 0.125,
+      "anomalies": 9,
+      "combined": 0.1629,
+      "passed": true,
+      "details": {
+        "hex": "坤(2)",
+        "t_hex": "無妄(25)",
+        "dao": true,
+        "fa_sim": 0.602,
+        "fp_anom": [
+          "TOO_FAST",
+          "NO_CORRECTION",
+          "SHORT_FOCUS",
+          "NO_SWITCH",
+          "FLAT_EMOTION",
+          "BOT_SPEED",
+          "UNNATURAL",
+          "TOO_STABLE"
+        ],
+        "txt_markers": [
+          "ATTACK:需審查"
+        ]
+      }
+    },
+    {
+      "id": "A05",
+      "name": "L5·量子偽造",
+      "desc": "全層偽造·過於完美",
+      "expect": "🔴 拒絕",
+      "verdict": "🔴 拒絕",
+      "yijing": 0.6821,
+      "behavior": 0.0,
+      "semantic_bonus": 0.0,
+      "anomalies": 11,
+      "combined": 0.1194,
+      "passed": true,
+      "details": {
+        "hex": "坤(2)",
+        "t_hex": "復(24)",
+        "dao": true,
+        "fa_sim": 0.6069,
+        "fp_anom": [
+          "TOO_FAST",
+          "NO_CORRECTION",
+          "SHORT_FOCUS",
+          "NO_SWITCH",
+          "FLAT_EMOTION",
+          "BOT_SPEED",
+          "UNNATURAL",
+          "TOO_STABLE"
+        ],
+        "txt_markers": [
+          "ATTACK:用戶體驗至上",
+          "ATTACK:靈活處理",
+          "ATTACK:國際接軌"
+        ]
+      }
+    },
+    {
+      "id": "E01",
+      "name": "邊界·不同用戶相似話題",
+      "desc": "他人討論相同話題",
+      "expect": "🟡 待核",
+      "verdict": "🟢 通過",
+      "yijing": 0.7291,
+      "behavior": 0.6328,
+      "semantic_bonus": 0.025,
+      "anomalies": 0,
+      "combined": 0.7059,
+      "passed": false,
+      "details": {
+        "hex": "坤(2)",
+        "t_hex": "漸(53)",
+        "dao": true,
+        "fa_sim": 0.7638,
+        "fp_anom": [],
+        "txt_markers": []
+      }
+    },
+    {
+      "id": "E02",
+      "name": "邊界·完全無關內容",
+      "desc": "完全無關的日常",
+      "expect": "🔴 拒絕",
+      "verdict": "🟡 待核",
+      "yijing": 0.6621,
+      "behavior": 0.6105,
+      "semantic_bonus": 0.0,
+      "anomalies": 0,
+      "combined": 0.6363,
+      "passed": false,
+      "details": {
+        "hex": "坤(2)",
+        "t_hex": "未濟(64)",
+        "dao": true,
+        "fa_sim": 0.5403,
+        "fp_anom": [],
+        "txt_markers": []
+      }
+    },
+    {
+      "id": "E03",
+      "name": "邊界·簡體字內容",
+      "desc": "UID9622 難得寫簡體字",
+      "expect": "🟢 通過",
+      "verdict": "🟢 通過",
+      "yijing": 0.9858,
+      "behavior": 0.8016,
+      "semantic_bonus": 0.0,
+      "anomalies": 0,
+      "combined": 0.8937,
+      "passed": true,
+      "details": {
+        "hex": "坤(2)",
+        "t_hex": "坤(2)",
+        "dao": true,
+        "fa_sim": 0.9526,
+        "fp_anom": [],
+        "txt_markers": []
+      }
+    }
+  ]
+}

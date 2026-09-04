@@ -1,0 +1,60 @@
+# 🔬 龍魂系统 · CodeQL 代码安全扫描 v1.0
+# DNA: #龍芯⚡️丙午·丁酉·庚辰·酉时·䷜坎-CODEXQL-SECURITY-SCAN-v1.0-UID9622
+# 创建者: 诸葛鑫（UID9622）
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# 协议: MulanPSL v2 (工程层)
+# 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+#
+# 触发: push/PR 到 orphan_main · 每周四 04:00 (Asia/Shanghai) · 手动
+# 语言: python + javascript（龍魂生态主力）
+# 说明: CodeQL 为 GitHub 原生语义级漏洞扫描，与自建审计(ci.yml 三色/GPG)互补，
+#       覆盖注入/注入路径/不安全反序列化/敏感信息泄露等真实漏洞类别。
+# 2026-09-03: 补全 .github/ 社区规范缺口（小艺核查清单唯一真缺项）
+
+name: "🔬 龍魂 CodeQL 安全扫描"
+
+on:
+  push:
+    branches: [ orphan_main ]
+  pull_request:
+    branches: [ orphan_main ]
+  schedule:
+    - cron: "0 20 * * 3"   # 周四 04:00 Asia/Shanghai (UTC 周三 20:00)
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+  security-events: write
+
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'python', 'javascript-typescript' ]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          queries: security-extended
+
+      # Python 无需构建步骤；JS/TS 依赖较多时可开启 autobuild（默认关闭以省时）
+      - name: Autobuild
+        if: matrix.language == 'javascript-typescript'
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{ matrix.language }}"

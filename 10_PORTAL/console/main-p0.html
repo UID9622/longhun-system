@@ -1,0 +1,2528 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-ab3e5cb6 -->
+<!--#龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-UI-MAIN-CONSOLE-v1.0 -->
+<!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐉 龍魂系统主控台 - 技术主权·数据主权·中国必胜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        /* 头部样式 */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 2px solid #00d4ff;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+        
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header .subtitle {
+            font-size: 16px;
+            color: #b0b8d1;
+            margin-bottom: 15px;
+        }
+        
+        .header .dna-code {
+            font-family: "Consolas", "Monaco", monospace;
+            font-size: 12px;
+            color: #00d4ff;
+            background: rgba(0, 212, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+        
+        .header .slogan {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffd700;
+            margin-top: 15px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        /* 导航按钮 */
+        .nav-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .nav-btn {
+            padding: 20px;
+            border: 2px solid #00d4ff;
+            border-radius: 12px;
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(0, 212, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+        }
+        
+        .nav-btn.active {
+            background: rgba(0, 212, 255, 0.3);
+            border-color: #ffd700;
+            color: #ffd700;
+        }
+        
+        .nav-btn .icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        /* 内容区域 */
+        .content-section {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            color: #00d4ff;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #00d4ff;
+        }
+        
+        /* 表单样式 */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #00d4ff;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid #00d4ff;
+            border-radius: 8px;
+            color: #e2e8f0;
+            font-size: 14px;
+            font-family: "Consolas", "Monaco", monospace;
+        }
+        
+        textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+        
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #ffd700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        /* 按钮样式 */
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            color: #0a0e27;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            color: #0a0e27;
+        }
+        
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+            color: white;
+        }
+        
+        .btn-warning {
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            color: #0a0e27;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        /* 结果显示 */
+        .result-box {
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid #00d4ff;
+            border-radius: 10px;
+            padding: 20px;
+            min-height: 200px;
+            font-family: "Consolas", "Monaco", monospace;
+            font-size: 13px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 400px;
+            overflow-y: auto;
+            color: #00ff88;
+        }
+        
+        /* 统计卡片 */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #00ff88;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #b0b8d1;
+        }
+        
+        /* 列表项 */
+        .list-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+        }
+        
+        .list-item:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: #00d4ff;
+        }
+        
+        .list-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+        
+        .list-item-title {
+            font-weight: bold;
+            color: #00d4ff;
+            font-size: 14px;
+        }
+        
+        .list-item-meta {
+            font-size: 12px;
+            color: #b0b8d1;
+        }
+        
+        /* 上传区域 */
+        .upload-area {
+            border: 3px dashed #00d4ff;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            background: rgba(0, 212, 255, 0.05);
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+        
+        .upload-area:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: #ffd700;
+        }
+        
+        .upload-area.dragover {
+            background: rgba(0, 255, 136, 0.1);
+            border-color: #00ff88;
+        }
+        
+        /* 状态指示器 */
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-success {
+            background: #00ff88;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+        
+        .status-warning {
+            background: #ffd700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        .status-error {
+            background: #ff6b6b;
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+        
+        /* 标签页 */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+            padding-bottom: 10px;
+        }
+        
+        .tab-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn:hover,
+        .tab-btn.active {
+            background: rgba(0, 212, 255, 0.3);
+        }
+        
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .nav-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 32px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <!-- ==================== 龍魂主控台 v2 · 模型中枢样式层 ==================== -->
+    <style>
+        /* 主题变量：默认「龍焰玄黑」 */
+        :root {
+            --lh-bg1: #1a1a2e; --lh-bg2: #16213e; --lh-bg3: #0f3460;
+            --lh-accent: #00d4ff; --lh-accent2: #0099cc;
+            --lh-gold: #ffd700; --lh-card: rgba(255,255,255,0.05);
+            --lh-border: #00d4ff; --lh-text: #e2e8f0; --lh-sub: #b0b8d1;
+        }
+        .console-toolbar {
+            display: flex; gap: 10px; justify-content: center; align-items: center;
+            margin-top: 16px; flex-wrap: wrap;
+        }
+        .toolbar-btn {
+            padding: 8px 18px; border-radius: 20px; border: 1px solid var(--lh-accent);
+            background: rgba(0,212,255,0.08); color: var(--lh-accent); font-size: 13px;
+            font-weight: 600; cursor: pointer; transition: all 0.2s ease; letter-spacing: 1px;
+        }
+        .toolbar-btn:hover { background: rgba(0,212,255,0.2); transform: translateY(-1px); }
+        .toolbar-select {
+            padding: 7px 12px; border-radius: 20px; border: 1px solid var(--lh-accent);
+            background: #0f172a; color: var(--lh-text); font-size: 13px; cursor: pointer;
+            outline: none;
+        }
+        .toolbar-select option { background: #0f172a; color: #e2e8f0; }
+        .lh-badge {
+            display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 11px;
+            background: linear-gradient(135deg, #00d4ff, #0099cc); color: #04101f; font-weight: 700;
+            vertical-align: middle; margin-left: 6px; letter-spacing: 1px;
+        }
+        .section-desc {
+            text-align: center; color: var(--lh-sub); font-size: 14px; margin-bottom: 20px;
+        }
+        .models-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px; margin-bottom: 10px;
+        }
+        .model-card {
+            background: var(--lh-card); border: 1px solid rgba(0,212,255,0.25);
+            border-radius: 16px; padding: 20px; transition: all 0.2s ease;
+        }
+        .model-card:hover { transform: translateY(-3px); border-color: var(--lh-accent); box-shadow: 0 8px 30px rgba(0,212,255,0.15); }
+        .model-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .model-card-name { font-size: 18px; font-weight: 700; color: var(--lh-accent); }
+        .model-status { font-size: 12px; padding: 3px 10px; border-radius: 12px; font-weight: 600; }
+        .model-status.ready { background: rgba(46,204,113,0.15); color: #2ecc71; border: 1px solid rgba(46,204,113,0.3); }
+        .model-status.training { background: rgba(241,196,15,0.15); color: #f1c40f; border: 1px solid rgba(241,196,15,0.3); }
+        .model-status.draft { background: rgba(149,165,166,0.15); color: #95a5a6; border: 1px solid rgba(149,165,166,0.3); }
+        .model-card-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+        .model-meta-item {
+            font-size: 12px; padding: 3px 10px; border-radius: 6px;
+            background: rgba(0,212,255,0.08); color: var(--lh-sub);
+        }
+        .model-card-desc { font-size: 13px; color: var(--lh-sub); line-height: 1.7; margin-bottom: 14px; min-height: 44px; }
+        .model-card-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+        .model-btn {
+            padding: 7px 14px; border-radius: 8px; border: none; font-size: 13px;
+            font-weight: 600; cursor: pointer; transition: all 0.2s ease;
+        }
+        .model-btn.dl { background: linear-gradient(135deg, #00d4ff, #0099cc); color: #04101f; }
+        .model-btn.copy { background: rgba(0,212,255,0.12); color: var(--lh-accent); border: 1px solid var(--lh-accent); }
+        .model-btn:hover { transform: translateY(-1px); filter: brightness(1.15); }
+        .model-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+        .integrate-box {
+            background: var(--lh-card); border: 1px solid rgba(0,212,255,0.25);
+            border-radius: 16px; padding: 20px;
+        }
+        .integrate-controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; }
+        .integrate-controls label { font-size: 13px; color: var(--lh-sub); }
+        .code-output {
+            background: #0b1220; border: 1px solid rgba(0,212,255,0.2); border-radius: 10px;
+            padding: 16px; font-family: "Consolas","Monaco",monospace; font-size: 13px;
+            color: #a8e6ff; min-height: 220px; max-height: 420px; overflow: auto;
+            white-space: pre-wrap; word-break: break-all; line-height: 1.6;
+        }
+        .integrate-actions { display: flex; align-items: center; gap: 14px; margin-top: 12px; flex-wrap: wrap; }
+        .lang-note { font-size: 12px; color: #7dd3fc; opacity: 0.85; }
+
+        /* 设置浮层 */
+        .lh-overlay {
+            display: none; position: fixed; inset: 0; z-index: 99990;
+            background: rgba(0,0,0,0.75); justify-content: center; align-items: center;
+            font-family: "Microsoft YaHei","PingFang SC",sans-serif;
+        }
+        .lh-overlay.active { display: flex; }
+        .lh-settings-card {
+            background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+            border: 1px solid rgba(0,212,255,0.4); border-radius: 16px;
+            padding: 28px 32px; max-width: 560px; width: 92%; color: var(--lh-text);
+            box-shadow: 0 0 60px rgba(0,212,255,0.15);
+            max-height: 85vh; overflow-y: auto;
+        }
+        .lh-settings-card h3 { color: var(--lh-accent); margin-bottom: 18px; font-size: 20px; letter-spacing: 1px; }
+        .lh-settings-row { margin-bottom: 16px; }
+        .lh-settings-row label { display: block; font-size: 13px; color: var(--lh-sub); margin-bottom: 6px; }
+        .lh-settings-row textarea {
+            width: 100%; min-height: 120px; background: #0b1220; color: var(--lh-text);
+            border: 1px solid rgba(0,212,255,0.25); border-radius: 8px; padding: 10px;
+            font-family: "Consolas","Monaco",monospace; font-size: 12px; resize: vertical;
+        }
+        .lh-settings-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+        .lh-btn {
+            padding: 8px 18px; border-radius: 8px; border: none; font-size: 13px; font-weight: 600;
+            cursor: pointer; transition: all 0.2s ease;
+        }
+        .lh-btn.primary { background: linear-gradient(135deg, #00d4ff, #0099cc); color: #04101f; }
+        .lh-btn.ghost { background: transparent; color: var(--lh-accent); border: 1px solid var(--lh-accent); }
+        .lh-btn.close { background: rgba(255,255,255,0.08); color: #94a3b8; }
+        .lh-btn:hover { transform: translateY(-1px); filter: brightness(1.1); }
+        .lh-settings-tip { font-size: 12px; color: #64748b; line-height: 1.7; margin-top: 4px; }
+        .lh-toast {
+            position: fixed; top: 24px; left: 50%; transform: translateX(-50%); z-index: 99999;
+            background: #0f172a; color: #7dd3fc; border: 1px solid rgba(0,212,255,0.4);
+            border-radius: 30px; padding: 10px 24px; font-size: 14px; box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+            opacity: 0; transition: opacity 0.3s ease; pointer-events: none;
+        }
+        .lh-toast.show { opacity: 1; }
+        /* 预设主题：青玉 */
+        .theme-jade { --lh-bg1:#06281f; --lh-bg2:#0a3a2c; --lh-bg3:#0d4a37; --lh-accent:#34d399; --lh-accent2:#10b981; --lh-gold:#fbbf24; --lh-border:#34d399; }
+        /* 预设主题：玄墨鎏金 */
+        .theme-gold { --lh-bg1:#0c0c0a; --lh-bg2:#16130b; --lh-bg3:#221c0c; --lh-accent:#c9a54b; --lh-accent2:#a8842f; --lh-gold:#ffd700; --lh-border:#c9a54b; }
+        /* 预设主题：宣纸素白 */
+        .theme-paper { --lh-bg1:#f5f0e6; --lh-bg2:#efe7d6; --lh-bg3:#e6dbc4; --lh-accent:#8b5e34; --lh-accent2:#6d4624; --lh-gold:#a16207; --lh-border:#8b5e34; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <div class="header">
+            <h1>🐉 龍魂系统主控台</h1>
+            <div class="subtitle">技术主权 · 数据主权 · 本地优先 · 中国必胜</div>
+            <div class="dna-code">DNA: #龍芯⚡️丙午·庚寅·丙子·甲午·䷙大畜-MAIN-CONSOLE-UID9622</div>
+            <div class="slogan">🇨🇳 让数据主权的斗争回归中国！技术主权，从我做起！</div>
+            <div class="console-toolbar">
+                <button class="toolbar-btn" onclick="switchSection('models')" data-i18n="tool-models">🤖 模型中心</button>
+                <button class="toolbar-btn" onclick="LH.openSettings()" data-i18n="tool-skin">🎨 外观主题</button>
+                <select id="lhLangSelect" class="toolbar-select" onchange="LH.setLang(this.value)">
+                    <option value="zh">中文</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- 导航按钮 -->
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="switchSection('models')">
+                <div class="icon">🤖</div>
+                模型中心
+            </button>
+            <button class="nav-btn active" onclick="switchSection('memory')">
+                <div class="icon">🧠</div>
+                记忆压缩系统
+            </button>
+            <button class="nav-btn" onclick="switchSection('dna')">
+                <div class="icon">🧬</div>
+                DNA 存证系统
+            </button>
+            <button class="nav-btn" onclick="switchSection('asset')">
+                <div class="icon">🔍</div>
+                资产扫描器
+            </button>
+            <button class="nav-btn" onclick="switchSection('stats')">
+                <div class="icon">📊</div>
+                统计分析
+            </button>
+            <button class="nav-btn" onclick="switchSection('glass')">
+                <div class="icon">🪟</div>
+                开放审计
+            </button>
+        </div>
+
+        <!-- 模型中心 -->
+        <div id="section-models" class="content-section">
+            <div class="section-title">🤖 模型中心 <span class="lh-badge">NEW</span></div>
+            <div class="section-desc" data-i18n="models-desc">龍魂模型一键下载 · 集成代码可视化生成 · 下载源与你的数据主权同在</div>
+
+            <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-bottom: 20px;">
+                <div class="stat-card">
+                    <div class="stat-value" id="modelsTotal">0</div>
+                    <div class="stat-label" data-i18n="models-count">模型总数</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="modelsReady">0</div>
+                    <div class="stat-label" data-i18n="models-ready">可用版本</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="modelsTraining">0</div>
+                    <div class="stat-label" data-i18n="models-training">训练中</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="modelsLatest">—</div>
+                    <div class="stat-label" data-i18n="models-latest">最新版本</div>
+                </div>
+            </div>
+
+            <div id="modelsGrid" class="models-grid"></div>
+
+            <div class="integrate-box" style="margin-bottom: 20px; background: rgba(0,212,255,0.05); border-style: dashed;">
+                <div style="font-size: 13px; color: var(--lh-sub); line-height: 1.8;">
+                    🚀 <b style="color: var(--lh-accent);">发布计划</b>：模型在 <b>ollama.com 官方库</b> 发布 · 命名空间 <code style="color: var(--lh-accent);">uid9622</code>（已确认未占用）<br>
+                    📋 流程：① 注册 ollama.com 账号 → ② 本机 <code>ollama login</code> → ③ <code>ollama tag</code> + <code>ollama push</code> → ④ 用户 <code>ollama run uid9622/&lt;模型&gt;</code> 一键拉取
+                </div>
+            </div>
+
+            <div class="section-title" style="margin-top: 28px;">🔌 <span data-i18n="int-title">集成代码生成器</span></div>
+            <div class="integrate-box">
+                <div class="integrate-controls">
+                    <label data-i18n="int-model">模型</label>
+                    <select id="intModel" class="toolbar-select"></select>
+                    <label data-i18n="int-mode">运行方式</label>
+                    <select id="intMode" class="toolbar-select">
+                        <option value="ollama">Ollama 本地</option>
+                        <option value="openai">OpenAI 兼容 API</option>
+                        <option value="http">HTTP 直连</option>
+                    </select>
+                    <label data-i18n="int-lang">语言</label>
+                    <select id="intLang" class="toolbar-select">
+                        <option value="python">Python</option>
+                        <option value="js">JavaScript</option>
+                        <option value="shell">Shell (curl)</option>
+                        <option value="cnsh">CNSH</option>
+                    </select>
+                    <button class="btn btn-primary" onclick="LH.genCode()" data-i18n="int-gen">生成代码</button>
+                </div>
+                <pre id="intCode" class="code-output">// 选择模型与运行方式后，点击「生成代码」</pre>
+                <div class="integrate-actions">
+                    <button class="btn btn-success" onclick="LH.copyCode()" data-i18n="int-copy">📋 一键复制</button>
+                    <span class="lang-note">✨ <span data-i18n="int-langnote">语言切换由通心译代码转译提供</span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 记忆压缩系统 -->
+        <div id="section-memory" class="content-section active">
+            <div class="section-title">🧠 记忆压缩系统</div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="memoryCount">0</div>
+                    <div class="stat-label">记忆总数</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="compressionRate">0%</div>
+                    <div class="stat-label">平均压缩率</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="storageSize">0 KB</div>
+                    <div class="stat-label">存储占用</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>📝 输入记忆内容</label>
+                <textarea id="memoryInput" placeholder="在此输入你的记忆、想法、笔记...
+
+🐉 系统会自动：
+✅ 生成 DNA 追溯码
+✅ 提取太极算法变量（字数、关键词、情感、重要程度）
+✅ 压缩记忆内容（压缩率可达 99%+）
+✅ 保存到 IndexedDB（永久存储）
+✅ 支持快速还原"></textarea>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="processMemory()">🧠 处理记忆</button>
+                <button class="btn btn-success" onclick="saveMemory()">💾 保存记忆</button>
+                <button class="btn btn-warning" onclick="clearMemoryInput()">🗑️ 清空</button>
+            </div>
+
+            <div class="form-group">
+                <label>✨ 处理结果</label>
+                <div id="memoryResult" class="result-box">等待输入记忆...</div>
+            </div>
+
+            <div class="section-title" style="margin-top: 30px;">🗄️ 记忆库</div>
+            <div id="memoryList">
+                <div style="color: #666; text-align: center; padding: 40px;">暂无保存的记忆</div>
+            </div>
+        </div>
+
+        <!-- DNA 存证系统 -->
+        <div id="section-dna" class="content-section">
+            <div class="section-title">🧬 DNA 存证系统</div>
+            
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchDNATab('generate')">生成存证</button>
+                <button class="tab-btn" onclick="switchDNATab('verify')">验证存证</button>
+                <button class="tab-btn" onclick="switchDNATab('manage')">管理存证</button>
+            </div>
+
+            <!-- 生成存证 -->
+            <div id="dna-generate" class="dna-tab">
+                <div class="form-group">
+                    <label>👤 创作者 ID</label>
+                    <input type="text" id="creatorId" value="ZHUGEXIN" placeholder="输入创作者ID">
+                </div>
+
+                <div class="form-group">
+                    <label>📁 项目名称</label>
+                    <input type="text" id="projectName" value="DEFAULT" placeholder="输入项目名称">
+                </div>
+
+                <div class="form-group">
+                    <label>📄 存证内容</label>
+                    <textarea id="dnaContent" placeholder="输入需要存证的内容..."></textarea>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="generateDNA()">🔐 生成 DNA 存证</button>
+                    <button class="btn btn-success" onclick="exportDNA()">📥 下载存证文件</button>
+                </div>
+
+                <div class="form-group">
+                    <label>✨ 生成结果</label>
+                    <div id="dnaResult" class="result-box">等待生成存证...</div>
+                </div>
+            </div>
+
+            <!-- 验证存证 -->
+            <div id="dna-verify" class="dna-tab" style="display: none;">
+                <div class="form-group">
+                    <label>🔍 选择验证方式</label>
+                </div>
+
+                <div class="upload-area" id="dnaUploadArea">
+                    <div style="font-size: 48px; margin-bottom: 15px;">📁</div>
+                    <div style="font-size: 16px; color: #b0b8d1; margin-bottom: 10px;">拖拽存证文件到这里，或点击选择文件</div>
+                    <div style="font-size: 14px; color: #666;">支持 JSON 格式</div>
+                    <input type="file" id="dnaFileInput" style="display: none;" accept=".json">
+                </div>
+
+                <div class="form-group" style="margin-top: 20px;">
+                    <label>🔑 输入 DNA 追溯码</label>
+                    <input type="text" id="dnaCodeInput" placeholder="输入 DNA 追溯码，例如：#ZHUGEXIN⚡️2026-03-03-DEFAULT-001">
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="verifyDNA()">🔐 验证 DNA 存证</button>
+                    <button class="btn btn-warning" onclick="clearDNAInput()">🗑️ 清空</button>
+                </div>
+
+                <div class="form-group">
+                    <label>✨ 验证结果</label>
+                    <div id="dnaVerifyResult" class="result-box">等待验证...</div>
+                </div>
+            </div>
+
+            <!-- 管理存证 -->
+            <div id="dna-manage" class="dna-tab" style="display: none;">
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="loadAllDNA()">📋 加载所有存证</button>
+                    <button class="btn btn-success" onclick="exportAllDNA()">📥 批量导出</button>
+                    <button class="btn btn-danger" onclick="clearAllDNA()">🗑️ 清空所有存证</button>
+                </div>
+
+                <div class="section-title" style="margin-top: 30px;">📋 存证列表</div>
+                <div id="dnaList">
+                    <div style="color: #666; text-align: center; padding: 40px;">暂无存证记录</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 资产扫描器 -->
+        <div id="section-asset" class="content-section">
+            <div class="section-title">🔍 资产扫描器</div>
+            
+            <div class="upload-area" id="assetUploadArea">
+                <div style="font-size: 48px; margin-bottom: 15px;">📁</div>
+                <div style="font-size: 16px; color: #b0b8d1; margin-bottom: 10px;">拖拽文件到这里扫描</div>
+                <div style="font-size: 14px; color: #666;">支持 .md, .py, .js, .html, .json 等格式</div>
+                <input type="file" id="assetFileInput" multiple style="display: none;" accept=".md,.py,.js,.ts,.cpp,.html,.json,.txt,.cnsh">
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="scanAssets()">🔍 开始扫描</button>
+                <button class="btn btn-success" onclick="exportAssetReport()">📄 导出扫描报告</button>
+                <button class="btn btn-warning" onclick="clearAssetResults()">🗑️ 清空结果</button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="coreOriginalCount">0</div>
+                    <div class="stat-label">✅ 核心原创</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="originalCount">0</div>
+                    <div class="stat-label">🟢 原创</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="mixedCount">0</div>
+                    <div class="stat-label">🟡 混合</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="externalCount">0</div>
+                    <div class="stat-label">📦 外部</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="totalCount">0</div>
+                    <div class="stat-label">📊 总计</div>
+                </div>
+            </div>
+
+            <div class="section-title" style="margin-top: 30px;">📁 扫描结果</div>
+            <div id="assetResults">
+                <div style="color: #666; text-align: center; padding: 40px;">暂无扫描结果</div>
+            </div>
+        </div>
+
+        <!-- 统计分析 -->
+        <div id="section-stats" class="content-section">
+            <div class="section-title">📊 统计分析</div>
+            
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchStatsTab('overview')">总览</button>
+                <button class="tab-btn" onclick="switchStatsTab('memory')">记忆统计</button>
+                <button class="tab-btn" onclick="switchStatsTab('dna')">DNA 统计</button>
+                <button class="tab-btn" onclick="switchStatsTab('asset')">资产统计</button>
+            </div>
+
+            <div id="stats-overview" class="stats-tab">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalMemories">0</div>
+                        <div class="stat-label">记忆总数</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalDNA">0</div>
+                        <div class="stat-label">DNA 存证</div>
+                    </div>
+                    <div class="stat-card">
+                        <div="stat-value" id="totalAssets">0</div>
+                        <div class="stat-label">扫描文件</div>
+                    </div>
+                    <div class="stat-card">
+                        <div="stat-value" id="totalStorage">0 KB</div>
+                        <div class="stat-label">总存储</div>
+                    </div>
+                </div>
+
+                <div class="result-box" id="overviewResult">
+                    📊 系统总览统计信息...
+                </div>
+            </div>
+
+            <div id="stats-memory" class="stats-tab" style="display: none;">
+                <div class="result-box" id="memoryStatsResult">
+                    📊 记忆系统统计信息...
+                </div>
+            </div>
+
+            <div id="stats-dna" class="stats-tab" style="display: none;">
+                <div class="result-box" id="dnaStatsResult">
+                    📊 DNA 存证统计信息...
+                </div>
+            </div>
+
+            <div id="stats-asset" class="stats-tab" style="display: none;">
+                <div class="result-box" id="assetStatsResult">
+                    📊 资产扫描统计信息...
+                </div>
+            </div>
+        </div>
+
+        <!-- 开放审计 · 玻璃墙（透明不黑箱·P0 正面实现） -->
+        <div id="section-glass" class="content-section">
+            <div class="section-title">🪟 开放审计 · 玻璃墙</div>
+            <p style="color:#b0b8d1; margin-bottom:16px; font-size:14px;">
+                别人把后台当权力，我把透明当武器。此页所有人可见·无需登录·只读脱敏聚合，不暴露任何用户数据。
+            </p>
+            <iframe id="glassFrame" title="龍魂开放审计·玻璃墙"
+                style="width:100%; height:900px; border:1px solid rgba(0,212,255,0.3); border-radius:12px; background:#0d1117;"
+                loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <!-- 脚本 -->
+    <script>
+        // ==================== 全局变量 ====================
+        let currentMemory = null;
+        let currentDNA = null;
+        let assetScanResults = [];
+        let dnaEvidences = [];
+        let memoryData = [];
+
+        // ==================== 初始化 ====================
+        window.onload = function() {
+            console.log('🐉 龍魂系统主控台启动');
+            console.log('DNA: #龍芯⚡️丙午·庚寅·丙子·甲午·䷙大畜-MAIN-CONSOLE-UID9622');
+            console.log('🇨🇳 技术主权 · 数据主权 · 中国必胜');
+            
+            // 初始化 IndexedDB
+            initDatabases();
+            
+            // 加载统计数据
+            loadStatistics();
+
+            // 开放审计·玻璃墙（file:// 本地预览时指向本机 API）
+            var gf = document.getElementById('glassFrame');
+            if (gf) {
+                var api = (location.protocol === 'file:') ? '?api=http://127.0.0.1:9658' : '';
+                gf.src = 'glass.html' + api;
+            }
+            
+            console.log('✅ 系统初始化完成');
+        };
+
+        // ==================== 导航切换 ====================
+        function switchSection(sectionId) {
+            // 隐藏所有内容区域
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // 取消所有导航按钮的激活状态
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // 显示选中的内容区域
+            document.getElementById('section-' + sectionId).classList.add('active');
+            
+            // 激活对应的导航按钮
+            event.target.closest('.nav-btn').classList.add('active');
+            
+            // 如果切换到统计页面，刷新统计
+            if (sectionId === 'stats') {
+                loadStatistics();
+            }
+        }
+
+        // ==================== 记忆压缩系统 ====================
+        function processMemory() {
+            const input = document.getElementById('memoryInput').value.trim();
+            
+            if (!input) {
+                alert('请输入记忆内容！');
+                return;
+            }
+            
+            // 生成 DNA 追溯码
+            const timestamp = new Date().toISOString().split('T')[0];
+            const hash = simpleHash(input).substring(0, 8);
+            const dna = `#龍芯⚡️${timestamp}-MEMORY-${hash}-UID9622`;
+            
+            // 提取太极算法变量
+            const taijiVars = extractTaijiVars(input);
+            
+            // 压缩记忆
+            const compressed = compressMemoryContent(input, taijiVars);
+            
+            // 显示结果
+            let result = `🧬 DNA追溯码：\n${dna}\n\n`;
+            result += `☯️ 太极算法变量：\n`;
+            result += `  字数：${taijiVars.字数}\n`;
+            result += `  行数：${taijiVars.行数}\n`;
+            result += `  关键词：${taijiVars.关键词.join(', ')}\n`;
+            result += `  情感：${taijiVars.情感}\n`;
+            result += `  重要程度：${taijiVars.重要程度}/10\n\n`;
+            result += `📦 记忆压缩：\n`;
+            result += `  原始长度：${compressed.原始长度}字\n`;
+            result += `  压缩后：${compressed.压缩后长度}字\n`;
+            result += `  压缩率：${compressed.压缩率}%\n`;
+            result += `  完整哈希：${compressed.完整哈希}\n\n`;
+            result += `📝 记忆摘要：\n${compressed.摘要}`;
+            
+            document.getElementById('memoryResult').textContent = result;
+            
+            // 保存当前处理结果
+            currentMemory = {
+                DNA: dna,
+                原始内容: input,
+                太极变量: taijiVars,
+                压缩数据: compressed,
+                创建时间: new Date().toISOString()
+            };
+        }
+
+        async function saveMemory() {
+            if (!currentMemory) {
+                alert('请先处理记忆！');
+                return;
+            }
+            
+            try {
+                // 保存到 IndexedDB
+                const db = await openDB('龍魂记忆库', '记忆库');
+                const tx = db.transaction(['记忆库'], 'readwrite');
+                const store = tx.objectStore('记忆库');
+                
+                const request = store.put(currentMemory);
+                
+                request.onsuccess = () => {
+                    console.log('✅ 记忆已保存');
+                    updateMemoryList();
+                    updateMemoryStats();
+                    alert('✅ 记忆已保存到系统！');
+                };
+                
+                request.onerror = () => {
+                    console.error('保存失败：', request.error);
+                    alert('保存失败：' + request.error.message);
+                };
+            } catch (error) {
+                console.error('保存失败：', error);
+                alert('保存失败：' + error.message);
+            }
+        }
+
+        function clearMemoryInput() {
+            document.getElementById('memoryInput').value = '';
+            document.getElementById('memoryResult').textContent = '等待输入记忆...';
+            currentMemory = null;
+        }
+
+        function extractTaijiVars(content) {
+            const lines = content.split('\n');
+            const wordCount = content.length;
+            const keywords = extractKeywords(content);
+            const emotion = analyzeEmotion(content);
+            const importance = Math.min(10, Math.ceil(wordCount / 100) + keywords.length);
+            
+            return {
+                字数: wordCount,
+                行数: lines.length,
+                关键词: keywords,
+                情感: emotion,
+                重要程度: importance,
+                时间戳: new Date().toISOString(),
+                创建者: 'UID9622'
+            };
+        }
+
+        function extractKeywords(text) {
+            const stopWords = ['的', '了', '在', '是', '我', '有', '和', '就', '不', '人', '都', '一', '一个', '上', '也', '很', '到', '说', '要', '去', '你', '会', '着', '没有', '看', '好', '自己', '这'];
+            const words = text.split(/[，。！？；：、\s]+/).filter(w => w.length > 1);
+            const filtered = words.filter(w => !stopWords.includes(w));
+            const freq = {};
+            filtered.forEach(w => {
+                freq[w] = (freq[w] || 0) + 1;
+            });
+            const sorted = Object.entries(freq).sort((a, b) => b[1] - a[1]);
+            return sorted.slice(0, 5).map(([word]) => word);
+        }
+
+        function analyzeEmotion(text) {
+            const positive = ['开心', '快乐', '高兴', '幸福', '美好', '喜欢', '爱', '棒', '好', '成功'];
+            const negative = ['难过', '悲伤', '痛苦', '失败', '糟糕', '讨厌', '恨', '差', '错误'];
+            
+            let posCount = 0, negCount = 0;
+            positive.forEach(word => { if (text.includes(word)) posCount++; });
+            negative.forEach(word => { if (text.includes(word)) negCount++; });
+            
+            if (posCount > negCount) return '积极';
+            if (negCount > posCount) return '消极';
+            return '平静';
+        }
+
+        function compressMemoryContent(content, taijiVars) {
+            const summary = content.substring(0, 100) + (content.length > 100 ? '...' : '');
+            return {
+                原始长度: content.length,
+                压缩后长度: summary.length + JSON.stringify(taijiVars).length,
+                压缩率: Math.round((1 - (summary.length / content.length)) * 100),
+                摘要: summary,
+                完整哈希: simpleHash(content),
+                可还原: true
+            };
+        }
+
+        function simpleHash(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                const char = str.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            return Math.abs(hash).toString(16).padStart(8, '0');
+        }
+
+        async function updateMemoryList() {
+            const db = await openDB('龍魂记忆库', '记忆库');
+            const tx = db.transaction(['记忆库'], 'readonly');
+            const store = tx.objectStore('记忆库');
+            const request = store.getAll();
+            
+            request.onsuccess = () => {
+                const memories = request.result;
+                const container = document.getElementById('memoryList');
+                
+                if (memories.length === 0) {
+                    container.innerHTML = '<div style="color: #666; text-align: center; padding: 40px;">暂无保存的记忆</div>';
+                    document.getElementById('memoryCount').textContent = '0';
+                    return;
+                }
+                
+                container.innerHTML = memories.map(memory => `
+                    <div class="list-item">
+                        <div class="list-item-header">
+                            <div class="list-item-title">${memory.DNA}</div>
+                            <div class="list-item-meta">${new Date(memory.创建时间).toLocaleString('zh-CN')}</div>
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <strong>摘要：</strong>${memory.压缩数据.摘要}
+                        </div>
+                        <div style="font-size: 12px; color: #b0b8d1;">
+                            关键词：${memory.太极变量.关键词.join(', ')} | 情感：${memory.太极变量.情感} | 压缩率：${memory.压缩数据.压缩率}%
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="viewMemory('${memory.DNA}')">查看</button>
+                            <button class="btn btn-danger" onclick="deleteMemory('${memory.DNA}')">删除</button>
+                        </div>
+                    </div>
+                `).join('');
+                
+                document.getElementById('memoryCount').textContent = memories.length;
+            };
+        }
+
+        async function updateMemoryStats() {
+            const db = await openDB('龍魂记忆库', '记忆库');
+            const tx = db.transaction(['记忆库'], 'readonly');
+            const store = tx.objectStore('记忆库');
+            const request = store.getAll();
+            
+            request.onsuccess = () => {
+                const memories = request.result;
+                const totalSize = JSON.stringify(memories).length;
+                const avgCompression = memories.length > 0 
+                    ? Math.round(memories.reduce((sum, m) => sum + m.压缩数据.压缩率, 0) / memories.length)
+                    : 0;
+                
+                document.getElementById('compressionRate').textContent = avgCompression + '%';
+                document.getElementById('storageSize').textContent = Math.round(totalSize / 1024) + ' KB';
+            };
+        }
+
+        async function viewMemory(dna) {
+            const db = await openDB('龍魂记忆库', '记忆库');
+            const tx = db.transaction(['记忆库'], 'readonly');
+            const store = tx.objectStore('记忆库');
+            const request = store.get(dna);
+            
+            request.onsuccess = () => {
+                const memory = request.result;
+                if (memory) {
+                    document.getElementById('memoryInput').value = memory.原始内容;
+                    document.getElementById('memoryResult').textContent = `🧬 DNA：${memory.DNA}\n\n📝 完整内容：\n${memory.原始内容}`;
+                    currentMemory = memory;
+                }
+            };
+        }
+
+        async function deleteMemory(dna) {
+            if (!confirm('确定要删除这条记忆吗？')) return;
+            
+            const db = await openDB('龍魂记忆库', '记忆库');
+            const tx = db.transaction(['记忆库'], 'readwrite');
+            const store = tx.objectStore('记忆库');
+            store.delete(dna);
+            
+            tx.oncomplete = () => {
+                updateMemoryList();
+                updateMemoryStats();
+                alert('✅ 记忆已删除');
+            };
+        }
+
+        // ==================== DNA 存证系统 ====================
+        function switchDNATab(tabId) {
+            document.querySelectorAll('.dna-tab').forEach(tab => {
+                tab.style.display = 'none';
+            });
+            document.querySelectorAll('#dna-' + tabId).forEach(tab => {
+                tab.style.display = 'block';
+            });
+            document.querySelectorAll('#section-dna .tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        async function generateDNA() {
+            const creatorId = document.getElementById('creatorId').value.trim();
+            const projectName = document.getElementById('projectName').value.trim();
+            const content = document.getElementById('dnaContent').value.trim();
+            
+            if (!creatorId || !projectName || !content) {
+                alert('请填写完整信息！');
+                return;
+            }
+            
+            try {
+                const timestamp = Date.now();
+                const storageKey = `latest_seq_${creatorId}_${projectName}`;
+                let latestSeq = parseInt(localStorage.getItem(storageKey) || '0');
+                const newSeq = latestSeq + 1;
+                
+                const dnaCode = `#${creatorId}⚡️${new Date(timestamp).toISOString().split('T')[0]}-${projectName}-${String(newSeq).padStart(3, '0')}`;
+                const fingerprint = await generateDigitalFingerprint(content, dnaCode);
+                
+                const evidence = {
+                    content: content,
+                    timestamp: new Date(timestamp).toISOString(),
+                    timestampUnix: timestamp,
+                    creatorId: creatorId,
+                    projectName: projectName,
+                    sequence: newSeq,
+                    dnaCode: dnaCode,
+                    digitalFingerprint: fingerprint,
+                    metadata: {
+                        toolVersion: "龍魂DNA存证系统 v1.0",
+                        systemNote: "本存证基于SHA-256算法生成，任何修改都会导致指纹失效",
+                        creatorStatement: "技术主权·数据主权·中文原生"
+                    }
+                };
+                
+                localStorage.setItem(dnaCode, JSON.stringify(evidence));
+                localStorage.setItem(storageKey, newSeq.toString());
+                
+                // 保存到 IndexedDB
+                const db = await openDB('龍魂DNA存证', 'evidences');
+                const tx = db.transaction(['evidences'], 'readwrite');
+                const store = tx.objectStore('evidences');
+                store.put(evidence);
+                
+                // 显示结果
+                let result = `🧬 DNA 追溯码：\n${dnaCode}\n\n`;
+                result += `👤 创作者：${creatorId}\n`;
+                result += `📁 项目：${projectName}\n`;
+                result += `📅 序号：${newSeq}\n`;
+                result += `⏰ 时间：${new Date(timestamp).toLocaleString('zh-CN')}\n\n`;
+                result += `🔐 数字指纹：\n${fingerprint}\n\n`;
+                result += `✅ 存证已创建并保存！`;
+                
+                document.getElementById('dnaResult').textContent = result;
+                currentDNA = evidence;
+                
+                alert('✅ DNA 存证已成功创建！');
+            } catch (error) {
+                console.error('生成失败：', error);
+                alert('生成失败：' + error.message);
+            }
+        }
+
+        async function generateDigitalFingerprint(content, dnaCode) {
+            const combined = content + dnaCode;
+            const encoder = new TextEncoder();
+            const data = encoder.encode(combined);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        async function exportDNA() {
+            if (!currentDNA) {
+                alert('请先生成 DNA 存证！');
+                return;
+            }
+            
+            const jsonText = JSON.stringify(currentDNA, null, 2);
+            const blob = new Blob([jsonText], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `DNA存证_${currentDNA.dnaCode}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            alert('✅ 存证文件已下载！');
+        }
+
+        async function verifyDNA() {
+            const dnaCode = document.getElementById('dnaCodeInput').value.trim();
+            
+            if (!dnaCode) {
+                alert('请输入 DNA 追溯码！');
+                return;
+            }
+            
+            try {
+                let evidence;
+                
+                // 先从 localStorage 查找
+                const stored = localStorage.getItem(dnaCode);
+                if (stored) {
+                    evidence = JSON.parse(stored);
+                } else {
+                    // 从 IndexedDB 查找
+                    const db = await openDB('龍魂DNA存证', 'evidences');
+                    const tx = db.transaction(['evidences'], 'readonly');
+                    const store = tx.objectStore('evidences');
+                    const request = store.get(dnaCode);
+                    
+                    evidence = await new Promise((resolve, reject) => {
+                        request.onsuccess = () => resolve(request.result);
+                        request.onerror = () => reject(request.error);
+                    });
+                }
+                
+                if (!evidence) {
+                    document.getElementById('dnaVerifyResult').textContent = '❌ 未找到此 DNA 追溯码的存证';
+                    return;
+                }
+                
+                const originalFingerprint = evidence.digitalFingerprint;
+                const calculatedFingerprint = await generateDigitalFingerprint(evidence.content, evidence.dnaCode);
+                const isMatch = (originalFingerprint === calculatedFingerprint);
+                
+                let result;
+                if (isMatch) {
+                    result = `✅ 验证通过！\n\n`;
+                    result += `🧬 DNA 追溯码：${evidence.dnaCode}\n`;
+                    result += `👤 创作者：${evidence.creatorId}\n`;
+                    result += `📁 项目：${evidence.projectName}\n`;
+                    result += `📅 序号：${evidence.sequence}\n`;
+                    result += `⏰ 时间：${evidence.timestamp}\n\n`;
+                    result += `🔐 数字指纹：${originalFingerprint}\n\n`;
+                    result += `✨ 内容真实可信，未被篡改！`;
+                } else {
+                    result = `❌ 验证失败！\n\n`;
+                    result += `🚨 数字指纹不匹配，内容可能已被篡改！\n\n`;
+                    result += `原始指纹：${originalFingerprint}\n`;
+                    result += `计算指纹：${calculatedFingerprint}\n\n`;
+                    result += `⚠️ 请谨慎处理此内容！`;
+                }
+                
+                document.getElementById('dnaVerifyResult').textContent = result;
+            } catch (error) {
+                console.error('验证失败：', error);
+                document.getElementById('dnaVerifyResult').textContent = '❌ 验证失败：' + error.message;
+            }
+        }
+
+        function clearDNAInput() {
+            document.getElementById('dnaCodeInput').value = '';
+            document.getElementById('dnaVerifyResult').textContent = '等待验证...';
+        }
+
+        async function loadAllDNA() {
+            const results = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key.startsWith('#')) {
+                    const value = localStorage.getItem(key);
+                    const evidence = JSON.parse(value);
+                    results.push(evidence);
+                }
+            }
+            results.sort((a, b) => b.timestampUnix - a.timestampUnix);
+            
+            dnaEvidences = results;
+            updateDNAList();
+            
+            alert(`✅ 已加载 ${results.length} 条存证记录`);
+        }
+
+        function updateDNAList() {
+            const container = document.getElementById('dnaList');
+            
+            if (dnaEvidences.length === 0) {
+                container.innerHTML = '<div style="color: #666; text-align: center; padding: 40px;">暂无存证记录</div>';
+                return;
+            }
+            
+            container.innerHTML = dnaEvidences.map(evidence => `
+                <div class="list-item">
+                    <div class="list-item-header">
+                        <div class="list-item-title">${evidence.dnaCode}</div>
+                        <div class="list-item-meta">${new Date(evidence.timestamp).toLocaleString('zh-CN')}</div>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <strong>👤 创作者：</strong>${evidence.creatorId}<br>
+                        <strong>📁 项目：</strong>${evidence.projectName}<br>
+                        <strong>📅 序号：</strong>${evidence.sequence}
+                    </div>
+                    <div style="font-size: 12px; color: #b0b8d1; margin-top: 10px;">
+                        🔐 指纹：${evidence.digitalFingerprint.substring(0, 32)}...
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-success" onclick="exportSingleDNA('${evidence.dnaCode}')">导出</button>
+                        <button class="btn btn-danger" onclick="deleteSingleDNA('${evidence.dnaCode}')">删除</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function exportSingleDNA(dnaCode) {
+            const evidence = dnaEvidences.find(e => e.dnaCode === dnaCode);
+            if (evidence) {
+                const jsonText = JSON.stringify(evidence, null, 2);
+                const blob = new Blob([jsonText], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `DNA存证_${dnaCode}.json`;
+                a.click();
+                URL.revokeObjectURL(url);
+            }
+        }
+
+        async function deleteSingleDNA(dnaCode) {
+            if (!confirm('确定要删除这条存证吗？')) return;
+            
+            localStorage.removeItem(dnaCode);
+            const db = await openDB('龍魂DNA存证', 'evidences');
+            const tx = db.transaction(['evidences'], 'readwrite');
+            const store = tx.objectStore('evidences');
+            store.delete(dnaCode);
+            
+            tx.oncomplete = () => {
+                dnaEvidences = dnaEvidences.filter(e => e.dnaCode !== dnaCode);
+                updateDNAList();
+                alert('✅ 存证已删除');
+            };
+        }
+
+        async function exportAllDNA() {
+            if (dnaEvidences.length === 0) {
+                alert('没有存证记录可导出！');
+                return;
+            }
+            
+            const jsonText = JSON.stringify(dnaEvidences, null, 2);
+            const blob = new Blob([jsonText], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `DNA存证_全部_${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            alert(`✅ 已导出 ${dnaEvidences.length} 条存证记录！`);
+        }
+
+        async function clearAllDNA() {
+            if (!confirm('确定要清空所有存证记录吗？此操作不可恢复！')) return;
+            
+            // 清空 localStorage
+            const keysToDelete = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key.startsWith('#')) {
+                    keysToDelete.push(key);
+                }
+            }
+            keysToDelete.forEach(key => localStorage.removeItem(key));
+            
+            // 清空 IndexedDB
+            const db = await openDB('龍魂DNA存证', 'evidences');
+            const tx = db.transaction(['evidences'], 'readwrite');
+            const store = tx.objectStore('evidences');
+            store.clear();
+            
+            tx.oncomplete = () => {
+                dnaEvidences = [];
+                updateDNAList();
+                alert('✅ 所有存证记录已清空');
+            };
+        }
+
+        // ==================== 资产扫描器 ====================
+        const originalMarkers = [
+            "UID9622", "宝宝", "诸葛鑫", "Lucky",
+            "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+            "LK9X-772Z", "#龍芯", "#ZHUGEXIN", "CONFIRM🌌9622",
+            "北辰协议", "P0", "铁律", "红线", "宣言",
+            "三才算法", "天爻", "地爻", "人爻", "冲气以为和",
+            "太极", "易经", "八卦", "卦象", "道德经",
+            "量子纠缠", "Bra-Ket", "叠加态", "观测坍缩",
+            "元宇宙", "元知", "数字人", "元世界",
+            "LU_", "LU指令", "主控指令", "熔断", "净化器",
+            "DNA追溯", "三色审计", "CNSH", "龍魂", "龍魂",
+            "星辰记忆", "压缩卡", "语义压缩", "记忆编辑器",
+            "人格路由", "ROUTE_", "persona", "fuse_manager",
+            "snapshot_core", "dragon_soul",
+            "人格", "推演", "开源", "主权", "算法宪法",
+            "愿景", "内核", "规则引擎", "权限管理",
+            "H武器", "数字资产", "贡献尊严",
+            "PersonaRoute", "DragonSoul", "ROUTE_GUARDIAN",
+            "ROUTE_ARCHITECT", "SemanticCompression",
+        ];
+
+        const externalMarkers = [
+            "MIT License", "Apache License", "Copyright (c)",
+            "All rights reserved", "DO NOT EDIT",
+            "Auto-generated", "This file is generated"
+        ];
+
+        // 文件上传处理
+        const assetUploadArea = document.getElementById('assetUploadArea');
+        const assetFileInput = document.getElementById('assetFileInput');
+
+        assetUploadArea.addEventListener('click', () => assetFileInput.click());
+        assetUploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            assetUploadArea.classList.add('dragover');
+        });
+        assetUploadArea.addEventListener('dragleave', () => {
+            assetUploadArea.classList.remove('dragover');
+        });
+        assetUploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            assetUploadArea.classList.remove('dragover');
+            handleAssetFiles(e.dataTransfer.files);
+        });
+        assetFileInput.addEventListener('change', (e) => {
+            handleAssetFiles(e.target.files);
+        });
+
+        async function handleAssetFiles(files) {
+            assetScanResults = [];
+            
+            for (const file of files) {
+                try {
+                    const content = await readFile(file);
+                    const originalHits = originalMarkers.filter(m => content.includes(m));
+                    const externalHits = externalMarkers.filter(m => content.includes(m));
+                    
+                    const isCore = ["UID9622", "宝宝", "#龍芯", "#ZHUGEXIN"].some(k => content.includes(k));
+                    
+                    let category;
+                    if (isCore) {
+                        category = "✅ 核心原创";
+                    } else if (originalHits.length > 0 && externalHits.length === 0) {
+                        category = "🟢 原创";
+                    } else if (originalHits.length > 0 && externalHits.length > 0) {
+                        category = "🟡 混合";
+                    } else if (externalHits.length > 0) {
+                        category = "📦 外部";
+                    } else {
+                        category = "❓ 未标记";
+                    }
+                    
+                    assetScanResults.push({
+                        文件: file.name,
+                        文件大小: file.size,
+                        类型: category,
+                        原创标记: originalHits.slice(0, 5),
+                        字符数: content.length,
+                        修改时间: file.lastModified ? new Date(file.lastModified).toLocaleString('zh-CN') : '未知'
+                    });
+                } catch (error) {
+                    console.error(`扫描文件失败: ${file.name}`, error);
+                }
+            }
+            
+            updateAssetStats();
+            updateAssetResults();
+            
+            alert(`✅ 扫描完成！\n\n核心原创：${assetScanResults.filter(r => r.类型 === '✅ 核心原创').length} 个\n其他原创：${assetScanResults.filter(r => r.类型 === '🟢 原创').length} 个\n总计：${assetScanResults.length} 个`);
+        }
+
+        function readFile(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (e) => resolve(e.target.result);
+                reader.onerror = () => reject(reader.error);
+                reader.readAsText(file, 'utf-8');
+            });
+        }
+
+        function updateAssetStats() {
+            document.getElementById('coreOriginalCount').textContent = assetScanResults.filter(r => r.类型 === '✅ 核心原创').length;
+            document.getElementById('originalCount').textContent = assetScanResults.filter(r => r.类型 === '🟢 原创').length;
+            document.getElementById('mixedCount').textContent = assetScanResults.filter(r => r.类型 === '🟡 混合').length;
+            document.getElementById('externalCount').textContent = assetScanResults.filter(r => r.类型 === '📦 外部').length;
+            document.getElementById('totalCount').textContent = assetScanResults.length;
+        }
+
+        function updateAssetResults() {
+            const container = document.getElementById('assetResults');
+            
+            if (assetScanResults.length === 0) {
+                container.innerHTML = '<div style="color: #666; text-align: center; padding: 40px;">暂无扫描结果</div>';
+                return;
+            }
+            
+            container.innerHTML = assetScanResults.map(item => `
+                <div class="list-item">
+                    <div class="list-item-header">
+                        <div class="list-item-title">${item.文件}</div>
+                        <div class="list-item-meta">${item.类型}</div>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        字符数：${item.字符数} | 文件大小：${formatFileSize(item.文件大小)}
+                    </div>
+                    ${item.原创标记.length > 0 ? `
+                        <div style="font-size: 12px; color: #b0b8d1;">
+                            标记：${item.原创标记.slice(0, 3).join(', ')}
+                        </div>
+                    ` : ''}
+                </div>
+            `).join('');
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+        }
+
+        function scanAssets() {
+            const files = assetFileInput.files;
+            if (files.length === 0) {
+                alert('请先选择文件！');
+                return;
+            }
+            
+            handleAssetFiles(files);
+        }
+
+        function exportAssetReport() {
+            if (assetScanResults.length === 0) {
+                alert('没有扫描结果可导出！');
+                return;
+            }
+            
+            const report = {
+                扫描时间: new Date().toISOString(),
+                DNA: '#龍芯⚡️' + new Date().toISOString().split('T')[0] + '-SCAN-UID9622',
+                统计: {
+                    "✅ 核心原创": assetScanResults.filter(r => r.类型 === '✅ 核心原创').length,
+                    "🟢 原创": assetScanResults.filter(r => r.类型 === '🟢 原创').length,
+                    "🟡 混合": assetScanResults.filter(r => r.类型 === '🟡 混合').length,
+                    "📦 外部": assetScanResults.filter(r => r.类型 === '📦 外部').length,
+                    "❓ 未标记": assetScanResults.filter(r => r.类型 === '❓ 未标记').length,
+                    "总计": assetScanResults.length,
+                    "合计原创": assetScanResults.filter(r => r.类型 === '✅ 核心原创' || r.类型 === '🟢 原创').length
+                },
+                详情: {
+                    "✅ 核心原创": assetScanResults.filter(r => r.类型 === '✅ 核心原创'),
+                    "🟢 原创": assetScanResults.filter(r => r.类型 === '🟢 原创'),
+                    "🟡 混合": assetScanResults.filter(r => r.类型 === '🟡 混合'),
+                    "📦 外部": assetScanResults.filter(r => r.类型 === '📦 外部'),
+                    "❓ 未标记": assetScanResults.filter(r => r.类型 === '❓ 未标记')
+                }
+            };
+            
+            const jsonText = JSON.stringify(report, null, 2);
+            const blob = new Blob([jsonText], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `龍魂资产扫描报告_${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            alert(`✅ 报告已导出！`);
+        }
+
+        function clearAssetResults() {
+            assetScanResults = [];
+            updateAssetStats();
+            updateAssetResults();
+            document.getElementById('assetFileInput').value = '';
+        }
+
+        // ==================== 统计分析 ====================
+        function switchStatsTab(tabId) {
+            document.querySelectorAll('.stats-tab').forEach(tab => {
+                tab.style.display = 'none';
+            });
+            document.getElementById('stats-' + tabId).style.display = 'block';
+            document.querySelectorAll('#section-stats .tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            loadStatsTab(tabId);
+        }
+
+        function loadStatistics() {
+            loadStatsTab('overview');
+        }
+
+        async function loadStatsTab(tabId) {
+            if (tabId === 'overview') {
+                await loadOverviewStats();
+            } else if (tabId === 'memory') {
+                await loadMemoryStats();
+            } else if (tabId === 'dna') {
+                await loadDNAStats();
+            } else if (tabId === 'asset') {
+                await loadAssetStats();
+            }
+        }
+
+        async function loadOverviewStats() {
+            const memoryCount = await getDBCount('龍魂记忆库', '记忆库');
+            const dnaCount = await getDBCount('龍魂DNA存证', 'evidences');
+            
+            document.getElementById('totalMemories').textContent = memoryCount;
+            document.getElementById('totalDNA').textContent = dnaCount;
+            document.getElementById('totalAssets').textContent = assetScanResults.length;
+            
+            const totalStorage = JSON.stringify(await getAllDBData('龍魂记忆库', '记忆库')).length +
+                               JSON.stringify(await getAllDBData('龍魂DNA存证', 'evidences')).length;
+            document.getElementById('totalStorage').textContent = Math.round(totalStorage / 1024) + ' KB';
+            
+            document.getElementById('overviewResult').textContent = `📊 系统总览统计\n\n` +
+                `🧠 记忆系统：${memoryCount} 条记忆\n` +
+                `🧬 DNA 存证：${dnaCount} 条存证\n` +
+                `🔍 资产扫描：${assetScanResults.length} 个文件\n\n` +
+                `💾 总存储：${Math.round(totalStorage / 1024)} KB\n\n` +
+                `✅ 系统运行正常`;
+        }
+
+        async function loadMemoryStats() {
+            const memories = await getAllDBData('龍魂记忆库', '记忆库');
+            
+            if (memories.length === 0) {
+                document.getElementById('memoryStatsResult').textContent = '暂无记忆统计数据';
+                return;
+            }
+            
+            const totalSize = JSON.stringify(memories).length;
+            const avgCompression = memories.reduce((sum, m) => sum + m.压缩数据.压缩率, 0) / memories.length;
+            
+            let result = `📊 记忆系统统计\n\n`;
+            result += `记忆总数：${memories.length} 条\n`;
+            result += `总存储大小：${Math.round(totalSize / 1024)} KB\n`;
+            result += `平均压缩率：${Math.round(avgCompression)}%\n\n`;
+            result += `情感分布：\n`;
+            
+            const emotions = {};
+            memories.forEach(m => {
+                const emotion = m.太极变量.情感;
+                emotions[emotion] = (emotions[emotion] || 0) + 1;
+            });
+            
+            Object.entries(emotions).forEach(([emotion, count]) => {
+                result += `  ${emotion}：${count} 条\n`;
+            });
+            
+            document.getElementById('memoryStatsResult').textContent = result;
+        }
+
+        async function loadDNAStats() {
+            const evidences = await getAllDBData('龍魂DNA存证', 'evidences');
+            
+            if (evidences.length === 0) {
+                document.getElementById('dnaStatsResult').textContent = '暂无 DNA 存证统计数据';
+                return;
+            }
+            
+            let result = `📊 DNA 存证统计\n\n`;
+            result += `存证总数：${evidences.length} 条\n\n`;
+            result += `按创作者分布：\n`;
+            
+            const creators = {};
+            evidences.forEach(e => {
+                const creator = e.creatorId;
+                creators[creator] = (creators[creator] || 0) + 1;
+            });
+            
+            Object.entries(creators).forEach(([creator, count]) => {
+                result += `  ${creator}：${count} 条\n`;
+            });
+            
+            result += `\n按项目分布：\n`;
+            
+            const projects = {};
+            evidences.forEach(e => {
+                const project = e.projectName;
+                projects[project] = (projects[project] || 0) + 1;
+            });
+            
+            Object.entries(projects).forEach(([project, count]) => {
+                result += `  ${project}：${count} 条\n`;
+            });
+            
+            document.getElementById('dnaStatsResult').textContent = result;
+        }
+
+        async function loadAssetStats() {
+            if (assetScanResults.length === 0) {
+                document.getElementById('assetStatsResult').textContent = '暂无资产扫描统计数据';
+                return;
+            }
+            
+            let result = `📊 资产扫描统计\n\n`;
+            result += `扫描文件总数：${assetScanResults.length} 个\n\n`;
+            result += `按类型分布：\n`;
+            result += `  ✅ 核心原创：${assetScanResults.filter(r => r.类型 === '✅ 核心原创').length} 个\n`;
+            result += `  🟢 原创：${assetScanResults.filter(r => r.类型 === '🟢 原创').length} 个\n`;
+            result += `  🟡 混合：${assetScanResults.filter(r => r.类型 === '🟡 混合').length} 个\n`;
+            result += `  📦 外部：${assetScanResults.filter(r => r.类型 === '📦 外部').length} 个\n`;
+            result += `  ❓ 未标记：${assetScanResults.filter(r => r.类型 === '❓ 未标记').length} 个\n\n`;
+            result += `原创率：${Math.round((assetScanResults.filter(r => r.类型 === '✅ 核心原创' || r.类型 === '🟢 原创').length / assetScanResults.length * 100)}%\n`;
+            
+            document.getElementById('assetStatsResult').textContent = result;
+        }
+
+        // ==================== 数据库工具函数 ====================
+        function openDB(dbName, storeName) {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(dbName, 1);
+                request.onerror = () => reject(request.error);
+                request.onsuccess = () => resolve(request.result);
+                request.onupgradeneeded = (event) => {
+                    const db = event.target.result;
+                    if (!db.objectStoreNames.contains(storeName)) {
+                        db.createObjectStore(storeName, { keyPath: 'dnaCode' });
+                    }
+                };
+            });
+        }
+
+        function getDBCount(dbName, storeName) {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(dbName, 1);
+                request.onsuccess = () => {
+                    const db = request.result;
+                    const tx = db.transaction([storeName], 'readonly');
+                    const store = tx.objectStore(storeName);
+                    const countRequest = store.count();
+                    
+                    countRequest.onsuccess = () => resolve(countRequest.result);
+                    countRequest.onerror = () => reject(countRequest.error);
+                };
+                request.onerror = () => reject(request.error);
+            });
+        }
+
+        function getAllDBData(dbName, storeName) {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(dbName, 1);
+                request.onsuccess = () => {
+                    const db = request.result;
+                    const tx = db.transaction([storeName], 'readonly');
+                    const store = tx.objectStore(storeName);
+                    const getAllRequest = store.getAll();
+                    
+                    getAllRequest.onsuccess = () => resolve(getAllRequest.result);
+                    getAllRequest.onerror = () => reject(getAllRequest.error);
+                };
+                request.onerror = () => reject(request.error);
+            });
+        }
+
+        function initDatabases() {
+            openDB('龍魂记忆库', '记忆库');
+            openDB('龍魂DNA存证', 'evidences');
+        }
+    </script>
+<!-- ==================== 龍魂主控台 v2 · 模型中枢模块 ==================== -->
+<script>
+(function () {
+    'use strict';
+    /* DNA: #龍芯⚡️丙午·甲午·丙寅·甲午·䷙大畜-MAIN-CONSOLE-V2-MODEL-HUB-UID9622 */
+    var LH = {};
+
+    /* ---------- 模型数据（底座信息以实测为准） ---------- */
+    var NS = 'uid9622'; /* ollama.com 官方库命名空间（已确认未占用） */
+    var LH_MODELS = [
+        { id: 'v4.1.9', name: '龍魂 v4.1.9', base: 'Yi-1.5-9B-Chat', params: '9B', quant: 'Fused', size: '~17GB', status: 'training', tag: 'longhun-v4.1.9', desc: '基于 Yi-1.5-9B 的最新微调 · 训练完成即开放', published: false },
+        { id: 'v4.1.8', name: '龍魂 v4.1.8', base: 'Yi-1.5-9B-Chat', params: '9B', quant: 'Fused', size: '~17GB', status: 'ready',    tag: 'longhun-v4.1.8', desc: '现役主力 · 9B 底座实测三连全对（家法/三色/算术）', published: false },
+        { id: 'v3.8.1', name: '龍魂 v3.8.1', base: '轻量微调版', params: '1.5B', quant: 'Q4_K_M', size: '~3.1GB', status: 'ready', tag: 'longhun-v3.8.1',   desc: '轻量现役 · 低配机器也能跑', published: false },
+        { id: 'v3.7',   name: '龍魂 v3.7',   base: 'Qwen2.5-1.5B', params: '1.5B', quant: 'Q4_K_M', size: '~1.0GB', status: 'draft',    tag: 'longhun-v3.7',   desc: '历史版本 · 已由 v3.8 接替', published: false }
+    ];
+    var STATUS_I18N = { ready: '🟢 可用', training: '🟡 训练中', draft: '⚪ 待发布' };
+    var STATUS_I18N_EN = { ready: '🟢 Ready', training: '🟡 Training', draft: '⚪ Draft' };
+
+    /* ---------- 主题系统 ---------- */
+    var LH_THEMES = {
+        'default': { name: '龍焰玄黑（默认）', css: '' },
+        'jade': { name: '青玉', css: [
+            'body { background: linear-gradient(135deg,#06281f 0%,#0a3a2c 50%,#0d4a37 100%) !important; }',
+            '.header { border-color:#34d399 !important; box-shadow:0 0 30px rgba(52,211,153,.3) !important; }',
+            '.header h1 { background:linear-gradient(135deg,#34d399,#10b981); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }',
+            '.dna-code { color:#34d399 !important; background:rgba(52,211,153,.1) !important; }',
+            '.slogan { color:#fbbf24 !important; }',
+            '.nav-btn { color:#a7f3d0 !important; border-color:rgba(52,211,153,.35) !important; }',
+            '.nav-btn:hover,.nav-btn.active { background:rgba(52,211,153,.12) !important; border-color:#34d399 !important; }',
+            '.btn-primary,.btn-success { background:linear-gradient(135deg,#34d399,#10b981) !important; color:#04101f !important; }',
+            '.section-title { color:#6ee7b7 !important; }',
+            '.stat-card { border-color:rgba(52,211,153,.25) !important; }'
+        ].join('\n') },
+        'gold': { name: '玄墨鎏金', css: [
+            'body { background:linear-gradient(135deg,#0c0c0a 0%,#16130b 50%,#221c0c 100%) !important; }',
+            '.header { border-color:#c9a54b !important; box-shadow:0 0 30px rgba(201,165,75,.3) !important; }',
+            '.header h1 { background:linear-gradient(135deg,#e2c87a,#c9a54b); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }',
+            '.dna-code { color:#c9a54b !important; background:rgba(201,165,75,.1) !important; }',
+            '.slogan { color:#ffd700 !important; }',
+            '.nav-btn { color:#e0d5c1 !important; border-color:rgba(201,165,75,.35) !important; }',
+            '.nav-btn:hover,.nav-btn.active { background:rgba(201,165,75,.12) !important; border-color:#c9a54b !important; }',
+            '.btn-primary,.btn-success { background:linear-gradient(135deg,#c9a54b,#e2c87a) !important; color:#0a0a0f !important; }',
+            '.section-title { color:#e2c87a !important; }',
+            '.stat-card { border-color:rgba(201,165,75,.25) !important; }'
+        ].join('\n') },
+        'paper': { name: '宣纸素白', css: [
+            'body { background:linear-gradient(135deg,#f5f0e6 0%,#efe7d6 50%,#e6dbc4 100%) !important; color:#3f3a2e !important; }',
+            '.header { border-color:#8b5e34 !important; box-shadow:0 0 30px rgba(139,94,52,.25) !important; }',
+            '.header h1 { background:linear-gradient(135deg,#8b5e34,#6d4624); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }',
+            '.dna-code { color:#6d4624 !important; background:rgba(139,94,52,.1) !important; }',
+            '.slogan { color:#a16207 !important; }',
+            '.nav-btn { color:#4a4234 !important; border-color:rgba(139,94,52,.35) !important; }',
+            '.nav-btn:hover,.nav-btn.active { background:rgba(139,94,52,.12) !important; border-color:#8b5e34 !important; }',
+            '.btn-primary,.btn-success { background:linear-gradient(135deg,#8b5e34,#6d4624) !important; color:#fff !important; }',
+            '.section-title { color:#6d4624 !important; }',
+            '.stat-card { border-color:rgba(139,94,52,.25) !important; }',
+            '.model-card,.integrate-box { background:rgba(255,255,255,.45) !important; border-color:rgba(139,94,52,.3) !important; }',
+            '.code-output { background:#fff !important; color:#3f3a2e !important; border-color:rgba(139,94,52,.3) !important; }',
+            '.toolbar-select { background:#fff !important; color:#3f3a2e !important; }',
+            '.toolbar-select option { background:#fff !important; color:#3f3a2e !important; }'
+        ].join('\n') }
+    };
+    var currentTheme = { preset: 'default', custom: '' };
+
+    /* ---------- 多语言（通心译） ---------- */
+    var LANG_DICT = {
+        zh: {
+            'tool-models': '🤖 模型中心', 'tool-skin': '🎨 外观主题',
+            'models-desc': '龍魂模型一键下载 · 集成代码可视化生成 · 下载源与你的数据主权同在',
+            'models-count': '模型总数', 'models-ready': '可用版本', 'models-training': '训练中', 'models-latest': '最新版本',
+            'int-title': '集成代码生成器', 'int-model': '模型', 'int-mode': '运行方式', 'int-lang': '语言',
+            'int-gen': '生成代码', 'int-copy': '📋 一键复制', 'int-langnote': '语言切换由通心译代码转译提供',
+            'sec-title': {
+                'section-models': '🤖 模型中心', 'section-memory': '🧠 记忆压缩系统', 'section-dna': '🧬 DNA 存证系统',
+                'section-asset': '🔍 资产扫描器', 'section-stats': '📊 统计分析'
+            },
+            'nav': { 'nav-models': '模型中心', 'nav-memory': '记忆压缩系统', 'nav-dna': 'DNA 存证系统', 'nav-asset': '资产扫描器', 'nav-stats': '统计分析', 'nav-glass': '开放审计' }
+        },
+        en: {
+            'tool-models': '🤖 Model Hub', 'tool-skin': '🎨 Theme',
+            'models-desc': 'Download LongHun models · Visual integration code generator · Your data sovereignty is with the source',
+            'models-count': 'Models', 'models-ready': 'Ready', 'models-training': 'In training', 'models-latest': 'Latest',
+            'int-title': 'Integration Code Generator', 'int-model': 'Model', 'int-mode': 'Runtime', 'int-lang': 'Language',
+            'int-gen': 'Generate', 'int-copy': '📋 Copy', 'int-langnote': 'Language switch powered by TongXinYi code transpilation',
+            'sec-title': {
+                'section-models': '🤖 Model Hub', 'section-memory': '🧠 Memory Compression', 'section-dna': '🧬 DNA Notarization',
+                'section-asset': '🔍 Asset Scanner', 'section-stats': '📊 Statistics'
+            },
+            'nav': { 'nav-models': 'Model Hub', 'nav-memory': 'Memory Compression', 'nav-dna': 'DNA Notarization', 'nav-asset': 'Asset Scanner', 'nav-stats': 'Statistics', 'nav-glass': 'Open Audit' }
+        }
+    };
+    var NAV_ORDER = ['nav-models', 'nav-memory', 'nav-dna', 'nav-asset', 'nav-stats', 'nav-glass'];
+    var currentLang = localStorage.getItem('lh_console_lang') || 'zh';
+
+    function translateOnline(text, cb) {
+        /* 通心译在线兜底：8792 网关 → 8777 后端 → 失败回退 */
+        var urls = ['http://127.0.0.1:8792/api/translate', 'http://127.0.0.1:8777/api/translate'];
+        var i = 0;
+        function next() {
+            if (i >= urls.length) { cb(null); return; }
+            var u = urls[i++];
+            fetch(u, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text: text }) })
+                .then(function (r) { return r.json(); })
+                .then(function (d) {
+                    var t = d && (d.translation ||
+                        (d.L5_适配输出 && d.L5_适配输出.five_part_receipt && d.L5_适配输出.five_part_receipt['理解']) ||
+                        d.result);
+                    if (t && String(t) !== String(text)) { cb(String(t)); } else { next(); }
+                })
+                .catch(next);
+        }
+        next();
+    }
+
+    function applyLang() {
+        var dict = LANG_DICT[currentLang] || LANG_DICT.zh;
+        /* data-i18n 元素 */
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+            var k = el.getAttribute('data-i18n');
+            if (dict[k]) el.textContent = dict[k];
+        });
+        /* nav 按钮标题（保留 icon） */
+        document.querySelectorAll('.nav-btn').forEach(function (btn, idx) {
+            var k = NAV_ORDER[idx];
+            if (!k || !dict.nav || !dict.nav[k]) return;
+            var nodes = btn.childNodes;
+            for (var j = nodes.length - 1; j >= 0; j--) {
+                if (nodes[j].nodeType === 3 && nodes[j].textContent.trim()) {
+                    nodes[j].textContent = ' ' + dict.nav[k];
+                    break;
+                }
+            }
+        });
+        /* header */
+        var h1 = document.querySelector('.header h1');
+        var sub = document.querySelector('.header .subtitle');
+        var slogan = document.querySelector('.header .slogan');
+        if (h1 && currentLang === 'en') h1.textContent = '🐉 LongHun System Console';
+        if (sub && currentLang === 'en') sub.textContent = 'Tech Sovereignty · Data Sovereignty · Local-First · China Wins';
+        if (slogan && currentLang === 'en') slogan.textContent = '🇨🇳 Bring the fight for data sovereignty back to China! Tech sovereignty starts with me!';
+        /* section 标题 */
+        Object.keys(dict['sec-title'] || {}).forEach(function (id) {
+            var sec = document.getElementById(id);
+            if (!sec) return;
+            var t = sec.querySelector('.section-title');
+            if (!t) return;
+            var nodes = t.childNodes;
+            for (var j = 0; j < nodes.length; j++) {
+                if (nodes[j].nodeType === 3 && nodes[j].textContent.trim()) {
+                    nodes[j].textContent = dict['sec-title'][id];
+                    break;
+                }
+            }
+        });
+        /* 模型状态徽章 */
+        renderModels();
+        document.getElementById('lhLangSelect').value = currentLang;
+    }
+
+    LH.setLang = function (lang) {
+        currentLang = lang === 'en' ? 'en' : 'zh';
+        localStorage.setItem('lh_console_lang', currentLang);
+        applyLang();
+        toast(currentLang === 'en' ? 'Language switched to English (by TongXinYi)' : '已切换语言（通心译）');
+    };
+
+    /* ---------- 模型中心 ---------- */
+    function renderModels() {
+        var grid = document.getElementById('modelsGrid');
+        if (!grid) return;
+        var isEn = currentLang === 'en';
+        var statusTxt = isEn ? STATUS_I18N_EN : STATUS_I18N;
+        document.getElementById('modelsTotal').textContent = LH_MODELS.length;
+        document.getElementById('modelsReady').textContent = LH_MODELS.filter(function (m) { return m.status === 'ready'; }).length;
+        document.getElementById('modelsTraining').textContent = LH_MODELS.filter(function (m) { return m.status === 'training'; }).length;
+        var latest = LH_MODELS[0];
+        document.getElementById('modelsLatest').textContent = latest ? latest.id : '—';
+        grid.innerHTML = LH_MODELS.map(function (m) {
+            var full = NS + '/' + m.tag;
+            var hubUrl = 'https://ollama.com/' + NS + '/' + m.tag;
+            var pullable = m.status === 'ready';
+            var dlBtn = pullable
+                ? '<button class="model-btn dl" onclick="LH.copyPull(\'' + full + '\')">📥 ollama pull</button>'
+                : '<button class="model-btn dl" disabled>🔜 ' + (isEn ? 'Training' : '训练中·待发布') + '</button>';
+            var pubTxt = m.published
+                ? '<span class="model-meta-item" style="border-color:rgba(46,204,113,.4); color:#2ecc71;">📦 库:已发布</span>'
+                : '<span class="model-meta-item">📦 库:待发布</span>';
+            return '<div class="model-card">' +
+                '<div class="model-card-header"><span class="model-card-name">' + m.name + '</span>' +
+                '<span class="model-status ' + m.status + '">' + (statusTxt[m.status] || m.status) + '</span></div>' +
+                '<div class="model-card-meta">' +
+                '<span class="model-meta-item">🧩 ' + m.base + '</span>' +
+                '<span class="model-meta-item">📐 ' + m.params + '</span>' +
+                '<span class="model-meta-item">⚙️ ' + m.quant + '</span>' +
+                '<span class="model-meta-item">💾 ' + m.size + '</span>' +
+                pubTxt + '</div>' +
+                '<div class="model-card-desc">' + m.desc + '</div>' +
+                '<div class="model-card-actions">' + dlBtn +
+                '<button class="model-btn copy" onclick="window.open(\'' + hubUrl + '\',\'_blank\')">🌐 ' + (isEn ? 'Hub' : '官方库') + '</button>' +
+                '<button class="model-btn copy" onclick="LH.useModel(\'' + m.id + '\')">⚡ ' + (isEn ? 'Integrate' : '集成') + '</button></div>' +
+                '</div>';
+        }).join('');
+        /* 集成生成器模型下拉 */
+        var sel = document.getElementById('intModel');
+        sel.innerHTML = LH_MODELS.map(function (m) {
+            return '<option value="' + m.id + '">' + m.name + ' (' + m.tag + ')</option>';
+        }).join('');
+    }
+
+    LH.useModel = function (id) {
+        var sel = document.getElementById('intModel');
+        for (var i = 0; i < sel.options.length; i++) {
+            if (sel.options[i].value === id) { sel.selectedIndex = i; break; }
+        }
+        genCode();
+        var sec = document.getElementById('section-models');
+        sec.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    };
+
+    LH.copyPull = function (full) {
+        var cmd = 'ollama run ' + full;
+        copyText(cmd);
+        toast('已复制：' + cmd);
+    };
+
+    /* ---------- 集成代码生成器 ---------- */
+    var CODE_TEMPLATES = {
+        python: {
+            ollama: function (m) {
+                return '# ' + m.name + ' · Ollama 本地接入\nimport ollama\n\nclient = ollama.Client()  # 默认 http://127.0.0.1:11434\nresp = client.chat(model="' + m.tag + '", messages=[\n    {"role": "user", "content": "你好，龍魂"}\n])\nprint(resp["message"]["content"])';
+            },
+            openai: function (m) {
+                return '# ' + m.name + ' · OpenAI 兼容 API 接入\nfrom openai import OpenAI\n\nclient = OpenAI(\n    base_url="http://127.0.0.1:11434/v1",  # Ollama 兼容端点\n    api_key="ollama"                        # 本地无需真实密钥\n)\nresp = client.chat.completions.create(\n    model="' + m.tag + '",\n    messages=[{"role": "user", "content": "你好，龍魂"}]\n)\nprint(resp.choices[0].message.content)';
+            },
+            http: function (m) {
+                return '# ' + m.name + ' · HTTP 直连\nimport requests\n\nr = requests.post(\n    "http://127.0.0.1:11434/api/chat",\n    json={"model": "' + m.tag + '",\n          "messages": [{"role": "user", "content": "你好，龍魂"}]},\n    stream=True\n)\nfor line in r.iter_lines():\n    if line:\n        print(line.decode())';
+            }
+        },
+        js: {
+            ollama: function (m) {
+                return '// ' + m.name + ' · Ollama 本地接入 (JavaScript)\nconst resp = await fetch("http://127.0.0.1:11434/api/chat", {\n  method: "POST",\n  headers: { "Content-Type": "application/json" },\n  body: JSON.stringify({\n    model: "' + m.tag + '",\n    messages: [{ role: "user", content: "你好，龍魂" }],\n    stream: false\n  })\n});\nconst data = await resp.json();\nconsole.log(data.message.content);';
+            },
+            openai: function (m) {
+                return '// ' + m.name + ' · OpenAI 兼容 API (JavaScript)\nconst resp = await fetch("http://127.0.0.1:11434/v1/chat/completions", {\n  method: "POST",\n  headers: { "Content-Type": "application/json", "Authorization": "Bearer ollama" },\n  body: JSON.stringify({\n    model: "' + m.tag + '",\n    messages: [{ role: "user", content: "你好，龍魂" }]\n  })\n});\nconst data = await resp.json();\nconsole.log(data.choices[0].message.content);';
+            },
+            http: function (m) {
+                return '// ' + m.name + ' · HTTP 直连 (JavaScript)\nconst resp = await fetch("http://127.0.0.1:11434/api/chat", {\n  method: "POST",\n  headers: { "Content-Type": "application/json" },\n  body: JSON.stringify({\n    model: "' + m.tag + '",\n    messages: [{ role: "user", content: "你好，龍魂" }],\n    stream: false\n  })\n});\nconst data = await resp.json();\nconsole.log(data.message.content);';
+            }
+        },
+        shell: {
+            ollama: function (m) {
+                return '# ' + m.name + ' · curl 直连 (Ollama)\ncurl -s http://127.0.0.1:11434/api/chat \\\n  -H "Content-Type: application/json" \\\n  -d \'{"model":"' + m.tag + '","messages":[{"role":"user","content":"你好，龍魂"}],"stream":false}\'';
+            },
+            openai: function (m) {
+                return '# ' + m.name + ' · curl (OpenAI 兼容端点)\ncurl -s http://127.0.0.1:11434/v1/chat/completions \\\n  -H "Content-Type: application/json" \\\n  -H "Authorization: Bearer ollama" \\\n  -d \'{"model":"' + m.tag + '","messages":[{"role":"user","content":"你好，龍魂"}],"stream":false}\'';
+            },
+            http: function (m) {
+                return '# ' + m.name + ' · curl 直连\ncurl -s http://127.0.0.1:11434/api/chat \\\n  -H "Content-Type: application/json" \\\n  -d \'{"model":"' + m.tag + '","messages":[{"role":"user","content":"你好，龍魂"}],"stream":false}\'';
+            }
+        },
+        cnsh: {
+            ollama: function (m) {
+                return '# ' + m.name + ' · CNSH 语法接入（示例）\n# 注：CNSH 为龍魂原生符号语言，与通心译联动\n任务: 对话\n模型: ' + m.tag + '\n输入: 你好，龍魂\n';
+            },
+            openai: function (m) {
+                return '# ' + m.name + ' · CNSH 语法接入（示例）\n# 注：CNSH 为龍魂原生符号语言，与通心译联动\n任务: 对话\n模型: ' + m.tag + '\n接入: openai-兼容\n输入: 你好，龍魂\n';
+            },
+            http: function (m) {
+                return '# ' + m.name + ' · CNSH 语法接入（示例）\n# 注：CNSH 为龍魂原生符号语言，与通心译联动\n任务: 对话\n模型: ' + m.tag + '\n接入: http\n输入: 你好，龍魂\n';
+            }
+        }
+    };
+
+    function genCode() {
+        var mid = document.getElementById('intModel').value;
+        var mode = document.getElementById('intMode').value;
+        var lang = document.getElementById('intLang').value;
+        var m = null;
+        for (var i = 0; i < LH_MODELS.length; i++) if (LH_MODELS[i].id === mid) { m = LH_MODELS[i]; break; }
+        if (!m) return;
+        var tpl = CODE_TEMPLATES[lang] && CODE_TEMPLATES[lang][mode];
+        document.getElementById('intCode').textContent = tpl ? tpl(m) : '// 模板缺失';
+    }
+
+    LH.genCode = genCode;
+
+    LH.copyCode = function () {
+        var code = document.getElementById('intCode').textContent;
+        copyText(code);
+        toast('✅ ' + (currentLang === 'en' ? 'Code copied' : '代码已复制'));
+    };
+
+    function copyText(text) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).catch(function () { fallbackCopy(text); });
+        } else { fallbackCopy(text); }
+    }
+    function fallbackCopy(text) {
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+    }
+
+    /* ---------- 设置浮层（主题自设计） ---------- */
+    function buildSettings() {
+        var overlay = document.createElement('div');
+        overlay.className = 'lh-overlay';
+        overlay.id = 'lh-settings-overlay';
+        overlay.innerHTML =
+            '<div class="lh-settings-card">' +
+            '<h3>🎨 外观主题 / Theme</h3>' +
+            '<div class="lh-settings-row">' +
+            '<label>预设主题 Preset</label>' +
+            '<select id="lhThemePreset" class="toolbar-select" style="width:100%">' +
+            Object.keys(LH_THEMES).map(function (k) { return '<option value="' + k + '">' + LH_THEMES[k].name + '</option>'; }).join('') +
+            '</select></div>' +
+            '<div class="lh-settings-row">' +
+            '<label>自定义 CSS（可选 · 完全接管你的 UI）</label>' +
+            '<textarea id="lhThemeCss" placeholder="/* 在这里写你自己的样式，例如：\nbody { background: #000 !important; } */"></textarea>' +
+            '<div class="lh-settings-tip">💡 主题 = 预设 + 自定义 CSS 叠加 · 保存在本机浏览器 · 数据只属于你。' +
+            '<br>📤 导出主题 = 分享你的设计给其他用户；导入 = 用别人的设计。</div>' +
+            '</div>' +
+            '<div class="lh-settings-actions">' +
+            '<button class="lh-btn primary" onclick="LH.applyThemeFromSettings()">✔ 应用 Apply</button>' +
+            '<button class="lh-btn ghost" onclick="LH.exportTheme()">📤 导出 Export</button>' +
+            '<button class="lh-btn ghost" onclick="LH.importTheme()">📥 导入 Import</button>' +
+            '<button class="lh-btn close" onclick="LH.resetTheme()">↺ 默认 Default</button>' +
+            '<button class="lh-btn close" onclick="LH.closeSettings()">✖ 关闭 Close</button>' +
+            '</div></div>';
+        overlay.addEventListener('click', function (e) { if (e.target === overlay) overlay.classList.remove('active'); });
+        document.body.appendChild(overlay);
+    }
+
+    LH.openSettings = function () {
+        if (!document.getElementById('lh-settings-overlay')) buildSettings();
+        document.getElementById('lhThemePreset').value = currentTheme.preset;
+        document.getElementById('lhThemeCss').value = currentTheme.custom;
+        document.getElementById('lh-settings-overlay').classList.add('active');
+    };
+    LH.closeSettings = function () {
+        var el = document.getElementById('lh-settings-overlay');
+        if (el) el.classList.remove('active');
+    };
+
+    function applyTheme(preset, custom) {
+        currentTheme = { preset: preset || 'default', custom: custom || '' };
+        document.body.classList.remove('theme-jade', 'theme-gold', 'theme-paper');
+        if (currentTheme.preset !== 'default') document.body.classList.add('theme-' + currentTheme.preset);
+        var style = document.getElementById('lh-theme-layer');
+        if (!style) {
+            style = document.createElement('style');
+            style.id = 'lh-theme-layer';
+            document.head.appendChild(style);
+        }
+        var presetCss = LH_THEMES[currentTheme.preset] ? LH_THEMES[currentTheme.preset].css : '';
+        style.textContent = presetCss + '\n' + currentTheme.custom;
+        try { localStorage.setItem('lh_console_theme', JSON.stringify(currentTheme)); } catch (e) {}
+    }
+
+    LH.applyThemeFromSettings = function () {
+        applyTheme(document.getElementById('lhThemePreset').value, document.getElementById('lhThemeCss').value);
+        toast('✅ ' + (currentLang === 'en' ? 'Theme applied' : '主题已应用'));
+    };
+    LH.exportTheme = function () {
+        var json = JSON.stringify({ preset: currentTheme.preset, custom: currentTheme.custom, from: 'LongHun Console' }, null, 2);
+        var blob = new Blob([json], { type: 'application/json' });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'longhun-console-theme.json';
+        a.click();
+        URL.revokeObjectURL(url);
+    };
+    LH.importTheme = function () {
+        var input = document.createElement('input');
+        input.type = 'file';
+        input.accept = '.json';
+        input.onchange = function () {
+            var f = input.files[0];
+            if (!f) return;
+            var reader = new FileReader();
+            reader.onload = function () {
+                try {
+                    var d = JSON.parse(reader.result);
+                    if (d.custom !== undefined) {
+                        applyTheme(d.preset || 'default', d.custom || '');
+                        document.getElementById('lhThemePreset').value = currentTheme.preset;
+                        document.getElementById('lhThemeCss').value = currentTheme.custom;
+                        toast('✅ ' + (currentLang === 'en' ? 'Theme imported' : '主题已导入'));
+                    }
+                } catch (e) { toast('❌ ' + (currentLang === 'en' ? 'Invalid theme file' : '主题文件无效')); }
+            };
+            reader.readAsText(f);
+        };
+        input.click();
+    };
+    LH.resetTheme = function () {
+        applyTheme('default', '');
+        document.getElementById('lhThemePreset').value = 'default';
+        document.getElementById('lhThemeCss').value = '';
+        toast('↺ ' + (currentLang === 'en' ? 'Default theme restored' : '已恢复默认主题'));
+    };
+
+    /* ---------- 轻提示 ---------- */
+    var toastTimer = null;
+    function toast(msg) {
+        var el = document.getElementById('lh-toast');
+        if (!el) {
+            el = document.createElement('div');
+            el.id = 'lh-toast';
+            el.className = 'lh-toast';
+            document.body.appendChild(el);
+        }
+        el.textContent = msg;
+        el.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { el.classList.remove('show'); }, 2200);
+    }
+
+    /* ---------- 初始化 ---------- */
+    function init() {
+        /* 恢复主题 */
+        try {
+            var saved = JSON.parse(localStorage.getItem('lh_console_theme') || 'null');
+            if (saved && saved.custom !== undefined) currentTheme = { preset: saved.preset || 'default', custom: saved.custom || '' };
+        } catch (e) {}
+        applyTheme(currentTheme.preset, currentTheme.custom);
+        /* 渲染模型中心 + 恢复语言 */
+        renderModels();
+        applyLang();
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
+    window.LH = LH;
+})();
+</script>
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "dna": "#龍芯⚡️丙午·辛未·乙酉·NOTION-PROMPT-LIBRARY-v2.0",
+    "built_at": "2026-08-04T22:07:41",
+    "source": "本地Notion镜像 docs/notion_mirror/pages/*.json (离线)",
+    "total_pages": 0,
+    "total_prompts": 0,
+    "by_assistant": {},
+    "by_kind": {
+      "prompt": 0,
+      "reference": 0
+    },
+    "schema": "每条: {page_id,title,url,category,assistant,kind,content}",
+    "reference_archived": 0
+  },
+  "pages": [],
+  "prompts": []
+}

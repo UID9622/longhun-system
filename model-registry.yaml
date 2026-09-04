@@ -1,0 +1,59 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+dna: '#龍芯⚡️丙午·丙申·庚申·壬午·䷸巽为风-REGISTRY-v1.1'
+models:
+- auth_type: api-key
+  capabilities:
+  - chat
+  - translation
+  - reasoning
+  endpoint: https://api.moonshot.cn/v1
+  id: kimi
+  languages:
+  - zh
+  - en
+  model_name: moonshot-v1-8k
+  name: Kimi K2.5
+  protocol: openai-compatible
+  provider: Moonshot AI
+  region: cn
+  status: active
+  tricolor: 🟢
+  weight: 1.0
+- auth_type: none
+  capabilities:
+  - chat
+  - translation
+  endpoint: http://localhost:11434/api/generate
+  id: jais
+  languages:
+  - ar
+  - en
+  model_name: jais:13b
+  name: Jais
+  protocol: ollama-compatible
+  provider: G42 / Inception
+  region: ae
+  status: active
+  tricolor: 🟡
+  weight: 0.6
+- auth_type: none
+  capabilities:
+  - chat
+  - reasoning
+  endpoint: http://localhost:11434/api/generate
+  id: apertus
+  languages:
+  - en
+  - de
+  - fr
+  - it
+  model_name: apertus:70b
+  name: Apertus 1.5
+  protocol: ollama-compatible
+  provider: ETH Zurich / EPFL
+  region: eu
+  status: active
+  tricolor: 🟡
+  weight: 0.7
+updated_at: '2026-08-14T09:53:30.656207'
+version: '1.1'

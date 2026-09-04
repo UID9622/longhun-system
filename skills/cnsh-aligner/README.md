@@ -1,6 +1,9 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CNSH 对齐器 · 终端底座
 
-**DNA**:#龍芯⚡️2026-06-02-CNSH-ALIGNER-FILE2-v1.0
+**DNA**:#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-CNSH-ALIGNER-FILE2-v1.0
 
 四层 CNSH 语法检查引擎：
 - L1 字符检查（简体“龍”永久熔断）

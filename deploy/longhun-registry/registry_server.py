@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 from __future__ import annotations
 """
 龍魂系统 · 分布式注册中心 v2.0
-DNA: #龍芯⚡️丙午·辛未·乙酉·卯时·讼-LH-REGISTRY-v2.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·卯时·䷅讼-LH-REGISTRY-v2.0
 
 功能：
 - 接收各节点心跳（只存用量，不存内容）
@@ -31,7 +34,7 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 from collections import defaultdict, OrderedDict
 
 # ============ 龍魂DNA锚定 ============
-DNA_ANCHOR = "#龍芯⚡️丙午·辛未·乙酉·卯时·讼-TRAIN-DATA-SOURCES-v2.0"
+DNA_ANCHOR = "#龍芯⚡️丙午·辛未·乙酉·卯时·䷅讼-TRAIN-DATA-SOURCES-v2.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 CST = timezone(timedelta(hours=8))
 
@@ -222,7 +225,7 @@ START_TIME = time.time()
 def main():
     parser = argparse.ArgumentParser(description="龍魂分布式注册中心 v2.0")
     parser.add_argument('--port', type=int, default=9623, help='监听端口 (默认: 9623)')
-    parser.add_argument('--host', default='0.0.0.0', help='监听地址 (默认: 0.0.0.0)')
+    parser.add_argument('--host', default='127.0.0.1', help='监听地址 (默认: 127.0.0.1)')
     args = parser.parse_args()
 
     print(f"🐉 龍魂注册中心 v2.0 启动")

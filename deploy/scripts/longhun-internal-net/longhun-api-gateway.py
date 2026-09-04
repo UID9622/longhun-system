@@ -1,4 +1,9 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════════╗
@@ -17,7 +22,7 @@
 ║    L2·熔断控制    — 三级策略: 警告→软阻断→硬阻断                     ║
 ║    L3·输入过滤    — 外部输入预处理，零信任架构                        ║
 ║    L4·防投毒隔离  — 单向隔离，打仗回来的战士要上政治课                ║
-║    L5·芯片门禁    — 鲲鹏100%→龙芯85%→x86/60%→后门芯片0%             ║
+║    L5·芯片门禁    — 鲲鹏100%→龍芯85%→x86/60%→后门芯片0%             ║
 ║                                                                      ║
 ║  主权人: UID9622 💎 龍芯北辰·诸葛鑫·Lucky                           ║
 ╚══════════════════════════════════════════════════════════════════════╝
@@ -41,6 +46,12 @@ try:
 except ImportError:
     print("❌ 缺少依赖: pip install fastapi uvicorn python-multipart")
     sys.exit(1)
+
+# ── L4 知识库 API（Notion 知识库引用架构·鲲鹏出口）──
+try:
+    from kb_api_router import router as kb_router
+except ImportError:
+    kb_router = None
 
 # ═══════════════════════════════════════════════════════
 # L0 常量 · 焊死 · 不可变
@@ -627,6 +638,11 @@ app = FastAPI(
     description=f"安全加固版 · DNA: {DNA}",
     version="1.0",
 )
+
+# ── L4 知识库 API 挂载（Notion 知识库引用架构·search/page/dna/webhook）──
+if kb_router is not None:
+    app.include_router(kb_router)
+    logger.info("📚 L4 知识库 API 已挂载 /api/kb/*")
 
 # CORS — 内网宽松
 app.add_middleware(

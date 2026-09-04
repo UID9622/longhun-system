@@ -1,5 +1,11 @@
-<!-- #龍芯⚡️20260624010825155-AUTO-DNA-6436FBCF 自动注入·分层治理自愈引擎 · 来源可查 -->
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 # 🐉 LonghunFont · 龍魂中文字体
+
+[![License](https://img.shields.io/badge/license-MulanPSL%20v2%20%7C%20CC%20BY--NC--SA%204.0-green)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/UID9622/LonghunFont?style=social)](https://github.com/UID9622/LonghunFont/stargazers)
+[![Issues](https://img.shields.io/github/issues/UID9622/LonghunFont)](https://github.com/UID9622/LonghunFont/issues)
+[![Last Commit](https://img.shields.io/github/last-commit/UID9622/LonghunFont)](https://github.com/UID9622/LonghunFont/commits)
+
 
 **DNA追溯码**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-v0019`  
 **归属**: 龍魂系统 × UID9622 原创  
@@ -27,7 +33,7 @@
 | 总字符数 | **28957** 个 |
 | 汉字 | **28096** 个 |
 | 拉丁/数字/符号 | **124** 个 |
-| 龍纹水印 | **每个字形右下角均嵌入 U+E200 龍纹缩微水印** |
+| 龍纹水印 | **每个字形右下角均嵌入 U+E200 龙纹缩微水印** |
 | 骨架风格 | **书法曲线占位骨架：二次贝塞尔曲线 + 笔锋三角 + 倾斜透视** |
 | 结构支持 | **单一 / 左右 / 左中右 / 上下 / 上中下 / 包围 / 半包围 / 品字形 / 镶嵌** |
 | 女娲五彩石渲染 | **跨平台字符级五色循环：红/黄/青/白/黑** |
@@ -46,7 +52,8 @@
 | 文化主权图标 | **20** 个 PUA |
 | 实用符号（标点/数学/箭头/制表符/货币/几何） | **151** 个 |
 | 国际符号（拼音调号/希腊字母/天气/音乐/象棋/扑克/星座/上下标等） | **188** 个 |
-| 字体文件 | `output/LonghunFont-Regular.otf`（OpenType/CFF） |
+| 字体文件（桌面） | `output/龙魂字体-Regular.otf`（OpenType/CFF，25.06 MB） |
+| 字体文件（网页） | `output/龙魂字体-Regular.woff2`（WOFF2，2.46 MB） |
 | v3.0 书法轮廓原型 | `output/LonghunFont-Regular-v3.otf`（可变宽度笔锋，试验版） |
 | 字元库文件 | `glyphs/龍魂字元库_v0019_龍纹书法版.json` |
 | SVG 样张 | `output/sample_v0019.html` |
@@ -88,13 +95,16 @@ longhun-font/
 │   ├── 龍魂字元库_v0019_龍纹书法版.json  # 28957 字 ✅
 │   └── ...（历史版本保留）
 ├── output/               # 输出目录
-│   ├── LonghunFont-Regular.otf       # OTF 字体文件
+│   ├── 龙魂字体-Regular.otf          # OTF 桌面字体文件
+│   ├── 龙魂字体-Regular.woff2        # WOFF2 网页字体（压缩 90%）
+│   ├── LonghunFont-Regular.otf       # 旧版兼容 OTF
 │   ├── LonghunFont-WuwuColor.otf     # 五彩石 COLR/CPAL 彩色字体原型
 │   ├── sample_v0019.html             # 在线样张
 │   ├── demo.html                     # Web 演示页
 │   └── all_glyphs_v0019/             # 28957 个 SVG
 ├── css/                  # Web 字体 CSS
-│   ├── LonghunFont.css               # @font-face 与辅助类
+│   ├── 龙魂字体.css                  # @font-face 与辅助类（推荐）
+│   ├── LonghunFont.css               # 旧版兼容别名
 │   └── wuwu.css                      # 女娲五彩石渲染样式
 ├── js/                   # 跨平台渲染脚本
 │   └── wuwu.js                       # Web/H5/小程序五彩石上色
@@ -161,26 +171,34 @@ longhun-font/
 
 ## 🚀 快速开始
 
-### 1. 构建 OTF 字体（龍纹书法版）
+### 1. 优化与重命名（推荐）
+```bash
+make optimize
+# 输出：
+#   output/龙魂字体-Regular.otf    （桌面用，显示名为「龙魂字体」）
+#   output/龙魂字体-Regular.woff2  （网页用，仅 2.46 MB，压缩率 90%）
+```
+
+### 2. 构建 OTF 字体（从字元库；源数据本地生成，仓库提供预构建 OTF）
 ```bash
 make build
 # 等价于：python3 scripts/build_font.py glyphs/龍魂字元库_v0019_龍纹书法版.json output/LonghunFont-Regular.otf
 ```
 
-### 2. 批量渲染 SVG 样张
+### 3. 批量渲染 SVG 样张
 ```bash
 make render
 # 输出：output/all_glyphs_v0019/ 与 output/sample_v0019.html
 ```
 
-### 2.5 构建五彩石彩色字体原型
+### 4. 构建五彩石彩色字体原型
 ```bash
 make demo-color
 # 输出：output/LonghunFont-WuwuColor.otf
 # 每个字被纵向分为红/黄/青/白/黑 5 个色带，COLR/CPAL 标准兼容 Windows/macOS/iOS/Android
 ```
 
-### 2.6 构建 v3.0 书法轮廓原型
+### 5. 构建 v3.0 书法轮廓原型
 ```bash
 make build-v3
 # 输出：output/LonghunFont-Regular-v3.otf
@@ -207,7 +225,7 @@ python3 -m calligraphy.cli \
   --classic DAODEJING \
   --seal 龍魂
 ```
-输出：`output/calligraphy/LH-CAL-...-.png`，自带印章、龍纹可见水印、频域隐写水印。
+输出：`output/calligraphy/LH-CAL-...-.png`，自带印章、龙纹可见水印、频域隐写水印。
 
 ### 3. 字元库校验
 ```bash
@@ -216,7 +234,7 @@ make check
 
 ### 4. 一键发布（校验 + 构建 + 渲染 + 提交 + 标签 + 双仓推送）
 ```bash
-./scripts/release.sh v0018
+./scripts/release.sh v0019
 ```
 
 ### 5. 女娲五彩石渲染
@@ -226,7 +244,7 @@ open wuwu_demo.html
 ```
 
 ### 5. 龍纹水印说明
-从 v0014 起，每个字形右下角均嵌入 U+E200「龍纹」缩微水印（缩放 0.15 倍，中心位于 520,520）。
+从 v0014 起，每个字形右下角均嵌入 U+E200「龙纹」缩微水印（缩放 0.15 倍，中心位于 520,520）。
 这是 UID9622 / 龍魂系统的身份标识，代码里一眼就能认出是自己人。
 如需生成无水印版，使用 `glyphs/龍魂字元库_v0013_稳定版.json`。
 
@@ -250,14 +268,17 @@ python3 scripts/subset_font.py \
     --add-ascii
 ```
 
-### 8. Web 演示
+### 8. Web 演示（推荐 WOFF2）
 用浏览器打开 `output/demo.html` 或 `wuwu_demo.html`，或把 CSS/JS 引入你的网页：
 ```html
-<link rel="stylesheet" href="css/LonghunFont.css">
+<link rel="stylesheet" href="css/龙魂字体.css">
 <link rel="stylesheet" href="css/wuwu.css">
-<div data-wuwu="true" class="longhun-font">龍魂字体演示</div>
+<div data-wuwu="true" class="龙魂字体">龍魂字体演示</div>
 <script src="js/wuwu.js"></script>
 ```
+
+> 新版 `css/龙魂字体.css` 优先加载 `output/龙魂字体-Regular.woff2`（2.46 MB），
+> 旧版 `css/LonghunFont.css` 仍保留为兼容别名。
 
 ### 9. 双仓同步
 ```bash
@@ -286,7 +307,7 @@ python3 scripts/subset_font.py \
 - [x] 75 个易经/八卦/太极/两仪符号
 - [x] 8 个五行/河图/洛书/太极八卦 PUA 图标
 - [x] 150 个甲骨文字符（四季、时序、天象、祭祀、权力、农牧工商、器物等）
-- [x] 29 个中国风文化图标（龍纹、凤纹、祥云、灯笼、红包、饺子等）
+- [x] 29 个中国风文化图标（龙纹、凤纹、祥云、灯笼、红包、饺子等）
 - [x] 24 个二十四节气 PUA 图标
 - [x] 12 个十二生肖 PUA 图标
 - [x] 22 个天干地支 PUA 图标
@@ -304,12 +325,12 @@ python3 scripts/subset_font.py \
 - [x] 字体覆盖报告（Unicode 区段/PUA/分类统计）
 - [x] Makefile 常用命令封装
 - [x] 字体子集化脚本（按文本裁剪 OTF，减小 Web 体积）
-- [x] 龍纹水印嵌入：每个字形右下角带 U+E200 龍纹标识
+- [x] 龍纹水印嵌入：每个字形右下角带 U+E200 龙纹标识
 - [x] 中文字符扩展至 10000，覆盖全部 BMP CJK 统一表意文字
 - [x] CJK 骨架按 9 种结构精修（单一/左右/左中右/上下/上中下/包围/半包围/品字形/镶嵌）
 - [x] 书法曲线占位骨架：二次贝塞尔曲线 + 笔锋三角 + 倾斜透视
 - [x] v3.0 书法轮廓原型：可变宽度笔画 + 起收笔 taper + 横粗竖细（`LonghunFont-Regular-v3.otf`）
-- [x] 书法渲染与作品编号系统：7 种名家书体、印章、龍纹水印、作品编号 `LH-CAL-...`
+- [x] 书法渲染与作品编号系统：7 种名家书体、印章、龙纹水印、作品编号 `LH-CAL-...`
 - [x] 女娲五彩石跨平台渲染：Web/HarmonyOS/iOS/Android 统一五色石色卡
 - [x] 五彩石彩色字体原型 `LonghunFont-WuwuColor.otf`：COLR/CPAL 规范，每个字自动分五色带
 - [x] Wuwu 渲染器 npm / 微信小程序包 `@uid9622/wuwu-renderer`（发布需 npm token，见 `scripts/publish_wuwu.sh`）

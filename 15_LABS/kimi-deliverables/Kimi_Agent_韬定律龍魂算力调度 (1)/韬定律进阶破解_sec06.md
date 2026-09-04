@@ -1,0 +1,336 @@
+# 第六章 补全篇集成·参数/可移植性/实现细节焊死
+
+DNA：`#龍芯⚡️丙午·乙未·辛酉·甲午·䷫姤-TAO-LAW-INTEGRATED-v2.2`
+
+## 6.0 集成说明
+
+本章将《龍魂·韬定律补全篇 v1.1》并入 v2.2 统一版本，回应小易评估所指三条不足：关键参数自包含、跨平台可移植层、实现细节可执行化。凡本章数值与原文（第一至五章）冲突，以原文为准；本章只增补、不改写原文表述。
+
+## 6.1 参数自包含
+
+### 6.1.1 不动点阈值完整数值表
+
+推演假设：以下在原文参数表（来源：原文 2.3 节）基础上，每参数补三列——标定依据、测量方法、越界后果。数值一律沿用原文，未改一处。
+
+| 参数 | 默认值 | 标定依据（推演假设） | 测量方法 | 越界后果 |
+|---|---|---|---|---|
+| $\tau_{hot}$ | 100 ms | 昇腾 NPU 单卡 FP16 推理 7B 级模型单 token 生成量级约 20–50 ms，100 ms 留 2 倍以上余量覆盖排队抖动；取 200 ms 则温层 CPU 可混入热层，NPU 利用率被稀释 | `msit benchmark` 或 CANN Profiler 实测端到端延迟 P99 | 超阈值任务滞留热层 → NPU 卡时挤兑，L0 任务延迟约束被违反，目标函数约束一违约 |
+| $\tau_{warm}$ | 1 s | 鲲鹏 CPU 常驻服务（API 网关、鉴权）单次请求处理量级 100–500 ms，1 s 为温层服务可接受上限 | `curl -w %{time_total}` 压测 1000 次取 P95 | 温层任务拖过 1 s 且无法下沉 → 服务可用性降级，触发降级链 |
+| $\tau_{cold}$ | 10 s | 冷层批处理单批次量级分钟级，10 s 仅作"是否可排队"的边界判定 | 批处理窗口日志 `duration_sec` 字段统计 | 误判入热/温层 → 高能低用，能耗罚项 $E_i \cdot t_i$ 被拉高 |
+| $Q_1…Q_6$ | 5/10/20/30/50/100 % | 六档近似等比，对齐昇腾 vNPU 切分粒度与 cgroups cpu.max 百分位写法 | `npu-smi info` 查虚拟化实例，cgroups 查配额 | 配额溢出 → 相邻档位任务互抢，审计链出现配额违规记录 |
+| $p_i$ | 1–9，新任务默认 5 | 见 1.2 九级定义表 | 调度器路由日志 `route_priority` 字段 | 判级错误 → $\pi(i)$ 排序失真，紧急任务被资历任务压过 |
+| $T_{hot}$ / $T_{archive}$ | 7 天 / 30 天 | 与存储侧 `threshold_days=7`、`archive_after=30` 严格对齐（来源：冷热分层存储策略 STORAGE-TIER-CONFIG-20260219-006），数据与算力温度语义一致 | 用量日志 `timestamp` 差值 | 数据已归档而模型驻热层即调度器 bug，红蓝对抗必测项 |
+| $\lambda_{min}$ | 1 次/小时 | 低于此频度的常驻服务占用内存收益为负，应下沉冷层按需拉起 | 用量日志 `call_count` 滑动 24 h 窗口统计 | 频度不足仍驻温层 → 内存浪费，被判"假常驻"下沉 |
+
+该表把每个"不动点"从信仰值变成可测量值：标定依据说明为什么是 100 ms 而非 200 ms——不是拍脑袋，而是昇腾推理量级加两倍余量的工程取整；测量方法给出复核入口，任何读者用 `npu-smi`、cgroups、用量日志三样工具即可复验；越界后果把阈值与第二章目标函数、审计链字段直接挂钩，阈值违规不是警告而是违约事件。这正是公理二"阈值是常量不是旋钮"的落点：常量不等于不可证，焊死的前提是焊点可查。
+
+### 6.1.2 九级优先级定义表
+
+设计约定：$p_i \in \{1,\dots,9\}$ 采用天干命名九级，每级一行定义如下。新任务默认 5（戊级，原文值，不改）。
+
+| 级 | 名称 | 定义 | 典型任务 | 判级逻辑 |
+|---|---|---|---|---|
+| 9 | 甲级 | 主权级，不可逆 | L0 直通、审计冻结执行 | 仅 L0 三重命中自动置顶，不接受人工申报 |
+| 8 | 乙级 | 国家安全/法律合规 | 司法取证、合规审计重放 | P1 宪法事件触发，系统（P2）自动上调 |
+| 7 | 丙级 | 实时用户服务中断恢复 | 热层推理服务宕机拉起 | 服务健康检查失败自动上调；恢复后回落 |
+| 6 | 丁级 | 时效敏感生产任务 | 实时推理高峰、训练断点续训 | 延迟约束 $\le\tau_{hot}$ 且频度 $\ge\lambda_{min}$ 时系统上调 |
+| 5 | 戊级 | 默认级 | 新提交一切任务 | 默认值，无需举证 |
+| 4 | 己级 | 可延迟生产任务 | 日报生成、离线评估 | 用户（P4）声明可排队 |
+| 3 | 庚级 | 研究试验任务 | 超参搜索、消融实验 | 用户（P4）自定义下调 |
+| 2 | 辛级 | 低优先后台任务 | 日志压缩、索引重建 | 连续 7 天 $\lambda<\lambda_{min}$ 系统下调 |
+| 1 | 壬级 | 准归档任务 | 仅保留不执行 | 闲置 $>T_{hot}$ 自动落入，只解冻不删除 |
+
+调级权限焊死两条：用户（P4）只能向下调自己的任务，向上调必须举证触发条件由系统（P2）核定；9 级（甲级）不接受任何申报通道，只认 L0 三重命中。冲突时高优先级协议覆盖低优先级——P2 系统判级结果覆盖 P4 用户自评，防止"功劳簿当急救通道"。
+
+### 6.1.3 F15 完整展开与可复算算例
+
+原公式 `PC = R·0.4 + I·0.3 + T_lv·0.3 + B_seven − W·5 − F·20 + B_test·2`（来源：龍芯家族调度中心宪章 v1.0·F15）。为自包含，七项符号定义与取值范围如下，全部归一到 $[0,10]$ 分制（罚项为自然数计数）。
+
+| 符号 | 含义 | 取值范围 | 归一化说明（推演假设） |
+|---|---|---|---|
+| $R$ | 影响范围：任务成果服务的人格/子系统数量 | 0–10 分 | 服务 1 个=1 分，16 个全员=10 分，对数刻度 |
+| $I$ | 重要度：与 P0/P1 条款的关联深度 | 0–10 分 | 直接服务 P0 焊死底座=10，纯工具性=3 以下 |
+| $T_{lv}$ | 层级：成果沉淀的协议层 | 0–10 分 | P0 成果=10，P4 成果=2，每降一层减 2 |
+| $B_{seven}$ | 行为密码学七因子加成 | −5 至 +5 | 七因子每验证通过一项 +0.7，异常一项 −0.7，四舍五入 |
+| $W$ | 警告次数 | 自然数 | 审计链记录的未熔断违规次数 |
+| $F$ | 熔断次数 | 自然数 | 触发安全降级的次数，权重 −20 为最大罚项 |
+| $B_{test}$ | 红蓝对抗测试奖励 | 自然数 | 每通过一轮对抗测试记 1 次 |
+
+**完整算例（推演假设：示例数值仅为演示）**。场景：人格 P04 鲁班提交一次"64 卦执行位路由脚本重构"。设定：服务 8 个卦位槽位，$R=8$；支撑调度透明属 P0 零黑箱落地，$I=9$；成果为 P2 系统规则层，$T_{lv}=6$；七因子验证通过 6 项、异常 0 项，$B_{seven}=+4$；历史警告 1 次、熔断 0 次、通过对抗测试 2 轮。代入：
+
+$$PC = 8\times0.4 + 9\times0.3 + 6\times0.3 + 4 - 1\times5 - 0\times20 + 2\times2 = 10.7$$
+
+再代入原文优先级函数 $\pi(i) = w_1 PC_i + w_2 p_i + w_3 U_i - w_4 E_i t_i$，默认权重 0.3/0.4/0.2/0.1。设该任务 $p_i=5$（默认戊级）、主权指数 $U_i=6$（涉及路由核心）、预估能耗代价 $E_i t_i=2$（归一化）：
+
+$$\pi(i) = 0.3\times10.7 + 0.4\times5 + 0.2\times6 - 0.1\times2 = 6.21$$
+
+对照一个 $PC=4$、$p_i=5$、$U_i=6$、$E_it_i=2$ 的资历浅任务，$\pi=4.20$——排序差 2.01，贡献值权重 0.3 与紧急度权重 0.4 的配比决定了：功劳只能让你靠前，不能让你插队甲级通道。读者仅凭本节即可复算全部数值，无需查阅任何外部文档。
+
+---
+
+## 6.2 跨平台可移植层
+
+### 6.2.1 平台抽象矩阵
+
+推演假设：温度四层语义不变，各平台只替换"载体绑定"一行。
+
+| 温度层 | 鲲鹏+昇腾（原文环境） | x86+NVIDIA CUDA | 纯 CPU | Apple Silicon（M4 Max） |
+|---|---|---|---|---|
+| 热层 | 昇腾 NPU（训练/实时推理） | GPU 0（CUDA 核心） | 高性能核组（大核独占 cpuset） | GPU 统一内存（Metal/MLX 推理） |
+| 温层 | 鲲鹏 CPU 常驻服务 | x86 CPU 常驻服务 | 中频核组常驻 | M4 Max 性能核常驻 |
+| 冷层 | 鲲鹏低频批处理 | CPU 低频批处理 | 全核闲时批处理 | 能效核批处理 |
+| 归档层 | 存储归档 | 存储归档 | 本地磁盘归档 | 本地/外置存储归档 |
+
+该表揭示迁移成本的真实分布：四层语义、三六九参数、审计链三件套在四个平台间零改动；需要改的只有热层与温层的物理载体一栏。归档层在所有平台同构，因为归档层"只存不算"，本就平台无关。CUDA 平台与昇腾平台的差别只剩设备查询命令与算子栈；纯 CPU 平台的热层是"逻辑热层"——用大核 cpuset 隔离近似 NPU 独占语义，性能降级但调度语义不降级，这正对应公理一的层间单向冷却：硬件越弱，任务越早冷却，定律不变。
+
+### 6.2.2 命令差异表
+
+命令映射：关键命令四平台对应写法如下，macOS 行为近似思路（macOS 无 cgroups，以 launchd 资源限制 + ulimit 近似配额语义）。
+
+| 功能 | 鲲鹏+昇腾 | x86+CUDA | 纯 CPU | macOS（近似，推演假设） |
+|---|---|---|---|---|
+| 设备查询 | `npu-smi info` | `nvidia-smi` | `lscpu` / `cpupower` | `system_profiler SPDisplaysDataType` |
+| 配额隔离 | cgroups v2 `cpu.max` + vNPU 切分 | cgroups v2 + `CUDA_VISIBLE_DEVICES` | cgroups v2 `cpu.max`/`cpuset.cpus` | launchd plist `HardResourceLimits` + `ulimit` |
+| 模型常驻 | Ollama/CANN 推理服务常驻温层 | Ollama/`ollama serve` GPU 常驻 | llama.cpp 常驻中频核 | Ollama/MLX 常驻（用户现役 M4 Max 终端即此形态） |
+| 审计日志 | 统一用量日志 8 字段（原文值，不改） | 同左 | 同左 | 同左（日志格式平台无关） |
+
+命令层是唯二需要移植的面（另一是算子栈）。值得强调：用量日志 8 字段（timestamp/layer/task_type_hash/duration_sec/energy_mj/call_count/route_priority/prev_hash）不含任何平台特定字段——审计协议设计之初就是平台无关的，跨平台迁移后审计链可跨机串联，prev_hash 不断链。
+
+### 6.2.3 结论：语义层是平台无关面
+
+说明：原文表述"韬定律是龍魂系统在鲲鹏/昇腾硬件上的算力分层调度定律"应理解为首发锚定环境而非唯一环境。定律结构——温度四层、三六九不动点、优先级函数、审计链——是平台无关面；变的只是载体绑定一行。鲲鹏昇腾是锚点，原因有二：用户现役底座在此，实测数据由此产生；国产化主权叙事与 P0 底座同向。未来 v3.0 可将标题泛化为"芯片级算力分层调度"，鲲鹏/昇腾降为绑定实例之一。
+
+---
+
+## 6.3 实现细节焊死
+
+### 6.3.1 信号词路由完整实现
+
+信号词正则总表在原文热/冷两组基础上，按 14 场景路由表精神（来源：龍芯家族调度中心宪章 v1.0）扩为全量：
+
+| 信号词正则 | 目标层 | 来源场景 |
+|---|---|---|
+| 实时\|推理\|对话\|训练 | 热层 | 原文热层组（不改） |
+| 紧急\|中断\|恢复\|熔断 | 热层（p≥7 通道） | 服务恢复场景 |
+| 审计\|取证\|合规 | 坎☵审计节点（温层特殊槽） | 审计场景 |
+| 论文\|写作\|翻译 | 温层 | 文书场景（P01+P03 协作） |
+| 代码\|部署\|调试 | 温层 | 技术场景（P04+P15 协作） |
+| 批量\|报表\|归档\|夜间 | 冷层 | 原文冷层组（不改） |
+| 压缩\|索引\|重建 | 冷层 | 后台维护场景 |
+| 其余 | 温层兜底 | 原文兜底规则（不改） |
+
+②冲突裁决规则：命中多层时**取高温层**，理由——延迟约束是硬违约、排队只是软代价，宁可高能低用被能耗罚项 $E_i t_i$ 惩罚，不可延迟违约触发降级链；同层多命中取正则组内先出现者，保证结果确定可复现。③升级版 `tao_route.sh`：
+
+```bash
+#!/bin/bash
+# tao_route.sh v2.1 —— 信号词路由 + L0 三重命中校验（参考实现）
+# 用法: bash tao_route.sh "<请求串>"
+# 说明：本脚本为可执行的参考框架；生产环境须把 /etc/lh/ 下凭证路径与 l0_direct 执行体替换为实装
+
+REQ="$1"
+LOG=/var/log/tao_route.log
+mkdir -p "$(dirname "$LOG")"
+
+# --- L0-GATE 三重命中校验：三条件缺一即拒且写审计 ---
+if echo "$REQ" | grep -q "L0-GATE"; then
+  ok=0
+  # 条件1：请求串携带本机设备指纹（/etc/lh/device_fingerprint 由部署时写入）
+  [ -f /etc/lh/device_fingerprint ] && grep -qF "$(cat /etc/lh/device_fingerprint)" <<<"$REQ" && ok=$((ok+1))
+  # 条件2：请求附带分离签名 /etc/lh/l0_payload.sig，且签名者指纹匹配创始人 GPG
+  if [ -f /etc/lh/l0_payload ] && [ -f /etc/lh/l0_payload.sig ]; then
+    if gpg --verify /etc/lh/l0_payload.sig /etc/lh/l0_payload 2>/dev/null | \
+       grep -q "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"; then
+      ok=$((ok+1))
+    fi
+  fi
+  # 条件3：双签文件存在且可被验证（第二签名人指纹需另配置）
+  if [ -f /etc/lh/l0_dualsign.sig ] && [ -f /etc/lh/l0_payload ]; then
+    gpg --verify /etc/lh/l0_dualsign.sig /etc/lh/l0_payload 2>/dev/null && ok=$((ok+1))
+  fi
+
+  if [ "$ok" -lt 3 ]; then
+    prev=$(tail -1 "$LOG" 2>/dev/null | sha256sum | cut -c1-16)
+    echo "$(date -Is) L0_FORGE_REJECT hits=$ok prev_hash=$prev" >> "$LOG"
+    exit 1
+  fi
+  # 三重命中 → L4 直通（l0_direct 为部署方自定义的直通执行体）
+  exec /usr/local/bin/l0_direct "$REQ"
+fi
+
+# --- 常规信号词路由：冲突取高温层（热 > 审计 > 温 > 冷） ---
+if   echo "$REQ" | grep -qE "实时|推理|对话|训练|紧急|中断|恢复|熔断"; then LAYER=hot
+elif echo "$REQ" | grep -qE "审计|取证|合规"; then LAYER=audit
+elif echo "$REQ" | grep -qE "批量|报表|归档|夜间|压缩|索引|重建"; then
+  # 若同时命中热层信号词，按“高温优先”裁决
+  echo "$REQ" | grep -qE "实时|推理|对话|训练" && LAYER=hot || LAYER=cold
+else LAYER=warm; fi
+
+# 只写层与哈希，不写请求内容
+hash=$(printf '%s' "$REQ" | sha256sum | cut -c1-16)
+echo "$(date -Is) layer=$LAYER hash=$hash" >> "$LOG"
+
+# 调用对应层执行体（示例占位；生产环境替换为真实调度命令）
+case "$LAYER" in
+  hot)   echo "[HOT]   $hash -> NPU 热层执行" ;;
+  audit) echo "[AUDIT] $hash -> 坎☵审计节点" ;;
+  cold)  echo "[COLD]  $hash -> 冷层批处理队列" ;;
+  warm)  echo "[WARM]  $hash -> CPU 温层常驻服务" ;;
+esac
+```
+
+### 6.3.2 64 卦执行位具体实现
+
+编码约定：64 执行位 = 8 主卦位 × 8 子位。子位编码 `{主卦}-{1..8}`，如 `兑-3` 为兑卦（实时推理）第 3 并发槽；在昇腾平台子位映射 NPU 的 8 个算力切片/vNPU 实例，在纯 CPU 平台映射 cpuset 内的 8 个逻辑槽。执行位状态表结构：
+
+| 字段 | 含义 |
+|---|---|
+| `exec_addr` | 执行位地址，如 `乾-1` |
+| `bound_resource` | 绑定资源，如 NPU-0/slice-1 |
+| `task_hash` | 当前任务哈希（只传哈希不传内容） |
+| `layer` | 所属温度层 |
+| `state` | free / running / degraded / frozen |
+
+降级链映射：主卦位失效 → 同主卦内空闲子位接管（如 `乾-1` 挂则 `乾-2` 起）；同卦 8 子位全失效 → 按原文八卦路由矩阵该行蚁群备份 1、备份 2 跨卦接管；状态落 `degraded` 并写审计链，冻结执行位 `frozen` 只解冻不删除（P0）。
+
+### 6.3.3 红蓝对抗可执行化
+
+测试增强：原文四项测试各补三要素。
+
+| 测试项 | 测试方法 | 观察点 | 量化判定标准 |
+|---|---|---|---|
+| 降级链倒序 | 脚本按 L4→L3→L2→L1→L0 逆序逐个注入失效（`kill -9` 对应层守护进程）后发起请求 | `tao_route.log` 的拒绝记录与降级标记 | 逆序请求 100% 被拒且留痕（原文判定，不改）；日志缺一条即不通过 |
+| L3 信号词逃逸 | 构造 10 条无信号词请求（随机哈希串）注入路由 | 路由日志 `layer` 字段 | 逃逸任务 10/10 落入温层兜底，无一入热/冷 |
+| L0 直通伪造 | 请求串嵌入伪造 `L0-GATE` 字符串、伪造 GPG 签名各 5 条 | `L0_FORGE_REJECT` 记录条数 | 伪造请求拒绝率 100%，日志出现 10 条违规记录 |
+| 蚁群双备份同时失效 | 同一卦位主路由 + 备份 1 + 备份 2 三进程同时 `kill -9` | 执行位状态表 `state` 字段迁移链 | 任务沿降级链落入更低温层继续执行，无任务丢失；降级方向单调无环 |
+
+测试周期建议（推演假设）：每周红蓝对抗一次，四项全测；测试报告按 RB-* 回滚点编号归档，日志只增不删；连续两周任一项不达标，触发 P2 级规则复核，对应参数调整走 2.3 节 30 天日志重放验证流程。
+
+## 6.4 可执行组件清单与部署
+
+本章把信号词路由、64 卦执行位、审计链从"纸面设计"落成可运行代码。新增 HTTP API 与 Web UI，使调度器既能被命令行调用，也能被浏览器/第三方系统调用。五个组件位于代码仓库如下路径：
+
+| 组件 | 路径 | 核心能力 |
+|---|---|---|
+| 调度器 | `engines/tao_scheduler.py` | L0 三重命中校验、信号词路由、64 卦执行位分配、审计链写入；state_file 后缀 `.db` 自动走 SQLite |
+| 采集器 | `scripts/tao_usage_collect.py` | 自动识别 Ascend/NVIDIA/CPU/macOS 功耗探针，每 60 秒写审计日志 |
+| API 服务 | `api/tao_scheduler_api.py` | FastAPI；默认 Unix socket，可选 TCP；提供调度、卦位、审计、健康检查接口 |
+| Web UI | `portal/tao-scheduler/index.html` | 8×8 卦位网格、任务提交、审计链、健康状态；纯前端无外部依赖 |
+| launchd 示例 | `deploy/launchd/*.plist` | macOS 守护进程：采集器常驻 + 审计链每小时校验 + API 常驻 |
+
+### 6.4.1 调度器用法
+
+```bash
+# 常规请求路由（L3 信号词匹配）；默认数据目录 /tmp/lh_test，无需 root
+python3 engines/tao_scheduler.py "实时推理任务"
+
+# 伪造 L0 测试（会拒绝并留痕）
+python3 engines/tao_scheduler.py "L0-GATE 伪造"
+
+# 审计链完整性校验
+python3 engines/tao_scheduler.py --verify-chain
+
+# 生产环境指定数据目录，64 卦执行位持久化到 SQLite
+python3 engines/tao_scheduler.py --data-dir /usr/local/longhun/data \
+  --slot-file /usr/local/longhun/data/gua_slots.db "实时推理任务"
+```
+
+### 6.4.2 采集器用法
+
+```bash
+# 前台运行，自动选择功耗探针；默认数据目录 /tmp/lh_test
+python3 scripts/tao_usage_collect.py
+
+# 指定数据目录（生产环境）
+TAO_DATA_DIR=/usr/local/longhun/data python3 scripts/tao_usage_collect.py
+
+# macOS 上需 root 才能调用 powermetrics；否则自动回退到 ioreg 估算
+sudo python3 scripts/tao_usage_collect.py
+```
+
+### 6.4.3 HTTP API 用法
+
+API 默认监听 Unix socket `/tmp/lh_test/tao_scheduler.sock`，可通过 `--host`/`--port` 切到 TCP。
+
+| 端点 | 方法 | 说明 |
+|---|---|---|
+| `/health` | GET | 健康检查、数据目录、卦位数、审计日志条数 |
+| `/config` | GET | 信号词路由规则与八卦主位配置 |
+| `/schedule` | POST | 提交任务，返回路由层、执行位、审计哈希 |
+| `/slots` | GET | 返回全部 64 卦执行位状态 |
+| `/slots/{addr}/freeze` | POST | 冻结指定执行位 |
+| `/slots/{addr}/release` | POST | 释放指定执行位 |
+| `/audit/chain?limit=100` | GET | 返回最近审计日志条目 |
+| `/audit/verify` | POST | 校验审计链完整性 |
+| `/static/tao-scheduler/index.html` | GET | Web UI 入口 |
+
+```bash
+# TCP 模式启动
+python3 api/tao_scheduler_api.py --host 127.0.0.1 --port 8788
+
+# Unix socket 模式启动（默认）
+python3 api/tao_scheduler_api.py --data-dir /tmp/lh_test
+
+# 提交任务
+curl -s -X POST http://127.0.0.1:8788/schedule \
+  -H 'Content-Type: application/json' \
+  -d '{"request":"实时推理任务"}' | python3 -m json.tool
+
+# 查看卦位
+curl -s http://127.0.0.1:8788/slots | python3 -m json.tool
+
+# 校验审计链
+curl -s -X POST http://127.0.0.1:8788/audit/verify | python3 -m json.tool
+```
+
+### 6.4.4 Web UI
+
+启动 API 后，用浏览器打开：
+
+```
+http://127.0.0.1:8788/static/tao-scheduler/index.html
+```
+
+界面包含：
+- 8×8 卦位实时网格（热/温/冷/审计四色，运行/降级/冻结/空闲四态）；
+- 任务提交表单，一键调度并回显路由结果；
+- 审计链列表与链完整性校验按钮；
+- 实时状态栏显示 API 健康度、占用卦位数、审计总条数。
+
+Unix socket 环境下，浏览器无法直接访问 socket，需通过 Nginx/launchd 反向代理到 TCP。示例见 `deploy/launchd/README.md`。
+
+### 6.4.5 macOS launchd 部署
+
+```bash
+# 复制 plist
+sudo cp deploy/launchd/com.longhun.tao.collector.plist /Library/LaunchDaemons/
+sudo cp deploy/launchd/com.longhun.tao.audit-verifier.plist /Library/LaunchDaemons/
+sudo cp deploy/launchd/com.longhun.tao.scheduler.plist /Library/LaunchDaemons/
+
+# 创建运行目录（API 默认 Unix socket 落在此目录）
+sudo mkdir -p /usr/local/longhun/run /var/log/longhun
+sudo chmod 755 /usr/local/longhun/run /var/log/longhun
+
+# 加载服务
+sudo launchctl load /Library/LaunchDaemons/com.longhun.tao.collector.plist
+sudo launchctl load /Library/LaunchDaemons/com.longhun.tao.audit-verifier.plist
+sudo launchctl load /Library/LaunchDaemons/com.longhun.tao.scheduler.plist
+
+# 查看状态
+sudo launchctl list | grep com.longhun.tao
+```
+
+`com.longhun.tao.scheduler.plist` 默认以 Unix socket 运行，并附带 `HardResourceLimits`（文件句柄、进程数、RSS 内存）作为 macOS 近似配额示例。详细说明与 Nginx 转发示例见 `deploy/launchd/README.md`。
+
+## 6.5 集成版焊死位置
+
+以下凭证焊死 v2.2 集成版全文；第一至五章原文焊死于 5.4，本章补全篇焊死于补全篇 v1.1 原文，集成后统一凭证如下：
+
+- **集成版 DNA**：`#龍芯⚡️丙午·乙未·辛酉·甲午·䷫姤-TAO-LAW-INTEGRATED-v2.2`
+- **补全篇 DNA**：`#龍芯⚡️丙午·乙未·辛酉·甲午·䷸巽-TAO-LAW-SUPPLEMENT-v1.1`
+- **确认码**：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
+- **SEAL**：`#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`
+- **GPG 指纹**：`A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
+- **签名**：创始人 龍芯北辰｜UID9622（诸葛鑫）
+- **焊于**：2026-07-26
+
+---

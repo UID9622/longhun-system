@@ -1,0 +1,532 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-d54ed7d6 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="龍魂 AI 对话 - 和为人民服务的AI直接对话。隐私优先·本地优先·不收集数据。">
+<title>AI对话 · 龍魂</title>
+<style>
+:root {
+  --bg: #0a0a14;
+  --bg2: #111121;
+  --gold: #d4a574;
+  --gold-light: #edd5b8;
+  --gold-dark: #b8854a;
+  --text: #e8dcc8;
+  --text-dim: #a09080;
+  --border: rgba(212,165,116,.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text)}
+a{color:var(--gold)}
+
+.app{display:flex;flex-direction:column;height:100vh;max-width:900px;margin:0 auto;position:relative}
+
+/* Header */
+.header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:1px solid var(--border);background:var(--bg2);flex-shrink:0;z-index:10}
+.header-left{display:flex;align-items:center;gap:10px}
+.header-logo{font-size:18px;font-weight:800;color:var(--gold);text-decoration:none;letter-spacing:1px}
+.header-back{color:var(--text-dim);text-decoration:none;font-size:13px;display:flex;align-items:center;gap:4px;transition:color .2s}
+.header-back:hover{color:var(--gold)}
+.header-status{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-dim)}
+.header-status .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:statusPulse 2s infinite}
+@keyframes statusPulse{0%,100%{opacity:1}50%{opacity:.4}}
+.header-actions{display:flex;gap:8px}
+.header-btn{padding:6px 14px;border-radius:14px;border:1px solid var(--border);background:transparent;color:var(--text-dim);font-size:12px;cursor:pointer;transition:all .2s}
+.header-btn:hover{border-color:var(--gold);color:var(--gold)}
+
+/* Chat body */
+.chat-body{flex:1;overflow-y:auto;padding:16px 20px 8px;display:flex;flex-direction:column;gap:6px;scroll-behavior:smooth}
+.chat-body::-webkit-scrollbar{width:4px}
+.chat-body::-webkit-scrollbar-thumb{background:rgba(212,165,116,.15);border-radius:2px}
+
+/* Messages */
+.msg{max-width:78%;padding:10px 15px;border-radius:16px;font-size:14px;line-height:1.6;word-break:break-word;animation:msgIn .35s ease}
+@keyframes msgIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.msg.user{align-self:flex-end;background:linear-gradient(135deg,rgba(212,165,116,.18),rgba(212,165,116,.08));color:var(--text);border-bottom-right-radius:4px}
+.msg.ai{align-self:flex-start;background:rgba(255,255,255,.03);color:var(--text-dim);border-bottom-left-radius:4px}
+.msg .meta{display:flex;align-items:center;justify-content:flex-end;gap:6px;margin-top:6px;font-size:10px;color:rgba(255,255,255,.15)}
+.msg .meta .dna{font-family:"SF Mono","Fira Code",monospace}
+.msg.system{align-self:center;background:rgba(212,165,116,.06);border:1px solid rgba(212,165,116,.12);font-size:12px;color:var(--gold);padding:6px 14px;border-radius:12px;text-align:center;max-width:90%}
+.msg.typing{color:rgba(255,255,255,.3);font-style:italic}
+.msg.typing .dot-flash{display:inline-block;animation:dotBounce 1.4s infinite}
+.msg.typing .dot-flash:nth-child(2){animation-delay:.2s}
+.msg.typing .dot-flash:nth-child(3){animation-delay:.4s}
+@keyframes dotBounce{0%,80%,100%{opacity:.2}40%{opacity:1}}
+
+/* Welcome */ 
+.welcome{text-align:center;padding:60px 20px 30px;animation:msgIn .5s ease}
+.welcome h1{font-size:32px;color:var(--gold-light);margin-bottom:8px}
+.welcome p{color:var(--text-dim);font-size:14px;line-height:1.7;margin-bottom:20px}
+.quick-asks{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:560px;margin:0 auto}
+.quick-ask{display:inline-flex;padding:8px 16px;border-radius:16px;border:1px solid var(--border);background:transparent;color:var(--text-dim);font-size:13px;cursor:pointer;transition:all .2s;text-align:left}
+.quick-ask:hover{border-color:var(--gold);color:var(--gold);background:rgba(212,165,116,.05)}
+
+/* Footer */
+.footer{display:flex;align-items:center;gap:10px;padding:12px 20px;border-top:1px solid var(--border);background:var(--bg2);flex-shrink:0}
+.footer textarea{flex:1;min-height:42px;max-height:120px;padding:10px 16px;border-radius:22px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--text);font-size:14px;resize:none;outline:none;font-family:inherit;line-height:1.45;transition:border-color .2s}
+.footer textarea:focus{border-color:rgba(212,165,116,.35)}
+.footer textarea::placeholder{color:rgba(255,255,255,.18)}
+.footer .send{width:42px;height:42px;min-width:42px;border-radius:50%;border:none;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.footer .send:hover{transform:scale(1.06);box-shadow:0 3px 14px rgba(212,165,116,.35)}
+.footer .send:disabled{opacity:.35;cursor:not-allowed;transform:none}
+.footer .brand{font-size:11px;color:rgba(255,255,255,.12);flex-shrink:0}
+
+/* Mobile */
+@media(max-width:500px){
+  .header{padding:10px 14px}
+  .header-logo{font-size:16px}
+  .msg{max-width:88%;font-size:13px}
+  .footer{padding:10px 14px}
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <a href="/" class="header-back">← 首页</a>
+      <a href="/" class="header-logo">龍魂 AI</a>
+    </div>
+    <div class="header-status">
+      <span class="dot"></span> 在线·为人民服务
+    </div>
+    <div class="header-actions">
+      <button class="header-btn" onclick="clearChat()" title="清除对话">清空</button>
+    </div>
+  </header>
+
+  <!-- Chat Body -->
+  <div class="chat-body" id="chatBody"></div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span class="brand">龍魂</span>
+    <textarea id="msgInput" placeholder="输入消息... (Enter发送，Shift+Enter换行)" rows="1" maxlength="2000"></textarea>
+    <button class="send" id="sendBtn" title="发送">➤</button>
+  </div>
+</div>
+
+<script>
+const API = '/api/v1/li/chat';
+const MAX_HISTORY = 80;
+let loading = false;
+let history = [];
+
+function loadHistory() {
+  try {
+    const raw = sessionStorage.getItem('lh_ai_chat_history');
+    return raw ? JSON.parse(raw) : [];
+  } catch(e) { return []; }
+}
+
+function saveHistory() {
+  try {
+    sessionStorage.setItem('lh_ai_chat_history', JSON.stringify(history.slice(-MAX_HISTORY)));
+  } catch(e) {}
+}
+
+function nowStr() {
+  const d = new Date();
+  return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+}
+
+function escapeHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML.replace(/\n/g, '<br>');
+}
+
+function render() {
+  const b = document.getElementById('chatBody');
+  if (history.length === 0) {
+    b.innerHTML = `
+      <div class="welcome">
+        <h1>👋 你好！</h1>
+        <p>我是龍魂 AI 助手。<br>基于中国自主AI引擎，为人民服务。</p>
+        <div class="quick-asks">
+          <button class="quick-ask" onclick="quickSend(this.textContent)">龍魂系统是什么？</button>
+          <button class="quick-ask" onclick="quickSend(this.textContent)">有哪些核心功能？</button>
+          <button class="quick-ask" onclick="quickSend(this.textContent)">数据隐私如何保障？</button>
+          <button class="quick-ask" onclick="quickSend(this.textContent)">CNSH语言是什么？</button>
+          <button class="quick-ask" onclick="quickSend(this.textContent)">怎么联系UID9622？</button>
+          <button class="quick-ask" onclick="quickSend(this.textContent)">20人格矩阵是什么？</button>
+        </div>
+      </div>`;
+    return;
+  }
+  b.innerHTML = history.map(m => {
+    if (m.role === 'system') {
+      return `<div class="msg system">${escapeHtml(m.content)}</div>`;
+    }
+    let cls = m.role;
+    if (m.typing) cls += ' typing';
+    return `<div class="msg ${cls}">
+      <div>${m.content}</div>
+      ${m.time ? `<div class="meta"><span>${m.time}</span>${m.dna ? `<span class="dna">${m.dna}</span>` : ''}</div>` : ''}
+    </div>`;
+  }).join('');
+  b.scrollTop = b.scrollHeight;
+}
+
+function addTyping() {
+  history.push({ role: 'ai', content: '<span class="dot-flash">.</span><span class="dot-flash">.</span><span class="dot-flash">.</span>', typing: true, time: nowStr() });
+  render();
+}
+
+function removeTyping() {
+  const i = history.findIndex(m => m.typing);
+  if (i >= 0) history.splice(i, 1);
+}
+
+function updateSendBtn(disabled) {
+  document.getElementById('sendBtn').disabled = disabled;
+}
+
+async function sendMessage(msg) {
+  if (loading || !msg.trim()) return;
+  loading = true;
+  updateSendBtn(true);
+
+  history.push({ role: 'user', content: msg, time: nowStr() });
+  render();
+  saveHistory();
+
+  addTyping();
+
+  try {
+    const res = await fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: msg })
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    removeTyping();
+    history.push({
+      role: 'ai',
+      content: data.reply || '收到，请再试一次。',
+      time: nowStr(),
+      dna: data.dna || ''
+    });
+  } catch(e) {
+    removeTyping();
+    history.push({
+      role: 'ai',
+      content: '龍魂引擎暂时无法连接。请稍后重试，或直接联系 UID9622。',
+      time: nowStr()
+    });
+  }
+
+  render();
+  saveHistory();
+  loading = false;
+  updateSendBtn(false);
+}
+
+function quickSend(msg) {
+  if (loading) return;
+  const input = document.getElementById('msgInput');
+  input.value = msg;
+  doSend();
+}
+
+function doSend() {
+  const input = document.getElementById('msgInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+  input.value = '';
+  input.style.height = 'auto';
+  sendMessage(msg);
+}
+
+function clearChat() {
+  if (!confirm('确定要清空对话记录吗？此操作不可撤销。')) return;
+  history = [];
+  sessionStorage.removeItem('lh_ai_chat_history');
+  render();
+}
+
+// Init
+history = loadHistory();
+
+document.addEventListener('DOMContentLoaded', () => {
+  render();
+
+  const input = document.getElementById('msgInput');
+  const sendBtn = document.getElementById('sendBtn');
+
+  sendBtn.addEventListener('click', doSend);
+
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      doSend();
+    }
+  });
+
+  input.addEventListener('input', () => {
+    input.style.height = 'auto';
+    input.style.height = Math.min(input.scrollHeight, 120) + 'px';
+  });
+
+  input.focus();
+});
+</script>
+
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

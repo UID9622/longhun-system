@@ -1,0 +1,45 @@
+# 龍魂系统 · 工程规范统一配置
+# DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-EDITORCONFIG-LIMIT-CONFIG-V1.0
+# 创建者: 诸葛鑫（UID9622）| 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# 协议: CC BY-NC-SA 4.0（核心思想层）
+# 作用: 全工程编码/缩进/换行统一，任何编辑器打开即自动遵循
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+[*.md]
+trim_trailing_whitespace = false
+indent_size = 2
+
+[*.json]
+indent_size = 2
+
+[*.{yml,yaml}]
+indent_size = 2
+
+[*.{html,css,js,ts,tsx,jsx,vue}]
+indent_size = 2
+
+[*.cnsh]
+indent_style = space
+indent_size = 4
+charset = utf-8
+
+[Makefile]
+indent_style = tab
+
+[*.{py,pyw}]
+indent_style = space
+indent_size = 4
+
+# 生成物/归档目录不强制规范（避免破坏已有文件）
+[**/{dist,build_ide,node_modules,_work,11_DATA,models,archive,_archive,backups,backup,tombstone_vault}/**]
+trim_trailing_whitespace = false
+insert_final_newline = false

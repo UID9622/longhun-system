@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- 龍魂·韬定律调度器 API - macOS launchd 守护进程示例 -->
+    <!-- DNA: #龍芯⚡️丙午·乙未·辛酉·姤-TAO-LAW-INTEGRATED-v2.2 -->
+
+    <key>Label</key>
+    <string>com.longhun.tao.scheduler</string>
+
+    <!-- 程序入口：默认 Unix socket；如需 TCP 改为 -host 127.0.0.1 -port 8788 -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/python3</string>
+        <string>/usr/local/longhun/api/tao_scheduler_api.py</string>
+        <string>--data-dir</string>
+        <string>/usr/local/longhun/data</string>
+        <string>--uds</string>
+        <string>/usr/local/longhun/run/tao_scheduler.sock</string>
+    </array>
+
+    <!-- 持续运行，崩溃后 10 秒重启 -->
+    <key>KeepAlive</key>
+    <true/>
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+
+    <!-- 日志 -->
+    <key>StandardOutPath</key>
+    <string>/var/log/longhun/tao_scheduler.out</string>
+    <key>StandardErrorPath</key>
+    <string>/var/log/longhun/tao_scheduler.err</string>
+
+    <!-- 工作目录 -->
+    <key>WorkingDirectory</key>
+    <string>/usr/local/longhun</string>
+
+    <!-- 环境变量 -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PYTHONPATH</key>
+        <string>/usr/local/longhun</string>
+    </dict>
+
+    <!-- macOS 近似资源限制（推演假设：launchd 软限制语义） -->
+    <key>HardResourceLimits</key>
+    <dict>
+        <key>NumberOfFiles</key>
+        <integer>4096</integer>
+        <key>NumberOfProcesses</key>
+        <integer>256</integer>
+        <key>ResidentSetSize</key>
+        <integer>4294967296</integer>
+    </dict>
+
+    <!-- 以 root 运行，确保可写入 /usr/local/longhun/run 与 /var/log/longhun -->
+    <key>UserName</key>
+    <string>root</string>
+</dict>
+</plist>

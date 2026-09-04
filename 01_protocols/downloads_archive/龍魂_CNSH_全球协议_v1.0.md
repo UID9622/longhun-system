@@ -1,3 +1,6 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
 ## ⛔ 历史归档 — 当前正式版本为 `CNSH_GLOBAL_PROTOCOL_v3.0.md`
 
@@ -10,7 +13,7 @@
 
 ## 龍魂·中文编辑普惠全球协议 ♾️
 
-**DNA:** `#龍芯⚡️2026-06-27-LONGHUN-CNSH-GLOBAL-PACT-♾️`  
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-CNSH-GLOBAL-PACT-♾️`  
 **版本:** ♾️（终结版 · 不可跨越 · 不可升级 · 不可覆盖）  
 **状态:** 🔒 宪法层锁定 · 全球公告 · 三色审计通过 · 自动熔断就绪  
 **语言:** 中文（CNSH 原生语法）  
@@ -40,7 +43,7 @@
 | 术语 | 定义 | 英文对照 |
 |:-----|:-----|:---------|
 | **CNSH** | 中文原生脚本语法（Chinese Native Script Host），以中文为逻辑表达语言的开放语法框架 | CNSH |
-| **龍魂系统** | 发布本协议的技术主权体，UID9622，LU × CNSH | Longhun System |
+| **龍魂系统** | 发布本协议的技术主权体，UID9622，LU × CNSH | LongHun System |
 | **宪法层** | 龍魂系统的最高裁决层，不可修改、不可绕过、不可豁免 | Constitutional Layer |
 | **信息未公开者** | 已掌握中文编辑相关技术，但尚未向公众开放核心文档或实现，客观上造成信息差的个人或组织 | Information-Withheld |
 | **专利持有者** | 依法拥有中文编辑相关专利或商业秘密的个人或组织；龍魂尊重其合法权利，同时坚持CNSH公开规范不被单一权利主体封锁 | Patent-Holder |
@@ -460,7 +463,7 @@ python3 -m cnsh your_script.cnsh  # 无需联网
 
 ```
 协议文件: LONGHUN-CNSH-GLOBAL-PACT-♾️.md
-DNA: #龍芯⚡️2026-06-27-LONGHUN-CNSH-GLOBAL-PACT-♾️
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-CNSH-GLOBAL-PACT-♾️
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 签名状态: 龍魂系统宪法层 · 即时生效 · 长期有效 · 不可跨越
 校验方式: SHA256(本文件正文，不含本协议哈希行) + GPG签名
@@ -483,7 +486,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 **本协议从龍魂系统宪法层发布，不可修改、不可绕过、不可豁免、不可跨越。**
 
-**DNA:** `#龍芯⚡️2026-06-27-LONGHUN-CNSH-GLOBAL-PACT-♾️`  
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-CNSH-GLOBAL-PACT-♾️`  
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
 **签名:** `龍魂系统宪法层 · 即时生效 · 长期有效 · 诚信优先于投机 · 尊重合法专利 · 中国主权优先于外部干预`  
 **版本:** ♾️（终结版 · 不可跨越 · 不可升级 · 不可覆盖）

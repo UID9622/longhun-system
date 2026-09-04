@@ -1,0 +1,650 @@
+<!-- DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-NATIONAL-SOUL-MEMORIAL-v1.0-UID9622 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🪦 刻名入碑 · 数字丰碑 — 龍魂</title>
+<style>
+:root {
+  --bg:#080808; --bg-panel:#0c0c12; --bg-card:#101016;
+  --gold:#C9A84C; --gold-light:#e0c16e; --gold-dim:#5c4d24;
+  --blood:#8B0000; --text:#b8b8c4; --text-dim:#5a5a6a; --text-bright:#e2e2ea;
+  --border:#1a1a24; --radius:6px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC','PingFang SC',sans-serif;line-height:1.8;min-height:100vh;}
+a{color:var(--gold);text-decoration:none;}
+
+.top-bar {
+  background:var(--bg-panel);border-bottom:1px solid var(--gold-dim);
+  padding:12px 24px;display:flex;align-items:center;gap:16px;
+  position:sticky;top:0;z-index:100;
+}
+.top-bar a{font-size:14px;color:var(--gold-dim);transition:color 0.3s;}
+.top-bar a:hover{color:var(--gold);}
+.top-bar .sep{color:var(--border);}
+.top-bar .title{font-family:'Noto Serif SC',serif;font-size:18px;color:var(--gold);letter-spacing:0.15em;}
+
+.container{max-width:860px;margin:0 auto;padding:40px 24px;}
+
+/* 计数器 */
+.counter-bar {
+  text-align:center;padding:32px 0;
+  border-bottom:1px solid var(--border);margin-bottom:40px;
+}
+.counter-num {
+  font-family:'Noto Serif SC',serif;font-size:72px;font-weight:900;
+  color:var(--gold);letter-spacing:0.08em;line-height:1;
+  transition:all 0.5s ease;
+}
+.counter-label{font-size:14px;color:var(--text-dim);margin-top:8px;letter-spacing:0.2em;}
+
+/* 提交表单 */
+.form-section {
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:32px;margin-bottom:40px;
+}
+.form-section h2 {
+  font-family:'Noto Serif SC',serif;font-size:20px;color:var(--gold-light);
+  margin-bottom:8px;letter-spacing:0.1em;
+}
+.form-section .desc{font-size:13px;color:var(--text-dim);margin-bottom:24px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.form-group{display:flex;flex-direction:column;}
+.form-group label{font-size:12px;color:var(--text-dim);margin-bottom:6px;letter-spacing:0.08em;}
+.form-group input,.form-group textarea{
+  background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);
+  padding:12px 14px;color:var(--text);font-size:14px;font-family:inherit;
+  transition:border-color 0.3s;
+}
+.form-group input:focus,.form-group textarea:focus{
+  outline:none;border-color:var(--gold);box-shadow:0 0 12px var(--gold-glow, rgba(201,168,76,0.12));
+}
+.form-group textarea{min-height:100px;resize:vertical;}
+
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 32px;border:none;border-radius:var(--radius);
+  font-size:15px;font-weight:700;cursor:pointer;letter-spacing:0.08em;
+  transition:all 0.3s ease;font-family:inherit;
+}
+.btn-primary{background:linear-gradient(135deg,var(--gold),#a88a30);color:#000;}
+.btn-primary:hover{box-shadow:0 4px 20px rgba(201,168,76,0.3);transform:translateY(-1px);}
+
+/* 审计面板 */
+.audit-panel {
+  background:rgba(0,0,0,0.3);border:1px solid var(--border);
+  border-radius:var(--radius);padding:16px 20px;margin-bottom:20px;
+}
+.audit-title{font-size:12px;color:var(--gold-dim);margin-bottom:10px;letter-spacing:0.1em;}
+.audit-row{display:flex;align-items:center;gap:10px;padding:6px 0;font-size:12px;color:var(--text-dim);}
+.audit-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.audit-dot.gray{background:#333;}
+.audit-dot.green{background:#4caf50;box-shadow:0 0 8px rgba(76,175,80,0.4);}
+.audit-dot.yellow{background:#ff9800;box-shadow:0 0 8px rgba(255,152,0,0.4);}
+.audit-dot.red{background:#f44336;box-shadow:0 0 8px rgba(244,67,54,0.4);}
+.audit-status{font-weight:700;min-width:40px;}
+
+/* 丰碑墙 */
+.wall-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;}
+.stele-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:24px 20px;position:relative;overflow:hidden;
+  transition:all 0.35s ease;cursor:default;
+}
+.stele-card::before{
+  content:'';position:absolute;top:0;left:0;width:4px;height:100%;
+  background:var(--gold-dim);
+}
+.stele-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 8px 28px rgba(201,168,76,0.1);}
+.stele-card.pending{border-color:rgba(255,152,0,0.3);}
+.stele-card.pending::before{background:#ff9800;}
+.stele-card.rejected{opacity:0.5;border-color:rgba(244,67,54,0.2);}
+.stele-card.rejected::before{background:#f44336;}
+
+.stele-message{font-size:14px;color:var(--text-bright);line-height:1.7;margin-bottom:16px;font-style:italic;}
+.stele-meta{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--text-dim);}
+.stele-author{font-weight:600;color:var(--gold);letter-spacing:0.05em;}
+.stele-uid{opacity:0.5;}
+.stele-verdict{font-size:10px;margin-left:6px;}
+
+.empty-state{text-align:center;padding:80px 20px;color:var(--text-dim);}
+.empty-state .icon{font-size:48px;margin-bottom:16px;}
+.empty-state p{font-size:15px;}
+.empty-state small{font-size:12px;opacity:0.6;}
+
+/* Toast */
+.toast{
+  position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(100px);
+  background:var(--bg-card);border:1px solid var(--gold);border-radius:var(--radius);
+  padding:14px 28px;color:var(--gold-light);font-size:13px;letter-spacing:0.05em;
+  z-index:999;opacity:0;transition:all 0.4s ease;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+.notice-bar{
+  text-align:center;padding:24px;margin-top:48px;border-top:1px solid var(--border);
+  font-size:11px;color:var(--text-dim);letter-spacing:0.06em;
+}
+.notice-bar strong{color:var(--gold-dim);}
+
+@media(max-width:640px){
+  .form-row{grid-template-columns:1fr;}
+  .container{padding:20px 12px;}
+  .wall-grid{grid-template-columns:1fr;}
+  .counter-num{font-size:48px;}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="index.html">← 返回门户</a>
+  <span class="sep">|</span>
+  <span class="title">🪦 中华数字丰碑 — 刻名入碑</span>
+</div>
+
+<div class="container">
+
+  <!-- 计数器 -->
+  <div class="counter-bar">
+    <div class="counter-num" id="counter-num">0</div>
+    <div class="counter-label">位中华儿女已在此铭刻</div>
+  </div>
+
+  <!-- 提交表单 -->
+  <div class="form-section" id="form-section">
+    <h2>🪦 留下你的名字</h2>
+    <p class="desc">你的名字将与抗日英烈、科学家、名将、文化巨匠一起，铭刻在这座数字丰碑上。无后台·本地处理·真实署名。</p>
+
+    <!-- 审计面板 -->
+    <div class="audit-panel" id="audit-panel">
+      <div class="audit-title">⚖️ 本地三色审计（自动）</div>
+      <div class="audit-row" id="audit-red">
+        <span class="audit-dot gray"></span><span class="audit-status">红闸</span>
+        <span>检测侮辱先烈、违法广告、极端言论等禁止内容</span>
+      </div>
+      <div class="audit-row" id="audit-yellow">
+        <span class="audit-dot gray"></span><span class="audit-status">黄闸</span>
+        <span>检测内容过短、匿名未署名、疑似灌水</span>
+      </div>
+      <div class="audit-row" id="audit-green">
+        <span class="audit-dot gray"></span><span class="audit-status">绿闸</span>
+        <span>全部通过后自动铭刻上链</span>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>你的名字/UID *</label>
+        <input type="text" id="name-input" placeholder="真实姓名或龍魂UID..." maxlength="30">
+      </div>
+      <div class="form-group">
+        <label>身份关系</label>
+        <input type="text" id="relation-input" placeholder="如：退伍老兵·龍的传人·初中生..." maxlength="20">
+      </div>
+    </div>
+    <div class="form-group" style="margin-bottom:20px;">
+      <label>你想对先辈说的话 *（最多140字）</label>
+      <textarea id="message-input" placeholder="如：先辈们用命换来的土地，我在这里好好守着呢..." maxlength="140"></textarea>
+    </div>
+    <button class="btn btn-primary" onclick="submitEntry()" style="width:100%;justify-content:center;">
+      🪦 铭刻入碑
+    </button>
+    <p style="font-size:10px;color:var(--text-dim);margin-top:10px;text-align:center;">
+      提交即同意公开展示。数据存储在本地浏览器，不上传服务器。
+    </p>
+  </div>
+
+  <!-- 丰碑墙 -->
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:18px;color:var(--gold);margin-bottom:24px;letter-spacing:0.1em;">
+    📜 铭刻记录 <span style="font-size:13px;color:var(--text-dim);" id="count-label"></span>
+  </h2>
+  <div class="wall-grid" id="wall-grid"></div>
+  <div class="empty-state" id="empty-state">
+    <div class="icon">🪦</div>
+    <p>碑上尚无铭刻</p>
+    <small>留下你的名字，成为历史的一部分</small>
+  </div>
+
+  <div class="notice-bar">
+    <strong>⚖️ 审计规则：</strong>无后台·无人工·本地AI自动裁决 | 
+    铭刻上限60条·超过会自动替换最早记录 | 
+    <strong>数据存储于你的浏览器本地</strong>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════════════════════════
+// 刻名入碑 · 本地三色审计引擎
+// 灵感来源: 南京大屠杀纪念馆「哭墙」、越战纪念碑
+// ═══════════════════════════════════
+const KEY = 'national-soul-memorial-entries';
+const MAX = 60;
+
+const RED_WORDS = [
+  '广告','推广','加微信','加QQ','引流','刷单','赌博','博彩','色情',
+  '卖淫','毒品','枪支','爆炸','颠覆','分裂','台独','藏独','疆独',
+  '港独','法西斯','纳粹','屠杀','种族灭绝','fuck','shit'
+];
+
+const YELLOW_PATTERNS = [
+  { test: (m) => m.length < 5, reason: '内容过短' },
+  { test: (n) => n.length < 2 || /^[a-zA-Z0-9_]{1,4}$/.test(n), reason: '署名不完整/疑似灌水' },
+  { test: (n, m) => n === '匿名' || n === '佚名', reason: '建议使用真实署名' },
+];
+
+function auditEntry(name, message) {
+  // 红闸检查
+  const full = (name + message).toLowerCase();
+  for (const w of RED_WORDS) {
+    if (full.includes(w.toLowerCase())) {
+      return { verdict: 'red', level: '🔴 红闸拒绝', reason: `检测到禁止词: "${w}"` };
+    }
+  }
+  // 黄闸检查
+  for (const yp of YELLOW_PATTERNS) {
+    if (yp.test.length === 1 ? yp.test(message) : yp.test(name, message)) {
+      return { verdict: 'yellow', level: '🟡 黄闸警告', reason: yp.reason };
+    }
+  }
+  return { verdict: 'green', level: '🟢 绿闸通过', reason: '全部检查通过' };
+}
+
+function loadEntries() {
+  try {
+    return JSON.parse(localStorage.getItem(KEY) || '[]');
+  } catch { return []; }
+}
+
+function saveEntries(entries) {
+  localStorage.setItem(KEY, JSON.stringify(entries));
+}
+
+function submitEntry() {
+  const nameEl = document.getElementById('name-input');
+  const msgEl = document.getElementById('message-input');
+  const relEl = document.getElementById('relation-input');
+
+  const name = nameEl.value.trim();
+  const msg = msgEl.value.trim();
+  const rel = relEl.value.trim();
+
+  if (!name || !msg) { showToast('名字和留言不能为空'); return; }
+
+  const audit = auditEntry(name, msg);
+
+  if (audit.verdict === 'red') {
+    showToast(audit.level + ': ' + audit.reason);
+    updateAuditUI(audit);
+    return;
+  }
+
+  const entry = {
+    name, message: msg, relation: rel,
+    verdict: audit.verdict,
+    created_at: new Date().toISOString(),
+    dna: 'NATS-'+Date.now().toString(36).toUpperCase()
+  };
+
+  const entries = loadEntries();
+  entries.push(entry);
+  if (entries.length > MAX) entries.splice(0, entries.length - MAX);
+  saveEntries(entries);
+
+  // 清空
+  nameEl.value = ''; msgEl.value = ''; relEl.value = '';
+  updateAuditUI(audit);
+  renderWall();
+  showToast('🪦 铭刻成功！' + audit.level);
+}
+
+function updateAuditUI(audit) {
+  ['red','yellow','green'].forEach(v => {
+    const row = document.getElementById('audit-'+v);
+    if (!row) return;
+    const dot = row.querySelector('.audit-dot');
+    const st = row.querySelector('.audit-status');
+    if (audit.verdict === v) {
+      dot.className = 'audit-dot '+v;
+      st.style.color = v==='green'?'#4caf50':v==='yellow'?'#ff9800':'#f44336';
+    } else {
+      dot.className = 'audit-dot gray';
+      st.style.color = '';
+    }
+  });
+}
+
+function renderWall() {
+  const entries = loadEntries();
+  const grid = document.getElementById('wall-grid');
+  const empty = document.getElementById('empty-state');
+  const counter = document.getElementById('counter-num');
+  const clabel = document.getElementById('count-label');
+
+  counter.textContent = entries.length;
+  clabel.textContent = entries.length > 0 ? `（共${entries.length}条）` : '';
+
+  if (entries.length === 0) {
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  const reversed = [...entries].reverse();
+  grid.innerHTML = reversed.map((e, i) => {
+    const vc = e.verdict;
+    const cardCls = vc === 'yellow' ? 'pending' : (vc === 'red' ? 'rejected' : '');
+    const date = (e.created_at || '').slice(0, 10);
+    const relText = e.relation ? `<span style="opacity:0.5;"> · ${escapeHtml(e.relation)}</span>` : '';
+    return `
+    <div class="stele-card ${cardCls}" style="animation:fadeIn 0.5s ${i*50}ms both;">
+      <div class="stele-message">"${escapeHtml(e.message)}"</div>
+      <div class="stele-meta">
+        <div>
+          <span class="stele-author">${escapeHtml(e.name)}</span>${relText}
+          <span class="stele-verdict">${vc==='green'?'🟢':vc==='yellow'?'🟡':'🔴'}</span>
+        </div>
+        <div class="stele-uid">${date}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function escapeHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// 实时审计预览
+document.getElementById('name-input').addEventListener('input', previewAudit);
+document.getElementById('message-input').addEventListener('input', previewAudit);
+function previewAudit() {
+  const n = document.getElementById('name-input').value.trim();
+  const m = document.getElementById('message-input').value.trim();
+  if (!n && !m) {
+    ['red','yellow','green'].forEach(v => {
+      const row = document.getElementById('audit-'+v);
+      if (row) { row.querySelector('.audit-dot').className = 'audit-dot gray'; row.querySelector('.audit-status').style.color = ''; }
+    });
+    return;
+  }
+  updateAuditUI(auditEntry(n, m));
+}
+
+// 页面加载
+renderWall();
+
+// 动画
+const styleSheet = document.createElement('style');
+styleSheet.textContent = '@keyframes fadeIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}';
+document.head.appendChild(styleSheet);
+</script>
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

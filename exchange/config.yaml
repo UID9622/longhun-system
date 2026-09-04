@@ -1,0 +1,47 @@
+# config.yaml · 龍魂审计链配置
+# DNA: #龍芯⚡️2026-08-23-ECNY-CONFIG-v1.0-UID9622
+# 创建者: 诸葛鑫（UID9622）
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+
+app:
+  # 🔴 安全加固 2026-08-24（P77 黑天使商讨结论）：默认仅本机访问，公网开放须显式改内网IP+网关白名单
+  host: "127.0.0.1"
+  port: 8899
+  debug: false
+  # 🔴 鉴权密钥：从环境变量 ECNY_SECRET_KEY 注入（禁明文入库·P77）·留空则拒绝启动
+  secret_key: ""
+
+# 汇率源（按优先级降级）
+rate_sources:
+  primary: "frankfurter"      # 免费·无需API Key·欧央行数据
+  secondary: "exchangerate"   # 免费备用
+  tertiary: "pboc"            # 央行中间价（需要解析）
+  cache_ttl_seconds: 300      # 汇率缓存5分钟
+
+# 数字人民币结算通道
+ecny:
+  mode: "sandbox"             # sandbox（本地模拟）| live（真实API）
+  sandbox_confirm_delay: 0.1  # 沙盒秒数
+  live_api_base: "https://api.ecny.shubida.com/v1"
+  api_key: ""                 # 🔴 从环境变量 ECNY_API_KEY 注入（禁明文入库·P77）·有值自动升 live
+  merchant_id: "UID9622"
+  notify_url: ""              # 🔴 live 模式必填·从环境变量 ECNY_NOTIFY_URL 注入·禁硬编码假域名（P77）
+
+# 计费标准
+billing:
+  developer_monthly_ecny: 1.0    # 普通开发者 1 eCNY/月
+  audit_per_call_ecny: 0.01      # 审计调用 0.01 eCNY/次
+  enterprise_per_10k_ecny: 50.0  # 企业版 50 eCNY/万次
+
+# 支持的货币（ISO 4217 + 加密货币）
+supported_currencies:
+  fiat: ["USD", "EUR", "JPY", "GBP", "HKD", "SGD",
+         "THB", "VND", "KRW", "AUD", "CAD", "CHF"]
+  crypto: ["BTC", "ETH", "USDT", "USDC"]
+
+# 龍魂 DNA 配置
+dna:
+  owner: "UID9622"
+  gpg: "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+  seal: "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"

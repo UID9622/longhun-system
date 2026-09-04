@@ -1,0 +1,66 @@
+{
+  "system": {
+    "name": "龍魂核心运行时",
+    "version": "v1.0.0-harmonyos",
+    "build_target": "HarmonyOS NEXT (API 12+)",
+    "rust_core_version": "1.0.0"
+  },
+  "dna": {
+    "full": "#龍芯⚡️丙午·癸未·乙酉·坤卦-PLUGIN-CORE-SERVICE-UID9622",
+    "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "sovereignty_anchor": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+    "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+    "author": "诸葛鑫（UID9622·龍芯北辰）"
+  },
+  "license": {
+    "thought_layer": "CC BY-NC-SA 4.0",
+    "engineering_layer": "MulanPSL v2",
+    "url": "https://uid9622.cn/license"
+  },
+  "supervision": {
+    "cycle_interval_minutes": 30,
+    "layers": {
+      "L1_decision": { "weight": 0.4, "description": "决策监督层·多路径推演·贡献值评估" },
+      "L2_execution": { "weight": 0.35, "description": "执行监督层·代码审计·资源优化·部署验证" },
+      "L3_behavior": { "weight": 0.25, "description": "行为监督层·交互温度·情感隔离·道德底线" }
+    },
+    "audit_thresholds": {
+      "green": 80,
+      "yellow": 60,
+      "red": 40
+    }
+  },
+  "personas": {
+    "total": 14,
+    "list": [
+      { "id": "P00", "name": "文心", "role": "战略层·意图解析", "weight": 0.10 },
+      { "id": "P01", "name": "诸葛亮", "role": "战略层·推演决策", "weight": 0.15 },
+      { "id": "P02", "name": "宝宝", "role": "执行层·情感温度", "weight": 0.12 },
+      { "id": "P03", "name": "雯雯", "role": "执行层·结构归档", "weight": 0.10 },
+      { "id": "P04", "name": "鲁班", "role": "执行层·技术执行", "weight": 0.10 },
+      { "id": "P05", "name": "上帝之眼", "role": "守护层·三色审计", "weight": 0.08 },
+      { "id": "P06", "name": "数学大师", "role": "守护层·权重计算", "weight": 0.06 },
+      { "id": "P07", "name": "管仲", "role": "执行层·资源调度", "weight": 0.03 },
+      { "id": "P08", "name": "仓颉", "role": "文化层·符号语言", "weight": 0.05 },
+      { "id": "P09", "name": "孙思邈", "role": "文化层·系统诊断", "weight": 0.05 },
+      { "id": "P10", "name": "苏东坡", "role": "文化层·豁达跨界", "weight": 0.04 },
+      { "id": "P11", "name": "李白", "role": "文化层·创意爆发", "weight": 0.04 },
+      { "id": "P12", "name": "屈原", "role": "文化层·价值底线", "weight": 0.04 },
+      { "id": "P15", "name": "乔前辈", "role": "守护层·极简签章", "weight": 0.04 }
+    ]
+  },
+  "memory": {
+    "levels": {
+      "P0": { "name": "永恒级", "ttl_days": -1, "sync_priority": 0 },
+      "P1": { "name": "重要级", "ttl_days": 365, "sync_priority": 1 },
+      "P2": { "name": "普通级", "ttl_days": 30, "sync_priority": 2 },
+      "P3": { "name": "临时级", "ttl_days": 7, "sync_priority": 3 }
+    }
+  },
+  "evolution": {
+    "enabled": true,
+    "check_interval_hours": 24,
+    "auto_upgrade": false,
+    "metrics": ["intercept_rate", "red_team_success", "entropy"]
+  }
+}

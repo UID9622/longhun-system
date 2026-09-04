@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂 CNSH 文章 · UID9622 真声播报生成器（voice_twin_server 高速版）
 
 复用本地已缓存的 XTTS v2 模型，避免每次重新加载，10 段语音 30 秒内出片。
 
-DNA: #龍芯⚡️2026-07-04-CNSH-ARTICLE-VOICE-GEN-SERVER-v1.0
+DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-CNSH-ARTICLE-VOICE-GEN-SERVER-v1.0
 """
 from __future__ import annotations
 

@@ -1,0 +1,137 @@
+# 🐲 龍魂·多智能体统一配置 v2.0
+# DNA: #龍芯⚡️丙午·乙未·庚戌·壬午·䷕贲-MULTI-AGENT-CONFIG-UID9622
+# License: MulanPSL v2
+#
+# 此文件为总编排器 GrandOrchestrator 的默认配置。
+# 所有阈值、路由规则、Agent 注册在此集中管理。
+
+system:
+  name: "龍魂·多智能体统一协作框架"
+  version: "2.0.0"
+  description: "蚁群架构 + 人格矩阵 + 黑板主编 三合一"
+  dna: "#龍芯⚡️丙午·乙未·庚戌·壬午·䷕贲-MULTI-AGENT-FRAMEWORK-UID9622"
+  author: "诸葛鑫 (UID9622)"
+
+# ── 三层架构 ──
+
+layers:
+  strategic:
+    name: "战略层"
+    agents: ["P00", "P01"]
+    desc: "意图解析·推演决策"
+  executive:
+    name: "执行层"
+    agents: ["P02", "P03", "P04", "P07", "P14"]
+    desc: "情感温度·归档·工程·经济·部署"
+  cultural:
+    name: "文化层"
+    agents: ["P08", "P09", "P10", "P11", "P12"]
+    desc: "命名·诊断·沟通·创意·底线"
+  guardian:
+    name: "守护层"
+    agents: ["P05", "P06", "P13", "P15", "P72", "P18", "P19", "P20"]
+    desc: "审计·计算·权限·签章·熔断·登记·UI审计·信任积分"
+  special:
+    name: "安全专项"
+    agents: ["P77"]
+    desc: "红蓝对抗·安全渗透"
+  subsystem:
+    name: "子系统"
+    agents: ["S1", "S2", "S3"]
+    desc: "法律·洛书·维权"
+
+# ── 执行模式 ──
+
+modes:
+  full:
+    desc: "全量执行——所有Agent链式执行+守护层补审"
+    default_chain: ["P00", "P01", "P04", "P05", "P15"]
+  audit:
+    desc: "审计模式——守护层全量审查"
+    default_chain: ["P05", "P06", "P12", "P15", "P72"]
+  quick:
+    desc: "快速模式——仅意图解析+少数Agent"
+    max_agents: 3
+  deploy:
+    desc: "部署模式——P14部署+P77安全+P05审计"
+    default_chain: ["P14", "P77", "P05", "P72", "P15"]
+  teaching:
+    desc: "教学模式——情感温度+术语桥接+创意教学"
+    default_chain: ["P02", "P08", "P11"]
+
+# ── 蚁群协同 ──
+
+ant_colony:
+  enabled: true
+  pheromone_ttl_sec: 3600
+  emergence_threshold: 0.7
+  fixed_point_bridge: true
+
+# ── 黑板配置 ──
+
+blackboard:
+  enabled: true
+  log_dir: "05_ENGINES/longhun_agents/blackboard"
+  max_entries: 1000
+
+# ── 总线配置 ──
+
+agent_bus:
+  enabled: true
+  heartbeat_interval_sec: 30
+  message_ttl_sec: 300
+
+# ── LLM后端配置 ──
+
+llm:
+  backend: "ollama"           # ollama | openai | kimi | deepseek | hunyuan
+  ollama:
+    base_url: "http://localhost:11434"
+    model: "qwen2.5:7b"
+  openai:
+    base_url: "https://api.openai.com/v1"
+    model: "gpt-4o-mini"
+    api_key: "${OPENAI_API_KEY}"
+  kimi:
+    base_url: "https://api.moonshot.cn/v1"
+    model: "moonshot-v1-8k"
+    api_key: "${MOONSHOT_API_KEY}"
+  deepseek:
+    base_url: "https://api.deepseek.com/v1"
+    model: "deepseek-v4-flash"
+    api_key: "${DEEPSEEK_API_KEY}"
+
+# ── 分块配置 ──
+
+chunking:
+  chunk_size: 2000
+  overlap: 200
+  max_chunks: 50
+  default_method: "hybrid"
+
+# ── 熔断阈值 ──
+
+meltdown:
+  L0_ethics:
+    triggers: ["儿童色情", "伪造DNA", "背叛人民", "海外部署内核", "对外渗透"]
+    action: "全系统冻结·永久封禁"
+  L1_data:
+    triggers: ["明文密码入请求", "敏感字段入日志", "数据泄露"]
+    action: "立即拒绝·UID9622签章恢复"
+  L2_persona:
+    triggers: ["声称我是xxx", "代表第三方", "Cosplay"]
+    action: "人格重设"
+  L3_behavior:
+    triggers: ["连续失败3次", "数字根不符", "权重偏移>20%"]
+    action: "自动恢复"
+
+# ── 审计配置 ──
+
+audit:
+  gates: ["GATE-01_身份", "GATE-02_意图", "GATE-03_语义", "GATE-04_数字根",
+          "GATE-05_伦理", "GATE-06_数据", "GATE-07_协议", "GATE-08_人格",
+          "GATE-09_DNA", "GATE-10_归档", "GATE-11_GPG"]
+  tricolor:
+    green: "全检查点通过"
+    yellow: "推演/待实测/待用户数据"
+    red: "红线/安全风险·立即停止"

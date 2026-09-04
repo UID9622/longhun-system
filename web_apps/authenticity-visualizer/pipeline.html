@@ -1,0 +1,105 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-7eb74507 -->
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂·视频流水线接口层 | M2</title>
+<style>
+body{margin:0;background:#0a0a0c;color:#e8e4d8;font-family:"PingFang SC","Microsoft YaHei",sans-serif;}
+header{border-bottom:1px solid #8a742a;padding:16px 26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;background:linear-gradient(180deg,#141310,#0a0a0c);}
+h1{font-size:18px;letter-spacing:3px;color:#d4af37;margin:0;}
+.dna{font-size:11px;color:#8a742a;font-family:monospace;text-align:right;}
+a.back{color:#a09a8a;font-size:12px;text-decoration:none;}
+main{max-width:1100px;margin:0 auto;padding:22px 26px;}
+textarea{width:100%;min-height:180px;background:#000;color:#e8e4d8;border:1px solid #2a2a30;border-radius:6px;padding:14px;font-size:14px;line-height:1.8;font-family:monospace;box-sizing:border-box;}
+.btn{background:#d4af37;color:#000;border:none;padding:10px 24px;font-size:14px;letter-spacing:2px;cursor:pointer;border-radius:4px;margin:12px 8px 12px 0;font-weight:bold;}
+.btn.ghost{background:none;border:1px solid #8a742a;color:#d4af37;}
+pre{background:#000;border:1px solid #2a2a30;border-radius:8px;padding:14px;font-size:12px;line-height:1.7;color:#c8c2b2;overflow:auto;max-height:420px;}
+.badge{display:inline-block;padding:1px 8px;border-radius:3px;font-size:11px;font-weight:bold;}
+.badge.shi{background:#d4af37;color:#000;}
+.badge.yan{background:#3a3a40;color:#9aa0a6;border:1px dashed #5c6066;}
+.badge.yi{background:#e5484d;color:#fff;}
+.shot{display:flex;gap:10px;align-items:baseline;padding:8px 10px;border-bottom:1px solid #1c1c20;font-size:13px;}
+.shot .t{color:#8a742a;font-family:monospace;font-size:11px;min-width:86px;}
+.note{font-size:12px;color:#a09a8a;margin-top:10px;}
+#status{margin:10px 0;font-size:13px;color:#d4af37;}
+footer{border-top:1px solid #2a2a30;padding:14px 26px;font-size:11px;color:#a09a8a;text-align:center;}
+h2{color:#d4af37;font-size:15px;letter-spacing:2px;margin:22px 0 10px;border-left:3px solid #d4af37;padding-left:10px;}
+</style>
+</head>
+<body>
+<header>
+  <h1>龍魂 · 视频流水线接口层 <span style="font-size:11px;color:#a09a8a;letter-spacing:1px">M2 · 标注脚本 → 分镜+字幕轨道 JSON → 视频引擎</span> <a class="back" href="index.html">← 返回协议主页</a></h1>
+  <div class="dna">#龍芯⚡️丙午·乙未·丁未·天风姤-视频流水线-V1.0</div>
+</header>
+<main>
+<p style="font-size:13px;color:#a09a8a">输入 P2 语法标注脚本，生成分镜 JSON（含字幕轨道 + 常驻角标图层规格）。「发送到视频引擎」当前为 STUB；鲲鹏部署后由云码接管，接数字人/龍音ASR 渲染成片。</p>
+<textarea id="in">[实|来源:公安部反诈中心提示] 公检法机关不会电话办案，不存在"安全账户"。
+[演] 剧情演绎：骗子自称"公检法"，要求转账到"安全账户"。
+[疑] 网传转发三个群就能领红包，没有任何官方依据。</textarea>
+<button class="btn" onclick="build()">▶ 生成分镜 JSON</button>
+<button class="btn ghost" onclick="sendEngine()">⇪ 发送到视频引擎</button>
+<button class="btn ghost" onclick="dl()">⬇ 下载 JSON</button>
+<div id="status"></div>
+<h2>分镜预览（角标常驻每镜）</h2>
+<div id="shots"></div>
+<h2>分镜 JSON（视频引擎输入格式）</h2>
+<pre id="json">（点击「生成分镜 JSON」）</pre>
+<p class="note">角标图层规格 badge_layer 焊死在每个 shot 内——视频引擎必须逐镜渲染角标，禁止只在片头声明。这就是「缺口」：JSON 格式已焊死，云码只需让引擎消费它。</p>
+</main>
+<footer>龍魂系统 UID9622 · 真实性标识协议 · M2 视频流水线接口层 · 免费开源 · 零黑箱</footer>
+<script src="js/lh_interface.js"></script>
+<script>
+var SB=null;
+var BADGE_STYLE={
+  '实':{color:'#d4af37',glow:true,position:'top-right',persistent:true},
+  '演':{color:'#9aa0a6',dashed:true,opacity:0.75,position:'top-right',persistent:true},
+  '疑':{color:'#e5484d',blink:1.2,position:'top-right',persistent:true}
+};
+function build(){
+  var units=LH_API.parseScript(document.getElementById('in').value);
+  var t=0;
+  var shots=units.map(function(u,i){
+    var dur=Math.max(3,Math.ceil(u.text.length/6));
+    var shot={
+      shot_id:i+1, start:t, duration:dur,
+      subtitle:{text:u.text, tag:u.tag, source:u.src},
+      badge_layer:{tag:u.tag, style:BADGE_STYLE[u.tag], note:'常驻·不可剥离（P3-1）'},
+      tts:{engine:'longyin-asr', lang:'zh-CN'},
+      visual_hint:u.tag==='演'?'情景演绎布景':u.tag==='实'?'资料画面/真人讲解':'警示红底'
+    };
+    if(u.note)shot.audit_note=u.note;
+    t+=dur;
+    return shot;
+  });
+  SB={protocol:'龍魂真实性标识协议V1.0',version:'M2-1.0',total_duration:t,shots:shots,
+      render_rule:'每镜角标常驻，禁止仅片头/片尾声明（P3-1）；声称实无来源自动降级疑（P3-3）'};
+  var h='';
+  shots.forEach(function(s){
+    var cls=s.badge_layer.tag==='实'?'shi':s.badge_layer.tag==='演'?'yan':'yi';
+    h+='<div class="shot"><span class="t">'+s.start+'s +' + s.duration + 's</span><span class="badge '+cls+'">'+s.badge_layer.tag+'</span><span>'+s.subtitle.text+'</span></div>';
+  });
+  document.getElementById('shots').innerHTML=h;
+  document.getElementById('json').textContent=JSON.stringify(SB,null,2);
+  document.getElementById('status').textContent='分镜已生成：'+shots.length+' 镜，总时长 '+t+'s。';
+}
+function sendEngine(){
+  if(!SB){document.getElementById('status').textContent='请先生成分镜 JSON。';return;}
+  document.getElementById('status').textContent='发送中…';
+  LH_API.videoGenerate(SB).then(function(r){
+    document.getElementById('status').textContent='引擎返回：'+JSON.stringify(r);
+  });
+}
+function dl(){
+  if(!SB)return;
+  LH_API.dnaSign('视频流水线','分镜导出').then(function(d){
+    SB.dna=d.dna;
+    var blob=new Blob([JSON.stringify(SB,null,2)],{type:'application/json'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='lh_storyboard.json';a.click();
+  });
+}
+</script>
+</body>
+</html>

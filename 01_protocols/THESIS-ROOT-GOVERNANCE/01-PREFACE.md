@@ -1,4 +1,12 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 导论：一个被评分改变的社会
+
+> #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+> 📄 论文前言 | 龍魂系统 · 源头已验证
 
 ## 一、从一次普通的办事开始
 
@@ -140,4 +148,4 @@
 ---
 
 **作者**：UID9622 / Lucky（龍魂系统 · 基层治理观察组）  
-**DNA**：`#龍芯⚡️2026-06-25-ROOT-GOVERNANCE-PREFACE-v1.0`
+**DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-ROOT-GOVERNANCE-PREFACE-v1.0`

@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-08-03T00:24:17.333339",
+  "engine_version": "v1.0",
+  "total_charts": 14,
+  "charts": [
+    {
+      "whitepaper": "open-audit",
+      "chart_id": 1,
+      "chart_name": "治理均衡热力图",
+      "filepath": "/Users/zuimeidedeyihan/longhun-system/portal/viz/whitepapers/open-audit_chart01_治理均衡热力图.png"
+    },
+    {
+      "whitepaper": "open-audit",
+      "chart_id": 2,
+      "chart_name": "五方博弈关系网络图",
+      "filepath": "/Users/zuimeidedeyihan/longhun-system/portal/viz/whitepapers/open-audit_chart02_五方博弈网络图.png"
+    },
+    {
+      "whitepaper": "open-audit",
+      "chart_id": 3,
+      "chart_name": "六层审计架构纵剖图",
+      "filepath": "/Users/zuimeidedeyihan/longhun-system/portal/viz/whitepapers/open-audit_chart03_审计架构纵剖图.png"
+    },
+    {
+      "whitepaper": "persona",
+      "chart_id": 1,
+      "chart_name": "四层人格权重雷达图",
+      "filepath": "/Users/zuimeidedeyihan/longhun-system/portal/viz/whitepapers/persona_chart01_四层权重雷达图.png"
+    },
+    {
+      "whitepaper": "persona",
+      "chart_id": 2,
+      "chart_name": "意图→人格路由桑基图",
+      "filepath": "/Users/zuimeidedeyihan/longhun-system/portal/viz/whitepapers/persona_chart02_意图路由流程图.png"
+    },
+    {
+      "whitepaper": "privacy",
+      "chart_id": 1,
+      "chart_name": "三层隐私架构对比图",
+      "filepath": "/Users/zuimeidedeyihan/longhun-system/portal/viz/whitepapers/privacy_chart01_三层隐私架构.png"
+    },
+    {
+      "whitepaper": "privacy",
+      "chart_id": 2,
+      "chart_name": "DNA追溯vs内容暴露时序图",
+      "filepath": "/Users/zuimeidedeyihan/longhun-system/portal/viz/whitepapers/privacy_chart02_DNA追溯时序对比.png"
+    },
+    {
+      "whitepaper": "harmonyos",
+      "chart_id": 1,
+      "chart_name": "三步走战略甘特图",
+      "filepath": "/Users/zuimeidedeyihan/longhun-system/portal/viz/whitepapers/harmonyos_chart01_三步走战略.png"
+    },
+    {
+      "whitepaper": "harmonyos",
+      "chart_id": 2,
+      "chart_name": "组件兼容性热力矩阵",
+      "filepath": "/Users/zuimeidedeyihan/longhun-system/portal/viz/whitepapers/harmonyos_chart02_兼容性矩阵.png"
+    },
+    {
+      "whitepaper": "deben",
+      "chart_id": 1,
+      "chart_name": "五条底线权重柱状图",
+      "filepath": "/Users/zuimeidedeyihan/longhun-system/portal/viz/whitepapers/deben_chart01_五条底线柱状图.png"
+    },
+    {
+      "whitepaper": "deben",
+      "chart_id": 2,
+      "chart_name": "德本审计决策流程图",
+      "filepath": "/Users/zuimeidedeyihan/longhun-system/portal/viz/whitepapers/deben_chart02_五问雷达图.png"
+    },
+    {
+      "whitepaper": "sovereignty",
+      "chart_id": 1,
+      "chart_name": "三位一体架构图",
+      "filepath": "/Users/zuimeidedeyihan/longhun-system/portal/viz/whitepapers/sovereignty_chart01_三位一体架构.png"
+    },
+    {
+      "whitepaper": "sovereignty",
+      "chart_id": 2,
+      "chart_name": "数字永生时间线",
+      "filepath": "/Users/zuimeidedeyihan/longhun-system/portal/viz/whitepapers/sovereignty_chart02_数字永生时间线.png"
+    },
+    {
+      "whitepaper": "template",
+      "chart_id": 1,
+      "chart_name": "白皮书结构模板图",
+      "filepath": "/Users/zuimeidedeyihan/longhun-system/portal/viz/whitepapers/template_chart01_白皮书结构模板.png"
+    }
+  ]
+}

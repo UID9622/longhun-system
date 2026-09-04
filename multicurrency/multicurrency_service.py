@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂多币种直达系统 v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 UID9622 · 诸葛鑫 · 龍芯北辰
-DNA:#龍芯⚡️2026-06-07-MULTICURRENCY-SERVICE-v1.0
+DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-MULTICURRENCY-SERVICE-v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 功能: 提供实时汇率查询·三色标签·币种转换
@@ -328,7 +332,7 @@ def main():
     hub = MultiCurrencyHub()
 
     print("🐉 龍魂多币种直达系统 v1.0")
-    print("DNA:#龍芯⚡️2026-06-07-MULTICURRENCY-SERVICE-v1.0\n")
+    print("DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-MULTICURRENCY-SERVICE-v1.0\n")
 
     if args.query:
         print(f"查询币种: {', '.join(args.query)}\n")

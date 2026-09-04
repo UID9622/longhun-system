@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cnsh-stdlib"
+version = "1.0.0"
+description = "CNSH 官方标准库 — 中文原生编程语言官方标准库（io/http/crypto/time/dna/audit/fuse/topo/memorial）零三方依赖"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MulanPSL-2.0" }
+authors = [{ name = "诸葛鑫", email = "346045695@qq.com" }]
+keywords = ["cnsh", "longhun", "龍魂", "chinese", "programming-language", "uid9622"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Mulan Permissive Software License v2 (MulanPSL-2.0)",
+    "Natural Language :: Chinese (Simplified)",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://uid9622.cn/cnsh/"
+Source = "https://github.com/UID9622/cnsh-runtime"
+
+[tool.setuptools]
+packages = ["cnsh_std"]

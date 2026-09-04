@@ -1,6 +1,9 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-b5ce4002
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-SUBSET-v1.0
 
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 LonghunFont 字体子集生成器 v1.0
 根据文本/字符列表从稳定字元库中提取子集，并生成子集 OTF 字体。
@@ -28,12 +31,12 @@ except Exception:
     HAS_BUILD_OTF_IMPORT = False
 
 
-def load_glyph_library(path: str) -> dict[str, Any]:
+def load_glyph_library(path: str) -> dict:
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
-def collect_wanted_chars(args) -> set[str]:
+def collect_wanted_chars(args) -> set:
     wanted = set()
 
     if args.text:
@@ -55,7 +58,7 @@ def collect_wanted_chars(args) -> set[str]:
     return wanted
 
 
-def build_subset_library(full_data: dict[str, Any], wanted: set[str]) -> dict[str, Any]:
+def build_subset_library(full_data: dict, wanted: set) -> dict:
     full_chars = full_data.get("字符集_cnsh9622", {})
     subset_chars = {}
     missing = set()
@@ -87,7 +90,7 @@ def build_subset_library(full_data: dict[str, Any], wanted: set[str]) -> dict[st
     return subset_data, missing
 
 
-def write_json(data: dict[str, Any], output_path: str) -> str:
+def write_json(data: dict, output_path: str) -> str:
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)

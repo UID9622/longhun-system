@@ -1,0 +1,14 @@
+{
+  "persona": "P01",
+  "items": [
+    {
+      "id": "E-20260813-001",
+      "at": "2026-08-13T17:27:18",
+      "kind": "process",
+      "lesson": "多路径推演必须先锁定不可变约束(主权锚)",
+      "improve": "方案对比前先列immutable清单防越权",
+      "applied": false,
+      "source_task": "核心锚学习回路接入"
+    }
+  ]
+}

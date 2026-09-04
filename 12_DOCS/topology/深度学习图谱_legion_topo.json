@@ -1,0 +1,113 @@
+{
+  "schema": "longhun-topo-v1",
+  "topo_name": "深度学习图谱",
+  "display": "🧠 深度学习图谱 v1.0",
+  "owner": "诸葛鑫 | UID9622 · 龍芯北辰",
+  "created": "2026-09-03T00:37:05+08:00",
+  "last_sync": "2026-09-03T01:25:10+08:00",
+  "sync_from": "live-check",
+  "groups": [
+    {
+      "name": "模型层",
+      "assets": [
+        {
+          "name": "longhun-v4.1.9",
+          "type": "model",
+          "dna": "#龍芯⚡️2026-09-03-longhun-v4.1.9-UID9622",
+          "status": "🟢 可用",
+          "link": "ollama://longhun-v4.1.9",
+          "path": "~/.ollama/models/",
+          "source": "notion",
+          "desc": "本地ollama模型",
+          "registered_at": "2026-09-03T00:37:08+08:00",
+          "probe": "ollama 模型在位",
+          "last_probe": "2026-09-03T01:25:10+08:00"
+        },
+        {
+          "name": "deepseek-api-client",
+          "type": "engine",
+          "dna": "#龍芯⚡️2026-09-03-deepseek-client-UID9622",
+          "status": "🟢 可用",
+          "link": "08_BIN/deepseek_api.py",
+          "path": "08_BIN/deepseek_api.py",
+          "source": "notion",
+          "desc": "API客户端",
+          "registered_at": "2026-09-03T00:37:09+08:00",
+          "probe": "文件在位",
+          "last_probe": "2026-09-03T01:25:10+08:00"
+        }
+      ]
+    },
+    {
+      "name": "数据层",
+      "assets": [
+        {
+          "name": "通心译训练数据集",
+          "type": "dataset",
+          "dna": "继承总台根哈希 3C3874A43FFE1A4B",
+          "status": "🟢 已同步",
+          "link": "https://app.notion.com/p/60fb0bb024824a6eb9e38ae08d010a65",
+          "source": "Notion 通心译总台",
+          "desc": "19条资产",
+          "registered_at": "2026-09-03T00:37:12+08:00",
+          "probe": "总台缓存+根哈希一致",
+          "last_probe": "2026-09-03T01:25:10+08:00"
+        },
+        {
+          "name": "耻辱墙审计数据集",
+          "type": "dataset",
+          "dna": "#龍芯⚡️2026-09-03-shamewall-dataset-UID9622",
+          "status": "🟢 有记录",
+          "link": "~/.longhun/shame_wall/",
+          "path": "~/.longhun/shame_wall/",
+          "source": "~/.longhun/shame_wall/",
+          "desc": "审计数据集",
+          "registered_at": "2026-09-03T00:37:12+08:00",
+          "probe": "耻辱墙 5 条记录",
+          "last_probe": "2026-09-03T01:25:10+08:00"
+        }
+      ]
+    },
+    {
+      "name": "工具层",
+      "assets": [
+        {
+          "name": "Ollama运行时",
+          "type": "tool",
+          "dna": "#龍芯⚡️2026-09-03-ollama-runtime-UID9622",
+          "status": "🟢 已接入",
+          "link": "localhost:11434",
+          "source": "notion",
+          "desc": "本地模型推理",
+          "registered_at": "2026-09-03T00:38:31+08:00",
+          "probe": "ollama 命令可达",
+          "last_probe": "2026-09-03T01:25:10+08:00"
+        },
+        {
+          "name": "PyTorch",
+          "type": "framework",
+          "dna": "#龍芯⚡️2026-09-03-PyTorch-UID9622",
+          "status": "🟢 已接入",
+          "link": "https://pytorch.org",
+          "source": "notion",
+          "desc": "模型训练/推理",
+          "registered_at": "2026-09-03T00:37:15+08:00",
+          "probe": "torch 已安装",
+          "last_probe": "2026-09-03T01:25:10+08:00"
+        },
+        {
+          "name": "Transformers",
+          "type": "framework",
+          "dna": "#龍芯⚡️2026-09-03-Transformers-UID9622",
+          "status": "🟢 已接入",
+          "link": "https://huggingface.co/docs/transformers",
+          "source": "notion",
+          "desc": "模型加载",
+          "registered_at": "2026-09-03T00:37:15+08:00",
+          "probe": "transformers 已安装",
+          "last_probe": "2026-09-03T01:25:10+08:00"
+        }
+      ]
+    }
+  ]
+}

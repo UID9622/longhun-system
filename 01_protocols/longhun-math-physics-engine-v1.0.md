@@ -1,3 +1,6 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂·数学物理引擎协议 v1.0
 
 > ╔═══════════════════════════════════════════════════════════════╗
@@ -7,7 +10,7 @@
 > ║  【守护者】UID9622 · P06数学大师 · S2洛书369引擎               ║
 > ╠═══════════════════════════════════════════════════════════════╣
 > ║  【版本】v1.0 · 丙午·辛未·乙酉 (2026-07-16)                    ║
-> ║  【DNA】#龍芯⚡️丙午·辛未·乙酉·酉时·讼-MATH-PHYSICS-ENGINE-v1.0 ║
+> ║  【DNA】#龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-MATH-PHYSICS-ENGINE-v1.0 ║
 > ║  【确认】#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                   ║
 > ║  【GPG】A2D0092CEE2E5BA87035600924C3704A8CC26D5F              ║
 > ╚═══════════════════════════════════════════════════════════════╝
@@ -333,7 +336,7 @@ function optimizePersonaWeights(
 ```typescript
 // 仿真引擎
 interface SimulationEngine {
-  // ODE求解器（龙格-库塔）
+  // ODE求解器（龍格-库塔）
   rungeKutta4(f: (t: number, y: Vector) => Vector, y0: Vector, t0: number, tf: number, h: number): { t: number[]; y: Vector[] };
   // 有限差分法
   finiteDifference(f: (x: number) => number, x: number[], boundary: string): number[];
@@ -898,7 +901,7 @@ interface PhilosophyMapResponse {
 | 版本 | v1.0 |
 | 日期 | 丙午·辛未·乙酉 (2026-07-16) |
 | 作者 | UID9622 · 诸葛鑫 · 龍芯北辰 |
-| DNA | `#龍芯⚡️丙午·辛未·乙酉·酉时·讼-MATH-PHYSICS-ENGINE-v1.0` |
+| DNA | `#龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-MATH-PHYSICS-ENGINE-v1.0` |
 | 确认码 | `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` |
 | GPG | `A2D0092CEE2E5BA87035600924C3704A8CC26D5F` |
 | 状态 | 🟢 正式发布 · 公开监督 |

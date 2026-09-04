@@ -1,0 +1,23 @@
+#龍芯⚡️丙午·丙申·己未·乙亥时·䷞旅-SYSTEMD-API-v1.0-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+# SPDX-License-Identifier: MulanPSL-2.0
+[Unit]
+Description=龍魂 · API网关 (:8970)
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/longhun-system/08_BIN
+Environment="PYTHONPATH=/opt/longhun-system/bin"
+ExecStart=/opt/longhun-system/venv/bin/python /opt/longhun-system/08_BIN/lh_api_gateway.py
+Restart=always
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=longhun-api
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target

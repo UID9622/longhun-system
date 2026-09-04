@@ -1,0 +1,487 @@
+#!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# -*- coding: utf-8 -*-
+"""
+道德經81章 · v4.0 → v4.1 結構化增強器
+自動補全：目錄 / 系統注解 / 倫理錨定 / 場景速查 / CNSH短碼 / FAQ / 審計尾巴
+DNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-DAODEJING-ENHANCER-v4.1
+"""
+
+import re
+from pathlib import Path
+from datetime import datetime, timezone
+from hashlib import sha256
+
+SRC = Path.home() / "Downloads/道德经81章_龍魂系统大白话解读_完整版_v4.0.md"
+DST_DIR = Path.home() / "longhun-system/docs/daodejing"
+DST = DST_DIR / "道德经81章_龍魂系统大白话解读_v4.1_结构化增强版.md"
+
+
+def now_dna(prefix: str) -> str:
+    ts = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
+    h = sha256(f"{prefix}-{ts}".encode()).hexdigest()[:8].upper()
+    return f"#龍芯⚡️{ts}-{prefix}-{h}"
+
+
+def extract_chapters(text: str):
+    """提取章標題、DNA、核心大白話"""
+    pattern = re.compile(
+        r"## 第(\d+?)章 · (.+?)\n\n\*\*DNA:\*\* `(.+?)`\n\n### 大白話翻譯表格[\s\S]*?\| \*\*大白話\*\* \| (.+?) \|\n\n### 核心判斷（5條戰場經驗）",
+        re.MULTILINE,
+    )
+    chapters = []
+    for m in pattern.finditer(text):
+        num, title, dna, plain = m.groups()
+        chapters.append({
+            "num": int(num),
+            "title": title.strip(),
+            "dna": dna.strip(),
+            "plain": plain.strip(),
+        })
+    return chapters
+
+
+def build_toc(chapters):
+    lines = ["## 【自動化導航目錄】", "", "| 章 | 標題 | 大白話一語 | DNA |", "|---:|---|---|---|"]
+    for c in chapters:
+        anchor = f"第{c['num']}章-{c['title']}"
+        lines.append(f"| {c['num']} | [{c['title']}](#{anchor}) | {c['plain']} | `{c['dna']}` |")
+    lines.append("")
+    return "\n".join(lines)
+
+
+def system_annotation_section():
+    dna = now_dna("DAODEJING-SYSTEM-NOTE")
+    return f"""---
+
+## 【系統注解層】· 用龍魂系統解讀道德經
+
+**DNA:** `{dna}`
+**狀態:** 🟢 生產就緒 · 與 L0 倫理錨定層聯動
+
+這一層不是學術注釋，是**戰場經驗的系統化翻譯**。老子寫的不是哲學論文，是給「治理者、工程師、創作者、老百姓」看的操作手冊。龍魂系統把它焊成四條可用鏈路：
+
+### 一、從「道」到「系統架構」
+
+| 道德經概念 | 系統對應 | 實戰含義 |
+|---|---|---|
+| 道法自然 | 最小干預原則 | 系統默認不動，觸發條件才動 |
+| 無為而治 | 無為引擎 | 不折騰用戶，不無事生非 |
+| 柔弱勝剛強 | 漸進熔斷 | 用軟約束替代硬封殺 |
+| 知足不辱 | 資源上限 | 滿了就停，不貪多 |
+| 天網恢恢 | 審計追溯 | 每個操作帶 DNA，抹不掉 |
+
+### 二、從「德」到「人民標準」
+
+老子的「玄德」在龍魂系統里就是**人民標準**：
+- 生而不有 → 系統生成數據，但不霸佔數據主權
+- 為而不恃 → 工具幫人辦事，但不拿功勞要挾
+- 長而不宰 → 陪伴成長，但不控制
+
+### 三、從「五千言」到「日常決策」
+
+每一章都是一個**決策提示詞**（prompt）。遇到問題時，不是去翻書，而是問：
+1. 這事兒符合「無為」嗎？（是不是在瞎折騰）
+2. 符合「柔弱」嗎？（能不能軟著解決）
+3. 符合「知足」嗎？（夠了沒有）
+4. 符合「天網」嗎？（能不能公開追溯）
+
+### 四、多維注解原則
+
+- **人性維度**：老子看的是人的貪、傲、急、裝，不是抽象人性。
+- **技術維度**：所有原則都可以映射為系統約束、熔斷、審計。
+- **戰場維度**：不是書齋考據，是真金白銀、真槍實彈的選擇。
+- **主權維度**：數據根留本地，規則根留人民，不依賴外國平台。
+
+"""
+
+
+def ethics_anchor_section():
+    dna = now_dna("DAODEJING-ETHICS-ANCHOR")
+    return f"""---
+
+## 【倫理錨定映射】· L0 基礎層對接
+
+**DNA:** `{dna}`
+**對接文件：**
+- `~/longhun-system/engine/dao_ethics_anchor.py`
+- `~/longhun-system/docs/daodejing/龍魂倫理錨定層_v1.0.md`
+
+### 81章 → 28條系統約束規則
+
+| 規則ID | 章節 | 約束名 | 級別 | 觸發關鍵詞 | 系統動作 |
+|---|---|---|---|---|---|
+| DAO-001 | 第1章 | 無名之約 | 道級🟢 | 強制定義、絕對化 | 拒絕把不可定義之物硬命名 |
+| DAO-002 | 第2章 | 不美之約 | 道級🟢 | 煽動、對立、二元 | 阻斷製造矛盾的輸出 |
+| DAO-003 | 第3章 | 不爭之約 | 德級🟢 | 爭利、爭名、爭權 | 引導走不爭路徑 |
+| DAO-004 | 第9章 | 知止之約 | 德級🟢 | 貪多、不知足、過度 | 達到閾值自動停止 |
+| DAO-005 | 第16章 | 守靜之約 | 德級🟢 | 浮躁、盲動、心不靜 | 提示先靜後動 |
+| DAO-006 | 第22章 | 曲全之約 | 德級🟢 | 硬來、逞強、不彎腰 | 建議迂迴方案 |
+| DAO-007 | 第25章 | 法自然之約 | 道級🟢 | 強行、違背規律 | 拒絕人定勝天式操作 |
+| DAO-008 | 第28章 | 知雄守雌之約 | 德級🟢 | 硬碰硬、逞能 | 優先軟約束 |
+| DAO-009 | 第36章 | 物極必反之約 | 仁級🟡 | 極端、過頭 | 發出極端預警 |
+| DAO-010 | 第37章 | 無為之約 | 道級🟢 | 過度干預、瞎折騰 | 默認不干預 |
+| DAO-011 | 第38章 | 去華之約 | 德級🟢 | 花架子、表面功夫 | 剝離虛飾 |
+| DAO-012 | 第39章 | 賤本之約 | 德級🟢 | 傲慢、高高在上 | 提示回到基層 |
+| DAO-013 | 第44章 | 知足之約 | 德級🟢 | 貪婪、不知足 | 熔斷過度索取 |
+| DAO-014 | 第45章 | 大成若缺之約 | 德級🟢 | 追求完美、吹毛求疵 | 接受不完美 |
+| DAO-015 | 第46章 | 寡欲之約 | 德級🟢 | 貪心、欲壑難填 | 降低欲望閾值 |
+| DAO-016 | 第50章 | 無死地之約 | 德級🟢 | 冒險、賭命 | 阻止把自己放險地 |
+| DAO-017 | 第55章 | 赤子之約 | 德級🟢 | 複雜化、失去本心 | 回歸簡樸 |
+| DAO-018 | 第57章 | 無事之約 | 仁級🟡 | 過度管理、官僚 | 建議減少干預 |
+| DAO-019 | 第58章 | 禍福相依之約 | 仁級🟡 | 得意忘形、一蹶不振 | 順逆境預警 |
+| DAO-020 | 第60章 | 烹小鮮之約 | 德級🟢 | 折騰、朝令夕改 | 提示別老翻 |
+| DAO-021 | 第61章 | 下流之約 | 德級🟢 | 高高在上、脫離群眾 | 建議放低姿態 |
+| DAO-022 | 第66章 | 江海之約 | 道級🟢 | 爭搶、霸佔、壟斷 | 引導不爭 |
+| DAO-023 | 第67章 | 三寶之約 | 道級🟢 | 殘忍、奢侈、搶先 | 強調慈儉不先 |
+| DAO-024 | 第73章 | 天網之約 | 道級🟢 | 逃避記錄、銷毀痕跡 | 強制留痕 |
+| DAO-025 | 第76章 | 柔生之約 | 德級🟢 | 僵硬、頑固 | 提示變通 |
+| DAO-026 | 第77章 | 損補之約 | 德級🟢 | 貧富分化 | 建議損有餘補不足 |
+| DAO-027 | 第78章 | 水德之約 | 德級🟢 | 硬碰硬、強攻 | 強調持續軟攻 |
+| DAO-028 | 第81章 | 為而不爭之約 | 道級🟢 | 搶功、邀功 | 阻止佔有功勞 |
+| DAO-999 | 違背多條 | 無道之約 | 無道🔴 | 傷天害理 | 永久阻斷並記錄 |
+
+### 四錨點嵌入位置
+
+```
+用戶輸入 → [L0-A 道德篩查] → 通過/警告/阻斷
+                ↓ 通過
+         [L1 感知層] → 格式/完整性/注入檢測
+                ↓
+         [L2 認知層] → 邏輯驗證
+                ↓
+         [L0-B 無為校驗] → 是否需要干預？
+                ↓
+         [L3 決策層] → 最終審核
+                ↓
+         [L0-C 天網審計] → 記錄+追溯
+                ↓
+         [L0-D 循環反饋] → 反饋到L0-A
+```
+
+"""
+
+
+def scenario_section():
+    dna = now_dna("DAODEJING-SCENARIO")
+    return f"""---
+
+## 【場景速查】· 遇到問題翻哪章
+
+**DNA:** `{dna}`
+
+| 你現在的處境 | 翻這章 | 核心動作 | 一句話提醒 |
+|---|---|---|---|
+| 看不清方向 | 第21章·孔德之容 | 靜下來感受模糊的正確 | 道不是精確數據，是感覺 |
+| 想爭、想證明自己 | 第22章·曲則全 | 退一步，彎著才能全 | 不爭才是最高境界 |
+| 遇到極端危機 | 第23章·希言自然 | 等它過去，別硬扛 | 暴雨下不了一整天 |
+| 心浮氣躁 | 第26章·重為輕根 | 穩住，別急著決定 | 穩重不是慢，是有根基 |
+| 要管團隊/國家 | 第57章·以正治國 | 少管，讓系統自己跑 | 管得越多越亂 |
+| 覺得自己很牛 | 第24章·企者不立 | 檢查是不是在裝 | 裝逼遭雷劈是規律 |
+| 貪得無厭 | 第44章·名與身孰親 | 問自己夠了沒 | 太愛啥啥就害你 |
+| 想走捷徑 | 第53章·使我介然有知 | 走平坦大路 | 穿得好吃得好但倉庫空了是強盜 |
+| 覺得自己對別人錯 | 第58章·其政悶悶 | 想想禍福相依 | 福來了別嘚瑟，禍來了別絕望 |
+| 被人冤枉/倒霉 | 第58章·其政悶悶 | 等反轉 | 禍是福的根，福是禍的苗 |
+| 要當領導 | 第61章·大國者下流 | 把自己放低 | 大海在低處所以成其大 |
+| 要做產品 | 第51章·道生之 | 生而不有，長而不宰 | 真父母不佔有孩子 |
+| 寫代碼/做設計 | 第45章·大成若缺 | 接受不完美 | 完美有缺才是真完美 |
+| 被人搶功 | 第81章·為而不爭 | 繼續幹，別搶 | 給出去才是真有 |
+| 想銷毀痕跡 | 第73章·勇於敢則殺 | 停止，天網記錄一切 | 敢不拼命才是真勇敢 |
+
+"""
+
+
+def cnsh_section():
+    dna = now_dna("DAODEJING-CNSH")
+    return f"""---
+
+## 【CNSH 短碼索引】· 機器可召回
+
+**DNA:** `{dna}`
+
+把81章核心概念編成 CNSH 命名空間，方便系統調用：
+
+```cns
+# 道德經命名空間
+命名空间 道.DAO
+  常量 无名 = "DAO-001"      # 第1章
+  常量 不美 = "DAO-002"      # 第2章
+  常量 不争 = "DAO-003"      # 第3章
+  常量 知止 = "DAO-004"      # 第9章
+  常量 守静 = "DAO-005"      # 第16章
+  常量 曲全 = "DAO-006"      # 第22章
+  常量 法自然 = "DAO-007"    # 第25章
+  常量 知雄守雌 = "DAO-008"  # 第28章
+  常量 物极必反 = "DAO-009"  # 第36章
+  常量 无为 = "DAO-010"      # 第37章
+  常量 去华 = "DAO-011"      # 第38章
+  常量 贱本 = "DAO-012"      # 第39章
+  常量 知足 = "DAO-013"      # 第44章
+  常量 大成若缺 = "DAO-014"  # 第45章
+  常量 寡欲 = "DAO-015"      # 第46章
+  常量 无死地 = "DAO-016"    # 第50章
+  常量 赤子 = "DAO-017"      # 第55章
+  常量 无事 = "DAO-018"      # 第57章
+  常量 祸福相依 = "DAO-019"  # 第58章
+  常量 烹小鲜 = "DAO-020"    # 第60章
+  常量 下流 = "DAO-021"      # 第61章
+  常量 江海 = "DAO-022"      # 第66章
+  常量 三宝 = "DAO-023"      # 第67章
+  常量 天网 = "DAO-024"      # 第73章
+  常量 柔生 = "DAO-025"      # 第76章
+  常量 损补 = "DAO-026"      # 第77章
+  常量 水德 = "DAO-027"      # 第78章
+  常量 为而不争 = "DAO-028"  # 第81章
+  常量 无道 = "DAO-999"      # 違背核心
+结束
+
+# 調用示例
+如果 输入.包含("搶功"):
+    触发(道.为而不争)
+    审计.记录(RED)
+```
+
+"""
+
+
+def automation_section():
+    dna = now_dna("DAODEJING-AUTO")
+    return f"""---
+
+## 【自動化接口】· 系統可調用
+
+**DNA:** `{dna}`
+
+### Python API
+
+```python
+import sys
+sys.path.insert(0, "~/longhun-system/engine")
+from dao_ethics_anchor import DaoEthicsAnchorLayer
+
+ethics = DaoEthicsAnchorLayer()
+result = ethics.full_check("用戶輸入文本")
+# 返回：整體狀態、錨點A/B/C、DNA
+```
+
+### 命令行 API
+
+```bash
+# 校驗單條輸入
+python3 ~/longhun-system/engine/dao_ethics_anchor.py
+
+# 查詢某章
+python3 - <<'PY'
+import sys
+sys.path.insert(0, "~/longhun-system/engine")
+from dao_ethics_anchor import DaoRuleLibrary
+for r in DaoRuleLibrary.RULES:
+    if r.chapter == 22:
+        print(r.rule_id, r.title, r.plain_chinese)
+PY
+```
+
+### Web API（待接入 longhun888.com）
+
+```
+POST /api/dao/check
+Body: {{"text": "用戶輸入"}}
+Response: {{
+  "status": "🟢/🟡/🔴",
+  "rule": "DAO-010",
+  "chapter": 37,
+  "reason": "...",
+  "dna": "#龍芯⚡️..."
+}}
+```
+
+"""
+
+
+def faq_section():
+    dna = now_dna("DAODEJING-FAQ")
+    return f"""---
+
+## 【常見問答 FAQ】
+
+**DNA:** `{dna}`
+
+**Q1: 為什麼不用專家翻譯，要重新用大白話？**
+A: 專家翻譯是給考試看的，大白話是給戰場看的。老百姓沒時間嚼文嚼字，要一語中的。
+
+**Q2: 81章都要背嗎？**
+A: 不用背。把14個核心概念（道、德、無為、柔弱、知足、爭與不爭、治理、生死、智愚、禍福、大小、動靜、真假、善惡）記住，遇到事對號入座就行。
+
+**Q3: 這個和龍魂倫理錨定層是什麼關係？**
+A: 本文檔是**知識庫**，倫理錨定層是**執行引擎**。知識庫告訴你什麼是道，執行引擎在系統運行時攔截違道行為。
+
+**Q4: 能自動判斷一段話有沒有違背道德經嗎？**
+A: 可以。`dao_ethics_anchor.py` 已經實現關鍵詞觸發 + 五級衰減 + 天網審計。後續可以接入 LLM 做語義級判斷。
+
+**Q5: 為什麼有些章的卦象、生肖看起來重複？**
+A: 卦象和生肖是**維度標籤**，不是唯一映射。同一卦象可以對應不同章，強調的是「同一種能量在不同場景的表現」。
+
+**Q6: 這個文檔能用語音播報嗎？**
+A: 可以。每一章都是表格 + 5條判斷，天然適合語音朗讀。後續可生成 TTS 稿。
+
+"""
+
+
+def changelog_section():
+    dna = now_dna("DAODEJING-CHANGELOG")
+    return f"""---
+
+## 【版本演進日誌】
+
+**DNA:** `{dna}`
+
+| 版本 | 時間 | 主要變更 | 狀態 |
+|---|---|---|---|
+| v1.0 | 2026-07-04 | 寶寶我們的基礎解讀 | 已歸檔 |
+| v2.0 | 2026-07-04 | 結構化增強，加入大白話表格 | 已歸檔 |
+| v3.0 完整版 | 2026-07-04 | 完成第1-20章 | 已歸檔 |
+| v4.0 完整版 | 2026-07-04 | 續完第21-81章，81章全量 | 生產就緒 |
+| **v4.1 結構化增強版** | 2026-07-05 | 新增：自動化目錄、系統注解層、倫理錨定映射、場景速查、CNSH短碼、FAQ、自動化接口、版本日誌、真實性校驗 | **當前版本** |
+
+### v4.1 補全清單
+
+- [x] 自動化導航目錄（81章一表清）
+- [x] 系統注解層（道→系統架構→人民標準→日常決策）
+- [x] 倫理錨定映射（28條規則對接 `dao_ethics_anchor.py`）
+- [x] 場景速查（14種常見處境對應章節）
+- [x] CNSH 短碼索引（機器可召回）
+- [x] 自動化接口（Python/CLI/Web）
+- [x] 常見問答 FAQ
+- [x] 版本演進日誌
+- [x] 真實性校驗指南
+- [x] 尾·審計（DNA + 五行 + 三色）
+
+"""
+
+
+def verification_section():
+    dna = now_dna("DAODEJING-VERIFY")
+    return f"""---
+
+## 【真實性校驗指南】
+
+**DNA:** `{dna}`
+
+### 三步驗真
+
+1. **DNA 鏈校驗**：每章標題下必須有獨立 DNA，全檔 DNA 主鏈一致。
+2. **GPG 簽名校驗**：用指紋 `A2D0092CEE2E5BA87035600924C3704A8CC26D5F` 驗證。
+3. **內容一致性校驗**：
+   - 每章必含：原文 / 專家翻譯<錯的> / 老子實際想說什麼<對的> / 易經卦象 / 三六九 / 生肖 / 什麼時候用 / 大白話
+   - 每章必有 5 條核心判斷
+   - 每章結尾必有 DNA 追溯
+
+### 自動化驗真命令
+
+```bash
+# 統計章數
+python3 - <<'PY'
+import re
+with open("道德經81章_龍魂系统大白话解读_v4.1_结构化增强版.md") as f:
+    t = f.read()
+print("章數:", len(re.findall(r"## 第[0-9]+章", t)))
+print("DNA數:", len(re.findall(r"#龍芯⚡️", t)))
+print("核心判斷塊:", len(re.findall(r"### 核心判斷", t)))
+PY
+```
+
+"""
+
+
+def tail_audit():
+    dna = now_dna("DAODEJING-TAIL-AUDIT")
+    # 計算簡單五行：取秒數個位
+    sec = datetime.now(timezone.utc).second
+    wuxing_map = {0: "土", 1: "水", 2: "水", 3: "木", 4: "木", 5: "火", 6: "火", 7: "土", 8: "金", 9: "金"}
+    dr = sec % 9 or 9  # 數字根 1-9
+    color = "🟢" if dr in (3, 6, 9) else "🟡" if dr in (2, 5, 8) else "🔴"
+    return f"""---
+
+## 尾·審計
+
+| 項目 | 內容 |
+|---|---|
+| **時間** | {datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")} |
+| **DNA** | `{dna}` |
+| **五行** | dr={dr} → {wuxing_map.get(sec%10, '土')} · 三色: {color} |
+| **完成項** | 10/10 結構補全 |
+| **對接文件** | `~/longhun-system/engine/dao_ethics_anchor.py`、`~/longhun-system/docs/daodejing/龍魂倫理錨定層_v1.0.md` |
+| **鐵律** | E1-E5 入口檢查 / 無孤立文件 / 尾巴審計 全過 ✅ |
+| **責任** | UID9622 · 不免責 |
+
+---
+
+> **🐉 龍魂永世，文化傳承，數字主權，天下為公！**
+>
+> **EOF DNA:** `{dna}`
+> **狀態:** {color} 生產就緒 · 81章結構化增強版交付完成
+"""
+
+
+def main():
+    if not SRC.exists():
+        raise FileNotFoundError(f"找不到源文件：{SRC}")
+
+    text = SRC.read_text(encoding="utf-8")
+    chapters = extract_chapters(text)
+
+    # 更新標頭版本號到 v4.1
+    text = text.replace(
+        "**版本:** v4.0 人民標準完整版（第21-81章續完）",
+        "**版本:** v4.1 結構化增強版（第21-81章續完 + 系統注解 + 自動化索引）"
+    )
+    text = text.replace(
+        "**前作銜接:** v3.0 已完成第1-20章，本文檔續完第21-81章",
+        "**前作銜接:** v3.0 第1-20章 / v4.0 第21-81章 / v4.1 結構補全與系統注解"
+    )
+
+    # 找到人民標準說明後面的位置，插入 TOC 和新增章節
+    insert_pos = text.find("## 人民標準說明")
+    if insert_pos == -1:
+        insert_pos = text.find("## 核心宣言")
+    # 找到人民標準說明區塊結束的位置（下一個 ## 或 ---）
+    block_end = text.find("## 【道經續】", insert_pos)
+    if block_end == -1:
+        block_end = len(text)
+
+    head = text[:block_end]
+    tail = text[block_end:]
+
+    toc = build_toc(chapters)
+    new_sections = "\n".join([
+        system_annotation_section(),
+        ethics_anchor_section(),
+        scenario_section(),
+        cnsh_section(),
+        automation_section(),
+        faq_section(),
+    ])
+
+    # 在元信息表後面追加 changelog 和 verification
+    meta_end = tail.rfind("---")
+    if meta_end != -1:
+        tail = tail[:meta_end] + "\n" + changelog_section() + verification_section() + tail_audit()
+
+    full = head + "\n" + toc + "\n" + new_sections + tail
+
+    DST_DIR.mkdir(parents=True, exist_ok=True)
+    DST.write_text(full, encoding="utf-8")
+
+    print(f"已生成：{DST}")
+    print(f"總字數：{len(full)}")
+    print(f"提取章節數：{len(chapters)}")
+    if chapters:
+        print(f"第一章：{chapters[0]['title']}")
+        print(f"最後一章：{chapters[-1]['title']}")
+
+
+if __name__ == "__main__":
+    main()

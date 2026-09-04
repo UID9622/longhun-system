@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "version": "2.7.36",
+    "turn": "M21",
+    "last_update": "2026-05-17T00:26:00Z",
+    "main_control_url": "https://www.notion.so/uid9622/v2-7-M-CNSH-2d87125a9c9f802889e2e18002f7cf4f",
+    "dna": "#龍芯⚡️2026-05-17-DECISION-PAGE-AUTO-OPTIMIZATION-FILE1-v1.0",
+    "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
+  },
+  "macro_definitions": {
+    "COVERAGE_STATEMENT": "按 §S-25-EXT-3-5 不假装记忆律·覆盖率坦白",
+    "CONFIRM_CODE": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅",
+    "DNA_SEAL": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅",
+    "WELDING_MARK": "本节属于主控页 v{version}·{timestamp}·焊接深度{confidence}·原话出处覆盖率{coverage}"
+  },
+  "version_history": {
+    "v2.7.28": {"date": "2026-05-15T07:14:00Z", "turn": "M18", "topic": "灵魂档案索引"},
+    "v2.7.35": {"date": "2026-05-17T00:03:00Z", "turn": "M20", "topic": "AutoResearch对接索引"},
+    "v2.7.36": {"date": "2026-05-17T00:26:00Z", "turn": "M21", "topic": "赋能引擎", "current": true}
+  },
+  "term_normalization": {
+    "constraint": {"internal": "配合", "external": "铁律"},
+    "workflow": {"internal": "习惯做法", "external": "标准流程"},
+    "audit": {"symbol": "🟢🟡🔴", "name": "三色"}
+  }
+}

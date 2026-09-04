@@ -1,5 +1,8 @@
 #!/bin/bash
-# Setup script for Longhun WeChat Public Account integration
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/bin/bash
+# Setup script for LongHun WeChat Public Account integration
 
 set -e
 
@@ -42,4 +45,4 @@ echo "  2. 测试：python cli.py config"
 echo "  3. 启动 Web UI：python web_ui.py"
 echo "  4. 打开浏览器：http://localhost:8443"
 echo ""
-echo "DNA: #龍芯⚡️2026-06-25-LONGHUN-WECHAT-SETUP-v1.0"
+echo "DNA: #龍芯⚡️丙午·甲午·庚午·壬午·䷳艮为山-LONGHUN-WECHAT-SETUP-v1.0"

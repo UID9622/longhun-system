@@ -1,18 +1,20 @@
-# #龍芯⚡️20260624010825157-AUTO-DNA-F43722E7 自动注入·分层治理自愈引擎 · 来源可查
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-e177825b
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # DNA追溯码:#龍芯⚡️2026-06-23-LONGHUN-FONT-RENDERER-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 书法渲染引擎
 
-输入文字 + 选择书法样式 → 输出带印章、龍纹水印、作品编号的高清书法图片。
+输入文字 + 选择书法样式 → 输出带印章、龙纹水印、作品编号的高清书法图片。
 """
 
 import json
 import math
 import random
 from pathlib import Path
-from typing import Optional, Any
+from typing import Optional
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
@@ -53,6 +55,16 @@ def _load_fallback_font(fallback_path: str, size: int):
         return ImageFont.truetype(fallback_path, size)
     # 通用回退
     candidates = [
+        # 优先仓库自带的 LonghunFont 中文字体
+        str(BASE_DIR / "output" / "LonghunFont-Regular-v3.otf"),
+        str(BASE_DIR / "output" / "龙魂字体-Regular.otf"),
+        # Linux 常见中文字体
+        "/usr/share/fonts/HarmonyFont/Harmony-Medium.ttf",
+        "/usr/share/fonts/HarmonyFont/Harmony-Regular.ttf",
+        "/usr/share/fonts/google-droid-fonts/DroidSansFallback.ttf",
+        "/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf",
+        "/usr/share/fonts/noto-cjk/NotoSansCJK-Regular.ttc",
+        # macOS 路径（兼容）
         "/System/Library/AssetsV2/com_apple_MobileAsset_Font8/88d6cc32a907955efa1d014207889413890573be.asset/AssetData/Kaiti.ttc",
         "/System/Library/Fonts/STHeiti Light.ttc",
         "/System/Library/Fonts/PingFang.ttc",
@@ -214,7 +226,7 @@ def _draw_char(canvas, draw, contours, ink_color, x, y, scale, slant):
             draw.polygon(pts, fill=ink_color)
 
 
-def load_style(style_code: str) -> dict[str, Any]:
+def load_style(style_code: str) -> dict:
     """加载书法样式配置。"""
     styles_dir = Path(__file__).parent / "styles"
     for p in styles_dir.glob("*.json"):
@@ -225,7 +237,7 @@ def load_style(style_code: str) -> dict[str, Any]:
     raise ValueError(f"未找到书法样式: {style_code}")
 
 
-def list_styles() -> list[Any]:
+def list_styles() -> list:
     """列出所有可用样式。"""
     styles = []
     styles_dir = Path(__file__).parent / "styles"
@@ -241,7 +253,7 @@ def list_styles() -> list[Any]:
     return styles
 
 
-def _background(name: str, size: tuple[Any, ...]) -> Image.Image:
+def _background(name: str, size: tuple) -> Image.Image:
     color = BACKGROUNDS.get(name, (245, 240, 230))
     img = Image.new("RGB", size, color)
     # 轻微纹理：随机噪点模拟宣纸纤维
@@ -252,10 +264,9 @@ def _background(name: str, size: tuple[Any, ...]) -> Image.Image:
 
 
 def render(text: str, style_code: str = "YZQ-KA",
-           layout: str = "horizontal", seal_text: Optional, Any[str] = None,
-           classic: str = "GENERAL", output_name: Optional, Any[str] = None,
-           size: Optional, Any[tuple] = None,
-           font_size: Optional, Any[int] = None) -> dict[str, Any]:
+           layout: str = "horizontal", seal_text: Optional[str] = None,
+           classic: str = "GENERAL", output_name: Optional[str] = None,
+           size: Optional[tuple] = None) -> dict:
     """
     渲染书法作品。
 
@@ -267,12 +278,11 @@ def render(text: str, style_code: str = "YZQ-KA",
         classic: 典籍代码，用于作品编号
         output_name: 输出文件名（不含扩展名）
         size: 画布尺寸 (宽, 高)，默认自动
-        font_size: 强制字号，覆盖样式默认值
     """
     style = load_style(style_code)
     params = style["parameters"]
 
-    font_size = font_size or params.get("font_size", 220)
+    font_size = params.get("font_size", 220)
     slant = params.get("slant", 0.0)
     randomness = params.get("randomness", 0.02)
     spacing_x = params.get("spacing_x", 1.1)
@@ -366,7 +376,7 @@ def render(text: str, style_code: str = "YZQ-KA",
             sy = size[1] - seal_size - 40
         canvas.paste(seal, (sx, sy), seal)
 
-    # 龍纹可见水印
+    # 龙纹可见水印
     canvas = add_visible_watermark(canvas, opacity=60, corner=True)
 
     # 频域水印

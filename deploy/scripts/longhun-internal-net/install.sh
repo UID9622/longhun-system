@@ -1,7 +1,9 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ═══════════════════════════════════════════════════════════════
 # 龍魂·内网互联 — 一键安装脚本
 # DNA: #龍芯⚡️丙午·辛未·乙酉·未时·䷾既济-INTERNAL-NET-INSTALL-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # #CONFIRM🌌9622-ONLY-ONCE🧬INS1-001A
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 #

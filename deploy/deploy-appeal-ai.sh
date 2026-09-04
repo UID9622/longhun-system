@@ -1,7 +1,9 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ═══════════════════════════════════════════════════════
 # 龍魂AI申诉初审系统 · 一键部署脚本 v1.0
 # DNA: #龍芯⚡️丙午·辛未·APPEAL-DEPLOY-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # ═══════════════════════════════════════════════════════
 
 set -e
@@ -117,7 +119,7 @@ if [[ -f "$NGINX_CONF" ]]; then
     elif grep -q "longhun-v4.js" "$NGINX_CONF"; then
         echo -e "  ${GREEN}✅${NC} Nginx: 已是 v4"
     else
-        echo -e "  ${YELLOW}⚠️${NC} Nginx配置中未找到龙魂JS引用，请手动添加"
+        echo -e "  ${YELLOW}⚠️${NC} Nginx配置中未找到龍魂JS引用，请手动添加"
     fi
 
     # 测试并重载

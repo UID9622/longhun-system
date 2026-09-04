@@ -1,3 +1,5 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · 密钥托管 · 主权交接补充协议 v1.0
 
 ## 【碑文头部】
@@ -5,7 +7,7 @@
 ```
 文档类型：     密钥托管 · 交接补充协议 · P0 永恒级
 从属于：       CREATOR_LEGACY_WILL_SOVEREIGN_HANDOVER_v1.0.md
-DNA：          #龍芯⚡️丙午·丙申·丙辰·午时·离-KEY-VAULT-HANDOVER-v1.0
+DNA：          #龍芯⚡️丙午·丙申·丙辰·午时·䷝离-KEY-VAULT-HANDOVER-v1.0
 效力等级：     P0 🔴 焊死 · 不可修改
 发布日期：     2026-07-12
 ```
@@ -147,6 +149,6 @@ source _private/密钥资料/启动脚本/activate_longhun_keys.sh
 
 ---
 
-**DNA:** `#龍芯⚡️丙午·丙申·丙辰·午时·离-KEY-VAULT-HANDOVER-v1.0`
+**DNA:** `#龍芯⚡️丙午·丙申·丙辰·午时·䷝离-KEY-VAULT-HANDOVER-v1.0`
 **GPG:** `A2D009C2EE2E5BA87035600924C3704A8CC26D5F`
 **从属于:** `sovereignty/CREATOR_LEGACY_WILL_SOVEREIGN_HANDOVER_v1.0.md`

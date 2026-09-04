@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>语法参考 · CNSH 中文原生编程语言</title>
+<style>
+:root{--gold:#d4af37;--ink:#0e0e12;--card:#17171e;--line:#2a2a35;--fg:#e8e6df;--mut:#9a9688}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ink);color:var(--fg);font:16px/1.7 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+header{border-bottom:1px solid var(--line);background:linear-gradient(180deg,#12121a,#0e0e12)}
+.bar{max-width:1080px;margin:0 auto;padding:16px 20px;display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.brand{font-size:20px;font-weight:700;color:var(--gold);letter-spacing:1px}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:var(--mut);font-size:14px}nav a:hover{color:var(--gold)}
+main{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:30px;color:var(--gold);margin:14px 0}h2{font-size:22px;margin:26px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+h3{font-size:18px;margin:20px 0 8px;color:#c9c4b5}h4{font-size:16px;margin:14px 0 6px}
+p{margin:10px 0}ul,ol{margin:10px 0 10px 26px}li{margin:4px 0}
+code{background:#23232e;padding:2px 6px;border-radius:4px;color:#ffd479;font-size:14px}
+pre{background:#101018;border:1px solid var(--line);border-radius:10px;padding:16px;overflow-x:auto;margin:12px 0}
+pre code{background:none;padding:0;color:#e6e0c8;display:block;font-size:13.5px;line-height:1.6}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}th{background:#1a1a24;color:var(--gold)}
+blockquote{border-left:3px solid var(--gold);padding:6px 14px;color:var(--mut);margin:12px 0;background:#14141c}
+.hero{padding:50px 20px;text-align:center;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at top,#1c1c2c 0%,#0e0e12 70%)}
+.hero h1{font-size:44px;margin:6px 0}
+.hero p{color:var(--mut);max-width:760px;margin:10px auto}
+.btn{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:10px 24px;border-radius:30px;margin:14px 6px 0;font-size:15px}
+.btn:hover{background:var(--gold);color:#000;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:22px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.card h3{margin-top:0;color:var(--gold)}
+.cmd{background:#0c0c12;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-family:monospace;color:#7ee0a3;font-size:14px;margin:6px 0}
+footer{text-align:center;color:#666;padding:26px;font-size:13px;border-top:1px solid var(--line)}
+.toc{background:#12121a;border:1px solid var(--line);padding:14px 20px;border-radius:10px;margin:14px 0;font-size:14px}
+@media(max-width:700px){.hero h1{font-size:32px}}
+</style></head>
+<body><header><div class="bar">
+<span class="brand">🐉 CNSH 语言</span>
+<nav><a href="index.html">首页</a><a href="guide.html">入门教程</a><a href="reference.html" style=color:var(--gold)>语法参考</a><a href="stdlib.html">标准库</a><a href="tools.html">工具链</a><a href="examples.html">示例</a></nav></div></header>
+<main><h1>📚 语法参考（16 章规范同步）</h1><div class="toc"><strong>本页目录</strong><ul><li><a href="#04_value_types">第4章：值类型系统</a></li><li><a href="#05_command_structure">第5章：指令结构（主语·谓语·宾语·修饰语）</a></li><li><a href="#06_control_flow">第6章：控制流</a></li><li><a href="#07_variables">第7章：变量与绑定</a></li><li><a href="#08_functions">第8章：函数与模块</a></li><li><a href="#A_reserved_keywords">附录A：保留关键字</a></li><li><a href="#B_dna_quickref">附录B：DNA 格式速查表</a></li><li><a href="#C_natural_language_boundary">附录C：与自然语言的边界</a></li><li><a href="#D_comparison">附录D：CNSH vs JSON vs YAML vs Python vs Prompt</a></li></ul></div><h2 id="04_value_types">第4章：值类型系统</h2><h1>第4章：值类型系统</h1>
+<blockquote><strong>DNA</strong>: <code>#龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-CNSH-CHAPTER-04-v1.0</code></blockquote>
+<blockquote><strong>创建者</strong>: 诸葛鑫（UID9622）</blockquote>
+<blockquote><strong>协议</strong>: CC BY-NC-SA 4.0（核心思想层）</blockquote>
+<blockquote><strong>确认码</strong>: <code>#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</code></blockquote>
+<blockquote><strong>三色</strong>: 🟢 已定稿</blockquote>
+<p>---</p>
+<h2>4.1 基本类型</h2>
+<table><thead><tr><th>类型</th><th>关键字</th><th>示例</th><th>说明</th></tr></thead><tbody><tr><td>字符串</td><td><code>字符串</code></td><td><code>&quot;龍魂&quot;</code></td><td>中文双引号</td></tr><tr><td>整数</td><td><code>整数</code></td><td><code>42</code></td><td>十进制</td></tr><tr><td>小数</td><td><code>小数</code></td><td><code>3.14</code></td><td>浮点</td></tr><tr><td>布尔</td><td><code>真</code> <code>假</code></td><td><code>真</code></td><td>逻辑值</td></tr><tr><td>空值</td><td><code>无</code></td><td><code>无</code></td><td>空</td></tr><tr><td>列表</td><td><code>列表</code></td><td><code>[1, 2, 3]</code></td><td>有序集合</td></tr><tr><td>映射</td><td><code>映射</code></td><td><code>{名称: 值}</code></td><td>键值对</td></tr></tbody></table>
+<h2>4.2 类型声明</h2>
+<pre><code>整数 龙年 = 2026
+字符串 欢迎词 = &quot;欢迎来到龙魂&quot;
+小数 圆周率 = 3.14159
+布尔 是否开启 = 真
+列表 数字 = [1, 2, 3, 5, 8]
+映射 配置 = {引擎: &quot;CNSH&quot;, 版本: &quot;1.0&quot;}</code></pre>
+<h2>4.3 类型推断</h2>
+<pre><code># 声明时省略类型，由解析器推断
+龙年 = 2026          # 整数
+名称 = &quot;龍魂&quot;         # 字符串</code></pre>
+<h2>4.4 类型转换</h2>
+<pre><code>转换 数字 = 文本转整数 &quot;2026&quot;     # 2026
+转换 文本 = 整数转文本 2026        # &quot;2026&quot;</code></pre>
+<table><thead><tr><th>转换函数</th><th>说明</th></tr></thead><tbody><tr><td><code>文本转整数</code></td><td>字符串 → 整数</td></tr><tr><td><code>整数转文本</code></td><td>整数 → 字符串</td></tr><tr><td><code>文本转小数</code></td><td>字符串 → 小数</td></tr><tr><td><code>转布尔</code></td><td>值 → 布尔</td></tr></tbody></table>
+<h2>4.5 类型检查</h2>
+<pre><code>检查类型 &quot;龍魂&quot;         # 字符串
+检查类型 42             # 整数
+检查类型 [1,2,3]        # 列表
+
+类型一致 42 整数        # 真</code></pre>
+<h2>4.6 数字根校验（龍魂特色）</h2>
+<p>龍魂体系的核心数学锚点是<strong>洛书369不动点</strong>：<code>sn=369, log369=5.911, perm369=108</code>。CNSH 提供数字根校验：</p>
+<pre><code>数字根 2026    # 2+0+2+6 = 10 → 1+0 = 1
+数字根 369     # 3+6+9 = 18 → 1+8 = 9</code></pre>
+<table><thead><tr><th>用途</th><th>说明</th></tr></thead><tbody><tr><td>权重校验</td><td>关键参数用数字根交叉验证</td></tr><tr><td>决策闸门</td><td>三闸门决策流场（数字根→身份→伦理）</td></tr><tr><td>数据一致性</td><td>两条记录数字根一致 → 强关联</td></tr></tbody></table>
+<h2>4.7 本章小结</h2>
+<ul><li>7 种基本类型：字符串/整数/小数/布尔/空值/列表/映射</li><li>支持类型声明、推断、转换、检查</li><li>数字根校验是龍魂特有的数值验证手段</li></ul>
+<h2>4.8 练习</h2>
+<p>1. 声明一个映射，存储你的个人信息 2. 把 <code>&quot;2026&quot;</code> 转成整数并加 1 3. 计算你的出生年份的数字根</p>
+<p>---</p>
+<h2>章节导航</h2>
+<ul><li>上一章：<a href="../intro/03_first_dna.md">第3章：第一个DNA追溯码</a></li><li>下一章：<a href="./05_command_structure.md">第5章：指令结构</a></li><li>目录：<a href="../INDEX.md">INDEX.md</a></li></ul>
+<p>---</p>
+<p><strong>GPG</strong>: <code>A2D0092CEE2E5BA87035600924C3704A8CC26D5F</code></p><h2 id="05_command_structure">第5章：指令结构（主语·谓语·宾语·修饰语）</h2><h1>第5章：指令结构（主语·谓语·宾语·修饰语）</h1>
+<blockquote><strong>DNA</strong>: <code>#龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-CNSH-CHAPTER-05-v1.0</code></blockquote>
+<blockquote><strong>创建者</strong>: 诸葛鑫（UID9622）</blockquote>
+<blockquote><strong>协议</strong>: CC BY-NC-SA 4.0（核心思想层）</blockquote>
+<blockquote><strong>确认码</strong>: <code>#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</code></blockquote>
+<blockquote><strong>三色</strong>: 🟢 已定稿</blockquote>
+<p>---</p>
+<h2>5.1 核心概念</h2>
+<p>CNSH 指令遵循<strong>中文自然语序</strong>：</p>
+<pre><code>[主语] [谓语] [宾语] [修饰语]</code></pre>
+<table><thead><tr><th>成分</th><th>说明</th><th>示例</th></tr></thead><tbody><tr><td>主语</td><td>执行主体</td><td><code>宝宝</code> <code>系统</code> <code>用户</code></td></tr><tr><td>谓语</td><td>动作/操作</td><td><code>输出</code> <code>读取</code> <code>执行</code> <code>审计</code></td></tr><tr><td>宾语</td><td>操作对象</td><td><code>文件</code> <code>数据</code> <code>命令</code></td></tr><tr><td>修饰语</td><td>条件/参数</td><td><code>在路径下</code> <code>用三色判定</code></td></tr></tbody></table>
+<h2>5.2 基本指令</h2>
+<pre><code># 最简单的指令
+输出 &quot;Hello&quot;
+
+# 完整结构
+宝宝 输出 &quot;Hello&quot; 在控制台
+
+# 带审计
+系统 审计 本次操作 用三色判定</code></pre>
+<h2>5.3 指令类型</h2>
+<table><thead><tr><th>类型</th><th>谓语示例</th><th>用途</th></tr></thead><tbody><tr><td>输出类</td><td><code>输出</code> <code>打印</code> <code>回显</code></td><td>输出信息</td></tr><tr><td>输入类</td><td><code>读取</code> <code>接收</code> <code>获取</code></td><td>获取输入</td></tr><tr><td>执行类</td><td><code>执行</code> <code>运行</code> <code>调用</code></td><td>执行命令</td></tr><tr><td>审计类</td><td><code>审计</code> <code>检查</code> <code>验证</code></td><td>审计追溯</td></tr><tr><td>控制类</td><td><code>如果</code> <code>否则</code> <code>循环</code></td><td>控制流</td></tr></tbody></table>
+<h2>5.4 八类指令与八卦对应（龍魂特色）</h2>
+<p>龍魂体系以八卦分类命令（<code>lh6</code> 命令总目），CNSH 指令同样映射：</p>
+<table><thead><tr><th>卦</th><th>指令域</th><th>谓语示例</th></tr></thead><tbody><tr><td>乾（启动）</td><td>启动/初始化</td><td><code>启动</code> <code>初始化</code></td></tr><tr><td>坤（状态）</td><td>状态/查询</td><td><code>查询</code> <code>状态</code></td></tr><tr><td>震（审计）</td><td>审计/追溯</td><td><code>审计</code> <code>检查</code></td></tr><tr><td>巽（安全）</td><td>安全/加密</td><td><code>加密</code> <code>校验</code></td></tr><tr><td>坎（主权）</td><td>主权/身份</td><td><code>验证身份</code> <code>授权</code></td></tr><tr><td>离（技能）</td><td>技能/引擎</td><td><code>调用</code> <code>运行</code></td></tr><tr><td>艮（同步）</td><td>同步/归档</td><td><code>同步</code> <code>归档</code></td></tr><tr><td>兑（部署）</td><td>部署/发布</td><td><code>部署</code> <code>发布</code></td></tr></tbody></table>
+<h2>5.5 实战示例</h2>
+<pre><code># 从 README.md 读取 DNA
+读取 &quot;README.md&quot; 提取 DNA
+
+# 如果提取成功则审计
+如果 DNA存在
+  审计 该DNA 用三色判定
+否则
+  输出 &quot;未找到DNA&quot;</code></pre>
+<h2>5.6 与自然语言的边界</h2>
+<table><thead><tr><th>场景</th><th>用 CNSH</th><th>用散文</th></tr></thead><tbody><tr><td>给 AI 下指令</td><td>✅</td><td>❌</td></tr><tr><td>写代码逻辑</td><td>✅</td><td>❌</td></tr><tr><td>讨论需求</td><td>❌</td><td>✅</td></tr><tr><td>写文档说明</td><td>❌</td><td>✅</td></tr></tbody></table>
+<h2>5.7 本章小结</h2>
+<ul><li>指令 = 主语 + 谓语 + 宾语 + 修饰语，中文自然语序</li><li>5 类指令类型：输出/输入/执行/审计/控制</li><li>8 类指令域对应八卦：乾启动 · 坤状态 · 震审计 · 巽安全 · 坎主权 · 离技能 · 艮同步 · 兑部署</li></ul>
+<h2>5.8 练习</h2>
+<p>1. 写一条指令：让系统读取 <code>MEMORY.md</code> 并提取最近 10 条记录 2. 写一条审计指令：检查 <code>DNA.md</code> 的 GPG 签名 3. 把指令按八卦归类：<code>部署网站</code> 属于哪一卦？</p>
+<p>---</p>
+<h2>章节导航</h2>
+<ul><li>上一章：<a href="./04_value_types.md">第4章：值类型系统</a></li><li>下一章：<a href="./06_control_flow.md">第6章：控制流</a></li><li>目录：<a href="../INDEX.md">INDEX.md</a></li></ul>
+<p>---</p>
+<p><strong>GPG</strong>: <code>A2D0092CEE2E5BA87035600924C3704A8CC26D5F</code></p><h2 id="06_control_flow">第6章：控制流</h2><h1>第6章：控制流</h1>
+<blockquote><strong>DNA</strong>: <code>#龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-CNSH-CHAPTER-06-v1.0</code></blockquote>
+<blockquote><strong>创建者</strong>: 诸葛鑫（UID9622）</blockquote>
+<blockquote><strong>协议</strong>: CC BY-NC-SA 4.0（核心思想层）</blockquote>
+<blockquote><strong>确认码</strong>: <code>#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</code></blockquote>
+<blockquote><strong>三色</strong>: 🟢 已定稿</blockquote>
+<p>---</p>
+<h2>6.1 条件判断</h2>
+<p>CNSH 用中文条件字：</p>
+<pre><code>如果 条件
+  指令1
+否则 如果 条件2
+  指令2
+否则
+  指令3</code></pre>
+<pre><code>整数 分数 = 85
+如果 分数 &gt;= 90
+  输出 &quot;优秀&quot;
+否则 如果 分数 &gt;= 60
+  输出 &quot;及格&quot;
+否则
+  输出 &quot;加油&quot;</code></pre>
+<h2>6.2 条件操作符</h2>
+<table><thead><tr><th>操作符</th><th>含义</th><th>示例</th></tr></thead><tbody><tr><td><code>等于</code></td><td>==</td><td><code>分数 等于 85</code></td></tr><tr><td><code>不等于</code></td><td>!=</td><td><code>分数 不等于 60</code></td></tr><tr><td><code>大于</code></td><td>&gt;</td><td><code>分数 大于 80</code></td></tr><tr><td><code>小于</code></td><td>&lt;</td><td><code>分数 小于 60</code></td></tr><tr><td><code>大于等于</code></td><td>&gt;=</td><td><code>分数 大于等于 90</code></td></tr><tr><td><code>小于等于</code></td><td>&lt;=</td><td><code>分数 小于等于 100</code></td></tr><tr><td><code>并且</code></td><td>and</td><td><code>A 并且 B</code></td></tr><tr><td><code>或者</code></td><td>or</td><td><code>A 或者 B</code></td></tr><tr><td><code>非</code></td><td>not</td><td><code>非 条件</code></td></tr></tbody></table>
+<h2>6.3 循环</h2>
+<pre><code>循环 数字 在 [1,2,3,4,5]
+  输出 数字
+
+# 次数循环
+循环 5 次
+  输出 &quot;第几次&quot;</code></pre>
+<table><thead><tr><th>循环类型</th><th>语法</th><th>说明</th></tr></thead><tbody><tr><td>遍历列表</td><td><code>循环 X 在 [列表]</code></td><td>遍历元素</td></tr><tr><td>次数循环</td><td><code>循环 N 次</code></td><td>固定次数</td></tr><tr><td>条件循环</td><td><code>循环 当 条件</code></td><td>条件满足持续</td></tr></tbody></table>
+<h2>6.4 中断与继续</h2>
+<pre><code>循环 数字 在 [1,2,3,4,5]
+  如果 数字 等于 3
+    跳过          # continue
+  如果 数字 等于 5
+    停止          # break
+  输出 数字</code></pre>
+<h2>6.5 三色分支（龍魂特色）</h2>
+<p>审计场景专用分支：</p>
+<pre><code>三色 判定 审计结果
+  🟢 输出 &quot;通过，放行&quot;
+  🟡 输出 &quot;待核，标记&quot;
+  🔴 输出 &quot;红线，熔断&quot;</code></pre>
+<h2>6.6 熔断条件分支</h2>
+<pre><code>如果 触发P0
+  熔断 执行         # 立即停止，L0/∞ 级
+否则 如果 触发L1
+  熔断 数据         # 拒绝请求 + MELTDOWN
+否则 如果 触发L2
+  熔断 人格         # 禁用当前人格
+否则 如果 触发L3
+  熔断 行为         # 锁定当前任务
+否则
+  继续 执行</code></pre>
+<h2>6.7 本章小结</h2>
+<ul><li>条件：<code>如果 / 否则如果 / 否则</code></li><li>条件操作符全中文：等于/大于/并且/或者/非</li><li>循环：遍历 / 次数 / 条件</li><li>三色分支直接内建审计判定</li><li>四级熔断（∞L0/L1/L2/L3）可写为控制流</li></ul>
+<h2>6.8 练习</h2>
+<p>1. 写一个判断闰年的程序 2. 用循环输出 1-10 的偶数 3. 写一个三色审计：分数&gt;=60 🟢，&gt;=50 🟡，否则 🔴</p>
+<p>---</p>
+<h2>章节导航</h2>
+<ul><li>上一章：<a href="./05_command_structure.md">第5章：指令结构</a></li><li>下一章：<a href="./07_variables.md">第7章：变量与绑定</a></li><li>目录：<a href="../INDEX.md">INDEX.md</a></li></ul>
+<p>---</p>
+<p><strong>GPG</strong>: <code>A2D0092CEE2E5BA87035600924C3704A8CC26D5F</code></p><h2 id="07_variables">第7章：变量与绑定</h2><h1>第7章：变量与绑定</h1>
+<blockquote><strong>DNA</strong>: <code>#龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-CNSH-CHAPTER-07-v1.0</code></blockquote>
+<blockquote><strong>创建者</strong>: 诸葛鑫（UID9622）</blockquote>
+<blockquote><strong>协议</strong>: CC BY-NC-SA 4.0（核心思想层）</blockquote>
+<blockquote><strong>确认码</strong>: <code>#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</code></blockquote>
+<blockquote><strong>三色</strong>: 🟢 已定稿</blockquote>
+<p>---</p>
+<h2>7.1 变量声明</h2>
+<pre><code>整数 计数 = 0
+字符串 名称 = &quot;龍魂&quot;
+列表 任务 = []
+映射 配置 = {}</code></pre>
+<h2>7.2 命名规范（龍魂二元体系）</h2>
+<p>对齐 <code>CNSH_命令与变量命名规范-v2.0.md</code>：</p>
+<table><thead><tr><th>前缀</th><th>层级</th><th>用途</th><th>示例</th></tr></thead><tbody><tr><td><code>龍_</code></td><td>系统级</td><td>龍魂保留命名空间</td><td><code>龍_系统</code> <code>龍_引擎</code> <code>龍_用户</code></td></tr><tr><td><code>数据_</code></td><td>数据级</td><td>用户数据处理</td><td><code>数据_用户</code> <code>数据_日志</code></td></tr><tr><td>无前缀</td><td>局部级</td><td>临时变量</td><td><code>计数</code> <code>名称</code></td></tr></tbody></table>
+<blockquote><strong>铁律</strong>：系统核心变量禁止用英文缩写；品牌/核心类名繁体「龍」永存（如 <code>龍_系统</code>），兼容性通用变量中文蛇形。</blockquote>
+<h2>7.3 赋值</h2>
+<pre><code># 直接赋值
+计数 = 计数 + 1
+
+# 复合赋值
+计数 加 1
+计数 减 1
+计数 乘 2
+计数 除 2</code></pre>
+<table><thead><tr><th>复合操作符</th><th>含义</th></tr></thead><tbody><tr><td><code>加</code></td><td>+=</td></tr><tr><td><code>减</code></td><td>-=</td></tr><tr><td><code>乘</code></td><td>*=</td></tr><tr><td><code>除</code></td><td>/=</td></tr><tr><td><code>连接</code></td><td>字符串拼接</td></tr></tbody></table>
+<h2>7.4 作用域</h2>
+<pre><code>全局: 龍_系统 = &quot;在线&quot;
+
+函数 处理任务
+  局部: 临时值 = 100    # 函数内可见
+  输出 龍_系统           # 全局可见
+
+输出 临时值              # ❌ 超出作用域</code></pre>
+<table><thead><tr><th>作用域</th><th>声明</th><th>可见范围</th></tr></thead><tbody><tr><td>全局</td><td><code>全局: 名称 = 值</code></td><td>整个程序</td></tr><tr><td>局部</td><td><code>局部: 名称 = 值</code></td><td>当前块/函数</td></tr><tr><td>默认</td><td><code>名称 = 值</code></td><td>当前块</td></tr></tbody></table>
+<h2>7.5 常量</h2>
+<pre><code>常量 圆周率 = 3.14159
+常量 系统版本 = &quot;v1.0&quot;
+# 常量不可重新赋值</code></pre>
+<h2>7.6 敏感数据处理（龍魂数据铁律）</h2>
+<pre><code># 敏感数据端侧加密
+数据_用户 = 加密 &quot;手机号内容&quot; 用国密算法
+# 云上只存密文，日志只打哈希指纹
+记录 日志 数据_用户 的 哈希指纹</code></pre>
+<table><thead><tr><th>数据级别</th><th>处理</th></tr></thead><tbody><tr><td>D1 绝密</td><td>永不入云，请求即熔断</td></tr><tr><td>D2 机密</td><td>端侧国密加密，云上只存密文</td></tr><tr><td>D3 内部</td><td>日志脱敏</td></tr><tr><td>D4 公开</td><td>自由流动</td></tr></tbody></table>
+<h2>7.7 本章小结</h2>
+<ul><li>变量 = <code>名称 = 值</code>，类型可选</li><li>命名：<code>龍_</code> 系统级 / <code>数据_</code> 数据级 / 无前缀局部级</li><li>复合赋值：加/减/乘/除/连接</li><li>作用域：全局/局部/当前块</li><li>敏感数据端侧加密，日志只存哈希指纹</li></ul>
+<h2>7.8 练习</h2>
+<p>1. 声明一个全局 <code>龍_系统</code> 变量和局部变量 2. 用复合赋值累加 1-10 的和 3. 写一个加密存储用户手机号的示例</p>
+<p>---</p>
+<h2>章节导航</h2>
+<ul><li>上一章：<a href="./06_control_flow.md">第6章：控制流</a></li><li>下一章：<a href="./08_functions.md">第8章：函数与模块</a></li><li>目录：<a href="../INDEX.md">INDEX.md</a></li></ul>
+<p>---</p>
+<p><strong>GPG</strong>: <code>A2D0092CEE2E5BA87035600924C3704A8CC26D5F</code></p><h2 id="08_functions">第8章：函数与模块</h2><h1>第8章：函数与模块</h1>
+<blockquote><strong>DNA</strong>: <code>#龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-CNSH-CHAPTER-08-v1.0</code></blockquote>
+<blockquote><strong>创建者</strong>: 诸葛鑫（UID9622）</blockquote>
+<blockquote><strong>协议</strong>: CC BY-NC-SA 4.0（核心思想层）</blockquote>
+<blockquote><strong>确认码</strong>: <code>#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</code></blockquote>
+<blockquote><strong>三色</strong>: 🟢 已定稿</blockquote>
+<p>---</p>
+<h2>8.1 函数定义</h2>
+<pre><code>函数 计算面积(半径)
+  返回 3.14159 * 半径 * 半径
+
+# 调用
+面积 = 调用 计算面积(10)
+输出 面积    # 314.159</code></pre>
+<h2>8.2 参数</h2>
+<pre><code>函数 问候(名称, 语气 = &quot;友好&quot;)
+  输出 &quot;你好，&quot; + 名称 + &quot;，语气：&quot; + 语气
+
+调用 问候(&quot;龍魂&quot;)              # 用默认语气
+调用 问候(&quot;龍魂&quot;, 语气=&quot;正式&quot;)  # 覆盖默认</code></pre>
+<h2>8.3 返回值</h2>
+<pre><code>函数 计算(左, 右, 操作)
+  如果 操作 等于 &quot;加&quot;
+    返回 左 + 右
+  否则
+    返回 左 * 右
+
+结果 = 调用 计算(3, 4, &quot;加&quot;)     # 7</code></pre>
+<h2>8.4 模块</h2>
+<p>CNSH 程序可以按模块组织：</p>
+<pre><code>模块 文件处理
+  函数 读取文件(路径)
+    返回 读取 路径
+
+  函数 写入文件(路径, 内容)
+    写入 内容 到 路径
+
+# 导入使用
+导入 文件处理
+调用 文件处理.读取文件(&quot;README.md&quot;)</code></pre>
+<h2>8.5 系统函数库（内建）</h2>
+<table><thead><tr><th>函数</th><th>说明</th></tr></thead><tbody><tr><td><code>输出</code></td><td>输出到控制台</td></tr><tr><td><code>读取</code></td><td>读取文件/输入</td></tr><tr><td><code>审计</code></td><td>三色审计</td></tr><tr><td><code>生成DNA</code></td><td>生成 DNA 追溯码</td></tr><tr><td><code>验证DNA</code></td><td>校验 DNA 格式</td></tr><tr><td><code>加密</code> <code>解密</code></td><td>国密/AES 加密</td></tr><tr><td><code>数字根</code></td><td>洛书369 数字根计算</td></tr><tr><td><code>同步</code> <code>归档</code></td><td>数据同步与归档</td></tr></tbody></table>
+<h2>8.6 函数与 DNA</h2>
+<p>每个函数体建议绑定 DNA，形成可追溯单元：</p>
+<pre><code>函数 关键计算
+  DNA: #龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-引擎-计算-v1.0-UID9622-ABCD1234
+  返回 数字根(369)</code></pre>
+<h2>8.7 本章小结</h2>
+<ul><li>函数 = <code>函数 名称(参数)</code> + <code>返回</code></li><li>支持默认参数、命名参数</li><li>模块化组织：<code>模块</code> + <code>导入</code></li><li>内建系统函数库覆盖 IO/审计/DNA/加密/数理</li></ul>
+<h2>8.8 练习</h2>
+<p>1. 写一个函数：判断一个数是否为偶数 2. 定义 <code>模块 用户管理</code>，含注册/登录两个函数 3. 给关键函数绑定 DNA</p>
+<p>---</p>
+<h2>章节导航</h2>
+<ul><li>上一章：<a href="./07_variables.md">第7章：变量与绑定</a></li><li>下一章：<a href="../audit/09_dna_syntax.md">第9章：DNA语法规范</a></li><li>目录：<a href="../INDEX.md">INDEX.md</a></li></ul>
+<p>---</p>
+<p><strong>GPG</strong>: <code>A2D0092CEE2E5BA87035600924C3704A8CC26D5F</code></p><h2 id="A_reserved_keywords">附录A：保留关键字</h2><h1>附录A：保留关键字</h1>
+<blockquote><strong>DNA</strong>: <code>#龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-CNSH-APPENDIX-A-v1.0</code></blockquote>
+<blockquote><strong>创建者</strong>: 诸葛鑫（UID9622）</blockquote>
+<blockquote><strong>协议</strong>: CC BY-NC-SA 4.0（核心思想层）</blockquote>
+<blockquote><strong>三色</strong>: 🟢 已定稿</blockquote>
+<p>---</p>
+<h2>A.1 全部保留关键字</h2>
+<p>以下关键字不可用作变量名、函数名、模块名。</p>
+<h3>指令类</h3>
+<pre><code>输出 打印 回显 读取 接收 获取 执行 运行 调用
+启动 初始化 停止 恢复 查询 状态 同步 归档 部署 发布</code></pre>
+<h3>控制类</h3>
+<pre><code>如果 否则 否则如果 循环 当 在 次 停止 跳过 返回
+尝试 捕获 最终 抛出 熔断 降级 回退</code></pre>
+<h3>声明类</h3>
+<pre><code>函数 模块 导入 变量 常量 全局 局部 上下文 环境 会话</code></pre>
+<h3>类型类</h3>
+<pre><code>字符串 整数 小数 布尔 真 假 无 列表 映射</code></pre>
+<h3>审计类</h3>
+<pre><code>审计 检查 验证 判定 三色 通过 待核 拒绝
+生成DNA 验证DNA 数字根 GPG签名 校验SHA</code></pre>
+<h3>八卦类（保留字）</h3>
+<pre><code>乾 坤 震 巽 坎 离 艮 兑</code></pre>
+<h3>其他</h3>
+<pre><code>加密 解密 转换 解析 执行Python 执行Shell 脚本
+管道 确认 密钥 记录 输出摘要</code></pre>
+<h2>A.2 机器可读版</h2>
+<p>见 <a href="../spec/reserved_keywords.txt">spec/reserved_keywords.txt</a>，供解析器直接加载。</p>
+<h2>A.3 使用规则</h2>
+<table><thead><tr><th>规则</th><th>示例</th></tr></thead><tbody><tr><td>变量名不可用关键字</td><td>~~<code>输出 = 1</code>~~ ❌</td></tr><tr><td>加前缀可避开</td><td><code>数据_输出 = 1</code> ✅</td></tr><tr><td>关键字大小写固定</td><td>全中文，无大小写问题</td></tr></tbody></table>
+<p>---</p>
+<p><strong>GPG</strong>: <code>A2D0092CEE2E5BA87035600924C3704A8CC26D5F</code></p><h2 id="B_dna_quickref">附录B：DNA 格式速查表</h2><h1>附录B：DNA 格式速查表</h1>
+<blockquote><strong>DNA</strong>: <code>#龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-CNSH-APPENDIX-B-v1.0</code></blockquote>
+<blockquote><strong>创建者</strong>: 诸葛鑫（UID9622）</blockquote>
+<blockquote><strong>协议</strong>: CC BY-NC-SA 4.0（核心思想层）</blockquote>
+<blockquote><strong>三色</strong>: 🟢 已定稿</blockquote>
+<p>---</p>
+<h2>B.1 两种合法格式</h2>
+<pre><code># 日期格式（社区通用）
+#龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-申时-CNSH-SPEC-CREATE-v1.0-UID9622-A7B8C9D0
+
+# 干支四柱格式（龍魂内部）
+#龍芯⚡️丙午·丙申·癸酉·癸亥·䷵归妹-CNSH-SPEC-CREATE-v1.0-UID9622-A7B8C9D0</code></pre>
+<h2>B.2 12 时辰表</h2>
+<table><thead><tr><th>时辰</th><th>时段</th><th></th><th>时辰</th><th>时段</th></tr></thead><tbody><tr><td>子</td><td>23-01</td><td></td><td>午</td><td>11-13</td></tr><tr><td>丑</td><td>01-03</td><td></td><td>未</td><td>13-15</td></tr><tr><td>寅</td><td>03-05</td><td></td><td>申</td><td>15-17</td></tr><tr><td>卯</td><td>05-07</td><td></td><td>酉</td><td>17-19</td></tr><tr><td>辰</td><td>07-09</td><td></td><td>戌</td><td>19-21</td></tr><tr><td>巳</td><td>09-11</td><td></td><td>亥</td><td>21-23</td></tr></tbody></table>
+<h2>B.3 常用模块名</h2>
+<table><thead><tr><th>模块</th><th>用途</th></tr></thead><tbody><tr><td><code>CNSH-SPEC</code></td><td>CNSH 规范</td></tr><tr><td><code>CNSH-COMPILER</code></td><td>编译器</td></tr><tr><td><code>DATA-AUDIT</code></td><td>数据审计</td></tr><tr><td><code>DEPLOY</code></td><td>部署</td></tr><tr><td><code>MEMORY</code></td><td>记忆系统</td></tr><tr><td><code>ENGINE-*</code></td><td>引擎模块</td></tr></tbody></table>
+<h2>B.4 常用动作名</h2>
+<table><thead><tr><th>动作</th><th>含义</th></tr></thead><tbody><tr><td><code>CREATE</code></td><td>创建</td></tr><tr><td><code>EDIT</code> / <code>REV</code></td><td>修改</td></tr><tr><td><code>DEPLOY</code></td><td>部署</td></tr><tr><td><code>PUBLISH</code></td><td>发布</td></tr><tr><td><code>AUDIT</code></td><td>审计</td></tr><tr><td><code>SIGN</code></td><td>签名</td></tr><tr><td><code>ARCHIVE</code></td><td>归档</td></tr></tbody></table>
+<h2>B.5 验证清单</h2>
+<pre><code>✅ 前缀 = #龍芯⚡️
+✅ 日期有效
+✅ 时辰在12时辰列表
+✅ 模块大写+下划线
+✅ 版本 vX.X
+✅ UID = UID9622
+✅ 哈希 = 8位十六进制</code></pre>
+<h2>B.6 快速生成/验证</h2>
+<pre><code>lh6 dna 生成 --module CNSH-SPEC --action CREATE
+lh6 dna 验证 &quot;#龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-申时-CNSH-SPEC-CREATE-v1.0-UID9622-A7B8C9D0&quot;</code></pre>
+<p>---</p>
+<p><strong>GPG</strong>: <code>A2D0092CEE2E5BA87035600924C3704A8CC26D5F</code></p><h2 id="C_natural_language_boundary">附录C：与自然语言的边界</h2><h1>附录C：与自然语言的边界</h1>
+<blockquote><strong>DNA</strong>: <code>#龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-CNSH-APPENDIX-C-v1.0</code></blockquote>
+<blockquote><strong>创建者</strong>: 诸葛鑫（UID9622）</blockquote>
+<blockquote><strong>协议</strong>: CC BY-NC-SA 4.0（核心思想层）</blockquote>
+<blockquote><strong>三色</strong>: 🟢 已定稿</blockquote>
+<p>---</p>
+<h2>C.1 核心边界</h2>
+<table><thead><tr><th>场景</th><th>用 CNSH</th><th>用自然语言</th></tr></thead><tbody><tr><td>给 AI 下确定性指令</td><td>✅</td><td>❌</td></tr><tr><td>写可执行逻辑</td><td>✅</td><td>❌</td></tr><tr><td>审计/追溯</td><td>✅</td><td>❌</td></tr><tr><td>讨论需求/意图</td><td>❌</td><td>✅</td></tr><tr><td>描述背景/情感</td><td>❌</td><td>✅</td></tr><tr><td>头脑风暴</td><td>❌</td><td>✅</td></tr></tbody></table>
+<p><strong>一句话</strong>：CNSH 是&quot;给机器看的规则&quot;，自然语言是&quot;给人看的想法&quot;。两者不是替代关系，是分工关系。</p>
+<h2>C.2 为什么不能全用自然语言</h2>
+<table><thead><tr><th>自然语言问题</th><th>例子</th></tr></thead><tbody><tr><td>歧义</td><td>&quot;把那个东西处理一下&quot; — 哪个？怎么处理？</td></tr><tr><td>不可复现</td><td>每次解释不同，结果不同</td></tr><tr><td>不可审计</td><td>无法追溯谁写了什么</td></tr><tr><td>不可验证</td><td>无法自动判定对错</td></tr></tbody></table>
+<h2>C.3 CNSH 如何保留自然语言可读性</h2>
+<pre><code># 一眼能看懂（中文自然语序）
+如果 文件不存在
+  创建 文件
+  写入 &quot;初始内容&quot; 到 文件
+否则
+  输出 &quot;文件已存在&quot;</code></pre>
+<p>CNSH 选择<strong>结构化中文</strong>而非纯自然语言，既保留了可读性，又获得了确定性。</p>
+<h2>C.4 混合使用模式</h2>
+<pre><code># 注释用自然语言说明&quot;为什么&quot;
+# 这段逻辑是为了防止重复写入导致数据覆盖
+如果 文件存在
+  追加 &quot;新内容&quot; 到 文件</code></pre>
+<h2>C.5 判断标准</h2>
+<p>写 CNSH 前问自己三问：</p>
+<p>1. 这句话机器能无歧义执行吗？ 2. 这句话能自动验证对错吗？ 3. 这句话能追溯到创建者吗？</p>
+<p>三个都是 ✅ → 用 CNSH。否则 → 用自然语言。</p>
+<p>---</p>
+<p><strong>GPG</strong>: <code>A2D0092CEE2E5BA87035600924C3704A8CC26D5F</code></p><h2 id="D_comparison">附录D：CNSH vs JSON vs YAML vs Python vs Prompt</h2><h1>附录D：CNSH vs JSON vs YAML vs Python vs Prompt</h1>
+<blockquote><strong>DNA</strong>: <code>#龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-CNSH-APPENDIX-D-v1.0</code></blockquote>
+<blockquote><strong>创建者</strong>: 诸葛鑫（UID9622）</blockquote>
+<blockquote><strong>协议</strong>: CC BY-NC-SA 4.0（核心思想层）</blockquote>
+<blockquote><strong>三色</strong>: 🟢 已定稿</blockquote>
+<p>---</p>
+<h2>D.1 总览对比</h2>
+<table><thead><tr><th>特性</th><th>CNSH</th><th>Python</th><th>JSON</th><th>YAML</th><th>Prompt</th></tr></thead><tbody><tr><td>中文原生</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td>可解析（机器）</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr><tr><td>可追溯（DNA）</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td>零门槛</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td>可执行</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td>确定性</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr><tr><td>审计内建</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td>多用途</td><td>指令+数据+审计</td><td>计算</td><td>数据</td><td>配置</td><td>指令</td></tr></tbody></table>
+<h2>D.2 同一任务五种写法</h2>
+<p><strong>任务：如果分数大于等于 60 输出&quot;及格&quot;，否则&quot;加油&quot;</strong></p>
+<pre><code># Python
+if score &gt;= 60:
+    print(&quot;及格&quot;)
+else:
+    print(&quot;加油&quot;)</code></pre>
+<pre><code># CNSH
+如果 分数 大于等于 60
+  输出 &quot;及格&quot;
+否则
+  输出 &quot;加油&quot;</code></pre>
+<pre><code>// JSON（只能表达数据，不能执行）
+{&quot;condition&quot;: &quot;score&gt;=60&quot;, &quot;output&quot;: [&quot;及格&quot;, &quot;加油&quot;]}</code></pre>
+<pre><code># YAML（同上，配置为主）
+condition: score&gt;=60
+output:
+  - 及格
+  - 加油</code></pre>
+<pre><code># Prompt（自然语言，非确定性）
+如果分数大于等于60，你就输出及格，否则输出加油。</code></pre>
+<h2>D.3 各自的定位</h2>
+<table><thead><tr><th>语言</th><th>定位</th><th>什么时候用</th></tr></thead><tbody><tr><td><strong>CNSH</strong></td><td>人机协作指令+审计语言</td><td>给 AI 下指令、审计追溯、龍魂体系</td></tr><tr><td>Python</td><td>通用计算语言</td><td>复杂算法、后端、生态</td></tr><tr><td>JSON</td><td>数据交换格式</td><td>API 传输、存储</td></tr><tr><td>YAML</td><td>配置文件格式</td><td>配置文件、CI/CD</td></tr><tr><td>Prompt</td><td>自然语言交互</td><td>讨论意图、对话</td></tr></tbody></table>
+<h2>D.4 CNSH 的互补定位</h2>
+<p>CNSH <strong>不是替代品</strong>，而是补齐了其他语言的空白：</p>
+<pre><code>其他语言缺什么 → CNSH 补什么
+├── 中文原生 → 中文开发者零门槛
+├── 可追溯 → 每行绑定 DNA
+├── 审计内建 → 三色判定即语法
+├── 熔断内建 → 安全保护即语法
+└── 指令+数据+审计 → 一种语言全覆盖</code></pre>
+<h2>D.5 建议组合</h2>
+<table><thead><tr><th>场景</th><th>推荐组合</th></tr></thead><tbody><tr><td>龍魂内部指令</td><td>CNSH + Shell</td></tr><tr><td>数据交换</td><td>CNSH 定义结构 → JSON 传输</td></tr><tr><td>复杂算法</td><td>CNSH 调用 Python</td></tr><tr><td>配置</td><td>CNSH 或 YAML（按团队）</td></tr><tr><td>对外 API</td><td>JSON（标准）</td></tr></tbody></table>
+<p>---</p>
+<p><strong>GPG</strong>: <code>A2D0092CEE2E5BA87035600924C3704A8CC26D5F</code></p></main>
+<footer>归属名: 诸葛鑫 | UID9622 · 龍芯北辰 &nbsp;·&nbsp; CNSH v2.0 规范 · 标准库 v1.0 · 工具链 v1.0<br>
+GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F · License: MulanPSL v2 / CC BY-NC-SA 4.0</footer>
+</body></html>

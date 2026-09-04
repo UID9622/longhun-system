@@ -1,0 +1,29 @@
+[
+  {
+    "id": "sample-001",
+    "type": "math",
+    "question": "一个水池有两个进水管，甲管单独注满需6小时，乙管单独注满需4小时。若两管同时打开，几小时可以注满？",
+    "expected": "2.4小时",
+    "keywords": ["2.4", "12/5", "2小时24分"],
+    "difficulty": "L1-L2",
+    "source": "sample"
+  },
+  {
+    "id": "sample-002",
+    "type": "algorithm",
+    "question": "如何用三种不同思路判断一个数是否为2的幂？",
+    "expected": "位运算 n & (n-1) == 0; 循环除以2; 取对数",
+    "keywords": ["位运算", "n & (n-1)", "循环", "对数"],
+    "difficulty": "L2",
+    "source": "sample"
+  },
+  {
+    "id": "sample-003",
+    "type": "reasoning",
+    "question": "解释什么是'数据主权'，并用老百姓能听懂的话举一个例子。",
+    "expected": "数据主权指个人或国家对自己的数据拥有控制权；例如手机号不应被平台随意贩卖",
+    "keywords": ["控制权", "数据", "例子", "手机号"],
+    "difficulty": "L1",
+    "source": "sample"
+  }
+]

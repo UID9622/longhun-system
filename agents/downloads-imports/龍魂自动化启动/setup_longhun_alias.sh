@@ -1,4 +1,5 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · 一键启动安装器
 # LongHun System · One-Command Launcher Setup
 
@@ -70,4 +71,4 @@ echo "试试看吧！"
 echo "════════════════════════════════════════════════════════════"
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·困-CONFIRM-SEAL-setup_longhun_alias-3359C3D8
+# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷮困-CONFIRM-SEAL-setup_longhun_alias-3359C3D8

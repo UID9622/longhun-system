@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "longhun-save"
+version = "1.0.0"
+description = "龍魂·算力省钱代理 — AI API智能路由·本地优先·请求缓存·成本统计"
+authors = [{name = "诸葛鑫 (UID9622)", email = "uid9622@uid9622.cn"}]
+license = {text = "MulanPSL v2"}
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "fastapi>=0.100",
+    "uvicorn>=0.23",
+    "httpx>=0.24",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MulanPSL v2",
+    "Programming Language :: Python :: 3",
+    "Topic :: Internet :: Proxy Servers",
+]
+keywords = ["AI", "LLM", "proxy", "Ollama", "cost-saving", "cache", "longhun"]
+
+[project.urls]
+Homepage = "https://uid9622.cn"
+
+[tool.setuptools.packages.find]
+include = ["longhun_save*"]
+
+[project.scripts]
+longhun-save = "longhun_save.cli:main"

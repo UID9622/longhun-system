@@ -1,0 +1,25 @@
+# 🐉 龍魂 · 鲲鹏 MCP Server · 高危层 (8767 · 默认 disabled)
+# DNA: #龍芯⚡️2026-09-04-LONGHUN-KUNPENG-MCP-ADMIN-SERVICE-v1.0-UID9622
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# 端口裁决 2026-09-04: 原 8765 被鲲鹏 longhun-cal(cal_server) 常驻占用 → admin 换 8767
+# ⚠️ 高危：默认不随系统启动。需要时 UID9622 显式:
+#   systemctl enable --now lh-mcp-admin
+# 默认仅绑 127.0.0.1（远端调用走 SSH 隧道），不可直接开 0.0.0.0
+
+[Unit]
+Description=🐉 Longhun MCP Server - admin (8767 · HIGH RISK · disabled by default)
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/longhun-system
+Environment=LH_ROOT=/opt/longhun-system
+ExecStart=/usr/bin/python3 /opt/longhun-system/deploy/longhun-mcp/lh_mcp_admin.py --host 127.0.0.1 --port 8767
+Restart=on-failure
+RestartSec=10
+StandardOutput=append:/var/log/longhun-mcp/admin.log
+StandardError=append:/var/log/longhun-mcp/admin.log
+
+[Install]
+WantedBy=multi-user.target

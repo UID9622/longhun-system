@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LH-VideoEngine-Timeline",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "segments"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "dna": {
+      "type": "string"
+    },
+    "total_duration": {
+      "type": "number"
+    },
+    "segment_count": {
+      "type": "integer"
+    },
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "text",
+          "duration_hint",
+          "visual_type"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "duration_hint": {
+            "type": "number"
+          },
+          "visual_type": {
+            "enum": [
+              "screenshot",
+              "character",
+              "generated",
+              "title"
+            ]
+          },
+          "visual_target": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "character": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "expression": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "camera": {
+            "type": "string"
+          },
+          "lip_sync": {
+            "type": "boolean"
+          },
+          "scene_prompt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "dna": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

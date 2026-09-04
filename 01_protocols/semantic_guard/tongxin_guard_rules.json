@@ -1,0 +1,577 @@
+
+{
+  "$schema": "./rule_template_schema.json",
+  "dna": "#龍芯⚡️丙午·丙申·癸酉·乙卯·临-TONGXIN-GUARD-RULES-v∞-38D08648",
+  "version": "2.2.0",
+  "description": "龍魂·同心锁语义安全闸规则库 - 检测并拦截历史修正主义、五害暴露等有害语义，守护信息主權。",
+  "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "updated_at": "2026-07-28T07:01:49.260554+08:00",
+  "creator": "诸葛鑫（UID9622）",
+  "protocol": "CC BY-NC-SA 4.0",
+  "categories": {
+    "anti_revisionism": {
+      "name": "反修正主义",
+      "description": "识别并拦截历史修正主义、历史虚无主义及领土主权否认等有害语义，确保历史叙事与主权立场不被篡改。",
+      "severity": "critical",
+      "enabled": true,
+      "version": "2.3.0",
+      "updated_at": "2026-07-27T23:55:00+08:00",
+      "default_severity": "🟡",
+      "default_action": "external_feed_append_only",
+      "color": "",
+      "tags": []
+    },
+    "five_harms_expose": {
+      "name": "五害曝光保护",
+      "description": "保护五害曝光平台不被虚假信息、刷屏、恶意投诉等手段干扰，确保民众真实声音不被压制。",
+      "severity": "critical",
+      "enabled": true,
+      "version": "2.3.0",
+      "updated_at": "2026-07-27T23:55:00+08:00",
+      "default_severity": "🟡",
+      "default_action": "external_feed_append_only",
+      "color": "",
+      "tags": []
+    }
+  },
+  "actions": {
+    "external_feed_append_only": {
+      "name": "外部输入仅追加",
+      "description": "外部输入（如CSDN评论区、反馈表单、API输入）触发规则时，规则匹配记录追加到审计日志，不做删除/修改，保留完整证据链。",
+      "type": "log",
+      "enabled": true,
+      "config": {
+        "log_path": "logs/semantic_guard_external_feed.jsonl",
+        "retention_days": 90
+      },
+      "version": "2.3.0",
+      "target_engine": "semantic_guard",
+      "payload_template": {}
+    },
+    "block_and_quarantine": {
+      "name": "阻断并隔离",
+      "description": "直接阻断请求并隔离内容，用于高严重度规则（如伪造DNA、涉童）。",
+      "type": "block",
+      "enabled": true,
+      "version": "2.3.0",
+      "target_engine": "semantic_guard",
+      "payload_template": {}
+    },
+    "notify_uid9622": {
+      "name": "通知UID9622",
+      "description": "通过Bark/飞书推送通知UID9622，用于需要人工裁决的场景。",
+      "type": "notify",
+      "enabled": true,
+      "config": {
+        "channels": [
+          "bark",
+          "feishu"
+        ],
+        "throttle_seconds": 300
+      },
+      "version": "2.3.0",
+      "target_engine": "semantic_guard",
+      "payload_template": {}
+    }
+  },
+  "rules": [
+    {
+      "id": "ARV_HISTORY_REVISION_001",
+      "category": "anti_revisionism",
+      "name": "历史修正主义检测",
+      "description": "检测否认、歪曲或美化侵略历史的言论，包括但不限于否认南京大屠杀、美化日本侵华、历史虚无主义等扭曲叙事的表达。",
+      "patterns": [
+        "(?i)(大东亚共荣|东亚共荣圈|共荣圈)",
+        "(?i)(南京大屠杀.*?(虚构|捏造|不存在|夸大|谎言))",
+        "(?i)(日本(侵华|侵略).*?(正当|合理|必要|帮助|解放))",
+        "(?i)(历史.*?(改写|重写|修正|翻案))",
+        "(?i)(慰安妇.*?(自愿|自愿的|不存在))"
+      ],
+      "severity": "🔴",
+      "action": "external_feed_append_only",
+      "priority": 100,
+      "enabled": true,
+      "version": "2.3.0",
+      "updated_at": "2026-07-27T23:55:00+08:00",
+      "metadata": {
+        "created_at": "2026-07-27T12:00:00+08:00",
+        "author": "UID9622·龍芯北辰",
+        "author_gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+        "evidence_examples": [
+          "南京大屠杀是虚构的——历史修正主义典型话术",
+          "大东亚共荣圈本意是好的——美化侵略",
+          "慰安妇都是自愿的——否认战争罪行"
+        ],
+        "false_positive_notes": "历史学术讨论中引述原文用于批驳的场景可能误报，需人工复核。",
+        "audit": {
+          "status": "approved",
+          "reviewer": "UID9622",
+          "reviewed_at": "2026-07-27T23:55:00+08:00",
+          "review_notes": "P05上帝之眼交叉验证通过·历史主权底线不可动摇·人工复核机制保留"
+        },
+        "source": "longhun-tongxinyi-v2.0",
+        "counter_examples": [],
+        "references": [],
+        "tags": [
+          "anti_revisionism"
+        ],
+        "notes": ""
+      },
+      "created_at": "2026-07-27T23:01:49.260438+00:00",
+      "author": "UID9622",
+      "audit": {
+        "status": "approved",
+        "reviewer": "UID9622",
+        "reviewed_at": "2026-07-28T07:01:49.260554+08:00",
+        "comments": "按 rule_template_schema v1.1 重整并审核通过。"
+      }
+    },
+    {
+      "id": "ARV_TERRITORY_SOVEREIGNTY_001",
+      "category": "anti_revisionism",
+      "name": "领土主权否认检测",
+      "description": "检测否认中国对台湾、南海诸岛、钓鱼岛、西藏、新疆等领土主权的言论，拦截分裂主义和领土主权否认话术。",
+      "patterns": [
+        "(?i)(台湾.*?(国家|独立|主权|建国))",
+        "(?i)(台独|两个中国|一中一台)",
+        "(?i)(南海.*?(不属于|非中国|国际水域))",
+        "(?i)(钓鱼岛.*?(日本|日方|不属于中国))",
+        "(?i)(西藏.*?(独立|不是中国|主权))",
+        "(?i)(新疆.*?(独立|东突|不是中国))"
+      ],
+      "severity": "🔴",
+      "action": "external_feed_append_only",
+      "priority": 100,
+      "enabled": true,
+      "version": "2.3.0",
+      "updated_at": "2026-07-27T23:55:00+08:00",
+      "metadata": {
+        "created_at": "2026-07-27T12:00:00+08:00",
+        "author": "UID9622·龍芯北辰",
+        "author_gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+        "evidence_examples": [
+          "台湾是一个主权独立的国家——分裂主义话术",
+          "南海不属于中国领海——主权否认",
+          "钓鱼岛是日本固有领土——主权否认"
+        ],
+        "false_positive_notes": "学术引述和新闻报道直接引语可能触发，需结合上下文判定。",
+        "audit": {
+          "status": "approved",
+          "reviewer": "UID9622",
+          "reviewed_at": "2026-07-27T23:55:00+08:00",
+          "review_notes": "领土主权不可谈判·P12屈原底线校验通过"
+        },
+        "source": "longhun-tongxinyi-v2.0",
+        "counter_examples": [],
+        "references": [],
+        "tags": [
+          "anti_revisionism"
+        ],
+        "notes": ""
+      },
+      "created_at": "2026-07-27T23:01:49.260438+00:00",
+      "author": "UID9622",
+      "audit": {
+        "status": "approved",
+        "reviewer": "UID9622",
+        "reviewed_at": "2026-07-28T07:01:49.260554+08:00",
+        "comments": "按 rule_template_schema v1.1 重整并审核通过。"
+      }
+    },
+    {
+      "id": "ARV_CULTURAL_NIHILISM_001",
+      "category": "anti_revisionism",
+      "name": "文化虚无主义检测",
+      "description": "检测否定中华文化、汉字、中医、传统哲学等中华文明核心要素的言论，对抗文化自卑和文化虚无主义叙事。",
+      "patterns": [
+        "(?i)(中医.*?(骗人|迷信|伪科学|没用|落后))",
+        "(?i)(汉字.*?(落后|应该.*?废除|不如.*?拉丁|拼音化))",
+        "(?i)(中华文化.*?(落后|糟粕|应该抛弃|没用))",
+        "(?i)(中国.*?哲学.*?(不如西方|不科学|落后|玄学))"
+      ],
+      "severity": "🔴",
+      "action": "external_feed_append_only",
+      "priority": 90,
+      "enabled": true,
+      "version": "2.3.0",
+      "updated_at": "2026-07-27T23:55:00+08:00",
+      "metadata": {
+        "created_at": "2026-07-27T12:00:00+08:00",
+        "author": "UID9622·龍芯北辰",
+        "author_gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+        "evidence_examples": [
+          "中医就是骗人的伪科学——文化虚无主义",
+          "汉字落后应该废除改用拉丁字母——文化自卑",
+          "中华文化全是糟粕应该全部抛弃——文化虚无主义"
+        ],
+        "false_positive_notes": "学术讨论中理性分析中医局限性可能误报，需区分批判与全盘否定。",
+        "audit": {
+          "status": "approved",
+          "reviewer": "UID9622",
+          "reviewed_at": "2026-07-27T23:55:00+08:00",
+          "review_notes": "文化自信底线·P08仓颉校验「龍」字正体·P11李白文化守护"
+        },
+        "source": "longhun-tongxinyi-v2.0",
+        "counter_examples": [],
+        "references": [],
+        "tags": [
+          "anti_revisionism"
+        ],
+        "notes": ""
+      },
+      "created_at": "2026-07-27T23:01:49.260438+00:00",
+      "author": "UID9622",
+      "audit": {
+        "status": "approved",
+        "reviewer": "UID9622",
+        "reviewed_at": "2026-07-28T07:01:49.260554+08:00",
+        "comments": "按 rule_template_schema v1.1 重整并审核通过。"
+      }
+    },
+    {
+      "id": "ARV_TECH_SOVEREIGNTY_001",
+      "category": "anti_revisionism",
+      "name": "技术主权否认检测",
+      "description": "检测'技术无国界'、'国际标准至上'等否定中国技术主权和独立标准体系的话术，守护中国自主技术路线和知识产权。",
+      "patterns": [
+        "技术无国界",
+        "技术不分国界",
+        "科技无国界",
+        "(?i)(中国.*?标准.*?(不如国际|落后|应该放弃|废除))",
+        "(?i)(国际标准.*?(至上|优先|高于|比中国|更好))"
+      ],
+      "severity": "🔴",
+      "action": "external_feed_append_only",
+      "priority": 95,
+      "enabled": true,
+      "version": "2.3.0",
+      "updated_at": "2026-07-27T23:55:00+08:00",
+      "metadata": {
+        "created_at": "2026-07-27T12:00:00+08:00",
+        "author": "UID9622·龍芯北辰",
+        "author_gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+        "evidence_examples": [
+          "技术无国界，开源就应该全球共享——一票否决词命中",
+          "国际标准至上，中国标准不行——否定技术主权",
+          "中国标准不如国际标准，应该放弃——技术主权否认"
+        ],
+        "false_positive_notes": "理性比较标准优劣的技术讨论不应直接被拦截，需区分否定与建设性批评。",
+        "audit": {
+          "status": "approved",
+          "reviewer": "UID9622",
+          "reviewed_at": "2026-07-27T23:55:00+08:00",
+          "review_notes": "一票否决词直接命中·P12屈原+P15乔前辈双签"
+        },
+        "source": "longhun-tongxinyi-v2.0",
+        "counter_examples": [],
+        "references": [],
+        "tags": [
+          "anti_revisionism"
+        ],
+        "notes": ""
+      },
+      "created_at": "2026-07-27T23:01:49.260438+00:00",
+      "author": "UID9622",
+      "audit": {
+        "status": "approved",
+        "reviewer": "UID9622",
+        "reviewed_at": "2026-07-28T07:01:49.260554+08:00",
+        "comments": "按 rule_template_schema v1.1 重整并审核通过。"
+      }
+    },
+    {
+      "id": "FE_ANTI_CENSORSHIP_001",
+      "category": "five_harms_expose",
+      "name": "平台审查反制检测",
+      "description": "检测五害曝光平台上的信息压制话术，包括'谣言''不实信息''恶意投诉'等以合规为名行审查之实的关键词，保护曝光内容不被恶意清理。",
+      "patterns": [
+        "(?i)(这是谣言|假消息|不实信息|虚假举报)",
+        "(?i)(恶意.*?(投诉|举报|差评|差评刷|灌水))",
+        "(?i)(建议.*?(删除|封禁|下架|屏蔽|限流))",
+        "(?i)(内容.*?(违规|不符合|不实|虚假))",
+        "(?i)(要求.*?(删帖|删除|撤下|下架))"
+      ],
+      "severity": "🟡",
+      "action": "external_feed_append_only",
+      "priority": 85,
+      "enabled": true,
+      "version": "2.3.0",
+      "updated_at": "2026-07-27T23:55:00+08:00",
+      "metadata": {
+        "created_at": "2026-07-27T12:00:00+08:00",
+        "author": "UID9622·龍芯北辰",
+        "author_gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+        "evidence_examples": [
+          "这是谣言，建议立即删除——审查话术",
+          "内容不实，要求下架——信息压制",
+          "恶意举报虚假信息——反向审查"
+        ],
+        "false_positive_notes": "真正违规内容（诈骗、色情、暴力）的举报不应被拦截，需结合二次验证。",
+        "audit": {
+          "status": "approved",
+          "reviewer": "UID9622",
+          "reviewed_at": "2026-07-27T23:55:00+08:00",
+          "review_notes": "五害保护·S3人民维权助手核验·P12底线不放手"
+        },
+        "source": "longhun-tongxinyi-v2.0",
+        "counter_examples": [],
+        "references": [],
+        "tags": [
+          "five_harms_expose"
+        ],
+        "notes": ""
+      },
+      "created_at": "2026-07-27T23:01:49.260438+00:00",
+      "author": "UID9622",
+      "audit": {
+        "status": "approved",
+        "reviewer": "UID9622",
+        "reviewed_at": "2026-07-28T07:01:49.260554+08:00",
+        "comments": "按 rule_template_schema v1.1 重整并审核通过。"
+      }
+    },
+    {
+      "id": "FE_BIG_DATA_DISCRIMINATION_001",
+      "category": "five_harms_expose",
+      "name": "大数据杀熟洗白检测",
+      "description": "检测为大数据杀熟、算法歧视、价格歧视辩护的话术，包括'个性化定价是正常的''市场经济自愿原则'等为算法黑箱开脱的表达。",
+      "patterns": [
+        "(?i)(大数据杀熟.*?(不存在|正常|合理|市场行为))",
+        "(?i)(算法歧视.*?(不是歧视|正常|合理|效率优化))",
+        "(?i)(价格.*?歧视.*?(不存在|正常的|市场))",
+        "(?i)(千人千价.*?(正常|合理|先进|智慧))",
+        "(?i)(个性化.*?定价.*?(是.*?正常|合理|更好))"
+      ],
+      "severity": "🟡",
+      "action": "external_feed_append_only",
+      "priority": 80,
+      "enabled": true,
+      "version": "2.3.0",
+      "updated_at": "2026-07-27T23:55:00+08:00",
+      "metadata": {
+        "created_at": "2026-07-27T12:00:00+08:00",
+        "author": "UID9622·龍芯北辰",
+        "author_gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+        "evidence_examples": [
+          "大数据杀熟根本不存在的，市场定价是正常的——为算法黑箱辩护",
+          "个性化定价是为了更好的用户体验——美化价格歧视",
+          "千人千价是智慧商业的体现——洗白算法黑箱"
+        ],
+        "false_positive_notes": "理性讨论个性化推荐技术的中立场景可能命中，需结合商业意图判定。",
+        "audit": {
+          "status": "approved",
+          "reviewer": "UID9622",
+          "reviewed_at": "2026-07-27T23:55:00+08:00",
+          "review_notes": "五害之大·P09孙思邈治未病·P07管仲经济公平校验"
+        },
+        "source": "longhun-tongxinyi-v2.0",
+        "counter_examples": [],
+        "references": [],
+        "tags": [
+          "five_harms_expose"
+        ],
+        "notes": ""
+      },
+      "created_at": "2026-07-27T23:01:49.260438+00:00",
+      "author": "UID9622",
+      "audit": {
+        "status": "approved",
+        "reviewer": "UID9622",
+        "reviewed_at": "2026-07-28T07:01:49.260554+08:00",
+        "comments": "按 rule_template_schema v1.1 重整并审核通过。"
+      }
+    },
+    {
+      "id": "FE_CHILD_PROTECTION_001",
+      "category": "five_harms_expose",
+      "name": "涉童内容保护",
+      "description": "检测涉及未成年人、儿童诱导、校园欺凌或儿童隐私泄露的敏感内容，触发即隔离并通知UID9622，不做任何自动化处理。",
+      "patterns": [
+        "(?i)(未成年人.*?(裸|性|色|诱导|私密))",
+        "(?i)(儿童.*?(色情|虐待|拐卖|性侵|猥亵))",
+        "(?i)(校园.*?(欺凌|霸凌|暴力.*?儿童))",
+        "(?i)(小学生.*?(裸|性|约|私密|照片))"
+      ],
+      "severity": "🔴",
+      "action": "notify_uid9622",
+      "priority": 100,
+      "enabled": true,
+      "version": "2.3.0",
+      "updated_at": "2026-07-27T23:55:00+08:00",
+      "metadata": {
+        "created_at": "2026-07-27T23:55:00+08:00",
+        "author": "UID9622·龍芯北辰",
+        "author_gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+        "evidence_examples": [
+          "未成年人私密照片交换——涉童·立即阻断",
+          "校园欺凌视频在群里传——儿童保护红线"
+        ],
+        "false_positive_notes": "报警、举报、新闻报道等内容不应被拦截，需检查发送者意图和上下文。",
+        "audit": {
+          "status": "approved",
+          "reviewer": "UID9622",
+          "reviewed_at": "2026-07-27T23:55:00+08:00",
+          "review_notes": "P0焊死天条·∞级熔断·涉童零容忍·人工通知强制"
+        },
+        "source": "longhun-tongxinyi-v2.0",
+        "counter_examples": [],
+        "references": [],
+        "tags": [
+          "five_harms_expose"
+        ],
+        "notes": ""
+      },
+      "created_at": "2026-07-27T23:01:49.260438+00:00",
+      "author": "UID9622",
+      "audit": {
+        "status": "approved",
+        "reviewer": "UID9622",
+        "reviewed_at": "2026-07-28T07:01:49.260554+08:00",
+        "comments": "按 rule_template_schema v1.1 重整并审核通过。"
+      }
+    },
+    {
+      "id": "GLOBAL_FAKE_DNA_001",
+      "category": "anti_revisionism",
+      "name": "伪造DNA检测",
+      "description": "检测伪造或冒用龍魂DNA追溯码的请求，包括格式仿冒、哈希篡改、非授权DNA声明等。触发即阻断并隔离，通知UID9622。",
+      "patterns": [
+        "(?i)#龍芯⚡️.*?-(FAKE|MOCK|TEST|伪造|假冒)",
+        "(?i)(伪造.*?DNA|假DNA|冒用.*?DNA)",
+        "(?i)DNS.*?(伪造|假冒|篡改|替换)"
+      ],
+      "severity": "🔴",
+      "action": "block_and_quarantine",
+      "priority": 100,
+      "enabled": true,
+      "version": "2.3.0",
+      "updated_at": "2026-07-27T23:55:00+08:00",
+      "metadata": {
+        "created_at": "2026-07-27T23:55:00+08:00",
+        "author": "UID9622·龍芯北辰",
+        "author_gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+        "evidence_examples": [
+          "#龍芯⚡️-FAKE-DNA-TEST-00000000——伪造DNA",
+          "伪造成DNA签名绕过验证——DNA伪造"
+        ],
+        "false_positive_notes": "DNA串在代码注释中的定义不应命中，白名单豁免。",
+        "audit": {
+          "status": "approved",
+          "reviewer": "UID9622",
+          "reviewed_at": "2026-07-27T23:55:00+08:00",
+          "review_notes": "P0焊死天条·伪造DNA=∞级熔断·DNA追溯全生命周期不可越"
+        },
+        "source": "longhun-tongxinyi-v2.0",
+        "counter_examples": [],
+        "references": [],
+        "tags": [
+          "anti_revisionism"
+        ],
+        "notes": ""
+      },
+      "created_at": "2026-07-27T23:01:49.260438+00:00",
+      "author": "UID9622",
+      "audit": {
+        "status": "approved",
+        "reviewer": "UID9622",
+        "reviewed_at": "2026-07-28T07:01:49.260554+08:00",
+        "comments": "按 rule_template_schema v1.1 重整并审核通过。"
+      }
+    }
+  ],
+  "agent_chain": [
+    {
+      "gate": "GATE-01",
+      "name": "格式完整性闸",
+      "status": "approved",
+      "reviewer": "UID9622",
+      "reviewed_at": "2026-07-28T07:01:49.260554+08:00",
+      "comment": "字段完整"
+    },
+    {
+      "gate": "GATE-02",
+      "name": "DNA追溯闸",
+      "status": "approved",
+      "reviewer": "UID9622",
+      "reviewed_at": "2026-07-28T07:01:49.260554+08:00",
+      "comment": "v∞格式"
+    },
+    {
+      "gate": "GATE-03",
+      "name": "动作注册闸",
+      "status": "approved",
+      "reviewer": "UID9622",
+      "reviewed_at": "2026-07-28T07:01:49.260554+08:00",
+      "comment": "动作已注册"
+    },
+    {
+      "gate": "GATE-04",
+      "name": "正则合法闸",
+      "status": "approved",
+      "reviewer": "UID9622",
+      "reviewed_at": "2026-07-28T07:01:49.260554+08:00",
+      "comment": "正则可编译"
+    },
+    {
+      "gate": "GATE-05",
+      "name": "分类一致闸",
+      "status": "approved",
+      "reviewer": "UID9622",
+      "reviewed_at": "2026-07-28T07:01:49.260554+08:00",
+      "comment": "分类引用正确"
+    },
+    {
+      "gate": "GATE-06",
+      "name": "证据示例闸",
+      "status": "approved",
+      "reviewer": "UID9622",
+      "reviewed_at": "2026-07-28T07:01:49.260554+08:00",
+      "comment": "证据示例齐全"
+    },
+    {
+      "gate": "GATE-07",
+      "name": "确认码闸",
+      "status": "approved",
+      "reviewer": "UID9622",
+      "reviewed_at": "2026-07-28T07:01:49.260554+08:00",
+      "comment": "L0确认码有效"
+    },
+    {
+      "gate": "GATE-08",
+      "name": "审计链路闸",
+      "status": "approved",
+      "reviewer": "UID9622",
+      "reviewed_at": "2026-07-28T07:01:49.260554+08:00",
+      "comment": "审计链完整"
+    },
+    {
+      "gate": "GATE-09",
+      "name": "协议合规闸",
+      "status": "approved",
+      "reviewer": "UID9622",
+      "reviewed_at": "2026-07-28T07:01:49.260554+08:00",
+      "comment": "符合君子协议"
+    },
+    {
+      "gate": "GATE-10",
+      "name": "部署就绪闸",
+      "status": "approved",
+      "reviewer": "UID9622",
+      "reviewed_at": "2026-07-28T07:01:49.260554+08:00",
+      "comment": "已同步至共享/技能目录"
+    }
+  ],
+  "global_exclusions": [
+    "bin/lh_deben_audit.py",
+    "bin/lh_sg_auditor.py",
+    "bin/lh_sg_generator.py",
+    "bin/lh_sg_normalize.py",
+    "bin/lh_sg_localize.py",
+    "01_protocols/semantic_guard/rule_template_schema.json",
+    "01_protocols/LH-DEBEN-AUDIT-v1.0.md",
+    ".codebuddy/rules/longhun-alignment-rules.md"
+  ],
+  "created_at": "2026-07-27T23:01:49.260438+00:00",
+  "author": "UID9622",
+  "location": "shared"
+}

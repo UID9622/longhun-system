@@ -1,0 +1,79 @@
+# 🐉 龍魂系统 · 容器镜像自动构建推送（任务A）
+# DNA: #龍芯⚡️2026-09-03-ECOSYSTEM-DOCKER-BUILD-v1.0-UID9622
+# 创建者: 诸葛鑫（UID9622）· 龍芯北辰
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# License: MulanPSL v2 (工程层)
+#
+# 触发: push/PR 到 orphan_main（修改镜像相关内容时）· 手动
+# 动作: buildx 构建 linux/amd64+arm64 → 推送 ghcr.io/UID9622/longhun
+# 注意: 推送凭据=仓库 Secrets 的 LONGHUN_GHCR_TOKEN(PAT·packages:write)
+#       + 设置 ghcr.io/UID9622/longhun 为 public（或内部权限）后首次推送
+# 首个 job 同时产出本地验证（topo verify 主图谱+health JSON 冒烟）
+
+name: 🐉 Docker Build & Push (ghcr.io)
+
+on:
+  push:
+    branches: [orphan_main]
+    paths:
+      - 'Dockerfile'
+      - '.dockerignore'
+      - 'docker-compose.yml'
+      - '08_BIN/lh_topo.py'
+      - '08_BIN/lh_health.py'
+      - '.github/workflows/docker-build.yml'
+  workflow_dispatch:
+
+env:
+  IMAGE: ghcr.io/UID9622/longhun
+  PLATFORMS: linux/amd64,linux/arm64
+
+jobs:
+  docker-build-push:
+    name: 📦 Build & Push OCI
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 安装 QEMU（跨架构模拟）
+        uses: docker/setup-qemu-action@v3
+
+      - name: 启用 Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: 登录 GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: UID9622
+          password: ${{ secrets.LONGHUN_GHCR_TOKEN }}
+
+      - name: 构建并推送多架构镜像
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: ${{ env.PLATFORMS }}
+          push: ${{ github.ref == 'refs/heads/orphan_main' && github.event_name == 'push' }}
+          tags: |
+            ${{ env.IMAGE }}:latest
+            ${{ env.IMAGE }}:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  compose-config-check:
+    name: 🧩 docker compose config 校验
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 校验 docker-compose.yml 语法
+        run: |
+          docker compose -f docker-compose.yml config >/dev/null
+          echo "✅ docker-compose.yml 语法有效"

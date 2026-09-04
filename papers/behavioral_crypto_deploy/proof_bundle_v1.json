@@ -1,0 +1,137 @@
+{
+  "schema": "LONGHUN_BEHAVIORAL_CRYPTOGRAPHY_PROOF_BUNDLE",
+  "version": "v1.0",
+  "bundle_id": "BC-PROOF-UID9622-20260821-374E199F",
+  "created_at": "2026-08-21T02:50:46+08:00",
+  "originator": {
+    "uid": "UID9622",
+    "display_name": "Zhuge Xin / 諸葛鑫 / 龍芯北辰",
+    "gpg_fingerprint": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+    "public_claim": "Human originator and system architect"
+  },
+  "artifact": {
+    "title": "Behavioral Cryptography Deployment",
+    "artifact_type": "deployment_script",
+    "content_hash": "sha256:374e199f60d00c2a94727caa12fc9dcaf14401b9bb5c40ae7dca3d4546bb44f3",
+    "metadata_hash": "sha256:8d0c145e90e8293684439f2e0c66970616f48f8772aea23358d2a3e4708224d4",
+    "language": [
+      "en",
+      "zh"
+    ],
+    "license": "CC BY-NC-SA 4.0 + Longhun DNA Inheritance Clause"
+  },
+  "behavioral_signature": {
+    "F1_identity_dna": {
+      "dna": "#龍芯⚡2026-08-21-BEHAVIORAL-CRYPTOGRAPHY-DEPLOY-UID9622-374E199F",
+      "uid": "UID9622",
+      "gpg_fingerprint": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+    },
+    "F2_temporal_anchor": {
+      "iso_time": "2026-08-21T02:50:46+08:00",
+      "shichen": "未时",
+      "digit_root": 7,
+      "timezone": "Asia/Shanghai"
+    },
+    "F3_rule_trace": [
+      {
+        "rule_id": "UID9622-UNIVERSAL-CNSH-ROOT-AUDIT",
+        "rule_dna": "#龍芯⚡2026-08-21-CNSH-ROOT-AUDIT-B903F6F6",
+        "timestamp": "2026-08-21T02:50:46+08:00",
+        "action": "applied"
+      }
+    ],
+    "F4_persona_route": [
+      {
+        "persona_id": "宝宝",
+        "role": "execution_coordinator"
+      },
+      {
+        "persona_id": "上帝之眼",
+        "role": "audit_checker"
+      },
+      {
+        "persona_id": "诸葛亮",
+        "role": "strategy_verification"
+      }
+    ],
+    "F5_protected_lexicon": [
+      "UID9622",
+      "龍魂系统",
+      "Longhun System",
+      "CNSH",
+      "DNA追溯",
+      "三色审计",
+      "Behavioral Cryptography",
+      "Mistake Ledger",
+      "Protected Lexicon",
+      "Lineage Verification",
+      "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "#ZHUGEXIN⚡2025-🇨🇳🐉⚖♠🧚❤♾-DEVICE-BIND-SOUL",
+      "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+    ],
+    "F6_style_vector": {
+      "current_vector": [
+        0.92,
+        0.85,
+        0.78,
+        0.91,
+        0.88
+      ],
+      "note": "Style vector is probabilistic, not absolute identity proof."
+    },
+    "F7_mistake_ledger": [
+      {
+        "mistake_id": "ML-DEPLOY-001",
+        "category": "AI_FORMAT_DRIFT",
+        "correction": "Enforced one-pass output format",
+        "timestamp": "2026-08-21T02:50:46+08:00"
+      }
+    ]
+  },
+  "ai_collaboration": {
+    "ai_systems": [
+      {
+        "name": "Claude",
+        "role": "formalization and polishing",
+        "root_author": false
+      },
+      {
+        "name": "ChatGPT",
+        "role": "structuring and verification",
+        "root_author": false
+      }
+    ],
+    "human_originator": "UID9622",
+    "human_oversight": true
+  },
+  "disclosure_policy": {
+    "public_fields": [
+      "originator",
+      "artifact",
+      "F1_identity_dna",
+      "F5_protected_lexicon",
+      "ai_collaboration"
+    ],
+    "restricted_fields": [
+      "F3_rule_trace",
+      "F4_persona_route",
+      "F7_mistake_ledger"
+    ],
+    "sealed_fields": [
+      "private drafts",
+      "sensitive conversations",
+      "local-only logs",
+      "raw style vectors"
+    ]
+  },
+  "root_card": {
+    "Root": "dr=5",
+    "Wuxing": "土",
+    "TriColor": "🟢",
+    "PrivacyMode": "normal",
+    "Retention": "summary_only",
+    "TraceMode": "chain"
+  },
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "seal": "#ZHUGEXIN⚡2025-🇨🇳🐉⚖♠🧚❤♾-DEVICE-BIND-SOUL"
+}

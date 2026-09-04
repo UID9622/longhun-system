@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="龍魂系统 · 乔哈里视窗 — 主权人与 AI 的认知边界可视化操作系统">
+<title>🐉 龍魂系统 · 乔哈里视窗</title>
+<link rel="preload" href="./assets/fonts/LonghunFont-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<!--
+  DNA: #龍芯⚡️2026-08-31-JOHARI-WINDOW-VISION-v1.0-UID9622
+  创建者: 诸葛鑫（UID9622）
+  归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+  License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+  视觉: 门户黑金王朝 · 四象限认知界面
+  数据: johari_data.json（由 08_BIN/lh_johari_sync.py 生成）
+  核心原则: AI 永远不擅自移动象限边界，只有主权人可以发起揭示/注入/探索
+-->
+<style>
+/* ── 龍魂 · 黑金王朝 + 乔哈里四象限 ── */
+@font-face {
+  font-family: 'LonghunFont';
+  src: url('./assets/fonts/LonghunFont-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --bg-deep: #0a0a0f;
+  --bg-panel: #12121a;
+  --bg-card: #171724;
+  --bg-card-hover: #1e1e2c;
+  --gold: #c9a54b;
+  --gold-light: #e2c87a;
+  --gold-dim: rgba(201,165,75,.16);
+  --text: #e6edf3;
+  --text-dim: #8a93a3;
+  --text-faint: #5a6270;
+  --line: rgba(201,165,75,.18);
+  --shadow-gold: 0 0 26px rgba(201,165,75,.10);
+  /* 四象限主题色 */
+  --open: #34c98a;   --open-glow: rgba(52,201,138,.22);
+  --blind: #4f8ff7;  --blind-glow: rgba(79,143,247,.22);
+  --hidden: #e0a83c; --hidden-glow: rgba(224,168,60,.22);
+  --unknown: #7a7f96; --unknown-glow: rgba(122,127,150,.20);
+  --font-cn: 'LonghunFont', 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Source Han Sans SC', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--bg-deep); color: var(--text); font-family: var(--font-cn); }
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(1100px 480px at 85% -10%, var(--gold-dim), transparent 60%),
+    radial-gradient(900px 420px at -10% 25%, rgba(79,143,247,.08), transparent 60%),
+    var(--bg-deep);
+}
+.container { max-width: 960px; margin: 0 auto; padding: 20px 16px 40px; }
+
+/* ── 品牌头 ── */
+header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 4px 16px; border-bottom: 1px solid var(--line); margin-bottom: 18px;
+  flex-wrap: wrap; gap: 10px;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand .seal {
+  width: 42px; height: 42px; border-radius: 12px; flex: none;
+  display: flex; align-items: center; justify-content: center; font-size: 22px;
+  background: linear-gradient(145deg, #1d1d2a, #131320);
+  border: 1px solid rgba(201,165,75,.35); box-shadow: var(--shadow-gold);
+}
+.brand h1 {
+  font-size: 1.15rem; letter-spacing: .22em; color: var(--gold-light); font-weight: 600;
+}
+.brand .sub { font-size: .68rem; color: var(--text-dim); letter-spacing: .14em; text-transform: uppercase; margin-top: 2px; }
+.header-right { text-align: right; }
+.header-right .dna {
+  font-family: var(--font-mono); font-size: .62rem; color: var(--text-faint);
+  max-width: 340px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.header-right .sync { font-size: .66rem; color: var(--text-dim); margin-top: 3px; }
+.header-right .sync b { color: var(--gold-light); font-weight: 500; }
+
+/* ── 四象限网格 ── */
+.johari-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+}
+.quadrant {
+  position: relative; border-radius: 12px; padding: 16px 16px 54px;
+  background: linear-gradient(160deg, var(--bg-card), rgba(18,18,26,.6));
+  border: 1px solid; overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.quadrant::before {
+  content: ''; position: absolute; inset: 0 0 auto 0; height: 3px;
+}
+.quadrant:hover { transform: translateY(-3px); }
+
+/* 开放区 */
+.q-open { border-color: rgba(52,201,138,.4); }
+.q-open::before { background: linear-gradient(90deg, transparent, var(--open), transparent); }
+.q-open:hover { box-shadow: 0 8px 28px var(--open-glow); }
+.q-open .q-title { color: var(--open); }
+
+/* 盲区 */
+.q-blind { border-color: rgba(79,143,247,.4); }
+.q-blind::before { background: linear-gradient(90deg, transparent, var(--blind), transparent); }
+.q-blind:hover { box-shadow: 0 8px 28px var(--blind-glow); }
+.q-blind .q-title { color: var(--blind); }
+
+/* 隐藏区 */
+.q-hidden { border-color: rgba(224,168,60,.4); }
+.q-hidden::before { background: linear-gradient(90deg, transparent, var(--hidden), transparent); }
+.q-hidden:hover { box-shadow: 0 8px 28px var(--hidden-glow); }
+.q-hidden .q-title { color: var(--hidden); }
+
+/* 未知区 */
+.q-unknown { border-color: rgba(122,127,150,.4); }
+.q-unknown::before { background: linear-gradient(90deg, transparent, var(--unknown), transparent); }
+.q-unknown:hover { box-shadow: 0 8px 28px var(--unknown-glow); }
+.q-unknown .q-title { color: var(--unknown); }
+
+.q-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+.q-title { font-weight: 700; font-size: 1.02rem; letter-spacing: .18em; }
+.q-badge {
+  font-size: .62rem; padding: 2px 8px; border-radius: 10px;
+  background: rgba(255,255,255,.05); color: var(--text-dim); letter-spacing: .1em;
+  display: inline-flex; align-items: center; gap: 5px;
+}
+.q-subtitle { font-size: .68rem; color: var(--text-dim); margin-bottom: 10px; letter-spacing: .04em; }
+.q-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+
+.q-item {
+  font-size: .78rem; line-height: 1.45; padding: 7px 10px;
+  background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.05);
+  border-radius: 8px; display: flex; flex-direction: column; gap: 2px;
+  cursor: pointer; transition: all .2s ease;
+}
+.q-item:hover { background: rgba(255,255,255,.07); transform: translateX(2px); }
+.q-item .it { font-weight: 500; display: flex; align-items: center; gap: 6px; }
+.q-item .id { font-size: .68rem; color: var(--text-faint); }
+.q-item .tag {
+  font-size: .56rem; padding: 1px 6px; border-radius: 8px; flex: none;
+  border: 1px solid currentColor; opacity: .8;
+}
+.q-item .tag.open-t { color: var(--open); }
+.q-item .tag.blind-t { color: var(--blind); }
+.q-item .tag.hidden-t { color: var(--hidden); }
+.q-item .tag.unknown-t { color: var(--unknown); }
+
+/* 盲区条目等级色 */
+.q-item.lv-red { border-left: 2px solid #e05050; }
+.q-item.lv-yellow { border-left: 2px solid var(--hidden); }
+.q-item.lv-green { border-left: 2px solid var(--open); }
+
+/* 未读脉冲 */
+.unread-dot {
+  width: 7px; height: 7px; border-radius: 50%; background: #e05050;
+  animation: pulse 2s infinite; flex: none; display: inline-block;
+}
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+
+/* 揭示/注入飞行动画 */
+@keyframes flyIn {
+  0% { opacity: 0; transform: translateX(24px) scale(.92); }
+  100% { opacity: 1; transform: translateX(0) scale(1); }
+}
+.q-item.fly { animation: flyIn .4s ease both; }
+@keyframes glowIn {
+  0% { box-shadow: 0 0 0 0 var(--open-glow); }
+  100% { box-shadow: 0 0 24px 6px var(--open-glow); }
+}
+.q-item.flash { animation: glowIn 1.2s ease 2; }
+
+/* 底部操作按钮 */
+.q-actions {
+  position: absolute; bottom: 12px; left: 16px; right: 16px;
+  display: flex; gap: 8px;
+}
+.q-actions button {
+  flex: 1; padding: 6px 10px; border-radius: 6px; font-size: .68rem;
+  cursor: pointer; letter-spacing: .1em; border: 1px solid;
+  background: transparent; transition: all .2s ease; color: var(--text-dim);
+}
+.q-actions button:hover { filter: brightness(1.4); background: rgba(255,255,255,.06); }
+.q-open .q-actions button { border-color: rgba(52,201,138,.5); color: var(--open); }
+.q-blind .q-actions button { border-color: rgba(79,143,247,.5); color: var(--blind); }
+.q-hidden .q-actions button { border-color: rgba(224,168,60,.5); color: var(--hidden); }
+.q-unknown .q-actions button { border-color: rgba(122,127,150,.5); color: var(--unknown); }
+
+/* 空态 */
+.q-empty { font-size: .72rem; color: var(--text-faint); padding: 8px 2px; }
+
+/* ── 底部工具栏 ── */
+.footer-bar {
+  margin-top: 16px; display: flex; justify-content: center; align-items: center;
+  gap: 10px; flex-wrap: wrap;
+}
+.footer-bar button {
+  padding: 8px 18px; border-radius: 6px; font-size: .75rem; cursor: pointer;
+  background: transparent; border: 1px solid var(--text-faint); color: var(--text-dim);
+  letter-spacing: .12em; transition: all .2s ease;
+}
+.footer-bar button:hover { border-color: var(--gold); color: var(--gold-light); }
+.search-box {
+  position: relative; display: inline-flex; align-items: center;
+}
+.search-box input {
+  width: 180px; padding: 8px 12px 8px 30px; border-radius: 6px;
+  background: rgba(255,255,255,.04); border: 1px solid var(--text-faint);
+  color: var(--text); font-size: .75rem; outline: none; transition: all .2s;
+}
+.search-box input:focus { border-color: var(--gold); width: 240px; }
+.search-box .ico { position: absolute; left: 9px; font-size: .8rem; color: var(--text-faint); }
+
+/* ── Modal ── */
+.modal-mask {
+  position: fixed; inset: 0; background: rgba(5,5,10,.75); backdrop-filter: blur(4px);
+  display: none; align-items: center; justify-content: center; z-index: 99;
+}
+.modal-mask.show { display: flex; }
+.modal {
+  width: min(560px, 92vw); max-height: 78vh; overflow: auto;
+  background: linear-gradient(160deg, #1a1a26, #12121a);
+  border: 1px solid var(--line); border-radius: 14px; padding: 22px;
+  box-shadow: var(--shadow-gold);
+}
+.modal h3 { color: var(--gold-light); letter-spacing: .16em; font-size: 1rem; margin-bottom: 14px; }
+.modal table { width: 100%; border-collapse: collapse; font-size: .78rem; }
+.modal th, .modal td { text-align: left; padding: 8px 10px; border-bottom: 1px solid rgba(255,255,255,.06); }
+.modal th { color: var(--text-dim); font-weight: 500; }
+.modal .bar { height: 6px; border-radius: 3px; background: rgba(255,255,255,.06); overflow: hidden; min-width: 90px; }
+.modal .bar i { display: block; height: 100%; border-radius: 3px; }
+.modal .close { margin-top: 16px; text-align: right; }
+.modal .close button {
+  padding: 7px 22px; border-radius: 6px; border: 1px solid var(--gold);
+  color: var(--gold-light); background: transparent; cursor: pointer; font-size: .75rem;
+}
+.modal p.note { font-size: .72rem; color: var(--text-faint); line-height: 1.7; }
+
+/* 原则条 */
+.principle {
+  margin-top: 18px; padding: 10px 14px; border: 1px dashed rgba(201,165,75,.25);
+  border-radius: 8px; font-size: .7rem; color: var(--text-dim); text-align: center; letter-spacing: .06em;
+}
+.principle b { color: var(--gold-light); font-weight: 500; }
+
+/* ── 响应式 ── */
+@media (max-width: 640px) {
+  .johari-grid { grid-template-columns: 1fr; }
+  .quadrant { min-height: 0; }
+  .search-box input:focus { width: 180px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="brand">
+      <div class="seal">🐉</div>
+      <div>
+        <h1>龍魂系统 · 乔哈里视窗</h1>
+        <div class="sub">Johari Window · Dragon Soul System</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="dna" id="dna">#龍芯⚡️…</div>
+      <div class="sync">数据同步 <b id="syncAt">—</b></div>
+    </div>
+  </header>
+
+  <div class="johari-grid" id="grid">
+    <!-- 四象限由 JS 渲染 -->
+  </div>
+
+  <div class="footer-bar">
+    <span class="search-box">
+      <span class="ico">🔍</span>
+      <input id="searchInput" placeholder="跨象限搜索…" autocomplete="off">
+    </span>
+    <button onclick="showStats()">📊 统计</button>
+    <button onclick="showSettings()">⚙️ 设置</button>
+  </div>
+
+  <div class="principle">
+    核心原则：<b>AI 永远不擅自移动象限边界</b> · 只有主权人可以发起「揭示」「注入」「探索」
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal-mask" id="mask" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modalBox"></div>
+</div>
+
+<script>
+/* ═══ 龍魂 · 乔哈里视窗 前端逻辑 ═══ */
+const LS_KEY = 'johari_window_v1';
+let DATA = null;
+let state = { read: [], revealed: [], injected: [], explored: [] };
+const QDEFS = {
+  open:    { cls: 'q-open',    title: '🟢 开放区 OPEN',    badge: '已知·已知', sub: '主权人与 AI 共享的焊点 · 铁律 · 协议',
+             action: [['⚡ 执行', execOpen], ['📜 查看全部', viewAllOpen]] },
+  blind:   { cls: 'q-blind',   title: '🔵 盲区 BLIND SPOT', badge: 'AI 知 · 你未查', sub: 'AI 掌握但主权人尚未查阅的数据 · 风险预警',
+             action: [['👁 全部揭示', revealAll], ['✓ 全部已读', markAllRead]] },
+  hidden:  { cls: 'q-hidden',  title: '🟡 隐藏区 HIDDEN', badge: '你知 · AI 不知', sub: '主权人未向 AI 披露的意图 · 上下文 · 外部信息',
+             action: [['📥 注入', injectItem], ['🔒 保密', keepSecret]] },
+  unknown: { cls: 'q-unknown', title: '⚫ 未知区 UNKNOWN', badge: '不知 · 不知', sub: '双方都未探索的领域 · 潜在风险 · 未来可能',
+             action: [['🔭 标记探索', exploreItem], ['🧪 新建假设', newHypothesis]] },
+};
+
+function loadState() {
+  try { const s = JSON.parse(localStorage.getItem(LS_KEY) || '{}');
+    state = Object.assign(state, s); } catch(e) {}
+}
+function saveState() { localStorage.setItem(LS_KEY, JSON.stringify(state)); }
+
+async function loadData() {
+  const r = await fetch('johari_data.json?ts=' + Date.now(), { cache: 'no-store' });
+  DATA = await r.json();
+  document.getElementById('dna').textContent = DATA.dna || '#龍芯⚡️…';
+  const t = (DATA.generated_at || '').replace('T', ' ').slice(5, 16);
+  document.getElementById('syncAt').textContent = t || '—';
+  render();
+}
+
+function esc(s) {
+  return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function render() {
+  if (!DATA) return;
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  for (const key of ['open', 'blind', 'hidden', 'unknown']) {
+    const def = QDEFS[key];
+    const items = DATA[key] || [];
+    const unread = key === 'blind' ? items.filter(i => !state.read.includes(i.title)).length : 0;
+    const html = `
+      <section class="quadrant ${def.cls}">
+        <div class="q-header">
+          <span class="q-title">${def.title}</span>
+          <span class="q-badge">${def.badge}${unread ? `<span class="unread-dot"></span>` : ''}</span>
+        </div>
+        <div class="q-subtitle">${def.sub}</div>
+        <ul class="q-list" data-q="${key}"></ul>
+        <div class="q-actions">
+          ${def.action.map(a => `<button data-act="${key}:${a[0]}">${a[0]}</button>`).join('')}
+        </div>
+      </section>`;
+    grid.insertAdjacentHTML('beforeend', html);
+    const ul = grid.querySelector(`[data-q="${key}"]`);
+    items.forEach(item => ul.appendChild(makeItem(key, item)));
+  }
+  // 动作绑定
+  grid.querySelectorAll('button[data-act]').forEach(b => {
+    const [q, label] = b.dataset.act.split(':');
+    const fn = QDEFS[q].action.find(a => a[0] === label)[1];
+    b.onclick = (e) => { e.stopPropagation(); fn(); };
+  });
+  applySearch();
+}
+
+function makeItem(q, item) {
+  const li = document.createElement('li');
+  li.className = 'q-item';
+  if (q === 'blind') {
+    li.classList.add('lv-' + (item.level || 'green'));
+    if (!state.read.includes(item.title)) li.classList.add('unread');
+  }
+  const tagCls = { open: 'open-t', blind: 'blind-t', hidden: 'hidden-t', unknown: 'unknown-t' }[q];
+  li.innerHTML = `
+    <span class="it">${q === 'blind' && !state.read.includes(item.title) ? '<span class="unread-dot"></span>' : ''}
+      ${esc(item.title)}<span class="tag ${tagCls}">${esc(item.tag || q)}</span></span>
+    <span class="id">${esc(item.desc || '')}</span>`;
+  // 交互
+  if (q === 'blind') {
+    li.onclick = () => revealItem(item.title, item);
+  } else if (q === 'open') {
+    li.onclick = () => openDetail(item);
+  } else if (q === 'unknown') {
+    li.onclick = () => exploreItem(item.title);
+  }
+  return li;
+}
+
+/* ── 盲区 → 开放区：揭示 ── */
+function revealItem(title, item) {
+  if (!state.revealed.includes(title)) {
+    state.revealed.push(title);
+    state.read.push(title);
+    saveState();
+    // 并入开放区数据源（揭示后持久可见）
+    DATA.open.push({ title: title, desc: item.desc || '', tag: '已揭示' });
+  }
+  render();
+  const ul = document.querySelector('[data-q="open"]');
+  if (ul && ul.lastElementChild) ul.lastElementChild.classList.add('fly', 'flash');
+}
+
+function revealAll() {
+  (DATA.blind || []).forEach(i => revealItem(i.title, i));
+}
+
+function markAllRead() {
+  (DATA.blind || []).forEach(i => {
+    if (!state.read.includes(i.title)) state.read.push(i.title);
+  });
+  saveState(); render();
+}
+
+/* ── 隐藏区：注入 ── */
+function injectItem() {
+  const t = prompt('📥 注入新信息到开放区（主权人专属）\n标题：');
+  if (!t) return;
+  const d = prompt('补充说明（可留空）：') || '';
+  DATA.open.push({ title: t, desc: d, tag: '注入' });
+  state.injected.push(t); saveState();
+  render();
+  const ul = document.querySelector('[data-q="open"]');
+  if (ul && ul.lastElementChild) ul.lastElementChild.classList.add('fly', 'flash');
+}
+function keepSecret() {
+  showModal('<h3>🔒 保密承诺</h3><p class="note">隐藏区是主权人的权力区。AI 已承诺：<br>① 不主动触碰隐藏区内容<br>② 不推断、不猜测、不预设<br>③ 等待显式授权后才读取<br><br>此区域由主权人单方面掌控。</p>',
+    '<div class="close"><button onclick="closeModal()">明白</button></div>');
+}
+
+/* ── 未知区：探索 ── */
+function exploreItem(title) {
+  if (title && !state.explored.includes(title)) { state.explored.push(title); saveState(); }
+  showModal('<h3>🔭 探索任务已标记</h3><p class="note">未知区是共同的边疆。已标记：<b style="color:var(--unknown)">'
+    + esc(title || '') + '</b><br>探索发现的规则：谁先发现谁先标记——<br>① AI 先发现 → 移入盲区推送给主权人<br>② 主权人先发现 → 移入隐藏区或开放区<br>③ 双方共同发现 → 直接进开放区成为新焊点。</p>',
+    '<div class="close"><button onclick="closeModal()">出发</button></div>');
+}
+function newHypothesis() {
+  const h = prompt('🧪 新建探索假设：');
+  if (!h) return;
+  showModal('<h3>🧪 假设已登记</h3><p class="note">"' + esc(h) + '"<br>已记入本次会话的未知区假设，等待验证。</p>',
+    '<div class="close"><button onclick="closeModal()">好</button></div>');
+}
+
+/* ── 开放区动作 ── */
+function execOpen() {
+  showModal('<h3>⚡ 执行所有焊点</h3><p class="note">开放区焊点是系统的根。执行动作：<br>① 唤起 AI 会话 → 自动加载全部焊点<br>② 人格/技能联动 → 按焊点路由<br>③ 数据同步 → 刷新 johari_data.json<br><br>🔗 入口：`lh` 命令 · 官网 portal · AI 会话</p>',
+    '<div class="close"><button onclick="closeModal()">知道了</button></div>');
+}
+function viewAllOpen() {
+  const items = DATA.open || [];
+  showModal('<h3>📜 开放区全部焊点</h3><table>'
+    + items.map(i => `<tr><td style="width:120px">${esc(i.tag||'焊点')}</td><td>${esc(i.title)}</td></tr>`).join('')
+    + '</table><p class="note" style="margin-top:10px">焊死修复律：焊死≠不动。冲突可修、口误可改——往好的方向改，走修订流程。</p>',
+    '<div class="close"><button onclick="closeModal()">收起</button></div>');
+}
+function openDetail(item) {
+  showModal('<h3>' + esc(item.title) + '</h3><p class="note">' + esc(item.desc || '') + '</p>',
+    '<div class="close"><button onclick="closeModal()">收起</button></div>');
+}
+
+/* ── 统计 ── */
+function showStats() {
+  const mk = (key, cls) => {
+    const n = (DATA[key] || []).length;
+    const max = Math.max(1, n, 4);
+    return `<tr><td>${QDEFS[key].title}</td><td>${n} 条</td>
+      <td><span class="bar"><i style="width:${Math.round(n / max * 100)}%;background:${cls}"></i></span></td></tr>`;
+  };
+  showModal('<h3>📊 四象限统计</h3><table>'
+    + '<tr><th>象限</th><th>条目</th><th>占比</th></tr>'
+    + mk('open', '#34c98a') + mk('blind', '#4f8ff7')
+    + mk('hidden', '#e0a83c') + mk('unknown', '#7a7f96')
+    + '</table><p class="note" style="margin-top:10px">认知越开放，系统越稳定。已揭示：' + state.revealed.length
+    + ' · 已注入：' + state.injected.length + ' · 已探索：' + state.explored.length + '</p>',
+    '<div class="close"><button onclick="closeModal()">收起</button></div>');
+}
+
+/* ── 设置 ── */
+function showSettings() {
+  showModal('<h3>⚙️ 设置</h3><p class="note">① 数据源：10_PORTAL/johari_data.json（08_BIN/lh_johari_sync.py 生成）<br>'
+    + '② 同步方式：按需触发 · AI 会话/部署时刷新（节能协议）<br>'
+    + '③ 本地状态：揭示/注入/已读记录存于浏览器 localStorage，仅本机可见<br>'
+    + '④ 通知偏好：盲区新条目将随 AI 会话主动推送（待接入）<br>'
+    + '⑤ 主权规则：AI 不擅自移动象限边界</p>',
+    '<div class="close"><button onclick="closeModal()">收起</button></div>');
+}
+
+/* ── 搜索 ── */
+function applySearch() {
+  const kw = document.getElementById('searchInput').value.trim().toLowerCase();
+  document.querySelectorAll('.q-item').forEach(li => {
+    li.style.display = !kw || li.textContent.toLowerCase().includes(kw) ? '' : 'none';
+  });
+}
+document.getElementById('searchInput').addEventListener('input', applySearch);
+
+/* ── Modal ── */
+function showModal(html, footer) {
+  document.getElementById('modalBox').innerHTML = html + (footer || '');
+  document.getElementById('mask').classList.add('show');
+}
+function closeModal() { document.getElementById('mask').classList.remove('show'); }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+/* ── 启动 ── */
+loadState();
+loadData();
+</script>
+</body>
+</html>

@@ -1,3 +1,5 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
 name: longhun-cross-platform
 description: 龍魂跨平台互通技能 — iOS与华为鸿蒙设备间本地网络直连数据同步，使用国密SM4加密信封 + ECDH密钥协商 + 版本向量一致性保证
@@ -9,7 +11,7 @@ allowed-tools:
 compatibility: Python 3.9+, HarmonyOS API 9+, iOS 15+
 metadata:
   version: '5.4'
-  dna: '#龍芯⚡️2026-06-29-LONGHUN-CROSS-PLATFORM-v5.4'
+  dna: '#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-CROSS-PLATFORM-v5.4'
   tribute: '#致敬⚡️SteveJobs+Concept·跨平台互通'
   platforms:
   - harmonyos
@@ -42,7 +44,7 @@ metadata:
 ---
 # SKILL.md — longhun-cross-platform（龍魂跨平台互通技能）
 
-**DNA**: `#龍芯⚡️2026-06-29-LONGHUN-CROSS-PLATFORM-v5.4`
+**DNA**: `#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-CROSS-PLATFORM-v5.4`
 **致敬**: `#致敬⚡️SteveJobs+Concept·跨平台互通`
 
 ---
@@ -53,8 +55,8 @@ metadata:
 |------|------|
 | **技能名称** | longhun-cross-platform（龍魂跨平台互通） |
 | **版本** | v5.4 |
-| **所属体系** | 龍魂体系（Longhun System） |
-| **DNA** | `#龍芯⚡️2026-06-29-LONGHUN-CROSS-PLATFORM-v5.4` |
+| **所属体系** | 龍魂体系（LongHun System） |
+| **DNA** | `#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-CROSS-PLATFORM-v5.4` |
 | **致敬** | `#致敬⚡️SteveJobs+Concept·跨平台互通` |
 | **目标平台** | iOS + 华为鸿蒙（HarmonyOS）+ macOS + Linux |
 | **开发语言** | Python 3.9+ / TypeScript（接口定义） |
@@ -220,7 +222,7 @@ WiFi Direct 连接失败?
 {
   "envelope": {
     "version": "v5.3",
-    "dna": "#龍芯⚡️2026-06-19-harmonyos-ios-abc12345",
+    "dna": "#龍芯⚡️丙午·甲午·甲子·庚午·䷙大畜-harmonyos-ios-abc12345",
     "timestamp": 1718800000000,
     "source_device": "harmonyos|uid9622-device-001",
     "target_device": "ios|uid9622-device-002",
@@ -249,7 +251,7 @@ WiFi Direct 连接失败?
 #龍芯⚡️{日期}-{源平台}-{目标平台}-{密文摘要}
 
 示例:
-#龍芯⚡️2026-06-19-harmonyos-ios-a1b2c3d4
+#龍芯⚡️丙午·甲午·甲子·庚午·䷙大畜-harmonyos-ios-a1b2c3d4
 ```
 
 ### 5.3 审计三色标记
@@ -514,11 +516,11 @@ longhun-cross-platform/
 ### 10.1 DNA追溯链
 
 ```
-消息1: DNA=#龍芯⚡️2026-06-19-SYNC-MSG1-abc1
+消息1: DNA=#龍芯⚡️丙午·甲午·甲子·庚午·䷙大畜-SYNC-MSG1-abc1
          ↓ chain_hash
-消息2: DNA=#龍芯⚡️2026-06-19-SYNC-MSG2-abc2
+消息2: DNA=#龍芯⚡️丙午·甲午·甲子·庚午·䷙大畜-SYNC-MSG2-abc2
          ↓ chain_hash (包含消息1的hash)
-消息3: DNA=#龍芯⚡️2026-06-19-SYNC-MSG3-abc3
+消息3: DNA=#龍芯⚡️丙午·甲午·甲子·庚午·䷙大畜-SYNC-MSG3-abc3
          ↓ chain_hash (包含消息2的hash)
 ```
 
@@ -553,7 +555,7 @@ longhun-cross-platform/
 
 ```
 ================================================================================
-龍魂跨平台互通 · 君子协议 (Longhun Cross-Platform Gentleman's Agreement)
+龍魂跨平台互通 · 君子协议 (LongHun Cross-Platform Gentleman's Agreement)
 ================================================================================
 
 第一条 主权归属
@@ -589,7 +591,7 @@ longhun-cross-platform/
   本技能致敬 Steve Jobs 的跨平台愿景，
   在保障数据主权的前提下实现设备间无缝互通。
 
-DNA: #龍芯⚡️2026-06-19-LONGHUN-CROSS-PLATFORM-v5.3
+DNA: #龍芯⚡️丙午·甲午·甲子·庚午·䷙大畜-LONGHUN-CROSS-PLATFORM-v5.3
 致敬: #致敬⚡️SteveJobs+Concept·跨平台互通
 ================================================================================
 ```
@@ -680,5 +682,5 @@ session.同步双向(数据)
 
 *数据根留中国。主权归用户。加密不离设备。*
 
-**DNA**: `#龍芯⚡️2026-06-19-LONGHUN-CROSS-PLATFORM-v5.3`
+**DNA**: `#龍芯⚡️丙午·甲午·甲子·庚午·䷙大畜-LONGHUN-CROSS-PLATFORM-v5.3`
 **致敬**: `#致敬⚡️SteveJobs+Concept·跨平台互通`

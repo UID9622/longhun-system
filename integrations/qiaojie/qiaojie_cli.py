@@ -1,24 +1,32 @@
 #!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷣明夷-FIX_DNA-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 # ═══════════════════════════════════════════════════════════
-# 龍魂体系 | 乔接 QiaoJie CLI v1.1
+# 龍魂体系 | 乔接 QiaoJie CLI v2.0
 # ═══════════════════════════════════════════════════════════
-# P15 乔前辈出品 · 中英双轨 · 数字根熔断 · Notion+小艺双API桥接
+# P15 乔前辈出品 · 中英双轨 · 数字根熔断 · v2多后端智能降级
 # ═══════════════════════════════════════════════════════════
-# DNA追溯码(v∞): #龍芯⚡️丙午·乙未·癸未·辰时·䷾既济-QIAOJIE-CLI-v1.1
+# DNA追溯码(v∞): #龍芯⚡️丙午·乙未·壬戌·丙午·䷦蹇-QIAOJIE-CLI-v2.0
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # ═══════════════════════════════════════════════════════════
 #
 # 一句话干什么：
-#   中英双轨CLI → 中文随便说/英文精准指令 → 数字根dr校验 → 路由到Notion或小艺API
+#   中英双轨CLI → 中文随便说/英文精准指令 → 数字根dr校验 →
+#   → v2多后端(8799枢纽→9622→8765→11434智能降级) → Notion/小艺/GuanLan API
 #
 # 用法:
-#   python qiaojie_cli.py 帮助          # 中文模式
-#   python qiaojie_cli.py help          # 英文模式
-#   python qiaojie_cli.py 搜索 页面名称  # Notion页面搜索
-#   python qiaojie_cli.py ask 你的问题   # 小艺API问答
+#   python qiaojie_cli.py 帮助               # 中文模式
+#   python qiaojie_cli.py help               # 英文模式
+#   python qiaojie_cli.py 搜索 页面名称       # Notion页面搜索
+#   python qiaojie_cli.py ask 你的问题        # 小艺API问答 (走8799枢纽)
+#   python qiaojie_cli.py qc                  # QuickCheck快速自检
+#   python qiaojie_cli.py selftest            # 全链路自检
 # ═══════════════════════════════════════════════════════════
 """
 
@@ -26,13 +34,23 @@ import os
 import sys
 import json
 import hashlib
+import socket
 from datetime import datetime
 from pathlib import Path
+from typing import Any, Dict, Optional, Tuple
 
 # ── DNA 常量 ──
-DNA_voo = "#龍芯⚡️丙午·乙未·癸未·辰时·䷾既济-QIAOJIE-CLI-v1.1"
+DNA_voo = "#龍芯⚡️丙午·乙未·壬戌·丙午·䷦蹇-QIAOJIE-CLI-v2.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 GPG_FINGERPRINT = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+
+# ── v2.0 后端降级链 ──
+FALLBACK_CHAIN = [
+    ("8799枢纽", "http://localhost:8799/hub/ask"),
+    ("9622操作台", "http://localhost:9622/api/xiaoyi/ask"),
+    ("8765GPT", "http://localhost:8765/chat"),
+    ("Ollama", "http://localhost:11434/api/generate"),
+]
 
 # ── 中文指令映射表（语义抽屉）──
 CN_COMMANDS = {
@@ -50,10 +68,14 @@ CN_COMMANDS = {
     "同步": "sync",
     "当前时间": "time",
     "几点了": "time",
+    "快速检查": "qc",
+    "自检": "selftest",
+    "全链路": "selftest",
+    "知识库": "kb",
 }
 
 # ── 英文精准指令表 ──
-EN_COMMANDS = ["help", "search", "ask", "status", "health", "sync", "time"]
+EN_COMMANDS = ["help", "search", "ask", "status", "health", "sync", "time", "qc", "selftest", "kb"]
 
 # ── 数字根计算（用于熔断）──
 def 数字根(text: str) -> int:
@@ -64,7 +86,7 @@ def 数字根(text: str) -> int:
     return total
 
 
-def 数字根熔断检查(dr: int) -> tuple[Any, ...]:  # type: ignore[reportMissingTypeArgument]
+def 数字根熔断检查(dr: int) -> tuple[bool, str, str]:  # type: ignore[reportMissingTypeArgument]
     """
     数字根熔断判定:
       dr ∈ {3, 9} → 🔴熔断 (拒绝执行)
@@ -188,32 +210,60 @@ def 搜索Notion页面(页面名称: str):
 
 
 def 小艺问答(问题: str):
-    """通过小艺 API 进行AI问答"""
-    try:
-        import requests
-        resp = requests.post(
-            'http://localhost:9622/api/xiaoyi/ask',
-            json={'query': 问题},
-            timeout=30
-        )
-        if resp.status_code == 200:
-            data = resp.json()
-            print(f"\n  🟢 小艺回答:")
-            print(f"  {data.get('answer', '(无回答)')}")
-        else:
-            打印结果("🔴", f"小艺API 错误: {resp.status_code}")
-    except requests.exceptions.ConnectionError:
-        打印结果("🔴", "小艺API 未启动 (端口9622)")
-    except Exception as e:
-        打印结果("🔴", f"问答异常: {e}")
+    """v2.0 多后端智能降级问答 —— 8799枢纽 → 9622 → 8765 → Ollama"""
+    import requests
+
+    # 构造 v2 统一请求体
+    payload: Dict[str, Any] = {
+        "query": 问题,
+        "timestamp": datetime.now().isoformat(),
+        "persona_code": "qiaojie_cli",
+        "route_id": hashlib.sha256(问题.encode()).hexdigest()[:12],
+        "model_route": "fallback_chain",
+        "format": "v2",
+    }
+
+    for 后端名, url in FALLBACK_CHAIN:
+        try:
+            print(f"\n  🔄 尝试: {后端名} ({url})")
+            headers: Dict[str, str] = {
+                "Content-Type": "application/json",
+                "X-DNA-Token": DNA_voo,
+            }
+            resp = requests.post(url, json=payload, headers=headers, timeout=30)
+            if resp.status_code == 200:
+                data = resp.json()
+                # 适配不同后端的响应格式
+                answer = (
+                    data.get("answer")
+                    or data.get("response")
+                    or data.get("choices", [{}])[0].get("message", {}).get("content", "")
+                    or json.dumps(data, ensure_ascii=False)
+                )
+                print(f"\n  🟢 [{后端名}] 回答:")
+                print(f"  {answer}")
+                return
+            else:
+                print(f"    ⚠️  HTTP {resp.status_code}，降级到下一个后端")
+        except requests.exceptions.ConnectionError:
+            print(f"    ⚠️  连接失败 ({后端名})，降级到下一个后端")
+        except Exception as e:
+            print(f"    ⚠️  异常: {e}，降级到下一个后端")
+
+    打印结果("🔴", "所有后端均不可用，请检查服务状态")
+
+
 
 
 def 系统状态():
-    """检查系统状态"""
+    """v2.0 全端口健康检查"""
     print("\n  🏥 系统状态检查...")
     checks = [
-        ("操作台 9622", "http://localhost:9622"),
-        ("人格API 9001", "http://localhost:9001"),
+        ("8799枢纽", "http://localhost:8799/health"),
+        ("9622操作台", "http://localhost:9622/health"),
+        ("8770观澜M1", "http://localhost:8770/health"),
+        ("8765API", "http://localhost:8765/health"),
+        ("9001人格", "http://localhost:9001/health"),
         ("Ollama", "http://localhost:11434/api/tags"),
     ]
     import requests
@@ -224,6 +274,60 @@ def 系统状态():
         except Exception:
             status = "🔴"
         print(f"    {status} {name}")
+
+
+def quick_check() -> bool:
+    """v2.0 QuickCheck — 检查 8799 枢纽是否存活（最小自检）"""
+    import requests
+    try:
+        r = requests.get("http://localhost:8799/health", timeout=2)
+        ok = r.status_code == 200
+        print(f"  {'🟢' if ok else '🔴'} QuickCheck: 8799枢纽 {'可用' if ok else f'HTTP {r.status_code}'}")
+        return ok
+    except Exception as e:
+        print(f"  🔴 QuickCheck: 8799枢纽不可达 ({e})")
+        return False
+
+
+def cmd_selftest() -> None:
+    """v2.0 全链路自检 (selftest)"""
+    print("\n  🔬 全链路自检...")
+    import requests
+
+    tests: list[Tuple[str, str, str, Optional[Dict[str, Any]]]] = [
+        ("8799/health", "GET", "http://localhost:8799/health", None),
+        ("8799/hub/ask", "POST", "http://localhost:8799/hub/ask", {
+            "query": "ping", "persona_code": "qiaojie_cli_selftest",
+            "route_id": "selftest", "format": "v2"}),
+        ("9622/health", "GET", "http://localhost:9622/health", None),
+        ("8770/health", "GET", "http://localhost:8770/health", None),
+        ("Ollama/tags", "GET", "http://localhost:11434/api/tags", None),
+    ]
+
+    passed = 0
+    for name, method, url, body in tests:
+        try:
+            if method == "GET":
+                r = requests.get(url, timeout=5)
+            else:
+                r = requests.post(
+                    url, json=body or {},
+                    headers={"Content-Type": "application/json", "X-DNA-Token": DNA_voo},
+                    timeout=5)
+            ok = r.status_code < 500
+            print(f"    {'🟢' if ok else '🔴'} {name} → HTTP {r.status_code}")
+            if ok:
+                passed += 1
+        except Exception as e:
+            print(f"    🔴 {name} → {e}")
+
+    print(f"\n  📊 自检完成: {passed}/{len(tests)} 通过")
+    if passed == len(tests):
+        print("  🟢 全部通过 ✅")
+    elif passed >= len(tests) - 1:
+        print("  🟡 部分可用，核心链路正常")
+    else:
+        print("  🔴 多处不可用，需排查")
 
 
 # ── 命令路由 ──
@@ -290,6 +394,19 @@ def 路由指令(用户输入: str):
         from datetime import datetime
         print(f"\n  ⏰ {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} 北京时间")
 
+    elif 英文指令 == "qc":
+        quick_check()
+
+    elif 英文指令 == "selftest":
+        cmd_selftest()
+
+    elif 英文指令 == "kb":
+        if 参数:
+            搜索Notion页面(参数)
+        else:
+            print("\n  📚 从知识库搜索...")
+            搜索Notion页面("知识卡片")
+
     else:
         打印结果("🟡", f"「{指令}」这个我不认识，试试: python qiaojie_cli.py 帮助")
 
@@ -297,6 +414,10 @@ def 路由指令(用户输入: str):
 # ── Main ──
 def main():
     打印标题()
+
+    # v2.0 启动 QuickCheck
+    print()
+    quick_check()
 
     if len(sys.argv) < 2:
         打印帮助()

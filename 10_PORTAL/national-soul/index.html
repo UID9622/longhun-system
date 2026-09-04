@@ -1,0 +1,3275 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-d0414745 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂 · 中华文化主权门户 — 官方网站</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   不朽·民族魂 — 数字神殿视觉系统 v2.0
+   配色：#080808 极夜黑 / #C9A84C 鎏金 / #8B0000 血染暗红
+   字体：标题 Noto Serif SC（思源宋体）/ 正文 Noto Sans SC（思源黑体）
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  --bg: #080808;
+  --bg-panel: #0c0c12;
+  --bg-card: #101016;
+  --gold: #C9A84C;
+  --gold-light: #e0c16e;
+  --gold-dim: #5c4d24;
+  --gold-glow: rgba(201, 168, 76, 0.18);
+  --blood: #8B0000;
+  --blood-glow: rgba(139, 0, 0, 0.22);
+  --text: #b8b8c4;
+  --text-dim: #5a5a6a;
+  --text-bright: #e2e2ea;
+  --border: #1a1a24;
+  --border-light: #2a2a36;
+  --radius: 6px;
+  --transition-slow: 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  --transition-stone: 1.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans SC', 'Source Han Sans SC', 'PingFang SC', sans-serif;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+a { color: var(--gold); text-decoration: none; }
+
+/* ═══ 沉浸式粒子背景 ═══ */
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ═══ 顶部鎏金跑马灯 ═══ */
+.marquee-frame {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: rgba(8, 8, 8, 0.92);
+  border-top: 1px solid var(--gold-dim);
+  border-bottom: 1px solid var(--gold-dim);
+  box-shadow: 0 0 30px rgba(201, 168, 76, 0.08);
+  backdrop-filter: blur(4px);
+}
+
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: marqueeFlow 120s linear infinite;
+  padding: 10px 0;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 48px;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  opacity: 0.75;
+  text-shadow: 0 0 8px rgba(201, 168, 76, 0.2);
+  animation: marqueeGlow 4s ease-in-out infinite;
+}
+
+.marquee-item::before {
+  content: '◆';
+  margin-right: 16px;
+  font-size: 8px;
+  color: var(--blood);
+}
+
+@keyframes marqueeFlow {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeGlow {
+  0%, 100% { opacity: 0.55; text-shadow: 0 0 6px rgba(201, 168, 76, 0.1); }
+  50% { opacity: 0.95; text-shadow: 0 0 16px rgba(201, 168, 76, 0.35); }
+}
+
+/* ═══ 顶部横条 ═══ */
+.top-bar {
+  position: fixed;
+  top: 42px;
+  left: 0;
+  right: 0;
+  background: rgba(8, 8, 8, 0.85);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--text-dim);
+  z-index: 100;
+  backdrop-filter: blur(6px);
+}
+.top-bar .dot { width: 6px; height: 6px; border-radius: 50%; }
+.top-bar .dot.green { background: #3fb950; box-shadow: 0 0 6px #3fb950; }
+.top-bar .dot.red { background: #e5534b; box-shadow: 0 0 6px #e5534b; }
+.top-bar .sep { color: var(--border-light); }
+.top-bar .count { margin-left: auto; color: var(--gold); font-weight: 600; }
+
+/* ═══ 头部神殿 ═══ */
+.header {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 20px 80px;
+  border-bottom: 1px solid var(--border);
+  background: radial-gradient(ellipse at center, rgba(201, 168, 76, 0.03) 0%, transparent 60%);
+}
+
+.header-guide {
+  position: absolute;
+  left: 5vw;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: 15px;
+  letter-spacing: 0.6em;
+  color: var(--gold-dim);
+  opacity: 0.7;
+  animation: breathe 6s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.85; }
+}
+
+.header .emblem {
+  font-size: 72px;
+  margin-bottom: 24px;
+  filter: drop-shadow(0 0 30px rgba(201, 168, 76, 0.45));
+  animation: emblemPulse 8s ease-in-out infinite;
+}
+
+@keyframes emblemPulse {
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(201, 168, 76, 0.3)); transform: scale(1); }
+  50% { filter: drop-shadow(0 0 45px rgba(201, 168, 76, 0.55)); transform: scale(1.03); }
+}
+
+.header h1 {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 900;
+  color: var(--gold);
+  letter-spacing: 0.35em;
+  margin-bottom: 16px;
+  text-shadow: 0 0 60px rgba(201, 168, 76, 0.18);
+}
+
+.header .subtitle {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  color: var(--text-dim);
+  letter-spacing: 0.4em;
+  margin-bottom: 56px;
+}
+
+.header .epigraph {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  color: var(--gold);
+  max-width: 760px;
+  line-height: 2.2;
+  letter-spacing: 0.1em;
+  padding: 28px 36px;
+  border-top: 1px solid var(--gold-dim);
+  border-bottom: 1px solid var(--gold-dim);
+  background: linear-gradient(180deg, rgba(201, 168, 76, 0.03), transparent, rgba(201, 168, 76, 0.03));
+}
+
+.header .stats-row {
+  display: flex;
+  justify-content: center;
+  gap: clamp(24px, 6vw, 72px);
+  margin-top: 64px;
+  flex-wrap: wrap;
+}
+
+.stat-item { text-align: center; }
+.stat-num {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: clamp(2.5rem, 7vw, 4.8rem);
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(201, 168, 76, 0.15);
+  animation: numberBreath 5s ease-in-out infinite;
+}
+
+@keyframes numberBreath {
+  0%, 100% { text-shadow: 0 0 20px rgba(201, 168, 76, 0.1); }
+  50% { text-shadow: 0 0 50px rgba(201, 168, 76, 0.32); }
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 10px;
+  letter-spacing: 0.15em;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  color: var(--gold-dim);
+  letter-spacing: 0.3em;
+  animation: scrollHint 3s ease-in-out infinite;
+}
+
+@keyframes scrollHint {
+  0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 0.8; transform: translateX(-50%) translateY(8px); }
+}
+
+/* ═══ 导航 ═══ */
+nav {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--border);
+  background: rgba(12, 12, 18, 0.96);
+  position: sticky;
+  top: 83px;
+  z-index: 99;
+  scrollbar-width: none;
+  justify-content: center;
+}
+nav::-webkit-scrollbar { display: none; }
+.nav-tab {
+  flex: 0 0 auto;
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  transition: 0.3s ease;
+  letter-spacing: 0.08em;
+}
+.nav-tab:hover { color: var(--text-bright); }
+.nav-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* ═══ 区块通用 ═══ */
+.section {
+  display: none;
+  padding: 80px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.section.active { display: block; }
+
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-kicker {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: 12px;
+  color: var(--blood);
+  letter-spacing: 0.4em;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: var(--gold);
+  letter-spacing: 0.25em;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.section-guide {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: 15px;
+  color: var(--text-dim);
+  letter-spacing: 0.12em;
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.9;
+}
+
+/* ═══ 沉稳嵌入动画 ═══ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transition-stone), transform var(--transition-stone);
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══ 石碑刻字效果 ═══ */
+.stone-number {
+  animation: stoneEtch 1.4s ease-out forwards;
+}
+@keyframes stoneEtch {
+  0% { opacity: 0; filter: blur(4px); transform: scale(0.96); }
+  100% { opacity: 1; filter: blur(0); transform: scale(1); }
+}
+
+/* ═══ 按钮 ═══ */
+.btn {
+  padding: 10px 22px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  font-family: 'Noto Sans SC', sans-serif;
+  transition: 0.25s ease;
+  letter-spacing: 0.05em;
+}
+.btn.primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dim));
+  color: var(--bg);
+}
+.btn.primary:hover { filter: brightness(1.2); box-shadow: 0 0 20px var(--gold-glow); }
+.btn.sm { padding: 6px 14px; font-size: 12px; }
+.btn.ghost { background: transparent; border: 1px solid var(--border); color: var(--text); }
+.btn.ghost:hover { border-color: var(--gold); color: var(--gold); }
+.btn.danger { background: rgba(139, 0, 0, 0.15); color: #c45c5c; border: 1px solid rgba(139, 0, 0, 0.35); }
+.btn.danger:hover { background: rgba(139, 0, 0, 0.25); }
+
+/* ═══ 卡片 ═══ */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 16px;
+  transition: 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.25), transparent);
+}
+.card:hover { border-color: var(--gold-dim); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); }
+.card.highlight { border-left: 3px solid var(--blood); }
+.card.hero-card { border-left: 3px solid var(--gold); }
+
+/* ═══ 标签 ═══ */
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-size: 10px;
+  margin: 3px;
+  background: var(--bg-panel);
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  letter-spacing: 0.05em;
+}
+.tag.red { color: #c45c5c; border-color: rgba(139, 0, 0, 0.35); background: rgba(139, 0, 0, 0.08); }
+.tag.gold { color: var(--gold); border-color: rgba(201, 168, 76, 0.3); background: rgba(201, 168, 76, 0.06); }
+
+/* ═══ 筛选栏 ═══ */
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.filter-bar input, .filter-bar select {
+  padding: 10px 16px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 13px;
+  outline: none;
+  min-width: 200px;
+  font-family: inherit;
+}
+.filter-bar input:focus, .filter-bar select:focus { border-color: var(--gold-dim); }
+
+/* ═══ 首页 ═══ */
+.home-intro {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 64px;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  color: var(--text-bright);
+  line-height: 2.2;
+  letter-spacing: 0.08em;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.daily-hero-card, .daily-slogan-card {
+  text-align: center;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.daily-label {
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 0.3em;
+  margin-bottom: 16px;
+}
+
+.daily-hero-emoji {
+  font-size: 56px;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 0 16px rgba(201, 168, 76, 0.3));
+}
+
+.daily-hero-name {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: 1.6rem;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.daily-hero-deed {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.8;
+  max-width: 90%;
+}
+
+.daily-slogan-text {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 16px;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+}
+
+.daily-slogan-context {
+  font-size: 12px;
+  color: var(--text-dim);
+  max-width: 80%;
+}
+
+.quick-entry-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 56px;
+}
+
+.quick-entry {
+  text-align: center;
+  cursor: pointer;
+  padding: 28px 16px;
+  transition: 0.35s ease;
+}
+.quick-entry:hover { border-color: var(--gold-dim); transform: translateY(-3px); }
+.quick-entry .icon { font-size: 32px; margin-bottom: 12px; }
+.quick-entry .label { font-size: 13px; color: var(--gold); letter-spacing: 0.1em; }
+
+/* ═══ 时间轴河流 ═══ */
+#section-timeline {
+  position: relative;
+}
+
+/* 数字雨背景（仅时间轴区块） */
+#timeline-rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.18;
+}
+
+.timeline-river {
+  position: relative;
+  padding: 40px 0;
+}
+
+.timeline-river::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, var(--gold-dim), var(--blood), var(--gold-dim), transparent);
+  transform: translateX(-50%);
+}
+
+.timeline-event {
+  position: relative;
+  width: calc(50% - 40px);
+  margin-bottom: 48px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all var(--transition-slow);
+}
+.timeline-event.in-view { opacity: 1; transform: translateY(0); }
+.timeline-event.left { margin-left: 0; text-align: right; }
+.timeline-event.right { margin-left: calc(50% + 40px); }
+
+.timeline-event::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 1px var(--gold-dim), 0 0 16px rgba(201, 168, 76, 0.3);
+}
+.timeline-event.left::before { right: -47px; }
+.timeline-event.right::before { left: -47px; }
+.timeline-event.major::before { background: var(--blood); box-shadow: 0 0 0 1px var(--blood), 0 0 20px rgba(139, 0, 0, 0.4); }
+
+.timeline-date {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+}
+.timeline-title {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: 1.25rem;
+  color: var(--text-bright);
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: 0.05em;
+}
+.timeline-body {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.9;
+}
+
+/* ═══ 战役录 ═══ */
+.battle-card {
+  position: relative;
+  padding-left: 120px;
+  min-height: 160px;
+}
+.battle-year {
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--blood);
+  opacity: 0.5;
+  line-height: 1;
+}
+.battle-stats-bar {
+  display: flex;
+  gap: 24px;
+  margin: 16px 0;
+  padding: 14px 18px;
+  background: var(--bg-panel);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+.battle-stat { text-align: center; }
+.battle-stat-num { font-family: 'Noto Serif SC', 'Source Han Serif SC', serif; font-size: 1.4rem; color: var(--gold); font-weight: 700; }
+.battle-stat-label { font-size: 10px; color: var(--text-dim); }
+
+/* ═══ 英雄谱 ═══ */
+.hero-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.hero-card { padding: 0; }
+.hero-portrait {
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(180deg, #1a1a24, #0c0c12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  filter: grayscale(100%) contrast(1.1);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.hero-portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(201, 168, 76, 0.03) 2px,
+    rgba(201, 168, 76, 0.03) 4px
+  );
+}
+.hero-header { padding: 20px 22px 14px; border-bottom: 1px solid var(--border); }
+.hero-header h3 { color: var(--gold); font-size: 1.25rem; margin-bottom: 4px; font-family: 'Noto Serif SC', 'Source Han Serif SC', serif; }
+.hero-meta { font-size: 11px; color: var(--text-dim); letter-spacing: 0.05em; }
+.hero-body { padding: 18px 22px; font-size: 13px; line-height: 1.9; color: var(--text); }
+.hero-quote {
+  padding: 18px 22px;
+  background: var(--bg-panel);
+  border-top: 1px solid var(--border);
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  color: var(--gold);
+  font-size: 14px;
+  line-height: 1.9;
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+
+/* 英雄遗言独立全屏 */
+.hero-lastwords-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px;
+  background: radial-gradient(ellipse at center, rgba(139, 0, 0, 0.06) 0%, transparent 60%);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.lastwords-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: clamp(2rem, 6vw, 4rem);
+  color: var(--gold);
+  letter-spacing: 0.5em;
+  line-height: 1.8;
+  text-shadow: 0 0 40px rgba(201, 168, 76, 0.15);
+  max-height: 70vh;
+}
+.lastwords-author {
+  margin-top: 48px;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: 1rem;
+  color: var(--text-dim);
+  letter-spacing: 0.3em;
+}
+
+/* ═══ 标语墙 ═══ */
+.slogan-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.slogan-card {
+  text-align: center;
+  padding: 40px 28px;
+  position: relative;
+}
+.slogan-card::before {
+  content: '"';
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: 4rem;
+  color: var(--gold-dim);
+  opacity: 0.25;
+  line-height: 1;
+}
+.slogan-text {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+.slogan-context {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.slogan-source {
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+}
+
+/* ═══ 铁证馆 ═══ */
+.evidence-card { border-left: 4px solid var(--blood); }
+.evidence-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.evidence-header h3 { color: #c45c5c; font-size: 1.25rem; font-family: 'Noto Serif SC', 'Source Han Serif SC', serif; }
+.evidence-victims {
+  font-size: 12px;
+  color: #c45c5c;
+  font-weight: 700;
+  white-space: nowrap;
+  text-align: right;
+}
+.evidence-body { padding: 18px 24px; font-size: 13px; line-height: 1.9; }
+.evidence-methods { padding: 14px 24px; border-top: 1px solid var(--border); }
+.evidence-methods .tag { margin: 4px; }
+
+/* ═══ 国耻墙 ═══ */
+.humiliation-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.humiliation-table th {
+  text-align: left;
+  padding: 14px 16px;
+  background: var(--bg-panel);
+  border-bottom: 2px solid var(--border);
+  color: var(--gold);
+  font-size: 12px;
+  position: sticky;
+  top: 0;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  letter-spacing: 0.1em;
+}
+.humiliation-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.humiliation-table tr:hover { background: var(--bg-panel); }
+.humiliation-table .year-cell { color: #c45c5c; font-weight: 700; white-space: nowrap; }
+.humiliation-table .treaty-cell { color: var(--gold); font-weight: 600; }
+
+/* ═══ 今日鉴 ═══ */
+.mirror-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+.mirror-card {
+  padding: 28px;
+  border-radius: var(--radius);
+  position: relative;
+}
+.mirror-card.historical { background: rgba(139, 0, 0, 0.05); border: 1px solid rgba(139, 0, 0, 0.12); }
+.mirror-card.today { background: rgba(63, 185, 80, 0.04); border: 1px solid rgba(63, 185, 80, 0.12); }
+.mirror-label { font-size: 10px; font-weight: 700; margin-bottom: 12px; letter-spacing: 2px; }
+.mirror-label.hist { color: #c45c5c; }
+.mirror-label.tdy { color: #3fb950; }
+.mirror-text { font-size: 13px; line-height: 1.9; }
+.mirror-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--gold);
+}
+
+/* ═══ 誓言墙（孔明灯上浮） ═══ */
+.vow-form {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-dim);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-bottom: 36px;
+}
+.vow-form h3 {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  color: var(--gold);
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+  letter-spacing: 0.15em;
+}
+.vow-input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.vow-input-row input, .vow-form textarea {
+  padding: 12px 16px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+}
+.vow-form textarea { width: 100%; min-height: 90px; resize: vertical; margin-bottom: 14px; }
+.vow-form input:focus, .vow-form textarea:focus { border-color: var(--gold-dim); }
+
+.vows-lantern-container {
+  position: relative;
+  min-height: 600px;
+  overflow: hidden;
+  padding: 40px 0;
+}
+
+.vow-lantern {
+  position: absolute;
+  width: 280px;
+  background: var(--bg-card);
+  border: 1px solid var(--gold-dim);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.08);
+  animation: lanternFloat 40s linear infinite;
+  opacity: 0.85;
+}
+
+@keyframes lanternFloat {
+  0% { transform: translateY(620px) translateX(0); opacity: 0; }
+  8% { opacity: 0.85; }
+  92% { opacity: 0.85; }
+  100% { transform: translateY(-200px) translateX(20px); opacity: 0; }
+}
+
+.vow-message { font-size: 13px; color: var(--text-bright); font-style: italic; margin-bottom: 10px; line-height: 1.7; }
+.vow-signer { font-size: 11px; color: var(--gold); letter-spacing: 0.05em; }
+.vow-signer span { color: var(--text-dim); }
+
+/* ═══ Toast ═══ */
+.toast {
+  position: fixed;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-card);
+  border: 1px solid var(--gold-dim);
+  color: var(--gold);
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+.toast.show { opacity: 1; }
+
+/* ═══ 响应式 ═══ */
+@media(max-width: 900px) {
+  .header-guide { display: none; }
+  .home-grid { grid-template-columns: 1fr; }
+  .quick-entry-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-grid, .slogan-grid { grid-template-columns: 1fr; }
+  .mirror-pair { grid-template-columns: 1fr; }
+  .mirror-arrow { transform: rotate(90deg); }
+  .timeline-river::before { left: 20px; }
+  .timeline-event { width: calc(100% - 60px); margin-left: 48px !important; text-align: left !important; }
+  .timeline-event.left::before, .timeline-event.right::before { left: -38px; right: auto; }
+  .battle-card { padding-left: 24px; padding-top: 80px; }
+  .battle-year { left: 24px; top: 24px; }
+}
+
+@media(max-width: 640px) {
+  .header h1 { font-size: 2.2rem; letter-spacing: 0.2em; }
+  .header .subtitle { font-size: 0.85rem; letter-spacing: 0.2em; }
+  .section { padding: 48px 16px; }
+  .nav-tab { padding: 12px 14px; font-size: 12px; }
+  .quick-entry-grid { grid-template-columns: repeat(2, 1fr); }
+  .vow-input-row { grid-template-columns: 1fr; }
+}
+
+/* ═══ 刻名入碑 · 三色审计 ═══ */
+.audit-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 24px;
+}
+.audit-title {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  margin-bottom: 14px;
+}
+.audit-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-dim);
+}
+.audit-row:last-child { border-bottom: none; }
+.audit-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px currentColor;
+}
+.audit-dot.red { background: #e5534b; color: #e5534b; }
+.audit-dot.yellow { background: #d29922; color: #d29922; }
+.audit-dot.green { background: #3fb950; color: #3fb950; }
+.audit-dot.gray { background: var(--text-dim); color: var(--text-dim); box-shadow: none; }
+.audit-status { font-weight: 600; color: var(--text-bright); min-width: 52px; }
+.audit-status.pass { color: #3fb950; }
+.audit-status.fail { color: #e5534b; }
+.audit-status.warn { color: #d29922; }
+
+.stele-form {}
+.stele-input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.stele-form input, .stele-form textarea {
+  padding: 12px 16px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+}
+.stele-form input:focus, .stele-form textarea:focus { border-color: var(--gold-dim); }
+.stele-form textarea { min-height: 100px; resize: vertical; margin-bottom: 14px; }
+.stele-form input::placeholder, .stele-form textarea::placeholder { color: #4a4a5a; }
+
+.stele-wall {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.stele-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 18px;
+  position: relative;
+  transition: 0.35s ease;
+}
+.stele-card:hover { border-color: var(--gold-dim); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.45); }
+.stele-card.pending { border-left-color: #d29922; opacity: 0.8; }
+.stele-card.rejected { border-left-color: #e5534b; opacity: 0.65; }
+.stele-card::before {
+  content: '碑';
+  position: absolute;
+  top: 8px; right: 10px;
+  font-family: 'Noto Serif SC', serif;
+  font-size: 10px;
+  color: var(--gold-dim);
+  opacity: 0.4;
+}
+.stele-message {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: 14px;
+  color: var(--text-bright);
+  line-height: 1.8;
+  margin-bottom: 12px;
+  min-height: 50px;
+}
+.stele-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: var(--text-dim);
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+.stele-author { color: var(--gold); font-weight: 600; }
+.stele-uid { font-family: monospace; opacity: 0.7; }
+.stele-verdict {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 10px;
+  margin-left: 6px;
+}
+.stele-verdict.green { background: rgba(63,185,80,0.12); color: #3fb950; border: 1px solid rgba(63,185,80,0.25); }
+.stele-verdict.yellow { background: rgba(210,153,34,0.12); color: #d29922; border: 1px solid rgba(210,153,34,0.25); }
+.stele-verdict.red { background: rgba(229,83,75,0.12); color: #e5534b; border: 1px solid rgba(229,83,75,0.25); }
+
+.empty-stele {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 48px 20px;
+  color: var(--text-dim);
+  font-size: 13px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
+
+@media(max-width: 900px) {
+  .stele-input-row { grid-template-columns: 1fr; }
+  .stele-wall { grid-template-columns: repeat(2, 1fr); }
+}
+@media(max-width: 640px) {
+  .stele-wall { grid-template-columns: 1fr; }
+}
+
+/* ═══ 中华科学家 ═══ */
+.scientists-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 24px 0;
+}
+.scientist-card {
+  background: linear-gradient(135deg, rgba(185,30,35,0.12) 0%, rgba(35,25,10,0.8) 100%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  cursor: default;
+}
+.scientist-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--gold-light), var(--gold-dim), transparent);
+  border-radius: 2px 0 0 2px;
+}
+.scientist-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 40px rgba(185,30,35,0.2);
+}
+.scientist-avatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-dim), var(--red-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin-bottom: 16px;
+  border: 2px solid var(--gold-dim);
+}
+.scientist-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: 0.15em;
+  margin-bottom: 4px;
+}
+.scientist-years {
+  font-size: 12px;
+  color: var(--gold-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+.scientist-title {
+  font-size: 14px;
+  color: var(--red-light);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+.scientist-desc {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+.scientist-keyword {
+  display: inline-block;
+  padding: 2px 10px;
+  margin: 3px 4px 3px 0;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 20px;
+  font-size: 11px;
+  color: var(--gold-dim);
+  letter-spacing: 0.08em;
+}
+
+/* ═══ 中华名将 ═══ */
+.generals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 24px 0;
+}
+.general-card {
+  background: linear-gradient(135deg, rgba(185,30,35,0.15) 0%, rgba(15,15,25,0.85) 100%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  cursor: default;
+}
+.general-card::after {
+  content: '';
+  position: absolute;
+  top: -20px; right: -20px;
+  width: 80px; height: 80px;
+  background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.general-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 36px rgba(185,30,35,0.18);
+}
+.general-card .general-era {
+  position: absolute;
+  top: 16px; right: 16px;
+  font-size: 11px;
+  color: var(--gold-dim);
+  letter-spacing: 0.08em;
+}
+.general-card .general-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(139,0,0,0.1));
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+.general-card .general-name {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: 0.15em;
+  margin-bottom: 4px;
+}
+.general-card .general-title {
+  font-size: 13px;
+  color: var(--red-light);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+.general-card .general-desc {
+  font-size: 12.5px;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+
+/* ═══ 文化巨匠 ═══ */
+.masters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 24px 0;
+}
+.master-card {
+  background: linear-gradient(135deg, rgba(201,168,76,0.06) 0%, rgba(25,18,8,0.9) 100%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  cursor: default;
+}
+.master-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+}
+.master-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  box-shadow: 0 10px 30px rgba(201,168,76,0.12);
+}
+.master-card .master-icon {
+  font-size: 38px;
+  margin-bottom: 12px;
+}
+.master-card .master-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: 0.15em;
+  margin-bottom: 4px;
+}
+.master-card .master-era {
+  font-size: 11px;
+  color: var(--gold-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+.master-card .master-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  margin: 2px 4px 2px 0;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 20px;
+  font-size: 11px;
+  color: var(--gold-dim);
+}
+.master-card .master-desc {
+  font-size: 12.5px;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-top: 10px;
+}
+
+/* ═══ 文化主权 ═══ */
+.sovereignty-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+  padding: 24px 0;
+}
+.sovereignty-card {
+  background: linear-gradient(135deg, rgba(15,15,30,0.95), rgba(25,20,10,0.9));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+}
+.sovereignty-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 120px; height: 120px;
+  background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(30%, 30%);
+}
+.sovereignty-icon {
+  font-size: 42px;
+  margin-bottom: 16px;
+}
+.sovereignty-card h3 {
+  font-size: 20px;
+  color: var(--gold-light);
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+.sovereignty-card p {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.8;
+}
+.sovereignty-principle {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.sovereignty-principle:last-child { border-bottom: none; }
+.sovereignty-principle .principle-num {
+  width: 28px; height: 28px;
+  min-width: 28px;
+  border-radius: 50%;
+  background: var(--gold-dim);
+  color: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700;
+}
+.sovereignty-principle .principle-text {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+.sovereignty-principle .principle-text strong {
+  color: var(--gold-light);
+}
+
+/* ═══ 功能跳转按钮 ═══ */
+.action-bar {
+  display: flex; justify-content: center; gap: 12px;
+  padding: 0 0 24px; flex-wrap: wrap;
+}
+.btn-action {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, var(--gold), #a88a30);
+  color: #000; border: none; border-radius: var(--radius);
+  font-size: 14px; font-weight: 700; cursor: pointer; letter-spacing: 0.1em;
+  font-family: inherit; transition: all 0.3s ease;
+}
+.btn-action:hover {
+  box-shadow: 0 4px 24px rgba(201,168,76,0.35);
+  transform: translateY(-2px);
+}
+.btn-action.outline {
+  background: transparent; color: var(--gold); border: 1px solid var(--gold);
+}
+.btn-action.outline:hover {
+  background: rgba(201,168,76,0.08);
+}
+
+/* ═══ 系统入口 ═══ */
+.portal-system-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 24px 0;
+}
+.portal-card {
+  background: linear-gradient(135deg, rgba(25,20,10,0.9), rgba(35,25,10,0.8));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+}
+.portal-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(201,168,76,0.15);
+}
+.portal-card .portal-icon {
+  font-size: 36px;
+  min-width: 48px;
+  text-align: center;
+}
+.portal-card .portal-info h4 {
+  font-size: 15px;
+  color: var(--gold-light);
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.portal-card .portal-info p {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+.portal-card .status-dot {
+  position: absolute;
+  top: 14px; right: 14px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+}
+.portal-card .status-dot.online { background: #4caf50; box-shadow: 0 0 8px #4caf50; }
+.portal-card .status-dot.local { background: var(--gold); box-shadow: 0 0 8px var(--gold); }
+.portal-tab {
+  background: linear-gradient(135deg, rgba(201,168,76,0.2), rgba(185,30,35,0.2)) !important;
+  border-color: var(--gold) !important;
+  font-weight: 700 !important;
+}
+.portal-tab:hover {
+  background: linear-gradient(135deg, rgba(201,168,76,0.35), rgba(185,30,35,0.35)) !important;
+}
+
+/* ═══ 滚动条 ═══ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-dim); }
+</style>
+</head>
+<body>
+
+<!-- ═══ 沉浸式粒子背景 ═══ -->
+<canvas id="particle-canvas"></canvas>
+
+<!-- ═══ 鎏金跑马灯 ═══ -->
+<div class="marquee-frame">
+  <div class="marquee-track" id="marquee-track">
+    <!-- JS填充：英雄名录、历史标语、最新誓言 -->
+  </div>
+</div>
+
+<!-- 顶部横条 -->
+<div class="top-bar">
+  <span class="dot green"></span><span>🐉 龍魂 · 中华文化主权门户</span>
+  <span class="sep">|</span>
+  <span>铭记历史 · 缅怀先烈 · 致敬科学家 · 名将守疆 · 文脉千年 · 守卫主权</span>
+  <span class="sep">|</span>
+  <span class="count" id="top-vow-count">加载中...</span>
+</div>
+
+<!-- 头部 -->
+<div class="header">
+  <div class="header-guide">🐉 龍魂官方门户 · 中华文化主权阵地 · 不只是AI，是世界看到中华文明的窗口</div>
+  <div class="emblem">🐉</div>
+  <h1>中 华 · 不 朽 魂</h1>
+  <p class="subtitle">—— 每一寸山河都浸透着先辈的热血 · 每一行代码都镌刻着民族的主权 ——</p>
+  <div class="epigraph">
+    从1931年到1945年，14年血火征程。<br>
+    3,500万同胞伤亡，4亿人民浴血奋战。<br>
+    从钱学森到袁隆平，从两弹一星到杂交水稻。<br>
+    <span style="color:var(--gold-light);">我们不是在恨——我们是在用先辈的骨气，建设今天的中国。</span>
+  </div>
+  <div class="stats-row" id="header-stats"></div>
+  <div class="scroll-hint">▼ 向下滚动，走进中华魂 ▼</div>
+</div>
+
+<!-- 导航 -->
+<nav id="main-nav">
+  <button class="nav-tab active" data-section="home">🏠 首页</button>
+  <button class="nav-tab" data-section="timeline">📅 血色长河</button>
+  <button class="nav-tab" data-section="battles">⚔️ 铁血铸剑</button>
+  <button class="nav-tab" data-section="heroes">⭐ 民族脊梁</button>
+  <button class="nav-tab" data-section="scientists">🔬 中华科学家</button>
+  <button class="nav-tab" data-section="generals">⚔️ 中华名将</button>
+  <button class="nav-tab" data-section="masters">📜 文化巨匠</button>
+  <button class="nav-tab" data-section="slogans">📢 时代吼声</button>
+  <button class="nav-tab" data-section="evidence">📸 国耻勿忘</button>
+  <button class="nav-tab" data-section="humiliation">💔 百年伤痕</button>
+  <button class="nav-tab" data-section="sovereignty">🏯 文化主权</button>
+  <button class="nav-tab" data-section="today">🔥 薪火相传</button>
+  <button class="nav-tab" data-section="vows">✊ 不朽誓言</button>
+  <button class="nav-tab" data-section="stele">🪦 刻名入碑</button>
+  <button class="nav-tab portal-tab" data-section="portal">🚀 系统入口</button>
+</nav>
+
+<!-- ═══ 0. 首页 ═══ -->
+<section class="section active" id="section-home">
+  <p class="home-intro reveal">
+    这里不是博物馆，是中华文化主权的数字阵地。<br>
+    每一个名字、每一句话、每一个数字，都曾是一个活生生的中国人。<br>
+    从浴血抗战的战士、到隐姓埋名的科学家、到守护万里河山的名将、到传承文脉千年的巨匠——他们都在这座数字丰碑上。
+  </p>
+
+  <div class="home-grid">
+    <div class="card daily-hero-card reveal" id="daily-hero-card">
+      <div class="daily-label">⭐ 每日英雄</div>
+      <div class="daily-hero-emoji" id="daily-hero-emoji">🫡</div>
+      <h3 class="daily-hero-name" id="daily-hero-name">加载中...</h3>
+      <p class="daily-hero-deed" id="daily-hero-deed"></p>
+    </div>
+    <div class="card daily-slogan-card reveal" id="daily-slogan-card">
+      <div class="daily-label">📢 不朽金句</div>
+      <div class="daily-slogan-text" id="daily-slogan-text"></div>
+      <p class="daily-slogan-context" id="daily-slogan-context"></p>
+    </div>
+  </div>
+
+  <div class="quick-entry-grid reveal">
+    <div class="card quick-entry" onclick="switchTab('timeline')">
+      <div class="icon">📅</div><div class="label">血色长河</div>
+    </div>
+    <div class="card quick-entry" onclick="switchTab('heroes')">
+      <div class="icon">⭐</div><div class="label">民族脊梁</div>
+    </div>
+    <div class="card quick-entry" onclick="switchTab('evidence')">
+      <div class="icon">📸</div><div class="label">国耻勿忘</div>
+    </div>
+    <div class="card quick-entry" onclick="switchTab('vows')">
+      <div class="icon">✊</div><div class="label">不朽誓言</div>
+    </div>
+    <div class="card quick-entry" onclick="switchTab('stele')">
+      <div class="icon">🪦</div><div class="label">刻名入碑</div>
+    </div>
+  </div>
+
+  <h3 style="color:var(--gold);font-size:14px;margin-bottom:20px;letter-spacing:0.2em;text-align:center;">🔥 最新誓言接力</h3>
+  <div id="home-vows"></div>
+</section>
+
+<!-- ═══ 1. 时间轴 ═══ -->
+<section class="section" id="section-timeline">
+  <canvas id="timeline-rain"></canvas>
+  <div class="section-header reveal">
+    <div class="section-kicker">他们，是这个民族最硬的骨头</div>
+    <h2 class="section-title">📅 血色长河</h2>
+    <p class="section-guide">从1931年九一八事变到1945年日本投降。14年，每一天都有人倒下，每一天都有人站起。</p>
+  </div>
+  <div class="filter-bar reveal">
+    <input type="text" id="tl-search" placeholder="搜索事件..." oninput="renderTimeline()">
+    <select id="tl-year" onchange="renderTimeline()"></select>
+  </div>
+  <div class="timeline-river" id="timeline-container"></div>
+</section>
+
+<!-- ═══ 2. 战役录 ═══ -->
+<section class="section" id="section-battles">
+  <div class="section-header reveal">
+    <div class="section-kicker">一寸山河一寸血，十万青年十万军</div>
+    <h2 class="section-title">⚔️ 铁血铸剑</h2>
+    <p class="section-guide">每一场战役都是中华民族不屈的脊梁。点击卡片，触摸那些用血肉筑成的防线。</p>
+  </div>
+  <div class="filter-bar reveal">
+    <input type="text" id="battle-search" placeholder="搜索战役..." oninput="renderBattles()">
+  </div>
+  <div id="battles-container"></div>
+</section>
+
+<!-- ═══ 3. 英雄谱 ═══ -->
+<section class="section" id="section-heroes">
+  <div class="section-header reveal">
+    <div class="section-kicker">有些名字，应该被每个中国人铭记</div>
+    <h2 class="section-title">⭐ 民族脊梁</h2>
+    <p class="section-guide">他们不是神，是和你我一样的人。只是在最黑暗的时刻，选择了燃烧自己。</p>
+  </div>
+  <div class="action-bar reveal">
+    <a href="today.html" target="_blank" rel="noopener" class="btn-action">📅 查看历史时间线</a>
+    <a href="memorial.html" target="_blank" rel="noopener" class="btn-action outline">🪦 为英烈刻名留言</a>
+  </div>
+  <div class="hero-grid" id="heroes-container"></div>
+</section>
+
+<!-- ═══ 英雄遗言独立全屏 ═══ -->
+<div class="hero-lastwords-section" id="hero-lastwords">
+  <div>
+    <div class="lastwords-vertical" id="lastwords-text">人生自古谁无死，留取丹心照汗青。</div>
+    <div class="lastwords-author" id="lastwords-author">—— 文天祥 · 千古回响</div>
+  </div>
+</div>
+
+<!-- ═══ 4. 标语墙 ═══ -->
+<section class="section" id="section-slogans">
+  <div class="section-header reveal">
+    <div class="section-kicker">每一声呐喊都是一个时代的回响</div>
+    <h2 class="section-title">📢 时代吼声</h2>
+    <p class="section-guide">这些话语曾让四万万同胞握紧拳头。今天，它们仍在我们的血液里燃烧。</p>
+  </div>
+  <div class="slogan-grid" id="slogans-container"></div>
+</section>
+
+<!-- ═══ 5. 铁证馆 ═══ -->
+<section class="section" id="section-evidence">
+  <div class="section-header reveal">
+    <div class="section-kicker">忘记历史就意味着背叛</div>
+    <h2 class="section-title">📸 国耻勿忘</h2>
+    <p class="section-guide">这些罪行，铁证如山。我们记录它们，不是为了延续仇恨，而是为了守护真相。</p>
+  </div>
+  <div id="evidence-container"></div>
+</section>
+
+<!-- ═══ 6. 国耻墙 ═══ -->
+<section class="section" id="section-humiliation">
+  <div class="section-header reveal">
+    <div class="section-kicker">认清这根刺是从哪里扎下去的</div>
+    <h2 class="section-title">💔 百年伤痕</h2>
+    <p class="section-guide">从1840年鸦片战争开始，这些不平等条约刻下的伤痕，提醒我们：落后就要挨打。</p>
+  </div>
+  <div style="overflow-x:auto;">
+    <table class="humiliation-table">
+      <thead>
+        <tr><th>年代</th><th>事件</th><th>条约</th><th>内容</th><th>影响</th></tr>
+      </thead>
+      <tbody id="humiliation-tbody"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══ 7. 今日鉴 ═══ -->
+<section class="section" id="section-today">
+  <div class="section-header reveal">
+    <div class="section-kicker">我们不是在恨，我们是在建设</div>
+    <h2 class="section-title">🔥 薪火相传</h2>
+    <p class="section-guide">历史与今天的对话。先辈用鲜血换来的，不是仇恨，而是让我们站起来的骨气。</p>
+  </div>
+  <div class="action-bar reveal">
+    <a href="today.html" target="_blank" rel="noopener" class="btn-action">🔥 打开今日历史（完整时间线）</a>
+  </div>
+  <div id="today-container"></div>
+</section>
+
+<!-- ═══ 8. 誓言墙 ═══ -->
+<section class="section" id="section-vows">
+  <div class="section-header reveal">
+    <div class="section-kicker">让每一句誓言都成为接力的火种</div>
+    <h2 class="section-title">✊ 不朽誓言</h2>
+    <p class="section-guide">留下你的誓言，让我们接力守护这片用鲜血换来的土地。你的承诺，会被永远铭刻。</p>
+  </div>
+  <div class="action-bar reveal">
+    <a href="memorial.html" target="_blank" rel="noopener" class="btn-action">🪦 去数字丰碑刻名言志</a>
+    <a href="#section-stele" onclick="switchTab('stele')" class="btn-action outline">✍️ 在本页留下誓言</a>
+  </div>
+
+  <div class="vow-form reveal">
+    <h3>🖊️ 我宣誓</h3>
+    <div class="vow-input-row">
+      <input type="text" id="vow-name" placeholder="你的名字（必填）">
+      <input type="text" id="vow-location" placeholder="你在哪里（如：南京、海外...）">
+    </div>
+    <textarea id="vow-message" placeholder="写下你的誓言...（如：我是XXX，我在XX，我不会忘记。强国有我！）" maxlength="200"></textarea>
+    <button class="btn primary" onclick="submitVow()" style="width:100%;padding:14px;">✊ 铭刻誓言</button>
+    <p style="font-size:10px;color:var(--text-dim);margin-top:8px;text-align:center;">誓言一经提交即公开展示。请真实署名，为历史作证。</p>
+  </div>
+
+  <div class="vows-lantern-container" id="vows-container"></div>
+</section>
+
+<!-- ═══ 9. 刻名入碑 ═══ -->
+<section class="section" id="section-stele">
+  <div class="section-header reveal">
+    <div class="section-kicker">让你的名字，成为历史的一部分</div>
+    <h2 class="section-title">🪦 刻名入碑</h2>
+    <p class="section-guide">留下你的名字或 UID，经本地三色审计后铭刻于数字丰碑。无后台、无人工，AI 规则自动裁决。</p>
+  </div>
+
+  <div class="action-bar reveal">
+    <a href="memorial.html" target="_blank" rel="noopener" class="btn-action">🚀 打开完整纪念碑（独立页面）</a>
+  </div>
+
+  <div class="audit-panel reveal" id="audit-panel">
+    <div class="audit-title">⚖️ 三色审计状态（本地自动）</div>
+    <div class="audit-row" id="audit-red">
+      <span class="audit-dot gray"></span>
+      <span class="audit-status">红闸</span>
+      <span>检测侮辱先烈、违法、广告、极端言论等绝对禁止内容</span>
+    </div>
+    <div class="audit-row" id="audit-yellow">
+      <span class="audit-dot gray"></span>
+      <span class="audit-status">黄闸</span>
+      <span>检测情绪化、敏感政治、低质灌水等需警告内容</span>
+    </div>
+    <div class="audit-row" id="audit-green">
+      <span class="audit-dot gray"></span>
+      <span class="audit-status">绿闸</span>
+      <span>内容通过，可铭刻入碑</span>
+    </div>
+    <div class="audit-row" id="audit-dna">
+      <span class="audit-dot gray"></span>
+      <span class="audit-status">DNA</span>
+      <span>生成匿名 UID 与签署指纹，确保可追溯</span>
+    </div>
+  </div>
+
+  <div class="card stele-form reveal">
+    <h3 style="font-family:'Noto Serif SC',serif;color:var(--gold);font-size:1.1rem;margin-bottom:18px;letter-spacing:0.15em;">🖊️ 刻下你的名字</h3>
+    <div class="stele-input-row">
+      <input type="text" id="stele-name" placeholder="你的名字（必填）" maxlength="32">
+      <input type="text" id="stele-uid" placeholder="UID（可选，留空自动生成）" maxlength="32">
+      <input type="text" id="stele-location" placeholder="你在哪里（如：南京、海外...）" maxlength="32">
+    </div>
+    <textarea id="stele-message" placeholder="写下你想对先辈说的话……（限 120 字）" maxlength="120"></textarea>
+    <button class="btn primary" onclick="submitStele()" id="stele-submit-btn" style="width:100%;padding:14px;">🪦 提交审计并刻碑</button>
+    <p style="font-size:10px;color:var(--text-dim);margin-top:10px;text-align:center;">所有内容仅存储于本机 localStorage，无后台。提交即表示你同意《龍魂君子协议》与《数据主权声明》。</p>
+  </div>
+
+  <h3 style="color:var(--gold);font-size:14px;margin:48px 0 20px;letter-spacing:0.2em;text-align:center;">🔥 最新刻碑名录</h3>
+  <div class="stele-wall" id="stele-wall"></div>
+</section>
+
+<!-- ═══ 10. 中华科学家 ═══ -->
+<section class="section" id="section-scientists">
+  <div class="section-header reveal">
+    <div class="section-kicker">他们用一生，撑起了中华民族的脊梁</div>
+    <h2 class="section-title">🔬 中华科学家</h2>
+    <p class="section-sub">外国人来看——你用的技术里，有中国人的名字。</p>
+  </div>
+  <div class="scientists-grid" id="scientists-container"></div>
+</section>
+
+<!-- ═══ 11. 中华名将 ═══ -->
+<section class="section" id="section-generals">
+  <div class="section-header reveal">
+    <div class="section-kicker">犯我强汉者·虽远必诛——五千年征战史的热血基因</div>
+    <h2 class="section-title">⚔️ 中华名将</h2>
+    <p class="section-sub">中国不是靠嘴皮子活到今天的——是武将一刀一枪打出来的。</p>
+  </div>
+  <div class="generals-grid" id="generals-container"></div>
+</section>
+
+<!-- ═══ 12. 文化巨匠 ═══ -->
+<section class="section" id="section-masters">
+  <div class="section-header reveal">
+    <div class="section-kicker">他们定义了什么是"中国人"的精神基因</div>
+    <h2 class="section-title">📜 文化巨匠</h2>
+    <p class="section-sub">五千年不间断文明——不是因为运气，是因为这些人把火种传下来了。</p>
+  </div>
+  <div class="masters-grid" id="masters-container"></div>
+</section>
+
+<!-- ═══ 13. 文化主权 ═══ -->
+<section class="section" id="section-sovereignty">
+  <div class="section-header reveal">
+    <div class="section-kicker">技术有国界·文化有主权·数据有归属</div>
+    <h2 class="section-title">🏯 文化主权声明</h2>
+    <p class="section-sub">我们不是在封闭——我们是在守卫文明的火种。</p>
+  </div>
+  <div class="action-bar reveal">
+    <a href="../manifesto/index.html" target="_blank" rel="noopener" class="btn-action">📜 查看主权宣言完整版</a>
+    <a href="../protocol-structure/index.html" target="_blank" rel="noopener" class="btn-action outline">📋 浏览全部协议文档</a>
+  </div>
+  <div class="sovereignty-grid">
+    <div class="sovereignty-card reveal">
+      <div class="sovereignty-icon">🏛️</div>
+      <h3>文化主权</h3>
+      <p>中华文明不间断五千年，是世界唯一未断裂的原生文明。汉字、中医、节气、天干地支、道德经——这是十四亿人的精神根脉，不容侵蚀、不容替代、不容商业化滥用。</p>
+      <div class="sovereignty-principle"><span class="principle-num">1</span><span class="principle-text"><strong>「龍」字永存</strong>——所有核心品牌/类名使用繁体「龍」，不使用简化字替代。</span></div>
+      <div class="sovereignty-principle"><span class="principle-num">2</span><span class="principle-text"><strong>CNSH中华编程语言</strong>——中文神经符号混合语言，不依附任何西方语言框架。</span></div>
+      <div class="sovereignty-principle"><span class="principle-num">3</span><span class="principle-text"><strong>中国法律为准绳</strong>——所有规则以中国法律为唯一准绳，不跟随外来标准。</span></div>
+    </div>
+    <div class="sovereignty-card reveal">
+      <div class="sovereignty-icon">🔐</div>
+      <h3>技术主权</h3>
+      <p>核心技术不可让渡。龍魂系统的内核算法、协议、哲学体系为中国自主知识产权。海外非授权调用一律拒绝。国密算法（SM2/SM3/SM4）优先，数据不出境，云上只存密文。</p>
+      <div class="sovereignty-principle"><span class="principle-num">1</span><span class="principle-text"><strong>内核自主</strong>——369不动点、河图洛书底座、天干地支编码体系，不可谈判、不可替换。</span></div>
+      <div class="sovereignty-principle"><span class="principle-num">2</span><span class="principle-text"><strong>国密优先</strong>——SM2/SM3/SM4为加密下界，禁用MD5/SHA-1/DES等已破解算法。</span></div>
+      <div class="sovereignty-principle"><span class="principle-num">3</span><span class="principle-text"><strong>本地优先</strong>——能本地算计不上云；必须上云的数据端侧加密，云上只存密文。</span></div>
+    </div>
+    <div class="sovereignty-card reveal">
+      <div class="sovereignty-icon">👥</div>
+      <h3>数据主权</h3>
+      <p>数据主权归用户，不是归平台。不诱导上传、不暗中收集、不默认云存。所有AI产出挂DNA追溯码，来源链不可切断。隐私不可传——未经明确授权不得传出设备。</p>
+      <div class="sovereignty-principle"><span class="principle-num">1</span><span class="principle-text"><strong>逐项授权</strong>——每项权限单独确认，零默认勾选，撤回步骤≤授权步骤。</span></div>
+      <div class="sovereignty-principle"><span class="principle-num">2</span><span class="principle-text"><strong>DNA追溯</strong>——所有AI产出挂v∞干支卦追溯码，来源可查、不可伪造、不可删除。</span></div>
+      <div class="sovereignty-principle"><span class="principle-num">3</span><span class="principle-text"><strong>零黑箱</strong>——数据、算法、参数可声明可复核，对外输出挂原创声明。</span></div>
+    </div>
+  </div>
+  <div class="sovereignty-quote reveal" style="text-align:center; padding: 40px 20px; margin: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <p style="font-size: 18px; color: var(--gold-light); letter-spacing: 0.15em; line-height: 2;">
+      "为 人 民 服 务 —— 一 切 产 出 服 务 普 通 人，<br>不 为 资 本 黑 箱 服 务。"
+    </p>
+    <p style="font-size: 12px; color: var(--gold-dim); margin-top: 12px;">—— 龍魂体系 · P0焊死天条第一条</p>
+  </div>
+</section>
+
+<!-- ═══ 12. 系统入口 ═══ -->
+<section class="section" id="section-portal">
+  <div class="section-header reveal">
+    <div class="section-kicker">从这里进入龍魂系统的每一个角落</div>
+    <h2 class="section-title">🚀 龍魂 · 系统入口</h2>
+    <p class="section-sub">不只一个网页——背后是整个数字主权生态。</p>
+  </div>
+  <div class="portal-system-grid" id="portal-container"></div>
+</section>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════════════════════════
+// API基础
+// ═══════════════════════════════════
+const API = '/national-soul/api';
+let _cache = {};
+
+async function fetchAPI(path) {
+  if (_cache[path]) return _cache[path];
+  try {
+    const res = await fetch(API + path);
+    const data = await res.json();
+    _cache[path] = data;
+    return data;
+  } catch(e) {
+    console.error('API error:', path, e);
+    return null;
+  }
+}
+
+// ═══════════════════════════════════
+// 导航切换（部分tab直接跳转独立功能页）
+// ═══════════════════════════════════
+const TAB_LINKS = {
+  'stele': 'memorial.html',
+  'today': 'today.html',
+};
+
+document.querySelectorAll('.nav-tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    const sec = this.dataset.section;
+
+    // 🔥 刻名入碑/薪火相传 → 直接跳转独立功能页
+    if (TAB_LINKS[sec]) {
+      window.open(TAB_LINKS[sec], '_blank', 'noopener');
+      return;
+    }
+
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    this.classList.add('active');
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    const el = document.getElementById('section-' + sec);
+    if (el) el.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    switch(sec) {
+      case 'home': renderHome(); break;
+      case 'timeline': renderTimeline(); break;
+      case 'battles': renderBattles(); break;
+      case 'heroes': renderHeroes(); break;
+      case 'slogans': renderSlogans(); break;
+      case 'evidence': renderEvidence(); break;
+      case 'humiliation': renderHumiliation(); break;
+      case 'today': renderToday(); break;
+      case 'vows': renderVows(); break;
+      case 'stele': renderStele(); break;
+      case 'scientists': renderScientists(); break;
+      case 'generals': renderGenerals(); break;
+      case 'masters': renderMasters(); break;
+      case 'sovereignty': break; // 纯静态，无需动态渲染
+      case 'portal': renderPortal(); break;
+    }
+  });
+});
+
+function switchTab(name) {
+  const tab = document.querySelector(`.nav-tab[data-section="${name}"]`);
+  if (tab) tab.click();
+}
+
+// ═══════════════════════════════════
+// Toast
+// ═══════════════════════════════════
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// ═══════════════════════════════════
+// 沉稳嵌入动画（IntersectionObserver）
+// ═══════════════════════════════════
+function initReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('in-view');
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+// ═══════════════════════════════════
+// 沉浸式粒子背景
+// ═══════════════════════════════════
+function initParticles() {
+  const canvas = document.getElementById('particle-canvas');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let width, height;
+  let globalTime = 0;
+
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // ── 星粒子：金 + 红 ──
+  const count = Math.min(120, Math.floor(window.innerWidth / 15));
+  for (let i = 0; i < count; i++) {
+    particles.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      r: Math.random() * 2 + 0.4,
+      vx: (Math.random() - 0.5) * 0.2,
+      vy: (Math.random() - 0.5) * 0.2 - 0.08, // 微向上飘
+      alpha: Math.random() * 0.35 + 0.08,
+      pulse: Math.random() * Math.PI * 2,
+      hue: Math.random() < 0.3 ? 0 : 44, // 30% 红星, 70% 金星
+    });
+  }
+
+  // ── 画五角星 ──
+  function drawStar(cx, cy, outerR, innerR, points, rot, fill) {
+    ctx.beginPath();
+    for (let i = 0; i < points * 2; i++) {
+      const r = i % 2 === 0 ? outerR : innerR;
+      const angle = rot + (Math.PI * i) / points - Math.PI / 2;
+      const x = cx + Math.cos(angle) * r;
+      const y = cy + Math.sin(angle) * r;
+      if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+    ctx.fillStyle = fill;
+    ctx.fill();
+  }
+
+  // ── 画国旗（五星红旗）若隐若现 ──
+  function drawFlag(t) {
+    const flagW = width * 0.6;
+    const flagH = flagW * (2 / 3);
+    const fx = (width - flagW) / 2;
+    const fy = height * 0.03;
+    // 总体透明度周期：8s 淡入 → 12s 持续 → 8s 淡出 ↔ 30s 间隔
+    const cycle = ((t * 0.001) % 38);
+    let flagAlpha = 0;
+    if (cycle < 8) flagAlpha = (cycle / 8) * 0.07;           // 淡入
+    else if (cycle < 20) flagAlpha = 0.07;                     // 持续
+    else if (cycle < 28) flagAlpha = (1 - (cycle - 20) / 8) * 0.07; // 淡出
+    else flagAlpha = 0;
+
+    if (flagAlpha < 0.002) return;
+
+    ctx.save();
+    // 轻微波浪
+    const waveAmp = 4;
+
+    // 红底（带波浪）
+    ctx.beginPath();
+    const steps = 40;
+    const stepW = flagW / steps;
+    ctx.moveTo(fx, fy + Math.sin(t * 0.002 + 0) * waveAmp);
+    for (let i = 1; i <= steps; i++) {
+      const x = fx + stepW * i;
+      const wave = Math.sin(t * 0.002 + i * 0.35) * waveAmp;
+      ctx.lineTo(x, fy + wave);
+    }
+    ctx.lineTo(fx + flagW, fy + flagH + Math.sin(t * 0.002 + steps * 0.35) * waveAmp);
+    for (let i = steps; i >= 0; i--) {
+      const x = fx + stepW * i;
+      const wave = Math.sin(t * 0.002 + i * 0.35) * waveAmp;
+      ctx.lineTo(x, fy + flagH + wave);
+    }
+    ctx.closePath();
+    ctx.fillStyle = `rgba(222, 41, 16, ${flagAlpha})`;
+    ctx.fill();
+
+    // 大五角星（左上1/4处）
+    const bigStarCX = fx + flagW * 0.16;
+    const bigStarCY = fy + flagH * 0.25;
+    const bigStarR = flagH * 0.1;
+    drawStar(bigStarCX, bigStarCY, bigStarR, bigStarR * 0.382, 5, 0,
+      `rgba(255, 222, 0, ${flagAlpha * 1.2})`);
+
+    // 四颗小星（弧形围绕大星右上方）
+    const smallR = bigStarR * 0.38;
+    const angleBase = -0.45;
+    for (let i = 0; i < 4; i++) {
+      const sa = angleBase + i * 0.52;
+      const dist = bigStarR * 2.6;
+      const sx = bigStarCX + Math.cos(sa) * dist;
+      const sy = bigStarCY + Math.sin(sa) * dist;
+      // 小星一角指向大星中心
+      const srot = Math.atan2(bigStarCY - sy, bigStarCX - sx) + Math.PI / 2;
+      drawStar(sx, sy, smallR, smallR * 0.382, 5, srot,
+        `rgba(255, 222, 0, ${flagAlpha * 1.1})`);
+    }
+
+    ctx.restore();
+  }
+
+  // ── 画解放碑 ──
+  function drawMonument(t) {
+    const cycle = ((t * 0.001 + 19) % 42); // 与国旗错开
+    let alpha = 0;
+    if (cycle < 6) alpha = (cycle / 6) * 0.06;
+    else if (cycle < 22) alpha = 0.06;
+    else if (cycle < 28) alpha = (1 - (cycle - 22) / 6) * 0.06;
+    else alpha = 0;
+    if (alpha < 0.002) return;
+
+    // 定位在左下区域
+    const scale = Math.min(height * 0.55, 380);
+    const mx = width * 0.12;
+    const my = height - scale - 60;
+
+    ctx.save();
+    ctx.fillStyle = `rgba(180, 160, 140, ${alpha})`;
+
+    // 底座
+    const baseW = scale * 0.28;
+    const baseH = scale * 0.06;
+    ctx.fillRect(mx - baseW / 2, my + scale - baseH, baseW, baseH);
+
+    // 碑身主体
+    const bodyW = scale * 0.12;
+    const bodyH = scale * 0.75;
+    ctx.fillRect(mx - bodyW / 2, my + scale - baseH - bodyH, bodyW, bodyH);
+
+    // 碑顶（八角攒尖简化）
+    const topW = scale * 0.18;
+    const topH = scale * 0.12;
+    const topY = my + scale - baseH - bodyH - topH;
+    ctx.beginPath();
+    ctx.moveTo(mx - topW / 2, topY + topH);
+    ctx.lineTo(mx - topW * 0.35, topY + topH * 0.2);
+    ctx.lineTo(mx, topY);
+    ctx.lineTo(mx + topW * 0.35, topY + topH * 0.2);
+    ctx.lineTo(mx + topW / 2, topY + topH);
+    ctx.closePath();
+    ctx.fill();
+
+    // 中部阳台
+    const balconyW = scale * 0.2;
+    const balconyH = scale * 0.03;
+    const balconyY = my + scale - baseH - bodyH * 0.65;
+    ctx.fillRect(mx - balconyW / 2, balconyY, balconyW, balconyH);
+
+    // 竖线纹理
+    ctx.strokeStyle = `rgba(140, 120, 100, ${alpha * 0.5})`;
+    ctx.lineWidth = 1;
+    for (let i = -1; i <= 1; i += 2) {
+      ctx.beginPath();
+      ctx.moveTo(mx + i * bodyW * 0.15, my + scale - baseH - bodyH);
+      ctx.lineTo(mx + i * bodyW * 0.15, my + scale - baseH);
+      ctx.stroke();
+    }
+
+    ctx.restore();
+  }
+
+  // ── 画国徽 ──
+  function drawEmblem(t) {
+    const cycle = ((t * 0.001 + 7) % 48);
+    let alpha = 0;
+    if (cycle < 6) alpha = (cycle / 6) * 0.05;
+    else if (cycle < 26) alpha = 0.05;
+    else if (cycle < 32) alpha = (1 - (cycle - 26) / 6) * 0.05;
+    else alpha = 0;
+    if (alpha < 0.002) return;
+
+    const size = Math.min(width * 0.2, 200);
+    const cx = width * 0.85;
+    const cy = height * 0.18;
+
+    ctx.save();
+    // 外环
+    ctx.beginPath();
+    ctx.arc(cx, cy, size * 0.5, 0, Math.PI * 2);
+    ctx.strokeStyle = `rgba(201, 168, 76, ${alpha})`;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // 内环（齿轮齿简化）
+    const innerR = size * 0.38;
+    ctx.beginPath();
+    ctx.arc(cx, cy, innerR, 0, Math.PI * 2);
+    ctx.strokeStyle = `rgba(201, 168, 76, ${alpha * 0.6})`;
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // 天安门简化（横线+5个拱）
+    const tianW = size * 0.35;
+    const tianH = size * 0.12;
+    const tianY = cy + size * 0.05;
+    ctx.fillStyle = `rgba(201, 168, 76, ${alpha})`;
+    ctx.fillRect(cx - tianW / 2, tianY, tianW, tianH);
+
+    // 5拱门
+    const archW = tianW * 0.1;
+    const archS = tianW * 0.16; // 间距
+    ctx.fillStyle = `rgba(8, 8, 8, ${alpha})`;
+    for (let i = -2; i <= 2; i++) {
+      const archX = cx + i * archS;
+      ctx.beginPath();
+      ctx.arc(archX, tianY + tianH, archW, Math.PI, 0);
+      ctx.fill();
+    }
+
+    // 顶部五颗星
+    const starR = size * 0.04;
+    const starCY = cy - size * 0.18;
+    drawStar(cx, starCY, starR * 1.4, starR * 0.55, 5, 0,
+      `rgba(255, 222, 0, ${alpha * 1.3})`);
+    for (let i = 0; i < 4; i++) {
+      const sa = -0.35 + i * 0.6;
+      const sd = size * 0.16;
+      const sx = cx + Math.cos(sa) * sd;
+      const sy = starCY + Math.sin(sa) * sd + starR;
+      drawStar(sx, sy, starR, starR * 0.382, 5, 0,
+        `rgba(255, 222, 0, ${alpha * 1.1})`);
+    }
+
+    ctx.restore();
+  }
+
+  // ── 主渲染循环 ──
+  function draw() {
+    globalTime += 16; // ~60fps
+    ctx.clearRect(0, 0, width, height);
+
+    // 1. 星粒子
+    particles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.pulse += 0.012;
+
+      if (p.x < -20) p.x = width + 20;
+      if (p.x > width + 20) p.x = -20;
+      if (p.y < -20) p.y = height + 20;
+      if (p.y > height + 20) p.y = -20;
+
+      const alpha = p.alpha * (0.6 + 0.4 * Math.sin(p.pulse));
+      const color = p.hue === 0
+        ? `rgba(255, 80, 60, ${alpha * 0.6})`   // 红星
+        : `rgba(201, 168, 76, ${alpha})`;        // 金星
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.fill();
+
+      // 偶尔画小十字星芒
+      if (p.r > 1.2) {
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 0.4;
+        ctx.beginPath();
+        ctx.moveTo(p.x - p.r * 2.5, p.y);
+        ctx.lineTo(p.x + p.r * 2.5, p.y);
+        ctx.moveTo(p.x, p.y - p.r * 2.5);
+        ctx.lineTo(p.x, p.y + p.r * 2.5);
+        ctx.stroke();
+      }
+    });
+
+    // 2. 国旗
+    drawFlag(globalTime);
+
+    // 3. 解放碑
+    drawMonument(globalTime);
+
+    // 4. 国徽
+    drawEmblem(globalTime);
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+// ═══════════════════════════════════
+// 数字雨背景（仅时间轴区块）
+// ═══════════════════════════════════
+function initTimelineRain() {
+  const canvas = document.getElementById('timeline-rain');
+  const section = document.getElementById('section-timeline');
+  if (!canvas || !section) return;
+
+  const ctx = canvas.getContext('2d');
+  let drops = [];
+  let width, height;
+
+  function resize() {
+    width = canvas.width = section.offsetWidth;
+    height = canvas.height = section.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const chars = '一二三四五六七八九十抗战英烈血火山河193145';
+  const count = Math.floor(width / 30);
+  for (let i = 0; i < count; i++) {
+    drops.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      speed: Math.random() * 0.6 + 0.2,
+      char: chars[Math.floor(Math.random() * chars.length)],
+      alpha: Math.random() * 0.25 + 0.05,
+      size: Math.random() * 10 + 10,
+    });
+  }
+
+  function draw() {
+    if (!document.getElementById('section-timeline').classList.contains('active')) {
+      requestAnimationFrame(draw);
+      return;
+    }
+    ctx.clearRect(0, 0, width, height);
+    ctx.font = '12px "Noto Serif SC", serif';
+    drops.forEach(d => {
+      d.y += d.speed;
+      if (d.y > height) d.y = -20;
+      ctx.fillStyle = `rgba(201, 168, 76, ${d.alpha})`;
+      ctx.fillText(d.char, d.x, d.y);
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+// ═══════════════════════════════════
+// 鎏金跑马灯
+// ═══════════════════════════════════
+async function initMarquee() {
+  const track = document.getElementById('marquee-track');
+  if (!track) return;
+
+  // 默认内容（API失败时兜底）
+  let items = [
+    '钱学森 · 五年软禁归国 · 中国航天之父 · 我的事业在中国',
+    '杨靖宇 · 1940 · 胃中只有棉絮和树皮 · 宁死不降',
+    '邓稼先 · 隐姓埋名28年 · 两弹元勋 · 不要让人家把我们落得太远',
+    '赵一曼 · 1936 · 留给儿子的最后一封信 · 不要忘记你的母亲是为国牺牲的',
+    '袁隆平 · 亩产300到1500公斤 · 让所有人远离饥饿 · 90岁还在下田',
+    '张自忠 · 1940 · 为国家民族死之决心 · 海不清石不烂',
+    '屠呦呦 · 从古籍中提取青蒿素 · 第一个诺贝尔科学奖中国本土科学家',
+    '八女投江 · 1938 · 挽臂涉入乌斯浑河 · 宁死不做俘虏',
+    '南京大屠杀 · 1937 · 30万同胞遇难 · 永不敢忘',
+    '于敏 · 没出过国 · 纯中国本土氢弹之父 · 于敏构型世界最快',
+    '血战台儿庄 · 1938 · 歼敌万余人 · 中华民族不屈的脊梁',
+    '郭永怀 · 飞机失事护核资料 · 烧焦尸体公文包完好 · 牺牲22天后氢弹成功',
+    '四行仓库 · 1937 · 八百壮士守孤岛 · 誓与阵地共存亡',
+    '百团大战 · 1940 · 105个团破袭交通线 · 振奋全国人心',
+    '黄旭华 · 30年不回家 · 核潜艇之父 · 亲自深潜极限深度',
+    '狼牙山五壮士 · 1941 · 跳崖明志 · 宁死不屈',
+    '每一个名字，都是一个民族的脊梁'
+  ];
+
+  try {
+    const [heroes, slogans, vows] = await Promise.all([
+      fetchAPI('/heroes').catch(() => null),
+      fetchAPI('/slogans').catch(() => null),
+      fetchAPI('/vows?page_size=5').catch(() => null),
+    ]);
+
+    const newItems = [];
+    if (heroes?.heroes) {
+      heroes.heroes.slice(0, 5).forEach(h => {
+        const last = h.last_words ? h.last_words.replace(/\n/g, ' ').slice(0, 30) : h.deed.slice(0, 30);
+        newItems.push(`${h.name} · ${h.born}-${h.died} · ${last}`);
+      });
+    }
+    if (slogans?.slogans) {
+      slogans.slogans.slice(0, 4).forEach(s => {
+        newItems.push(`${s.text} · ${s.author || s.source} · ${s.era}`);
+      });
+    }
+    if (vows?.vows) {
+      vows.vows.slice(0, 3).forEach(v => {
+        newItems.push(`${v.name} · ${v.location} · ${v.message.slice(0, 30)}`);
+      });
+    }
+    if (newItems.length > 0) items = newItems;
+  } catch(e) { console.log('marquee fallback'); }
+
+  const html = items.map(t => `<div class="marquee-item">${t}</div>`).join('');
+  track.innerHTML = html + html; // 复制一份实现无缝滚动
+}
+
+// ═══════════════════════════════════
+// 0. 首页
+// ═══════════════════════════════════
+async function renderHome() {
+  const stats = await fetchAPI('/stats');
+  if (!stats) return;
+
+  document.getElementById('header-stats').innerHTML = `
+    <div class="stat-item reveal"><div class="stat-num stone-number">${stats.timeline_events}</div><div class="stat-label">历史节点</div></div>
+    <div class="stat-item reveal"><div class="stat-num stone-number">${stats.battles}</div><div class="stat-label">经典战役</div></div>
+    <div class="stat-item reveal"><div class="stat-num stone-number">${stats.heroes}</div><div class="stat-label">抗日英烈</div></div>
+    <div class="stat-item reveal" style="color:var(--gold-light);"><div class="stat-num stone-number">18</div><div class="stat-label">中华科学家</div></div>
+    <div class="stat-item reveal" style="color:#e0c16e;"><div class="stat-num stone-number">12</div><div class="stat-label">中华名将</div></div>
+    <div class="stat-item reveal" style="color:var(--gold-light);"><div class="stat-num stone-number">12</div><div class="stat-label">文化巨匠</div></div>
+    <div class="stat-item reveal" style="color:#c45c5c;"><div class="stat-num stone-number">${(stats.total_victims_ww2/10000).toFixed(0)}万</div><div class="stat-label">同胞伤亡</div></div>
+    <div class="stat-item reveal"><div class="stat-num stone-number">${stats.vows}</div><div class="stat-label">不朽誓言</div></div>
+  `;
+  document.getElementById('top-vow-count').textContent = `${stats.vows} 人已接力誓言`;
+
+  const hero = stats.daily_hero;
+  document.getElementById('daily-hero-name').textContent = hero.name + ' (' + hero.born + '-' + hero.died + ')';
+  document.getElementById('daily-hero-deed').textContent = hero.deed.substring(0, 120) + '...';
+  document.getElementById('daily-hero-emoji').textContent = '🫡';
+
+  const slogan = stats.daily_slogan;
+  document.getElementById('daily-slogan-text').textContent = slogan.text;
+  document.getElementById('daily-slogan-context').textContent = slogan.context.substring(0, 80) + '...';
+
+  const vows = await fetchAPI('/vows?page_size=4');
+  if (vows) {
+    document.getElementById('home-vows').innerHTML = vows.vows.map(v =>
+      `<div class="vow-card reveal"><div class="vow-message">"${v.message}"</div><div class="vow-signer">— ${v.name} <span>· ${v.location}</span></div></div>`
+    ).join('');
+  }
+
+  initReveal();
+}
+
+// ═══════════════════════════════════
+// 1. 时间轴
+// ═══════════════════════════════════
+let _timelineData = null;
+async function renderTimeline() {
+  if (!_timelineData) _timelineData = await fetchAPI('/timeline');
+  if (!_timelineData) return;
+
+  const search = (document.getElementById('tl-search')?.value || '').toLowerCase();
+  const year = document.getElementById('tl-year')?.value || '';
+
+  let events = _timelineData.events;
+  if (search) events = events.filter(e => e.title.includes(search) || e.summary.includes(search) || (e.tags||[]).some(t=>t.includes(search)));
+  if (year) events = events.filter(e => e.date.startsWith(year));
+
+  if (!document.getElementById('tl-year').dataset.filled) {
+    const years = [...new Set(_timelineData.events.map(e => e.date.slice(0,4)))].sort();
+    document.getElementById('tl-year').innerHTML = '<option value="">全部年份</option>' +
+      years.map(y => `<option value="${y}">${y}年</option>`).join('');
+    document.getElementById('tl-year').dataset.filled = '1';
+  }
+
+  document.getElementById('timeline-container').innerHTML = events.map((e, i) => {
+    const side = i % 2 === 0 ? 'left' : 'right';
+    const major = e.category === '暴行' || e.category === '战役' ? 'major' : '';
+    return `
+    <div class="timeline-event ${side} ${major}">
+      <div class="timeline-date">${e.date}</div>
+      <div class="timeline-title">${e.title}</div>
+      <div class="timeline-body">${e.summary}</div>
+      <div style="margin-top:8px;">${(e.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+    </div>
+  `}).join('');
+
+  // 时间轴元素进入动画
+  setTimeout(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('in-view'); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.timeline-event').forEach(el => observer.observe(el));
+  }, 50);
+}
+
+// ═══════════════════════════════════
+// 2. 战役录
+// ═══════════════════════════════════
+let _battlesData = null;
+async function renderBattles() {
+  if (!_battlesData) _battlesData = await fetchAPI('/battles');
+  if (!_battlesData) return;
+
+  const search = (document.getElementById('battle-search')?.value || '').toLowerCase();
+  let battles = _battlesData.battles;
+  if (search) battles = battles.filter(b => b.name.includes(search) || b.description.includes(search) || b.location.includes(search));
+
+  document.getElementById('battles-container').innerHTML = battles.map((b, i) => `
+    <div class="card highlight battle-card reveal" style="transition-delay:${i*80}ms">
+      <div class="battle-year">${b.date_range.split('-')[0]?.slice(0,4) || '抗战'}</div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;">
+        <div>
+          <h3 style="color:var(--gold);font-size:1.35rem;font-family:'Noto Serif SC',serif;">${b.name}</h3>
+          <div style="font-size:11px;color:var(--text-dim);letter-spacing:0.05em;">${b.date_range} · ${b.location}</div>
+        </div>
+        <span class="tag red">${b.severity==='critical'?'关键战役':'重要战役'}</span>
+      </div>
+      <p style="font-size:13px;color:var(--text-dim);line-height:1.9;margin-bottom:14px;">${b.description}</p>
+      <div class="battle-stats-bar">
+        <div class="battle-stat"><div class="battle-stat-num">${b.belligerents.split('vs')[0]?.trim() || b.belligerents}</div><div class="battle-stat-label">参战方</div></div>
+        <div class="battle-stat"><div class="battle-stat-num">${b.scale}</div><div class="battle-stat-label">规模</div></div>
+        <div class="battle-stat"><div class="battle-stat-num">${b.result}</div><div class="battle-stat-label">战果</div></div>
+      </div>
+      <p style="color:var(--gold);font-size:13px;margin-top:14px;font-style:italic;font-family:'Noto Serif SC',serif;letter-spacing:0.03em;">${b.significance}</p>
+    </div>
+  `).join('');
+
+  initReveal();
+}
+
+// ═══════════════════════════════════
+// 3. 英雄谱
+// ═══════════════════════════════════
+async function renderHeroes() {
+  const data = await fetchAPI('/heroes');
+  if (!data) return;
+
+  document.getElementById('heroes-container').innerHTML = data.heroes.map((h, i) => `
+    <div class="card hero-card reveal" style="transition-delay:${i*60}ms">
+      <div class="hero-portrait">🫡</div>
+      <div class="hero-header">
+        <h3>${h.name} <span style="font-size:12px;color:var(--text-dim);font-weight:400;">${h.born}-${h.died} · 享年${h.age_at_death}岁</span></h3>
+        <div class="hero-meta">${h.role} · ${h.native}</div>
+      </div>
+      <div class="hero-body">${h.deed}</div>
+      ${h.last_words ? `<div class="hero-quote">${h.last_words.replace(/\n/g,'<br>')}</div>` : ''}
+      <div style="padding:10px 22px 16px;">${(h.tags||[]).map(t=>`<span class="tag gold">${t}</span>`).join('')}</div>
+    </div>
+  `).join('');
+
+  initReveal();
+  updateHeroLastWords(data.heroes);
+}
+
+function updateHeroLastWords(heroes) {
+  const container = document.getElementById('hero-lastwords');
+  const textEl = document.getElementById('lastwords-text');
+  const authorEl = document.getElementById('lastwords-author');
+  if (!container || !textEl) return;
+
+  const withWords = heroes.filter(h => h.last_words);
+  if (withWords.length === 0) {
+    container.style.display = 'none';
+    return;
+  }
+
+  let idx = 0;
+  function showNext() {
+    const h = withWords[idx % withWords.length];
+    textEl.style.opacity = 0;
+    setTimeout(() => {
+      textEl.textContent = h.last_words.replace(/\n/g, ' ');
+      authorEl.textContent = `—— ${h.name} · ${h.role}`;
+      textEl.style.opacity = 1;
+    }, 800);
+    idx++;
+  }
+
+  textEl.style.transition = 'opacity 1.2s ease';
+  showNext();
+  setInterval(showNext, 10000);
+}
+
+// ═══════════════════════════════════
+// 4. 标语墙
+// ═══════════════════════════════════
+async function renderSlogans() {
+  const data = await fetchAPI('/slogans');
+  if (!data) return;
+
+  document.getElementById('slogans-container').innerHTML = data.slogans.map((s, i) => `
+    <div class="card slogan-card reveal" style="transition-delay:${i*70}ms">
+      <div class="slogan-text">${s.text}</div>
+      <div class="slogan-context">${s.context}</div>
+      <div class="slogan-source">— ${s.author || s.source} · ${s.era}</div>
+    </div>
+  `).join('');
+
+  initReveal();
+}
+
+// ═══════════════════════════════════
+// 5. 铁证馆
+// ═══════════════════════════════════
+async function renderEvidence() {
+  const data = await fetchAPI('/evidence');
+  if (!data) return;
+
+  document.getElementById('evidence-container').innerHTML = data.evidence.map((e, i) => `
+    <div class="card evidence-card reveal" style="transition-delay:${i*70}ms">
+      <div class="evidence-header">
+        <div>
+          <h3>${e.title}</h3>
+          <div style="font-size:11px;color:var(--text-dim);margin-top:3px;letter-spacing:0.05em;">${e.date} · ${e.location} · 类型: ${e.type}</div>
+        </div>
+        <div class="evidence-victims">遇难者<br>${e.victims}</div>
+      </div>
+      <div class="evidence-body">${e.description}</div>
+      <div class="evidence-methods">
+        <span style="font-size:11px;color:#c45c5c;font-weight:600;">犯罪手段：</span>
+        ${(e.methods||[]).map(m=>`<span class="tag red">${m}</span>`).join('')}
+      </div>
+      <div style="padding:12px 24px 16px;font-size:11px;color:var(--text-dim);">
+        <span style="color:var(--gold);">📚 史料来源：</span>${(e.sources||[]).slice(0,4).join(' · ')}
+        <span style="margin-left:12px;">📋 已归档证据：${e.evidence_count} 件</span>
+      </div>
+    </div>
+  `).join('');
+
+  initReveal();
+}
+
+// ═══════════════════════════════════
+// 6. 国耻墙
+// ═══════════════════════════════════
+async function renderHumiliation() {
+  const data = await fetchAPI('/humiliation');
+  if (!data) return;
+
+  document.getElementById('humiliation-tbody').innerHTML = data.treaties.map((t, i) => `
+    <tr class="reveal" style="transition-delay:${i*40}ms">
+      <td class="year-cell">${t.year}</td>
+      <td style="color:var(--text-bright);">${t.event}</td>
+      <td class="treaty-cell">${t.treaty}</td>
+      <td style="font-size:12px;line-height:1.8;">${t.terms}</td>
+      <td style="font-size:12px;color:#c45c5c;line-height:1.8;">${t.impact.substring(0,70)}...</td>
+    </tr>
+  `).join('');
+
+  initReveal();
+}
+
+// ═══════════════════════════════════
+// 7. 今日鉴
+// ═══════════════════════════════════
+async function renderToday() {
+  const data = await fetchAPI('/today-mirror');
+  if (!data) return;
+
+  document.getElementById('today-container').innerHTML = data.pairs.map((p, i) => `
+    <div class="reveal" style="transition-delay:${i*100}ms;margin-bottom:36px;">
+      <div style="text-align:center;color:var(--gold);font-size:14px;font-weight:700;margin-bottom:14px;font-family:'Noto Serif SC',serif;letter-spacing:0.15em;">${p.pair}</div>
+      <div class="mirror-pair">
+        <div class="mirror-card historical">
+          <div class="mirror-label hist">⬅ 那一年</div>
+          <div class="mirror-text">${p.historical}</div>
+        </div>
+        <div class="mirror-arrow">➡</div>
+        <div class="mirror-card today">
+          <div class="mirror-label tdy">今天 ➡</div>
+          <div class="mirror-text">${p.today}</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  initReveal();
+}
+
+// ═══════════════════════════════════
+// 8. 不朽誓言（孔明灯效果）
+// ═══════════════════════════════════
+async function renderVows() {
+  const data = await fetchAPI('/vows?page_size=30');
+  if (!data || !data.vows) return;
+
+  const container = document.getElementById('vows-container');
+  container.innerHTML = '';
+
+  data.vows.forEach((v, i) => {
+    const lantern = document.createElement('div');
+    lantern.className = 'vow-lantern';
+    lantern.style.left = `${(i % 3) * 32 + 5}%`;
+    lantern.style.animationDelay = `${i * 4}s`;
+    lantern.style.animationDuration = `${35 + Math.random() * 15}s`;
+    lantern.innerHTML = `
+      <div class="vow-message">"${v.message}"</div>
+      <div class="vow-signer">— ${v.name} <span>· ${v.location} · ${(v.created_at||'').slice(0,10)}</span></div>
+    `;
+    container.appendChild(lantern);
+  });
+}
+
+async function submitVow() {
+  const name = document.getElementById('vow-name').value.trim();
+  const location = document.getElementById('vow-location').value.trim();
+  const message = document.getElementById('vow-message').value.trim();
+
+  if (!name || !message) return showToast('请至少填写姓名和誓言');
+  if (message.length > 200) return showToast('誓言请控制在200字以内');
+
+  try {
+    const res = await fetch(API + '/vows', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({name, location, message}),
+    });
+    const data = await res.json();
+    if (data.status === 'published') {
+      showToast('✅ 你的誓言已铭刻在民族魂丰碑上！薪火相传，强国有我！');
+      document.getElementById('vow-name').value = '';
+      document.getElementById('vow-location').value = '';
+      document.getElementById('vow-message').value = '';
+      _cache = {};
+      await renderVows();
+      const stats = await fetchAPI('/stats');
+      if (stats) document.getElementById('top-vow-count').textContent = `${stats.vows} 人已接力誓言`;
+    } else {
+      showToast(data.message || '提交失败');
+    }
+  } catch(e) {
+    showToast('提交失败，请稍后重试');
+  }
+}
+
+// ═══════════════════════════════════
+// 初始化
+// ═══════════════════════════════════
+initParticles();
+initMarquee();
+initTimelineRain();
+renderHome();
+
+// 预置数据
+(async () => {
+  _timelineData = await fetchAPI('/timeline');
+  _battlesData = await fetchAPI('/battles');
+})();
+
+// ═══════════════════════════════════
+// 9. 刻名入碑 · 本地三色审计
+// ═══════════════════════════════════
+const STELE_KEY = 'national-soul-stele-entries';
+const STELE_MAX = 60; // 最多铭刻60条
+
+// 审计关键词（本地规则，无后端）
+const RED_WORDS = [
+  '广告','推广','加微信','加QQ','引流','刷单','赌博','博彩','色情',
+  '卖淫','毒品','枪支','爆炸','颠覆','分裂','台独','藏独','疆独',
+  '港独','法西斯','纳粹','屠杀','种族灭绝'
+];
+
+const YELLOW_WORDS = [
+  '骂','傻逼','操你','他妈','日你','妈的','垃圾','废物','去死',
+  '滚','恶心','狗','猪','脑残','白痴','弱智'
+];
+
+const YELLOW_PATTERNS = [
+  /[！!]{3,}/,    // 过多感叹号
+  /[？?]{3,}/,    // 过多问号
+  /([\u4e00-\u9fff])\1{4,}/  // 重复字符灌水
+];
+
+function runTricolorAudit(name, uid, message) {
+  const results = { red: [], yellow: [], green: true, verdict: 'green', reason: '' };
+
+  if (!name || !message) {
+    results.verdict = 'red';
+    results.reason = '姓名和留言不能为空';
+    results.green = false;
+    return results;
+  }
+
+  if (name.length > 32 || message.length > 120) {
+    results.verdict = 'red';
+    results.reason = '姓名或留言超出长度限制';
+    results.green = false;
+    return results;
+  }
+
+  const full = (name + ' ' + message).toLowerCase();
+
+  // 红闸检测
+  for (const w of RED_WORDS) {
+    if (full.includes(w.toLowerCase())) {
+      results.red.push('命中禁止词: ' + w);
+    }
+  }
+  if (results.red.length > 0) {
+    results.verdict = 'red';
+    results.reason = results.red.join('; ');
+    results.green = false;
+    return results;
+  }
+
+  // 黄闸检测
+  for (const w of YELLOW_WORDS) {
+    if (full.includes(w.toLowerCase())) {
+      results.yellow.push('包含不当用语');
+      break;
+    }
+  }
+  for (const p of YELLOW_PATTERNS) {
+    if (p.test(message)) {
+      results.yellow.push('格式异常（过多标点或重复字符）');
+      break;
+    }
+  }
+  if (message.length < 4) {
+    results.yellow.push('留言过短，可能为灌水');
+  }
+
+  if (results.yellow.length > 0) {
+    results.verdict = 'yellow';
+    results.reason = results.yellow.join('; ');
+  } else {
+    results.verdict = 'green';
+    results.reason = '审核通过';
+  }
+
+  return results;
+}
+
+function loadSteleEntries() {
+  try {
+    const raw = localStorage.getItem(STELE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch(e) {
+    return [];
+  }
+}
+
+function saveSteleEntries(entries) {
+  // 只保留最近 STELE_MAX 条
+  const trimmed = entries.slice(-STELE_MAX);
+  localStorage.setItem(STELE_KEY, JSON.stringify(trimmed));
+  return trimmed;
+}
+
+function submitStele() {
+  const nameEl = document.getElementById('stele-name');
+  const uidEl = document.getElementById('stele-uid');
+  const locEl = document.getElementById('stele-location');
+  const msgEl = document.getElementById('stele-message');
+  const btn = document.getElementById('stele-submit-btn');
+
+  const name = nameEl.value.trim();
+  const uid = uidEl.value.trim() || ('STELE-' + Date.now().toString(36).toUpperCase());
+  const location = locEl.value.trim() || '未知';
+  const message = msgEl.value.trim();
+
+  // 跑审计
+  const audit = runTricolorAudit(name, uid, message);
+
+  // 更新审计面板状态
+  updateAuditPanel(audit);
+
+  // 红闸 → 拒绝
+  if (audit.verdict === 'red') {
+    showToast('🔴 红闸驳回: ' + audit.reason);
+    return;
+  }
+
+  // 黄闸 → 警告但允许，标记待核
+  if (audit.verdict === 'yellow') {
+    showToast('🟡 黄闸警告: ' + audit.reason + ' · 内容已标记待核，仍可铭刻');
+  }
+
+  // 生成DNA时间戳
+  const now = new Date();
+  const dna = 'STELE-' + now.toISOString().slice(0, 10) + '-' + Math.random().toString(36).slice(2, 8).toUpperCase();
+
+  const entry = {
+    name,
+    uid,
+    location,
+    message,
+    verdict: audit.verdict,
+    reason: audit.reason,
+    dna,
+    created_at: now.toISOString(),
+  };
+
+  const entries = loadSteleEntries();
+  entries.push(entry);
+  saveSteleEntries(entries);
+
+  // 清空表单
+  nameEl.value = '';
+  uidEl.value = '';
+  locEl.value = '';
+  msgEl.value = '';
+
+  showToast('🪦 铭刻成功！' + dna + ' · ' + (audit.verdict === 'green' ? '🟢 通过' : '🟡 待核'));
+  resetAuditPanel();
+  renderStele();
+}
+
+function updateAuditPanel(audit) {
+  // 红
+  const redRow = document.getElementById('audit-red');
+  const redDot = redRow.querySelector('.audit-dot');
+  const redStatus = redRow.querySelector('.audit-status');
+  redDot.className = 'audit-dot ' + (audit.red.length > 0 ? 'red' : 'green');
+  redStatus.className = 'audit-status ' + (audit.red.length > 0 ? 'fail' : 'pass');
+  redStatus.textContent = audit.red.length > 0 ? '🔴 命中' : '🟢 通过';
+
+  // 黄
+  const yellowRow = document.getElementById('audit-yellow');
+  const yellowDot = yellowRow.querySelector('.audit-dot');
+  const yellowStatus = yellowRow.querySelector('.audit-status');
+  yellowDot.className = 'audit-dot ' + (audit.yellow.length > 0 ? 'yellow' : 'green');
+  yellowStatus.className = 'audit-status ' + (audit.yellow.length > 0 ? 'warn' : 'pass');
+  yellowStatus.textContent = audit.yellow.length > 0 ? '🟡 警告' : '🟢 通过';
+
+  // 绿
+  const greenRow = document.getElementById('audit-green');
+  const greenDot = greenRow.querySelector('.audit-dot');
+  const greenStatus = greenRow.querySelector('.audit-status');
+  greenDot.className = 'audit-dot ' + (audit.verdict === 'green' ? 'green' : (audit.verdict === 'yellow' ? 'yellow' : 'red'));
+  greenStatus.className = 'audit-status ' + (audit.verdict === 'green' ? 'pass' : (audit.verdict === 'yellow' ? 'warn' : 'fail'));
+  greenStatus.textContent = audit.verdict === 'green' ? '🟢 通过' : (audit.verdict === 'yellow' ? '🟡 警告' : '🔴 拒绝');
+
+  // DNA
+  const dnaRow = document.getElementById('audit-dna');
+  const dnaDot = dnaRow.querySelector('.audit-dot');
+  const dnaStatus = dnaRow.querySelector('.audit-status');
+  dnaDot.className = 'audit-dot green';
+  dnaStatus.className = 'audit-status pass';
+  dnaStatus.textContent = '🟢 就绪';
+}
+
+function resetAuditPanel() {
+  const defaults = {
+    'audit-red': '红闸',
+    'audit-yellow': '黄闸',
+    'audit-green': '绿闸',
+    'audit-dna': 'DNA',
+  };
+  Object.entries(defaults).forEach(([id, label]) => {
+    const row = document.getElementById(id);
+    if (!row) return;
+    row.querySelector('.audit-dot').className = 'audit-dot gray';
+    const st = row.querySelector('.audit-status');
+    st.className = 'audit-status';
+    st.textContent = label;
+  });
+}
+
+function renderStele() {
+  const entries = loadSteleEntries();
+  const wall = document.getElementById('stele-wall');
+  if (!wall) return;
+
+  if (entries.length === 0) {
+    wall.innerHTML = '<div class="empty-stele">🪦 碑上尚无铭刻<br><small>留下你的名字，成为历史的一部分</small></div>';
+    return;
+  }
+
+  // 倒序显示（最新在前）
+  const reversed = [...entries].reverse();
+
+  wall.innerHTML = reversed.map((e, i) => {
+    const vc = e.verdict === 'green' ? 'green' : (e.verdict === 'yellow' ? 'yellow' : 'red');
+    const cardCls = e.verdict === 'yellow' ? 'pending' : (e.verdict === 'red' ? 'rejected' : '');
+    const date = (e.created_at || '').slice(0, 10);
+    return `
+    <div class="stele-card ${cardCls} stone-number" style="animation-delay:${i * 60}ms">
+      <div class="stele-message">"${escapeHtml(e.message)}"</div>
+      <div class="stele-meta">
+        <div>
+          <span class="stele-author">${escapeHtml(e.name)}</span>
+          <span class="stele-verdict ${vc}">${e.verdict === 'green' ? '🟢' : (e.verdict === 'yellow' ? '🟡' : '🔴')}</span>
+        </div>
+        <div>
+          <span class="stele-uid">${escapeHtml(e.uid)}</span>
+          <span style="margin-left:8px;opacity:0.5;">${date}</span>
+        </div>
+      </div>
+    </div>
+    `;
+  }).join('');
+
+  // 进入动画
+  setTimeout(() => {
+    wall.querySelectorAll('.stone-number').forEach(el => el.classList.add('in-view'));
+  }, 100);
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+// 页面加载时渲染已有刻碑
+if (document.getElementById('stele-wall')) {
+  renderStele();
+}
+
+// ═══════════════════════════════════
+// 中华科学家数据（焊死·不可删改）
+// ═══════════════════════════════════
+const SCIENTISTS = [
+  { name:'钱学森', years:'1911-2009', title:'中国航天之父·两弹一星元勋', emoji:'🚀', keywords:['航天','导弹','系统工程'], desc:'美国说他"抵得上五个师"。他回来了，带着《工程控制论》，让中国第一次有了自己的导弹和卫星。美国人扣了他五年，他说："我的事业在中国。"' },
+  { name:'邓稼先', years:'1924-1986', title:'两弹元勋', emoji:'☢️', keywords:['原子弹','氢弹','核物理'], desc:'在戈壁滩隐姓埋名28年，直到生命最后才被人们知道。核辐射让他患上直肠癌，临终前只说了一句："不要让人家把我们落得太远。"' },
+  { name:'袁隆平', years:'1930-2021', title:'杂交水稻之父', emoji:'🌾', keywords:['杂交水稻','粮食安全','农业'], desc:'让14亿中国人吃饱饭的人。亩产从300公斤干到1500公斤，他说："我毕生的追求就是让所有人远离饥饿。"90岁还下田，一顶草帽一双雨靴。' },
+  { name:'屠呦呦', years:'1930-', title:'诺贝尔生理学或医学奖', emoji:'💊', keywords:['青蒿素','疟疾','中医药'], desc:'从《肘后备急方》中获得灵感，发现青蒿素，拯救了全球数百万疟疾患者。她是第一位获得诺贝尔科学奖项的中国本土科学家。' },
+  { name:'钱三强', years:'1913-1992', title:'中国原子能科学创始人', emoji:'⚛️', keywords:['原子能','核物理','居里实验室'], desc:'在居里夫人的实验室工作过。回国后从零建起中国的原子能研究体系，"两弹一星"的推进靠他奠定了物理基础。' },
+  { name:'于敏', years:'1926-2019', title:'氢弹之父', emoji:'💥', keywords:['氢弹','核武器','于敏构型'], desc:'没出过国、没留过学，纯中国土生土长的物理学家。独立提出"于敏构型"，从原子弹到氢弹，中国只用了2年8个月——世界最快。' },
+  { name:'孙家栋', years:'1929-', title:'卫星之父·北斗总设计师', emoji:'🛰️', keywords:['北斗导航','人造卫星','航天'], desc:'中国第一颗人造卫星"东方红一号"技术总负责人。北斗导航系统总设计师，让中国有了自己的"天眼"导航网。' },
+  { name:'黄旭华', years:'1926-', title:'核潜艇之父', emoji:'🔱', keywords:['核潜艇','海军','深潜'], desc:'30年不回家，家人以为他失踪了。中国第一代核潜艇总设计师，亲自随艇深潜到极限深度——世界上第一个这么做的总设计师。' },
+  { name:'郭永怀', years:'1909-1968', title:'核武器专家·烈士', emoji:'🕊️', keywords:['核武器','空气动力学','烈士'], desc:'飞机失事时，他和警卫员紧紧抱在一起，保护了绝密核资料。烧焦的尸体分开后，公文包完好无损。牺牲后22天，氢弹爆炸成功。' },
+  { name:'竺可桢', years:'1890-1974', title:'中国近代气象学奠基人', emoji:'🌤️', keywords:['气象学','物候学','地理学'], desc:'中国第一个气象研究所的创建者。用一生记录了中国的温度、风向和季节，第一个用科学解释中国五千年的气候变化。' },
+  { name:'李四光', years:'1889-1971', title:'中国地质力学创始人', emoji:'⛰️', keywords:['地质力学','石油勘探','地震'], desc:'推翻"中国贫油论"，用自己创立的地质力学理论找到大庆油田——让中国摘掉了"贫油国"的帽子。' },
+  { name:'华罗庚', years:'1910-1985', title:'中国现代数学之父', emoji:'🔢', keywords:['数学','优选法','统筹法'], desc:'只有初中文凭，自学成才的国际数学大师。将数学从象牙塔带到工厂车间，教工人用优选法提高效率，被誉为"人民的数学家"。' },
+  { name:'南仁东', years:'1945-2017', title:'中国天眼之父', emoji:'🔭', keywords:['FAST','射电望远镜','天文'], desc:'用22年时间，在贵州大山里建成了世界最大的射电望远镜——中国天眼。选址花了12年跑遍西南深山，去世前说："感官安宁，万籁无声，美丽的宇宙太空以它的神秘和绚丽召唤我们。"' },
+  { name:'詹天佑', years:'1861-1919', title:'中国铁路之父', emoji:'🚂', keywords:['京张铁路','土木工程','独立自主'], desc:'12岁赴美留学。设计并主持修建了中国第一条自主建设的铁路——京张铁路。\"人\"字形爬坡设计震惊世界，外国人不敢相信中国人能自己修铁路。' },
+  { name:'林巧稚', years:'1901-1983', title:'万婴之母·中国妇产科奠基人', emoji:'👶', keywords:['妇产科','医学','终身未嫁'], desc:'一辈子没结婚，却亲手接生了5万多个婴儿。协和医院第一位中国籍妇产科主任，临终前还在喊："快！拿产钳来！"袁隆平是她接生的，叫她\"林妈妈\"。' },
+  { name:'侯德榜', years:'1890-1974', title:'侯氏制碱法创始人', emoji:'🧪', keywords:['化工','纯碱','侯氏制碱法'], desc:'打破西方对制碱技术的垄断，发明\"侯氏制碱法\"。把专利无偿公开给全世界，说："技术不应被垄断。"新中国成立后，放弃美国高薪回来建化工厂。' },
+  { name:'陈景润', years:'1933-1996', title:'哥德巴赫猜想·1+2证明者', emoji:'🧮', keywords:['数论','哥德巴赫猜想','陈氏定理'], desc:'在6平米的锅炉房里，一盏煤油灯一支笔，证明了\"1+2\"——世界上最接近哥德巴赫猜想的成果。\"陈氏定理\"被写入国际数论教材。' }
+];
+
+function renderScientists() {
+  const container = document.getElementById('scientists-container');
+  if (!container) return;
+  container.innerHTML = SCIENTISTS.map((s, i) => `
+    <div class="scientist-card reveal" style="animation-delay:${i * 80}ms">
+      <div class="scientist-avatar">${s.emoji}</div>
+      <div class="scientist-name">${s.name}</div>
+      <div class="scientist-years">${s.years}</div>
+      <div class="scientist-title">${s.title}</div>
+      <div class="scientist-desc">${s.desc}</div>
+      <div style="margin-top:10px;">
+        ${s.keywords.map(k => `<span class="scientist-keyword">${k}</span>`).join('')}
+      </div>
+    </div>
+  `).join('');
+  initReveal();
+}
+
+// ═══════════════════════════════════
+// 中华名将数据（焊死·不可删改）
+// ═══════════════════════════════════
+const GENERALS = [
+  { name:'孙武', era:'春秋·约前545-前470', title:'兵圣·《孙子兵法》作者', icon:'📖', desc:'一部《孙子兵法》，两千五百年无人超越。毛泽东说："孙子的规律，\'知彼知己，百战不殆\'，仍是科学的真理。"美军西点军校必修教材。' },
+  { name:'霍去病', era:'西汉·前140-前117', title:'骠骑将军·封狼居胥', icon:'🐎', desc:'17岁率800骑深入漠北，斩敌两千。19岁两征河西走廊，歼敌四方。"匈奴未灭，何以家为"——死时仅23岁，汉武帝把他的墓修成祁连山形状。' },
+  { name:'卫青', era:'西汉·?-前106', title:'大将军·七战七捷', icon:'🏹', desc:'奴隶出身，不靠裙带靠实力。七征匈奴无一败绩，收复河套地区，把汉朝的边界推到了阴山以北。' },
+  { name:'岳飞', era:'南宋·1103-1142', title:'精忠报国·岳家军', icon:'🦅', desc:'背上刺字"精忠报国"。郾城大捷，五百骑兵破金兀术十万铁骑。"直捣黄龍，与诸君痛饮！"——临死前写"天日昭昭"四字。秦桧跪像至今还在岳王庙前。' },
+  { name:'戚继光', era:'明·1528-1588', title:'抗倭英雄·戚家军', icon:'⚓', desc:'鸳鸯阵破倭寇，台州九战九捷。在浙江福建沿海打了十二年，把倭寇彻底赶出中国。还改良了长城防御体系，写了《纪效新书》。' },
+  { name:'郑成功', era:'明末·1624-1662', title:'国姓爷·收复台湾', icon:'🚢', desc:'父亲郑芝龍降清，他说："父不忠，子不孝。"率两万五千人渡海，从荷兰人手里收复了被殖民38年的台湾。至今福建台湾两地都在祭拜他。' },
+  { name:'左宗棠', era:'清·1812-1885', title:'收复新疆·抬棺出征', icon:'🗺️', desc:'69岁抬着棺材进军新疆，两年收复160万平方公里。没有左宗棠，今天的新疆可能早就不是中国的了。死前遗折："臣不敢言劳。"' },
+  { name:'邓世昌', era:'清·1849-1894', title:'致远舰管带·甲午海战', icon:'⚓', desc:'甲午海战，致远舰弹尽粮绝。他下令全速撞击日舰吉野号，被鱼雷击中沉没。落水后拒绝救援，说："阖船俱没，义不独生。"和爱犬一起沉入黄海。' },
+  { name:'彭德怀', era:'现代·1898-1974', title:'十大元帅·抗美援朝总司令', icon:'⭐', desc:'谁敢横刀立马？唯我彭大将军。朝鲜战场上，把美军从鸭绿江打回三八线。毛泽东赠诗："山高路远坑深，大军纵横驰奔。"' },
+  { name:'林彪', era:'现代·1907-1971', title:'十大元帅·平型关大捷', icon:'🦁', desc:'23岁当军团长。平型关大捷，打破了"日军不可战胜"的神话。辽沈战役以70万打55万歼灭国军，解放全东北——从此国共力量对比彻底逆转。' },
+  { name:'粟裕', era:'现代·1907-1984', title:'大将之首·淮海战役指挥', icon:'🗡️', desc:'淮海战役，以60万打80万歼灭国军55万。斯大林看了地图感叹："60万吃掉80万，奇迹。"毛泽东说："淮海战役，粟裕同志立了第一功。"' },
+  { name:'朱德', era:'现代·1886-1976', title:'十大元帅之首·红军之父', icon:'🎖️', desc:'南昌起义时已经41岁。带着800人上井冈山和毛泽东会师。"朱毛"从此成为一个符号。他说："共产主义者应当是没有私心的人。"' }
+];
+
+function renderGenerals() {
+  const container = document.getElementById('generals-container');
+  if (!container) return;
+  container.innerHTML = GENERALS.map((g, i) => `
+    <div class="general-card reveal" style="animation-delay:${i * 70}ms">
+      <span class="general-era">${g.era}</span>
+      <div class="general-icon">${g.icon}</div>
+      <div class="general-name">${g.name}</div>
+      <div class="general-title">${g.title}</div>
+      <div class="general-desc">${g.desc}</div>
+    </div>
+  `).join('');
+  initReveal();
+}
+
+// ═══════════════════════════════════
+// 文化巨匠数据（焊死·不可删改）
+// ═══════════════════════════════════
+const MASTERS = [
+  { name:'老子', era:'春秋·约前571-前471', tags:['道家','道德经','哲学'], icon:'☯️', desc:'世界哲学第一人。《道德经》5162字，被译成100+种语言，全球发行量仅次于《圣经》。"道可道，非常道"——人类对宇宙本质的最高追问。' },
+  { name:'孔子', era:'春秋·前551-前479', tags:['儒家','论语','教育'], icon:'🏛️', desc:'"天不生仲尼，万古如长夜。"第一个办私学的人，有教无类。三千弟子七十二贤人，一部《论语》影响了东亚两千五百年。联合国大厅刻着他的话："己所不欲，勿施于人。"' },
+  { name:'屈原', era:'战国·约前340-前278', tags:['楚辞','离骚','爱国主义'], icon:'🌿', desc:'中国第一个有名有姓的诗人。"路漫漫其修远兮，吾将上下而求索。"投江殉国，端午节从此为他而设——全世界唯一为纪念一个诗人而设的节日。' },
+  { name:'司马迁', era:'西汉·前145-前86', tags:['史记','史学','文学家'], icon:'📝', desc:'被汉武帝处以宫刑，忍辱五年写出52万字的《史记》——中国第一部通史。"人固有一死，或重于泰山，或轻于鸿毛。"没有他，我们不知道三皇五帝。' },
+  { name:'李白', era:'唐·701-762', tags:['唐诗','浪漫主义','诗仙'], icon:'🍷', desc:'"天生我材必有用，千金散尽还复来。"酒入豪肠，七分酿成了月光，剩下的三分啸成剑气，绣口一吐就是半个盛唐。杜甫说："白也诗无敌。"' },
+  { name:'杜甫', era:'唐·712-770', tags:['唐诗','现实主义','诗圣'], icon:'🏚️', desc:'"安得广厦千万间，大庇天下寒士俱欢颜。"自己家都漏雨了还在惦念天下人。写大唐由盛转衰，每一首都是时代的纪实。鲁迅说他是"中华民族的脊梁"。' },
+  { name:'苏轼', era:'北宋·1037-1101', tags:['宋词','散文','书法','美食'], icon:'🎨', desc:'全才——诗、词、文、书、画、美食，无一不精。被贬三次，越贬越豁达。"一蓑烟雨任平生。"东坡肉、东坡肘子都是他发明的，被贬黄州还能研究怎么做饭。' },
+  { name:'关汉卿', era:'元·约1234-1300', tags:['元曲','戏剧','东方莎士比亚'], icon:'🎭', desc:'"我是个蒸不烂、煮不熟、捶不扁、炒不爆、响当当一粒铜豌豆。"《窦娥冤》——六月飞雪大旱三年，中国最早的悲剧经典。比莎士比亚早了300年。' },
+  { name:'曹雪芹', era:'清·约1715-1763', tags:['红楼梦','小说','百科全书'], icon:'📚', desc:'家道中落，穷得喝粥也要写《红楼梦》。"满纸荒唐言，一把辛酸泪。"120回，400多个人物——中国最伟大的小说。红学至今还在研究，养活了多少教授。' },
+  { name:'鲁迅', era:'现代·1881-1936', tags:['文学','思想','新文化运动'], icon:'✒️', desc:'"横眉冷对千夫指，俯首甘为孺子牛。"弃医从文，觉得治人心比治身体重要。毛泽东说："鲁迅的方向，就是中华民族新文化的方向。"棺材上覆盖着"民族魂"的旗帜。' },
+  { name:'钱穆', era:'现代·1895-1990', tags:['史学','国学','文化守护'], icon:'📖', desc:'中学没读完就当小学老师，自学成为一代史学宗师。抗战时在西南联大写《国史大纲》："对其本国已往历史有一种温情与敬意。"守护了中华文脉不被切断。' },
+  { name:'季羡林', era:'当代·1911-2009', tags:['东方学','梵文','翻译'], icon:'🔤', desc:'精通梵文、巴利文、吐火罗文——全世界懂吐火罗文的不到十个人。把印度《罗摩衍那》译成中文。他说："我一生有两个母亲，一个是生我的母亲，一个是我的祖国。"' }
+];
+
+function renderMasters() {
+  const container = document.getElementById('masters-container');
+  if (!container) return;
+  container.innerHTML = MASTERS.map((m, i) => `
+    <div class="master-card reveal" style="animation-delay:${i * 65}ms">
+      <div class="master-icon">${m.icon}</div>
+      <div class="master-name">${m.name}</div>
+      <div class="master-era">${m.era}</div>
+      <div style="margin-bottom:6px;">
+        ${m.tags.map(t => `<span class="master-tag">${t}</span>`).join('')}
+      </div>
+      <div class="master-desc">${m.desc}</div>
+    </div>
+  `).join('');
+  initReveal();
+}
+
+// ═══════════════════════════════════
+// 系统入口导航
+// ═══════════════════════════════════
+const PORTAL_ENTRIES = [
+  { icon:'🤖', name:'AI对话', desc:'混元/DeepSeek/Ollama本地模型，智能路由·流式输出', url:'../ai-chat/index.html', status:'online' },
+  { icon:'🔍', name:'搜索引擎', desc:'多源搜索·Bing+Baidu+学术源·结果缓存审计', url:'../ai-hub/index.html', status:'online' },
+  { icon:'📊', name:'Dashboard', desc:'系统监控面板·引擎状态·实时数据', url:'../dashboard/index.html', status:'online' },
+  { icon:'🛡️', name:'三色审计', desc:'三道闸口·十关审查·代码安全扫描', url:'../deben-audit/index.html', status:'online' },
+  { icon:'📜', name:'协议文档', desc:'人格治理白皮书·德本审计·隐私接入规则', url:'../protocol-structure/index.html', status:'local' },
+  { icon:'🎬', name:'视频工坊', desc:'AI视频生成·配音+动图+字幕', url:'../video-studio/index.html', status:'local' },
+  { icon:'🧠', name:'知识图谱', desc:'洛书九宫·五行生克·河图数理', url:'../knowledge/index.html', status:'local' },
+  { icon:'🎨', name:'AI绘图', desc:'国风插画·水墨风格·品牌视觉', url:'../ai-chat/index.html', status:'local' },
+  { icon:'⚔️', name:'红蓝对抗', desc:'P77黑天使·渗透测试·安全审计', url:'../audit-battle-hub/index.html', status:'local' },
+  { icon:'📱', name:'数字遗产', desc:'DNA注册·签名追溯·数字永生', url:'../dna-identity/index.html', status:'local' },
+  { icon:'⚖️', name:'人民维权助手', desc:'维权路径指引·法条检索·消费者保护', url:'../five-harms-expose/index.html', status:'local' },
+  { icon:'🎯', name:'多智能体协作', desc:'24人格Agent协同·总控编排·自动归档', url:'../team-orchestrator/index.html', status:'online' }
+];
+
+function renderPortal() {
+  const container = document.getElementById('portal-container');
+  if (!container) return;
+  container.innerHTML = PORTAL_ENTRIES.map((p, i) => `
+    <a class="portal-card reveal" href="${p.url}" target="_blank" rel="noopener" style="animation-delay:${i * 60}ms">
+      <span class="status-dot ${p.status}"></span>
+      <div class="portal-icon">${p.icon}</div>
+      <div class="portal-info">
+        <h4>${p.name}</h4>
+        <p>${p.desc}</p>
+      </div>
+    </a>
+  `).join('');
+  initReveal();
+}
+</script>
+
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

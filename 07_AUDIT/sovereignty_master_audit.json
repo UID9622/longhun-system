@@ -1,0 +1,52 @@
+{
+  "dna": "#龍芯⚡️丙午·甲申·甲寅·亥时·䷗复-SOVEREIGNTY-MASTER-GATE-v1.0-WELDED",
+  "timestamp": "2026-09-01T00:22:11.734069+00:00",
+  "constitution_check": [
+    {
+      "file": "CONSTITUTION.md",
+      "desc": "系统宪法",
+      "exists": true,
+      "verdict": "🟢"
+    },
+    {
+      "file": "P0_ETERNAL_LOCK.md",
+      "desc": "永恒锁",
+      "exists": true,
+      "verdict": "🟢"
+    },
+    {
+      "file": "01_protocols/LH-M261-PREQUEL-COVENANT-v1.0.md",
+      "desc": "M261前传契碑",
+      "exists": true,
+      "verdict": "🟢"
+    },
+    {
+      "file": "01_protocols/LH-DEBEN-AUDIT-v1.0.md",
+      "desc": "德本审计协议",
+      "exists": true,
+      "verdict": "🟢"
+    },
+    {
+      "file": "01_protocols/LH-TECH-SOVEREIGNTY-GUARD-REFERRAL-v1.0.md",
+      "desc": "技术主权转介协议",
+      "exists": true,
+      "verdict": "🟢"
+    },
+    {
+      "file": "AGENTS.md",
+      "desc": "宪法引用: 0/5条",
+      "exists": true,
+      "verdict": "🟡"
+    },
+    {
+      "file": ".codebuddy/CODEBUDDY.md",
+      "desc": "宪法引用: 0/5条",
+      "exists": true,
+      "verdict": "🟡"
+    }
+  ],
+  "engine_results": [
+    {
+      "name": "sovereignty_score",
+      "desc": "主权评分·7维度0-100分",
+      "verdict": 

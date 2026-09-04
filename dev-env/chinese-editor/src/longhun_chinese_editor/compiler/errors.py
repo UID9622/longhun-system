@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 CNSH 友好错误报告器
-DNA: #龍芯⚡️2026-06-26-LONGHUN-CNSH-ERRORS-v1.0
+DNA: #龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-LONGHUN-CNSH-ERRORS-v1.0
 
 将 lexer/parser/runtime 异常翻译为中文上下文友好的错误提示，
 方便中文母语开发者定位问题。

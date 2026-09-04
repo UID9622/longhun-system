@@ -1,0 +1,26 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# Claude 搭建待整理 · 升级归档
+
+**DNA**:#龍芯⚡️丙午·癸巳·癸巳·戊午·䷃蒙-CLAUDE_-INDEX_9CA0-v1.0
+
+本目录收录 `/Users/zuimeidedeyihan/claude搭建待整理` 中的非敏感技术资料，作为主干升级补充。
+
+## 目录结构
+
+| 文件夹 | 内容 |
+|--------|------|
+| `01_协议同步包/` | sync-CLAUDE 等协议安装包 |
+| `02_CNSH语言/` | CNSH 规范、.cnsh 示例、编译脚本 |
+| `03_审计宪法/` | 审计宪法章 1–6 |
+| `04_BehavCrypto论文/` | 论文草稿 B/C/D/E 附录 |
+| `05_工具脚本/` | alignment、build_bp、DNA 生成器等 |
+| `06_素材/` | SVG 图示 |
+| `07_开源模板/` | README、CONTRIBUTING 等模板 |
+| `08_报告归档/` | 历史完成报告、修复说明 |
+
+## 说明
+
+- `00_主干v3_已落地/` 与 `09_压缩包留档/` 未复制（前者已并入 `skills/`，后者为原始压缩包）。
+- 后续可将本目录内容逐步提炼、去重并合并到对应主干模块。

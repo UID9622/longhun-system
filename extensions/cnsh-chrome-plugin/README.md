@@ -1,4 +1,7 @@
-<!--#龍芯⚡️2026-06-21-CNSH-README-FILE1-v1.0-2 -->
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+<!--#龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-CNSH-README-FILE1-v1.0-2 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # ⚡ 龍魂 · CNSH Chrome Plugin
@@ -172,7 +175,7 @@ fetch('https://api.notion.com/v1/databases/YOUR_DB_ID', {
 
 ## 📜 DNA 追溯
 
-本扩展 DNA: `#龍芯⚡️20260417-CODE-CNSHV001`
+本扩展 DNA: `#龍芯⚡️丙午·壬辰·辛酉·甲午·䷨损-CODE-CNSHV001`
 
 **造物主：** UID9622 诸葛鑫
 **龍魂系统：** v0.1.0 · 三才架构（天·地·人）

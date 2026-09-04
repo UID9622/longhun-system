@@ -1,0 +1,925 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-a2dd6199 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CNSH·如意 — 多AI任务编排引擎</title>
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg-card: #111111;
+    --bg-input: #1a1a1a;
+    --gold: #d4a843;
+    --gold-dim: #8a6820;
+    --gold-light: #f0d68a;
+    --text: #c8c0b0;
+    --text-dim: #6a6458;
+    --red: #c0392b;
+    --green: #27ae60;
+    --yellow: #f39c12;
+    --border: #2a2a2a;
+    --code-font: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    --ui-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--ui-font);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* ─── 头部 ─── */
+
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+    background: var(--bg-card);
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .logo {
+    font-size: 32px;
+    color: var(--gold);
+  }
+  .title-block h1 {
+    font-size: 22px;
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .title-block .subtitle {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 2px;
+  }
+  .status-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    margin-left: auto;
+    box-shadow: 0 0 8px rgba(39,174,96,0.4);
+  }
+  .status-dot.offline { background: var(--red); box-shadow: 0 0 8px rgba(192,57,43,0.4); }
+
+  /* ─── 主布局 ─── */
+
+  .main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 20px;
+  }
+  .panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .panel-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .panel-title .icon { font-size: 18px; }
+
+  .panel-input { grid-column: 1; }
+  .panel-preview { grid-column: 2; }
+  .panel-result { grid-column: 1 / -1; }
+
+  /* ─── 输入区 ─── */
+
+  textarea {
+    width: 100%;
+    min-height: 240px;
+    background: var(--bg-input);
+    color: var(--gold-light);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px;
+    font-family: var(--code-font);
+    font-size: 14px;
+    line-height: 1.8;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  textarea:focus { border-color: var(--gold); }
+
+  .btn-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+
+  button {
+    padding: 8px 18px;
+    border: 1px solid var(--gold-dim);
+    background: transparent;
+    color: var(--gold);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  button:hover { background: rgba(212,168,67,0.1); border-color: var(--gold); }
+  button.primary {
+    background: var(--gold);
+    color: var(--bg);
+    border-color: var(--gold);
+    font-weight: 600;
+  }
+  button.primary:hover { background: var(--gold-light); }
+  button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .template-chips {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .chip {
+    padding: 4px 12px;
+    background: rgba(212,168,67,0.08);
+    border: 1px solid var(--gold-dim);
+    border-radius: 14px;
+    font-size: 12px;
+    color: var(--gold-dim);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .chip:hover { background: rgba(212,168,67,0.18); color: var(--gold); border-color: var(--gold); }
+
+  /* ─── 预览区 ─── */
+
+  .preview-empty {
+    color: var(--text-dim);
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 14px;
+  }
+  .preview-empty .icon { font-size: 40px; display: block; margin-bottom: 12px; }
+
+  .preview-block { margin-bottom: 16px; }
+  .preview-label {
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .preview-value {
+    font-size: 14px;
+    color: var(--text);
+    background: var(--bg-input);
+    padding: 8px 12px;
+    border-radius: 4px;
+  }
+  .action-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: var(--bg-input);
+    border-radius: 4px;
+    margin-bottom: 6px;
+  }
+  .action-ai {
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  .action-ai.codebuddy { background: rgba(39,174,96,0.15); color: var(--green); }
+  .action-ai.kimi { background: rgba(243,156,18,0.15); color: var(--yellow); }
+  .action-ai.huayundao { background: rgba(155,89,182,0.15); color: #9b59b6; }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    margin: 2px;
+  }
+  .tag.tech { background: rgba(52,152,219,0.15); color: #3498db; }
+  .tag.style-tag { background: rgba(230,126,34,0.15); color: #e67e22; }
+
+  /* ─── 结果区 ─── */
+
+  .result-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .audit-badge {
+    font-size: 24px;
+  }
+  .result-meta { font-size: 12px; color: var(--text-dim); }
+  .result-dna {
+    font-family: var(--code-font);
+    font-size: 11px;
+    color: var(--gold-dim);
+  }
+
+  .step-list { list-style: none; }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+  .step-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .step-detail { flex: 1; }
+  .step-title { font-size: 14px; font-weight: 500; }
+  .step-output {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 4px;
+    white-space: pre-wrap;
+    max-height: 80px;
+    overflow-y: auto;
+  }
+
+  .migration-md {
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px;
+    font-family: var(--code-font);
+    font-size: 12px;
+    white-space: pre-wrap;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+  .migration-md table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0;
+    font-size: 11px;
+  }
+  .migration-md th, .migration-md td {
+    border: 1px solid var(--border);
+    padding: 4px 8px;
+    text-align: left;
+  }
+  .migration-md th { background: var(--bg-card); color: var(--gold); }
+
+  /* ─── 底部 ─── */
+
+  .footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-dim);
+    font-size: 11px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+
+  /* ─── 加载状态 ─── */
+
+  .spinner {
+    display: inline-block;
+    width: 14px; height: 14px;
+    border: 2px solid var(--gold-dim);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ─── 响应式 ─── */
+
+  @media (max-width: 768px) {
+    .main { grid-template-columns: 1fr; }
+    .header-inner { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 头部 -->
+<header class="header">
+  <div class="header-inner">
+    <span class="logo">🐉</span>
+    <div class="title-block">
+      <h1>CNSH·如意</h1>
+      <div class="subtitle">多AI任务编排引擎 · 心意所指·万物皆成</div>
+    </div>
+    <div class="status-dot" id="statusDot" title="API状态"></div>
+  </div>
+</header>
+
+<!-- 主区 -->
+<div class="main">
+
+  <!-- 左: 输入面板 -->
+  <div class="panel panel-input">
+    <div class="panel-title">
+      <span class="icon">⌨️</span> CNSH 指令
+    </div>
+    <textarea id="cmdInput" placeholder="在此输入CNSH·如意指令...
+
+示例:
+定义 任务 &quot;生成用户登录页&quot;
+设 风格 为 &quot;简约商务风&quot;
+设 技术栈 为 [&quot;React&quot;, &quot;TypeScript&quot;]
+则 CodeBuddy 生成 前端页面
+则 Kimi 优化 视觉风格
+最后 转移 代码 至 华云道 渲染"></textarea>
+
+    <div class="template-chips" id="templateChips">
+      <span class="chip" data-template="web">🌐 Web项目模板</span>
+      <span class="chip" data-template="fix">🔧 修复任务模板</span>
+      <span class="chip" data-template="migrate">🔄 代码迁移模板</span>
+      <span class="chip" data-template="api">⚡ API开发模板</span>
+    </div>
+
+    <div class="btn-row">
+      <button class="primary" id="btnExecute" onclick="executeCommand()">⚡ 执行</button>
+      <button id="btnParse" onclick="parseCommand()">🔍 解析预览</button>
+      <button id="btnClear" onclick="clearAll()">✕ 清空</button>
+      <button id="btnHelp" onclick="showHelp()">❓ 语法</button>
+    </div>
+  </div>
+
+  <!-- 右: 预览面板 -->
+  <div class="panel panel-preview">
+    <div class="panel-title">
+      <span class="icon">📋</span> 解析预览
+    </div>
+    <div id="previewContent" class="preview-empty">
+      <span class="icon">🔎</span>
+      输入指令后点击「解析预览」<br>或直接「执行」
+    </div>
+  </div>
+
+  <!-- 下: 结果面板 -->
+  <div class="panel panel-result" id="resultPanel" style="display:none">
+    <div class="panel-title">
+      <span class="icon">📊</span> 执行结果
+    </div>
+    <div id="resultContent"></div>
+  </div>
+</div>
+
+<!-- 底部 -->
+<div class="footer">
+  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-RUYI-PORTAL-v1.0 &nbsp;|&nbsp;
+  UID9622 &nbsp;|&nbsp;
+  API: <span id="apiStatus">检查中...</span>
+</div>
+
+<script>
+// ─── 配置 ─────────────────────────────────────────────
+const API_BASE = window.location.hostname === 'uid9622.cn'
+  ? 'https://uid9622.cn/ruyi'
+  : 'http://127.0.0.1:8778';
+
+// ─── 模板 ─────────────────────────────────────────────
+const TEMPLATES = {
+  web: `定义 任务 "生成Web页面"
+设 风格 为 "简约商务风"
+设 技术栈 为 ["React", "TypeScript"]
+则 CodeBuddy 生成 前端页面
+则 Kimi 优化 视觉风格 并 生成 配套图标
+最后 转移 代码 至 华云道 渲染`,
+  fix: `定义 任务 "修复系统bug"
+设 技术栈 为 Python, FastAPI, MySQL
+则 CodeBuddy 修复 支付回调逻辑
+则 CodeBuddy 检测 变量冲突
+则 CodeBuddy 检测 依赖安全`,
+  migrate: `定义 任务 "Python代码转JavaScript"
+设 技术栈 为 Python, JavaScript
+则 CodeBuddy 转移 Python脚本 至 JavaScript
+则 CodeBuddy 检测 变量映射`,
+  api: `定义 任务 "构建REST API"
+设 技术栈 为 Python, FastAPI, PostgreSQL
+则 CodeBuddy 搭建 API端点 并 生成 数据模型
+则 CodeBuddy 检测 注入风险`,
+};
+
+// ─── 初始化 ──────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  checkApiStatus();
+
+  // 模板点击
+  document.getElementById('templateChips').addEventListener('click', (e) => {
+    if (e.target.classList.contains('chip')) {
+      const key = e.target.dataset.template;
+      if (TEMPLATES[key]) {
+        document.getElementById('cmdInput').value = TEMPLATES[key];
+        parseCommand();  // 自动预览
+      }
+    }
+  });
+
+  // Ctrl+Enter 执行
+  document.getElementById('cmdInput').addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+      e.preventDefault();
+      executeCommand();
+    }
+  });
+});
+
+// ─── API调用 ──────────────────────────────────────────
+
+async function apiCall(path, method = 'GET', body = null) {
+  const opts = {
+    method,
+    headers: { 'Content-Type': 'application/json' },
+  };
+  if (body) opts.body = JSON.stringify(body);
+
+  const resp = await fetch(`${API_BASE}${path}`, opts);
+  if (!resp.ok) {
+    const err = await resp.json().catch(() => ({ detail: resp.statusText }));
+    throw new Error(err.detail || `HTTP ${resp.status}`);
+  }
+  return resp.json();
+}
+
+async function checkApiStatus() {
+  try {
+    const data = await apiCall('/api/ruyi/status');
+    document.getElementById('statusDot').classList.remove('offline');
+    document.getElementById('apiStatus').textContent = `v${data.version} · 运行中`;
+  } catch {
+    document.getElementById('statusDot').classList.add('offline');
+    document.getElementById('apiStatus').textContent = '离线';
+  }
+}
+
+// ─── 解析预览 ─────────────────────────────────────────
+
+async function parseCommand() {
+  const cmd = document.getElementById('cmdInput').value.trim();
+  if (!cmd) return;
+
+  try {
+    const data = await apiCall('/api/ruyi/parse', 'POST', { command: cmd });
+    renderPreview(data);
+  } catch (e) {
+    document.getElementById('previewContent').innerHTML = `
+      <div class="preview-empty">
+        <span class="icon">❌</span>
+        解析失败: ${escapeHtml(e.message)}
+      </div>`;
+  }
+}
+
+function renderPreview(data) {
+  if (!data.valid) {
+    document.getElementById('previewContent').innerHTML = `
+      <div class="preview-empty">
+        <span class="icon">❌</span>
+        ${data.errors.map(e => escapeHtml(e)).join('<br>')}
+      </div>`;
+    return;
+  }
+
+  const t = data.task;
+  let html = '';
+
+  // 任务名
+  html += `<div class="preview-block">
+    <div class="preview-label">📌 任务</div>
+    <div class="preview-value">${escapeHtml(t.task_name || '未命名')}</div>
+  </div>`;
+
+  // 技术栈 + 风格
+  if (t.tech_stack?.length || t.style) {
+    html += `<div class="preview-block"><div class="preview-label">🏷️ 属性</div><div>`;
+    if (t.style) html += `<span class="tag style-tag">🎨 ${escapeHtml(t.style)}</span>`;
+    if (t.tech_stack) t.tech_stack.forEach(s => {
+      html += `<span class="tag tech">${escapeHtml(s)}</span>`;
+    });
+    html += `</div></div>`;
+  }
+
+  // 动作列表
+  if (t.actions?.length) {
+    html += `<div class="preview-block"><div class="preview-label">⚡ 动作分派 (${t.actions.length})</div>`;
+    t.actions.forEach((a, i) => {
+      const aiClass = (a.target_ai || '').toLowerCase();
+      const actionLabel = { generate: '生成', optimize: '优化', fix: '修复', check: '检测', transfer: '转移', build: '搭建', render: '渲染' }[a.action] || a.action;
+      html += `<div class="action-item">
+        <span class="action-ai ${aiClass}">${escapeHtml(a.target_ai)}</span>
+        <span>${actionLabel}</span>
+        <span style="color:var(--text-dim)">→ ${escapeHtml(a.target)}</span>
+      </div>`;
+    });
+    html += `</div>`;
+  }
+
+  // 转移
+  if (t.transfer_target) {
+    html += `<div class="preview-block">
+      <div class="preview-label">📦 最终转移</div>
+      <div class="preview-value">→ ${escapeHtml(t.transfer_target)} · ${escapeHtml(t.transfer_action)}</div>
+    </div>`;
+  }
+
+  document.getElementById('previewContent').innerHTML = html;
+}
+
+// ─── 执行 ─────────────────────────────────────────────
+
+async function executeCommand() {
+  const cmd = document.getElementById('cmdInput').value.trim();
+  if (!cmd) return;
+
+  const btn = document.getElementById('btnExecute');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> 执行中...';
+
+  // 显示结果面板
+  const resultPanel = document.getElementById('resultPanel');
+  resultPanel.style.display = 'block';
+  document.getElementById('resultContent').innerHTML = '<div class="preview-empty"><span class="spinner"></span> 如意执行中...</div>';
+
+  try {
+    const data = await apiCall('/api/ruyi/execute', 'POST', { command: cmd });
+    renderResult(data);
+  } catch (e) {
+    document.getElementById('resultContent').innerHTML = `
+      <div class="preview-empty">
+        <span class="icon">❌</span>
+        执行失败: ${escapeHtml(e.message)}
+      </div>`;
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '⚡ 执行';
+    resultPanel.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+function renderResult(data) {
+  const auditColor = { '🟢': '#27ae60', '🟡': '#f39c12', '🔴': '#c0392b' };
+  const color = auditColor[data.audit_mark] || '#888';
+
+  let html = '';
+
+  // 头部
+  html += `<div class="result-header">
+    <span class="audit-badge">${data.audit_mark}</span>
+    <div>
+      <div style="font-size:16px;font-weight:600">${escapeHtml(data.task_name)}</div>
+      <div class="result-meta">
+        状态: <b>${data.status}</b> &nbsp;|&nbsp; 耗时: ${data.duration_ms?.toFixed(0) || 0}ms &nbsp;|&nbsp; 记忆: ${data.memory_loaded ? '✅' : '⚠️'}
+      </div>
+      <div class="result-dna">${data.dna}</div>
+    </div>
+  </div>`;
+
+  // 路由步骤
+  if (data.route_results?.length) {
+    html += `<div class="preview-label" style="margin-bottom:8px">🛤️ 路由步骤</div>`;
+    html += `<ul class="step-list">`;
+    data.route_results.forEach((r, i) => {
+      const icon = r.success ? '✅' : '❌';
+      html += `<li class="step-item">
+        <span class="step-icon">${icon}</span>
+        <div class="step-detail">
+          <div class="step-title">${i+1}. ${escapeHtml(r.target_ai)} → ${escapeHtml(r.action)}</div>
+          ${r.output ? `<div class="step-output">${escapeHtml(r.output.substring(0, 200))}</div>` : ''}
+          ${r.error ? `<div class="step-output" style="color:var(--red)">${escapeHtml(r.error)}</div>` : ''}
+        </div>
+      </li>`;
+    });
+    html += `</ul>`;
+  }
+
+  // 迁移报告
+  if (data.migration_report) {
+    html += `<div class="preview-label" style="margin-top:16px;margin-bottom:8px">📦 转移状态</div>`;
+    html += `<div class="preview-value">目标: ${escapeHtml(data.migration_report.target_platform || '未指定')} · 状态: ${escapeHtml(data.migration_report.status || 'pending')}</div>`;
+  }
+
+  document.getElementById('resultContent').innerHTML = html;
+}
+
+// ─── 辅助 ─────────────────────────────────────────────
+
+function showHelp() {
+  const helpText = `CNSH·如意 语法速查
+
+【结构】
+  定义 任务 "名称"
+  设 [属性] 为 [值]
+  则 [AI角色] [动作] [目标]
+  最后 转移 至 [平台] [动作]
+
+【AI角色】
+  CodeBuddy — 鲁班·工程执行
+  Kimi      — 画师·视觉设计
+  华云道    — 织女·渲染展示
+
+【动作关键词】
+  生成 · 优化 · 检测 · 转移 · 渲染 · 修复 · 搭建
+
+【快捷键】
+  Ctrl+Enter → 执行当前指令`;
+
+  document.getElementById('previewContent').innerHTML = `
+    <div class="preview-block">
+      <div class="preview-label">📖 语法帮助</div>
+      <div class="preview-value" style="white-space:pre-wrap;font-family:var(--code-font)">${helpText}</div>
+    </div>`;
+}
+
+function clearAll() {
+  document.getElementById('cmdInput').value = '';
+  document.getElementById('previewContent').innerHTML = `
+    <div class="preview-empty"><span class="icon">🔎</span>输入指令后点击「解析预览」<br>或直接「执行」</div>`;
+  document.getElementById('resultPanel').style.display = 'none';
+  document.getElementById('resultContent').innerHTML = '';
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+</script>
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

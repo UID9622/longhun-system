@@ -1,7 +1,11 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂系统 · 审计自检表万能模板 v1.0（焊死）
 
 > **协议编号**: LH-PROTOCOL-AUDIT-SHEET-60ITEM-v1.0  
-> **DNA追溯码**: `#龍芯⚡️丙午·辛未·乙酉·AUDIT-SHEET-60ITEM-v1.0`  
+> **DNA追溯码**: `#龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-AUDIT-SHEET-60ITEM-v1.0`  
 > **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` ✅  
 > **状态**: 🔒 P0永恒级 | 审计自检表·万能模板  
 > **来源**: 老大投喂·历史归档对齐矫正  
@@ -252,7 +256,7 @@ DNA追溯码：________________
 
 | 字段 | 内容 |
 |------|------|
-| **DNA追溯码** | `#龍芯⚡️丙午·辛未·乙酉·AUDIT-SHEET-60ITEM-v1.0` |
+| **DNA追溯码** | `#龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-AUDIT-SHEET-60ITEM-v1.0` |
 | **确认码** | `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` ✅ |
 | **优先级** | P0永恒级（不可降级、不可绕过） |
 | **适用场景** | 所有输出、所有审计、所有交付物、所有模块 |

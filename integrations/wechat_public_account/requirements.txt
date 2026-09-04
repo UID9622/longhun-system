@@ -1,10 +1,7 @@
-requests>=2.31.0
-fastapi>=0.104.0
-uvicorn>=0.24.0
-jinja2>=3.1.2
-python-multipart>=0.0.6
-pydantic>=2.5.0
-python-dotenv>=1.0.0
-markdown>=3.5.0
-pillow>=10.1.0
-edge-tts>=7.0.0  # 微信公众号播报·成熟男声
+# 龍魂 CNSH Editor API 依赖
+# DNA: #龍芯⚡️2026-07-04-CNSH-API-REQUIREMENTS-v1.0
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+pydantic>=2.0.0
+# longhun-chinese-editor 请通过本地路径安装：
+#   pip install -e ../../dev-env/chinese-editor

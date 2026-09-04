@@ -1,0 +1,40 @@
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# 龍魂语义抽屉 · D08 · 军事指挥
+# 归属: 龍魂系统 UID9622 · 通心译引用源
+# 状态机: 种子 → 审核 → 焊死(P0冻结, 不可改只冻结)
+# 引用语法: @D08.{词元}  例: @D08.执行
+
+drawer: D08
+name: 军事指挥
+count: 4
+entries:
+  - term: "执行"
+    alias: ["开干", "跑起来"]
+    en: "execute"
+    cnsh: "执行"
+    gua: "䷤家人"
+    status: "种子"
+    note: "任务下达即行"
+  - term: "回滚"
+    alias: ["撤回", "复原"]
+    en: "rollback"
+    cnsh: "回滚"
+    gua: "䷥睽"
+    status: "种子"
+    note: "回到上一稳定态"
+  - term: "对抗"
+    alias: ["红蓝对抗", "演练"]
+    en: "red-blue"
+    cnsh: "对抗"
+    gua: "䷦蹇"
+    status: "种子"
+    note: "良性竞争机制"
+  - term: "战友"
+    alias: ["兄弟", "同志"]
+    en: "comrade"
+    cnsh: "战友"
+    gua: "䷧解"
+    status: "种子"
+    note: "并肩作战关系"

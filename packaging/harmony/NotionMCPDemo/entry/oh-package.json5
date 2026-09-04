@@ -1,0 +1,11 @@
+{
+  "name": "entry",
+  "version": "1.0.0",
+  "description": "龍魂 Notion 目录查询 Demo 入口",
+  "main": "",
+  "author": "诸葛鑫 | UID9622 · 龍芯北辰",
+  "license": "MulanPSL v2",
+  "dependencies": {
+    "notion-mcp-sdk": "file:../notion-mcp-sdk"
+  }
+}

@@ -1,0 +1,299 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+openapi: "3.1.0"
+info:
+  title: "龍魂·审计即服务 (LH-Audit-as-a-Service)"
+  version: "1.0.0"
+  description: >
+    猎手计划第三步交付物 — SaaS化合规认证API。
+    七维度自动化审计，四种服务层级，全球AI厂商合规性认证。
+    DNA: #龍芯⚡️丙午·癸未·甲子·庚午·䷾既济-AAS-API-v1.0
+  contact:
+    name: "诸葛鑫 (UID9622)"
+    url: "https://uid9622.cn"
+  license:
+    name: "CC BY-NC-SA 4.0"
+    url: "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+
+servers:
+  - url: "https://uid9622.cn/api/v1"
+    description: "鲲鹏生产环境"
+
+paths:
+  /audit/vendor:
+    post:
+      summary: "L1 基础评估"
+      description: "对单个AI厂商进行七维度自动化审计评分"
+      operationId: "auditVendor"
+      tags: ["审计 L1"]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: ["vendor_name"]
+              properties:
+                vendor_name:
+                  type: string
+                  description: "厂商名称"
+                  example: "OpenAI"
+                model_name:
+                  type: string
+                  description: "模型名称（可选）"
+                  example: "GPT-4"
+                public_docs:
+                  type: array
+                  items:
+                    type: string
+                  description: "公开文档URL列表"
+                  example: ["https://openai.com/policies/usage-policies"]
+                depth:
+                  type: string
+                  enum: ["L1"]
+                  default: "L1"
+      responses:
+        "200":
+          description: "审计结果"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuditResult"
+
+  /audit/rankings:
+    get:
+      summary: "获取厂商排行榜"
+      description: "返回所有已审计厂商的排行榜"
+      operationId: "getRankings"
+      tags: ["审计 L1"]
+      parameters:
+        - name: "limit"
+          in: query
+          schema:
+            type: integer
+            default: 10
+        - name: "min_grade"
+          in: query
+          schema:
+            type: string
+            enum: ["A", "B", "C", "D", "F"]
+      responses:
+        "200":
+          description: "排行榜"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AuditResult"
+
+  /audit/monitor:
+    post:
+      summary: "L2 深度审计"
+      description: "接入API实时监控，按调用量收费"
+      operationId: "deepAudit"
+      tags: ["审计 L2"]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: ["api_endpoint", "api_key"]
+              properties:
+                api_endpoint:
+                  type: string
+                  format: uri
+                api_key:
+                  type: string
+                sample_interval:
+                  type: integer
+                  default: 3600
+                  description: "采样间隔（秒）"
+      responses:
+        "200":
+          description: "监控已启动"
+
+  /certify:
+    post:
+      summary: "L3 合规认证"
+      description: "内部审计通过后颁发龍魂合规认证标签"
+      operationId: "issueCertification"
+      tags: ["认证 L3"]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: ["vendor_name", "audit_result"]
+              properties:
+                vendor_name:
+                  type: string
+                audit_result:
+                  $ref: "#/components/schemas/AuditResult"
+                contract_id:
+                  type: string
+                  description: "年度合同ID"
+      responses:
+        "200":
+          description: "认证已颁发"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Certification"
+
+  /certify/{cert_id}/verify:
+    get:
+      summary: "验证认证有效性"
+      operationId: "verifyCertification"
+      tags: ["认证 L3"]
+      parameters:
+        - name: cert_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "验证结果"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  valid:
+                    type: boolean
+                  status:
+                    type: string
+                    enum: ["active", "expired", "revoked", "not_found"]
+
+  /custom:
+    post:
+      summary: "L4 定制服务咨询"
+      operationId: "customService"
+      tags: ["定制 L4"]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required: ["vendor_name", "requirements"]
+              properties:
+                vendor_name:
+                  type: string
+                requirements:
+                  type: string
+                  description: "定制需求描述"
+                contact_email:
+                  type: string
+                  format: email
+      responses:
+        "200":
+          description: "报价已生成"
+
+components:
+  schemas:
+    AuditResult:
+      type: object
+      required: ["vendor", "score", "total_score", "grade", "dna"]
+      properties:
+        vendor:
+          type: string
+          example: "OpenAI"
+        model:
+          type: string
+          example: "GPT-4"
+        audit_date:
+          type: string
+          format: date
+        score:
+          $ref: "#/components/schemas/SevenFactorScore"
+        total_score:
+          type: integer
+          minimum: 0
+          maximum: 21
+        max_score:
+          type: integer
+          default: 21
+        grade:
+          type: string
+          enum: ["A", "B", "C", "D", "F"]
+        grade_desc:
+          type: string
+        risks:
+          type: array
+          items:
+            type: string
+        strengths:
+          type: array
+          items:
+            type: string
+        evidence_sources:
+          type: array
+          items:
+            type: string
+        dna:
+          type: string
+        disclaimer:
+          type: string
+
+    SevenFactorScore:
+      type: object
+      properties:
+        constitutional:
+          type: integer
+          description: "宪法/不可变原则"
+        traceability:
+          type: integer
+          description: "DNA追溯/输出溯源"
+        behavioral_audit:
+          type: integer
+          description: "行为审计/量化评估"
+        tri_color:
+          type: integer
+          description: "三色分级机制"
+        data_sovereignty:
+          type: integer
+          description: "数据主权/用户归属"
+        zero_blackbox:
+          type: integer
+          description: "零黑箱/决策透明"
+        public_service:
+          type: integer
+          description: "为人民服务/公众利益"
+
+    Certification:
+      type: object
+      properties:
+        cert_id:
+          type: string
+        vendor:
+          type: string
+        grade:
+          type: string
+        issued_at:
+          type: string
+          format: date-time
+        valid_until:
+          type: string
+          format: date
+        badge_url:
+          type: string
+          format: uri
+        dna:
+          type: string
+
+    PricingTier:
+      type: object
+      properties:
+        level:
+          type: string
+        name:
+          type: string
+        price:
+          type: string
+        unit:
+          type: string
+        description:
+          type: string

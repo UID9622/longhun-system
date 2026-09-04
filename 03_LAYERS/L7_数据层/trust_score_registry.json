@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "title": "龍魂·信任积分注册表",
+    "note": "user_dna_hash → trust_score"
+  },
+  "users": {
+    "uid9622_master_hash": 100.0,
+    "high_trust_contributor_a": 72.0,
+    "mid_trust_user_b": 35.0,
+    "new_user_c": 8.0,
+    "low_trust_visitor_d": 3.0
+  },
+  "names": {
+    "uid9622_master_hash": "UID9622·诸葛鑫",
+    "high_trust_contributor_a": "高信誉贡献者A",
+    "mid_trust_user_b": "中等信誉用户B",
+    "new_user_c": "新用户C",
+    "low_trust_visitor_d": "游客D"
+  }
+}

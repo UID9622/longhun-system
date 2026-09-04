@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "name": "龍魂CSDN文章注册表",
+    "version": "1.0",
+    "created": "丙午·辛未·丙戌",
+    "dna": "#龍芯⚡️丙午·辛未·丙戌-CSDN-REGISTRY-v1.0",
+    "total_articles": 4,
+    "last_sync": "2026-07-17T18:00:00"
+  },
+  "articles": [
+    {
+      "id": "csdn-001",
+      "title": "地道战与「地道战」：同样的铲子，挖的方向不同",
+      "category": "社会评论",
+      "tags": ["社会", "主权", "套路", "基层"],
+      "url": "https://blog.csdn.net/UID9622/article/details/162974480",
+      "published": "2026-07-17T17:30:51",
+      "local_file": "lh_knowledge_社会评论_地道战与地道战.md",
+      "dna": "#龍芯⚡️丙午·辛未·丙戌-CSDN-KNOWLEDGE-DIDAOZHAN",
+      "summary": "对比抗战时期的地道战和当下的'挖自己人'现象，揭露'为你好'式绑架套路，呼唤真守大门的人"
+    },
+    {
+      "id": "csdn-002",
+      "title": "别再加戏了：让付出的人寒心，是这个社会最大的蠢",
+      "category": "社会评论",
+      "tags": ["社会", "奉献", "绑架", "人才流失"],
+      "url": "https://blog.csdn.net/UID9622/article/details/162973414",
+      "published": "2026-07-17T16:47:13",
+      "local_file": "lh_knowledge_社会评论_别再加戏了.md",
+      "dna": "#龍芯⚡️丙午·辛未·丙戌-CSDN-KNOWLEDGE-HANXIN",
+      "summary": "批判'付出=吃苦'的宣传绑架逻辑，以韩红为例揭露寒心代价，提出让付出的人有尊严的解法"
+    },
+    {
+      "id": "csdn-003",
+      "title": "龍魂 · 懒的牢房系列（全五篇）v3.0",
+      "category": "数字主权",
+      "tags": ["数字主权", "算法", "信息茧房", "情绪", "身体", "关系"],
+      "url": "https://uid9622-01.blog.csdn.net/article/details/162891405",
+      "published": "2026-07-15T07:10:38",
+      "local_file": "lh_knowledge_数字主权_懒的牢房系列.md",
+      "dna": "#龍芯⚡️丙午·辛未·丙戌-CSDN-KNOWLEDGE-LAN-LAOFANG",
+      "summary": "五层牢房（时间→信息→情绪→关系→身体）剥洋葱式破局，还原'懒'的真相：不是懒，是被剥夺了主权"
+    },
+    {
+      "id": "csdn-004",
+      "title": "龍魂系统·民间出创意国家出维护永恒锁",
+      "category": "龍魂治理",
+      "tags": ["龍魂", "治理", "P0焊死", "16部门", "一票否决"],
+      "url": "https://uid9622-01.blog.csdn.net/article/details/162915585",
+      "published": "2026-07-16T00:58:21",
+      "local_file": "lh_knowledge_龍魂治理_永恒锁.md",
+      "dna": "#龍芯⚡️丙午·辛未·丙戌-CSDN-KNOWLEDGE-ETERNAL-LOCK",
+      "summary": "P0-P4四层治理锁：12条焊死不可修订 + UID9622一票否决 + 16人格对应16部门 + 2026.9.1前交接"
+    }
+  ],
+  "categories": {
+    "社会评论": ["csdn-001", "csdn-002"],
+    "数字主权": ["csdn-003"],
+    "龍魂治理": ["csdn-004"]
+  },
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+}

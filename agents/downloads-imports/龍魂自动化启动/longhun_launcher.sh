@@ -1,4 +1,5 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 # 龍魂支付系统 · 主启动菜单
 # LongHun System · Main Launcher Menu
@@ -195,4 +196,4 @@ case $choice in
 esac
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·丰-CONFIRM-SEAL-longhun_launcher-9802441E
+# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷶丰-CONFIRM-SEAL-longhun_launcher-9802441E

@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂智能体编排规范 v1.3
 
 > **不是固定后台，是可叠加、可扩展、可审计的本地智能体编排层。**
@@ -6,7 +9,7 @@
 
 <!-- DNA -->
 ```
-#龍芯⚡️2026-07-06-AGENT-ORCHESTRATION-SPEC-v1.7
+#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-AGENT-ORCHESTRATION-SPEC-v1.7
 ```
 <!-- 君子协议：本文件受龍魂DNA追溯保护，来源不可删、影响不可覆、贡献不可抹 -->
 
@@ -281,10 +284,10 @@ longhun-system/agents/
 
 ## 十一、DNA 与君子协议
 
-- **规范 DNA**：`#龍芯⚡️2026-07-06-AGENT-ORCHESTRATION-SPEC-v1.7`
-- **注册表 DNA**：`#龍芯⚡️2026-07-06-AGENT-MANIFEST-v1.10-CLEAN`
-- **编排器 DNA**：`#龍芯⚡️2026-06-26-AGENT-ORCHESTRATOR-v1.1`
-- **守护进程 DNA**：`#龍芯⚡️2026-06-26-LONGHUN-AGENT-DAEMON-v1.0`
+- **规范 DNA**：`#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-AGENT-ORCHESTRATION-SPEC-v1.7`
+- **注册表 DNA**：`#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-AGENT-MANIFEST-v1.10-CLEAN`
+- **编排器 DNA**：`#龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-AGENT-ORCHESTRATOR-v1.1`
+- **守护进程 DNA**：`#龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-LONGHUN-AGENT-DAEMON-v1.0`
 - **确认码**：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 - **协议**：CC BY-NC-SA 4.0
 - **原则**：站普通人一边、数据主权至上、反垄断评分独立、来源不可删

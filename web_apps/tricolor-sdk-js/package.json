@@ -1,0 +1,29 @@
+{
+  "name": "@longhun/tricolor",
+  "version": "1.1.0",
+  "description": "龍魂·三色审计 JavaScript SDK — 中文原生AI合规治理操作层标准",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "type": "module",
+  "files": ["src/", "dist/", "README.md"],
+  "scripts": {
+    "test": "node test/conformance.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UID9622/longhun-system"
+  },
+  "keywords": [
+    "tricolor-audit",
+    "ai-governance",
+    "compliance",
+    "龍魂",
+    "三色审计",
+    "AI治理"
+  ],
+  "author": "诸葛鑫（UID9622）",
+  "license": "MulanPSL-2.0",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

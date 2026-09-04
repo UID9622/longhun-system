@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 <!--#龍芯⚡️丙午·乙未·癸未·辰时·䷾既济-DOC-PERSONA_TRAINING_SYSTEM-v1.1 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
@@ -6,7 +8,7 @@
 > **📻 最新广播**: 参见 [`agents/broadcast/BULLETIN_DNA_v∞_2026-07-08.md`](broadcast/BULLETIN_DNA_v∞_2026-07-08.md)
 > — DNA 格式已从格里历 YYYY-MM-DD 升级为干支时辰 v∞，四代并行兼容。
 
-DNA(v1.0): `#龍芯⚡️2026-06-09-PERSONA-TRAINING-SYSTEM-v1.0`  
+DNA(v1.0): `#龍芯⚡️丙午·甲午·甲寅·庚午·䷕贲-PERSONA-TRAINING-SYSTEM-v1.0`  
 DNA(v1.1): `#龍芯⚡️丙午·乙未·癸未·辰时·䷾既济-PERSONA-TRAINING-SYSTEM-v1.1`  
 DNA 修复: `#龍芯⚇️`（圈点·旧符号）→ `#龍芯⚡️`（闪电·标准符号）⎯ 2026-07-08 修复
 

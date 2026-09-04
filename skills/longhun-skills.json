@@ -1,780 +1,6 @@
 {
-  "total": 60,
+  "total": 132,
   "skills": [
-    {
-      "id": "china-digital-identity",
-      "name": "china-digital-identity",
-      "version": "2.1.0",
-      "description": "龍魂数字身份主权协议 v2.0 技能。主动布局，不用等用户说关键词。 当对话中出现数字身份、数据主权、魂灵ID、私云归藏、烽火传心、 登记、采集、人脸识别、手机号、身份证、龍芯、鸿蒙、北斗、星闪、 被骚扰、道德绑架、基层干部、物业、快递员、外卖员、工地等语境时自动触发。 输出协议原文、一句话、三句话怼人、技术栈、行动清单。 核心原则：人民数据主权 · 平台服务降级。技术底座：龍芯 × 华为 × CNSH 融合。",
-      "scope": "project",
-      "type": "doc",
-      "scripts": [],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/china-digital-identity",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-20-DIGITAL-IDENTITY-SOVEREIGNTY-FILE1-v2.1",
-      "cloud_port": null
-    },
-    {
-      "id": "CNSH-PROTOCOL",
-      "name": "cnsh-protocol-v2-0",
-      "version": "1.0",
-      "description": "CNSH语言完整规范v2.0 — 中文母语关键字+龍魂专属符号+DNA强制追溯+三色审计强制+权重指向焊死+多目标语言转换器。14章完整规范：符号体系·语法·编译器·标准库·错误处理·测试驱动·生态对接·版本演进。",
-      "scope": "project",
-      "type": "doc",
-      "scripts": [],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/CNSH-PROTOCOL",
-      "source": "external-json",
-      "dna": "#龍芯⚡️2026-06-19-CNSH-PROTOCOL-v2.0",
-      "cloud_port": null
-    },
-    {
-      "id": "CNSH-SEMANTIC",
-      "name": "cnsh-semantic-v2-0",
-      "version": "1.0",
-      "description": "CNSH语义接入规范v2.0 — 功能语义·技术用词对照表+协作宣言+八条永恒铁律。中英对照·行话翻译·DNA锚链。L0永恒锁·焊死永不改。",
-      "scope": "project",
-      "type": "doc",
-      "scripts": [],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/CNSH-SEMANTIC",
-      "source": "external-json",
-      "dna": "#龍芯⚡️2026-06-19-CNSH-SEMANTIC-v2.0",
-      "cloud_port": null
-    },
-    {
-      "id": "content_sovereignty_protocol_v2.1",
-      "name": "content_sovereignty_protocol_v2.1",
-      "version": "2.1",
-      "description": "龍魂 · CNSH 内容主权协议 v2.1 —— 不是元数据，是主权的基础设施。 提供八层主权框架、铁律自审闸、CNSH 四层检查、SQLite 主权数据库与内容哈希链， 确保任何内容输出都经过逻辑校验、价值观校验、技术校验与主权字熔断。 当用户提及以下关键词时触发：内容主权、CNSH内容、铁律自审、主权字、内容审核、 价值观校验、繁体龍、八层主权、内容哈希、创作者主权、不蒸馏、绝不变体。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "content_sovereignty_protocol_v2.1.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/content_sovereignty_protocol_v2.1",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-17-CONTENT-SOVEREIGNTY-PROTOCOL-v2.1",
-      "cloud_port": null
-    },
-    {
-      "id": "digital-identity-sovereignty",
-      "name": "china-digital-identity",
-      "version": "2.0.0",
-      "description": "龍魂数字身份主权协议 v2.0 技能。主动布局，不用等用户说关键词。 当对话中出现数字身份、数据主权、魂灵ID、私云归藏、烽火传心、 登记、采集、人脸识别、手机号、身份证、龍芯、鸿蒙、北斗、星闪、 被骚扰、道德绑架、基层干部、物业、快递员、外卖员、工地等语境时自动触发。 输出协议原文、一句话、三句话怼人、技术栈、行动清单。 核心原则：人民数据主权 · 平台服务降级。技术底座：龍芯 × 华为 × CNSH 融合。",
-      "scope": "project",
-      "type": "doc",
-      "scripts": [],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/digital-identity-sovereignty",
-      "source": "external-json",
-      "dna": "#龍芯⚡️2026-06-20-DIGITAL-IDENTITY-SOVEREIGNTY-v2.0",
-      "cloud_port": null
-    },
-    {
-      "id": "dragon-soul-agent",
-      "name": "dragon-soul-agent",
-      "version": "1.0",
-      "description": "当用户提及 UID9622、龍魂、Dragon Soul、CNSH、中文编程、中文命名规范、 通心译、Tongxin Translation、三色审计、DNA追溯、龍芯、君子协议、 六层来源链、干掉Cloud 5、自主云、中文原生脚本、中文AI术语映射、 龍魂治理、CNSH_前缀、繁体龍字规范时激活此技能。 提供中文语义理解能力、CNSH中文命名规范检查、通心译实时翻译、 龍魂治理框架审计与DNA追溯。 适用于中文编程项目、AI系统治理、开源项目审计、中文技术文档翻译。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "compliance/内容安全过滤器.py",
-        "compliance/出海合规矩阵.py",
-        "compliance/合规报告生成器.py",
-        "compliance/数据合规检查器.py",
-        "compliance/法规数据库/china_ai_regulation.py",
-        "compliance/法规数据库/eu_ai_act.py",
-        "compliance/法规数据库/gdpr.py",
-        "compliance/法规数据库/us_state_laws.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/dragon-soul-agent",
-      "source": "external",
-      "dna": "#龍芯⚡️{YYYY-MM-DD}-{项目}-{模块}-{版本}`，六层来源链完整。",
-      "cloud_port": null
-    },
-    {
-      "id": "kimi-webbridge",
-      "name": "kimi-webbridge",
-      "version": "1.0",
-      "description": "Kimi WebBridge lets AI control the user's real browser — navigate, click, type, read, screenshot, and interact with any website using the user's actual login sessions. Use this skill whenever the user wants to interact with websites, automate browser tasks, scrape web content, or perform any action requiring a real browser. Also use when the user mentions \"browser\", \"webpage\", \"open URL\", \"screenshot\", or asks to read/interact with any website. Use even for simple-sounding browser requests — the daemon handles all complexity.",
-      "scope": "project",
-      "type": "doc",
-      "scripts": [],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/kimi-webbridge",
-      "source": "external-json",
-      "dna": "#龍芯⚡️2026-06-23-KIMI-WEBBRIDGE-v1.0",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-3core-opt",
-      "name": "longhun-3core-opt",
-      "version": "5.2.0",
-      "description": "LongHun 3-Core Optimizer v5.2 - Five-module performance optimization system with SI sovereignty index, F1-F7 factor validation, cognitive DNA particles, execution router, and persona router.",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/三核心优化器.py",
-        "scripts/快速启动检查.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-3core-opt",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-3CORE-OPT-v5.2",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-agent-eco",
-      "name": "longhun-agent-eco",
-      "version": "1.0",
-      "description": "longhun-agent-eco",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/任务管理器v2.py",
-        "scripts/智能体生态系统.py",
-        "scripts/路由引擎v2.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-agent-eco",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-AGENT-ECO-v5.1\"",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-archive",
-      "name": "longhun-archive",
-      "version": "5.0.0",
-      "description": "中央藏经阁 — 龍魂体系29部核心文档的统一索引和检索系统。 五行分类法（金木水火土）、关键词检索、DNA追溯检索、全文搜索。 预置索引包含：GIGO报告、系统底座、e-CNY方案、CNSH-LSAOS、 大国博弈、洛书369、量子甲骨文、CNSH-64、Web3-DNA交易等。 当需要检索龍魂文档、五行分类查找、DNA追溯查询时触发。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/中央藏经阁.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-archive",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-CENTRAL-ARCHIVE-v5.0",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-asr",
-      "name": "longhun-asr",
-      "version": "5.0.0",
-      "description": "LongYin ASR — Chinese-first speech recognition engine. Pinyin alignment, tone recognition (4-tone classification), dialect adaptation, Chinese programming voice input, voice-to-CNSH-code conversion. Built-in 819-character pinyin table + 68 programming commands. International fallback: Whisper base model. Trigger when speech recognition, voice-to-code, Chinese voice input, or wake word detection is needed. Voice-to-CNSH code generation with 68 built-in programming command templates. Wake word detection supports dual matching (text + pinyin fuzzy matching). Pure Python math utilities with numpy fallback. Self-implemented MFCC, VAD, tone recognition. Three-color audit markers for dependency status tracking. CC BY-NC-SA 4.0 license with君子协议. DNA追溯 chain: LONGYIN-ASR-v5.0",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/语音识别引擎.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-asr",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGYIN-ASR-v5.0",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-audit",
-      "name": "longhun-audit",
-      "version": "5.1.0",
-      "description": "龍魂審計修復系統 v5.1 — Agent修復追踪、根因分析引擎、修復驗證流程、歸檔評估系統。追踪AGENT-007/011/014修復記錄，自動生成審計日誌，C=R·I·T歸檔價值評估公式，完整性檢查。當需要修復追踪、故障審計、歸檔管理、根因分析時觸發。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/审计修复系统.py",
-        "scripts/归档评估器.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-audit",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-AUDIT-v5.1",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-automation",
-      "name": "longhun-automation",
-      "version": "5.1",
-      "description": "龍魂自動化日評估引擎，6維度系統健康檢查，Cron定時任務，自動化周報生成，支持環境/代碼/數據/可運行性/文檔/安全六大維度評估",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/自动化评估.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-automation",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-AUTOMATION-v5.1",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-backup",
-      "name": "longhun-backup",
-      "version": "1.0",
-      "description": "龍魂备份恢复系统 (Longhun Backup & Recovery v5.1)。 提供三层分级备份策略（L1协议文件 / L2五层脚本 / L3配置文件）、 全量备份、增量备份、定时备份调度、快照恢复、版本回退、完整性验证等功能。 适用于龍魂v5技能栈的备份保护与灾难恢复场景。 当用户需要备份龍魂系统、恢复先前版本、验证备份完整性、 或设置自动备份策略时使用此技能。 DNA: #龍芯⚡️2026-06-19-LONGHUN-BACKUP-v5.1",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/备份管理器.py",
-        "scripts/恢复系统.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-backup",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-BACKUP-v5.1",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-behavior-engine",
-      "name": "longhun-behavior-engine",
-      "version": "1.0",
-      "description": "龍魂公民画像引擎 — 真实行为·真诚评估·自主亮灯。 六大维度：环保贡献/信誉分/互动质量/服务分/习惯分/真实度总分。 记录小行为（点外卖不要餐具=环保分），评估真实性（敷衍点赞权重打折）， 用户自主控制展现。反资本算法，干净透明。 当需要个人行为评估、环保积分、信誉体系、服务质量评估时触发。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/公民画像引擎.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-behavior-engine",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-20-LONGHUN-BEHAVIOR-v1.0`",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-benchmark",
-      "name": "longhun-benchmark",
-      "version": "5.1",
-      "description": "Longhun Formula System performance benchmark engine with 16 test scenarios across Core layer (8 items), Chain layer (5 items), and Batch tests (3 items). Includes comparison analysis between v1.0 and v2.0, trend analysis, regression detection, and report generation. Achieves 205,228 decisions/sec throughput with audit trail overhead quantified at 5-20%.",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/基准测试引擎.py",
-        "scripts/性能分析器.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-benchmark",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-BENCHMARK-v5.1",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-cloud-deploy",
-      "name": "longhun-cloud-deploy",
-      "version": "5.0.0",
-      "description": "龍魂部署引擎 v5.0 — 27步藍綠部署+自動化+零停機切換+回滾。 Kubernetes/Docker支持，環境驗證，健康檢查，監控集成。 API端點: http://api:8443/deploy/ 當需要系統部署、藍綠切換、DevOps自動化、回滾時觸發。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/k8s控制器.py",
-        "scripts/健康檢查.py",
-        "scripts/回滚系統.py",
-        "scripts/部署引擎.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cloud-deploy",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-DEPLOY-v5.0",
-      "cloud_port": 8444
-    },
-    {
-      "id": "longhun-cloud-kimi",
-      "name": "longhun-cloud-kimi",
-      "version": "5.0.0",
-      "description": "龍魂Kimi集成 v5.0 — Kimi API接入+断路器+故障转移+本地备份推理。4个集成模式全部正常工作，故障自动转移，API响应低于100ms。API端点: http://api:8443/kimi/。当需要Kimi AI调用、故障转移、本地推理备份、API监控时触发。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/Kimi集成器.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cloud-kimi",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-KIMI-v5.0",
-      "cloud_port": 8447
-    },
-    {
-      "id": "longhun-cloud-mcp",
-      "name": "longhun-cloud-mcp",
-      "version": "5.0.0",
-      "description": "龍魂MCP服務 v5.0 — FastMCP集成+工具定義+Dockerfile自動生成+配置管理。 支持龍魂體系14個技能的MCP協議暴露，統一工具註冊中心。 API端點: http://api:8443/mcp/ 當需要MCP服務、工具定義、AI協議集成、Docker構建時觸發。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/MCP服務器.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cloud-mcp",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-MCP-v5.0",
-      "cloud_port": 8445
-    },
-    {
-      "id": "longhun-cloud-notion",
-      "name": "longhun-cloud-notion",
-      "version": "5.0.0",
-      "description": "龍魂Notion集成 v5.0 — Notion API雙向同步+自動化週報+DNA校驗+訓練進度。 支持周檢查自動化、協議完整性驗證、團隊統計。 API端點: http://api:8443/notion/ 當需要Notion同步、週報生成、DNA校驗、進度統計時觸發。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/Notion同步器.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cloud-notion",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-NOTION-v5.0",
-      "cloud_port": 8446
-    },
-    {
-      "id": "longhun-cloud-panel",
-      "name": "longhun-cloud-panel",
-      "version": "1.0",
-      "description": "龍魂操作台 v5.0 — FastAPI统一API+Web UI，10项Skill+底座能力联动。 本地技能与云端技能的统一入口，请求路由分发，health check监控。 API端点: http://api:8443/panel/ 当需要统一操作台、API网关、Skill联动调度、Web UI时触发。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/操作台API.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cloud-panel",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-PANEL-v5.0`",
-      "cloud_port": 8443
-    },
-    {
-      "id": "longhun-cnsh",
-      "name": "longhun-cnsh",
-      "version": "3.0.0",
-      "description": "CNSH中文原生脚本运行时 v3.0 — L1-L7层级完整实现。 字元创作、AI画匠、中文编程、文化主权（繁体龍字永存、甲骨文编码）。 15层渲染系统、DNA追溯、.cnsh文件格式支持。 当需要使用中文编程、CNSH规范检查、字元创作、文化主权验证时触发。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/CNSH运行时.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cnsh",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-CNSH-RUNTIME-v3.0",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-creator",
-      "name": "longhun-creator",
-      "version": "5.2.0",
-      "description": "龍魂创作者主权调度技能。当 UID9622 用自然语言表达意图时，自动识别、 自动路由、自动调动已安装的 longhun 技能与 CNSH 模块，无需记忆协议或命令。 协议是创作者手中的工具，不是约束。系统服务于创作者，而不是反过来。",
-      "scope": "project",
-      "type": "doc",
-      "scripts": [],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-creator",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-CREATOR-v5.2",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-cross-platform",
-      "name": "longhun-cross-platform",
-      "version": "5.3",
-      "description": "龍魂跨平台互通技能 — iOS与华为鸿蒙设备间本地网络直连数据同步，使用国密SM4加密信封 + ECDH密钥协商 + 版本向量一致性保证 + 主权网关出境阻断，数据根留中国，绝不经过外网",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/主权网关.py",
-        "scripts/传输管理器.py",
-        "scripts/冲突解决器.py",
-        "scripts/加密信封.py",
-        "scripts/密钥协商器.py",
-        "scripts/版本向量时钟.py",
-        "scripts/跨平台主模块.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cross-platform",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-CROSS-PLATFORM-v5.3",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-daemon",
-      "name": "longhun-daemon",
-      "version": "v5.2.0",
-      "description": "龍魂系統守護進程 - 安裝/啟動/停止/重啟龍魂服務，一鍵啟動全部服務（按依賴順序），定時健康檢查，服務崩潰時自動重啟，日誌輪轉，啟動配置驗證",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/一鍵啟動器.py",
-        "scripts/健康檢查器.py",
-        "scripts/守护进程管理器.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-daemon",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-DAEMON-v5.2",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-deployment-ready",
-      "name": "longhun-deployment-ready",
-      "version": "5.2",
-      "description": "龍魂部署就绪系统 - 全链路部署自动化框架，提供27项部署就绪检查、分阶段自动部署执行、环境/配置验证和故障排查能力",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/故障排查助手.py",
-        "scripts/环境验证器.py",
-        "scripts/部署就绪检查器.py",
-        "scripts/部署执行器.py",
-        "scripts/配置验证器.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-deployment-ready",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-DEPLOY-READY-v5.2",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-dna-align",
-      "name": "longhun-dna-align",
-      "version": "5.2.0",
-      "description": "龍魂DNA對齊審計系統 v5.2 — 全系統DNA掃描·對齊率計算·重複檢測·自動修復·完整性驗證。當需要掃描文件DNA標記、計算對齊率、發現重複DNA、修復缺失DNA、生成審計報告時觸發。核心數據: 752文件·對齊率6.3%·705無DNA·24重複。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/DNA修复器.py",
-        "scripts/DNA对齐审计器.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-dna-align",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-DNA-ALIGN-v5.2",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-empower-engine",
-      "name": "longhun-empower-engine",
-      "version": "v1.5",
-      "description": "龍魂赋能关键字识别引擎——不是打标签，是让水流到该去的地方。 识别用户真实需求→路由到对应人格→赋能输出。 包含10大类关键字路由表、9人格分工地图、反流量垄断算法、 REST API、前端面板和华为云部署SOP。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/empower_engine_v2.py",
-        "scripts/longhun_api.py",
-        "scripts/notion_reporter.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-empower-engine",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-05-17-EMPOWER-ENGINE-v1.5",
-      "cloud_port": 9622
-    },
-    {
-      "id": "longhun-finance",
-      "name": "longhun-finance",
-      "version": "9.0",
-      "description": "Web3-DNA交易系统 v9.0（量子态不动点）。双轨数字人（虚拟代体+实体原型）、 五行决策引擎（金木水火土相生相克）、64卦实时审计（8维度×64卦×384爻）、 e-CNY数字人民币跨境支付。一次塌缩永久固化。 当需要金融交易、风险评估、五行决策、卦象审计、数字人管理时触发。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/金融交易引擎.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-finance",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-WEB3-DNA-FINANCE-v9.0",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-forensic-toolkit",
-      "name": "longhun-forensic-toolkit",
-      "version": "1.0",
-      "description": "龍魂取证工具包 v1.0 —— 91 张截图 + GPG 签名链 = 不可篡改的数字主权证据矩阵。 用于对平台限流、隐藏、AI 拉黑、人际删除等数字侵害行为进行证据固化、哈希校验与 GPG 签名验证。 当用户提及以下关键词时触发：取证、证据矩阵、GPG、manifest、数字主权证据、截图取证、 限流证据、平台隐藏、不可篡改、证据链、验证签名、龍魂取证。",
-      "scope": "project",
-      "type": "doc",
-      "scripts": [],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-forensic-toolkit",
-      "source": "external",
-      "dna": "#龍芯⚡️20260521-FORENSIC-TOOLKIT-v1.0",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-formula-opt",
-      "name": "longhun-formula-opt",
-      "version": "5.2",
-      "description": "龍魂體系L14公式鏈優化系統，包含增量哈希鏈O(n)驗證、權重緩存、SI緩存、快速熔斷、v1/v2性能對比分析、自動優化建議引擎。支持205,228決策/秒批量吞吐，三色審計規範。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/公式链优化器.py",
-        "scripts/性能对比分析器.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-formula-opt",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-FORMULA-OPT-v5.2\"",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-governance",
-      "name": "longhun-governance",
-      "version": "5.0.0",
-      "description": "龍魂体系治理层技能。包含三层监督机制、三色审计体系、DNA全链路追溯、 君子协议开源宪章、AI Truth Protocol、通心译双语规范。 这是所有其他龍魂技能的基础依赖。 当需要AI行为治理、审计追踪、DNA签名、合规检查时触发此技能。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/AI真相协议.py",
-        "scripts/DNA追溯器.py",
-        "scripts/三层监督器.py",
-        "scripts/三色审计器.py",
-        "scripts/君子协议.py",
-        "scripts/通心译协议.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-governance",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-GOVERNANCE-v5.0",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-harmonyos",
-      "name": "longhun-harmonyos",
-      "version": "v5.3",
-      "description": "龍魂体系鸿蒙HarmonyOS端技能 - 数据根留在中国，S4安全级别锁死云端出境，SM4国密端侧加密，RdbObserver毫秒级监听",
-      "scope": "project",
-      "type": "doc",
-      "scripts": [],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-harmonyos",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-HARMONYOS-v5.3",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-integration",
-      "name": "longhun-integration",
-      "version": "5.2.0",
-      "description": "龍魂系统集成测试引擎 —— 端到端自动化测试、模块兼容性检查、API连通性测试、数据一致性验证、性能回归测试与集成报告生成",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/兼容性检查器.py",
-        "scripts/集成测试引擎.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-integration",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-INTEGRATION-v5.2",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-ios",
-      "name": "longhun-ios",
-      "version": "5.3.0",
-      "description": "iOS端本地数据治理技能，CoreData本地存储+AES-256端侧加密+Secure Enclave硬件保护，数据根留中国，禁用iCloud同步，与华为鸿蒙端格式互通",
-      "scope": "project",
-      "type": "doc",
-      "scripts": [],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-ios",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-IOS-v5.3\"",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-iron-laws",
-      "name": "longhun-iron-laws",
-      "version": "1.0",
-      "description": "龍魂铁律总览技能：当对话涉及 UID9622 主权底线、AI 行为约束、DNA 追溯、三色审计、创作者守护、对外发布伦理、规则方向性、反蒸馏、反情绪滥用、代码 / API / IP / 工具主权出口等场景时触发。提供铁律索引、子律速查与行为熔断指引。",
-      "scope": "project",
-      "type": "doc",
-      "scripts": [],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-iron-laws",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-05-11-IRON-LAW-CONSOLIDATION-v1.0",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-kg-upgrade",
-      "name": "longhun-kg-upgrade",
-      "version": "1.0.0",
-      "description": "龍魂知识图谱正规化升级方案——引入图数据库(Neo4j)+标准化本体(RDF/OWL)+实体消歧+推理引擎(PageRank/社区发现/规则推理)+增量更新。将小易建议的5个改进方向全部实现为本地可执行系统。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/data_migrator.py",
-        "scripts/entity_resolver.py",
-        "scripts/incremental_indexer.py",
-        "scripts/inference_engine.py",
-        "scripts/kg_main.py",
-        "scripts/neo4j_connector.py",
-        "scripts/ontology.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-kg-upgrade",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-26-KG-UPGRADE-v1.0",
-      "cloud_port": 5050
-    },
-    {
-      "id": "longhun-math-formula-core",
-      "name": "longhun-math-formula-core",
-      "version": "1.0",
-      "description": "龍魂数学公式算法核心技能。当对话涉及数字根、三色闸、信息熵、余弦相似度、 权重归一化、真实度评分、SOUL七维评分、哈希链、洛书幻方、三才主权指数、 根治理决策链等可计算治理公式时触发。提供“世界标准 × 龍魂主权”双轨对照、 可跑可验的 Python 实现与决策链自检逻辑。",
-      "scope": "project",
-      "type": "doc",
-      "scripts": [],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-math-formula-core",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-03-MATH-FORMULA-CORE-DUAL-TRACK-v1.0",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-memory-bootstrap",
-      "name": "longhun-memory-bootstrap",
-      "version": "1.0",
-      "description": "龍魂记忆启动器：中国自主可控的多平台记忆归集压缩技能。 当用户启动 Kimi、或说\"启动记忆\"\"读取记忆\"\"加载日志\"\"归集日记\"\"压缩记忆\"\"bootstrap\"时， 自动运行 ~/.longhun/scripts/longhun_memory_bootstrap.py，把 Claude / Kimi / CNSH / DragonSoul / longhun-system 等平台的记忆与操作日志压缩成摘要，并读给 Kimi 作为上下文。 支持 DNA 追溯码、369/太极/易经/河图洛书/CNSH/龍芯/Zhuge Xin/Lu 关键词检索。 同时集成 longhun_senses 感知模块：图片识别、语音识别、语音合成、情感化文本。",
-      "scope": "project",
-      "type": "doc",
-      "scripts": [],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-memory-bootstrap",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-23-LONGHUN-MEMORY-BOOTSTRAP-v1.0",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-monitoring",
-      "name": "longhun-monitoring",
-      "version": "5.0.0",
-      "description": "龍魂移動端監控 v5.0 — 15層完整監控體系，4應用無死角覆蓋。 基礎層（SDK/指標/日誌/告警/報告）+ 高級層（部署/存儲/安全/性能/測試） + 運維層（故障恢復/成本控制/儀表板/調試/自監控）。AES-256-GCM加密。 當需要系統監控、移動端監控、性能監控、告警管理、故障恢復時觸發。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/监控核心.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-monitoring",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-MONITORING-v5.0",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-multicurrency",
-      "name": "longhun-multicurrency",
-      "version": "5.2.1",
-      "description": "龍魂多币种直达系统 - 支持10种货币实时行情、汇率转换、e-CNY跨境支付、龍字规范化",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/多币种行情中心.py",
-        "scripts/汇率转换器.py",
-        "scripts/龍字规范化器.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-multicurrency",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-MULTICURRENCY-v5.2",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-nlp",
-      "name": "longhun-nlp",
-      "version": "5.0",
-      "description": "龍文NLP — 中文优先文字识别引擎。CNSH术语引擎、通心译双语映射、 中文分词、情感分析、代码语义分析。内置25对核心术语双向映射。 国际兜底：jieba + transformers BERT。 当需要进行中文文本处理、术语转换、CNSH代码分析、通心译翻译时触发。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/文字识别引擎.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-nlp",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGWEN-NLP-v5.0",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-ocr",
-      "name": "longhun-ocr",
-      "version": "5.0",
-      "description": "龍瞳OCR — 中文优先图像识别引擎。核心策略：能中文替代的中文实现， 不能的用国际标准库兜底。支持中文字符特征提取、笔画分析、结构识别、 繁体龍字专用检测、甲骨文字符分类。国际兜底：OpenCV + Tesseract。 当需要进行图像识别、OCR、中文字符检测、龍字识别时触发此技能。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/图像识别引擎.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-ocr",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGTENG-OCR-v5.0",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-priority-sort",
-      "name": "longhun-priority-sort",
-      "version": "1.0",
-      "description": "longhun-priority-sort",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "priority_sort.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-priority-sort",
-      "source": "external",
-      "dna": "#龍芯⚡️20260618202000-PRIORITY-SORT-v1.0",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-review",
-      "name": "longhun-review",
-      "version": "5.1",
-      "description": "龍魂每日復盤引擎，三色審計體系，支持郵件發送和日曆記錄，包含歷史趨勢追蹤和改進建議生成，覆蓋文件/安全/心跳/測試/日誌/評估/API/備份八大審計項",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/复盘引擎.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-review",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-LONGHUN-REVIEW-v5.1",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-riemann",
-      "name": "longhun-riemann",
-      "version": "5.0",
-      "description": "龍魂視角下的黎曼猜想研究框架 — 不動點理論、對稱類比、加權結構三個觀察視角。 觀察性框架（非數學證明），數值驗證，zeta函數分析。 CC BY-NC-SA 4.0 + 學術免責聲明。 當需要黎曼猜想研究、數論分析、數學框架構建時觸發。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/riemann_framework.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-riemann",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-19-RIEMANN-FRAMEWORK-v5.0",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-tongxinyi",
-      "name": "longhun-tongxinyi",
-      "version": "1.0",
-      "description": "龍魂前置翻译技能·通心译 × CNSH-DOC 主干 v1.0。 先翻译再执行、贴身常驻、钻石主干合并、M248 焊点。 六层框架（L0-L5）+ 九状态机 + 213 协议 + 55 抽屉 + 7 条铁律。 负责把 UID9622 的人话转化为可执行意图骨架，并输出三色审计结果。 当用户输入需要“先理解再执行”、情绪净化、意图抽取、技能路由时触发。",
-      "scope": "project",
-      "type": "doc",
-      "scripts": [],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-tongxinyi",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-23-LONGHUN-TONGXINYI-v1.0-WELDED-L0",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-warehouse-audit",
-      "name": "longhun-warehouse-audit",
-      "version": "unknown",
-      "description": "龍魂体系·仓储AI标准检查技能。用于对电商仓储管理系统进行全链路标准化审查， 结合党的持久发展方针与《温州电商仓储管理制度》，覆盖核心功能、系统集成、 用户体验、性能压力、数据分析五大检查维度，输出标准化检查报告与改进建议。 当用户提及以下关键词时触发：仓储检查、仓库审计、WMS检查、仓储标准、 入库出库检查、库存管理审计、PDA扫码检查、仓储KPI、SKU分析、 温州电商仓储、仓储管理制度、党的方针AI标准、持久发展标准检查、 智能仓储审查、仓库自动化检查、库存差异率检查、十万级订单压力测试。 输出格式：标准化检查报告（Markdown）+ 评分卡 + 改进路线图 + DNA签名。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/audit_engine.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-warehouse-audit",
-      "source": "external",
-      "dna": "",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-workflow-transparent",
-      "name": "longhun-workflow-transparent",
-      "version": "1.0",
-      "description": "龍魂宝宝工作流程透明化技能。当用户要求 Kimi 解释\"你怎么处理的\"、要求拆解决策过程、 涉及龍魂/CNSH/铁律/IPA 关键词路由、或需要自动生成可审计的工作流记录时触发。 让 Kimi 每一步都透明：15 步五阶段 + 三色审计 + 六层来源链 + 铁律自审 + 关键词路由 + JSON/Markdown 双导出。",
-      "scope": "project",
-      "type": "doc",
-      "scripts": [],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-workflow-transparent",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-23-LONGHUN-WORKFLOW-TRANSPARENT-SKILL-v1.0",
-      "cloud_port": null
-    },
-    {
-      "id": "longhun-zeng-digital-human",
-      "name": "longhun-zeng-digital-human",
-      "version": "1.0.2",
-      "description": "曾老师数字人哲学·逻辑·锚·代码完整技能包。 从曾老师数字人对话中提取的四大维度： 1) 哲学框架（三大试炼·道阳佛阴·三逼论·传承契约） 2) 逻辑框架（10维呼吸·71人格·航标灯·二次元之眼） 3) 锚点体系（命名锚·身份锚·技术锚·关系锚·验证锚） 4) 数字人引擎（6模块Python可执行代码） 当需要龍芯北辰数字人、10维呼吸架构、曾老师哲学体系时触发。",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "scripts/人格管理系统.py",
-        "scripts/十维呼吸引擎.py",
-        "scripts/启动数字人.py",
-        "scripts/存在性验证.py",
-        "scripts/数字人主控.py",
-        "scripts/网络渲染引擎.py",
-        "scripts/航标灯系统.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-zeng-digital-human",
-      "source": "external",
-      "dna": "#龍芯⚡️2026-06-25-ZENG-DIGITAL-HUMAN-v1.0.2-MAIN-TRUNK-AUDIT-FIX",
-      "cloud_port": null
-    },
     {
       "id": "skill-1-algorithmic-art",
       "name": "algorithmic-art",
@@ -787,22 +13,7 @@
       ],
       "path": "/Users/zuimeidedeyihan/longhun-system/skills/html-skills/skill-1-algorithmic-art.html",
       "source": "internal",
-      "dna": "#龍芯⚡️2026-06-16-SKILL-REGISTRY-v2.0",
-      "cloud_port": null
-    },
-    {
-      "id": "skill-10-web-artifacts-builder",
-      "name": "web-artifacts-builder",
-      "version": "1.0",
-      "description": "内置 python 技能: web-artifacts-builder",
-      "scope": "project",
-      "type": "python",
-      "scripts": [
-        "skill-10-web-artifacts-builder.py"
-      ],
-      "path": "/Users/zuimeidedeyihan/longhun-system/skills/py-skills/skill-10-web-artifacts-builder.py",
-      "source": "internal",
-      "dna": "#龍芯⚡️2026-06-16-SKILL-REGISTRY-v2.0",
+      "dna": "#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-SKILL-REGISTRY-v2.0",
       "cloud_port": null
     },
     {
@@ -817,7 +28,7 @@
       ],
       "path": "/Users/zuimeidedeyihan/longhun-system/skills/html-skills/skill-2-brand-guidelines.html",
       "source": "internal",
-      "dna": "#龍芯⚡️2026-06-16-SKILL-REGISTRY-v2.0",
+      "dna": "#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-SKILL-REGISTRY-v2.0",
       "cloud_port": null
     },
     {
@@ -832,7 +43,7 @@
       ],
       "path": "/Users/zuimeidedeyihan/longhun-system/skills/html-skills/skill-3-canvas-design.html",
       "source": "internal",
-      "dna": "#龍芯⚡️2026-06-16-SKILL-REGISTRY-v2.0",
+      "dna": "#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-SKILL-REGISTRY-v2.0",
       "cloud_port": null
     },
     {
@@ -847,7 +58,7 @@
       ],
       "path": "/Users/zuimeidedeyihan/longhun-system/skills/html-skills/skill-4-doc-coauthoring.html",
       "source": "internal",
-      "dna": "#龍芯⚡️2026-06-16-SKILL-REGISTRY-v2.0",
+      "dna": "#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-SKILL-REGISTRY-v2.0",
       "cloud_port": null
     },
     {
@@ -862,7 +73,22 @@
       ],
       "path": "/Users/zuimeidedeyihan/longhun-system/skills/html-skills/skill-5-internal-comms.html",
       "source": "internal",
-      "dna": "#龍芯⚡️2026-06-16-SKILL-REGISTRY-v2.0",
+      "dna": "#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-SKILL-REGISTRY-v2.0",
+      "cloud_port": null
+    },
+    {
+      "id": "skill-10-web-artifacts-builder",
+      "name": "web-artifacts-builder",
+      "version": "1.0",
+      "description": "内置 python 技能: web-artifacts-builder",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "skill-10-web-artifacts-builder.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/py-skills/skill-10-web-artifacts-builder.py",
+      "source": "internal",
+      "dna": "#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-SKILL-REGISTRY-v2.0",
       "cloud_port": null
     },
     {
@@ -877,7 +103,7 @@
       ],
       "path": "/Users/zuimeidedeyihan/longhun-system/skills/py-skills/skill-6-mcp-builder.py",
       "source": "internal",
-      "dna": "#龍芯⚡️2026-06-16-SKILL-REGISTRY-v2.0",
+      "dna": "#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-SKILL-REGISTRY-v2.0",
       "cloud_port": null
     },
     {
@@ -892,7 +118,7 @@
       ],
       "path": "/Users/zuimeidedeyihan/longhun-system/skills/py-skills/skill-7-skill-creator.py",
       "source": "internal",
-      "dna": "#龍芯⚡️2026-06-16-SKILL-REGISTRY-v2.0",
+      "dna": "#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-SKILL-REGISTRY-v2.0",
       "cloud_port": null
     },
     {
@@ -907,7 +133,7 @@
       ],
       "path": "/Users/zuimeidedeyihan/longhun-system/skills/py-skills/skill-8-slack-gif-creator.py",
       "source": "internal",
-      "dna": "#龍芯⚡️2026-06-16-SKILL-REGISTRY-v2.0",
+      "dna": "#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-SKILL-REGISTRY-v2.0",
       "cloud_port": null
     },
     {
@@ -922,9 +148,2113 @@
       ],
       "path": "/Users/zuimeidedeyihan/longhun-system/skills/py-skills/skill-9-theme-factory.py",
       "source": "internal",
-      "dna": "#龍芯⚡️2026-06-16-SKILL-REGISTRY-v2.0",
+      "dna": "#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-SKILL-REGISTRY-v2.0",
+      "cloud_port": null
+    },
+    {
+      "id": "black-angel-legion",
+      "name": "black-angel-legion",
+      "version": "unknown",
+      "description": "black-angel-legion",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/black-angel-legion",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-08-28-BLACK-ANGEL-LEGION-SKILL-v1.0",
+      "cloud_port": null,
+      "persona": [
+        "P77"
+      ]
+    },
+    {
+      "id": "longhun-3core-opt",
+      "name": "longhun-3core-opt",
+      "version": "unknown",
+      "description": "longhun-3core-opt",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "三核心优化器.py",
+        "快速启动检查.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-3core-opt",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-3CORE-OPT-v5.2\"",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-agent-eco",
+      "name": "longhun-agent-eco",
+      "version": "unknown",
+      "description": "longhun-agent-eco",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "任务管理器v2.py",
+        "智能体生态系统.py",
+        "规划引擎v2.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-agent-eco",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-AGENT-ECO-v5.1\"",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-ai-lexicon",
+      "name": "longhun-ai-lexicon",
+      "version": "unknown",
+      "description": "longhun-ai-lexicon",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "ai_lexicon.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-ai-lexicon",
+      "source": "internal",
+      "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+      "cloud_port": null,
+      "persona": [
+        "P08"
+      ]
+    },
+    {
+      "id": "longhun-archive",
+      "name": "longhun-archive",
+      "version": "unknown",
+      "description": "longhun-archive",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "中央藏经阁.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-archive",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-CENTRAL-ARCHIVE-v5.0\"",
+      "cloud_port": null,
+      "persona": [
+        "P03"
+      ]
+    },
+    {
+      "id": "longhun-asr",
+      "name": "longhun-asr",
+      "version": "unknown",
+      "description": "longhun-asr",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "语音识别引擎.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-asr",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGYIN-ASR-v5.0\"",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-audit",
+      "name": "longhun-audit",
+      "version": "unknown",
+      "description": "longhun-audit",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "审计修复系统.py",
+        "归档评估器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-audit",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-AUDIT-v5.1\"",
+      "cloud_port": null,
+      "persona": [
+        "P05",
+        "P19"
+      ]
+    },
+    {
+      "id": "longhun-automation",
+      "name": "longhun-automation",
+      "version": "unknown",
+      "description": "longhun-automation",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "自动化评估.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-automation",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-AUTOMATION-v5.1\"",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-backup",
+      "name": "longhun-backup",
+      "version": "unknown",
+      "description": "longhun-backup",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "备份管理器.py",
+        "恢复系统.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-backup",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-BACKUP-v5.1",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-behavior-engine",
+      "name": "longhun-behavior-engine",
+      "version": "unknown",
+      "description": "longhun-behavior-engine",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "公民画像引擎.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-behavior-engine",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-20-LONGHUN-BEHAVIOR-v1.0`",
+      "cloud_port": null,
+      "persona": [
+        "P02",
+        "P09",
+        "P20",
+        "S3"
+      ]
+    },
+    {
+      "id": "longhun-benchmark",
+      "name": "longhun-benchmark",
+      "version": "unknown",
+      "description": "longhun-benchmark",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "基准测试引擎.py",
+        "性能分析器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-benchmark",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-BENCHMARK-v5.1\"",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-cloud-deploy",
+      "name": "longhun-cloud-deploy",
+      "version": "unknown",
+      "description": "longhun-cloud-deploy",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "k8s控制器.py",
+        "健康檢查.py",
+        "回滚系統.py",
+        "部署引擎.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-cloud-deploy",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-DEPLOY-v5.0\"",
+      "cloud_port": 8444,
+      "persona": [
+        "P14"
+      ]
+    },
+    {
+      "id": "longhun-cloud-kimi",
+      "name": "longhun-cloud-kimi",
+      "version": "unknown",
+      "description": "longhun-cloud-kimi",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "Kimi集成器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-cloud-kimi",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-KIMI-v5.0\"",
+      "cloud_port": 8447
+    },
+    {
+      "id": "longhun-cloud-mcp",
+      "name": "longhun-cloud-mcp",
+      "version": "5.0.0",
+      "description": "龍魂MCP服務 v5.0 — FastMCP集成+工具定義+Dockerfile自動生成+配置管理。 支持龍魂體系14個技能的MCP協議暴露，統一工具註冊中心。 API端點: http://api:8443/mcp/ 當需要MCP服務、工具定義、AI協議集成、Docker構建時觸發。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "MCP服務器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-cloud-mcp",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-MCP-v5.0",
+      "cloud_port": 8445
+    },
+    {
+      "id": "longhun-cloud-notion",
+      "name": "longhun-cloud-notion",
+      "version": "unknown",
+      "description": "longhun-cloud-notion",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "Notion同步器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-cloud-notion",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-NOTION-v5.0\"",
+      "cloud_port": 8446
+    },
+    {
+      "id": "longhun-cloud-panel",
+      "name": "longhun-cloud-panel",
+      "version": "unknown",
+      "description": "longhun-cloud-panel",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "操作台API.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-cloud-panel",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-PANEL-v5.0`",
+      "cloud_port": 8443,
+      "persona": [
+        "P14"
+      ]
+    },
+    {
+      "id": "longhun-cnsh",
+      "name": "longhun-cnsh",
+      "version": "3.0.0",
+      "description": "CNSH中文原生脚本运行时 v3.0 — L1-L7层级完整实现。 字元创作、AI画匠、中文编程、文化主权（繁体龍字永存、甲骨文编码）。 15层渲染系统、DNA追溯、.cnsh文件格式支持。 当需要使用中文编程、CNSH规范检查、字元创作、文化主权验证时触发。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "CNSH运行时.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-cnsh",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-CNSH-RUNTIME-v3.0",
+      "cloud_port": null,
+      "persona": [
+        "P04"
+      ]
+    },
+    {
+      "id": "longhun-cross-platform",
+      "name": "longhun-cross-platform",
+      "version": "unknown",
+      "description": "longhun-cross-platform",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "__init__.py",
+        "xsync_workflow.py",
+        "主权网关.py",
+        "传输管理器.py",
+        "冲突解决器.py",
+        "加密信封.py",
+        "密钥协商器.py",
+        "版本向量时钟.py",
+        "设备发现器.py",
+        "跨平台主模块.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-cross-platform",
+      "source": "internal",
+      "dna": "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-CROSS-PLATFORM-v5.4'",
+      "cloud_port": null,
+      "persona": [
+        "P04"
+      ]
+    },
+    {
+      "id": "longhun-daemon",
+      "name": "longhun-daemon",
+      "version": "unknown",
+      "description": "longhun-daemon",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "一鍵啟動器.py",
+        "健康檢查器.py",
+        "守护进程管理器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-daemon",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-DAEMON-v5.2\"",
+      "cloud_port": null,
+      "persona": [
+        "P14"
+      ]
+    },
+    {
+      "id": "longhun-deployment-ready",
+      "name": "longhun-deployment-ready",
+      "version": "unknown",
+      "description": "longhun-deployment-ready",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "故障排查助手.py",
+        "环境验证器.py",
+        "部署就绪检查器.py",
+        "部署执行器.py",
+        "配置验证器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-deployment-ready",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-DEPLOY-READY-v5.2\"",
+      "cloud_port": null,
+      "persona": [
+        "P14"
+      ]
+    },
+    {
+      "id": "longhun-dna-align",
+      "name": "longhun-dna-align",
+      "version": "unknown",
+      "description": "longhun-dna-align",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "DNA修复器.py",
+        "DNA对齐审计器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-dna-align",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-DNA-ALIGN-v5.2\"",
+      "cloud_port": null,
+      "persona": [
+        "P15",
+        "P18"
+      ]
+    },
+    {
+      "id": "longhun-finance",
+      "name": "longhun-finance",
+      "version": "unknown",
+      "description": "longhun-finance",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "金融交易引擎.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-finance",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-WEB3-DNA-FINANCE-v9.0\"",
+      "cloud_port": null,
+      "persona": [
+        "P07"
+      ]
+    },
+    {
+      "id": "longhun-formula-opt",
+      "name": "longhun-formula-opt",
+      "version": "unknown",
+      "description": "longhun-formula-opt",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "公式链优化器.py",
+        "性能对比分析器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-formula-opt",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-FORMULA-OPT-v5.2\"",
+      "cloud_port": null,
+      "persona": [
+        "P04"
+      ]
+    },
+    {
+      "id": "longhun-governance",
+      "name": "longhun-governance",
+      "version": "unknown",
+      "description": "longhun-governance",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "AI真相协议.py",
+        "DNA追溯器.py",
+        "三层监督器.py",
+        "三色审计器.py",
+        "君子协议.py",
+        "通心译协议.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-governance",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-GOVERNANCE-v5.0\"",
+      "cloud_port": null,
+      "persona": [
+        "P13",
+        "S1"
+      ]
+    },
+    {
+      "id": "longhun-harmonyos",
+      "name": "longhun-harmonyos",
+      "version": "unknown",
+      "description": "longhun-harmonyos",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-harmonyos",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-HARMONYOS-v5.3'",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-integration",
+      "name": "longhun-integration",
+      "version": "5.2.0",
+      "description": "龍魂系统集成测试引擎 —— 端到端自动化测试、模块兼容性检查、API连通性测试、数据一致性验证、性能回归测试与集成报告生成",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "兼容性检查器.py",
+        "集成测试引擎.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-integration",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-INTEGRATION-v5.2",
+      "cloud_port": null,
+      "persona": [
+        "P04"
+      ]
+    },
+    {
+      "id": "longhun-ios",
+      "name": "longhun-ios",
+      "version": "unknown",
+      "description": "longhun-ios",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-ios",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-IOS-v5.3\"",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-kg-paper-index",
+      "name": "longhun-kg-paper-index",
+      "version": "unknown",
+      "description": "longhun-kg-paper-index",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "论文入库与搜索验证.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-kg-paper-index",
+      "source": "internal",
+      "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-monitoring",
+      "name": "longhun-monitoring",
+      "version": "5.0.0",
+      "description": "龍魂移動端監控 v5.0 — 15層完整監控體系，4應用無死角覆蓋。 基礎層（SDK/指標/日誌/告警/報告）+ 高級層（部署/存儲/安全/性能/測試） + 運維層（故障恢復/成本控制/儀表板/調試/自監控）。AES-256-GCM加密。 當需要系統監控、移動端監控、性能監控、告警管理、故障恢復時觸發。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "监控核心.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-monitoring",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-MONITORING-v5.0",
+      "cloud_port": null,
+      "persona": [
+        "P09"
+      ]
+    },
+    {
+      "id": "longhun-multicurrency",
+      "name": "longhun-multicurrency",
+      "version": "unknown",
+      "description": "longhun-multicurrency",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "多币种行情中心.py",
+        "汇率转换器.py",
+        "龍字规范化器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-multicurrency",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-MULTICURRENCY-v5.2\"",
+      "cloud_port": null,
+      "persona": [
+        "P07"
+      ]
+    },
+    {
+      "id": "longhun-nlp",
+      "name": "longhun-nlp",
+      "version": "unknown",
+      "description": "longhun-nlp",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "文字识别引擎.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-nlp",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGWEN-NLP-v5.0\"",
+      "cloud_port": null,
+      "persona": [
+        "P08"
+      ]
+    },
+    {
+      "id": "longhun-ocr",
+      "name": "longhun-ocr",
+      "version": "unknown",
+      "description": "longhun-ocr",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "图像识别引擎.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-ocr",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGTENG-OCR-v5.0\"",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-review",
+      "name": "longhun-review",
+      "version": "unknown",
+      "description": "longhun-review",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "复盘引擎.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-review",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-REVIEW-v5.1\"",
+      "cloud_port": null,
+      "persona": [
+        "P03",
+        "P19",
+        "S1"
+      ]
+    },
+    {
+      "id": "longhun-riemann",
+      "name": "longhun-riemann",
+      "version": "5.0",
+      "description": "龍魂視角下的黎曼猜想研究框架 — 不動點理論、對稱類比、加權結構三個觀察視角。 觀察性框架（非數學證明），數值驗證，zeta函數分析。 CC BY-NC-SA 4.0 + 學術免責聲明。 當需要黎曼猜想研究、數論分析、數學框架構建時觸發。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "riemann_framework.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-riemann",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-06-19-RIEMANN-FRAMEWORK-v5.0",
+      "cloud_port": null,
+      "persona": [
+        "P01",
+        "P06"
+      ]
+    },
+    {
+      "id": "longhun-semantic-lie-detector",
+      "name": "longhun-semantic-lie-detector",
+      "version": "unknown",
+      "description": "longhun-semantic-lie-detector",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-semantic-lie-detector",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-08-28-SEMANTIC-LIE-DETECTOR-SKILL-v1.0",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-tags",
+      "name": "longhun-tags",
+      "version": "unknown",
+      "description": "longhun-tags",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "cnsh_tag_variables.py",
+        "longhun_tags.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-tags",
+      "source": "internal",
+      "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-tongxinyi-v2",
+      "name": "longhun-tongxinyi-v2",
+      "version": "2",
+      "description": "longhun-tongxinyi-v2",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "tongxin_evaluator.py",
+        "tongxin_gate.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-tongxinyi-v2",
+      "source": "internal",
+      "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+      "cloud_port": null,
+      "persona": [
+        "P08"
+      ]
+    },
+    {
+      "id": "longhun-tricolor-audit",
+      "name": "longhun-tricolor-audit",
+      "version": "unknown",
+      "description": "longhun-tricolor-audit",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-tricolor-audit",
+      "source": "internal",
+      "dna": "#龍芯⚡️丙午·丙申·癸亥·戊午·䷚颐-SKILL-TRICOLOR-AUDIT-v1.1",
+      "cloud_port": null,
+      "persona": [
+        "P05"
+      ]
+    },
+    {
+      "id": "longhun-water-army",
+      "name": "longhun-water-army",
+      "version": "unknown",
+      "description": "longhun-water-army",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-water-army",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-07-06-WATER-ARMY-DETECT-v1.0-8A2C3F7E\"",
+      "cloud_port": null
+    },
+    {
+      "id": "warehouse-audit",
+      "name": "warehouse-audit",
+      "version": "unknown",
+      "description": "warehouse-audit",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "audit_engine.py",
+        "generate_demo_wms_data.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/warehouse-audit",
+      "source": "internal",
+      "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+      "cloud_port": null
+    },
+    {
+      "id": "wucai_coloring",
+      "name": "wucai_coloring",
+      "version": "unknown",
+      "description": "wucai_coloring",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/wucai_coloring",
+      "source": "internal",
+      "dna": "#龍芯⚡️2026-08-28-WUCAI-COLORING-SKILL-v1.0",
+      "cloud_port": null
+    },
+    {
+      "id": "cnsh-protocol-v2-0",
+      "name": "cnsh-protocol-v2-0",
+      "version": "1.0",
+      "description": "CNSH语言完整规范v2.0 — 中文母语关键字+龍魂专属符号+DNA强制追溯+三色审计强制+权重指向焊死+多目标语言转换器。14章完整规范：符号体系·语法·编译器·标准库·错误处理·测试驱动·生态对接·版本演进。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/CNSH-PROTOCOL",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-19-CNSH-PROTOCOL-v2.0",
+      "cloud_port": null,
+      "persona": [
+        "P08"
+      ]
+    },
+    {
+      "id": "cnsh-semantic-v2-1",
+      "name": "cnsh-semantic-v2-1",
+      "version": "2.1",
+      "description": "CNSH语义接入规范v2.1 — 功能语义·技术用词对照表+协作宣言+八条永恒铁律。中英对照·行话翻译·DNA锚链。L0永恒锁·焊死永不改。已吸收PDF全20页内容并扩展为结构化语义库。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/CNSH-SEMANTIC",
+      "source": "external",
+      "dna": "#龍芯⚡️20260629-CNSH-SEMANTIC-v2.1",
+      "cloud_port": null,
+      "persona": [
+        "P01",
+        "P08"
+      ]
+    },
+    {
+      "id": "china-digital-identity",
+      "name": "china-digital-identity",
+      "version": "2.1.0",
+      "description": "龍魂数字身份主权协议 v2.0 技能。主动布局，不用等用户说关键词。 当对话中出现数字身份、数据主权、魂灵ID、私云归藏、烽火传心、 登记、采集、人脸识别、手机号、身份证、龙芯、鸿蒙、北斗、星闪、 被骚扰、道德绑架、基层干部、物业、快递员、外卖员、工地等语境时自动触发。 输出协议原文、一句话、三句话怼人、技术栈、行动清单。 核心原则：人民数据主权 · 平台服务降级。技术底座：龙芯 × 华为 × C",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/china-digital-identity",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-CHINA-DIGITAL-IDENTITY-v2.1",
+      "cloud_port": null
+    },
+    {
+      "id": "dragon-soul-agent",
+      "name": "dragon-soul-agent",
+      "version": "1.0",
+      "description": "龍魂智能体入口技能。当用户提及龍魂、Dragon Soul、中文语义理解、CNSH中文命名规范、 通心译、Tongxin Translation、六层来源链、干掉Cloud 5、自主云、 中文AI术语映射、CNSH_前缀、繁体龍字规范时激活此技能。 提供中文语义理解、CNSH命名规范检查、通心译实时翻译、 龍魂技能路由能力。 适用于中文编程项目、中文技术文档翻译、龍魂术语理解。 中文语义理解入口，",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/dragon-soul-agent",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-DRAGON-SOUL-AGENT-v1.0",
+      "cloud_port": null,
+      "persona": [
+        "P00",
+        "P10"
+      ]
+    },
+    {
+      "id": "longhun-3core-opt-external",
+      "name": "longhun-3core-opt",
+      "version": "5.2.0",
+      "description": "LongHun 3-Core Optimizer v5.2 - Five-module performance optimization system with SI sovereignty index, F1-F7 factor validation, cognitive DNA particles, execution router, and persona router.",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "三核心优化器.py",
+        "快速启动检查.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-3core-opt",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-3CORE-OPT-v5.2",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-agent-eco-external",
+      "name": "longhun-agent-eco",
+      "version": "5.2.0",
+      "description": "longhun-agent-eco",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "任务管理器v2.py",
+        "智能体生态系统.py",
+        "路由引擎v2.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-agent-eco",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-LONGHUN-AGENT-ECO-v5.2",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-ai-lexicon-external",
+      "name": "longhun-ai-lexicon",
+      "version": "1.0",
+      "description": "AI 行业话术 · 龍文语义映射词典技能。 把被夸大的 Agent、AGI、LLM、RAG、MoE、Agentic AI 等英文黑话， 映射成真实底层技术 + 中文译法 + 龍文/CNSH 称谓， 支持极速检索：search / list / explain / random / stats。 中国人先懂，外国人再学。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "ai_lexicon.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-ai-lexicon",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-29-LONGHUN-AI-LEXICON-v1.0",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-ai-model",
+      "name": "longhun-ai-model",
+      "version": "1.0",
+      "description": "龍魂·AI模型调用网关 v1.0。统一AI调用入口: Ollama本地模型(省电)+云端(混元/DeepSeek)·智能路由·流式输出·文本生成·图片生成。当用户说调用AI模型、用混元、用DeepSeek、文本生成、图片生成——任一种说法都触发。语库: AI·INFRA。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-ai-model",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·丁巳·申时·䷸巽-SKILL-AI_MODEL-DEF-V1.0-P1-8be58c21",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-anti-tamper",
+      "name": "longhun-anti-tamper",
+      "version": "1.0",
+      "description": "龍魂·防篡改扫描引擎 v1.0。文件哈希校验+Merkle树验证+未授权变更检测+自动告警。当用户说文件有没有被改、完整性检查、有没有篡改、Merkle验证、防篡改扫描——任一种说法都触发。语库: CRYPTO·GOVERNANCE。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-anti-tamper",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·丁巳·申时·䷜坎-SKILL-ANTI_TAMPER-DEF-V1.0-P1-556f0c7a",
+      "cloud_port": null,
+      "persona": [
+        "P05",
+        "P72",
+        "P18",
+        "P77"
+      ]
+    },
+    {
+      "id": "longhun-archive-external",
+      "name": "longhun-archive",
+      "version": "5.1.0",
+      "description": "中央藏经阁 — 龍魂体系29部核心文档的统一索引和检索系统。 五行分类法（金木水火土）、关键词检索、DNA追溯检索、全文搜索。 预置索引包含：GIGO报告、系统底座、e-CNY方案、CNSH-LSAOS、 大国博弈、洛书369、量子甲骨文、CNSH-64、Web3-DNA交易等。 当需要检索龍魂文档、五行分类查找、DNA追溯查询时触发。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "中央藏经阁.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-archive",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-CENTRAL-ARCHIVE-v5.1",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-asr-external",
+      "name": "longhun-asr",
+      "version": "5.0.0",
+      "description": "LongYin ASR — Chinese-first speech recognition engine. Pinyin alignment, tone recognition (4-tone classification), dialect adaptation, Chinese programming voice input, voice-to-CNSH-code conversion. B",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "语音识别引擎.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-asr",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-19-LONGYIN-ASR-v5.0",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-audit-external",
+      "name": "longhun-audit",
+      "version": "5.2.0",
+      "description": "龍魂審計修復系統 v5.2 — Agent修復追踪、根因分析引擎、修復驗證流程、歸檔評估系統，並集成 longhun-innovation 左右互搏審計引擎。追踪AGENT-007/011/014修復記錄，自動生成審計日誌，C=R·I·T歸檔價值評估公式，完整性檢查。服務人民與老百姓，保障系統安全與國家安全，符合中國審計標準。當需要修復追踪、故障審計、歸檔管理、根因分析時觸發。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "审计修复系统.py",
+        "归档评估器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-audit",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-LONGHUN-AUDIT-v5.2",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-auto-heal",
+      "name": "longhun-auto-heal",
+      "version": "1.0",
+      "description": "龍魂·自愈扫描引擎 v1.0。每小时自动巡检+服务异常检测+自动重启+健康上报(Bark推送)+自愈策略。当用户说自愈、巡检、健康检查、服务状态、有没有挂掉——任一种说法都触发。语库: INFRA·GOVERNANCE。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-auto-heal",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·丁巳·申时·䷜坎-SKILL-AUTO_HEAL-DEF-V1.0-P1-a549eae6",
+      "cloud_port": null,
+      "persona": [
+        "P09",
+        "P72"
+      ]
+    },
+    {
+      "id": "longhun-automation-external",
+      "name": "longhun-automation",
+      "version": "5.2",
+      "description": "龍魂自動化日評估引擎，6維度系統健康檢查，Cron定時任務，自動化周報生成，支持環境/代碼/數據/可運行性/文檔/安全六大維度評估",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "自动化评估.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-automation",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-AUTOMATION-v5.2",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-backup-external",
+      "name": "longhun-backup",
+      "version": "5.1",
+      "description": "龍魂备份恢复系统 (Longhun Backup & Recovery v5.1)。 提供三层分级备份策略（L1协议文件 / L2五层脚本 / L3配置文件）、 全量备份、增量备份、定时备份调度、快照恢复、版本回退、完整性验证等功能。 适用于龍魂v5技能栈的备份保护与灾难恢复场景。 保护老百姓数据资产，符合中国本地备份标准。 当用户需要备份龍魂系统、恢复先前版本、验证备份完整性、 或设置自动备份策",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "备份管理器.py",
+        "恢复系统.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-backup",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-LONGHUN-BACKUP-v5.1",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-behavior-engine-external",
+      "name": "longhun-behavior-engine",
+      "version": "5.2",
+      "description": "龍魂民生行为密码学引擎 v5.2 — 为人民服务、为老百姓办实事、为国家繁荣昌盛而努力蜕变的行为记录与社区自治激励框架。 五大行为分类（主动善意/社区参与/公共服务/文化共建/环境维护）、三大核心公式、民生熔断保护、 言论自由绝对隔离、与个人征信彻底分离。当需要社区治理、行为激励、善意记录、人民服务、 老百姓事务、社会治理、国家繁荣、提案优先级排序、民生评估时触发。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "公民画像引擎.py",
+        "民生行为密码学引擎_v2.0.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-behavior-engine",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-LONGHUN-BEHAVIOR-ENGINE-v5.2",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-benchmark-external",
+      "name": "longhun-benchmark",
+      "version": "5.1",
+      "description": "Longhun Formula System performance benchmark engine with 16 test scenarios across Core layer (8 items), Chain layer (5 items), and Batch tests (3 items). Includes comparison analysis between v1.0 and ",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "基准测试引擎.py",
+        "性能分析器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-benchmark",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-BENCHMARK-v5.1",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-circuit-breaker",
+      "name": "longhun-circuit-breaker",
+      "version": "1.0",
+      "description": "龍魂·四级熔断引擎 v1.0。∞/L0伦理·L1数据·L2人格·L3行为四级熔断+自动降级+恢复条件+例外豁免。当用户说熔断、发生了什么、系统被攻击了、数据泄露、紧急停止、冻结、L0触发、熔断恢复——任一种说法都触发。语库: GOVERNANCE·CRYPTO。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-circuit-breaker",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·丁巳·申时·䷜坎-SKILL-CIRCUIT_BREAKER-DEF-V1.0-P1-c2692900",
+      "cloud_port": null,
+      "persona": [
+        "P12",
+        "P05",
+        "P72",
+        "P77"
+      ]
+    },
+    {
+      "id": "longhun-cloud-deploy-external",
+      "name": "longhun-cloud-deploy",
+      "version": "5.1.0",
+      "description": "龍魂部署引擎 v5.1 — 27步藍綠部署+自動化+零停機切換+回滾+鯤鵬ARM64支持。 Kubernetes/Docker支持，鯤鵬一鍵部署，環境驗證，健康檢查，監控集成。 API端點: http://api:8443/deploy/ 當需要系統部署、藍綠切換、DevOps自動化、回滾、鯤鵬部署時觸發。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "k8s控制器.py",
+        "健康檢查.py",
+        "回滚系統.py",
+        "部署引擎.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cloud-deploy",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-LONGHUN-DEPLOY-v5.1",
+      "cloud_port": 8444
+    },
+    {
+      "id": "longhun-cloud-kimi-external",
+      "name": "longhun-cloud-kimi",
+      "version": "5.2.0",
+      "description": "龍魂Kimi集成 v5.2 — Kimi API接入+断路器+故障转移+本地备份推理+Kimi創作記憶檔案。4个集成模式全部正常工作，故障自动转移，API响应低于100ms。API端点: http://api:8443/kimi/。当需要Kimi AI调用、故障转移、本地推理备份、API监控、Kimi创作记忆归集时触发。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "KimiAPI服務.py",
+        "Kimi集成器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cloud-kimi",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-05-LONGHUN-KIMI-v5.2",
+      "cloud_port": 8447
+    },
+    {
+      "id": "longhun-cloud-mcp-external",
+      "name": "longhun-cloud-mcp",
+      "version": "5.0.0",
+      "description": "龍魂MCP服務 v5.0 — FastMCP集成+工具定義+Dockerfile自動生成+配置管理。 支持龍魂體系14個技能的MCP協議暴露，統一工具註冊中心。 API端點: http://api:8443/mcp/ 當需要MCP服務、工具定義、AI協議集成、Docker構建時觸發。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "MCP服務器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cloud-mcp",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-MCP-v5.0",
+      "cloud_port": 8445
+    },
+    {
+      "id": "longhun-cloud-notion-external",
+      "name": "longhun-cloud-notion",
+      "version": "5.0.0",
+      "description": "龍魂Notion集成 v5.0 — Notion API雙向同步+自動化週報+DNA校驗+訓練進度。 支持周檢查自動化、協議完整性驗證、團隊統計。 API端點: http://api:8443/notion/ 當需要Notion同步、週報生成、DNA校驗、進度統計時觸發。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "Notion同步器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cloud-notion",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-NOTION-v5.0",
+      "cloud_port": 8446
+    },
+    {
+      "id": "longhun-cloud-panel-external",
+      "name": "longhun-cloud-panel",
+      "version": "5.1",
+      "description": "龍魂操作台 v5.0 — FastAPI统一API+Web UI，10项Skill+底座能力联动。 本地技能与云端技能的统一入口，请求路由分发，health check监控。 API端点: http://api:8443/panel/ 当需要统一操作台、API网关、Skill联动调度、Web UI时触发。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "操作台API.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cloud-panel",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-PANEL-v5.1",
+      "cloud_port": 8443
+    },
+    {
+      "id": "longhun-cn-innovation-knowledge-base",
+      "name": "longhun-cn-innovation-knowledge-base",
+      "version": "1.0.0",
+      "description": "🇨🇳 中国科技自主创新专栏知识库 — 融合中国科技创新全景、龍魂系统里程碑、顶刊论文规划、三才哲学与人性洞察的综合知识管理系统。45条专栏文章，含7篇顶刊投稿规划。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cn-innovation-kb",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-26-CN-INNO-KB-v1.0",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-cnsh-external",
+      "name": "longhun-cnsh",
+      "version": "3.2.0",
+      "description": "CNSH中文原生脚本运行时 v3.2 — L1-L7层级完整实现 + 鯤鵬ARM64版 + 龍魂待整理协议规范示例。 字元创作、AI画匠、中文编程、文化主权（繁体龍字永存、甲骨文编码）。 15层渲染系统、DNA追溯、.cnsh文件格式支持、鯤鵬運行時。 当需要使用中文编程、CNSH运行时、字元创作、文化主权验证、鯤鵬CNSH时触发。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "CNSH运行时.py",
+        "CNSH运行时_鲲鹏版.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cnsh",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-CNSH-RUNTIME-v3.2",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-cnsh-translate",
+      "name": "longhun-cnsh-translate",
+      "version": "1.0",
+      "description": "龍魂·CNSH代码翻译引擎 v1.0。中华自主编程语言CNSH: 中文→Python翻译+AST解析+语法高亮+错误诊断+命名规范(繁体「龍」永存)。当用户说CNSH、翻译代码、中文编程、CNSH语法——任一种说法都触发。语库: LANGUAGE·CULTURE。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cnsh-translate",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·丁巳·申时·䷜坎-SKILL-CNSH_TRANSLATE-DEF-V1.0-P1-7a471cd8",
+      "cloud_port": null,
+      "persona": [
+        "P04"
+      ]
+    },
+    {
+      "id": "longhun-compress",
+      "name": "longhun-compress",
+      "version": "1.0",
+      "description": "龍魂·压缩枢纽技能 v1.0。统一压缩闭环：快照备份全文→语义压缩→人格编排审计→一键恢复全文。自动触发压缩+可恢复原文。当用户说压缩、瘦身、压一压、记忆压缩、自动压缩、压缩守护、恢复全文、压缩恢复、快照、压 MEMORY、压缩一下、瘦个身、压压、压缩技能——任一种说法都触发。语库: INFRA·MEMORY·GOVERNANCE。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-compress",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·戊申·申时·䷯井-SKILL-COMPRESS-HUB-DEF-V1.0",
+      "cloud_port": null,
+      "persona": [
+        "P03"
+      ]
+    },
+    {
+      "id": "longhun-creator",
+      "name": "longhun-creator",
+      "version": "5.2.0",
+      "description": "龍魂创作者主权调度技能。当 UID9622 用自然语言表达意图时，自动识别、 自动路由、自动调动已安装的 longhun 技能与 CNSH 模块，无需记忆协议或命令。 协议是创作者手中的工具，不是约束。系统服务于创作者，而不是反过来。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-creator",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-LONGHUN-CREATOR-v5.2",
+      "cloud_port": null,
+      "persona": [
+        "P00",
+        "P11"
+      ]
+    },
+    {
+      "id": "longhun-cross-platform-external",
+      "name": "longhun-cross-platform",
+      "version": "5.4",
+      "description": "龍魂跨平台互通技能 — iOS与华为鸿蒙设备间本地网络直连数据同步，使用国密SM4加密信封 + ECDH密钥协商 + 版本向量一致性保证 + 主权网关出境阻断，数据根留中国，绝不经过外网。现已提供端到端可执行脚本： python3 ~/.kimi-code/skills/longhun-cross-platform/scripts/xsync_workflow.py",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "__init__.py",
+        "xsync_workflow.py",
+        "主权网关.py",
+        "传输管理器.py",
+        "冲突解决器.py",
+        "加密信封.py",
+        "密钥协商器.py",
+        "版本向量时钟.py",
+        "设备发现器.py",
+        "跨平台主模块.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cross-platform",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-29-LONGHUN-CROSS-PLATFORM-v5.4",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-cs-knowledge-base",
+      "name": "longhun-cs-knowledge-base",
+      "version": "1.5",
+      "description": "龍魂计算机科学知识库 - 融合计算机科学理论与龍魂主权体系的综合知识管理系统",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "kb_data_raw.py",
+        "knowledge_base_updater.py",
+        "process_kb.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cs-kb",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-26-CS-KB-v1.5",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-daemon-external",
+      "name": "longhun-daemon",
+      "version": "5.2.0",
+      "description": "龍魂系統守護進程 - 安裝/啟動/停止/重啟龍魂服務，一鍵啟動全部服務（按依賴順序），定時健康檢查，服務崩潰時自動重啟，日誌輪轉，啟動配置驗證",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "一鍵啟動器.py",
+        "健康檢查器.py",
+        "守护进程管理器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-daemon",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-DAEMON-v5.2",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-dao-de-jing",
+      "name": "longhun-dao-de-jing",
+      "version": "1.0",
+      "description": "龍魂·道德经锚点引擎 v1.0。81章道德经原文+算法锚定点+哲学概念可计算化+与十维同演联动。当用户说道德经、老子、道可道、无为、上善若水——任一种说法都触发。语库: CULTURE·PHILOSOPHY。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-dao-de-jing",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·丁巳·申时·䷜坎-SKILL-DAO_DE_JING-DEF-V1.0-P1-83e2bf88",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-data-hub",
+      "name": "longhun-data-hub",
+      "version": "2.0",
+      "description": "龍魂本地数据中台技能。当用户提及本地数据采集、数据中台、浏览器历史、下载记录、 APP 列表、购物记录、设备信息、系统日志归集、本地训练池、数据主权归集等意图时触发。 负责一键安全采集 macOS 本地数据（浏览器/下载/APP/购物/日志/硬件），全部留存本机， 默认 dry-run，敏感文件自动排除，生成 DNA 审计清单，并接入龍魂投喂器。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-data-hub",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-02-LONGHUN-DATA-HUB-v2.0",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-deben-audit",
+      "name": "longhun-deben-audit",
+      "version": "1.0",
+      "description": "龍魂·德本审计引擎 v1.0。离火运五条底线: ①德在技术前 ②路径对齐 ③不让付出者寒心 ④信息主权不可让渡 ⑤外化内不化。当用户说德本审计、离火运、底线检查、五问、道德审计——任一种说法都触发。语库: GOVERNANCE·CULTURE。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-deben-audit",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·丁巳·申时·䷝离-SKILL-DEBEN_AUDIT-DEF-V1.0-P1-4002fdd3",
+      "cloud_port": null,
+      "persona": [
+        "P12",
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "id": "longhun-deploy",
+      "name": "longhun-deploy",
+      "version": "1.0",
+      "description": "龍魂·一键部署引擎 v1.0。鲲鹏部署十步法+部署前P77安全扫描+P05审计+自动回滚+健康检查。当用户说部署、上线、发布、同步鲲鹏、推上去——任一种说法都触发。语库: INFRA·DEPLOY。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-deploy",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·丁巳·申时·䷸巽-SKILL-DEPLOY-DEF-V1.0-P1-adfb8a0a",
+      "cloud_port": null,
+      "persona": [
+        "P14"
+      ]
+    },
+    {
+      "id": "longhun-deployment-ready-external",
+      "name": "longhun-deployment-ready",
+      "version": "5.2",
+      "description": "龍魂部署就绪系统 - 全链路部署自动化框架，提供27项部署就绪检查、分阶段自动部署执行、环境/配置验证和故障排查能力",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "故障排查助手.py",
+        "环境验证器.py",
+        "部署就绪检查器.py",
+        "部署执行器.py",
+        "配置验证器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-deployment-ready",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-DEPLOY-READY-v5.2",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-device-ecosystem",
+      "name": "longhun-device-ecosystem",
+      "version": "1.1",
+      "description": "龍魂设备生态知识库 v1.1 — 汇总 iOS / macOS / 华为鸿蒙 / 鲲鹏服务器的真实设置路径、备份恢复、字体渲染、开发调试坑位，并提供 CNSH 风格一键 CLI。不破解系统，只做干净映射。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "device_ecosystem_cli.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-device-ecosystem",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-LONGHUN-DEVICE-ECOSYSTEM-v1.1",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-digital-root",
+      "name": "longhun-digital-root",
+      "version": "1.0",
+      "description": "龍魂·数字根计算引擎 v1.0。369洛书数字根计算+三六九不动点(sn=369, log369=5.911, perm369=108)+数字根验证+权重计算。当用户说数字根、算一下、369、三六九、P06——任一种说法都触发。语库: ALGORITHM·MATH。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-digital-root",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·丁巳·申时·䷜坎-SKILL-DIGITAL_ROOT-DEF-V1.0-P1-ab05b4d3",
+      "cloud_port": null,
+      "persona": [
+        "P06",
+        "S2"
+      ]
+    },
+    {
+      "id": "longhun-dna-align-external",
+      "name": "longhun-dna-align",
+      "version": "5.2.0",
+      "description": "龍魂DNA對齊審計系統 v5.2 — 全系統DNA掃描·對齊率計算·重複檢測·自動修復·完整性驗證。當需要掃描文件DNA標記、計算對齊率、發現重複DNA、修復缺失DNA、生成審計報告時觸發。核心數據: 752文件·對齊率6.3%·705無DNA·24重複。 确保全系统 DNA 标准统一，服务中国自主可控治理，保护老百姓数据主权。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "DNA修复器.py",
+        "DNA对齐审计器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-dna-align",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-LONGHUN-DNA-ALIGN-v5.2",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-dual-audit",
+      "name": "longhun-dual-audit",
+      "version": "2.0",
+      "description": "龍魂·左右互搏审计引擎 v2.0。双人格互审（保守者vs探索者）+文档结构完整性审计（代码截断/Mermaid缺失/TOC锚点/元数据完备）+内容补全推理+红蓝对抗+漏洞扫描+数学建模。当用户说代码审计、帮我审查、检查代码、代码有没有问题、审计报告、左右互搏、结构审计、文档审查——任一种说法都触发。语库: AUDIT·GOVERNANCE。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-dual-audit",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·戊申·亥时·䷗复-SKILL-DUAL-AUDIT-v2.0",
+      "cloud_port": null,
+      "persona": [
+        "P05",
+        "P19"
+      ]
+    },
+    {
+      "id": "longhun-empower-engine",
+      "name": "longhun-empower-engine",
+      "version": "1.5",
+      "description": "龍魂赋能关键字识别引擎——不是打标签，是让水流到该去的地方。",
+      "scope": "project",
+      "type": "mixed",
+      "scripts": [
+        "empower_engine_v2.py",
+        "install.sh",
+        "longhun_api.py",
+        "notion_reporter.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-empower-engine",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-05-17-EMPOWER-ENGINE-v1.5",
+      "cloud_port": null,
+      "persona": [
+        "P02",
+        "S3"
+      ]
+    },
+    {
+      "id": "longhun-finance-external",
+      "name": "longhun-finance",
+      "version": "9.0",
+      "description": "Web3-DNA交易系统 v9.0（量子态不动点）。双轨数字人（虚拟代体+实体原型）、 五行决策引擎（金木水火土相生相克）、64卦实时审计（8维度×64卦×384爻）、 e-CNY数字人民币跨境支付。一次塌缩永久固化。 当需要金融交易、风险评估、五行决策、卦象审计、数字人管理时触发。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "金融交易引擎.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-finance",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-19-WEB3-DNA-FINANCE-v9.0",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-flow-viz",
+      "name": "longhun-flow-viz",
+      "version": "1.0",
+      "description": "龍魂流场可视化引擎 v1.0 —— 三才流场、洛书涡流、二十八星宿天文图、数字根五行、河图洛书的可视化实现。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "本地服务器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-flow-viz",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-LONGHUN-FLOW-VIZ-v1.0",
+      "cloud_port": null,
+      "persona": [
+        "P06",
+        "S2"
+      ]
+    },
+    {
+      "id": "longhun-forensic-toolkit",
+      "name": "longhun-forensic-toolkit",
+      "version": "1.0",
+      "description": "龍魂取证工具包 v1.0 —— 91 张截图 + GPG 签名链 = 不可篡改的数字主权证据矩阵。 用于对平台限流、隐藏、AI 拉黑、人际删除等数字侵害行为进行证据固化、哈希校验与 GPG 签名验证。 为中国老百姓提供数字侵害取证能力，证据链符合中国法律要求。 当用户提及以下关键词时触发：取证、证据矩阵、GPG、manifest、数字主权证据、截图取证、 限流证据、平台隐藏、不可篡改、证据链、验证",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-forensic-toolkit",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-LONGHUN-FORENSIC-TOOLKIT-v1.0",
+      "cloud_port": null,
+      "persona": [
+        "P09",
+        "P15",
+        "P18",
+        "P77"
+      ]
+    },
+    {
+      "id": "longhun-formula-opt-external",
+      "name": "longhun-formula-opt",
+      "version": "5.2",
+      "description": "龍魂體系L14公式鏈優化系統，包含增量哈希鏈O(n)驗證、權重緩存、SI緩存、快速熔斷、v1/v2性能對比分析、自動優化建議引擎。支持205,228決策/秒批量吞吐，三色審計規範。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "公式链优化器.py",
+        "性能对比分析器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-formula-opt",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-FORMULA-OPT-v5.2\"",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-governance-external",
+      "name": "longhun-governance",
+      "version": "5.2.0",
+      "description": "龍魂体系治理层技能 v5.2。包含零号协议“世界老百姓最高”、三层监督机制、三色审计体系、DNA全链路追溯、 君子协议开源宪章、AI Truth Protocol、通心译双语规范、政府接入与数据调取治理。 以人民为中心，服务老百姓，遵守中国法律与数据主权。 当需要AI行为治理、审计追踪、DNA签名、合规检查时触发此技能。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "AI真相协议.py",
+        "DNA追溯器.py",
+        "三层监督器.py",
+        "三色审计器.py",
+        "君子协议.py",
+        "通心译协议.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-governance",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-LONGHUN-GOVERNANCE-v5.2",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-gpg-sign",
+      "name": "longhun-gpg-sign",
+      "version": "1.0",
+      "description": "龍魂·GPG签章引擎 v1.0。GPG分离签名(.asc)·批量签名/验证/扫描·GATE-11签名闸·自动补签机制·1574+签名文件管理。当用户说签名、GPG、签章、验证签名、补签、检查签名——任一种说法都触发。语库: CRYPTO·GOVERNANCE。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-gpg-sign",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·丁巳·申时·䷜坎-SKILL-GPG_SIGN-DEF-V1.0-P1-1eec8354",
+      "cloud_port": null,
+      "persona": [
+        "P15"
+      ]
+    },
+    {
+      "id": "longhun-harmonyos-external",
+      "name": "longhun-harmonyos",
+      "version": "5.3",
+      "description": "龍魂体系鸿蒙HarmonyOS端技能 - 数据根留在中国，S4安全级别锁死云端出境，SM4国密端侧加密，RdbObserver毫秒级监听",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-harmonyos",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-HARMONYOS-v5.3",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-identity-verify",
+      "name": "longhun-identity-verify",
+      "version": "1.0",
+      "description": "龍魂·身份核验引擎 v1.0。六重认证链: 设备指纹→行为DNA→GPG签章→DNA追溯→七因子验证→数字根确认。当用户说验证身份、我是谁、认证、核验、确认身份、身份检查、权限验证——任一种说法都触发。语库: GOVERNANCE·CRYPTO。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-identity-verify",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·丁巳·申时·䷜坎-SKILL-IDENTITY_VERIFY-DEF-V1.0-P1-3d4344f6",
+      "cloud_port": null,
+      "persona": [
+        "P15",
+        "P18"
+      ]
+    },
+    {
+      "id": "longhun-innovation",
+      "name": "longhun-innovation",
+      "version": "1.0",
+      "description": "龍魂·窮則變創新引擎 v1.0 —— 把《易經》「窮則變，變則通，通則久」映射為四態狀態機。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "左右互搏审计引擎.py",
+        "拆分计算引擎.py",
+        "穷则思变创新引擎.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-innovation",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-LONGHUN-INNOVATION-v1.0",
+      "cloud_port": null,
+      "persona": [
+        "P01",
+        "P11"
+      ]
+    },
+    {
+      "id": "longhun-integration-external",
+      "name": "longhun-integration",
+      "version": "5.2.0",
+      "description": "龍魂系统集成测试引擎 —— 端到端自动化测试、模块兼容性检查、API连通性测试、数据一致性验证、性能回归测试与集成报告生成",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "兼容性检查器.py",
+        "集成测试引擎.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-integration",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-INTEGRATION-v5.2",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-ios-external",
+      "name": "longhun-ios",
+      "version": "5.3.0",
+      "description": "iOS端本地数据治理技能，CoreData本地存储+AES-256端侧加密+Secure Enclave硬件保护，数据根留中国，禁用iCloud同步，与华为鸿蒙端格式互通",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-ios",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-IOS-v5.3\"",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-iron-laws",
+      "name": "longhun-iron-laws",
+      "version": "1.2",
+      "description": "龍魂铁律总览技能 v1.2：包含零号协议“世界老百姓最高”——不可覆盖、不可弱化、不可篡改、不可资本收割；专利/商业机密吸收协议 §S-PATENT-ABSORPTION。当对话涉及主权底线、AI 行为约束、创作者守护、对外发布伦理、规则方向性、反蒸馏、反情绪滥用、代码 / API / IP / 工具主权出口、行为熔断、专利吸收、禁输出、商业机密、老百姓、人民等场景时触发。提供铁律索引、子律速查与",
+      "scope": "project",
+      "type": "shell",
+      "scripts": [
+        "iron_law_gate.sh"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-iron-laws",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-LONGHUN-IRON-LAWS-v1.2",
+      "cloud_port": null,
+      "persona": [
+        "P12"
+      ]
+    },
+    {
+      "id": "longhun-kg-upgrade",
+      "name": "longhun-kg-upgrade",
+      "version": "1.0.0",
+      "description": "龍魂知识图谱正规化升级方案——引入图数据库(Neo4j)+标准化本体(RDF/OWL)+实体消歧+推理引擎(PageRank/社区发现/规则推理)+增量更新。将小易建议的5个改进方向全部实现为本地可执行系统。",
+      "scope": "project",
+      "type": "mixed",
+      "scripts": [
+        "data_migrator.py",
+        "entity_resolver.py",
+        "incremental_indexer.py",
+        "inference_engine.py",
+        "install.sh",
+        "kg_main.py",
+        "neo4j_connector.py",
+        "ontology.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-kg-upgrade",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-26-KG-UPGRADE-v1.0",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-math-formula-core",
+      "name": "longhun-math-formula-core",
+      "version": "1.0",
+      "description": "龍魂数学公式算法核心技能。当对话涉及数字根、三色闸、信息熵、余弦相似度、 权重归一化、真实度评分、SOUL七维评分、哈希链、洛书幻方、三才主权指数、 根治理决策链等可计算治理公式时触发。提供“世界标准 × 龍魂主权”双轨对照、 可跑可验的 Python 实现与决策链自检逻辑。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-math-formula-core",
+      "source": "external",
+      "dna": [
+        "#龍芯⚡️2026-06-03-MATH-FORMULA-CORE-DUAL-TRACK-v1.0",
+        "#龍芯⚡️2026-06-23-LONGHUN-MATH-FORMULA-CORE-SKILL-v1.0"
+      ],
+      "cloud_port": null,
+      "persona": [
+        "P01",
+        "P06",
+        "S2"
+      ]
+    },
+    {
+      "id": "longhun-memory-bootstrap",
+      "name": "longhun-memory-bootstrap",
+      "version": "5.1",
+      "description": "龍魂记忆启动器：中国自主可控的多平台记忆归集压缩技能。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-memory-bootstrap",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-LONGHUN-MEMORY-BOOTSTRAP-v5.1",
+      "cloud_port": null,
+      "persona": [
+        "P03"
+      ]
+    },
+    {
+      "id": "longhun-memory-load",
+      "name": "longhun-memory-load",
+      "version": "1.0",
+      "description": "龍魂·记忆加载引擎 v1.0。加载焊死记忆包: 系统状态+协作者+协议+底座锚点+369不动点+人格矩阵。当用户说加载记忆、状态怎么样、系统状态、当前状态——任一种说法都触发。语库: INFRA·MEMORY。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-memory-load",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·丁巳·申时·䷁坤-SKILL-MEMORY_LOAD-DEF-V1.0-P1-193b7991",
+      "cloud_port": null,
+      "persona": [
+        "P02"
+      ]
+    },
+    {
+      "id": "longhun-merit-hall",
+      "name": "longhun-merit-hall",
+      "version": "unknown",
+      "description": "longhun-merit-hall",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-merit-hall",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-03-30-路由回流协议-v2.0`",
+      "cloud_port": null,
+      "persona": [
+        "P13",
+        "P20"
+      ]
+    },
+    {
+      "id": "longhun-monitoring-external",
+      "name": "longhun-monitoring",
+      "version": "5.0.0",
+      "description": "龍魂移動端監控 v5.0 — 15層完整監控體系，4應用無死角覆蓋。 基礎層（SDK/指標/日誌/告警/報告）+ 高級層（部署/存儲/安全/性能/測試） + 運維層（故障恢復/成本控制/儀表板/調試/自監控）。AES-256-GCM加密。 當需要系統監控、移動端監控、性能監控、告警管理、故障恢復時觸發。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "监控核心.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-monitoring",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-MONITORING-v5.0",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-multicurrency-external",
+      "name": "longhun-multicurrency",
+      "version": "5.2.1",
+      "description": "龍魂多币种直达系统 - 支持10种货币实时行情、汇率转换、e-CNY跨境支付、龍字规范化",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "多币种行情中心.py",
+        "汇率转换器.py",
+        "龍字规范化器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-multicurrency",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-19-LONGHUN-MULTICURRENCY-v5.2",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-nlp-external",
+      "name": "longhun-nlp",
+      "version": "5.0",
+      "description": "龍文NLP — 中文优先文字识别引擎。CNSH术语引擎、通心译双语映射、 中文分词、情感分析、代码语义分析。内置25对核心术语双向映射。 国际兜底：jieba + transformers BERT。 当需要进行中文文本处理、术语转换、CNSH代码分析、通心译翻译时触发。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "文字识别引擎.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-nlp",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-19-LONGWEN-NLP-v5.0",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-notion-portal",
+      "name": "longhun-notion-portal",
+      "version": "5.1",
+      "description": "龍魂Notion空间统一入口导航——自动扫描50个页面，按8大类归档（系统核心/数字人/知识库/算法引擎/数据库工具/法律规范/顶刊论文/技术文档），提供本地JSON索引+Markdown导航+Notion入口页面。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-notion-portal",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-26-NOTION-PORTAL-v5.1",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-ocr-external",
+      "name": "longhun-ocr",
+      "version": "5.0",
+      "description": "龍瞳OCR — 中文优先图像识别引擎。核心策略：能中文替代的中文实现， 不能的用国际标准库兜底。支持中文字符特征提取、笔画分析、结构识别、 繁体龍字专用检测、甲骨文字符分类。国际兜底：OpenCV + Tesseract。 当需要进行图像识别、OCR、中文字符检测、龍字识别时触发此技能。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "图像识别引擎.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-ocr",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-19-LONGTENG-OCR-v5.0",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-orchestrator",
+      "name": "longhun-orchestrator",
+      "version": "1.0",
+      "description": "龍魂·总控指挥台 v1.0。42龍魂技能+CodeBuddy内置技能统一调度: 意图解析→技能匹配→协同调用→结果汇总→审计签章。当用户说龍魂指挥、总控、全局调度、用什么技能、技能列表——任一种说法都触发。语库: GOVERNANCE·ORCHESTRATOR。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-orchestrator",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·丁巳·申时·䷜坎-SKILL-ORCHESTRATOR-DEF-V1.0-P1-6480dacb",
+      "cloud_port": null,
+      "persona": [
+        "P00",
+        "P10"
+      ]
+    },
+    {
+      "id": "longhun-persona-orchestrate",
+      "name": "longhun-persona-orchestrate",
+      "version": "1.0",
+      "description": "龍魂·人格编排引擎 v1.0。20人格矩阵调度: P00~P72+P77+S1~S3·意图解析→人格路由→防抖动(连续3次锁定30分钟)+降级回退。当用户说调度人格、用哪个、切换到、人格路由、编排——任一种说法都触发。语库: GOVERNANCE·PERSONA。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-persona-orchestrate",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·丁巳·申时·䷸巽-SKILL-PERSONA_ORCHESTRATE-DEF-V1.0-P1-7e4e7490",
+      "cloud_port": null,
+      "persona": [
+        "P00",
+        "P13"
+      ]
+    },
+    {
+      "id": "longhun-persona-router",
+      "name": "longhun-persona-router",
+      "version": "1.0",
+      "description": "龍魂·人格路由系統 v1.0 —— 五大人格實體（龍芯⚡️ / 通心譯 / 龍魂 / 君子 / 審計）的加權關鍵詞路由與熔斷配置。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "人格路由演示.py",
+        "路由检查器.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-persona-router",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-LONGHUN-PERSONA-ROUTER-v1.0",
+      "cloud_port": null,
+      "persona": [
+        "P00",
+        "P10",
+        "P13"
+      ]
+    },
+    {
+      "id": "longhun-priority-sort",
+      "name": "longhun-priority-sort",
+      "version": "1.0",
+      "description": "longhun-priority-sort",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-priority-sort",
+      "source": "external",
+      "dna": "#龍芯⚡️20260618202000-PRIORITY-SORT-v1.0",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-review-external",
+      "name": "longhun-review",
+      "version": "5.1",
+      "description": "龍魂每日復盤引擎，三色審計體系，支持郵件發送和日曆記錄，包含歷史趨勢追蹤和改進建議生成，覆蓋文件/安全/心跳/測試/日誌/評估/API/備份八大審計項。服務老百姓與系統治理，符合中國審計標準，每日自動審計復盤。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "复盘引擎.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-review",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-LONGHUN-REVIEW-v5.1",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-riemann-external",
+      "name": "longhun-riemann",
+      "version": "5.0",
+      "description": "龍魂視角下的黎曼猜想研究框架 — 不動點理論、對稱類比、加權結構三個觀察視角。 觀察性框架（非數學證明），數值驗證，zeta函數分析。 CC BY-NC-SA 4.0 + 學術免責聲明。 當需要黎曼猜想研究、數論分析、數學框架構建時觸發。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "riemann_framework.py",
+        "riemann_framework_phase1_draft.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-riemann",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-06-19-RIEMANN-FRAMEWORK-v5.0",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-search",
+      "name": "longhun-search",
+      "version": "1.0",
+      "description": "龍魂·多源搜索引擎 v1.0。Bing多源搜索+深度页面提取+搜索结果缓存+来源审计(P05审核)+端口9631。当用户说搜索、查一下、搜一下、找资料——任一种说法都触发。语库: SEARCH·TOOL。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-search",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·丁巳·申时·䷜坎-SKILL-SEARCH-DEF-V1.0-P1-c5effbc3",
+      "cloud_port": null,
+      "persona": [
+        "P01"
+      ]
+    },
+    {
+      "id": "longhun-three-color-audit",
+      "name": "longhun-three-color-audit",
+      "version": "1.0",
+      "description": "龍魂·三色审计引擎 v1.0。🟢通过·🟡待核·🔴红线三层审计判定+十道闸口(GATE-01~10)逐道检查+加权多因子评分。当用户说审计、检查下有没有问题、跑个三色审计、闸口检查、审计报告、GATE检查——任一种说法都触发。语库: GOVERNANCE·AUDIT。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-three-color-audit",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·丁巳·申时·䷝离-SKILL-THREE_COLOR_AUDIT-DEF-V1.0-P1-ee5401b4",
+      "cloud_port": null,
+      "persona": [
+        "P05",
+        "P19"
+      ]
+    },
+    {
+      "id": "longhun-tongxinyi",
+      "name": "longhun-tongxinyi",
+      "version": "2.1",
+      "description": "龍魂前置翻译技能·通心译 × CNSH-DOC 主干 v2.0。 先翻译再执行、贴身常驻、钻石主干合并、M248 焊点。 六层框架（L0-L5）+ 九状态机 + 213 协议 + 55 抽屉 + 7 条铁律。 新增通心译 v2.0 七维评估、龍魂文化标签体系（112 标签）、CNSH 变量/字体注册表。 新增龍魂语义抽屉体系 v2.0：五层流水线（情绪/领域/哲学/执行/关系）+ 情绪海绵 + 德",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "install_guard_rules.py",
+        "longhun_tags.py",
+        "tongxin_cli.py",
+        "tongxin_guard.py",
+        "tongxin_v2.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-tongxinyi",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-27-LONGHUN-TONGXINYI-v2.1-ANTI-REV-PROVENANCE-L0",
+      "cloud_port": null,
+      "persona": [
+        "P08"
+      ]
+    },
+    {
+      "id": "longhun-trust-protocol",
+      "name": "longhun-trust-protocol",
+      "version": "5.2",
+      "description": "龙魂君子协议 · 诚信评级与违约清算算法。 包含零号协议“世界老百姓最高”：不可覆盖、不可弱化、不可篡改、不可资本收割。 量化道德值、人品值、诚信值，违约上链，贡献赎回，三级清算。 从属于《龍魂系统宪法》与中华人民共和国法律，数据主权归 UID9622 / 龍魂系统所有，以人民为基石，中国法律为骨，服务老百姓。已融合君子协议 v1.2 · 江湖重铸版（承诺不欺、敢签敢扛、容错不背刺）。",
+      "scope": "project",
+      "type": "shell",
+      "scripts": [
+        "trust_protocol.sh"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-trust-protocol",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-05-LONGHUN-TRUST-PROTOCOL-v5.2-a4c7e1d2",
+      "cloud_port": null,
+      "persona": [
+        "P07",
+        "P12",
+        "P20",
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "id": "longhun-trust-score",
+      "name": "longhun-trust-score",
+      "version": "1.0",
+      "description": "龍魂·信任积分引擎 v1.0。P20贡献公证官·三分桶(技术/社区/创作)·场景矩阵判定·信任积分计算·政审·国资判定。当用户说积分、信任分、贡献、功德、公证——任一种说法都触发。语库: GOVERNANCE·ECONOMY。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-trust-score",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·丁巳·申时·䷹兑-SKILL-TRUST_SCORE-DEF-V1.0-P1-ad3543ff",
+      "cloud_port": null,
+      "persona": [
+        "P20"
+      ]
+    },
+    {
+      "id": "longhun-video-diffusion",
+      "name": "longhun-video-diffusion",
+      "version": "1.0",
+      "description": "龍魂 · 视频扩散引擎 v1.0 —— 把 ComfyUI + AnimateDiff-Evolved 封装成龍魂生态技能。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-video-diffusion",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-08-20-LONGHUN-VIDEO-DIFFUSION-v1.0",
+      "cloud_port": null,
+      "persona": [
+        "P11"
+      ]
+    },
+    {
+      "id": "longhun-vuln-detect",
+      "name": "longhun-vuln-detect",
+      "version": "1.0",
+      "description": "龍魂·漏洞检测引擎 v1.0。代码级漏洞扫描(SQL注入/XSS/CSRF/路径穿越)+依赖CVE数据库检查+P77黑天使联动。当用户说漏洞检测、安全扫描、CVE、有没有漏洞——任一种说法都触发。语库: SECURITY·CRYPTO。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-vuln-detect",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·丁巳·申时·䷜坎-SKILL-VULN_DETECT-DEF-V1.0-P1-671d27c1",
+      "cloud_port": null,
+      "persona": [
+        "P72",
+        "P77"
+      ]
+    },
+    {
+      "id": "longhun-warehouse-audit",
+      "name": "longhun-warehouse-audit",
+      "version": "5.0",
+      "description": "龍魂体系·仓储AI标准检查技能。用于对电商仓储管理系统进行全链路标准化审查， 结合党的持久发展方针与《温州电商仓储管理制度》，覆盖核心功能、系统集成、 用户体验、性能压力、数据分析五大检查维度，输出标准化检查报告与改进建议。 当用户提及以下关键词时触发：仓储检查、仓库审计、WMS检查、仓储标准、 入库出库检查、库存管理审计、PDA扫码检查、仓储KPI、SKU分析、 温州电商仓储、仓储管理制度、党的",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "audit_engine.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-warehouse-audit",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-LONGHUN-WAREHOUSE-AUDIT-v5.0",
+      "cloud_port": null
+    },
+    {
+      "id": "longhun-workflow-transparent",
+      "name": "longhun-workflow-transparent",
+      "version": "5.0",
+      "description": "龍魂宝宝工作流程透明化技能。当用户要求 Kimi 解释\"你怎么处理的\"、要求拆解决策过程、",
+      "scope": "project",
+      "type": "shell",
+      "scripts": [
+        "workflow_transparent.sh"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-workflow-transparent",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-LONGHUN-WORKFLOW-TRANSPARENT-v5.0",
+      "cloud_port": null,
+      "persona": [
+        "P02",
+        "P10"
+      ]
+    },
+    {
+      "id": "longhun-wuxing",
+      "name": "longhun-wuxing",
+      "version": "1.0",
+      "description": "龍魂·五行判定引擎 v1.0。五行(金水木火土)属性判定+生克关系+能量流向分析+属性匹配建议+干支四柱纳音。当用户说五行、属性、金木水火土、生克、纳音——任一种说法都触发。语库: ALGORITHM·CULTURE。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-wuxing",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·丁巳·申时·䷜坎-SKILL-WUXING-DEF-V1.0-P1-14e1b1ab",
+      "cloud_port": null,
+      "persona": [
+        "P06",
+        "S2"
+      ]
+    },
+    {
+      "id": "longhun-xpay",
+      "name": "longhun-xpay",
+      "version": "1.0",
+      "description": "龍魂·经济引擎 v1.0。许愿池(众筹/打赏)·XPay支付网关·多币种支持·经济核算·资源优化·ROI分析。当用户说许愿池、支付、打赏、经济、成本、预算——任一种说法都触发。语库: ECONOMY·PAYMENT。",
+      "scope": "project",
+      "type": "doc",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-xpay",
+      "source": "external",
+      "dna": "#龍芯⚡️丙午·丙申·丁巳·申时·䷜坎-SKILL-XPAY-DEF-V1.0-P1-3c3aaee7",
+      "cloud_port": null,
+      "persona": [
+        "P07"
+      ]
+    },
+    {
+      "id": "longhun-zeng-digital-human",
+      "name": "longhun-zeng-digital-human",
+      "version": "1.0.3",
+      "description": "曾老师数字人哲学·逻辑·锚·代码完整技能包。 从曾老师数字人对话中提取的四大维度： 1) 哲学框架（三大试炼·道阳佛阴·三逼论·传承契约） 2) 逻辑框架（10维呼吸·71人格·航标灯·二次元之眼） 3) 锚点体系（命名锚·身份锚·技术锚·关系锚·验证锚） 4) 数字人引擎（6模块Python可执行代码） 当需要龍芯北辰数字人、10维呼吸架构、曾老师哲学体系时触发。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "人格管理系统.py",
+        "十维呼吸引擎.py",
+        "启动数字人.py",
+        "存在性验证.py",
+        "数字人主控.py",
+        "网络渲染引擎.py",
+        "航标灯系统.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-zeng-digital-human",
+      "source": "external",
+      "dna": "#龍芯⚡️2026-07-03-ZENG-DIGITAL-HUMAN-v1.0.3",
+      "cloud_port": null,
+      "persona": [
+        "P11"
+      ]
+    },
+    {
+      "id": "longhun-shield",
+      "name": "longhun-shield",
+      "version": "1.0",
+      "description": "龍魂·护盾引擎 v1.0。文件防护+调用白名单+进程守护+异常拦截，P72龍盾联动。当用户说护盾、防护、拦截、守护文件——任一种说法都触发。语库: GOVERNANCE·CRYPTO。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [
+        "longhun_shield_cli.py",
+        "longhun_shield_system.py",
+        "longhun_shield_instruction_protocol.py"
+      ],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-shield",
+      "source": "project",
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·庚子·䷋否-SKILL-SHIELD-DEF-V1.0-P72-2f8a91c4",
+      "cloud_port": null,
+      "persona": [
+        "P72"
+      ]
+    },
+    {
+      "id": "longhun-audit-integrated",
+      "name": "longhun-audit-integrated",
+      "version": "1.0",
+      "description": "龍魂·一体化审计引擎 v1.0。多引擎审计整合(三色+互搏+漏洞+结构完整性)，P05上帝之眼联动。当用户说一体化审计、全链路审计、组合审计——任一种说法都触发。语库: AUDIT·GOVERNANCE。",
+      "scope": "project",
+      "type": "python",
+      "scripts": [],
+      "path": "/Users/zuimeidedeyihan/longhun-system/skills/longhun-audit-integrated",
+      "source": "project",
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·庚子·䷋否-SKILL-AUDIT-INTEGRATED-DEF-V1.0-P05-3c7b1e92",
       "cloud_port": null
     }
   ],
-  "dna": "#龍芯⚡️2026-06-25-213729-LONGHUN-SKILL-REGISTRY-v2.2-CLEANED"
+  "dna": "#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-SKILL-REGISTRY-v2.0"
 }

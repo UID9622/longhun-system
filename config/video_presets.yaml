@@ -1,0 +1,209 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# 龍魂·视频生产线平台预设 v1.0
+# DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-VIDEO-PRESETS-v1.0
+# 创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0
+
+platforms:
+  douyin:
+    name: "抖音"
+    aspect_ratio: "9:16"
+    width: 1080
+    height: 1920
+    max_duration: 60
+    fps: 30
+    bitrate: "8M"
+    codec: "h264"
+    audio_bitrate: "192k"
+    format: "mp4"
+    watermark_position: "bottom-right"
+    watermark_size: 0.04
+    intro_duration: 2.0
+    outro_duration: 3.0
+    transition_style: "fast-cut"
+
+  shipinhao:
+    name: "视频号"
+    aspect_ratio: "9:16"
+    width: 1080
+    height: 1920
+    max_duration: 90
+    fps: 30
+    bitrate: "6M"
+    codec: "h264"
+    audio_bitrate: "192k"
+    format: "mp4"
+    watermark_position: "bottom-right"
+    watermark_size: 0.04
+    intro_duration: 2.5
+    outro_duration: 3.5
+    transition_style: "smooth"
+
+  bilibili:
+    name: "B站"
+    aspect_ratio: "16:9"
+    width: 1920
+    height: 1080
+    max_duration: 0  # 0 = 不限
+    fps: 30
+    bitrate: "12M"
+    codec: "h264"
+    audio_bitrate: "256k"
+    format: "mp4"
+    watermark_position: "bottom-right"
+    watermark_size: 0.03
+    intro_duration: 3.0
+    outro_duration: 5.0
+    transition_style: "cinematic"
+    danmaku_optimized: true
+
+  youtube:
+    name: "YouTube"
+    aspect_ratio: "16:9"
+    width: 1920
+    height: 1080
+    max_duration: 0
+    fps: 30
+    bitrate: "15M"
+    codec: "h264"
+    audio_bitrate: "320k"
+    format: "mp4"
+    watermark_position: "bottom-right"
+    watermark_size: 0.03
+    intro_duration: 3.0
+    outro_duration: 5.0
+    transition_style: "cinematic"
+
+# 视觉不动点（P0焊死）
+visual_constants:
+  bg_color: "#080808"
+  gold_color: "#C9A84C"
+  gray_color: "#6B6B6B"
+  alert_color: "#FF4444"
+  transition_color: "#1A1A2E"
+  border_color: "#C9A84C"
+
+  totems:
+    dna:
+      position: "bottom-right"
+      opacity: 0.6
+      blink_interval: 5.0
+    motong:
+      position: "top-left"
+      opacity: 0.4
+      follow_intensity: 0.3
+    bagua:
+      position: "background-center"
+      opacity: 0.03
+      rotation_period: 360.0
+    long:
+      position: "center"
+      intro_duration: 3.0
+      outro_duration: 3.0
+      effect: "particle-burn"
+    num_369:
+      position: "center"
+      transition_duration: 0.5
+      effect: "lightning"
+    gua:
+      position: "emphasis-zone"
+      highlight_duration: 2.0
+
+# 声音不动点（P0焊死）
+voice_constants:
+  style: "veteran"
+  base_speed: 0.9
+  base_pitch_shift: -1
+  base_intensity: 0.85
+  keyword_pause: 0.3
+  breath_pause: 0.8
+
+  forbidden_styles:
+    - "broadcast"
+    - "robot"
+    - "sweet"
+    - "anchor"
+    - "ai_reading"
+
+  emotion_map:
+    anger:
+      pitch_shift: 2
+      speed_mult: 1.1
+      intensity: 0.9
+    tragic:
+      pitch_shift: -1
+      speed_mult: 0.9
+      intensity: 0.8
+    firm:
+      pitch_shift: 0
+      speed_mult: 1.0
+      intensity: 0.85
+    mock:
+      pitch_shift: 1
+      speed_mult: 1.2
+      intensity: 0.7
+    hope:
+      pitch_shift: 1
+      speed_mult: 1.0
+      intensity: 0.75
+
+  ambient:
+    heartbeat_drum:
+      volume: 0.15
+      when: "always"
+    distant_bell:
+      volume: 0.20
+      trigger_keywords: ["先烈", "牺牲", "牺牲的", "为国"]
+    rising_wind:
+      volume_start: 0.10
+      volume_end: 0.30
+      when: "outro"
+
+# 数字人不动点（P0焊死）
+avatar_constants:
+  style: "dark_golden"
+  skin: "dark_metallic"
+  clothing: "dark_military"
+  border: "gold_thin"
+
+  eye_tracking:
+    gaze_target: "viewer"
+    lock_intensity: 0.95
+
+  emotion_expressions:
+    anger:
+      eyebrow: "tight"
+      eye: "wide_sharp"
+      mouth_mult: 1.2
+    tragic:
+      eyebrow: "slight_frown"
+      eye: "deep_reddish"
+      mouth_mult: 0.8
+    firm:
+      eyebrow: "neutral"
+      eye: "direct_fixed"
+      mouth_mult: 1.0
+    mock:
+      eyebrow: "slight_raise"
+      eye: "sharp_squint"
+      mouth_corner: "up"
+    hope:
+      eyebrow: "relaxed"
+      eye: "bright"
+      mouth_mult: 1.0
+
+# 水印配置
+watermark:
+  dna_corner:
+    font_size_ratio: 0.02
+    blink_interval: 5.0
+    opacity_min: 0.3
+    opacity_max: 0.7
+  invisible:
+    strength: "high"
+    robustness: "compression-resistant"
+    payload_fields:
+      - "owner_uid"
+      - "creation_time"
+      - "dna_code"
+      - "gpg_fingerprint"

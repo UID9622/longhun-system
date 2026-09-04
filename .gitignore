@@ -45,6 +45,7 @@ logging_backup/
 
 # --- 备份 ---
 backups/
+archive/backups_cp/
 *.backup
 
 # --- 私有文件 ---
@@ -79,6 +80,10 @@ _work/
 
 # --- 进程PID文件 ---
 .longhun/*.pid
+*.pid
+
+# --- Web 渲染镜像产物（html_assets = 全库静态导出副本·不入库）---
+web_apps/html_assets/
 
 # --- 大型镜像/克隆数据 ---
 L7_数据层/daoyin/mirror/
@@ -102,6 +107,11 @@ voice-twin/voice_dataset/
 # --- 大型数据库文件 ---
 data/usb_index/
 *.db
+
+# --- 支付凭证（敏感信息，绝不入 Git）---
+config/payment_credentials.yaml
+.longhun/certs/*private*
+.longhun/certs/*apiclient*
 
 # --- 境外编辑器暗桩（耻辱柱记录在案）---
 .claude/
@@ -140,12 +150,25 @@ CLAUDE.md.asc
 字体/*.otf
 字体/*.woff2
 
+# --- Web 静态资源中的第三方库 ---
+web/static/layui/
+web/static/icons/remixicon/
+
 # --- 运行时状态（不入版本库）---
 state/
+.longhun/
+.龍魂/
+.龍魂_config/
+.archive/
+.coverage
 
 # --- 编辑器工作区 ---
 .obsidian/
-.codebuddy/memory/
+.codebuddy/
+.codebuddy-plugin/
+.vscode.bak/
+.playwright-mcp/
+.snapshots/
 
 # --- 运行时生成数据（训练/采集/审计）---
 data/sources/fetched/
@@ -198,6 +221,40 @@ models/**/*.safetensors
 models/**/*.bin
 models/**/*.gguf
 
+# --- 运行时生成大文件（B/C 任务产物·不入git）---
+fused_model/
+rag_indexes/
+output/*.mp3
+output/*.mp4
+output/videos/
+videos/
+longhun-font/output/
+10_PORTAL/downloads/fonts/
+papers/*/md2docx_out/
+*.mp3
+*.wav
+
+# --- 第三方下载归档（不入git）---
+02_SKILLS/downloads_archive/
+editors/downloads_archive/
+
+# --- 运行时日志/守护进程日志（不入git）---
+agents/daemon_logs/
+
+# --- 审计运行时日志（不入git）---
+07_AUDIT/*.jsonl
+07_AUDIT/*.jsonl.asc
+
+# --- 临时备份/墓碑 Vault（不入git）---
+tombstone_vault/
+
+# --- 历史归档目录（不入git）---
+archive/历史记录/
+archive/csdn_sync/
+archive/experiments/
+archive/kimi_sessions_*/
+archive/training/
+
 # 🔒 安全加固自动添加
 id_rsa*
 id_ed25519*
@@ -208,3 +265,173 @@ id_ed25519*
 vault/
 v409_use_v408_golden
 models/longhun-v1.0/training_corpus_v3.0.md
+archive/brain_old/
+data/
+11_DATA/
+models/longhun-v1.0/
+05_ENGINES/gpt_sovits
+11_DATA/knowledge_pull/cache/engines/gpt_sovits
+11_DATA/training/home_absorb/workspace/Desktop/桌面项目箱/打包待命/龙魂万年历-生态入口包
+tts/fish-speech
+
+# --- Rust 编译产物 ---
+target/
+
+# ═══════════════════════════════════════════════════════════
+# 🔴 D1 绝密引擎保护 · 主权焊死 · 永不入 Git
+# 规则: 01_protocols/LH-ENGINE-PROTECTION-v1.0.md
+# 任何 D1 标记文件误入 git → ∞熔断
+# ═══════════════════════════════════════════════════════════
+# D1 绝密标记文件
+*_D1_SECRET*
+*_NEVER_EXPORT*
+*_sovereign_key*
+*_quantum_key*
+*_dna_seed*
+# 量子密钥
+**/quantum_keys/**
+**/*.quantum
+# GPG 私钥
+**/private_keys/**
+*.gpg-private
+# 主权加密密钥
+**/sovereign_crypto_keys/**
+# 369 内核算法
+**/luoshu_369_core/**
+**/*_369_kernel*
+# 行为密码学核心
+**/behavioral_crypto_core/**
+**/*_seven_factor_core*
+# 焊死封印文件（锁存）
+config/engine_protection.weld.*.json
+
+# 嵌入式 git 子模块（外部视频编解码器仓库）
+05_ENGINES/video/
+
+# ═══════════════════════════════════════════════════════════
+# 🐋 大文件与构建产物 · 防止仓库继续膨胀
+# 说明：以下目录/文件已存在于历史中，新增规则仅阻止未来入仓
+# 历史清理需使用 BFG/git-filter-repo（会破坏 GPG 签名）
+# ═══════════════════════════════════════════════════════════
+# IDE 构建产物（含 Mach-O 二进制、Python.framework）
+build_ide/
+dist_ide/
+
+# 临时下载/留证区域
+_downloads_staging/
+
+# 运行时生成的大报告（已归档到历史即可）
+12_DOCS/workspace_orphans_*.csv
+
+# 个人本地缓存与输出
+output/
+experiments/turbulence/output/
+
+# 第三方字体缓存（如有官方 CDN 或独立发布渠道）
+# 注意：龍魂字体(LonghunFont)为项目资产，保留；此处仅标记外部/vendor字体副本
+10_PORTAL/warp-lab/vendor/fonts/
+
+# 大型本地数据缓存
+*.lhdc.tmp
+*.tar.gz.tmp
+*.zip.tmp
+
+# ═══════════════════════════════════════════════════════════
+# 🐉 龍字规范化备份 + 浏览器运行时数据 + 模型 tokenizer（2026-08-17 焊死）
+# ═══════════════════════════════════════════════════════════
+# 龍字规范化任务自动生成的备份（每文件一份·易膨胀·审计可回溯）
+*.glyph-backup
+# 浏览器自动化运行时用户数据（Chrome profile·非项目资产）
+08_BIN/browser_profile/
+# 下载的基础模型 tokenizer/配置（权重类·禁止入git·规则6.7）
+models/longhun-small-v1.0/
+models/qwen-1.5b/
+
+# ═══════════════════════════════════════════════════════════
+# 🔐 密钥泄露防护（2026-08-17 焊死 · LH-SECRET-LEAK-PREVENTION-v1.0）
+# ═══════════════════════════════════════════════════════════
+# Notion 镜像库：含真实凭证(ntn_/sk-/cookie)·452MB·冻结留档不删文件但禁入git
+12_DOCS/notion_mirror/
+# token/密钥 落位文件（本地与鲲鹏专用·永不入仓库）
+git-tokens.sh
+~/.uid9622/git-tokens.sh
+*.secrets.env
+secrets.env
+
+# --- 密钥落位文件（禁入 git·协议20 密钥防泄露） ---
+config/notion_config.json
+_QUARANTINE/
+12_DOCS/notion_full_export/
+
+# ═══════════════════════════════════════════════════════════
+# 🐉 对齐提交加固（2026-08-22 焊死 · 防 git add -A 误入库）
+# ═══════════════════════════════════════════════════════════
+# 模型/权重全目录（规则6.7·二进制禁入git）
+models/
+*.onnx
+*.gguf
+*.safetensors
+# 冻结档案（P0不删只冻结·不入git）
+archive/frozen/
+*.frozen
+# 全量备份文件（历史11964个·不入git）
+*.bak
+*.bak.*
+# 音视频成片（龍魂成片492个视频/音频·大文件不入git）
+*.mp4
+*.wav
+*.flac
+*.m4a
+龍魂成片/
+# 审计迁移备份（28MB大文件）
+04_AUDIT/dna_migration/backup/
+# 第三方嵌入式仓库（gitlink·不入库·防 add -A 误加）
+02_SKILLS/dsh-longhun-audit/
+08_BIN/story_factory/third_party/
+web/static/layui/
+# 剪贴板保险库（隐私数据源·含私钥片段·P0永不入库）
+06_CONTAINERS/clipboard-vault/
+# 数据库运行期临时文件（shm/wal·禁入git）
+*.sqlite3-shm
+*.sqlite3-wal
+*.db-shm
+*.db-wal
+
+# DNA: #龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-GITIGNORE-ALIGN-V2.1-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+
+# 龍魂视频引擎运行时输出（禁入git·运行时目录）
+lh_video_engine/output/*
+!lh_video_engine/output/.gitkeep
+12_DOCS/claude-session-assets/终端保存的输出*.txt
+
+# 第三方库与媒体二进制（8/28 四方同步·禁入git·防 add -A 误加）
+static/ace/
+dist_ide/
+www/vendor/
+web/static/js/echarts.min.js
+10_PORTAL/assets/js/echarts.min.js
+10_PORTAL/warp-lab/vendor/
+voices/kimi-archive/
+experiments/turbulence/output/
+capabilities/daemon.pid
+*.npz
+*.aiff
+
+# 2026-08-28 复盘清理·二进制/运行时/误纳源（防 add -A 误加·Claude资产不入库）
+12_DOCS/claude-session-assets/
+12_DOCS/tech/downloads_archive/
+core/valuation/*.xlsx
+exchange/api.pid
+papers/**/*.docx
+research/**/*.pdf
+skills/longhun-deployment-ready/docs/DEPLOYMENT_READY_CHECKLIST_2026-06-10.md
+skills/longhun-deployment-ready/docs/DEPLOYMENT_READY_CHECKLIST_2026-06-10.md.asc
+
+# SwiftPM构建缓存（8/30修复：禁止入库）
+ios/LonghunKit/.build/
+weights
+archive/
+
+# mkdocs 构建产物（不入仓·源码 docs-site/docs 保留）
+docs-site/site/

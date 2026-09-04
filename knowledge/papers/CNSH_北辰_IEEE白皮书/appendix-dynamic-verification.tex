@@ -1,0 +1,197 @@
+% ============================================================
+% CNSH 三才动态验证数据模板
+% 等部署后填入真实运行数据
+% DNA   : #龍芯⚡️丙午·辛未·APPENDIX-DYNAMIC-VERIFICATION-v1.0
+% GPG   : A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+% ============================================================
+
+\section{Three-Powers Dynamic Verification: Data Template}
+\label{app:dynamic-verification}
+
+This appendix defines the data collection schema for dynamic
+Three-Powers verification. It replaces the simulated curves in
+Fig.~3 with templates for real deployment data, ensuring that
+Theorem~4 (Three-Powers Self-Completion) can be empirically
+validated post-deployment.
+
+\subsection{Tian-Layer: P0 Governance Effectiveness}
+\label{app:tian-data}
+
+\begin{table}[h]
+\centering
+\caption{Tian-Layer P0 Violation Interception Log Template}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{llllp{3.5cm}}
+\toprule
+\textbf{Timestamp} & \textbf{P0 Rule} & \textbf{Operation} & \textbf{Verdict} & \textbf{DNA Trace} \\
+\midrule
+[auto] & [P0-xxx] & [description] & [BLOCK/ALLOW] & [auto-generated] \\
+\ldots & \ldots & \ldots & \ldots & \ldots \\
+\bottomrule
+\end{tabular}
+\caption*{This table will be populated from real CNSH audit logs post-deployment.}
+\end{table}
+
+\noindent \textbf{Required metrics for Tian-layer validation:}
+\begin{itemize}
+  \item \textbf{P0 interception rate}: $\frac{\text{BLOCK}}{\text{total operations}}$ — expected $\geq$ 99.98\%
+  \item \textbf{False positive rate}: $\frac{\text{BLOCK(legitimate)}}{\text{total BLOCK}}$ — expected $\leq$ 0.1\%
+  \item \textbf{Circuit-break response time}: Latency from violation detection to operation suspension
+  \item \textbf{Rule coverage}: $\frac{|\text{rules triggered}|}{22}$ over observation period
+\end{itemize}
+
+\subsection{Di-Layer: Translation Engine Coverage}
+\label{app:di-data}
+
+\begin{table}[h]
+\centering
+\caption{Di-Layer Translation Coverage Log Template}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Source Language} & \textbf{Requests} & \textbf{Syntax Coverage (\%)} & \textbf{Semantic Accuracy (\%)} & \textbf{Notes} \\
+\midrule
+Python & [auto] & [auto] & [auto] & \\
+C++ & [auto] & [auto] & [auto] & \\
+Java & [auto] & [auto] & [auto] & \\
+JavaScript & [auto] & [auto] & [auto] & \\
+Rust & [auto] & [auto] & [auto] & \\
+Go & [auto] & [auto] & [auto] & \\
+Swift & [auto] & [auto] & [auto] & \\
+Kotlin & [auto] & [auto] & [auto] & \\
+TypeScript & [auto] & [auto] & [auto] & \\
+\ldots & \ldots & \ldots & \ldots & \\
+\midrule
+\textbf{Average} & \textbf{[auto]} & \textbf{[auto]} & \textbf{[auto]} & \textbf{Target $\geq$ 95\%} \\
+\bottomrule
+\end{tabular}
+\caption*{Populated from CNSH compiler translation request logs.}
+\end{table}
+
+\noindent \textbf{Required metrics for Di-layer validation:}
+\begin{itemize}
+  \item \textbf{Language coverage}: Number of languages with $\geq$ 95\% syntax coverage
+  \item \textbf{Semantic accuracy}: Verified via round-trip translation (CNSH $\to$ target $\to$ CNSH)
+  \item \textbf{Compilation success rate}: Percentage of CNSH programs that compile to valid target code
+  \item \textbf{User translation requests}: Daily/monthly request volume per language
+\end{itemize}
+
+\subsection{Ren-Layer: Cultural Syntax Adoption}
+\label{app:ren-data}
+
+\begin{table}[h]
+\centering
+\caption{Ren-Layer Cultural Adoption Metrics Template}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Metric} & \textbf{Current Value} & \textbf{Target (5 years)} \\
+\midrule
+Chinese developers using CNSH (monthly active) & [auto] & $\geq$ 10,000 \\
+CN programming courses created & [auto] & $\geq$ 50 \\
+University courses adopting CNSH & [auto] & $\geq$ 100 \\
+Open-source CNSH projects on Gitee/GitHub & [auto] & $\geq$ 500 \\
+CNSH documentation page views (monthly) & [auto] & $\geq$ 100,000 \\
+Community-contributed syntax mappings & [auto] & $\geq$ 200 \\
+\bottomrule
+\end{tabular}
+\caption*{Collected from community statistics and platform analytics.}
+\end{table}
+
+\subsection{Three-Powers Unity: Self-Completion Verification}
+\label{app:unity-data}
+
+\begin{table}[h]
+\centering
+\caption{Three-Powers Unity Verification Template}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lcl}
+\toprule
+\textbf{Completeness Condition} & \textbf{Status} & \textbf{Evidence} \\
+\midrule
+Tian: $\forall op \in \mathcal{A}_{\text{harm}}, \exists r_i \in \Pi_{\text{P0}}: r_i \vdash \neg op$
+  & [auto] & P0 interception logs \\
+Di: Coverage$(\mathcal{T}) \geq 95\%$ over 50 languages
+  & [auto] & Translation coverage logs \\
+Ren: $\phi_{\text{culture}}$ is bijective
+  & [auto] & Complete mapping table (Appendix~A) \\
+\midrule
+$\mathcal{CNSH}_{\text{complete}}$ well-defined
+  & [auto] & All three layers independently verified \\
+\bottomrule
+\end{tabular}
+\caption*{To be completed after 3 months of production deployment.}
+\end{table}
+
+\subsection{Data Collection Architecture}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+  box/.style={rectangle, rounded corners=4pt, draw=#1!80,
+              fill=#1!10, minimum width=5cm,
+              minimum height=0.7cm, font=\small,
+              text=#1!80},
+  arr/.style={->, thick, darkgray},
+  node distance=0.8cm
+]
+  \node[box=dnaBlue] (L1) {CNSH Compiler Runtime};
+  \node[box=jadeGreen, below of=L1] (L2)
+    {Audit Logger (append-only)};
+  \node[box=yangGold, below of=L2] (L3)
+    {Anonymization Engine (P0-005/008)};
+  \node[box=yinGray, below of=L3] (L4)
+    {Verification Report Generator};
+  \draw[arr] (L1) -- (L2);
+  \draw[arr] (L2) -- (L3);
+  \draw[arr] (L3) -- (L4);
+\end{tikzpicture}
+\caption{Data collection pipeline for Three-Powers verification.
+  All data is anonymized before aggregation (P0-005 privacy,
+  P0-008 data sovereignty).}
+\label{fig:data-pipeline}
+\end{figure}
+
+\subsection{Anonymization Protocol}
+
+To comply with P0-005 (AI dialogue privacy) and P0-008 (data
+sovereignty), all verification data is anonymized before
+aggregation:
+
+\begin{enumerate}
+  \item \textbf{Translation requests}: Only source language,
+    syntax category, and success/failure status are logged;
+    actual code content is never stored.
+  \item \textbf{P0 interception events}: Only rule ID, operation
+    type, and verdict are logged; user identity is replaced with
+    a one-way SM3 hash.
+  \item \textbf{Usage statistics}: Aggregated counts only;
+    individual user sessions are not tracked.
+\end{enumerate}
+
+\subsection{Publication Schedule}
+
+\begin{table}[h]
+\centering
+\caption{Dynamic Verification Publication Schedule}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lll}
+\toprule
+\textbf{Milestone} & \textbf{Timeline} & \textbf{Deliverable} \\
+\midrule
+Initial deployment & +1 month & Baseline metrics (all layers) \\
+First verification report & +3 months & Tian-Di-Ren completeness check \\
+Quarterly update & Every 3 months & Updated metrics + trend analysis \\
+Annual white paper & +12 months & Full Three-Powers empirical validation \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{small}
+\begin{verbatim}
+DNA    : #龍芯⚡️丙午·辛未·APPENDIX-DYNAMIC-VERIFICATION-v1.0
+GPG    : A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+Status : 🟡 Template complete · Awaiting deployment data
+\end{verbatim}
+\end{small}

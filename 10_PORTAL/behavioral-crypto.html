@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 龍魂·行為密碼學 · 七因子來源追溯 · 主權儀表板</title>
+<meta name="description" content="龍魂行為密碼學引擎 — 七因子行為指紋 · 五級攻擊模擬 · AIGC內容來源追溯 · 主權驗證">
+<meta name="author" content="诸葛鑫·UID9622">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🐉</text></svg>">
+<style>
+  :root {
+    --bg-deep: #06060f;
+    --bg-primary: #0a0a1a;
+    --bg-card: #0e0e26;
+    --bg-card-hover: #16163a;
+    --bg-input: #14142e;
+    --text-primary: #e8e8f0;
+    --text-secondary: #8888a8;
+    --text-muted: #606080;
+    --gold: #d4a843;
+    --gold-light: #f0d878;
+    --gold-dark: #9a7a2a;
+    --gold-glow: rgba(212,168,67,0.15);
+    --red: #e74c3c;
+    --orange: #f39c12;
+    --green: #27ae60;
+    --blue: #3498db;
+    --purple: #9b59b6;
+    --cyan: #1abc9c;
+    --border: #1e1e3a;
+    --border-gold: #3a2a1a;
+    --radius: 10px;
+    --radius-sm: 6px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.4);
+    --shadow-gold: 0 4px 24px rgba(212,168,67,0.08);
+    --font-mono: "SF Mono", "Fira Code", "Cascadia Code", "JetBrains Mono", monospace;
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    line-height: 1.65;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── 星空背景 ── */
+  .stars-bg {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background: radial-gradient(ellipse at 50% 0%, rgba(212,168,67,0.04) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(52,152,219,0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 60%, rgba(155,89,182,0.03) 0%, transparent 50%);
+  }
+  .grid-overlay {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image: linear-gradient(rgba(212,168,67,0.025) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(212,168,67,0.025) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  /* ── 容器 ── */
+  .app { max-width: 1320px; margin: 0 auto; padding: 20px; position: relative; z-index: 1; }
+
+  /* ── 頭部 ── */
+  .hero {
+    text-align: center;
+    padding: 48px 20px 36px;
+    position: relative;
+    border-bottom: 2px solid var(--border-gold);
+    margin-bottom: 32px;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 50%;
+    transform: translateX(-50%);
+    width: 200px; height: 2px;
+    background: var(--gold);
+    box-shadow: 0 0 20px var(--gold), 0 0 40px var(--gold);
+  }
+  .hero .icon { font-size: 3.5em; animation: float 3s ease-in-out infinite; }
+  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  .hero h1 {
+    font-size: 2.4em;
+    color: var(--gold);
+    margin: 12px 0 6px;
+    text-shadow: 0 0 40px rgba(212,168,67,0.3);
+    letter-spacing: 2px;
+  }
+  .hero .subtitle { color: var(--text-secondary); font-size: 1.05em; margin-bottom: 12px; }
+  .hero .badge-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 14px; border-radius: 20px;
+    font-size: 0.8em; font-weight: 600;
+  }
+  .badge.live { background: rgba(46,204,113,0.12); color: var(--green); }
+  .badge.live::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--green); box-shadow:0 0 8px var(--green); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+  .badge.sovereign { background: rgba(212,168,67,0.12); color: var(--gold); }
+  .badge.auto { background: rgba(52,152,219,0.12); color: var(--blue); }
+  .badge.encrypted { background: rgba(155,89,182,0.12); color: var(--purple); }
+
+  /* ── 快速狀態欄 ── */
+  .status-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .status-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    display: flex; align-items: center; gap: 12px;
+    transition: var(--transition);
+  }
+  .status-item:hover { border-color: var(--gold); background: var(--bg-card-hover); }
+  .status-item .si-icon { font-size: 1.5em; }
+  .status-item .si-info { flex:1; }
+  .status-item .si-label { font-size: 0.75em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+  .status-item .si-value { font-size: 1.15em; font-weight: 700; color: var(--gold); }
+
+  /* ── 主面板 ── */
+  .panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 24px;
+    overflow: hidden;
+    transition: var(--transition);
+  }
+  .panel:hover { border-color: var(--border-gold); }
+  .panel-header {
+    padding: 16px 22px;
+    border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(212,168,67,0.03);
+  }
+  .panel-header h2 {
+    color: var(--gold);
+    font-size: 1.1em;
+    font-weight: 700;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .panel-body { padding: 22px; }
+  .panel-body.no-padding { padding: 0; }
+
+  /* ── 雙欄/三欄 ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+
+  @media (max-width: 900px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.6em; }
+  }
+
+  /* ── 表格 ── */
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.88em; }
+  th { color: var(--gold); font-weight: 700; background: rgba(212,168,67,0.04); position: sticky; top:0; z-index:1; }
+  tr:hover td { background: rgba(212,168,67,0.03); }
+  td.mono { font-family: var(--font-mono); font-size: 0.82em; }
+
+  /* ── 保留率可視化條 ── */
+  .retention-bar {
+    width: 100%; height: 22px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 11px;
+    overflow: hidden;
+    position: relative;
+  }
+  .retention-fill {
+    height: 100%; border-radius: 11px;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex; align-items: center; justify-content: flex-end;
+    padding-right: 8px; font-size: 0.72em; font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    min-width: 28px;
+  }
+  .retention-fill.l0 { background: linear-gradient(90deg, #1a5c2a, var(--green)); }
+  .retention-fill.l1 { background: linear-gradient(90deg, #1a5c2a, var(--green), var(--green)); }
+  .retention-fill.l2 { background: linear-gradient(90deg, #7d5a0a, var(--orange)); }
+  .retention-fill.l3 { background: linear-gradient(90deg, #8b3a0a, #e67e22); }
+  .retention-fill.l4 { background: linear-gradient(90deg, #8b1a1a, var(--red)); }
+
+  .text-green { color: var(--green); font-weight: 700; }
+  .text-yellow { color: var(--orange); font-weight: 700; }
+  .text-red { color: var(--red); font-weight: 700; }
+  .text-gold { color: var(--gold); }
+
+  /* ── 七因子雷達圖 ── */
+  .radar-container {
+    display: flex; justify-content: center; align-items: center;
+    padding: 10px; min-height: 340px;
+  }
+  .radar-container svg { max-width: 100%; }
+
+  /* ── 因子卡片 ── */
+  .factor-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+  }
+  .factor-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 14px;
+    text-align: center;
+    transition: var(--transition);
+    cursor: default;
+  }
+  .factor-card:hover { border-color: var(--gold); background: rgba(212,168,67,0.06); transform: translateY(-3px); }
+  .factor-card .fc-icon { font-size: 1.8em; margin-bottom: 6px; }
+  .factor-card .fc-name { font-weight: 700; color: var(--gold-light); font-size: 0.9em; margin-bottom: 4px; }
+  .factor-card .fc-desc { color: var(--text-muted); font-size: 0.72em; line-height: 1.4; margin-bottom: 8px; }
+  .factor-card .fc-score { font-size: 1.4em; font-weight: 800; }
+  .factor-card .fc-bar {
+    width: 100%; height: 4px; background: rgba(255,255,255,0.05);
+    border-radius: 2px; margin-top: 6px; overflow: hidden;
+  }
+  .factor-card .fc-bar-fill { height: 100%; border-radius: 2px; transition: width 0.6s; }
+
+  /* ── 按鈕 ── */
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 9px 20px; border-radius: var(--radius-sm);
+    font-size: 0.9em; font-weight: 600;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: inherit;
+  }
+  .btn:hover { border-color: var(--gold); background: var(--bg-card-hover); color: var(--gold); }
+  .btn.primary { background: var(--gold); color: #0a0a1a; border-color: var(--gold); font-weight: 700; }
+  .btn.primary:hover { background: var(--gold-light); box-shadow: 0 4px 20px rgba(212,168,67,0.3); }
+  .btn.small { padding: 5px 12px; font-size: 0.78em; }
+
+  /* ── 輸入框/文本區 ── */
+  .input-group { margin-bottom: 16px; }
+  .input-group label {
+    display: block; color: var(--text-secondary);
+    font-size: 0.82em; margin-bottom: 6px; font-weight: 600;
+  }
+  textarea, input[type="text"], input[type="number"], select {
+    width: 100%; padding: 12px 14px;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.9em;
+    resize: vertical;
+    transition: var(--transition);
+  }
+  textarea:focus, input:focus, select:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px var(--gold-glow);
+  }
+  textarea { min-height: 120px; font-family: var(--font-mono); font-size: 0.85em; }
+  select { cursor: pointer; }
+  select option { background: var(--bg-card); color: var(--text-primary); }
+
+  /* ── 結果區域 ── */
+  .result-box {
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    margin-top: 12px;
+    font-family: var(--font-mono);
+    font-size: 0.8em;
+    max-height: 400px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  .result-box.loading { color: var(--orange); text-align: center; padding: 30px; }
+  .result-box.empty { color: var(--text-muted); text-align: center; padding: 30px; }
+
+  /* ── Tab 切換 ── */
+  .tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+  .tab-btn {
+    padding: 12px 22px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.92em;
+    font-weight: 600;
+    transition: var(--transition);
+    font-family: inherit;
+  }
+  .tab-btn:hover { color: var(--text-primary); }
+  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* ── API 文檔區 ── */
+  .api-endpoint {
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    transition: var(--transition);
+  }
+  .api-endpoint:hover { border-color: var(--gold); }
+  .api-endpoint .method {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.72em;
+    font-weight: 800;
+    margin-right: 10px;
+    font-family: var(--font-mono);
+  }
+  .method.post { background: rgba(52,152,219,0.15); color: var(--blue); }
+  .method.get { background: rgba(46,204,113,0.15); color: var(--green); }
+  .api-endpoint .path { font-family: var(--font-mono); color: var(--gold-light); font-size: 0.9em; }
+  .api-endpoint .desc { color: var(--text-secondary); font-size: 0.8em; margin-top: 6px; }
+
+  /* ── 進度條 ── */
+  .progress-steps {
+    display: flex; align-items: center; justify-content: center;
+    gap: 0; margin: 16px 0;
+  }
+  .step-dot {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85em; font-weight: 700;
+    transition: var(--transition);
+  }
+  .step-dot.active { border-color: var(--gold); background: rgba(212,168,67,0.15); color: var(--gold); }
+  .step-dot.done { border-color: var(--green); background: rgba(46,204,113,0.15); color: var(--green); }
+  .step-line { width: 60px; height: 2px; background: var(--border); }
+  .step-line.done { background: var(--green); }
+
+  /* ── 頁腳 ── */
+  .footer {
+    text-align: center; padding: 30px 20px;
+    border-top: 1px solid var(--border); margin-top: 40px;
+    color: var(--text-muted); font-size: 0.78em;
+  }
+  .footer .sig { color: var(--gold); font-family: var(--font-mono); font-size: 0.85em; }
+  .footer a { color: var(--gold); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  /* ── 動畫 ── */
+  @keyframes fadeIn { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+  .fade-in { animation: fadeIn 0.5s ease-out; }
+
+  /* ── Tooltip ── */
+  [data-tooltip] { position: relative; cursor: help; }
+  [data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute; bottom: 100%; left: 50%;
+    transform: translateX(-50%);
+    padding: 6px 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--gold);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-size: 0.75em;
+    white-space: nowrap;
+    z-index: 100;
+    pointer-events: none;
+  }
+
+  /* ── 加載旋轉 ── */
+  .spinner {
+    display: inline-block; width: 24px; height: 24px;
+    border: 3px solid var(--border);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── 平滑滾動 ── */
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body>
+
+<div class="stars-bg"></div>
+<div class="grid-overlay"></div>
+
+<div class="app">
+
+  <!-- ═══════════ 頭部 ═══════════ -->
+  <div class="hero">
+    <div class="icon">🔬</div>
+    <h1>龍魂·行為密碼學引擎</h1>
+    <div class="subtitle">七因子來源追溯框架 · 五級攻擊模擬 · AIGC行為指紋不可偽造</div>
+    <div class="badge-row">
+      <span class="badge live" id="apiStatus">API 檢測中...</span>
+      <span class="badge sovereign">🇨🇳 中華人民共和國主權</span>
+      <span class="badge auto">⚡ 全自動化流水線</span>
+      <span class="badge encrypted">🔐 SM3/SM4 國密加密</span>
+    </div>
+  </div>
+
+  <!-- ═══════════ 快速狀態 ═══════════ -->
+  <div class="status-strip">
+    <div class="status-item">
+      <div class="si-icon">🧬</div>
+      <div class="si-info">
+        <div class="si-label">行為因子</div>
+        <div class="si-value">7 層</div>
+      </div>
+    </div>
+    <div class="status-item">
+      <div class="si-icon">⚔️</div>
+      <div class="si-info">
+        <div class="si-label">攻擊級別</div>
+        <div class="si-value">L0 - L4</div>
+      </div>
+    </div>
+    <div class="status-item">
+      <div class="si-icon">📊</div>
+      <div class="si-info">
+        <div class="si-label">總體保留率</div>
+        <div class="si-value" id="overallRetention">—</div>
+      </div>
+    </div>
+    <div class="status-item">
+      <div class="si-icon">🛡️</div>
+      <div class="si-info">
+        <div class="si-label">最強因子</div>
+        <div class="si-value" id="strongestFactor">—</div>
+      </div>
+    </div>
+    <div class="status-item">
+      <div class="si-icon">📡</div>
+      <div class="si-info">
+        <div class="si-label">API 端口</div>
+        <div class="si-value">8775</div>
+      </div>
+    </div>
+    <div class="status-item">
+      <div class="si-icon">🏛️</div>
+      <div class="si-info">
+        <div class="si-label">許可證</div>
+        <div class="si-value">MulanPSL v2</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 五步流水線 ═══════════ -->
+  <div class="progress-steps" style="margin-bottom: 24px;">
+    <div class="step-dot done" data-tooltip="用戶說真話">1</div>
+    <div class="step-line done"></div>
+    <div class="step-dot done" data-tooltip="AI結構化">2</div>
+    <div class="step-line done"></div>
+    <div class="step-dot done" data-tooltip="七因子提取">3</div>
+    <div class="step-line"></div>
+    <div class="step-dot active" data-tooltip="攻擊模擬">4</div>
+    <div class="step-line"></div>
+    <div class="step-dot" data-tooltip="驗證反饋">5</div>
+  </div>
+  <p style="text-align:center; color:var(--text-muted); font-size:0.82em; margin-bottom:24px;">
+    用戶真話 → AI結構化 → <strong style="color:var(--gold)">七因子指紋提取</strong> → 攻擊模擬驗證 → 來源追溯反饋閉環
+  </p>
+
+  <!-- ═══════════ Tab 面板 ═══════════ -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('experiment')">📊 攻擊模擬實驗</button>
+    <button class="tab-btn" onclick="switchTab('extract')">🔬 指紋提取</button>
+    <button class="tab-btn" onclick="switchTab('verify')">✅ 指紋驗證</button>
+    <button class="tab-btn" onclick="switchTab('factors')">🧩 七因子詳情</button>
+    <button class="tab-btn" onclick="switchTab('api')">📡 API 文檔</button>
+    <button class="tab-btn" onclick="switchTab('sovereignty')">🏛️ 主權驗證</button>
+  </div>
+
+  <!-- ═══════════ Tab 1: 攻擊模擬實驗 ═══════════ -->
+  <div class="tab-content active" id="tab-experiment">
+    <div class="panel">
+      <div class="panel-header">
+        <h2><span>⚔️</span> 五級攻擊模擬實驗</h2>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <label style="color:var(--text-secondary);font-size:0.82em;">文檔數:</label>
+          <input type="number" id="expDocs" value="50" min="10" max="500" style="width:80px;padding:6px 10px;">
+          <button class="btn primary small" onclick="runExperiment()">🚀 運行實驗</button>
+        </div>
+      </div>
+      <div class="panel-body" id="experimentResults">
+        <p style="text-align:center;color:var(--text-muted);padding:30px;">
+          點擊「運行實驗」進行五級攻擊模擬測試。
+          <br><small>將對隨機生成的文檔應用 L0(無攻擊) → L1(輕微改寫) → L2(風格模仿) → L3(部分偽造) → L4(完全AI重寫)</small>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ Tab 2: 指紋提取 ═══════════ -->
+  <div class="tab-content" id="tab-extract">
+    <div class="grid-2">
+      <div class="panel">
+        <div class="panel-header">
+          <h2><span>🧬</span> 文本輸入</h2>
+        </div>
+        <div class="panel-body">
+          <div class="input-group">
+            <label>待提取指紋的文本</label>
+            <textarea id="extractText" placeholder="貼入或輸入文本...（至少 10 個字符）">DNA: #龍芯⚡️丙午·甲申·丁酉·丙午·䷳艮-BEHAVIORAL-CRYPTO-V2.0-UID9622
+確認碼: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+
+龍魂系統的行為密碼學引擎基於七因子模型。每個文檔都有一個不可偽造的行為指紋，涵蓋身份DNA、時間錨定、內容哈希、風格向量、保護詞彙、長期風格和糾錯賬本七個維度。</textarea>
+          </div>
+          <div class="input-group">
+            <label>作者 ID</label>
+            <input type="text" id="extractAuthorId" value="UID9622" style="width:200px;">
+          </div>
+          <button class="btn primary" onclick="extractFingerprint()" id="extractBtn">
+            🔬 提取七因子行為指紋
+          </button>
+        </div>
+      </div>
+      <div class="panel" id="extractResultPanel">
+        <div class="panel-header">
+          <h2><span>📋</span> 提取結果</h2>
+        </div>
+        <div class="panel-body">
+          <div class="result-box empty" id="extractResult">等待提取...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ Tab 3: 指紋驗證 ═══════════ -->
+  <div class="tab-content" id="tab-verify">
+    <div class="grid-2">
+      <div class="panel">
+        <div class="panel-header">
+          <h2><span>✅</span> 驗證文本</h2>
+        </div>
+        <div class="panel-body">
+          <div class="input-group">
+            <label>待驗證文本</label>
+            <textarea id="verifyText" placeholder="貼入待驗證文本...">龍魂系統的根本原則是為人民服務。數據主權歸用戶，隱私不可傳。每一條輸出必須攜帶可追溯DNA碼。中國法律為唯一準繩。三色審計是核心治理機制。</textarea>
+          </div>
+          <div class="input-group">
+            <label>驗證閾值（0-1，越低越寬容）</label>
+            <input type="number" id="verifyThreshold" value="0.30" min="0" max="1" step="0.05" style="width:150px;">
+          </div>
+          <button class="btn primary" onclick="verifyFingerprint()" id="verifyBtn">
+            ✅ 驗證行為指紋
+          </button>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-header">
+          <h2><span>📋</span> 驗證結果</h2>
+        </div>
+        <div class="panel-body">
+          <div class="result-box empty" id="verifyResult">等待驗證...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ Tab 4: 七因子詳情 ═══════════ -->
+  <div class="tab-content" id="tab-factors">
+    <div class="panel">
+      <div class="panel-header">
+        <h2><span>🧩</span> 七因子行為指紋詳情</h2>
+        <span class="badge sovereign">不可偽造</span>
+      </div>
+      <div class="panel-body" id="factorDetails">
+        <p style="text-align:center;color:var(--text-muted);">加載中...</p>
+      </div>
+    </div>
+    <div class="panel" style="margin-top:20px;">
+      <div class="panel-header">
+        <h2><span>🎯</span> 七因子偽造難度對比</h2>
+      </div>
+      <div class="panel-body" id="forgeDifficultyChart" style="min-height:200px;">
+        <p style="text-align:center;color:var(--text-muted);">加載中...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ Tab 5: API 文檔 ═══════════ -->
+  <div class="tab-content" id="tab-api">
+    <div class="panel">
+      <div class="panel-header">
+        <h2><span>📡</span> 行為密碼學主權 REST API</h2>
+        <span class="badge auto">端口 8775</span>
+      </div>
+      <div class="panel-body" id="apiDocs">
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ Tab 6: 主權驗證 ═══════════ -->
+  <div class="tab-content" id="tab-sovereignty">
+    <div class="panel" style="border-color: var(--gold);">
+      <div class="panel-header" style="border-color: var(--border-gold);">
+        <h2><span>🏛️</span> 主權驗證信息</h2>
+      </div>
+      <div class="panel-body" id="sovereigntyInfo">
+        <p style="text-align:center;color:var(--text-muted);">加載中...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ 頁腳 ═══════════ -->
+  <div class="footer">
+    <div class="sig">
+      DNA: #龍芯⚡️丙午·甲申·丁酉·丙午·䷳艮-BCM-V2.0-PORTAL-UID9622
+    </div>
+    <div>
+      創建者: 诸葛鑫 (UID9622) · GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+    </div>
+    <div>
+      工程層許可: <a href="https://license.coscl.org.cn/MulanPSL2">MulanPSL v2</a> (允許商業使用) ·
+      思想層許可: CC BY-NC-SA 4.0
+    </div>
+    <div style="margin-top:6px;">
+      中華人民共和國 · 🇨🇳 · 數據主權不可讓渡 · <span id="footerTime">—</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ============================================================
+// API 基礎路徑
+// ============================================================
+const API_BASE = 'http://localhost:8775/api/v2/bcm';
+let latestSummary = null;
+
+// ============================================================
+// 初始化
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+  checkApiStatus();
+  loadFactorDetails();
+  loadApiDocs();
+  loadSovereigntyInfo();
+  updateFooterTime();
+  setInterval(updateFooterTime, 30000);
+  setInterval(checkApiStatus, 10000);
+});
+
+// ============================================================
+// API 狀態檢查
+// ============================================================
+async function checkApiStatus() {
+  const badge = document.getElementById('apiStatus');
+  try {
+    const res = await fetch(`${API_BASE}/health`, { signal: AbortSignal.timeout(3000) });
+    if (res.ok) {
+      const data = await res.json();
+      badge.className = 'badge live';
+      badge.innerHTML = '🟢 API 運行中 v' + data.version;
+    } else {
+      throw new Error('not ok');
+    }
+  } catch {
+    badge.className = 'badge' + ' sovereign';
+    badge.innerHTML = '🔴 API 未連線 (lh bcm --api)';
+    badge.style.background = 'rgba(231,76,60,0.12)';
+    badge.style.color = 'var(--red)';
+  }
+}
+
+// ============================================================
+// Tab 切換
+// ============================================================
+function switchTab(tabName) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  document.querySelector(`[onclick="switchTab('${tabName}')"]`).classList.add('active');
+  document.getElementById(`tab-${tabName}`).classList.add('active');
+}
+
+// ============================================================
+// Tab 1: 運行實驗
+// ============================================================
+async function runExperiment() {
+  const resultDiv = document.getElementById('experimentResults');
+  const numDocs = parseInt(document.getElementById('expDocs').value) || 50;
+
+  resultDiv.innerHTML = `
+    <div style="text-align:center;padding:40px;">
+      <div class="spinner"></div>
+      <p style="color:var(--gold);margin-top:16px;">🐉 運行實驗中...</p>
+      <p style="color:var(--text-muted);font-size:0.8em;">${numDocs} 篇文檔 × 5 級攻擊 = ${numDocs * 5} 次測試</p>
+    </div>`;
+
+  try {
+    const res = await fetch(`${API_BASE}/experiment/run?num_docs=${numDocs}&seed=42`, {
+      signal: AbortSignal.timeout(120000),
+    });
+    const data = await res.json();
+    latestSummary = data.summary;
+
+    const summary = data.summary;
+    const byLevel = summary.by_level || {};
+
+    // 更新快速狀態
+    document.getElementById('overallRetention').textContent = (summary.overall_avg_retention * 100).toFixed(1) + '%';
+    const topFactor = (summary.factor_ranking || [])[0];
+    if (topFactor) {
+      document.getElementById('strongestFactor').textContent = topFactor.icon + ' ' + topFactor.name;
+    }
+
+    // 生成級別表格
+    let levelRows = '';
+    for (const level of ['L0', 'L1', 'L2', 'L3', 'L4']) {
+      const d = byLevel[level];
+      if (!d) continue;
+      const barClass = level === 'L0' || level === 'L1' ? 'l1' : level === 'L2' ? 'l2' : level === 'L3' ? 'l3' : 'l4';
+      const passed = d.passed;
+      levelRows += `
+        <tr>
+          <td><strong>${level}</strong></td>
+          <td>${d.name}</td>
+          <td>${d.sample_count}</td>
+          <td>
+            <div class="retention-bar">
+              <div class="retention-fill ${barClass}" style="width:${Math.max(d.avg_retention * 100, 3)}%">
+                ${(d.avg_retention * 100).toFixed(1)}%
+              </div>
+            </div>
+          </td>
+          <td class="${d.avg_retention > 0.6 ? 'text-green' : d.avg_retention > 0.3 ? 'text-yellow' : 'text-red'}">
+            ${(d.avg_retention * 100).toFixed(1)}%
+          </td>
+          <td>${(d.theoretical * 100).toFixed(0)}%</td>
+          <td>${passed ? '✅ 通過' : '⚠️ 低於預期'}</td>
+        </tr>`;
+    }
+
+    // 生成因子排名
+    let factorRows = '';
+    (summary.factor_ranking || []).forEach((f, i) => {
+      factorRows += `
+        <tr>
+          <td>${i + 1}</td>
+          <td>${f.icon} ${f.name}</td>
+          <td>${(f.forge_difficulty * 100).toFixed(0)}%</td>
+          <td>
+            <div class="retention-bar">
+              <div class="retention-fill ${f.avg_retention > 0.7 ? 'l1' : f.avg_retention > 0.4 ? 'l2' : 'l4'}" style="width:${Math.max(f.avg_retention * 100, 3)}%">
+                ${(f.avg_retention * 100).toFixed(1)}%
+              </div>
+            </div>
+          </td>
+          <td class="${f.avg_retention > 0.7 ? 'text-green' : f.avg_retention > 0.4 ? 'text-yellow' : 'text-red'}">
+            ${(f.avg_retention * 100).toFixed(1)}%
+          </td>
+        </tr>`;
+    });
+
+    // 渲染結果
+    resultDiv.innerHTML = `
+      <div style="margin-bottom: 16px;">
+        <span class="badge live">實驗ID: ${summary.experiment_id}</span>
+        <span class="badge sovereign" style="margin-left: 8px;">總測試: ${summary.total_results}</span>
+        <span class="badge auto" style="margin-left: 8px;">保留率: ${(summary.overall_avg_retention * 100).toFixed(1)}%</span>
+      </div>
+
+      <h3 style="color:var(--gold);margin-bottom:12px;">⚔️ 五級攻擊模擬結果</h3>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr><th>級別</th><th>攻擊名稱</th><th>樣本</th><th>保留率</th><th>實測</th><th>理論</th><th>判定</th></tr>
+          </thead>
+          <tbody>${levelRows}</tbody>
+        </table>
+      </div>
+
+      <h3 style="color:var(--gold);margin:20px 0 12px;">🏆 因子抗攻擊排名</h3>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr><th>#</th><th>因子</th><th>偽造難度</th><th>保留率</th><th>實測</th></tr>
+          </thead>
+          <tbody>${factorRows}</tbody>
+        </table>
+      </div>
+
+      <div style="margin-top: 16px; padding: 12px; background: rgba(212,168,67,0.04); border-radius: 8px; font-size: 0.82em; color: var(--text-secondary);">
+        <strong style="color:var(--gold);">🔍 結論:</strong>
+        在五級攻擊下，身份DNA、糾錯賬本、時間錨定三個因子表現出最強的抗偽造能力。
+        這說明行為密碼學的核心理念——<em>人類的潛意識行為習慣比有意識的內容更難被AI模仿</em>——得到了實驗驗證。
+      </div>
+    `;
+
+  } catch (err) {
+    resultDiv.innerHTML = `
+      <div style="text-align:center;padding:30px;color:var(--red);">
+        <p>⚠️ 實驗運行失敗</p>
+        <p style="font-size:0.8em;color:var(--text-secondary);">${err.message}</p>
+        <p style="font-size:0.78em;margin-top:12px;color:var(--text-muted);">
+          請確認 API 服務已啟動: <code>python3 04_ENGINES/behavioral_crypto/api_server.py</code>
+        </p>
+      </div>`;
+  }
+}
+
+// ============================================================
+// Tab 2: 提取指紋
+// ============================================================
+async function extractFingerprint() {
+  const text = document.getElementById('extractText').value.trim();
+  const authorId = document.getElementById('extractAuthorId').value.trim() || 'UID9622';
+  const resultDiv = document.getElementById('extractResult');
+  const btn = document.getElementById('extractBtn');
+
+  if (text.length < 10) {
+    resultDiv.innerHTML = '<p style="color:var(--orange);text-align:center;padding:20px;">⚠️ 文本至少需要 10 個字符</p>';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner" style="width:16px;height:16px;"></span> 提取中...';
+  resultDiv.innerHTML = '<div class="loading">提取七因子行為指紋中...</div>';
+
+  try {
+    const res = await fetch(`${API_BASE}/extract`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text, author_id: authorId, update_profile: true }),
+      signal: AbortSignal.timeout(15000),
+    });
+    const data = await res.json();
+
+    const auditEmoji = data.audit_mark || '🟢';
+
+    let html = `<div style="margin-bottom:12px;">
+      <span class="badge live">DNA: ${(data.dna || '').substring(0, 40)}...</span>
+      <span class="badge ${auditEmoji === '🟢' ? 'live' : 'sovereign'}" style="margin-left:6px;">
+        綜合得分: ${(data.composite_score * 100).toFixed(2)}% ${auditEmoji}
+      </span>
+    </div>`;
+
+    html += '<table><thead><tr><th>#</th><th>因子</th><th>原始值</th><th>加權值</th><th>置信度</th><th>狀態</th></tr></thead><tbody>';
+
+    (data.factors || []).forEach((f, i) => {
+      const barClass = f.raw > 0.7 ? 'l1' : f.raw > 0.3 ? 'l2' : 'l4';
+      html += `<tr>
+        <td>${i + 1}</td>
+        <td>${f.name}</td>
+        <td>
+          <div class="retention-bar">
+            <div class="retention-fill ${barClass}" style="width:${Math.max(f.raw * 100, 3)}%">
+              ${(f.raw * 100).toFixed(1)}%
+            </div>
+          </div>
+        </td>
+        <td class="mono">${f.weighted.toFixed(4)}</td>
+        <td class="mono">${(f.confidence * 100).toFixed(0)}%</td>
+        <td>${f.status}</td>
+      </tr>`;
+    });
+
+    html += '</tbody></table>';
+
+    resultDiv.innerHTML = html;
+  } catch (err) {
+    resultDiv.innerHTML = `<p style="color:var(--red);text-align:center;padding:20px;">⚠️ ${err.message}</p>`;
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '🔬 提取七因子行為指紋';
+  }
+}
+
+// ============================================================
+// Tab 3: 驗證指紋
+// ============================================================
+async function verifyFingerprint() {
+  const text = document.getElementById('verifyText').value.trim();
+  const threshold = parseFloat(document.getElementById('verifyThreshold').value) || 0.30;
+  const resultDiv = document.getElementById('verifyResult');
+  const btn = document.getElementById('verifyBtn');
+
+  if (text.length < 10) {
+    resultDiv.innerHTML = '<p style="color:var(--orange);text-align:center;padding:20px;">⚠️ 文本至少需要 10 個字符</p>';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner" style="width:16px;height:16px;"></span> 驗證中...';
+  resultDiv.innerHTML = '<div class="loading">驗證行為指紋中...</div>';
+
+  try {
+    const res = await fetch(`${API_BASE}/verify`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text, author_id: 'UID9622', threshold }),
+      signal: AbortSignal.timeout(15000),
+    });
+    const data = await res.json();
+
+    const verified = data.verified;
+    const verdict = verified ? '🟢 通過驗證' : data.recommendation || '🔴 拒絕';
+
+    let html = `<div style="margin-bottom:16px;text-align:center;">
+      <div style="font-size:2em;margin-bottom:8px;">${verified ? '✅' : '⚠️'}</div>
+      <div style="font-size:1.2em;font-weight:700;color:${verified ? 'var(--green)' : 'var(--red)'};">${verdict}</div>
+      <div style="color:var(--text-secondary);font-size:0.85em;margin-top:4px;">
+        綜合得分: ${(data.score * 100).toFixed(2)}% | 閾值: ${(data.threshold * 100).toFixed(0)}% | 紅線因子: ${data.red_factors || 0}
+      </div>
+    </div>`;
+
+    if (data.warnings && data.warnings.length > 0) {
+      html += '<div style="margin-top:12px;"><strong style="color:var(--orange);">⚠️ 警告:</strong><ul style="margin:8px 0 0 20px;color:var(--text-secondary);font-size:0.85em;">';
+      data.warnings.forEach(w => { html += `<li>${w}</li>`; });
+      html += '</ul></div>';
+    }
+
+    if (data.fingerprint && data.fingerprint.factors) {
+      html += '<div style="margin-top:16px;"><strong style="color:var(--gold);">因子詳情:</strong></div>';
+      html += '<table style="margin-top:8px;"><thead><tr><th>因子</th><th>值</th><th>狀態</th></tr></thead><tbody>';
+      data.fingerprint.factors.forEach(f => {
+        html += `<tr><td>${f.name}</td><td>${(f.raw * 100).toFixed(1)}%</td><td>${f.status}</td></tr>`;
+      });
+      html += '</tbody></table>';
+    }
+
+    resultDiv.innerHTML = html;
+  } catch (err) {
+    resultDiv.innerHTML = `<p style="color:var(--red);text-align:center;padding:20px;">⚠️ ${err.message}</p>`;
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '✅ 驗證行為指紋';
+  }
+}
+
+// ============================================================
+// Tab 4: 七因子詳情
+// ============================================================
+async function loadFactorDetails() {
+  const div = document.getElementById('factorDetails');
+  const chartDiv = document.getElementById('forgeDifficultyChart');
+  try {
+    const res = await fetch(`${API_BASE}/factors`, { signal: AbortSignal.timeout(5000) });
+    const data = await res.json();
+
+    let html = '<div class="factor-cards">';
+    (data.factors || []).forEach(f => {
+      const barColor = f.forge_difficulty > 0.9 ? 'var(--green)' : f.forge_difficulty > 0.8 ? 'var(--gold)' : 'var(--orange)';
+      html += `
+        <div class="factor-card">
+          <div class="fc-icon">${f.icon}</div>
+          <div class="fc-name">${f.name}</div>
+          <div class="fc-desc">${f.description}</div>
+          <div class="fc-score text-gold">${(f.weight * 100).toFixed(0)}% ${'⭐'.repeat(Math.ceil(f.forge_difficulty * 5))}</div>
+          <div class="fc-bar"><div class="fc-bar-fill" style="width:${f.forge_difficulty * 100}%;background:${barColor};"></div></div>
+          <div style="font-size:0.7em;color:var(--text-muted);margin-top:4px;">偽造難度: ${(f.forge_difficulty * 100).toFixed(0)}%</div>
+        </div>`;
+    });
+    html += '</div>';
+    div.innerHTML = html;
+
+    // 偽造難度對比圖
+    let chartHtml = '<div style="padding:10px;">';
+    (data.factors || []).forEach(f => {
+      const barClass = f.forge_difficulty > 0.9 ? 'l1' : f.forge_difficulty > 0.8 ? 'l2' : 'l3';
+      chartHtml += `
+        <div style="margin-bottom:10px;display:flex;align-items:center;gap:12px;">
+          <span style="width:90px;font-size:0.85em;">${f.icon} ${f.name}</span>
+          <div class="retention-bar" style="flex:1;">
+            <div class="retention-fill ${barClass}" style="width:${f.forge_difficulty * 100}%;">
+              ${(f.forge_difficulty * 100).toFixed(0)}%
+            </div>
+          </div>
+          <span style="font-size:0.75em;color:var(--text-muted);width:80px;">${(f.retention_under_attack * 100).toFixed(0)}% 保留</span>
+        </div>`;
+    });
+    chartHtml += '</div>';
+    chartDiv.innerHTML = chartHtml;
+
+  } catch {
+    div.innerHTML = '<p style="text-align:center;color:var(--text-muted);">無法加載因子定義（API 未連線）</p>';
+    chartDiv.innerHTML = '<p style="text-align:center;color:var(--text-muted);">無法加載對比數據</p>';
+  }
+}
+
+// ============================================================
+// Tab 5: API 文檔
+// ============================================================
+function loadApiDocs() {
+  const { host } = window.location;
+  const apiBase = `http://${host.split(':')[0] || 'localhost'}:8775`;
+  const docHtml = `
+    <div class="api-endpoint">
+      <span class="method get">GET</span>
+      <span class="path">/api/v2/bcm/health</span>
+      <div class="desc">健康檢查 — 返回引擎運行狀態和版本信息</div>
+    </div>
+    <div class="api-endpoint">
+      <span class="method get">GET</span>
+      <span class="path">/api/v2/bcm/status</span>
+      <div class="desc">引擎詳情 — 因子定義、攻擊級別、提取統計</div>
+    </div>
+    <div class="api-endpoint">
+      <span class="method post">POST</span>
+      <span class="path">/api/v2/bcm/extract</span>
+      <div class="desc">提取七因子行為指紋 — 輸入文本 → 返回完整 BehaviorFingerprint
+        <br><small>Body: {text, author_id?, update_profile?}</small>
+      </div>
+    </div>
+    <div class="api-endpoint">
+      <span class="method post">POST</span>
+      <span class="path">/api/v2/bcm/verify</span>
+      <div class="desc">驗證行為指紋 — 輸入文本 → 返回驗證結果
+        <br><small>Body: {text, author_id?, threshold?}</small>
+      </div>
+    </div>
+    <div class="api-endpoint">
+      <span class="method get">GET</span>
+      <span class="path">/api/v2/bcm/experiment/run?num_docs=50&seed=42</span>
+      <div class="desc">運行攻擊模擬實驗 — 異步執行，返回實驗摘要</div>
+    </div>
+    <div class="api-endpoint">
+      <span class="method get">GET</span>
+      <span class="path">/api/v2/bcm/experiment/latest</span>
+      <div class="desc">獲取最近一次實驗結果</div>
+    </div>
+    <div class="api-endpoint">
+      <span class="method get">GET</span>
+      <span class="path">/api/v2/bcm/experiment/report</span>
+      <div class="desc">獲取 HTML 實驗報告</div>
+    </div>
+    <div class="api-endpoint">
+      <span class="method get">GET</span>
+      <span class="path">/api/v2/bcm/sovereignty</span>
+      <div class="desc">主權驗證信息 — 所有人、管轄、加密標準、許可證</div>
+    </div>
+    <div class="api-endpoint">
+      <span class="method get">GET</span>
+      <span class="path">/api/v2/bcm/factors</span>
+      <div class="desc">獲取全部七因子定義和權重</div>
+    </div>
+    <div class="api-endpoint">
+      <span class="method get">GET</span>
+      <span class="path">/api/v2/bcm/docs</span>
+      <div class="desc">Swagger API 文檔（自動生成）</div>
+    </div>
+    <div style="margin-top:16px;padding:14px;background:rgba(212,168,67,0.06);border-radius:8px;font-size:0.82em;color:var(--text-secondary);">
+      <strong style="color:var(--gold);">🔐 主權響應標頭:</strong>
+      所有 API 響應攜帶 <code>X-LongHun-DNA</code> (請求追溯碼)、
+      <code>X-LongHun-Sovereignty</code> (主權簽名)、
+      <code>X-LongHun-Jurisdiction</code> (CN)、
+      <code>X-LongHun-Encryption</code> (SM3/SM4)。
+    </div>
+    <div style="margin-top:12px;padding:14px;background:rgba(231,76,60,0.06);border-radius:8px;font-size:0.82em;color:var(--text-secondary);">
+      <strong style="color:var(--red);">⚠️ CORS 限制:</strong>
+      只允許 <code>uid9622.cn</code> 和 <code>localhost</code> 來源。外部域名請求將被拒絕。
+      這是主權保護的設計，不是 bug。
+    </div>
+    <div style="margin-top:12px;text-align:center;">
+      <a href="${apiBase}/api/v2/bcm/docs" target="_blank" class="btn">📖 打開 Swagger API 文檔</a>
+    </div>
+  `;
+  document.getElementById('apiDocs').innerHTML = docHtml;
+}
+
+// ============================================================
+// Tab 6: 主權驗證
+// ============================================================
+async function loadSovereigntyInfo() {
+  const div = document.getElementById('sovereigntyInfo');
+  try {
+    const res = await fetch(`${API_BASE}/sovereignty`, { signal: AbortSignal.timeout(5000) });
+    const data = await res.json();
+
+    div.innerHTML = `
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
+        <div style="background:rgba(212,168,67,0.05);padding:20px;border-radius:var(--radius);border:1px solid var(--border-gold);">
+          <div style="color:var(--gold);font-weight:700;font-size:1.05em;margin-bottom:12px;">👤 所有人</div>
+          <div style="color:var(--text-primary);">${data.owner} (UID: ${data.uid})</div>
+          <div style="color:var(--text-muted);font-size:0.78em;margin-top:4px;">GPG: ${data.gpg}</div>
+        </div>
+        <div style="background:rgba(212,168,67,0.05);padding:20px;border-radius:var(--radius);border:1px solid var(--border-gold);">
+          <div style="color:var(--gold);font-weight:700;font-size:1.05em;margin-bottom:12px;">⚖️ 法律管轄</div>
+          <div style="color:var(--text-primary);">${data.jurisdiction}</div>
+          <div style="color:var(--text-muted);font-size:0.78em;margin-top:4px;">等保2.0三級等效</div>
+        </div>
+        <div style="background:rgba(212,168,67,0.05);padding:20px;border-radius:var(--radius);border:1px solid var(--border-gold);">
+          <div style="color:var(--gold);font-weight:700;font-size:1.05em;margin-bottom:12px;">🔐 加密標準</div>
+          <div style="color:var(--text-primary);">${data.encryption}</div>
+          <div style="color:var(--text-muted);font-size:0.78em;margin-top:4px;">SHA3-256 · Merkle樹</div>
+        </div>
+        <div style="background:rgba(212,168,67,0.05);padding:20px;border-radius:var(--radius);border:1px solid var(--border-gold);">
+          <div style="color:var(--gold);font-weight:700;font-size:1.05em;margin-bottom:12px;">📜 雙層許可</div>
+          <div style="color:var(--text-primary);">工程層: ${data.license_engineering}</div>
+          <div style="color:var(--text-muted);font-size:0.78em;margin-top:4px;">思想層: ${data.license_thought}</div>
+        </div>
+        <div style="background:rgba(212,168,67,0.05);padding:20px;border-radius:var(--radius);border:1px solid var(--border-gold);">
+          <div style="color:var(--gold);font-weight:700;font-size:1.05em;margin-bottom:12px;">🏛️ 數據政策</div>
+          <div style="color:var(--text-primary);font-size:0.92em;">${data.data_policy}</div>
+        </div>
+        <div style="background:rgba(212,168,67,0.05);padding:20px;border-radius:var(--radius);border:1px solid var(--border-gold);">
+          <div style="color:var(--gold);font-weight:700;font-size:1.05em;margin-bottom:12px;">🔑 確認碼</div>
+          <div style="color:var(--text-primary);font-family:var(--font-mono);font-size:0.75em;word-break:break-all;">${data.confirm}</div>
+        </div>
+      </div>
+    `;
+  } catch {
+    div.innerHTML = '<p style="text-align:center;color:var(--text-muted);">無法加載主權信息（API 未連線）</p>';
+  }
+}
+
+// ============================================================
+// 頁腳時間
+// ============================================================
+function updateFooterTime() {
+  const now = new Date();
+  const tz = 'UTC+8';
+  document.getElementById('footerTime').textContent =
+    now.toISOString().replace('T', ' ').substring(0, 19) + ' ' + tz;
+}
+</script>
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

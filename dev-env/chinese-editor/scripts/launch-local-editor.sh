@@ -1,7 +1,9 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ═══════════════════════════════════════════
 # 龍魂中文编辑开发环境 · 本地闭环启动器
-# DNA: #龍芯⚡️2026-06-26-LONGHUN-LOCAL-LAUNCHER-v1.1
+# DNA: #龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-LONGHUN-LOCAL-LAUNCHER-v1.1
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 说明: 不依赖外部 VS Code / 浏览器渲染，本地直接启动
 # ═══════════════════════════════════════════
 

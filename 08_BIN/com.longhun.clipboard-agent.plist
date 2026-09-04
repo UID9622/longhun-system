@@ -1,0 +1,32 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-2c065bdd -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.longhun.clipboard-agent</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/python3</string>
+        <string>/Users/%USER%/longhun-system/08_BIN/lh_clipboard_agent_mac.py</string>
+        <string>--hub</string>
+        <string>ws://127.0.0.1:8765</string>
+        <string>--placeholder</string>
+    </array>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>LONGHUN_CLIPBOARD_TOKEN</key>
+        <string>%LONGHUN_CLIPBOARD_TOKEN%</string>
+        <key>PYTHONPATH</key>
+        <string>/Users/%USER%/longhun-system</string>
+    </dict>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/Users/%USER%/.longhun/logs/clipboard-agent.out</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/%USER%/.longhun/logs/clipboard-agent.err</string>
+</dict>
+</plist>

@@ -1,0 +1,456 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-a58775f5 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=680">
+  <title>龍魂 · 浏览器史官</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <h1>⚡ 龍魂 · 浏览器史官</h1>
+    <span class="version">v2.0 · 本地运行 + 底座痕迹</span>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <select id="scan-days">
+      <option value="0">📅 全部历史</option>
+      <option value="7">最近 7 天</option>
+      <option value="30">最近 30 天</option>
+      <option value="90">最近 90 天</option>
+      <option value="180">最近 180 天</option>
+      <option value="365">最近 1 年</option>
+    </select>
+    <button id="btn-scan" class="btn btn-primary">🔍 开始扫描</button>
+    <button id="btn-export" class="btn btn-export" style="display:none">📥 导出JSON</button>
+  </div>
+
+  <!-- Scanning Progress -->
+  <div id="scanning-section">
+    <div class="progress-container">
+      <div id="progress-bar"></div>
+    </div>
+    <div id="progress-text">正在扫描中...</div>
+  </div>
+
+  <!-- Empty State -->
+  <div id="empty-state" class="empty-state">
+    <div class="icon">🏛️</div>
+    <p>数据主权归你，一切在本地。</p>
+    <p class="hint">点击「开始扫描」，读取并分类你的浏览器历史。<br>不传云端，不留后门。</p>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboard">
+    <div id="scan-time">上次扫描: —</div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-value" id="stat-total">—</div>
+        <div class="stat-label">去重后网址数</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value" id="stat-raw">—</div>
+        <div class="stat-label">原始记录数</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value" id="stat-cats">—</div>
+        <div class="stat-label">分类数</div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="overview">📊 分类概览</button>
+      <button class="tab-btn" data-tab="detail">📋 详细列表</button>
+      <button class="tab-btn" data-tab="trace">🖥️ 底座痕迹</button>
+      <button class="tab-btn" data-tab="defense">🛡️ 防御状态</button>
+    </div>
+
+    <!-- Overview Tab -->
+    <div id="tab-overview" class="tab-content">
+      <div class="overview-content">
+        <div class="pie-section">
+          <canvas id="pie-chart" width="220" height="220"></canvas>
+        </div>
+        <div class="cats-section" id="category-cards">
+          <!-- dynamically filled -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Detail Tab -->
+    <div id="tab-detail" class="tab-content" style="display:none">
+      <div class="filter-row">
+        <input type="text" id="filter-input" placeholder="搜索网址或标题...">
+        <select id="filter-cat">
+          <option value="">全部类别</option>
+          <option value="ai-tech">🤖 AI/技术</option>
+          <option value="adult">🔞 成人内容</option>
+          <option value="social">📱 社交媒体</option>
+          <option value="news">📰 新闻资讯</option>
+          <option value="shopping">🛒 购物消费</option>
+          <option value="video">🎬 视频娱乐</option>
+          <option value="search">🔍 搜索引擎</option>
+          <option value="finance">💰 金融财经</option>
+          <option value="other">📌 其他</option>
+        </select>
+      </div>
+      <div class="items-container" id="items-list">
+        <!-- dynamically filled -->
+      </div>
+      <div class="pagination">
+        <button class="btn" id="btn-prev">← 上一页</button>
+        <span id="page-info">—</span>
+        <button class="btn" id="btn-next">下一页 →</button>
+      </div>
+    </div>
+
+    <!-- Trace Tab: 底座痕迹 -->
+    <div id="tab-trace" class="tab-content" style="display:none">
+      <!-- Collector Status -->
+      <div id="trace-status-bar" class="trace-status-bar">
+        <span id="trace-status-dot" class="status-dot offline"></span>
+        <span id="trace-status-text">采集引擎状态未知</span>
+      </div>
+
+      <!-- Controls -->
+      <div class="trace-controls">
+        <button id="btn-trace-fetch" class="btn btn-primary">🔍 拉取底座痕迹</button>
+        <select id="trace-time-range" class="trace-select">
+          <option value="300">最近 5 分钟</option>
+          <option value="900">最近 15 分钟</option>
+          <option value="1800" selected>最近 30 分钟</option>
+          <option value="3600">最近 1 小时</option>
+          <option value="7200">最近 2 小时</option>
+        </select>
+        <label class="trace-option-label" title="发送脱敏特征向量到鲲鹏AI复原引擎，生成人类可读的行为时间线">
+          <input type="checkbox" id="trace-use-ai" checked>
+          <span>AI复原</span>
+        </label>
+      </div>
+
+      <!-- Loading -->
+      <div id="trace-loading" class="trace-loading" style="display:none">
+        <div class="trace-spinner"></div>
+        <span id="trace-loading-text">正在采集底座痕迹...</span>
+      </div>
+
+      <!-- Timeline -->
+      <div id="trace-timeline-container" class="trace-timeline-container">
+        <div id="trace-empty" class="trace-empty">
+          <div class="icon">🖥️</div>
+          <p>底座痕迹记录你的操作系统级数字足迹</p>
+          <p class="hint">进程启动/销毁 · 文件创建/编辑 · 网络连接<br>
+          需先启动采集引擎: <code>python3 bin/lh_base_trace_collector.py start</code></p>
+        </div>
+        <div id="trace-timeline" class="trace-timeline" style="display:none">
+          <!-- dynamically filled -->
+        </div>
+      </div>
+
+      <!-- Session Summary -->
+      <div id="trace-summary" class="trace-summary" style="display:none">
+        <!-- dynamically filled -->
+      </div>
+    </div>
+
+    <!-- Defense Tab: 四道防线仪表盘 -->
+    <div id="tab-defense" class="tab-content" style="display:none">
+      <!-- Overall Status -->
+      <div id="defense-overall" class="defense-overall">
+        <div class="defense-overall-icon" id="defense-overall-icon">🛡️</div>
+        <div class="defense-overall-text">
+          <span id="defense-overall-status">正在检查...</span>
+          <span id="defense-overall-time" class="defense-overall-time"></span>
+        </div>
+        <button id="btn-defense-refresh" class="btn btn-small">🔄 刷新</button>
+      </div>
+
+      <!-- 四墙卡片 -->
+      <div class="defense-walls" id="defense-walls">
+        <!-- 防线一：网络守卫 -->
+        <div class="defense-card" id="wall-card-1">
+          <div class="defense-card-header">
+            <span class="defense-card-icon">🌐</span>
+            <span class="defense-card-title">防线一 · 网络强制执行防火墙</span>
+            <span class="defense-card-status" id="wall-1-status">—</span>
+          </div>
+          <div class="defense-card-body" id="wall-1-body">
+            <div class="defense-stat">
+              <span class="defense-stat-label">防火墙阻断</span>
+              <span class="defense-stat-value" id="wall-1-blocks">0</span>
+            </div>
+            <div class="defense-stat">
+              <span class="defense-stat-label">告警累计</span>
+              <span class="defense-stat-value" id="wall-1-alerts">0</span>
+            </div>
+            <div class="defense-stat">
+              <span class="defense-stat-label">待处理</span>
+              <span class="defense-stat-value" id="wall-1-pending">0</span>
+            </div>
+            <div class="defense-stat">
+              <span class="defense-stat-label">防火墙状态</span>
+              <span class="defense-stat-value" id="wall-1-firewall">—</span>
+            </div>
+            <div class="defense-stat">
+              <span class="defense-stat-label">白名单进程</span>
+              <span class="defense-stat-value" id="wall-1-whitelist">—</span>
+            </div>
+          </div>
+          <div class="defense-card-log" id="wall-1-log" style="display:none">
+            <!-- 最近告警列表 -->
+          </div>
+        </div>
+
+        <!-- 防线二：恶意代码过滤 -->
+        <div class="defense-card" id="wall-card-2">
+          <div class="defense-card-header">
+            <span class="defense-card-icon">🦠</span>
+            <span class="defense-card-title">防线二 · 恶意代码过滤</span>
+            <span class="defense-card-status" id="wall-2-status">—</span>
+          </div>
+          <div class="defense-card-body" id="wall-2-body">
+            <div class="defense-stat">
+              <span class="defense-stat-label">命中次数</span>
+              <span class="defense-stat-value" id="wall-2-hits">0</span>
+            </div>
+            <div class="defense-stat">
+              <span class="defense-stat-label">威胁情报哈希</span>
+              <span class="defense-stat-value" id="wall-2-intel-hashes">—</span>
+            </div>
+            <div class="defense-stat">
+              <span class="defense-stat-label">情报状态</span>
+              <span class="defense-stat-value" id="wall-2-intel-fresh">—</span>
+            </div>
+            <div class="defense-stat">
+              <span class="defense-stat-label">特征库版本</span>
+              <span class="defense-stat-value" id="wall-2-version">—</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 防线三：设备绑定加密 -->
+        <div class="defense-card" id="wall-card-3">
+          <div class="defense-card-header">
+            <span class="defense-card-icon">🔐</span>
+            <span class="defense-card-title">防线三 · 设备绑定加密</span>
+            <span class="defense-card-status" id="wall-3-status">—</span>
+          </div>
+          <div class="defense-card-body" id="wall-3-body">
+            <div class="defense-stat">
+              <span class="defense-stat-label">加密算法</span>
+              <span class="defense-stat-value" id="wall-3-enc">—</span>
+            </div>
+            <div class="defense-stat">
+              <span class="defense-stat-label">设备指纹</span>
+              <span class="defense-stat-value mono" id="wall-3-fp">—</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 防线四：导出绑定 -->
+        <div class="defense-card" id="wall-card-4">
+          <div class="defense-card-header">
+            <span class="defense-card-icon">🔏</span>
+            <span class="defense-card-title">防线四 · 导出设备+生物绑定</span>
+            <span class="defense-card-status" id="wall-4-status">—</span>
+          </div>
+          <div class="defense-card-body" id="wall-4-body">
+            <div class="defense-stat">
+              <span class="defense-stat-label">签名服务器</span>
+              <span class="defense-stat-value" id="wall-4-server">—</span>
+            </div>
+            <div class="defense-stat">
+              <span class="defense-stat-label">协议版本</span>
+              <span class="defense-stat-value" id="wall-4-protocol">LH-EXPORT-BIND-v1.0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 网络告警详情 -->
+      <div id="defense-alerts-section" class="defense-alerts-section" style="display:none">
+        <div class="defense-alerts-header">
+          <span>⚠️ 最近网络拦截告警</span>
+          <button id="btn-alerts-dismiss" class="btn btn-tiny">清除告警</button>
+        </div>
+        <div id="defense-alerts-list" class="defense-alerts-list">
+          <!-- dynamically filled -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span class="dot">●</span>
+    <span>数据<span class="local">本地</span>处理 · 不传云端</span>
+    <span>|</span>
+    <span>創建者: 诸葛鑫 (UID9622)</span>
+    <span>|</span>
+    <span>龍魂 v2.0</span>
+  </div>
+
+  <!-- Export Modal -->
+  <div id="export-modal" class="modal" style="display:none">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>📥 导出选项</h3>
+        <p class="modal-sub">数据永远在你本地，导出位置由你决定。</p>
+      </div>
+      <div class="modal-body">
+        <label class="option-row" for="export-training">
+          <input type="checkbox" id="export-training">
+          <span class="option-text">
+            标记为<strong>本地模型训练原料</strong>
+            <small>仅在自己设备上用于训练本地模型；不会自动上传，别人看不到。</small>
+          </span>
+        </label>
+        <label class="option-row" for="export-include-meta">
+          <input type="checkbox" id="export-include-meta" checked>
+          <span class="option-text">
+            包含分类元数据
+            <small>导出每个网址的分类、匹配规则、访问次数等。</small>
+          </span>
+        </label>
+      </div>
+      <div class="modal-actions">
+        <button id="btn-export-cancel" class="btn">取消</button>
+        <button id="btn-export-confirm" class="btn btn-primary">选择保存位置…</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

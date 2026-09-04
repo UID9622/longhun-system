@@ -1,0 +1,632 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-c57de1f1 -->
+<!--
+#龍芯⚡️丙午·丙申·甲辰·未时·䷓观-UI-GLASS-WALL-v1.0
+创建者: 诸葛鑫（UID9622）
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+协议: CC BY-NC-SA 4.0（核心思想层）
+License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+功能: 龍魂开放主控台·公开审计页（玻璃墙）·P0 无后台主权协议的正面实现
+说明: 本页无需登录·只读展示脱敏聚合状态·不暴露任何用户数据/IP 原文
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐉 龍魂开放主控台 · 玻璃墙 · 透明不黑箱</title>
+    <!-- 国产 Apache ECharts · 国内 BootCDN 分发（技术主权·断网自动降级） -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(160deg, #0d1117 0%, #161b22 50%, #0d1f2d 100%);
+            color: #c9d1d9;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+
+        /* 头部 */
+        .hero {
+            text-align: center;
+            padding: 40px 30px;
+            margin-bottom: 24px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 2px solid #f0b429;
+            border-radius: 16px;
+            box-shadow: 0 0 40px rgba(240, 180, 41, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: "🔍";
+            position: absolute;
+            right: -20px; top: -20px;
+            font-size: 120px;
+            opacity: 0.06;
+            transform: rotate(-15deg);
+        }
+        .hero h1 {
+            font-size: 34px;
+            background: linear-gradient(135deg, #f0b429, #ffd76d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        .hero .sub { color: #8b949e; font-size: 15px; margin-bottom: 14px; }
+        .hero .badge {
+            display: inline-block;
+            background: rgba(240, 180, 41, 0.12);
+            border: 1px solid #f0b429;
+            color: #f0b429;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin: 4px;
+        }
+        .hero .badge.green { border-color: #3fb950; color: #3fb950; background: rgba(63, 185, 80, 0.1); }
+
+        /* 区块 */
+        .section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(240, 180, 41, 0.25);
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            font-size: 18px;
+            color: #f0b429;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* P0 承诺网格 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+        }
+        .promise {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(139, 148, 158, 0.25);
+            border-radius: 10px;
+            padding: 14px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .promise .pnum { color: #f0b429; font-weight: bold; margin-right: 6px; }
+
+        /* 仪表盘 */
+        .dash-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+            border: 1px solid rgba(139, 148, 158, 0.2);
+        }
+        .card .num { font-size: 28px; font-weight: bold; color: #58a6ff; }
+        .card .lbl { font-size: 12px; color: #8b949e; margin-top: 4px; }
+        .card.warn .num { color: #f0b429; }
+        .card.danger .num { color: #f85149; }
+
+        .status-line {
+            font-family: "SF Mono", "Consolas", monospace;
+            font-size: 12px;
+            color: #58a6ff;
+            background: rgba(88, 166, 255, 0.06);
+            border-left: 3px solid #58a6ff;
+            padding: 10px 14px;
+            border-radius: 6px;
+            line-height: 1.7;
+            white-space: pre-wrap;
+        }
+
+        /* 审计流 */
+        .audit-stream {
+            font-family: "SF Mono", "Consolas", monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+        }
+        .audit-stream .row {
+            display: grid;
+            grid-template-columns: 170px 70px 90px 60px 1fr;
+            gap: 8px;
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(139, 148, 158, 0.1);
+            color: #8b949e;
+        }
+        .audit-stream .row .ok { color: #3fb950; }
+        .audit-stream .row .failed { color: #f85149; }
+
+        .hint { font-size: 12px; color: #8b949e; margin-top: 10px; }
+        @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.75); } }
+        .pulse { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #3fb950; margin-right: 6px; animation: pulse 1.6s ease-in-out infinite; vertical-align: middle; }
+        .actions { margin-top: 16px; text-align: center; }
+
+        /* 图表双级切换 */
+        .chart-tabs { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+        .chart-tab {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(139, 148, 158, 0.3);
+            color: #8b949e;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .chart-tab:hover { border-color: #f0b429; color: #f0b429; }
+        .chart-tab.active { background: rgba(240, 180, 41, 0.15); border-color: #f0b429; color: #f0b429; font-weight: bold; }
+        .chart-types { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+        .chart-type {
+            background: transparent;
+            border: 1px solid rgba(139, 148, 158, 0.25);
+            color: #8b949e;
+            padding: 4px 14px;
+            border-radius: 14px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .chart-type.active { border-color: #58a6ff; color: #58a6ff; background: rgba(88, 166, 255, 0.1); transform: scale(1.06); }
+        .chart-type { transition: all 0.2s cubic-bezier(.4, 0, .2, 1); }
+        .chart-type:active { transform: scale(0.92); }
+        .chart-hint { font-size: 12px; color: #f0b429; background: rgba(240, 180, 41, 0.06); border: 1px dashed rgba(240, 180, 41, 0.35); padding: 6px 12px; border-radius: 8px; margin-bottom: 10px; }
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            text-decoration: none;
+            margin: 4px;
+            transition: all 0.2s;
+        }
+        .btn.gold { background: #f0b429; color: #0d1117; font-weight: bold; }
+        .btn.ghost { border: 1px solid #58a6ff; color: #58a6ff; }
+        .btn:hover { opacity: 0.85; transform: translateY(-1px); }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: #6e7681;
+            margin-top: 30px;
+            padding: 20px;
+            border-top: 1px solid rgba(139, 148, 158, 0.15);
+        }
+        footer .dna { font-family: "SF Mono", monospace; color: #8b949e; }
+
+        .loading { color: #8b949e; font-size: 13px; }
+        .err { color: #f85149; font-size: 13px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部：玻璃墙宣言 -->
+        <div class="hero">
+            <h1>龍魂 · 开放主控台</h1>
+            <div class="sub">别人把后台当权力，我把透明当武器 · P0 无后台主权协议的正面实现</div>
+            <div>
+                <span class="badge">P0 · 焊死</span>
+                <span class="badge green">零黑箱</span>
+                <span class="badge">数据归用户</span>
+                <span class="badge">开源可审计</span>
+            </div>
+        </div>
+
+        <!-- P0 承诺 -->
+        <div class="section">
+            <h2>⚖️ 透明承诺 · 十二条焊死禁令</h2>
+            <div class="grid">
+                <div class="promise"><span class="pnum">P0-01</span>永久禁止搭建任何形式的后台管理系统</div>
+                <div class="promise"><span class="pnum">P0-02</span>永久禁止存储用户数据于服务器端</div>
+                <div class="promise"><span class="pnum">P0-03</span>永久禁止保留超级管理员权限或后门</div>
+                <div class="promise"><span class="pnum">P0-04</span>永久禁止闭源任何核心模块</div>
+                <div class="promise"><span class="pnum">P0-05</span>永久禁止删除审计日志（只冻结不删）</div>
+                <div class="promise"><span class="pnum">P0-06</span>永久禁止将用户数据作为商业资产</div>
+                <div class="promise"><span class="pnum">P0-07</span>永久禁止在代码中植入追踪脚本</div>
+                <div class="promise"><span class="pnum">P0-08</span>永久禁止接受要求开后门的法律请求</div>
+                <div class="promise"><span class="pnum">P0-09</span>永久禁止将女儿作为任何抵押</div>
+                <div class="promise"><span class="pnum">P0-10</span>永久禁止创始人利益凌驾于人民利益</div>
+                <div class="promise"><span class="pnum">P0-11</span>永久禁止协议被秘密修订（全节点广播）</div>
+                <div class="promise"><span class="pnum">P0-12</span>永久禁止零黑箱承诺被稀释</div>
+            </div>
+        </div>
+
+        <!-- 实时玻璃墙 -->
+        <div class="section">
+            <h2>📊 实时玻璃墙 · 脱敏聚合快照</h2>
+            <div id="dash">
+                <div class="loading">正在读取公开快照...</div>
+            </div>
+        </div>
+
+        <!-- 实时图表（Tab切换 + 每图多型切换·国产 ECharts） -->
+        <div class="section">
+            <h2>📈 实时图表 · 一眼看透（可切换图形）</h2>
+            <!-- 一级切换：三张图 Tab -->
+            <div class="chart-tabs" id="chartTabs">
+                <button class="chart-tab active" data-chart="trend">📈 走势图</button>
+                <button class="chart-tab" data-chart="tree">🌳 树状图</button>
+                <button class="chart-tab" data-chart="graph">🕸 关系图</button>
+            </div>
+            <!-- 二级切换：每张图的图形类型 -->
+            <div class="chart-types" id="chartTypes">
+                <button class="chart-type active" data-type="line">折线</button>
+                <button class="chart-type" data-type="bar">柱状</button>
+                <button class="chart-type" data-type="area">面积</button>
+            </div>
+            <div class="chart-hint" id="chartHint">📈 近14天三类行为走势 · 点下方图形名自由切换</div>
+            <div id="mainChart" style="width:100%; height:420px; background:rgba(0,0,0,0.2); border-radius:8px;"></div>
+            <div class="hint">🟢 国产 Apache ECharts · 点击上方 Tab 切换图表，点图形名切换样式 · 断网自动降级</div>
+        </div>
+
+        <!-- 开放审计流（需登录·展示入口） -->
+        <div class="section">
+            <h2>🕵️ 操作审计（只冻结·不删除）</h2>
+            <div id="audit-stream">
+                <div class="loading">审计详情需登录后查看 · 点击下方「进入主控台」</div>
+            </div>
+            <div class="actions">
+                <a class="btn gold" href="main-p0.html">🔐 进入主控台（登录）</a>
+                <a class="btn ghost" href="https://github.com/UID9622" target="_blank" rel="noopener">📦 GitHub 代码仓库</a>
+                <a class="btn ghost" href="https://gitee.com/uid9622" target="_blank" rel="noopener">🇨🇳 Gitee 备份仓库</a>
+            </div>
+        </div>
+
+        <footer>
+            <div>龍魂系统 · 无后台主权协议 v2.0 · 所有数据在阳光下 · 代码开源 · 审计全开</div>
+            <div class="dna" style="margin-top:8px;">归属名: 诸葛鑫 | UID9622 · 龍芯北辰</div>
+            <div class="dna" id="ts-line" style="margin-top:4px;"></div>
+        </footer>
+    </div>
+
+    <script>
+    // API 基址可配置：?api=http://127.0.0.1:9658 或线上反代 /api/auth/*
+    const API = new URLSearchParams(location.search).get("api")
+        ? new URLSearchParams(location.search).get("api").replace(/\/$/, "")
+        : "";
+    const GLASS = API + "/api/auth/glass";
+    const AUDIT = API + "/api/auth/audit?limit=20";
+
+    function esc(s) {
+        return String(s ?? "").replace(/[&<>"']/g, c => (
+            {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]
+        ));
+    }
+
+    async function loadGlass() {
+        const el = document.getElementById("dash");
+        try {
+            const r = await fetch(GLASS, { cache: "no-store" });
+            if (!r.ok) throw new Error("HTTP " + r.status);
+            const j = await r.json();
+            if (!j.ok) throw new Error(j.error || "快照异常");
+            const d = j.data;
+            const a = d.audit || {};
+            el.innerHTML = `
+                <div class="dash-cards">
+                    <div class="card"><div class="num">${esc(d.protocol.status)}</div><div class="lbl">协议状态 (${esc(d.protocol.level)})</div></div>
+                    <div class="card warn"><div class="num">${a.total ?? 0}</div><div class="lbl">审计总条目</div></div>
+                    <div class="card"><div class="num">${a.login_ok ?? 0}</div><div class="lbl">登录成功</div></div>
+                    <div class="card danger"><div class="num">${a.login_failed ?? 0}</div><div class="lbl">登录失败</div></div>
+                    <div class="card"><div class="num">${d.users_total ?? 0}</div><div class="lbl">注册账号数</div></div>
+                </div>
+                <div class="status-line">${esc(JSON.stringify(d.protocol, null, 2))}</div>
+                <div class="hint"><span class="pulse"></span>🟢 实时同步中 · 每60秒自动刷新 · 快照 ${esc(d.ts)} · 更新 ${new Date().toLocaleTimeString("zh-CN", { hour12: false })} · 本页只展示脱敏聚合 · 不暴露任何用户数据/IP 原文</div>
+            `;
+            renderCharts(d);
+        } catch (e) {
+            el.innerHTML = `<div class="err">⚠️ 快照读取失败：${esc(e.message)}<br>
+                <span style="color:#8b949e">若 API 未启动，请先运行 <b>python3 bin/lh_web_auth_api.py</b>（端口 9658）</span></div>`;
+        }
+    }
+
+    // ==================== 三图表渲染（国产 ECharts·双级切换·离线降级） ====================
+    const DARK_TEXT = "#8b949e";
+    const CHART_TYPES = { trend: ["line", "bar", "area", "scatter", "pie", "river"], tree: ["tree", "sunburst", "treemap", "icicle", "radial"], graph: ["force", "circular", "orbit"] };
+    const TYPE_LABELS = { line: "折线", bar: "柱状", area: "面积", scatter: "散点", pie: "占比", river: "河图", tree: "树", sunburst: "旭日", treemap: "矩树", icicle: "下钻", radial: "八卦", force: "力导向", circular: "环形", orbit: "星轨" };
+    const CHART_HINTS = {
+        trend: { line: "📈 折线 · 近14天三类数量变化，看趋势", bar: "📊 柱状 · 每天对比谁多谁少，最直观", area: "🟨 面积 · 起伏区间看体量", scatter: "⚪ 散点 · 单天波动与离群一眼可见", pie: "🥧 占比 · 三类总量占比，主次分明", river: "🌊 河图 · 三类如河水流淌堆叠，总和+构成同时看" },
+        tree: { tree: "🌳 树 · 自上而下看系统四大支柱", sunburst: "☀️ 旭日 · 核心向外圈层展开，点击下钻", treemap: "⬛ 矩树 · 面积越大，子孙越多", icicle: "⬇️ 下钻 · 层级垂直堆叠，一层一层", radial: "☯️ 八卦 · 核心居中，四柱八方辐射，龍魂阵型" },
+        graph: { force: "🕸 力导向 · 引力拉近相关节点，可拖拽", circular: "⭕ 环形 · 一圈排开看连接", orbit: "✨ 星轨 · 发光连线环绕，如星轨运行" },
+    };
+    let chartState = { trend: null, tree: null, graph: null };   // 各图数据缓存
+    let curChart = "trend", curType = "line";
+
+    function chartBase() {
+        return {
+            backgroundColor: "transparent",
+            textStyle: { color: DARK_TEXT },
+            title: { text: "", textStyle: { color: "#f0b429", fontSize: 13 }, left: 8, top: 6 },
+        };
+    }
+
+    function renderCharts(d) {
+        chartState.trend = d.trend || [];
+        chartState.tree = buildTreeData(d);
+        chartState.graph = buildGraphData(d);
+        if (typeof echarts === "undefined") {
+            const el = document.getElementById("mainChart");
+            el.innerHTML = `<div class="loading" style="padding:40px;text-align:center;">📴 离线模式 · ECharts 未加载（需联网拉取国内 CDN）<br><span style="font-size:11px;">在线部署后自动恢复 · 数据仍安全在本地</span></div>`;
+            return;
+        }
+        drawChart();
+    }
+
+    // ---- 一级 Tab 切换 ----
+    document.addEventListener("click", e => {
+        const tab = e.target.closest(".chart-tab");
+        const typeBtn = e.target.closest(".chart-type");
+        if (tab && !tab.classList.contains("active")) {
+            curChart = tab.dataset.chart;
+            curType = CHART_TYPES[curChart][0];
+            document.querySelectorAll(".chart-tab").forEach(b => b.classList.toggle("active", b === tab));
+            document.getElementById("chartTypes").innerHTML = CHART_TYPES[curChart].map(t =>
+                `<button class="chart-type ${t === curType ? "active" : ""}" data-type="${t}">${TYPE_LABELS[t] || t}</button>`).join("");
+            drawChart();
+        } else if (typeBtn && !typeBtn.classList.contains("active")) {
+            curType = typeBtn.dataset.type;
+            document.querySelectorAll(".chart-type").forEach(b => b.classList.toggle("active", b === typeBtn));
+            drawChart();
+        }
+    });
+
+    function drawChart() {
+        const el = document.getElementById("mainChart");
+        if (typeof echarts === "undefined") return;
+        const hintEl = document.getElementById("chartHint");
+        if (hintEl) hintEl.innerHTML = (CHART_HINTS[curChart] && CHART_HINTS[curChart][curType]) || "";
+        let chart = echarts.getInstanceByDom(el);
+        if (!chart) chart = echarts.init(el);
+        if (curChart === "trend") trendOption(chart, curType);
+        else if (curChart === "tree") treeOption(chart, curType);
+        else graphOption(chart, curType);
+        chart.resize();
+        window.addEventListener("resize", () => chart && chart.resize());
+    }
+
+    function trendOption(chart, type) {
+        const t = chartState.trend;
+        const dates = t.map(x => x.date.slice(5));
+        // 饼图：近14天三类总量占比
+        if (type === "pie") {
+            const sum = k => t.reduce((a, x) => a + (x[k] || 0), 0);
+            chart.setOption({
+                ...chartBase(),
+                tooltip: { trigger: "item", backgroundColor: "#161b22", borderColor: "#f0b429", textStyle: { color: "#c9d1d9" }, formatter: "{b}<br>{c} 次 · {d}%" },
+                legend: { top: 8, textStyle: { color: DARK_TEXT } },
+                series: [{
+                    type: "pie", radius: ["36%", "72%"], center: ["50%", "56%"], roseType: "radius",
+                    itemStyle: { borderColor: "#0d1117", borderWidth: 2 },
+                    label: { color: "#c9d1d9", fontSize: 11 },
+                    data: [
+                        { name: "登录成功", value: sum("login_ok"), itemStyle: { color: "#f0b429" } },
+                        { name: "登录失败", value: sum("login_failed"), itemStyle: { color: "#f85149" } },
+                        { name: "注册", value: sum("register"), itemStyle: { color: "#58a6ff" } },
+                    ],
+                }],
+            }, true);
+            return;
+        }
+        // 龍魂创新 · 河图（堆叠平滑流动，像河水）
+        if (type === "river") {
+            chart.setOption({
+                ...chartBase(),
+                tooltip: { trigger: "axis", backgroundColor: "#161b22", borderColor: "#f0b429", textStyle: { color: "#c9d1d9" } },
+                legend: { data: ["登录成功", "登录失败", "注册"], textStyle: { color: DARK_TEXT }, top: 8 },
+                grid: { left: 40, right: 16, top: 40, bottom: 24 },
+                xAxis: { type: "category", data: dates, axisLine: { lineStyle: { color: "#30363d" } }, axisLabel: { color: DARK_TEXT } },
+                yAxis: { type: "value", minInterval: 1, splitLine: { lineStyle: { color: "#21262d" } }, axisLabel: { color: DARK_TEXT } },
+                series: [["登录成功", "login_ok", "#f0b429"], ["登录失败", "login_failed", "#f85149"], ["注册", "register", "#58a6ff"]].map(([nm, key, color]) => ({
+                    name: nm, type: "line", stack: "龙河", smooth: true, symbol: "none",
+                    data: t.map(x => x[key]), lineStyle: { width: 0 },
+                    areaStyle: { color: { type: "linear", x: 0, y: 0, x2: 1, y2: 0, colorStops: [{ offset: 0, color: color + "66" }, { offset: 1, color: color + "1e" }] } },
+                    emphasis: { focus: "series" },
+                })),
+            }, true);
+            return;
+        }
+        const isScatter = type === "scatter";
+        const mk = (name, key, color) => {
+            const s = {
+                name,
+                type: type === "bar" ? "bar" : isScatter ? "scatter" : "line",
+                data: t.map(x => x[key]),
+                itemStyle: { color },
+                lineStyle: { color, width: 3 },
+            };
+            if (type === "area") s.areaStyle = { color: color + "22" };
+            if (!isScatter && type !== "bar") { s.smooth = true; s.symbolSize = 6; }
+            if (isScatter) s.symbolSize = 10;
+            return s;
+        };
+        chart.setOption({
+            ...chartBase(),
+            tooltip: { trigger: "axis", backgroundColor: "#161b22", borderColor: "#f0b429", textStyle: { color: "#c9d1d9" } },
+            legend: { data: ["登录成功", "登录失败", "注册"], textStyle: { color: DARK_TEXT }, top: 8 },
+            grid: { left: 40, right: 16, top: 40, bottom: 24 },
+            xAxis: { type: "category", data: dates, axisLine: { lineStyle: { color: "#30363d" } }, axisLabel: { color: DARK_TEXT } },
+            yAxis: { type: "value", minInterval: 1, splitLine: { lineStyle: { color: "#21262d" } }, axisLabel: { color: DARK_TEXT } },
+            series: [mk("登录成功", "login_ok", "#f0b429"), mk("登录失败", "login_failed", "#f85149"), mk("注册", "register", "#58a6ff")],
+        }, true);
+    }
+
+    // 🔥 实时值格式化：1.2w / 3456
+    const fmt = v => v == null ? 0 : (v >= 10000 ? (v / 10000).toFixed(1) + "w" : String(v));
+
+    // 🔥 树图接真实审计数据 → 面积/数值随系统状态活起来
+    function buildTreeData(d) {
+        const a = (d && d.audit) || {};
+        const users = (d && d.users_total) || 0;
+        const stat = (d && d.protocol && d.protocol.status) ? String(d.protocol.status) : "…";
+        return {
+            name: "龍魂系统", value: (a.total || 0) + users,
+            children: [
+                { name: "协议宪法", value: 3, children: [
+                    { name: "P0 十二焊死", value: 1 }, { name: "无后台·不存数据", value: 1 }, { name: "无管理员后门", value: 1 },
+                ]},
+                { name: "开放后台", value: 3, children: [
+                    { name: "L1 玻璃墙", value: 1 }, { name: "L2 主控台", value: 1 }, { name: "L3 自动熔断", value: 1 },
+                ]},
+                { name: "审计体系", value: a.total || 0, children: [
+                    { name: "审计总条目", value: a.total || 0 },
+                    { name: "登录成功", value: a.login_ok || 0 },
+                    { name: "登录失败", value: a.login_failed || 0 },
+                ]},
+                { name: "账号注册", value: users, children: [
+                    { name: "注册账号数", value: users },
+                    { name: "协议状态 " + stat, value: 1 },
+                ]},
+            ],
+        };
+    }
+
+    function treeOption(chart, type) {
+        const data = chartState.tree;
+        const common = { ...chartBase(), tooltip: { trigger: "item", triggerOn: "mousemove", backgroundColor: "#161b22", borderColor: "#f0b429", textStyle: { color: "#c9d1d9" } } };
+        if (type === "tree") {
+            chart.setOption({ ...common, series: [{
+                type: "tree", data: [data], top: 20, left: 30, right: 30, bottom: 10, orient: "LR",
+                symbol: "circle", symbolSize: 8,
+                label: { position: "left", verticalAlign: "middle", align: "right", fontSize: 12, color: "#c9d1d9", formatter: p => p.name + (p.value != null && p.value !== 0 ? " [" + fmt(p.value) + "]" : "") },
+                leaves: { label: { position: "right", verticalAlign: "middle", align: "left", fontSize: 11, color: "#8b949e", formatter: p => p.name + (p.value != null && p.value !== 0 ? " [" + fmt(p.value) + "]" : "") } },
+                lineStyle: { color: "#30363d", width: 1.5 }, emphasis: { focus: "descendant" },
+            }] }, true);
+        } else if (type === "sunburst") {
+            chart.setOption({ ...common, series: [{
+                type: "sunburst", data: [data], radius: ["15%", "90%"], center: ["50%", "50%"],
+                label: { fontSize: 10, color: "#c9d1d9", formatter: p => p.name + (p.value != null && p.value !== 0 ? " " + fmt(p.value) : "") }, itemStyle: { borderColor: "#0d1117", borderWidth: 2 },
+                emphasis: { focus: "ancestor" }, levels: [{}, { r0: "15%", r: "38%", itemStyle: { color: "rgba(240,180,41,0.5)" } }],
+            }] }, true);
+        } else if (type === "icicle") {
+            // ECharts 5.5 新增 · 下钻矩形图（层级垂直堆叠）
+            chart.setOption({ ...common, series: [{
+                type: "icicle", data: [data],
+                label: { fontSize: 11, color: "#c9d1d9" }, itemStyle: { borderColor: "#0d1117", borderWidth: 2 },
+                emphasis: { focus: "descendant" },
+            }] }, true);
+        } else if (type === "radial") {
+            // 龍魂创新 · 八卦阵（径向辐射·核心居中·四柱八方）
+            chart.setOption({ ...common, series: [{
+                type: "tree", data: [data], orient: "radial",
+                top: 24, left: 24, right: 24, bottom: 24,
+                symbol: "circle", symbolSize: 7, expandAndCollapse: false,
+                label: { position: "right", fontSize: 11, color: "#c9d1d9", formatter: p => p.name + (p.value != null && p.value !== 0 ? " [" + fmt(p.value) + "]" : "") },
+                leaves: { label: { position: "right", fontSize: 10, color: "#8b949e", formatter: p => p.name + (p.value != null && p.value !== 0 ? " [" + fmt(p.value) + "]" : "") } },
+                lineStyle: { color: "rgba(240,180,41,0.8)", width: 1.2 },
+                emphasis: { focus: "descendant" },
+            }] }, true);
+        } else {
+            const flat = n => n.children ? [{ name: n.name, value: n.value }].concat(n.children.flatMap(flat)) : [{ name: n.name, value: n.value }];
+            const leaves = flat(data);
+            const parentOf = {};
+            const walk = n => (n.children || []).forEach(c => { parentOf[c.name] = n.name; walk(c); });
+            walk(data);
+            chart.setOption({ ...common, series: [{
+                type: "treemap", data: leaves.filter(x => x.name !== "龍魂系统"), roam: false,
+                nodeClick: false, breadcrumb: { show: false },
+                label: { fontSize: 11, color: "#c9d1d9" },
+                upperLabel: { show: false }, itemStyle: { borderColor: "#0d1117", borderWidth: 2 },
+                visualDimension: 0, color: ["#f0b429", "#58a6ff", "#a371f7", "#3fb950", "#f85149"],
+            }] }, true);
+        }
+    }
+
+    // 🔥 关系图接真实审计数据 → 核心节点大小/数值随系统状态呼吸
+    function buildGraphData(d) {
+        const a = (d && d.audit) || {};
+        const total = a.total || 0, ok = a.login_ok || 0;
+        const cats = [
+            { name: "核心", itemStyle: { color: "#f0b429" } },
+            { name: "开放后台", itemStyle: { color: "#3fb950" } },
+            { name: "平台·P0", itemStyle: { color: "#58a6ff" } },
+            { name: "平台·P1", itemStyle: { color: "#a371f7" } },
+            { name: "平台·P2", itemStyle: { color: "#6e7681" } },
+        ];
+        const nodes = [
+            { name: "龍魂系统", category: 0, symbolSize: 56 + Math.min(26, Math.round(total / 500)), label: { fontSize: 13, color: "#f0b429", formatter: () => "龍魂系统\n审计 " + fmt(total) } },
+            { name: "玻璃墙", category: 1, symbolSize: 44 }, { name: "开放主控台", category: 1, symbolSize: 44 }, { name: "认证API", category: 1, symbolSize: 40, label: { formatter: () => "认证API\n登录 " + fmt(ok) } },
+            { name: "GitHub", category: 2, symbolSize: 38 }, { name: "uid9622.cn", category: 2, symbolSize: 38 },
+            { name: "Gitee", category: 3, symbolSize: 32 }, { name: "Notion门户", category: 3, symbolSize: 32 }, { name: "longhun888.com", category: 3, symbolSize: 32 },
+            { name: "CSDN", category: 4, symbolSize: 24 },
+        ];
+        const link = (t, s, p) => ({ source: s, target: t, lineStyle: { width: p }, label: { show: true, formatter: p === 5 ? "P0" : (p === 3 ? "P1" : "P2"), fontSize: 9, color: "#8b949e" } });
+        const links = [
+            link("玻璃墙", "龍魂系统", 5), link("开放主控台", "龍魂系统", 5),
+            link("认证API", "龍魂系统", 3), link("认证API", "玻璃墙", 3),
+            link("GitHub", "龍魂系统", 5), link("uid9622.cn", "龍魂系统", 5),
+            link("Gitee", "龍魂系统", 3), link("Notion门户", "龍魂系统", 3),
+            link("longhun888.com", "龍魂系统", 3), link("CSDN", "龍魂系统", 1),
+        ];
+        return { cats, nodes, links };
+    }
+
+    function graphOption(chart, type) {
+        const { cats, nodes, links } = chartState.graph;
+        chart.setOption({
+            ...chartBase(),
+            tooltip: { trigger: "item", backgroundColor: "#161b22", borderColor: "#f0b429", textStyle: { color: "#c9d1d9" } },
+            legend: { data: cats.map(c => c.name), textStyle: { color: DARK_TEXT }, top: 8 },
+            series: [{
+                type: "graph",
+                layout: type === "force" ? "force" : "circular",
+                data: nodes, links, categories: cats,
+                roam: true, draggable: true,
+                label: { show: true, color: "#c9d1d9", fontSize: 11 },
+                circular: type === "orbit" ? { rotateLabel: false, radius: "68%" } : { rotateLabel: true },
+                force: { repulsion: 320, edgeLength: [80, 160] },
+                lineStyle: type === "orbit"
+                    ? { color: "rgba(88,166,255,0.65)", curveness: 0.22, width: 1.6, shadowColor: "#58a6ff", shadowBlur: 6 }
+                    : { color: "#30363d", curveness: 0.15 },
+                edgeSymbol: type === "orbit" ? ["none", "arrow"] : undefined,
+                emphasis: { focus: "adjacency", lineStyle: { color: "#f0b429", width: 3 } },
+            }],
+        }, true);
+    }
+
+    async function loadAuditPreview() {
+        // 公开页不携带凭据 → 只显示提示；登录后主控台内可见完整脱敏审计
+        const el = document.getElementById("audit-stream");
+        try {
+            const r = await fetch(AUDIT, { cache: "no-store" });
+            if (r.status === 401) {
+                el.innerHTML = `<div class="loading">🔒 审计详情需登录 · 登录入口见上方「进入主控台」</div>`;
+                return;
+            }
+            const j = await r.json();
+            if (!j.ok) throw new Error(j.error || "audit fail");
+            const rows = (j.data.records || []).map(ev => `
+                <div class="row">
+                    <span>${esc(ev.t)}</span>
+                    <span class="${ev.r === 'ok' ? 'ok' : (ev.r === 'failed' || ev.r === 'locked' ? 'failed' : '')}">${esc(ev.a)}</span>
+                    <span>${esc(ev.u)}</span>
+                    <span>${esc(ev.r)}</span>
+                    <span>${esc(ev.ip)}</span>
+                </div>`).join("");
+            el.innerHTML = rows || `<div class="loading">暂无审计记录</div>`;
+        } catch (e) {
+            el.innerHTML = `<div class="loading">审计预览暂不可用（${esc(e.message)}）</div>`;
+        }
+    }
+
+    loadGlass();
+    setInterval(loadGlass, 60000);   // 🔥 数据活起来 · 每60秒自动同步系统状态
+    loadAuditPreview();
+    document.getElementById("ts-line").textContent = "DNA: #龍芯⚡️丙午·丙申·甲辰·未时·䷓观-UI-GLASS-WALL-v1.0";
+    </script>
+</body>
+</html>

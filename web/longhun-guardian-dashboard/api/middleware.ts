@@ -1,3 +1,5 @@
+// DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-1012a4ec
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 import { ErrorMessages } from "@contracts/constants";
 import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";

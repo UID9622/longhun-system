@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+#!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
-# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-REFINE-ALL-CJK-CALLIGRAPHY-v1.0
+# DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-REFINE-ALL-CJK-CALLIGRAPHY-v1.0
 
 """
 LonghunFont 全量 CJK 书法骨架精修脚本
@@ -17,7 +22,7 @@ from datetime import datetime
 sys.path.insert(0, str(Path(__file__).parent))
 from glyph_generator_calligraphy import generate_skeleton, structure_of, stroke_count_of
 
-DNA = "#龍芯⚡️2026-06-22-LONGHUN-FONT-REFINE-ALL-CJK-CALLIGRAPHY-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-REFINE-ALL-CJK-CALLIGRAPHY-v1.0"
 
 
 def is_cjk(char: str) -> bool:

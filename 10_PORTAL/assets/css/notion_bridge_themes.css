@@ -1,0 +1,238 @@
+/* 龍魂玄機閣 · 全局主题切换 CSS */
+
+/* ===== 主题一：玄機閣（宣纸朱砂）===== */
+body.theme-xuanji {
+  --bg: #f8f4e8;
+  --bg-secondary: #efe9d9;
+  --bg-hover: #e8e0cc;
+  --text: #2c241b;
+  --text-secondary: #5c4d3c;
+  --text-tertiary: #8a7b68;
+  --border: #d9d3c5;
+  --border-light: #ebe5d6;
+  --accent: #b93a32;
+  --accent-hover: #962d26;
+  --selected: rgba(185, 58, 50, 0.12);
+  --selected-border: rgba(185, 58, 50, 0.45);
+  --gold: #c9a227;
+  --gold-light: #e8d48b;
+  --jade: #4a7c59;
+  --ink: #1a1410;
+  --code-bg: #f1ead8;
+  --shadow: rgba(44, 36, 27, 0.08) 0px 0px 0px 1px, rgba(44, 36, 27, 0.12) 0px 4px 12px;
+}
+
+/* ===== 主题二：赛博龍魂（暗紫霓虹）===== */
+body.theme-cyber {
+  --bg: #0d0b14;
+  --bg-secondary: #161226;
+  --bg-hover: #221a3a;
+  --text: #eae6f5;
+  --text-secondary: #a69fc4;
+  --text-tertiary: #6e6689;
+  --border: #2d2547;
+  --border-light: #3d345c;
+  --accent: #00f0ff;
+  --accent-hover: #80f7ff;
+  --selected: rgba(0, 240, 255, 0.12);
+  --selected-border: rgba(0, 240, 255, 0.45);
+  --gold: #ff00aa;
+  --gold-light: #ff66cc;
+  --jade: #00ff88;
+  --ink: #ffffff;
+  --code-bg: #120f1f;
+  --shadow: rgba(0, 240, 255, 0.08) 0px 0px 0px 1px, rgba(0, 240, 255, 0.12) 0px 4px 16px;
+}
+body.theme-cyber .sidebar::before,
+body.theme-cyber .sidebar::after,
+body.theme-cyber .editor-inner::before,
+body.theme-cyber .editor-inner::after,
+body.theme-cyber .seal {
+  display: none;
+}
+body.theme-cyber .topbar-btn,
+body.theme-cyber .page-item,
+body.theme-cyber .chip,
+body.theme-cyber .panel-card,
+body.theme-cyber .result-item {
+  border-radius: 6px;
+}
+
+/* ===== 主题三：极简白纸（黑白高对比）===== */
+body.theme-minimal {
+  --bg: #ffffff;
+  --bg-secondary: #f6f6f6;
+  --bg-hover: #eeeeee;
+  --text: #111111;
+  --text-secondary: #555555;
+  --text-tertiary: #888888;
+  --border: #e0e0e0;
+  --border-light: #f0f0f0;
+  --accent: #0066cc;
+  --accent-hover: #0055aa;
+  --selected: rgba(0, 102, 204, 0.08);
+  --selected-border: rgba(0, 102, 204, 0.35);
+  --gold: #666666;
+  --gold-light: #999999;
+  --jade: #228822;
+  --ink: #000000;
+  --code-bg: #f4f4f4;
+  --shadow: rgba(0, 0, 0, 0.06) 0px 1px 3px;
+}
+body.theme-minimal .sidebar::before,
+body.theme-minimal .sidebar::after,
+body.theme-minimal .editor-inner::before,
+body.theme-minimal .editor-inner::after,
+body.theme-minimal .seal,
+body.theme-minimal .page-icon,
+body.theme-minimal .ink-ripple {
+  display: none;
+}
+body.theme-minimal .editor-inner {
+  background: #ffffff;
+  border: none;
+  box-shadow: none;
+  max-width: 720px;
+}
+body.theme-minimal .topbar-btn,
+body.theme-minimal .page-item,
+body.theme-minimal .chip,
+body.theme-minimal .panel-card,
+body.theme-minimal .result-item {
+  border-radius: 4px;
+}
+body.theme-minimal .page-title {
+  font-family: var(--font-serif);
+  letter-spacing: 0;
+}
+
+/* ===== 五行徽章 ===== */
+.wuxing-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 8px 0 4px;
+  flex-wrap: wrap;
+}
+.wuxing-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all .15s;
+}
+.wuxing-badge:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.wuxing-badge.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--selected);
+}
+.wuxing-badge.participated {
+  border-color: var(--jade);
+  color: var(--jade);
+}
+
+/* ===== 八卦状态指示器 ===== */
+.bagua-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-secondary);
+  cursor: help;
+}
+.bagua-indicator .gua {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ===== 合成过程面板 ===== */
+.synthesis-panel {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-radius: 6px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  font-size: 13px;
+}
+.synthesis-panel summary {
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-weight: 600;
+  user-select: none;
+}
+.synthesis-panel .member-reply {
+  margin: 8px 0;
+  padding: 8px 10px;
+  border-left: 3px solid var(--border);
+  background: var(--bg);
+}
+.synthesis-panel .member-reply .role {
+  font-weight: 600;
+  color: var(--accent);
+}
+.synthesis-panel .audit-green { border-left-color: var(--jade); }
+.synthesis-panel .audit-yellow { border-left-color: var(--gold); }
+.synthesis-panel .audit-red { border-left-color: var(--accent); }
+
+/* ===== 主题切换器 ===== */
+.theme-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg);
+}
+.theme-switcher button {
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-family: inherit;
+}
+.theme-switcher button.active {
+  background: var(--selected);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ===== 议事会模式开关 ===== */
+.council-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+  user-select: none;
+}
+.council-toggle input {
+  accent-color: var(--accent);
+}
+.council-toggle.active {
+  border-color: var(--jade);
+  color: var(--jade);
+}

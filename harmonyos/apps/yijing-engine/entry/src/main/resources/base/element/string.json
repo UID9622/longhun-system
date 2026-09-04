@@ -1,0 +1,7 @@
+{
+  "string": [
+    { "name": "module_desc", "value": "龍魂·鸿蒙易经推演引擎" },
+    { "name": "EntryAbility_desc", "value": "以六十四卦参天地·以三才之道明吉凶" },
+    { "name": "EntryAbility_label", "value": "龍魂·易经推演" }
+  ]
+}

@@ -1,0 +1,603 @@
+/* ================================================================
+   龍魂视觉系统 v5.2 — 报告渲染引擎
+   DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-REPORT-VISUAL-v5.2-8946F3FA
+   用途: 龍魂系统所有对外分析报告的视觉规范
+   设计哲学: 深空暗色底·金龍标识·扫描线·数据优先
+   ================================================================ */
+
+:root {
+  --dragon-primary: #1a237e;
+  --dragon-accent: #c9a227;
+  --dragon-danger: #b71c1c;
+  --dragon-success: #2e7d32;
+  --dragon-warning: #e65100;
+  --dragon-bg: #0a0e27;
+  --dragon-card: #111836;
+  --dragon-card-hover: #1a2050;
+  --dragon-text: #e8eaf6;
+  --dragon-text-secondary: #9fa8da;
+  --dragon-border: #1a237e;
+  --dragon-grid: rgba(26, 35, 126, 0.3);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--dragon-bg);
+  color: var(--dragon-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Noto Sans SC', sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* 扫描线效果 */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 2px, rgba(10, 14, 39, 0.03) 2px, rgba(10, 14, 39, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--dragon-bg); }
+::-webkit-scrollbar-thumb { background: var(--dragon-accent); border-radius: 3px; }
+
+/* 容器 */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* ================================================================
+   HEADER 区域
+   ================================================================ */
+.report-header {
+  background: linear-gradient(135deg, #0a0e27 0%, #1a237e 50%, #0a0e27 100%);
+  border-bottom: 3px solid var(--dragon-accent);
+  padding: 40px 0 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.report-header::after {
+  content: '';
+  position: absolute;
+  top: -50%; right: -10%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.dna-badge {
+  display: inline-block;
+  background: rgba(201, 162, 39, 0.15);
+  border: 1px solid var(--dragon-accent);
+  color: var(--dragon-accent);
+  padding: 4px 12px;
+  font-size: 11px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.report-header h1 {
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--dragon-text);
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.report-header h1 .highlight {
+  color: var(--dragon-accent);
+  text-shadow: 0 0 20px rgba(201, 162, 39, 0.3);
+}
+
+.report-header .subtitle {
+  font-size: 16px;
+  color: var(--dragon-text-secondary);
+  margin-bottom: 20px;
+}
+
+.meta-row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--dragon-text-secondary);
+}
+
+.meta-row span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.meta-row .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.green { background: var(--dragon-success); box-shadow: 0 0 6px var(--dragon-success); }
+.dot.gold { background: var(--dragon-accent); box-shadow: 0 0 6px var(--dragon-accent); }
+.dot.red { background: var(--dragon-danger); box-shadow: 0 0 6px var(--dragon-danger); }
+
+/* 系统导航返回 */
+.system-nav {
+  position: absolute;
+  top: 16px; left: 24px;
+  z-index: 10;
+}
+
+.system-nav a {
+  color: var(--dragon-text-secondary);
+  text-decoration: none;
+  font-size: 12px;
+  padding: 6px 12px;
+  border: 1px solid var(--dragon-border);
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.system-nav a:hover {
+  color: var(--dragon-accent);
+  border-color: var(--dragon-accent);
+}
+
+/* ================================================================
+   NAV 导航
+   ================================================================ */
+.report-nav {
+  background: var(--dragon-card);
+  border-bottom: 1px solid var(--dragon-border);
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+}
+
+.nav-links a {
+  color: var(--dragon-text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: var(--dragon-accent);
+  background: rgba(201, 162, 39, 0.1);
+  border-color: rgba(201, 162, 39, 0.3);
+}
+
+/* ================================================================
+   KPI 大数字卡片
+   ================================================================ */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 32px 0;
+}
+
+.kpi-card {
+  background: var(--dragon-card);
+  border: 1px solid var(--dragon-border);
+  border-radius: 8px;
+  padding: 24px 20px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.kpi-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+}
+
+.kpi-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--dragon-accent);
+  box-shadow: 0 8px 32px rgba(201, 162, 39, 0.1);
+}
+
+.kpi-card.gold::before { background: linear-gradient(90deg, var(--dragon-accent), transparent); }
+.kpi-card.green::before { background: linear-gradient(90deg, var(--dragon-success), transparent); }
+.kpi-card.red::before { background: linear-gradient(90deg, var(--dragon-danger), transparent); }
+.kpi-card.blue::before { background: linear-gradient(90deg, #5c6bc0, transparent); }
+
+.kpi-card .kpi-label {
+  font-size: 12px;
+  color: var(--dragon-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.kpi-card .kpi-value {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--dragon-text);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.kpi-card .kpi-value.gold { color: var(--dragon-accent); }
+.kpi-card .kpi-value.green { color: var(--dragon-success); }
+.kpi-card .kpi-value.red { color: var(--dragon-danger); }
+
+.kpi-card .kpi-change {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.kpi-card .kpi-change.up { color: var(--dragon-success); }
+.kpi-card .kpi-change.down { color: var(--dragon-danger); }
+
+/* ================================================================
+   SECTION 区域
+   ================================================================ */
+.section {
+  margin: 48px 0;
+  scroll-margin-top: 60px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--dragon-border);
+}
+
+.section-number {
+  font-size: 48px;
+  font-weight: 900;
+  color: rgba(201, 162, 39, 0.2);
+  line-height: 1;
+  font-family: 'Courier New', monospace;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--dragon-text);
+}
+
+.section-title .accent {
+  color: var(--dragon-accent);
+}
+
+/* ================================================================
+   图表容器
+   ================================================================ */
+.chart-container {
+  background: var(--dragon-card);
+  border: 1px solid var(--dragon-border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 24px 0;
+  transition: all 0.3s;
+}
+
+.chart-container:hover {
+  border-color: rgba(201, 162, 39, 0.4);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.chart-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.chart-caption {
+  padding: 12px 16px;
+  font-size: 12px;
+  color: var(--dragon-text-secondary);
+  border-top: 1px solid var(--dragon-border);
+  background: rgba(10, 14, 39, 0.5);
+}
+
+.chart-caption .exhibit {
+  color: var(--dragon-accent);
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+/* ================================================================
+   内容排版
+   ================================================================ */
+.content-block {
+  background: var(--dragon-card);
+  border: 1px solid var(--dragon-border);
+  border-radius: 8px;
+  padding: 28px;
+  margin: 20px 0;
+}
+
+.content-block h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dragon-accent);
+  margin-bottom: 16px;
+  padding-left: 12px;
+  border-left: 3px solid var(--dragon-accent);
+}
+
+.content-block h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dragon-text);
+  margin: 20px 0 10px;
+}
+
+.content-block p {
+  font-size: 14px;
+  color: var(--dragon-text-secondary);
+  margin-bottom: 12px;
+  line-height: 1.8;
+}
+
+.content-block ul {
+  margin: 12px 0 12px 20px;
+}
+
+.content-block li {
+  font-size: 14px;
+  color: var(--dragon-text-secondary);
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+.content-block li strong {
+  color: var(--dragon-text);
+}
+
+/* 高亮文本 */
+.highlight-box {
+  background: rgba(201, 162, 39, 0.08);
+  border-left: 3px solid var(--dragon-accent);
+  padding: 16px 20px;
+  margin: 16px 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.highlight-box.danger {
+  background: rgba(183, 28, 28, 0.08);
+  border-left-color: var(--dragon-danger);
+}
+
+.highlight-box.success {
+  background: rgba(46, 125, 50, 0.08);
+  border-left-color: var(--dragon-success);
+}
+
+/* 数据表格 */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 13px;
+}
+
+.data-table th {
+  background: rgba(26, 35, 126, 0.5);
+  color: var(--dragon-accent);
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 700;
+  border-bottom: 2px solid var(--dragon-accent);
+}
+
+.data-table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--dragon-border);
+  color: var(--dragon-text-secondary);
+}
+
+.data-table tr:hover td {
+  background: rgba(201, 162, 39, 0.05);
+  color: var(--dragon-text);
+}
+
+/* 标签 */
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+.tag.gold { background: rgba(201, 162, 39, 0.2); color: var(--dragon-accent); }
+.tag.green { background: rgba(46, 125, 50, 0.2); color: var(--dragon-success); }
+.tag.red { background: rgba(183, 28, 28, 0.2); color: var(--dragon-danger); }
+.tag.blue { background: rgba(92, 107, 192, 0.2); color: #5c6bc0; }
+.tag.purple { background: rgba(167, 139, 250, 0.2); color: #a78bfa; }
+
+/* ================================================================
+   联动协议引用卡片
+   ================================================================ */
+.related-protocols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.protocol-card {
+  background: var(--dragon-card);
+  border: 1px solid var(--dragon-border);
+  border-radius: 8px;
+  padding: 16px;
+  text-decoration: none;
+  color: var(--dragon-text-secondary);
+  transition: all 0.3s;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.protocol-card:hover {
+  border-color: var(--dragon-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(201, 162, 39, 0.1);
+}
+
+.protocol-card .protocol-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.protocol-card .protocol-info strong {
+  color: var(--dragon-text);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.protocol-card .protocol-info span {
+  font-size: 12px;
+  display: block;
+}
+
+/* ================================================================
+   来源标注
+   ================================================================ */
+.source-block {
+  background: rgba(10, 14, 39, 0.8);
+  border: 1px solid var(--dragon-border);
+  border-radius: 8px;
+  padding: 24px;
+  margin: 40px 0;
+}
+
+.source-block h3 {
+  font-size: 14px;
+  color: var(--dragon-accent);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.source-block ol {
+  margin-left: 20px;
+}
+
+.source-block li {
+  font-size: 12px;
+  color: var(--dragon-text-secondary);
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
+.report-footer {
+  background: var(--dragon-card);
+  border-top: 2px solid var(--dragon-accent);
+  padding: 32px 0;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.report-footer .dna-string {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: var(--dragon-accent);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.report-footer .copyright {
+  font-size: 12px;
+  color: var(--dragon-text-secondary);
+}
+
+/* ================================================================
+   系统集成区块
+   ================================================================ */
+.system-integration {
+  background: linear-gradient(135deg, rgba(26, 35, 126, 0.3), rgba(10, 14, 39, 0.5));
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+
+.system-integration h3 {
+  color: var(--dragon-accent);
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.system-integration .system-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.system-integration .sys-link {
+  background: rgba(201, 162, 39, 0.1);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  color: var(--dragon-text);
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 12px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.system-integration .sys-link:hover {
+  background: rgba(201, 162, 39, 0.2);
+  border-color: var(--dragon-accent);
+  color: var(--dragon-accent);
+}
+
+/* ================================================================
+   动画
+   ================================================================ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section { animation: fadeInUp 0.6s ease-out; }
+
+/* ================================================================
+   响应式
+   ================================================================ */
+@media (max-width: 768px) {
+  .report-header h1 { font-size: 24px; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .section-number { font-size: 32px; }
+  .section-title { font-size: 18px; }
+  .nav-links { gap: 2px; }
+  .nav-links a { font-size: 11px; padding: 4px 8px; }
+}
+
+@media (max-width: 480px) {
+  .kpi-grid { grid-template-columns: 1fr; }
+  .kpi-card .kpi-value { font-size: 24px; }
+}

@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂 · openEuler 鲲鹏服务端环境准备脚本
 # 用途: 在华为鲲鹏 openEuler 服务器上安装所有依赖
 # 适用: openEuler 22.03+ / 24.03+ (aarch64)
 # 执行方式: 将此脚本上传到服务器后以 root 执行
 #          ssh root@mgmt-ip 'bash -s' < prepare-openEuler.sh
-# DNA: #龍芯⚡️2026-07-06-KUNPENG-OPENEULER-PREPARE-v1.0
+# DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-KUNPENG-OPENEULER-PREPARE-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -euo pipefail
 
@@ -279,4 +281,4 @@ echo "  日志目录: ${LOG_DIR}"
 echo ""
 echo "  下一步: 执行 sync-to-kunpeng.sh 搬迁系统文件"
 echo ""
-echo "DNA: #龍芯⚡️2026-07-06-KUNPENG-OPENEULER-PREPARE-v1.0"
+echo "DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-KUNPENG-OPENEULER-PREPARE-v1.0"

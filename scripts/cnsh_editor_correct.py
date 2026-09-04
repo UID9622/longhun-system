@@ -1,6 +1,11 @@
+#!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷯井-FIX_DNA-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 #!/Users/zuimeidedeyihan/longhun-system/.venv_longhun_math/bin/python
 # -*- coding: utf-8 -*-
-"""#龍芯⚡️2026-06-29-CNSH-EDITOR-CORRECT-CLI-v0.1
+"""#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-EDITOR-CORRECT-CLI-v0.1
 CNSH 中文编辑器纠错命令行入口
 """
 import sys
@@ -42,7 +47,7 @@ def main():
                 },
             },
             "CNSH::": {
-                "dna": "#龍芯⚡️20260629-CNSH-EDITOR-CORRECTION-v0.1",
+                "dna": "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-EDITOR-CORRECTION-v0.1",
                 "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
                 "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
                 "audit": audit["audit"],

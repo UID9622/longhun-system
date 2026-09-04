@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
-#龍芯⚡️2026-06-20-LOSHE-369-LAUNCHER-v1.0
+#龍芯⚡️丙午·甲午·乙丑·壬午·䷨损-LOSHE-369-LAUNCHER-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ═══════════════════════════════════════════════════════════════════
   🐉 龍魂洛书369引擎 — 终端启动器
@@ -8,7 +10,7 @@
   
   小艺论文13章系统化 → 10个Python模块 → 终端一键启动
 ═══════════════════════════════════════════════════════════════════
-  DNA: #龍芯⚡️2026-06-20-LOSHE-369-LAUNCHER-v1.0
+  DNA: #龍芯⚡️丙午·甲午·乙丑·壬午·䷨损-LOSHE-369-LAUNCHER-v1.0
   CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 
@@ -19,7 +21,7 @@ import sys, os, subprocess, json
 for 子目录 in ['core','quantum','ethics','wuxing','journey','network','sovereignty']:
     sys.path.insert(0, os.path.join(项目根, 子目录))
 
-龍魂DNA = "#龍芯⚡️2026-06-20-LOSHE-369-LAUNCHER-v1.0"
+龍魂DNA = "#龍芯⚡️丙午·甲午·乙丑·壬午·䷨损-LOSHE-369-LAUNCHER-v1.0"
 
 横幅 = """
 ╔══════════════════════════════════════════════════════════════════╗

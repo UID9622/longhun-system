@@ -1,8 +1,11 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · 摘要爬虫与访问分流显化协议 v1.0
 # Summary-Crawler & Traffic-Split Transparency Protocol
 # P0级别 | 永久锁定 | 不可修改 | 不可绕过
 
-> DNA追溯码: `#龍芯⚡️2026-07-21-SUMMARY-CRAWLER-SPLIT-V1.0-P0`
+> DNA追溯码: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-SUMMARY-CRAWLER-SPLIT-V1.0-P0`
 > 创建者: 诸葛鑫（UID9622）
 > 协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）
 > GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -350,7 +353,7 @@ H_n = SHA-256(H_{n-1} ‖ 日期 ‖ 人工账 ‖ 爬虫账 ‖ SIG)
 身份锚: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-DNA追溯码: #龍芯⚡️2026-07-21-SUMMARY-CRAWLER-SPLIT-V1.0-P0
+DNA追溯码: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-SUMMARY-CRAWLER-SPLIT-V1.0-P0
 三色审计: 🟢代码可执行 🟡阈值为经验值可调（改值走修宪流程） 🔴全文层无机器门
 史记铁律: 本协议不删除、只冻结；后续版本以新版本号另行锚定。
 开源协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）

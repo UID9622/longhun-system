@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DNA: #龍芯⚡️2026-09-02-DH-DISPATCH-LAUNCHD-v1.0-UID9622 -->
+<!-- 创建者: 诸葛鑫（UID9622） -->
+<!-- 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
+<!-- License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2) -->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.longhun.dh-dispatch</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/opt/python@3.12/bin/python3.12</string>
+        <string>/Users/zuimeidedeyihan/longhun-system/08_BIN/lh_dh_dispatch.py</string>
+        <string>--port</string>
+        <string>8761</string>
+        <string>--daemon</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/zuimeidedeyihan/longhun-system</string>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/zuimeidedeyihan/longhun-system/logs/dh_dispatch_daemon.out.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/zuimeidedeyihan/longhun-system/logs/dh_dispatch_daemon.err.log</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PYTHONUNBUFFERED</key>
+        <string>1</string>
+        <key>LONGHUN_ROOT</key>
+        <string>/Users/zuimeidedeyihan/longhun-system</string>
+    </dict>
+
+    <key>ThrottleInterval</key>
+    <integer>2</integer>
+</dict>
+</plist>

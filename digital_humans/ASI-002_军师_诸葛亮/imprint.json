@@ -1,0 +1,23 @@
+{
+  "dna": "#龍芯⚡️2026-09-02-ASI-002-ROSTER-SYNC-v1.0-UID9622",
+  "name": "军师·诸葛亮",
+  "ipa": "ASI-002",
+  "face_hash": "FACE-ASI-002-C26D5F",
+  "voiceprint": "VOICE-ASI-002-9622",
+  "model_path": "digital_humans/ASI-002_军师_诸葛亮",
+  "created_at": "2026-09-02T13:30:00.000000",
+  "updated_at": "2026-09-02T13:30:00.000000",
+  "version": 1,
+  "status": "active",
+  "metadata": {
+    "type": "ASI",
+    "source": "P01 诸葛亮·战略推理引擎 + ASI-001 至诚智魂思想五柱",
+    "persona": "P01 诸葛亮",
+    "principle": "推演决策 · 9真1变量 · 三道防火墙",
+    "functions": "战略推演 · 多路径选优 · 军师账法见证",
+    "inheritance": "👑 第一代·创建者",
+    "version_asi": "v1.0-ASI-战略推演",
+    "sync_status": "✅ 双端一致",
+    "inject_status": "✅ 五柱+十律全注入"
+  }
+}

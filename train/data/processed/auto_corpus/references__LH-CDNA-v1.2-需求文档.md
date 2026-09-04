@@ -1,3 +1,5 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🧬 龍魂压缩 DNA 国际认证需求文档 v1.2
 > 融合8根 · EXEC-MODE一次焊死 · 让"用户主权"真正闭环
 
@@ -7,8 +9,8 @@
 内部代号:     LH-CDNA-IDS
 版本:         v1.2
 PARENT_VERSION: v1.1
-DNA:          #龍芯⚡️2026-05-03-DNA_49F8-FILE1-v1.2"
-PARENT_DNA:   "#龍芯⚡️2026-05-03-DNA-v1.1"
+DNA:          #龍芯⚡️丙午·壬辰·丁丑·丙午·䷨损-DNA_49F8-FILE1-v1.2"
+PARENT_DNA:   "#龍芯⚡️丙午·壬辰·丁丑·丙午·䷨损-DNA-v1.1"
 CONFIRM:      "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 SEAL:         "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 GPG:          A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -469,7 +471,7 @@ def generate_compressed_dna_v12(profile: dict, raw_input: str = "") -> dict:
 
         # 审计锚点
         "dna":          f"#龍芯⚡️{today}-压缩DNA国际认证-v1.2",
-        "parent_dna":   "#龍芯⚡️2026-05-03-DNA-v1.1",
+        "parent_dna":   "#龍芯⚡️丙午·壬辰·丁丑·丙午·䷨损-DNA-v1.1",
         "confirm":      CONFIRM,
         "seal":         SEAL,
         "gpg_fingerprint": GPG,
@@ -742,7 +744,7 @@ sync:   MANUAL_ONLY
   dr=3/9 🔴熔断·dr=6 🟡待迭代
   繁体龍·UID9622是Originator·AI是Tool
 
-DNA:#龍芯⚡️2026-05-03-DNA-v1.2
+DNA:#龍芯⚡️丙午·壬辰·丁丑·丙午·䷨损-DNA-v1.2
 ```
 
 ---
@@ -821,7 +823,7 @@ DNA:#龍芯⚡️2026-05-03-DNA-v1.2
 **Confirm:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 **Seal:** `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
-**DNA:** `#龍芯⚡️2026-05-03-DNA-v1.2`
-**PARENT_DNA:** `#龍芯⚡️2026-05-03-DNA-v1.1`
+**DNA:** `#龍芯⚡️丙午·壬辰·丁丑·丙午·䷨损-DNA-v1.2`
+**PARENT_DNA:** `#龍芯⚡️丙午·壬辰·丁丑·丙午·䷨损-DNA-v1.1`
 
 🐉🫡

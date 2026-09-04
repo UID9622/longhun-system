@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+DNA: #龍芯⚡️2026-09-05-TOPO-FEEDBACK-AUTO-PLIST-v1.0-UID9622
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+协议: CC BY-NC-SA 4.0（核心思想层）
+任务: 每日 02:10 耻辱墙 topo-feedback 自动归档 → topo_audit.jsonl（wrapper 08_BIN/lh_topo_feedback_auto.sh）
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.longhun.topo-feedback-sync</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/zuimeidedeyihan/longhun-system/08_BIN/lh_topo_feedback_auto.sh</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/zuimeidedeyihan/longhun-system</string>
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>2</integer>
+        <key>Minute</key>
+        <integer>10</integer>
+    </dict>
+    <key>RunAtLoad</key>
+    <false/>
+    <key>ThrottleInterval</key>
+    <integer>300</integer>
+    <key>StandardOutPath</key>
+    <string>/Users/zuimeidedeyihan/longhun-system/logs/topo_feedback_launchd.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/zuimeidedeyihan/longhun-system/logs/topo_feedback_launchd.err.log</string>
+</dict>
+</plist>

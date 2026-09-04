@@ -1,0 +1,98 @@
+
+════════════════════════════════════════════════════════════
+🐉  龍魂商户API网关 · 接入信息
+════════════════════════════════════════════════════════════
+  时间: 2026-08-02 21:11:59
+  DNA:  #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-MERCHANT-QUICKSTART-v1.0
+
+📍 服务地址:
+  网关:     http://localhost:9633
+  API文档:  http://localhost:9633/docs
+  能力目录:  http://localhost:9633/v1/catalog
+  健康检查:  http://localhost:9633/health
+
+🔑 商户凭证 (请妥善保管):
+  商户ID:   MCH_101cdd79ff3a
+  API Key: lh_mch_0b51a799e39512aebcf9a89486cf74ad6346b659a23e1ba5
+  层级:    pro
+  Key ID:  key_02b8e26c18a8a9b2
+
+📊 测试结果:
+  通过: 7/7
+  失败: 0/7
+  ✅ 无认证→拒绝(401) 401✅
+  ✅ 健康检查
+  ✅ API目录 apis=11
+  ✅ 商户信息 tier=pro used=1
+  ✅ 数字根(369→9) root=9 369=Y
+  ✅ 焦虑检测 detected=True risk=medium
+  ✅ 五行判定 primary=火 wx=['火', '火', '木', '火']
+
+🎉 全部测试通过！网关已就绪，商户可开始接入。
+
+════════════════════════════════════════════════════════════
+
+📝 Python 调用示例 (可直接复制运行):
+```python
+import hashlib, hmac, time, json, requests
+
+API_KEY = "lh_mch_0b51a799e39512aebcf9a89486cf74ad6346b659a23e1ba5"
+BASE_URL = "http://localhost:9633"
+
+def call_api(method, path, body=None):
+    """签名 + 调用龍魂商户API"""
+    body_str = json.dumps(body) if body else ''  # 默认ensure_ascii=True, 与requests一致
+    ts = str(int(time.time()))
+    body_hash = hashlib.sha256(body_str.encode()).hexdigest()
+    # 签名串: METHOD + PATH + TIMESTAMP + SHA256(BODY)
+    sign_str = f'{method}{path}{ts}{body_hash}'
+    # HMAC-SHA256(API_KEY, 签名串)
+    sig = hmac.new(API_KEY.encode(), sign_str.encode(), hashlib.sha256).hexdigest()
+    
+    headers = {
+        'X-LH-API-Key': API_KEY,
+        'X-LH-Timestamp': ts,
+        'X-LH-Signature': sig,
+        'Content-Type': 'application/json',
+    }
+    
+    url = f'{BASE_URL}{path}'
+    if method == 'POST':
+        return requests.post(url, headers=headers, json=body)
+    return requests.get(url, headers=headers)
+
+# 示例: 计算数字根
+resp = call_api("POST", "/v1/math/digital-root", {"n": 369})
+print(resp.json())
+# → {'code':0, 'data':{'digital_root':9, 'is_369_fixed_point':True}}
+
+# 示例: 焦虑话术检测
+resp = call_api("POST", "/v1/security/anxiety", {"content": "限时最后一天！"})
+print(f"是否焦虑: {resp.json()["data"]["has_anxiety"]}")
+
+# 示例: 五行判定
+resp = call_api("POST", "/v1/culture/wuxing", {"input": "丙午乙巳"})
+print(f"主五行: {resp.json()["data"]["primary"]}")
+```
+
+📋 curl 调用示例:
+```bash
+API_KEY='lh_mch_0b51a799e39512aebcf9a89486cf74ad6346b659a23e1ba5'
+TS=$(date +%s)
+BODY='{"n":369}'
+BODY_HASH=$(echo -n "$BODY" | shasum -a 256 | cut -d' ' -f1)
+SIGN_STR="POST/v1/math/digital-root${TS}${BODY_HASH}"
+SIG=$(echo -n "$SIGN_STR" | openssl dgst -sha256 -hmac "$API_KEY" | cut -d' ' -f2)
+curl -X POST http://localhost:9633/v1/math/digital-root \
+  -H "X-LH-API-Key: $API_KEY" \
+  -H "X-LH-Timestamp: $TS" \
+  -H "X-LH-Signature: $SIG" \
+  -H "Content-Type: application/json" \
+  -d '{"n":369}'
+```
+
+════════════════════════════════════════════════════════════
+🔗 完整协议: 01_protocols/LH-MERCHANT-API-PROTOCOL-v1.0.md
+🔗 网关源码: bin/lh_merchant_api_gateway.py
+🔗 日志文件: /Users/zuimeidedeyihan/.龍魂/merchants/gateway_quickstart.log
+════════════════════════════════════════════════════════════

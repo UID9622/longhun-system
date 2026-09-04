@@ -1,0 +1,503 @@
+{
+  "dna": "#龍芯⚡️20260804061934598-GOV-STATUS-536CC6D6",
+  "timestamp": "2026-08-04T06:19:34.599222+00:00",
+  "engine_dna": "#龍芯⚡️2026-06-22-LAYERED-GOVERNANCE-ENGINE-v1.0",
+  "layers": {
+    "L0": {
+      "name": "宪法层/永恒层",
+      "tricolor": "🟡",
+      "score": 0.775,
+      "worst_component": "LayerLevel.L0:f1f7:AGENTS.md",
+      "worst_status": "warning",
+      "checks_count": 6,
+      "error_count": 0,
+      "warning_count": 3
+    },
+    "L1": {
+      "name": "基础协议层",
+      "tricolor": "🟡",
+      "score": 0.84,
+      "worst_component": "LayerLevel.L1:f1f7:chain_hash.jsonl",
+      "worst_status": "warning",
+      "checks_count": 5,
+      "error_count": 0,
+      "warning_count": 2
+    },
+    "L2": {
+      "name": "治理与人治层",
+      "tricolor": "🟢",
+      "score": 0.95,
+      "worst_component": "LayerLevel.L2:file:f1_through_f7_verifier.py",
+      "worst_status": "ok",
+      "checks_count": 2,
+      "error_count": 0,
+      "warning_count": 0
+    },
+    "L3": {
+      "name": "经济与激励层",
+      "tricolor": "🟢",
+      "score": 0.96,
+      "worst_component": "LayerLevel.L3:file:README.md",
+      "worst_status": "ok",
+      "checks_count": 5,
+      "error_count": 0,
+      "warning_count": 0
+    },
+    "L4": {
+      "name": "文化与开源层",
+      "tricolor": "🟢",
+      "score": 0.96,
+      "worst_component": "LayerLevel.L4:file:README.md",
+      "worst_status": "ok",
+      "checks_count": 5,
+      "error_count": 0,
+      "warning_count": 0
+    },
+    "L5": {
+      "name": "技术与分布式层",
+      "tricolor": "🟢",
+      "score": 0.95,
+      "worst_component": "LayerLevel.L5:file:longhun_compression_engine.py",
+      "worst_status": "ok",
+      "checks_count": 2,
+      "error_count": 0,
+      "warning_count": 0
+    },
+    "L6": {
+      "name": "人权与退出层",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "worst_component": "LayerLevel.L6:process:identity-portal",
+      "worst_status": "ok",
+      "checks_count": 1,
+      "error_count": 0,
+      "warning_count": 0
+    }
+  },
+  "checks": [
+    {
+      "layer_id": "L0",
+      "component_id": "LayerLevel.L0:file:AGENTS.md",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.95,
+      "message": "文件正常 (保留 2/6 个主权词: ['龍', '龍芯']): AGENTS.md",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh/AGENTS.md",
+        "has_dna": true,
+        "cultural_score": 0.9
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L0",
+      "component_id": "LayerLevel.L0:file:__init__.py",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.95,
+      "message": "文件正常 (保留 2/6 个主权词: ['龍', '龍芯']): __init__.py",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh/cnsh-core/constitution/__init__.py",
+        "has_dna": true,
+        "cultural_score": 0.9
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L0",
+      "component_id": "LayerLevel.L0:file:__init__.py",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.95,
+      "message": "文件正常 (保留 2/6 个主权词: ['龍', '龍芯']): __init__.py",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh/cnsh-core/permissions/__init__.py",
+        "has_dna": true,
+        "cultural_score": 0.9
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L0",
+      "component_id": "LayerLevel.L0:f1f7:AGENTS.md",
+      "component_type": "f1f7",
+      "status": "warning",
+      "tricolor": "🟡",
+      "score": 0.6,
+      "message": "F1-F7 验证器不可用: cannot import name 'F1IdentityVerification' from 'governance.f1_through_f7_verifier' (/Users/zuimeidedeyihan/longhun-system/cnsh/cnsh-core/governance/f1_through_f7_verifier.py)",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh/AGENTS.md",
+        "error": "cannot import name 'F1IdentityVerification' from 'governance.f1_through_f7_verifier' (/Users/zuimeidedeyihan/longhun-system/cnsh/cnsh-core/governance/f1_through_f7_verifier.py)"
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L0",
+      "component_id": "LayerLevel.L0:f1f7:__init__.py",
+      "component_type": "f1f7",
+      "status": "warning",
+      "tricolor": "🟡",
+      "score": 0.6,
+      "message": "F1-F7 验证器不可用: cannot import name 'F1IdentityVerification' from 'governance.f1_through_f7_verifier' (/Users/zuimeidedeyihan/longhun-system/cnsh/cnsh-core/governance/f1_through_f7_verifier.py)",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh/cnsh-core/constitution/__init__.py",
+        "error": "cannot import name 'F1IdentityVerification' from 'governance.f1_through_f7_verifier' (/Users/zuimeidedeyihan/longhun-system/cnsh/cnsh-core/governance/f1_through_f7_verifier.py)"
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L0",
+      "component_id": "LayerLevel.L0:f1f7:__init__.py",
+      "component_type": "f1f7",
+      "status": "warning",
+      "tricolor": "🟡",
+      "score": 0.6,
+      "message": "F1-F7 验证器不可用: cannot import name 'F1IdentityVerification' from 'governance.f1_through_f7_verifier' (/Users/zuimeidedeyihan/longhun-system/cnsh/cnsh-core/governance/f1_through_f7_verifier.py)",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh/cnsh-core/permissions/__init__.py",
+        "error": "cannot import name 'F1IdentityVerification' from 'governance.f1_through_f7_verifier' (/Users/zuimeidedeyihan/longhun-system/cnsh/cnsh-core/governance/f1_through_f7_verifier.py)"
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L1",
+      "component_id": "LayerLevel.L1:file:chain_hash.jsonl",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "文件正常 (跳过文化主权检查): chain_hash.jsonl",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/chain_hash.jsonl",
+        "has_dna": true,
+        "cultural_score": 1.0
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L1",
+      "component_id": "LayerLevel.L1:file:dragon_knowledge.db",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "文件正常 (跳过文化主权检查): dragon_knowledge.db",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/_work/dragon_knowledge.db",
+        "has_dna": true,
+        "cultural_score": 1.0
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L1",
+      "component_id": "LayerLevel.L1:process:longhun-brain",
+      "component_type": "process",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "进程运行中: longhun-brain",
+      "evidence": {
+        "proc_id": "longhun-brain",
+        "port": 9625,
+        "pid": 25957
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L1",
+      "component_id": "LayerLevel.L1:f1f7:chain_hash.jsonl",
+      "component_type": "f1f7",
+      "status": "warning",
+      "tricolor": "🟡",
+      "score": 0.6,
+      "message": "F1-F7 验证器不可用: cannot import name 'F1IdentityVerification' from 'governance.f1_through_f7_verifier' (/Users/zuimeidedeyihan/longhun-system/cnsh/cnsh-core/governance/f1_through_f7_verifier.py)",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/chain_hash.jsonl",
+        "error": "cannot import name 'F1IdentityVerification' from 'governance.f1_through_f7_verifier' (/Users/zuimeidedeyihan/longhun-system/cnsh/cnsh-core/governance/f1_through_f7_verifier.py)"
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L1",
+      "component_id": "LayerLevel.L1:f1f7:dragon_knowledge.db",
+      "component_type": "f1f7",
+      "status": "warning",
+      "tricolor": "🟡",
+      "score": 0.6,
+      "message": "F1-F7 验证器不可用: cannot import name 'F1IdentityVerification' from 'governance.f1_through_f7_verifier' (/Users/zuimeidedeyihan/longhun-system/cnsh/cnsh-core/governance/f1_through_f7_verifier.py)",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/_work/dragon_knowledge.db",
+        "error": "cannot import name 'F1IdentityVerification' from 'governance.f1_through_f7_verifier' (/Users/zuimeidedeyihan/longhun-system/cnsh/cnsh-core/governance/f1_through_f7_verifier.py)"
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L2",
+      "component_id": "LayerLevel.L2:file:f1_through_f7_verifier.py",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.95,
+      "message": "文件正常 (保留 3/6 个主权词: ['龍', '龍魂', '龍芯']): f1_through_f7_verifier.py",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh/cnsh-core/governance/f1_through_f7_verifier.py",
+        "has_dna": true,
+        "cultural_score": 0.9
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L2",
+      "component_id": "LayerLevel.L2:file:sovereignty_index.py",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.95,
+      "message": "文件正常 (保留 2/6 个主权词: ['龍', '龍芯']): sovereignty_index.py",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh/cnsh-core/governance/sovereignty_index.py",
+        "has_dna": true,
+        "cultural_score": 0.9
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L3",
+      "component_id": "LayerLevel.L3:file:README.md",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.95,
+      "message": "文件正常 (保留 3/6 个主权词: ['龍', '龍魂', '龍芯']): README.md",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh/xpay/README.md",
+        "has_dna": true,
+        "cultural_score": 0.9
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L3",
+      "component_id": "LayerLevel.L3:file:LICENSE",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "文件正常 (跳过文化主权检查): LICENSE",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh/xpay/LICENSE",
+        "has_dna": true,
+        "cultural_score": 1.0
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L3",
+      "component_id": "LayerLevel.L3:file:CONTRIBUTING.md",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.95,
+      "message": "文件正常 (保留 3/6 个主权词: ['龍', '龍魂', '龍芯']): CONTRIBUTING.md",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh/xpay/CONTRIBUTING.md",
+        "has_dna": true,
+        "cultural_score": 0.9
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L3",
+      "component_id": "LayerLevel.L3:file:CODE_OF_CONDUCT.md",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.95,
+      "message": "文件正常 (保留 2/6 个主权词: ['龍', '龍芯']): CODE_OF_CONDUCT.md",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh/xpay/CODE_OF_CONDUCT.md",
+        "has_dna": true,
+        "cultural_score": 0.9
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L3",
+      "component_id": "LayerLevel.L3:file:INCENTIVE_MODEL.md",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.95,
+      "message": "文件正常 (保留 2/6 个主权词: ['龍', '龍芯']): INCENTIVE_MODEL.md",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh/xpay/INCENTIVE_MODEL.md",
+        "has_dna": true,
+        "cultural_score": 0.9
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L4",
+      "component_id": "LayerLevel.L4:file:README.md",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.95,
+      "message": "文件正常 (保留 3/6 个主权词: ['龍', '龍魂', '龍芯']): README.md",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh/longhun-font/README.md",
+        "has_dna": true,
+        "cultural_score": 0.9
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L4",
+      "component_id": "LayerLevel.L4:file:LICENSE",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "文件正常 (跳过文化主权检查): LICENSE",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh/longhun-font/LICENSE",
+        "has_dna": true,
+        "cultural_score": 1.0
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L4",
+      "component_id": "LayerLevel.L4:file:CONTRIBUTING.md",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.95,
+      "message": "文件正常 (保留 3/6 个主权词: ['龍', '龍魂', '龍芯']): CONTRIBUTING.md",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh/longhun-font/CONTRIBUTING.md",
+        "has_dna": true,
+        "cultural_score": 0.9
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L4",
+      "component_id": "LayerLevel.L4:file:CODE_OF_CONDUCT.md",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.95,
+      "message": "文件正常 (保留 3/6 个主权词: ['龍', '龍魂', '龍芯']): CODE_OF_CONDUCT.md",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh/longhun-font/CODE_OF_CONDUCT.md",
+        "has_dna": true,
+        "cultural_score": 0.9
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L4",
+      "component_id": "LayerLevel.L4:file:字体主权执行报告.md",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.95,
+      "message": "文件正常 (保留 2/6 个主权词: ['龍', '龍芯']): 字体主权执行报告.md",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh/longhun-font/字体主权执行报告.md",
+        "has_dna": true,
+        "cultural_score": 0.9
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L5",
+      "component_id": "LayerLevel.L5:file:longhun_compression_engine.py",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.95,
+      "message": "文件正常 (保留 3/6 个主权词: ['龍', '龍魂', '龍芯']): longhun_compression_engine.py",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh/scripts/longhun_compression_engine.py",
+        "has_dna": true,
+        "cultural_score": 0.9
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L5",
+      "component_id": "LayerLevel.L5:file:kg_unified.py",
+      "component_type": "file",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 0.95,
+      "message": "文件正常 (保留 3/6 个主权词: ['龍', '龍魂', '龍芯']): kg_unified.py",
+      "evidence": {
+        "path": "/Users/zuimeidedeyihan/longhun-system/cnsh/scripts/kg_unified.py",
+        "has_dna": true,
+        "cultural_score": 0.9
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    },
+    {
+      "layer_id": "L6",
+      "component_id": "LayerLevel.L6:process:identity-portal",
+      "component_type": "process",
+      "status": "ok",
+      "tricolor": "🟢",
+      "score": 1.0,
+      "message": "进程运行中: identity-portal",
+      "evidence": {
+        "proc_id": "identity-portal",
+        "port": 8444,
+        "pid": 26019
+      },
+      "auto_fixable": false,
+      "fix_action": null
+    }
+  ],
+  "si_report": {
+    "available": false,
+    "error": "cannot import name 'get_sovereignty_index' from 'governance.sovereignty_index' (/Users/zuimeidedeyihan/longhun-system/cnsh/cnsh-core/governance/sovereignty_index.py)"
+  },
+  "summary": {
+    "total_checks": 26,
+    "ok": 21,
+    "warning": 5,
+    "error": 0,
+    "frozen": 0,
+    "overall_tricolor": "🟡",
+    "overall_score": 0.8942
+  }
+}

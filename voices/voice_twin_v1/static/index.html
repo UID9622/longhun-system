@@ -1,0 +1,270 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-3a033ee0 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龍魂真声控制台</title>
+    <style>
+        :root { --bg:#0d1117; --card:#161b22; --text:#c9d1d9; --accent:#f0883e; --green:#3fb950; --red:#f85149; --blue:#58a6ff; }
+        * { box-sizing: border-box; }
+        body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; }
+        .wrap { max-width:900px; margin:0 auto; padding:24px; }
+        h1 { color:var(--accent); margin-bottom:6px; }
+        .sub { color:#8b949e; font-size:14px; margin-bottom:20px; }
+        .card { background:var(--card); border:1px solid #30363d; border-radius:12px; padding:20px; margin-bottom:20px; }
+        label { display:block; margin-bottom:8px; font-weight:600; }
+        textarea { width:100%; min-height:120px; background:#0d1117; color:var(--text); border:1px solid #30363d; border-radius:8px; padding:12px; font-size:15px; resize:vertical; }
+        .btns { display:flex; gap:12px; flex-wrap:wrap; margin-top:16px; }
+        button { padding:12px 20px; border:none; border-radius:8px; font-size:15px; cursor:pointer; font-weight:600; transition:.2s; }
+        .btn-draft { background:var(--blue); color:#fff; }
+        .btn-reading { background:var(--green); color:#fff; }
+        .btn-video { background:var(--accent); color:#fff; }
+        .btn-captions { background:#f85149; color:#fff; }
+        .btn-tts { background:#8957e5; color:#fff; }
+        button:hover { opacity:.9; transform:translateY(-1px); }
+        button:disabled { opacity:.5; cursor:not-allowed; transform:none; }
+        .output { margin-top:20px; white-space:pre-wrap; line-height:1.7; background:#0d1117; border:1px solid #30363d; border-radius:8px; padding:16px; min-height:120px; }
+        .meta { color:#8b949e; font-size:13px; margin-bottom:8px; }
+        .loading { color:var(--accent); }
+        .note { background:#341a00; border-left:4px solid var(--accent); padding:12px; border-radius:6px; font-size:14px; }
+        .phase2 { color:#8b949e; font-size:13px; margin-top:8px; }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <h1>🐉 龍魂真声控制台</h1>
+    <div class="sub">UID9622 的数字人分身 · 生成草稿 / 阅读稿 / 视频脚本 / 试听语音</div>
+
+    <div class="card">
+        <label for="topic">你想说什么？（可以直接输入话题，也可以粘贴一段草稿）</label>
+        <textarea id="topic" placeholder="例如：平台封号不给人申诉机会，老百姓声音被压下去了"></textarea>
+        <div style="margin-top:8px;">
+            <label for="voice" style="font-size:14px;color:#8b949e;">试听音色：</label>
+            <select id="voice" style="padding:8px 10px;background:#0d1117;color:var(--text);border:1px solid #30363d;border-radius:6px;">
+                <option value="xtts-v2-uid9622">🐉 UID9622 本地真声（XTTS v2·推荐）</option>
+                <option value="fish-audio-uid9622">☁️ UID9622 云端真声（Fish Audio·需网络通达）</option>
+                <option value="zh-CN-YunjianNeural">🎙️ 成熟男声（edge-tts·默认 fallback）</option>
+            </select>
+        </div>
+        <div class="btns">
+            <button class="btn-draft" onclick="go('draft')">📝 生成三版草稿</button>
+            <button class="btn-reading" onclick="go('reading')">🎙️ 生成情感阅读稿</button>
+            <button class="btn-video" onclick="go('video')">🎬 生成视频脚本</button>
+            <button class="btn-captions" onclick="go('captions')">🎖️ 生成军旅字幕</button>
+            <button class="btn-tts" onclick="go('tts')">🔊 试听语音</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <label for="question">圣贤对话：向伏羲 / 诸葛亮 / 曾老师提问</label>
+        <textarea id="question" placeholder="例如：创业怕失败怎么办？"></textarea>
+        <input id="sages" value="伏羲,曾老师" placeholder="选择圣贤，逗号分隔" style="width:100%;padding:10px;margin-top:8px;background:#0d1117;color:var(--text);border:1px solid #30363d;border-radius:6px;">
+        <div class="btns">
+            <button class="btn-reading" onclick="sage()">🐉 生成圣贤对话</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <label for="video_file">视频导出：输入 downloads 目录下的视频文件名 + 用 | 分隔的字幕</label>
+        <input id="video_file" placeholder="例如：douyin_7655343232977125349.mp4" style="width:100%;padding:10px;margin-bottom:8px;background:#0d1117;color:var(--text);border:1px solid #30363d;border-radius:6px;">
+        <input id="captions_line" placeholder="字幕1|字幕2|字幕3" style="width:100%;padding:10px;background:#0d1117;color:var(--text);border:1px solid #30363d;border-radius:6px;">
+        <div class="btns">
+            <button class="btn-tts" onclick="remix()">🔥 一键重混视频（加字幕+AIGC）</button>
+            <button class="btn-video" onclick="exportWechat()">📲 导出视频号/抖音版</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <div class="meta" id="status">等待输入...</div>
+            <button class="btn-reading" onclick="exportSession()" style="padding:8px 14px;font-size:13px;">📦 一键导出所有生成内容</button>
+        </div>
+        <div class="output" id="output">结果会显示在这里</div>
+    </div>
+
+    <div class="card note">
+        <strong>当前版本 v1.6</strong><br>
+        草稿 / 阅读稿 / 视频脚本 / 军旅字幕 / 圣贤对话 / 视频号导出 / TTS试听 / 视频重混 全部可用。<br>
+        TTS 支持 UID9622 本地真声（XTTS v2）、UID9622 云端真声（Fish Audio）、成熟男声（edge-tts）三档，<br>
+        真声不可用时自动 fallback，彻底告别奶狗音。<br>
+        文本生成自动落盘 ~/longhun-system/outputs/YYYYMMDD/ 并记录 DNA 到 manifest.json。<br>
+        支持一键导出所有生成内容为 ZIP。
+        <div class="phase2">DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-VOICE-TWIN-WEB-v1.6</div>
+    </div>
+</div>
+
+<script>
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+async function go(type) {
+    const topic = document.getElementById('topic').value.trim();
+    if (!topic) { alert('先输入话题'); return; }
+    const out = document.getElementById('output');
+    const status = document.getElementById('status');
+    const btns = document.querySelectorAll('button');
+    btns.forEach(b => b.disabled = true);
+    status.textContent = type === 'tts' ? '正在生成试听音频...' : '正在呼叫本地模型 longhun-9622...';
+    status.className = 'meta loading';
+    out.textContent = '';
+    const payload = {topic};
+    if (type === 'tts') {
+        payload.voice = document.getElementById('voice').value;
+    }
+    try {
+        const res = await fetch('/api/' + type, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (data.ok && type === 'tts') {
+            out.innerHTML = `<div>✅ 试听音频已生成：</div><audio controls src="${data.audio_file}"></audio><div class="phase2">${data.note}<br>路径：${data.absolute_path || ''}</div>`;
+        } else if (data.ok) {
+            const meta = data.dna ? `<div class="phase2">🧬 ${data.dna}<br>📁 ${data.file_path || ''}</div>` : '';
+            out.innerHTML = `<div style="white-space:pre-wrap;">${escapeHtml(data.content)}</div>${meta}`;
+        } else {
+            out.textContent = '出错：' + JSON.stringify(data, null, 2);
+        }
+        status.textContent = `完成：${type} · 话题：${data.topic || topic}`;
+        status.className = 'meta';
+    } catch (e) {
+        out.textContent = '请求失败：' + e.message;
+        status.textContent = '失败';
+    } finally {
+        btns.forEach(b => b.disabled = false);
+    }
+}
+
+async function remix() {
+    const video_file = document.getElementById('video_file').value.trim();
+    const captions = document.getElementById('captions_line').value.trim();
+    if (!video_file || !captions) { alert('先填视频文件名和字幕'); return; }
+    const out = document.getElementById('output');
+    const status = document.getElementById('status');
+    const btns = document.querySelectorAll('button');
+    btns.forEach(b => b.disabled = true);
+    status.textContent = '正在重混视频并写入 AIGC 标记...';
+    status.className = 'meta loading';
+    out.textContent = '';
+    try {
+        const res = await fetch('/api/remix', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({video_file, captions, aigc: true})
+        });
+        const data = await res.json();
+        if (data.ok) {
+            out.innerHTML = `<div>✅ 视频重混完成：</div><video controls width="320" src="${data.output}"></video><div><a href="${data.output}" download>下载视频</a></div><div class="phase2">AIGC 标记已写入<br>路径：${data.absolute_path || ''}</div>`;
+        } else {
+            out.textContent = '出错：' + JSON.stringify(data, null, 2);
+        }
+        status.textContent = '完成：视频重混';
+        status.className = 'meta';
+    } catch (e) {
+        out.textContent = '请求失败：' + e.message;
+        status.textContent = '失败';
+    } finally {
+        btns.forEach(b => b.disabled = false);
+    }
+}
+
+async function exportSession() {
+    const out = document.getElementById('output');
+    const status = document.getElementById('status');
+    const btns = document.querySelectorAll('button');
+    btns.forEach(b => b.disabled = true);
+    status.textContent = '正在打包所有生成内容...';
+    status.className = 'meta loading';
+    out.textContent = '';
+    try {
+        const res = await fetch('/api/export-session');
+        const data = await res.json();
+        if (data.ok) {
+            out.innerHTML = `<div>✅ 已打包 ${data.count} 个文件</div><div><a href="${data.zip_file}" download>下载 ZIP</a></div><div class="phase2">路径：${data.absolute_path || ''}</div>`;
+            status.textContent = '完成：一键导出';
+        } else {
+            out.textContent = '出错：' + JSON.stringify(data, null, 2);
+            status.textContent = '导出失败';
+        }
+    } catch (e) {
+        out.textContent = '请求失败：' + e.message;
+        status.textContent = '失败';
+    } finally {
+        status.className = 'meta';
+        btns.forEach(b => b.disabled = false);
+    }
+}
+
+async function sage() {
+    const question = document.getElementById('question').value.trim();
+    const sages = document.getElementById('sages').value.trim();
+    if (!question) { alert('先输入问题'); return; }
+    const out = document.getElementById('output');
+    const status = document.getElementById('status');
+    const btns = document.querySelectorAll('button');
+    btns.forEach(b => b.disabled = true);
+    status.textContent = '正在召唤圣贤智慧...';
+    status.className = 'meta loading';
+    out.textContent = '';
+    try {
+        const res = await fetch('/api/sage', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({question, sages})
+        });
+        const data = await res.json();
+        if (data.ok) {
+            out.textContent = data.content;
+        } else {
+            out.textContent = '出错：' + JSON.stringify(data, null, 2);
+        }
+        status.textContent = `完成：圣贤对话 · ${data.sages ? data.sages.join('、') : sages}`;
+        status.className = 'meta';
+    } catch (e) {
+        out.textContent = '请求失败：' + e.message;
+        status.textContent = '失败';
+    } finally {
+        btns.forEach(b => b.disabled = false);
+    }
+}
+
+async function exportWechat() {
+    const video_file = document.getElementById('video_file').value.trim();
+    const captions = document.getElementById('captions_line').value.trim();
+    if (!video_file || !captions) { alert('先填视频文件名和字幕'); return; }
+    const out = document.getElementById('output');
+    const status = document.getElementById('status');
+    const btns = document.querySelectorAll('button');
+    btns.forEach(b => b.disabled = true);
+    status.textContent = '正在导出视频号/抖音版本...';
+    status.className = 'meta loading';
+    out.textContent = '';
+    try {
+        const res = await fetch('/api/export-wechat', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({video_file, captions, aigc: true})
+        });
+        const data = await res.json();
+        if (data.ok) {
+            out.innerHTML = `<div>✅ 视频号/抖音导出完成：</div><video controls width="320" src="${data.output}"></video><div><a href="${data.output}" download>下载视频</a></div><div class="phase2">AIGC 标记已写入<br>路径：${data.absolute_path || ''}</div>`;
+        } else {
+            out.textContent = '出错：' + JSON.stringify(data, null, 2);
+        }
+        status.textContent = '完成：视频号导出';
+        status.className = 'meta';
+    } catch (e) {
+        out.textContent = '请求失败：' + e.message;
+        status.textContent = '失败';
+    } finally {
+        btns.forEach(b => b.disabled = false);
+    }
+}
+</script>
+</body>
+</html>

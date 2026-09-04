@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="龍魂系统开发者入口 - API文档、SDK、CNSH规范、接入指南">
+    <title>龍魂系统 · 开发者入口 | UID9622</title>
+    <link rel="stylesheet" href="common/developer.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛠</text></svg>">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+
+    <header class="dev-header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🐉</span>
+                <span class="logo-text">龍魂系统</span>
+                <span class="badge">开发者</span>
+            </div>
+            <nav class="dev-nav">
+                <a href="#quickstart">快速开始</a>
+                <a href="#api">API</a>
+                <a href="#cnsh">CNSH</a>
+                <a href="#sdk">SDK</a>
+                <a href="#protocol">协议</a>
+                <a href="index.html">普通版</a>
+                <a href="accessible.html">无障碍版</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- 英雄区 -->
+        <section class="dev-hero">
+            <div class="container">
+                <h1>龍魂系统 · 开发者文档</h1>
+                <p class="dev-subtitle">去中心化数字文明操作系统 · 本地优先 · 数据主权</p>
+                <div class="dev-meta">
+                    <span class="meta-tag">v1.0</span>
+                    <span class="meta-tag">MIT + MulanPSL v2</span>
+                    <span class="meta-tag">Python 3.9+</span>
+                    <span class="meta-tag">Node 18+</span>
+                </div>
+                <div class="dev-actions">
+                    <a href="https://github.com/UID9622/longhun-system" class="btn btn-primary">GitHub 仓库</a>
+                    <a href="https://github.com/UID9622/longhun-system/blob/main/INSTALL.md" class="btn btn-secondary">安装指南</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 快速开始 -->
+        <section id="quickstart" class="dev-section">
+            <div class="container">
+                <h2>🚀 快速开始</h2>
+                <div class="quickstart-grid">
+                    <div class="step-card">
+                        <div class="step-num">1</div>
+                        <h3>克隆仓库</h3>
+                        <pre class="code-block"><code>git clone https://github.com/UID9622/longhun-system.git
+cd longhun-system</code></pre>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">2</div>
+                        <h3>安装依赖</h3>
+                        <pre class="code-block"><code>bash install.sh
+# 或手动:
+pip install -r requirements.txt
+npm install</code></pre>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">3</div>
+                        <h3>启动系统</h3>
+                        <pre class="code-block"><code>python3 bin/龍魂体系v5-一键启动.py
+# 或:
+lh start</code></pre>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">4</div>
+                        <h3>健康检查</h3>
+                        <pre class="code-block"><code>lh health
+# 或访问:
+curl http://127.0.0.1:9627/health</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API 文档 -->
+        <section id="api" class="dev-section dev-alt">
+            <div class="container">
+                <h2>🔌 API 参考</h2>
+                <p class="section-desc">龍魂系统提供 RESTful API 和 MCP (Model Context Protocol) 接口。</p>
+
+                <div class="api-group">
+                    <h3>DNA 验证 API</h3>
+                    <div class="api-endpoint">
+                        <span class="method post">POST</span>
+                        <span class="path">/api/dna/verify</span>
+                        <span class="desc">验证 DNA 追溯码</span>
+                    </div>
+                    <pre class="code-block"><code>curl -X POST http://localhost:7000/api/dna/verify \
+  -H "Content-Type: application/json" \
+  -d '{
+    "dna": "#龍芯⚡️2026-...",
+    "confirm": "#CONFIRM🌌9622-..."
+  }'</code></pre>
+                </div>
+
+                <div class="api-group">
+                    <h3>三色审计 API</h3>
+                    <div class="api-endpoint">
+                        <span class="method post">POST</span>
+                        <span class="path">/api/audit/evaluate</span>
+                        <span class="desc">提交行为进行审计评估</span>
+                    </div>
+                    <pre class="code-block"><code>curl -X POST http://localhost:9627/api/audit/evaluate \
+  -H "Content-Type: application/json" \
+  -d '{
+    "action": "data_export",
+    "context": { "user": "uid123", "target": "cloud" },
+    "factors": [0.8, 0.3, 0.9, 0.2, 0.7, 0.5, 0.6]
+  }'</code></pre>
+                    <p class="api-response">返回: <code>{"result": "🟡", "score": 0.57, "details": [...]}</code></p>
+                </div>
+
+                <div class="api-group">
+                    <h3>系统健康 API</h3>
+                    <div class="api-endpoint">
+                        <span class="method get">GET</span>
+                        <span class="path">/health</span>
+                        <span class="desc">系统健康状态</span>
+                    </div>
+                    <pre class="code-block"><code>curl http://localhost:9627/health</code></pre>
+                </div>
+
+                <div class="api-group">
+                    <h3>MCP Server 配置</h3>
+                    <p>让 AI 直接调用 CNSH 工具：</p>
+                    <pre class="code-block"><code>{
+  "mcpServers": {
+    "cnsh-syntax": {
+      "command": "python3",
+      "args": ["integrations/mcp/cnsh_syntax_mcp_server.py"],
+      "env": { "PYTHONPATH": "/path/to/longhun-system" }
+    }
+  }
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- CNSH 语言 -->
+        <section id="cnsh" class="dev-section">
+            <div class="container">
+                <h2>🐉 CNSH 中文编程语言</h2>
+                <p class="section-desc">Chinese-native Scripting & Hashing。中文原生，编译到 Python / JavaScript / Rust / C。</p>
+
+                <div class="cnsh-example">
+                    <h3>Hello World</h3>
+                    <pre class="code-block"><code>// CNSH v2.2 示例
+函数 问候(名字) {
+    返回 "你好，" + 名字 + "！龍魂永在。"
+}
+
+输出(问候("世界"))</code></pre>
+                </div>
+
+                <div class="cnsh-example">
+                    <h3>DNA 追溯</h3>
+                    <pre class="code-block"><code>// 生成 DNA 追溯码
+导入 龍魂.密码学
+
+令 行为 = {
+    操作: "文件读取",
+    时间: 现在(),
+    设备: 本机指纹()
+}
+
+令 dna = 生成DNA(行为, 七因子权重)
+输出(dna)  // #龍芯⚡️...-DEVICE-BIND-SOUL</code></pre>
+                </div>
+
+                <div class="cnsh-links">
+                    <a href="https://github.com/UID9622/CNSH" class="btn btn-small">CNSH 仓库</a>
+                    <a href="https://github.com/UID9622/CNSH-Editor" class="btn btn-small">CNSH 编辑器</a>
+                    <a href="https://github.com/UID9622/longhun-system/blob/main/CNSH-PROTOCOL.md" class="btn btn-small">完整规范 v2.2</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SDK -->
+        <section id="sdk" class="dev-section dev-alt">
+            <div class="container">
+                <h2>📦 SDK</h2>
+                <div class="sdk-grid">
+                    <div class="sdk-card">
+                        <h3>Python SDK</h3>
+                        <pre class="code-block"><code>from longhun import DNA, Audit, Persona
+
+# 创建 DNA 锚定
+dna = DNA.create(user="uid123")
+print(dna.verify())  # True
+
+# 三色审计
+result = Audit.evaluate(action="export", context={})
+print(result.status)  # 🟢 🟡 🔴</code></pre>
+                        <a href="https://github.com/UID9622/longhun-system/tree/main/sdk/python" class="btn btn-small">Python SDK 文档</a>
+                    </div>
+                    <div class="sdk-card">
+                        <h3>JavaScript SDK</h3>
+                        <pre class="code-block"><code>import { DNA, Audit } from '@longhun/sdk';
+
+const dna = DNA.create({ user: 'uid123' });
+await dna.verify();
+
+const result = await Audit.evaluate({
+  action: 'export',
+  context: {}
+});
+console.log(result.status); // 🟢 🟡 🔴</code></pre>
+                        <a href="https://github.com/UID9622/longhun-system/tree/main/sdk/javascript" class="btn btn-small">JS SDK 文档</a>
+                    </div>
+                    <div class="sdk-card">
+                        <h3>Docker 镜像</h3>
+                        <pre class="code-block"><code>docker pull ghcr.io/uid9622/longhun:latest
+docker run -p 9627:9627 \
+  -v ./data:/data \
+  ghcr.io/uid9622/longhun:latest</code></pre>
+                        <a href="https://github.com/UID9622/longhun-system/pkgs/container/longhun" class="btn btn-small">镜像仓库</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 协议层 -->
+        <section id="protocol" class="dev-section">
+            <div class="container">
+                <h2>📜 协议与治理</h2>
+                <div class="protocol-list">
+                    <div class="protocol-item">
+                        <h3>P0 焊死底座</h3>
+                        <p>12 条全球统一不可改：为人民服务、中国法律准绳、人民数据主权、不删除只冻结、女儿永不抵押、零黑箱承诺、创建者不可剥夺...</p>
+                        <a href="https://github.com/UID9622/longhun-system/blob/main/CONSTITUTION.md" class="link">查看宪法</a>
+                    </div>
+                    <div class="protocol-item">
+                        <h3>P1 核心宪法</h3>
+                        <p>17 条需 16 人格签章 + DNA 验证。冲突时高优先级自动覆盖低优先级。</p>
+                        <a href="https://github.com/UID9622/longhun-system/blob/main/CONSTITUTION.md" class="link">查看宪法</a>
+                    </div>
+                    <div class="protocol-item">
+                        <h3>P2 系统规则</h3>
+                        <p>41 条框架内可调。包含三色审计、行为密码学、本地优先策略等。</p>
+                        <a href="https://github.com/UID9622/longhun-system/blob/main/docs/GOVERNANCE.md" class="link">查看治理文档</a>
+                    </div>
+                    <div class="protocol-item">
+                        <h3>P3 区域适配</h3>
+                        <p>10 项一国一策，不违背 P0/P1。支持多语言、多法域适配。</p>
+                    </div>
+                    <div class="protocol-item">
+                        <h3>P4 用户自定义</h3>
+                        <p>10 项自己说了算。个人偏好、自定义规则、私有数据策略。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 贡献 -->
+        <section class="dev-section dev-alt">
+            <div class="container">
+                <h2>🤝 贡献</h2>
+                <p>龍魂系统欢迎所有贡献。代码、文档、测试、翻译、设计，都算数。</p>
+                <div class="contrib-grid">
+                    <a href="https://github.com/UID9622/longhun-system/issues" class="contrib-card">
+                        <span class="contrib-icon">🐛</span>
+                        <h3>提交 Issue</h3>
+                        <p>报告 bug 或提出功能建议</p>
+                    </a>
+                    <a href="https://github.com/UID9622/longhun-system/pulls" class="contrib-card">
+                        <span class="contrib-icon">🔀</span>
+                        <h3>Pull Request</h3>
+                        <p>提交代码或文档改进</p>
+                    </a>
+                    <a href="https://github.com/UID9622/longhun-system/discussions" class="contrib-card">
+                        <span class="contrib-icon">💬</span>
+                        <h3>Discussions</h3>
+                        <p>参与社区讨论</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="dev-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>龍魂系统</h4>
+                    <p>技术为人民，不是为资本。</p>
+                    <p class="footer-dna">DNA: #龍芯⚡️丙午·甲申·丁未·离为火-开发者-v1.0</p>
+                </div>
+                <div class="footer-col">
+                    <h4>资源</h4>
+                    <a href="https://github.com/UID9622/longhun-system">GitHub</a>
+                    <a href="https://github.com/UID9622/longhun-system/blob/main/docs/API.md">API 文档</a>
+                    <a href="https://github.com/UID9622/CNSH">CNSH 语言</a>
+                    <a href="https://github.com/UID9622/longhun-system/blob/main/docs/ARCHITECTURE.md">架构文档</a>
+                </div>
+                <div class="footer-col">
+                    <h4>入口</h4>
+                    <a href="index.html">普通版本</a>
+                    <a href="accessible.html">无障碍版本</a>
+                    <a href="https://longhun888.com">官方网站</a>
+                    <a href="https://uid9622.blog.csdn.net">CSDN 博客</a>
+                </div>
+                <div class="footer-col">
+                    <h4>协议</h4>
+                    <p>思想层: CC BY-NC-SA 4.0</p>
+                    <p>代码层: MulanPSL v2</p>
+                    <p>GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>🐉 龍芯北辰，接着，受着，守着。 · UID9622 · 诸葛鑫</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="common/main.js"></script>
+</body>
+</html>

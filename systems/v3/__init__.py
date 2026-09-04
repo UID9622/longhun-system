@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 from __future__ import annotations
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂系统 · v3.0 核心模块集成包
-Longhun System · v3.0 Core Modules Integration Package
+LongHun System · v3.0 Core Modules Integration Package
 
-DNA:#龍芯⚡️2026-06-16-V3-SYSTEMS-INTEGRATION-v1.0
+DNA:#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-V3-SYSTEMS-INTEGRATION-v1.0
 责任: UID9622·不免责
 
 本包将下载包“Kimi_Agent_启动全部技能”中的 5 个 v3.0 核心 Python 模块
@@ -98,4 +100,4 @@ def __getattr__(name: str):
 
 # 包级元信息
 __version__ = "1.0.0"
-__dna__ = "#龍芯⚡️2026-06-16-V3-SYSTEMS-INTEGRATION-v1.0"
+__dna__ = "#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-V3-SYSTEMS-INTEGRATION-v1.0"

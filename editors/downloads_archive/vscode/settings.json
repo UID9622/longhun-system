@@ -136,7 +136,7 @@
   "cnsh.namingConvention": "chinese_first",
   "cnsh.sovereigntyCheck": true,
 
-  "// 龙魂体系集成配置": "",
+  "// 龍魂体系集成配置": "",
   "longhun.enabled": true,
   "longhun.dnaTemplate": "#龍芯⚡️{date}-{project}-{module}-{version}",
   "longhun.auditColors": {

@@ -1,10 +1,10 @@
 {
   "name": "longhun-audit-tracker",
   "displayName": "龍魂审计追踪",
-  "description": "AI生成代码自动审计追踪 — 记录DNA签名、三色标记、责任追溯",
-  "version": "1.0.0",
+  "description": "AI生成代码自动审计追踪 v2.0.1 — 启发式三家族·双层校准·哈希链·数字根双闸·三色标记·责任追溯",
+  "version": "2.0.1",
   "publisher": "uid9622",
-  "license": "CC-BY-NC-SA-4.0",
+  "license": "MulanPSL-2.0",
   "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.80.0"
@@ -29,10 +29,6 @@
     "uid9622"
   ],
   "activationEvents": [
-    "onCommand:longhun-audit.showAuditLog",
-    "onCommand:longhun-audit.auditSelection",
-    "onCommand:longhun-audit.generateReport",
-    "onCommand:longhun-audit.markAsReviewed",
     "onStartupFinished"
   ],
   "main": "./out/extension.js",
@@ -57,6 +53,11 @@
         "command": "longhun-audit.markAsReviewed",
         "title": "标记为已审核",
         "category": "龍魂"
+      },
+      {
+        "command": "longhun-audit.markAsRejected",
+        "title": "标记为已拒绝",
+        "category": "龍魂"
       }
     ],
     "menus": {
@@ -80,8 +81,18 @@
       "properties": {
         "longhun-audit.auditLogPath": {
           "type": "string",
-          "default": "",
-          "description": "审计日志路径（默认 logs/ai_audit.jsonl）"
+          "default": ".audit/log.json",
+          "description": "审计日志路径（JSON 格式·含哈希链防篡改）"
+        },
+        "longhun-audit.minPasteChars": {
+          "type": "number",
+          "default": 300,
+          "description": "长度阈值·大段粘贴触发审计的最小字符数"
+        },
+        "longhun-audit.minPasteLines": {
+          "type": "number",
+          "default": 15,
+          "description": "长度阈值·大段粘贴触发审计的最小行数"
         },
         "longhun-audit.autoAuditOnPaste": {
           "type": "boolean",
@@ -124,5 +135,5 @@
     "url": "https://github.com/uid9622/longhun-system/issues"
   },
   "homepage": "https://github.com/uid9622/longhun-system/blob/main/editors/codebuddy/audit-tracker/README.md",
-  "_dna": "#龍芯⚡️丙午·辛未·AUDIT-TRACKER-v1.0"
+  "_dna": "#龍芯⚡️丙午·丙申·壬戌·亥时·䷲震-AUDIT-TRACKER-v2.0-METHODOLOGY-WELD"
 }

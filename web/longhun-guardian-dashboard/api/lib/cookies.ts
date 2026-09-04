@@ -1,3 +1,5 @@
+// DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-dc0b8095
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 import type { CookieOptions } from "hono/utils/cookie";
 
 function isLocalhost(headers: Headers): boolean {

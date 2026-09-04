@@ -1,10 +1,13 @@
+// DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-9dc56013
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 {
-  "modelVersion": "5.0.0",
-  "description": "Please describe the basic information.",
+  "name": "entry",
+  "version": "2.0.0",
+  "description": "龍魂生日提醒 · 人格联动模块",
+  "main": "",
+  "author": "UID9622",
+  "license": "LongHun-Sovereign",
   "dependencies": {
-  },
-  "devDependencies": {
-    "@ohos/hypium": "1.0.19",
-    "@ohos/hamock": "1.0.0"
+    "liblonghuncore.so": "file:./src/main/cpp/types/liblonghuncore"
   }
 }

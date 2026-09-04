@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·LonghunFont 全量构建脚本 v2.0
 # DNA: #龍芯⚡️丙午·乙申·FULLFONT-v2.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 目标：生成全 CJK 统一汉字区(20902字) + 拉丁/数字/符号 + 文化符号
 # 直接算法生成，不依赖外部 LFS 文件
 
@@ -70,8 +72,8 @@ CULTURE_SYMBOLS = {
     "日": "日月",
     "月": "日月",
     "星": "星宿",
-    "龍": "龙魂",
-    "魂": "龙魂",
+    "龍": "龍魂",
+    "魂": "龍魂",
     "中": "中国",
     "国": "中国",
     "制": "制造",

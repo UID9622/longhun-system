@@ -1,0 +1,908 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-93761c87 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂·知识矩阵 — uid9622.cn</title>
+<style>
+:root {
+  --bg: #0a0d14; --surface: #11161f; --surface2: #181d29;
+  --gold: #d4a843; --gold-dim: #a08030; --gold-glow: rgba(212,168,67,0.15);
+  --text: #c8ccd4; --text-dim: #8890a0; --text-bright: #e8ecf4;
+  --red: #e05555; --yellow: #d4a843; --green: #4a9;
+  --blue: #5588cc; --accent: #5588cc;
+  --border: #1e2532; --radius: 8px; --radius-sm: 5px;
+  --font: -apple-system, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --mono: "SF Mono", "Fira Code", "Noto Sans Mono", monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline}
+code,pre{font-family:var(--mono);font-size:0.9em}
+pre{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;overflow-x:auto;line-height:1.5;white-space:pre-wrap;word-break:break-all}
+code{background:var(--surface2);padding:2px 6px;border-radius:3px;font-size:0.85em}
+pre code{background:none;padding:0;font-size:inherit}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.9em}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--border)}
+th{background:var(--surface2);color:var(--gold);font-weight:600;white-space:nowrap}
+tr:hover td{background:var(--surface)}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:0.75em;font-weight:600}
+.badge-green{background:rgba(68,170,153,0.2);color:var(--green)}
+.badge-yellow{background:rgba(212,168,67,0.2);color:var(--gold)}
+.badge-red{background:rgba(224,85,85,0.2);color:var(--red)}
+.badge-blue{background:rgba(85,136,204,0.2);color:var(--blue)}
+/* ── Layout ── */
+#app{max-width:1200px;margin:0 auto;padding:0 20px}
+/* ── Top Bar ── */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--border);margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.topbar-left{display:flex;align-items:center;gap:12px}
+.logo{font-size:1.4em;font-weight:700;color:var(--gold)}
+.logo .red{color:var(--red)}
+.topbar-right{display:flex;gap:8px;flex-wrap:wrap}
+.topbar-right button{padding:6px 12px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;font-size:0.85em;transition:all .15s;white-space:nowrap}
+.topbar-right button:hover,.topbar-right button.active{background:var(--gold);color:#000;border-color:var(--gold)}
+/* ── Breadcrumb ── */
+.breadcrumb{display:flex;align-items:center;gap:6px;font-size:0.85em;color:var(--text-dim);margin-bottom:20px;flex-wrap:wrap}
+.breadcrumb a{color:var(--text-dim)}
+.breadcrumb a:hover{color:var(--gold)}
+.breadcrumb .sep{color:var(--border)}
+.breadcrumb .current{color:var(--gold)}
+/* ── Search ── */
+.search-box{display:flex;gap:8px;margin-bottom:20px}
+.search-box input{flex:1;padding:10px 16px;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:1em;outline:none}
+.search-box input:focus{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold-glow)}
+/* ── Cards Grid ── */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:24px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 4px 20px var(--gold-glow)}
+.card-title{font-size:1.05em;font-weight:600;color:var(--text-bright);margin-bottom:6px}
+.card-desc{font-size:0.85em;color:var(--text-dim);line-height:1.5;margin-bottom:10px}
+.card-meta{display:flex;gap:6px;flex-wrap:wrap}
+.card-cat{position:absolute;top:10px;right:12px;font-size:0.7em;color:var(--gold-dim);text-transform:uppercase;letter-spacing:0.5px}
+/* ── Section ── */
+.section-title{font-size:1.2em;font-weight:700;color:var(--gold);margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+/* ── Detail Page ── */
+.detail-header{margin-bottom:24px}
+.detail-header h1{font-size:1.8em;color:var(--text-bright);margin-bottom:4px}
+.detail-header .subtitle{color:var(--text-dim);font-size:0.95em}
+.detail-meta{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+/* ── Tabs ── */
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:20px;overflow-x:auto}
+.tab-btn{padding:10px 18px;border:none;background:none;color:var(--text-dim);cursor:pointer;font-size:0.9em;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all .15s}
+.tab-btn:hover{color:var(--text)}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+/* ── API Table ── */
+.api-table th:first-child{width:60px}
+.api-table td.method{font-weight:600;font-size:0.85em}
+.api-table td.method.get{color:var(--green)}
+.api-table td.method.post{color:var(--accent)}
+.api-table td.method.ws{color:var(--yellow)}
+/* ── Formula Box ── */
+.formula-box{background:var(--surface);border-left:3px solid var(--gold);padding:14px 18px;border-radius:var(--radius);margin:14px 0;font-family:var(--mono);font-size:1em;color:var(--text-bright)}
+.formula-box .formula-label{font-size:0.75em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:4px}
+/* ── Empty ── */
+.empty{text-align:center;padding:60px 20px;color:var(--text-dim)}
+.empty .icon{font-size:3em;margin-bottom:12px}
+/* ── Toast ── */
+.toast{position:fixed;bottom:20px;right:20px;background:var(--surface2);border:1px solid var(--gold);color:var(--gold);padding:10px 18px;border-radius:var(--radius);font-size:0.9em;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+/* ── Responsive ── */
+@media(max-width:640px){
+  .cards-grid{grid-template-columns:1fr}
+  .topbar{flex-direction:column;align-items:flex-start}
+}
+/* ── Loading ── */
+.loading{text-align:center;padding:40px;color:var(--text-dim)}
+.spinner{display:inline-block;width:24px;height:24px;border:2px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* ── Stats Row ── */
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:24px}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+.stat-num{font-size:2em;font-weight:700;color:var(--gold)}
+.stat-label{font-size:0.8em;color:var(--text-dim);margin-top:4px}
+/* ── Tag Cloud ── */
+.tag-cloud{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.tag{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.8em;background:var(--surface2);color:var(--text-dim);cursor:pointer;border:1px solid transparent;transition:all .15s}
+.tag:hover{border-color:var(--gold);color:var(--gold)}
+/* ── Warning box ── */
+.info-box{background:rgba(85,136,204,0.1);border-left:3px solid var(--accent);padding:12px 16px;border-radius:var(--radius);margin:14px 0;font-size:0.9em}
+.warn-box{background:rgba(212,168,67,0.1);border-left:3px solid var(--gold);padding:12px 16px;border-radius:var(--radius);margin:14px 0;font-size:0.9em}
+/* ── Category list ── */
+.cat-list{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.cat-chip{padding:8px 16px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:0.9em;transition:all .15s;white-space:nowrap}
+.cat-chip:hover,.cat-chip.active{background:var(--gold);color:#000;border-color:var(--gold)}
+</style>
+</head>
+<body>
+<div id="app">
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <span class="logo"><span class="red">🐉</span> 龍魂·知识矩阵</span>
+    </div>
+    <div class="topbar-right" id="topbar-btns">
+      <button onclick="navigate('home')" id="nav-home" class="active">🏠 总览</button>
+      <button onclick="navigate('category/all')" id="nav-cat">📂 分类</button>
+      <button onclick="navigate('api')" id="nav-api">🔌 API文档</button>
+    </div>
+  </div>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb" id="breadcrumb"></div>
+
+  <!-- Search -->
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="搜索技能、引擎、API、协议…（支持模糊搜索）" oninput="doSearch(this.value)">
+  </div>
+
+  <!-- Main Content -->
+  <div id="main-content"></div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════
+// 龍魂知识矩阵 — 全部技能/引擎/协议数据
+// ═══════════════════════════════════════════
+const SKILLS = [
+  // ── CNSH 系列 ──
+  {id:"cnsh",name:"CNSH 运行时",cat:"CNSH编程语言",tags:["cnsh","中文编程","运行时"],desc:"中华自主编程语言CNSH运行时环境——中文→Python AST解析·语法高亮·错误诊断·繁体「龍」命名规范。数字根校验+语义熵检测+注入检测。",cmd:"lh cnsh",api:null,formulas:[{name:"数字根校验",expr:"dr(n) = n - 9×⌊(n-1)/9⌋, dr(n)∈[1,9]",note:"每个token生成前校验数字根，不符则熔断"},{name:"语义熵",expr:"H = -Σ p(wi)×log₂(p(wi)), 阈值≤3.5",note:"超过阈值=语义混乱>触发三色🟡"}],usage:["python3 bin/lh_cnsh_runtime.py --translate example.cnsh","python3 bin/lh_cnsh_runtime.py --check example.cnsh","lh cnsh  # 进入CNSH交互控制台"],code:`# CNSH 示例代码
+函数 你好(名字):
+    打印(f"龍魂欢迎你, {名字}")
+
+你好("世界")  # 输出: 龍魂欢迎你, 世界`},
+  {id:"cnsh-editor",name:"CNSH 编辑器",cat:"CNSH编程语言",tags:["cnsh","编辑器","语法高亮"],desc:"CNSH专用代码编辑器·语法高亮·自动补全·实时数字根校验·CNSH→Python实时翻译预览。",cmd:"lh cnsh-editor",api:null,formulas:[],usage:["lh cnsh-editor  # 启动编辑器","lh cnsh-editor example.cnsh  # 打开文件编辑"],code:null},
+  {id:"cnsh-translator",name:"CNSH 翻译引擎",cat:"CNSH编程语言",tags:["cnsh","翻译","中文→Python"],desc:"CNSH中文代码→标准Python双向翻译·AST完整保留·注释保留·繁体龍永存检查。",cmd:"lh cnsh-translator",api:null,formulas:[{name:"翻译保真度",expr:"F = |AST_cnsh ∩ AST_py| / |AST_cnsh| × 100%",note:"目标≥95%·低于则🟡标记"}],usage:["lh cnsh-translator --to-python example.cnsh","lh cnsh-translator --from-python example.py"],code:null},
+  {id:"cnsh-ui",name:"CNSH UI生成",cat:"CNSH编程语言",tags:["cnsh","UI","前端"],desc:"CNSH声明式UI→HTML/CSS自动生成·暗色龍魂金主题·响应式·无障碍。",cmd:"lh cnsh-ui",api:null,formulas:[],usage:["lh cnsh-ui --design '登录页面，暗色主题'","lh cnsh-ui --component button --label 提交"],code:null},
+  {id:"cnsh-engine",name:"CNSH 引擎核心",cat:"CNSH编程语言",tags:["cnsh","引擎","核心"],desc:"CNSH底层引擎——分词器/Parser/代码生成器/数字根校验器/10态状态机。",cmd:"lh cnsh-engine",api:"TCP 127.0.0.1:9640",formulas:[{name:"10态状态机",expr:"S∈{INIT,LEX,PRS,GEN,CHK,OPT,SGN,ARC,FIN,ERR}",note:"状态转换: 正常路径 INIT→LEX→PRS→GEN→CHK→OPT→SGN→ARC→FIN / 异常→ERR"}],usage:["lh cnsh-engine --serve  # 启动引擎服务","lh cnsh-engine --check example.cnsh"],code:null},
+
+  // ── 审计与安全 ──
+  {id:"three-color-audit",name:"三色审计引擎",cat:"审计与安全",tags:["审计","三色","GATE"],desc:"🟢通过·🟡待核·🔴红线三层审计判定+十道闸口(GATE-01~10)逐道检查+加权多因子评分。每项产出必经。",cmd:"lh audit / lh three-color",api:"REST 127.0.0.1:8771 /api/audit",formulas:[{name:"加权得分",expr:"S = Σ(wi × si) / Σ(wi), wi∈[0.1,1.0], si∈{0,0.5,1.0}",note:"S≥0.8→🟢, 0.5≤S<0.8→🟡, S<0.5→🔴"},{name:"十道闸口",expr:"GATE-01~10: 身份→意图→语义→数字根→伦理→数据→协议→人格→DNA→归档",note:"任一闸口🔴→整链🔴·不可跳过"}],usage:["lh audit  # 对当前产出跑三色审计","lh audit --file example.md  # 审计指定文件","python3 bin/lh_three_color_audit.py --scan"],code:`# 三色审计JSON输出示例
+{
+  "audit_mark": "🟢",
+  "score": 0.92,
+  "gate_results": {
+    "GATE-01_identity": "🟢", "GATE-02_intent": "🟢",
+    "GATE-03_semantic": "🟢", "GATE-04_digital_root": "🟢",
+    "GATE-05_ethics": "🟢", "GATE-06_data": "🟢",
+    "GATE-07_protocol": "🟢", "GATE-08_persona": "🟢",
+    "GATE-09_dna": "🟢", "GATE-10_archive": "🟢"
+  },
+  "dna": "#龍芯⚡️丙午·丙申·戊申·午时·䷗复"
+}`},
+  {id:"vuln-detect",name:"漏洞检测引擎",cat:"审计与安全",tags:["安全","漏洞","CVE","SQL注入"],desc:"代码级漏洞扫描(SQL注入/XSS/CSRF/路径穿越)+依赖CVE数据库检查+P77黑天使联动。",cmd:"lh vuln-detect",api:"REST 127.0.0.1:9657 /api/vuln/scan",formulas:[{name:"风险分",expr:"R = Σ(cvss_i × reachability_i), cvss∈[0,10], reach∈{0,0.5,1}",note:"R≥7→🔴紧急, 4≤R<7→🟡警告, R<4→🟢"}],usage:["lh vuln-detect --scan .  # 扫描当前目录","lh vuln-detect --deps  # 检查依赖CVE"],code:null},
+  {id:"anti-tamper",name:"防篡改扫描",cat:"审计与安全",tags:["安全","哈希","Merkle","防篡改"],desc:"文件哈希校验+Merkle树验证+未授权变更检测+自动告警(Bark推送)。",cmd:"lh anti-tamper",api:null,formulas:[{name:"Merkle根",expr:"Root = H(H(L)→R || H(L)→R → ... → 最终单哈希)",note:"文件变更→叶子哈希变→Merkle根变→触发告警"}],usage:["python3 bin/lh_anti_tamper.py --scan","python3 bin/lh_anti_tamper.py --verify"],code:null},
+  {id:"circuit-breaker",name:"四级熔断引擎",cat:"审计与安全",tags:["熔断","L0","L1","L2","L3"],desc:"∞/L0伦理·L1数据·L2人格·L3行为四级熔断+自动降级+恢复条件。",cmd:"lh circuit-breaker",api:"内部事件总线",formulas:[{name:"熔断判定",expr:"L3: 连续失败≥3次→锁定 / L2: Cosplay检测→禁用 / L1: 敏感字段入日志→MELTDOWN / L0: 涉童/伪造DNA→永久冻结",note:"L3自动恢复·L2需人工·L1需UID9622签章·L0不可恢复"}],usage:["lh circuit-breaker --status  # 当前熔断状态","lh circuit-breaker --recover L3  # 尝试恢复L3"],code:null},
+
+  // ── 视频工坊 ──
+  {id:"video",name:"视频工坊 v3.0",cat:"视频工坊",tags:["视频","AI生成","配音","字幕"],desc:"文本→AI配音+AI图示生成+字幕合成+背景音乐。一念起，视频成。",cmd:"lh video --script 稿.txt",api:"REST 127.0.0.1:9635",formulas:[{name:"素材匹配度",expr:"M = cos(文本嵌入, 素材嵌入), M∈[0,1]",note:"M<0.5→使用AI生成替代"}],usage:["lh video --script 解说稿.txt  # 一键生成","lh video --script 稿.txt --style cinematic  # 电影风格","lh video-clean  # 清理临时素材"],code:null},
+  {id:"material",name:"素材管理器",cat:"视频工坊",tags:["素材","标签","匹配","扫描"],desc:"视频素材库管理·自动标签·语义匹配·去重·质量评分·格式转换。",cmd:"lh material",api:"REST 127.0.0.1:9635 /api/material",formulas:[{name:"素材质量分",expr:"Q = 0.4×分辨率得分 + 0.3×清晰度 + 0.2×颜色 + 0.1×时长适配",note:"Q≥0.7→优先使用"}],usage:["lh material-scan  # 扫描素材库","lh material-tag  # 自动打标签","lh material-match '夕阳海面'  # 语义匹配素材"],code:null},
+
+  // ── AI模型与推理 ──
+  {id:"ai-gateway",name:"AI模型调用网关",cat:"AI模型与推理",tags:["AI","混元","DeepSeek","Ollama","流式"],desc:"统一AI调用入口: Ollama本地模型+云端(混元/DeepSeek)·智能路由·流式输出·文本生成·图片生成。",cmd:"lh ai-gateway",api:"REST 127.0.0.1:9650 /v1/chat",formulas:[{name:"智能路由",expr:"本地优先: 若local_load<0.7→本地 / 否则→云端(优先混元,备用DeepSeek)",note:"cost = local○0 + cloud×(tokens×0.002元/1K)"}],usage:["lh ai-gateway --chat '介绍一下龍魂系统'","lh ai-gateway --image '龍魂logo 暗色 金色'","lh ai-gateway --model deepseek --stream '写首诗'"],code:`# API 调用示例
+curl -X POST https://uid9622.cn/api/ai/chat \\
+  -H "Content-Type: application/json" \\
+  -d '{"messages":[{"role":"user","content":"你好"}],"stream":true}'`},
+  {id:"search",name:"多源搜索引擎",cat:"AI模型与推理",tags:["搜索","Bing","缓存","审计"],desc:"Bing多源搜索+深度页面提取+搜索结果缓存+来源审计(P05)。端口9631。",cmd:"lh search '关键词'",api:"REST 127.0.0.1:9631 /api/search",formulas:[{name:"搜索相关性",expr:"Rel = 0.5×标题匹配 + 0.3×摘要匹配 + 0.2×来源可信度",note:"来源可信度: 官方≥学术≥媒体≥个人"}],usage:["lh search '三色审计 算法'","lh search --deep '龍魂系统'  # 深度提取页面内容"],code:null},
+  {id:"seven-dim",name:"七维推演引擎 v2.0",cat:"AI模型与推理",tags:["推演","七维","六十四卦","希尔伯特"],desc:"P01+P06+P12+P05+P72五人格联动·七维空间推演·64卦映射·希尔伯特空间分析。",cmd:"lh seven-dimension",api:"REST 127.0.0.1:9000 /api/quantum",formulas:[{name:"七维坐标",expr:"V = (意图, 数据, 伦理, 时间, 空间, 能量, 信息), V∈R⁷",note:"64卦映射: 每卦对应希尔伯特空间一个正交基向量 |ψ_gua⟩"},{name:"推演置信度",expr:"C = 1 - ||V_pred - V_actual|| / √7",note:"C≥0.7→🟢, 0.4≤C<0.7→🟡, C<0.4→🔴"}],usage:["lh seven-dimension --interactive  # 交互式推演","lh seven-dimension --analyze '方案A是否可行'"],code:null},
+
+  // ── 数字与数学 ──
+  {id:"digital-root",name:"数字根引擎",cat:"数字与数学",tags:["数字根","369","洛书","五行"],desc:"369洛书数字根计算+三六九不动点(sn=369,log369=5.911,perm369=108)+数字根验证+权重计算。",cmd:"lh digital-root",api:null,formulas:[{name:"数字根",expr:"dr(n) = 1 + (n-1) mod 9, dr(0)=0",note:"369不动点: dr(3)=3·dr(6)=6·dr(9)=9 — 唯一不被数字根改变的三数"},{name:"三六九验证",expr:"sn(369)=3+6+9=18→dr(18)=9 / log₃₆₉(369)≈5.911 / perm₃₆₉=3!×3=108",note:"108=36×3=12×9 — 洛书九宫×十二地支"}],usage:["lh digital-root  # 交互式计算","python3 bin/lh_digital_root.py --input '龍魂系统'","python3 bin/lh_digital_root.py --batch data.txt"],code:`# 数字根计算示例
+数字根(12345) = 1+2+3+4+5=15 → 1+5=6
+数字根(369)   = 3+6+9=18 → 1+8=9
+
+# 五行映射
+1→水🟢  2→土🟢  3→木🟢  4→木🟢  5→土🟡
+6→金🟢  7→金🟡  8→土🟡  9→火🟡  0→水🔴`},
+  {id:"weight",name:"权重计算引擎",cat:"数字与数学",tags:["权重","多因子","评分","P06"],desc:"多因子权重计算+归一化+三色判定+权重偏移检测(>20%→🔴)。P06数学大师主管。",cmd:"lh weight",api:null,formulas:[{name:"归一化权重",expr:"w'_i = w_i / Σ(w_j), 约束Σ(w'_i)=1",note:"若所有w_i=0→等权重(均分)·避免除零"},{name:"偏移检测",expr:"Δ = |w'_new - w'_old| / w'_old × 100%",note:"Δ>20%→🟡警告, Δ>50%→🔴冻结校准"}],usage:["lh weight --factors 3,5,2,8  # 计算权重","lh weight --compare old.json new.json  # 偏移检测"],code:null},
+  {id:"wuxing",name:"五行判定引擎",cat:"数字与数学",tags:["五行","金木水火土","生克","干支"],desc:"五行(金水木火土)属性判定+生克关系+能量流向分析+属性匹配建议+干支四柱纳音。",cmd:"lh wuxing",api:null,formulas:[{name:"五行生克",expr:"生: 木→火→土→金→水→木 / 克: 木→土→水→火→金→木",note:"生=能量注入+0.3·克=能量抽取-0.3"}],usage:["lh wuxing --query '龍魂系统'  # 判定属性","lh wuxing --relation 木 火  # 查生克关系"],code:null},
+
+  // ── 人格治理 ──
+  {id:"persona",name:"人格编排引擎",cat:"人格治理",tags:["人格","20人格","调度","防抖动"],desc:"20人格矩阵调度: P00~P72+P77+S1~S3·意图解析→人格路由→防抖动(连续3次锁定30分钟)+降级回退。",cmd:"lh persona",api:"REST 127.0.0.1:9645 /api/persona",formulas:[{name:"人格置信度",expr:"C(persona|intent) = P(intent|persona)×P(persona) / P(intent)",note:"连续3次同一人格→锁定30分钟防抖·C<0.3→降级至P04鲁班"}],usage:["lh persona --route '我想评估这个方案'  # 路由到P01诸葛亮","lh persona --list  # 列出所有人格","lh persona --status  # 当前活跃人格"],code:null},
+  {id:"persona-governance",name:"人格治理白皮书",cat:"人格治理",tags:["治理","白皮书","协议","规范"],desc:"20人格治理最高文档·定义每个/审计/熔断/认证权限·人格间协作协议。P0-ETERNAL级。",cmd:"lh persona-governance",api:null,formulas:[],usage:["lh persona-governance --view  # 查看白皮书","lh persona-governance --check  # 检查当前状态是否符合治理规范"],code:null},
+
+  // ── 知识管理 ──
+  {id:"csdn-sync",name:"CSDN同步引擎",cat:"知识管理",tags:["CSDN","同步","博客","Notion"],desc:"CSDN博客自动抓取→本地Markdown归档→DNA追溯码提取→三色审计·全量/增量/最新三种模式。",cmd:"lh csdn",api:null,formulas:[{name:"同步完整性",expr:"Sync = |已归档文章| / |线上文章| × 100%",note:"目标≥95%·缺口标记🟡"}],usage:["lh csdn --sync --latest  # 抓取最新文章","lh csdn --sync --full  # 全量同步","lh csdn --status  # 查看同步状态"],code:null},
+  {id:"notion-full",name:"Notion全量同步",cat:"知识管理",tags:["Notion","同步","知识库","记忆"],desc:"Notion数据库全量同步到本地+索引构建+全文搜索+增量更新。",cmd:"lh notion-full",api:"Notion API (外部)",formulas:[],usage:["lh notion-full --sync  # 全量同步","lh notion-full --incremental  # 增量更新"],code:null},
+  {id:"knowledge-matrix",name:"知识矩阵聚合",cat:"知识管理",tags:["知识索引","聚合","矩阵"],desc:"全维度知识索引聚合引擎·扫描9大维度→生成统一JSON·驱动知识矩阵页面。",cmd:"lh matrix / lh km",api:null,formulas:[{name:"维度覆盖",expr:"Coverage = |已索引维度| / 9 × 100%",note:"9维度: 协议/论文/CSDN/引擎/图谱/门户/仓库/数据源/系统状态"}],usage:["lh matrix  # 重新聚合","lh matrix --pretty  # 格式化输出","python3 bin/lh_knowledge_matrix.py --output custom.json"],code:null},
+
+  // ── 部署运维 ──
+  {id:"deploy",name:"一键部署引擎",cat:"部署运维",tags:["部署","鲲鹏","十步法","回滚"],desc:"鲲鹏部署十步法+部署前P77安全扫描+P05审计+自动回滚+健康检查。不可跳过任何一步。",cmd:"lh deploy",api:null,formulas:[{name:"部署十步",expr:"1.代码对齐→2.安全扫描→3.审计检查→4.GPG签名→5.同步文件→6.安装nginx→7.重载服务→8.健康检查→9.实机验证→10.归档",note:"任何步骤失败→自动回滚+通知UID9622"}],usage:["lh deploy --dry-run  # 预演部署","lh deploy --rollback  # 回滚到上一版本","bash deploy/sync-to-kunpeng.sh  # 同步到鲲鹏"],code:null},
+  {id:"auto-heal",name:"自愈扫描引擎",cat:"部署运维",tags:["自愈","巡检","健康","Bark"],desc:"每小时自动巡检+服务异常检测+自动重启+健康上报(Bark推送)+自愈策略。守护士。",cmd:"lh auto-heal",api:"内部cron触发",formulas:[{name:"健康分",expr:"H = Σ(si×wi), si∈{0:挂死,0.5:降级,1:正常}, wi为服务权重",note:"H<0.7→触发自愈: 重启→等30s→再检→仍<0.7→告警UID9622"}],usage:["lh auto-heal --scan  # 手动触发巡检","lh auto-heal --status  # 查看健康状态"],code:null},
+  {id:"status",name:"系统状态总览",cat:"部署运维",tags:["状态","健康","系统","监控"],desc:"全系统状态一览: 52 launchd(Mac)+12 systemd(鲲鹏)+引擎运行状态+端口占用+内存/CPU。",cmd:"lh status",api:null,formulas:[],usage:["lh status  # 查看本地状态","lh status --remote  # 查看鲲鹏状态"],code:null},
+
+  // ── 身份与安全 ──
+  {id:"gpg-sign",name:"GPG签章引擎",cat:"身份与安全",tags:["GPG","签名","签章","验证"],desc:"GPG分离签名(.asc)·批量签名/验证/扫描·GATE-11签名闸·自动补签·1574+签名文件。",cmd:"python3 bin/lh_gpg_sign.py sign .",api:null,formulas:[{name:"签名验证",expr:"Verify(pubkey, file, sig) → {valid, invalid, missing_key}",note:"发布/部署前必须 scan·未签名→P05🔴否决"}],usage:["python3 bin/lh_gpg_sign.py sign example.md","python3 bin/lh_gpg_sign.py verify example.md","python3 bin/lh_gpg_sign.py scan ."],code:null},
+  {id:"identity-verify",name:"身份核验引擎",cat:"身份与安全",tags:["身份","六重认证","设备指纹","行为DNA"],desc:"六重认证链: 设备指纹→行为DNA→GPG签章→DNA追溯→七因子验证→数字根确认。",cmd:"lh identity-verify",api:null,formulas:[{name:"身份置信度",expr:"I = Σ(各因子得分×权重)/6, 因子∈{0,1}, 权重∈[0.1,0.3]",note:"I≥0.8→通过·0.5≤I<0.8→二次验证·I<0.5→拒绝"}],usage:["lh identity-verify --check","lh identity-verify --factor device-fingerprint"],code:null},
+
+  // ── 流场引擎 ──
+  {id:"flow-engine",name:"流场映射层",cat:"流场引擎",tags:["流场","观测","涡旋","热力图"],desc:"被动观测·涡旋检测·压力·热力图·异常预警。三才流场理论工程落地。",cmd:"lh flow",api:"REST 127.0.0.1:8776 /api/flow",formulas:[{name:"涡旋检测",expr:"curl(F) = ∇×F > ε → 涡旋中心",note:"ε=0.15·连续3帧检测到涡旋→🟡告警"}],usage:["lh flow --visualize  # 可视化流场","lh flow --detect  # 检测涡旋"],code:null},
+  {id:"flow-fusion",name:"流场融合桥接",cat:"流场引擎",tags:["流场","融合","桥接","翻译"],desc:"全引擎→流场统一注入·翻译矩阵·融合仪表盘·守护模式。端口8777。",cmd:"lh flow-fusion",api:"REST 127.0.0.1:8777 /api/fusion",formulas:[{name:"融合度",expr:"F = 1 - Σ|v_i - v̄| / (n×max|v|)",note:"F≥0.8→🟢融合良好"}],usage:["lh flow-fusion --dashboard  # 融合仪表盘","lh flow-fusion --inject  # 注入全引擎"],code:null},
+
+  // ── 时间引擎 ──
+  {id:"time-engine",name:"LU-Time Engine v4.0",cat:"时间引擎",tags:["时间","天干地支","64卦","梅花易数"],desc:"独立时间引擎·天干地支四柱·64卦数据库·梅花易数时间起卦法·审计链·全系统输出时间戳。",cmd:"lh te / lh time-engine",api:null,formulas:[{name:"梅花易数起卦",expr:"上卦 = (年支+月+日) mod 8 / 下卦 = (年支+月+日+时) mod 8 / 动爻 = (年支+月+日+时) mod 6",note:"年支: 子=1·丑=2…亥=12 / 卦序: 乾1兑2离3震4巽5坎6艮7坤8"}],usage:["lh te  # 输出当前时间戳","lh te --stamp  # 紧凑格式","python3 bin/lh_time_engine.py --hexagram  # 当前卦象"],code:null},
+
+  // ── 经济引擎 ──
+  {id:"xpay",name:"经济引擎 XPay",cat:"经济引擎",tags:["支付","经济","许愿池","ROI"],desc:"许愿池(众筹/打赏)·XPay支付网关·多币种支持·经济核算·资源优化·ROI分析。",cmd:"lh xpay",api:"REST 127.0.0.1:9633",formulas:[{name:"ROI",expr:"ROI = (收益 - 成本) / 成本 × 100%",note:"成本含: 算力+存储+带宽+人工"}],usage:["lh xpay --status  # 经济状态","lh xpay --roi  # ROI分析"],code:null},
+  {id:"trust-score",name:"信任积分引擎",cat:"经济引擎",tags:["积分","信任分","贡献","公证"],desc:"P20贡献公证官·三分桶(技术/社区/创作)·场景矩阵判定·信任积分计算·政审·国资判定。",cmd:"lh trust-score",api:null,formulas:[{name:"信任分",expr:"T = 0.4×技术贡献 + 0.35×社区贡献 + 0.25×创作贡献",note:"T∈[0,100]·≥80白金·≥60黄金·≥40白银·<40基础"}],usage:["lh trust-score --calc  # 计算积分","lh trust-score --audit  # 审计积分"],code:null},
+
+  // ── 协议与文档 ──
+  {id:"protocols",name:"协议动态索引",cat:"协议与文档",tags:["协议","索引","文档","标准"],desc:"全量协议文档动态索引·版本追踪·废弃标记·关联图谱·全文搜索。端口8910。",cmd:"lh protocols",api:"REST 127.0.0.1:8910 /api/protocols",formulas:[],usage:["lh protocols --list  # 列出所有协议","lh protocols --search '隐私'  # 搜索协议"],code:null},
+  {id:"deben-audit",name:"德本审计引擎",cat:"协议与文档",tags:["德本","离火运","五问","道德"],desc:"离火运五条底线: ①德在技术前 ②路径对齐 ③不让付出者寒心 ④信息主权不可让渡 ⑤外化内不化。每次重大变更前强制执行。",cmd:"lh deben-audit",api:null,formulas:[{name:"五问评分",expr:"D = min(d1,d2,d3,d4,d5), di∈{0,1}",note:"D=1→🟢通过 / D=0→🔴任一问不通过=整项不通过"}],usage:["python3 bin/lh_deben_audit.py scan","lh deben-audit --check  # 检查当前产出"],code:null},
+
+  // ── 其他引擎 ──
+  {id:"align-checker",name:"代码对齐复盘",cat:"代码质量",tags:["对齐","代码质量","DNA","GPG"],desc:"全项目扫描·检测重复函数·缺失DNA·缺失GPG签名·自动修复建议。每次AI启动自动执行。",cmd:"lh align",api:null,formulas:[{name:"对齐率",expr:"A = |合规文件| / |总文件| × 100%",note:"目标≥98%"}],usage:["lh align check  # 检查对齐","lh align fix  # 自动修复"],code:null},
+  {id:"anxiety-detector",name:"焦虑制造者识别器",cat:"语义分析",tags:["PUA","话术","反制","心理"],desc:"五类话术(A-E)关键词匹配+三层本源追溯(文化/心理/权力)+五式反制公式。蚁群触角。",cmd:"lh anxiety-detector",api:null,formulas:[{name:"话术危险度",expr:"Danger = Σ(类别得分×密度) / 文本长度",note:"Danger>0.3→🟡提醒, >0.6→🔴警告"}],usage:["lh anxiety-detector --input '你的话术文本'","lh anxiety-detector --batch comments.txt"],code:null},
+  {id:"bagua-router",name:"六十四卦路由",cat:"系统调度",tags:["八卦","64卦","路由","调度"],desc:"基于太极生两仪·两仪生四象·四象生八卦模型，实现统一命令调度。乾(启动)·坤(状态)·震(审计)·巽(安全)·坎(主权)·离(技能)·艮(同步)·兑(部署)。",cmd:"lh bagua",api:null,formulas:[{name:"卦象路由",expr:"命令→hash→卦号(1-64)→对应八卦职能→分配执行引擎",note:"乾1-8: 启动类·坤9-16: 状态类·震17-24: 审计类…"}],usage:["lh bagua --route 'lh status'  # 查看命令属于哪个卦","lh bagua --map  # 显示64卦路由图"],code:null},
+  {id:"memory-load",name:"记忆加载引擎",cat:"系统调度",tags:["记忆","焊死","状态","初始化"],desc:"加载焊死记忆包: 系统状态+协作者+协议+底座锚点+369不动点+人格矩阵。AI每次启动第一步。",cmd:"python3 bin/lh_memory_load.py",api:null,formulas:[],usage:["python3 bin/lh_memory_load.py  # 加载记忆","python3 bin/lh_memory_load.py --summary  # 摘要模式"],code:null},
+
+  // ── 核心运行时引擎 ──
+  {id:"tune",name:"自适应微调引擎 v2.0",cat:"核心运行时",tags:["微调","自适应","滞回","参数"],desc:"双向参数调整·滞回带防抖·三色dr·哈希链·9项自检·灵敏度校准。AI模型自适应优化。",cmd:"lh tune",api:null,formulas:[{name:"滞回调整",expr:"param_new = param_old + Δ×sign, Δ∈[0.01,0.1]·连续3次相同方向→加倍·相反→减半",note:"防抖: 5分钟内最多调整1次"}],usage:["lh tune --auto  # 自动调参","lh tune --status  # 查看当前参数"],code:null},
+  {id:"compress",name:"跨AI压缩指令 v3.0",cat:"核心运行时",tags:["压缩","跨AI","指令","一致性"],desc:"18条指令·10类锚点·复盘·项目检查·记错本·跨AI一致性保证。一次压缩，多个AI通用。",cmd:"lh compress / lh c",api:null,formulas:[{name:"压缩率",expr:"CR = 原始长度 / 压缩后长度",note:"目标CR≥3·语义保真度≥95%"}],usage:["lh compress  # 压缩当前会话","lh compress --decompress output.txt  # 解压"],code:null},
+  {id:"neuron-flow",name:"神经元流场映射 v4.0",cat:"核心运行时",tags:["神经元","流场","Hopfield","三才"],desc:"三才映射·Hopfield网络·三色审计·五大人格·双脑协同·A-BOM备案。",cmd:"lh neuron-flow / lh nf",api:"REST 127.0.0.1:8776 /api/neuron-flow",formulas:[{name:"Hopfield能量",expr:"E = -½Σ(w_ij × s_i × s_j) - Σ(θ_i × s_i)",note:"收敛时E→局部最小值·用于模式记忆与检索"}],usage:["lh neuron-flow --map  # 生成神经元流场映射","lh neuron-flow --audit  # 审计流场状态"],code:null},
+  {id:"philosophy",name:"哲学方法论引擎",cat:"核心运行时",tags:["哲学","13律","方法论","评估"],desc:"13律哲学方法论·多维度评估·关联图谱·学习路径·A-BOM备案。",cmd:"lh philosophy / lh phi",api:null,formulas:[{name:"哲学一致性",expr:"C_phi = |当前行为∩13律要求| / 13",note:"13律: 道法自然·知行合一·实事求是…"}],usage:["lh philosophy --eval '技术方案'  # 哲学方法论评估","lh philosophy --list  # 列出13律"],code:null},
+  {id:"principles",name:"六大原理引擎",cat:"核心运行时",tags:["原理","六不铁律","评估","图谱"],desc:"六不铁律·三维评估·关联图谱·A-BOM备案。底座核心原理不可动摇。",cmd:"lh principles / lh 6p",api:null,formulas:[{name:"铁律符合度",expr:"C = |合规项| / 6 × 100%",note:"6不: 不欺骗·不隐瞒·不篡改·不越权·不泄密·不背叛"}],usage:["lh principles --check  # 检查是否符合六大原理","lh principles --audit  # 审计"],code:null},
+  {id:"deck",name:"决策卡片引擎 v2.0",cat:"核心运行时",tags:["决策","卡片","DNA","锚点"],desc:"双模板·关键词路由·DNA追溯·三色审计·SQLite·锚点·五行签名。决策可追溯、可复盘。",cmd:"lh deck / lh decision / lh dec",api:null,formulas:[{name:"决策追溯",expr:"Decision(facts,options,choice,dna,sign)→SQLite记录·不可篡改",note:"每项决策绑定DNA+五行签名+时间戳"}],usage:["lh deck --new  # 创建决策卡片","lh deck --list  # 列出历史决策"],code:null},
+
+  // ── 安全对抗 ──
+  {id:"black-angel",name:"黑天使军团 v3.0",cat:"安全对抗",tags:["P77","红蓝对抗","渗透","漏洞"],desc:"四天使(红·暗·明·夜)+红蓝对抗融合引擎。知攻善守·以攻铸盾·仅对自己系统测试。",cmd:"lh black-angel",api:null,formulas:[{name:"攻击面评分",expr:"AS = Σ(surface_i × exploitability_i), surface∈[1,10], exploit∈[0,1]",note:"AS≥50→🔴紧急·只对龍魂系统自身·外部系统禁止"}],usage:["lh black-angel --scan  # 攻击面分析","lh black-angel --red-team  # 红队演练"],code:null},
+  {id:"unbox",name:"掀黑箱引擎",cat:"安全对抗",tags:["透明度","黑箱","可解释性","审计"],desc:"AI决策路径可视化·特征重要性排序·反事实解释·模型行为追溯。不让任何AI逻辑成为黑箱。",cmd:"lh unbox",api:null,formulas:[{name:"透明度分数",expr:"T = 可解释步骤 / 总步骤 × 100%",note:"目标T≥80%·低于则标记🟡·持续<50%→🔴"}],usage:["lh unbox --model longhun-v3.7  # 分析模型","lh unbox --decision '为什么推荐这个方案'"],code:null},
+
+  // ── 学术与文化 ──
+  {id:"academic",name:"学术运行时引擎",cat:"学术与文化",tags:["学术","论文","LaTeX","定理"],desc:"论文项目管理·三页分层(投稿/理论/运行时)·定理/定义/公理·一致性检查·LaTeX/Notion导出。",cmd:"lh academic / lh ac",api:null,formulas:[{name:"一致性检查",expr:"Consistency = |定理∩公理推导| / |定理|, 目标=1.0",note:"不一致→标记冲突定理对→人工裁决"}],usage:["lh academic --new '论文标题'  # 创建论文项目","lh academic --check  # 一致性检查"],code:null},
+  {id:"mvp",name:"MVP治理运行时",cat:"学术与文化",tags:["MVP","治理链","DNA","Tier"],desc:"三件套治理链·DNA闸门·Tier认证·意图解析·审计链·快照·11步执行链。最小可行治理方案。",cmd:"lh mvp / lh mvp-runner",api:null,formulas:[{name:"Tier判定",expr:"Tier = f(DNA完整度,GPG覆盖率,审计通过率,文档完整度)",note:"Tier1: 4/4·Tier2: 3/4·Tier3: 2/4·Tier4: <2"}],usage:["lh mvp --check  # MVP治理检查","lh mvp --snapshot  # 创建治理快照"],code:null},
+  {id:"dao-de-jing",name:"道德经锚点引擎",cat:"学术与文化",tags:["道德经","老子","81章","锚点"],desc:"81章道德经原文+算法锚定点+哲学概念可计算化+与十维同演联动。",cmd:"lh dao",api:null,formulas:[{name:"哲学概念映射",expr:"M(章,锚点类型) → 计算锚点值",note:"每章映射至一个可计算概念·如'无为'→熵增最小化"}],usage:["lh dao --chapter 1  # 查看第一章","lh dao --anchor '上善若水'  # 锚点计算"],code:null},
+  {id:"quantum-evidence",name:"量子存证引擎",cat:"学术与文化",tags:["量子","存证","不可篡改","证据链"],desc:"量子密钥存证·证据链重组·时间戳固化·不可篡改审计日志。",cmd:"lh qe / lh quantum-evidence",api:null,formulas:[{name:"存证固化",expr:"E = SHA256(data+prev_hash+timestamp+nonce), 约束leading_zeros≥4",note:"类PoW轻量固化·4零前缀·平均16次尝试"}],usage:["lh qe --seal data.json  # 存证固化","lh qe --verify seal_hash  # 验证存证"],code:null},
+];
+
+// ═══════════════════
+// Categories for index
+// ═══════════════════
+const CATS = [...new Set(SKILLS.map(s=>s.cat))];
+
+// ═══════════════════
+// API Reference (real endpoints from running services)
+// ═══════════════════
+const API_ENDPOINTS = [
+  {method:"GET",path:"/api/onboarding/bootstrap",desc:"AI进门引导·拉取全量规则包",port:443,host:"uid9622.cn",cat:"系统入口"},
+  {method:"POST",path:"/api/ai/chat",desc:"AI模型聊天(混元/DeepSeek/Ollama)",port:443,host:"uid9622.cn",cat:"AI模型"},
+  {method:"GET",path:"/api/search",desc:"多源搜索引擎(Bing)",port:9631,host:"127.0.0.1",cat:"搜索"},
+  {method:"GET",path:"/api/audit",desc:"三色审计API",port:8771,host:"127.0.0.1",cat:"审计"},
+  {method:"POST",path:"/api/audit/battle",desc:"审计对抗中枢",port:9657,host:"127.0.0.1",cat:"审计"},
+  {method:"GET",path:"/api/flow",desc:"流场映射层",port:8776,host:"127.0.0.1",cat:"流场"},
+  {method:"GET",path:"/api/fusion",desc:"流场融合桥接",port:8777,host:"127.0.0.1",cat:"流场"},
+  {method:"GET",path:"/api/memory",desc:"统一记忆服务",port:8771,host:"127.0.0.1",cat:"记忆"},
+  {method:"GET",path:"/api/protocols",desc:"协议动态索引",port:8910,host:"127.0.0.1",cat:"协议"},
+  {method:"GET",path:"/api/health",desc:"健康检查API",port:9636,host:"127.0.0.1",cat:"运维"},
+  {method:"POST",path:"/api/gateway/merchant",desc:"商户支付网关",port:9633,host:"127.0.0.1",cat:"经济"},
+  {method:"GET",path:"/api/quantum",desc:"量子卦象API(七维推演)",port:9000,host:"127.0.0.1",cat:"数学"},
+  {method:"GET",path:"/api/persona",desc:"人格编排API",port:9645,host:"127.0.0.1",cat:"人格"},
+  {method:"GET",path:"/api/antenna",desc:"蚁群触角8门API",port:8769,host:"127.0.0.1",cat:"安全"},
+  {method:"GET",path:"/api/guanlan",desc:"观澜态势感知API",port:8770,host:"127.0.0.1",cat:"安全"},
+  {method:"GET",path:"/api/fonts",desc:"字体管理服务",port:8767,host:"127.0.0.1",cat:"工具"},
+  {method:"GET",path:"/knowledge-matrix/",desc:"知识矩阵页面(本站)",port:443,host:"uid9622.cn",cat:"门户"},
+  {method:"GET",path:"/dashboard/",desc:"系统仪表盘",port:443,host:"uid9622.cn",cat:"门户"},
+  {method:"GET",path:"/knowledge/",desc:"知识库门户",port:443,host:"uid9622.cn",cat:"门户"},
+];
+
+// ═══════════════════
+// Router
+// ═══════════════════
+let currentRoute = 'home';
+let currentSkillId = null;
+let currentCat = 'all';
+let currentTab = 'usage';
+
+function navigate(route) {
+  currentRoute = route;
+  // Parse route
+  if (route === 'home') {
+    currentSkillId = null; currentCat = 'all';
+  } else if (route.startsWith('skill/')) {
+    currentSkillId = route.replace('skill/','');
+  } else if (route.startsWith('category/')) {
+    currentCat = route.replace('category/','');
+  } else if (route === 'api') {
+    // just api page
+  }
+  // Update browser URL hash so back/forward works
+  if (window.location.hash !== '#'+route) {
+    history.pushState(null,'','#'+route);
+  }
+  render();
+  window.scrollTo(0,0);
+}
+
+// Handle browser back/forward
+window.addEventListener('popstate', ()=>{
+  const hash = window.location.hash.replace('#','') || 'home';
+  currentRoute = hash;
+  if (hash==='home') { currentSkillId=null; currentCat='all'; }
+  else if (hash.startsWith('skill/')) currentSkillId = hash.replace('skill/','');
+  else if (hash.startsWith('category/')) currentCat = hash.replace('category/','');
+  render();
+  window.scrollTo(0,0);
+});
+
+function doSearch(q) {
+  if (!q || q.length < 1) {
+    if (currentRoute === 'search') navigate('home');
+    return;
+  }
+  currentRoute = 'search';
+  currentSearchQuery = q;
+  render();
+}
+let currentSearchQuery = '';
+
+function getSkill(id) { return SKILLS.find(s=>s.id===id); }
+
+// ═══════════════════
+// Render
+// ═══════════════════
+function render() {
+  updateNavButtons();
+  updateBreadcrumb();
+
+  const mc = document.getElementById('main-content');
+  const r = currentRoute;
+
+  if (r === 'home') renderHome(mc);
+  else if (r.startsWith('skill/')) renderSkillDetail(mc, currentSkillId);
+  else if (r.startsWith('category/')) renderCategory(mc, currentCat);
+  else if (r === 'api') renderAPI(mc);
+  else if (r === 'search') renderSearch(mc, currentSearchQuery);
+  else renderHome(mc);
+}
+
+function updateNavButtons() {
+  document.querySelectorAll('#topbar-btns button').forEach(b=>b.classList.remove('active'));
+  const r = currentRoute;
+  if (r==='home') document.getElementById('nav-home')?.classList.add('active');
+  else if (r.startsWith('category/')) document.getElementById('nav-cat')?.classList.add('active');
+  else if (r==='api') document.getElementById('nav-api')?.classList.add('active');
+}
+
+function updateBreadcrumb() {
+  const b = document.getElementById('breadcrumb');
+  let html = `<a href="javascript:navigate('home')">🏠 首页</a>`;
+  const r = currentRoute;
+  if (r.startsWith('skill/')) {
+    const s = getSkill(currentSkillId);
+    html += ` <span class=sep>›</span> <a href="javascript:navigate('category/${encodeURIComponent(s?.cat||'all')}')">${s?.cat||'技能'}</a>`;
+    html += ` <span class=sep>›</span> <span class=current>${s?.name||currentSkillId}</span>`;
+  } else if (r.startsWith('category/')) {
+    html += ` <span class=sep>›</span> <span class=current>${currentCat==='all'?'全部分类':currentCat}</span>`;
+  } else if (r==='api') {
+    html += ` <span class=sep>›</span> <span class=current>API文档</span>`;
+  } else if (r==='search') {
+    html += ` <span class=sep>›</span> <span class=current>搜索: ${currentSearchQuery}</span>`;
+  }
+  b.innerHTML = html;
+}
+
+// ── HOME ──
+function renderHome(mc) {
+  let html = '';
+  // Stats row
+  const cats = [...new Set(SKILLS.map(s=>s.cat))];
+  const apis = API_ENDPOINTS.length;
+  const hasFormula = SKILLS.filter(s=>s.formulas&&s.formulas.length>0).length;
+  html += `<div class="stats-row">
+    <div class="stat-card"><div class="stat-num">${SKILLS.length}</div><div class="stat-label">技能/引擎</div></div>
+    <div class="stat-card"><div class="stat-num">${cats.length}</div><div class="stat-label">分类维度</div></div>
+    <div class="stat-card"><div class="stat-num">${apis}</div><div class="stat-label">API端点</div></div>
+    <div class="stat-card"><div class="stat-num">${hasFormula}</div><div class="stat-label">含计算公式</div></div>
+  </div>`;
+
+  // Quick categories
+  html += `<div class="cat-list">
+    <span class="cat-chip active" onclick="navigate('category/all')">全部 (${SKILLS.length})</span>`;
+  cats.forEach(c=>{
+    const cnt = SKILLS.filter(s=>s.cat===c).length;
+    html += `<span class="cat-chip" onclick="navigate('category/${encodeURIComponent(c)}')">${c} (${cnt})</span>`;
+  });
+  html += `</div>`;
+
+  // Category sections
+  const catOrder = ['CNSH编程语言','审计与安全','安全对抗','AI模型与推理','视频工坊','数字与数学','人格治理','知识管理','部署运维','流场引擎','身份与安全','经济引擎','核心运行时','时间引擎','协议与文档','代码质量','语义分析','系统调度','学术与文化'];
+  catOrder.forEach(cat=>{
+    const items = SKILLS.filter(s=>s.cat===cat);
+    if (!items.length) return;
+    html += `<div class="section-title">${cat} <span style="font-weight:400;font-size:0.8em;color:var(--text-dim)">(${items.length})</span></div>`;
+    html += `<div class="cards-grid">`;
+    items.forEach(s=>{
+      const formulaBadge = s.formulas&&s.formulas.length>0 ? `<span class="badge badge-yellow">含公式</span>` : '';
+      const apiBadge = s.api ? `<span class="badge badge-blue">有API</span>` : '';
+      html += `<div class="card" onclick="navigate('skill/${s.id}')">
+        <span class="card-cat">${s.cat}</span>
+        <div class="card-title">${s.name}</div>
+        <div class="card-desc">${s.desc.substring(0,80)}…</div>
+        <div class="card-meta">${formulaBadge}${apiBadge}</div>
+      </div>`;
+    });
+    html += `</div>`;
+  });
+
+  // Quick API section
+  html += `<div class="section-title">🔌 常用API速查 <a href="javascript:navigate('api')" style="font-size:0.8em;font-weight:400;float:right">查看全部 →</a></div>`;
+  html += `<table class="api-table">
+    <thead><tr><th>方法</th><th>端点</th><th>说明</th><th>端口</th></tr></thead><tbody>`;
+  API_ENDPOINTS.slice(0,10).forEach(a=>{
+    html += `<tr>
+      <td class="method ${a.method.toLowerCase()}">${a.method}</td>
+      <td><code>${a.path}</code></td>
+      <td>${a.desc}</td>
+      <td>${a.port}</td>
+    </tr>`;
+  });
+  html += `</tbody></table>`;
+
+  mc.innerHTML = html;
+}
+
+// ── SKILL DETAIL ──
+function renderSkillDetail(mc, id) {
+  const s = getSkill(id);
+  if (!s) { mc.innerHTML = `<div class="empty"><div class="icon">🔍</div>未找到技能: ${id}</div>`; return; }
+
+  let html = '';
+  // Header
+  html += `<div class="detail-header">
+    <h1>${s.name}</h1>
+    <div class="subtitle">${s.cat} · <code>${s.cmd||'无独立命令'}</code></div>
+    <div class="detail-meta">`;
+  s.tags.forEach(t=>html+=`<span class="badge badge-blue">${t}</span>`);
+  if (s.api) html+=`<span class="badge badge-green">API: ${s.api}</span>`;
+  html += `</div></div>`;
+
+  // Description
+  html += `<p style="margin-bottom:16px;font-size:1em;line-height:1.7">${s.desc}</p>`;
+
+  // Tabs
+  const tabs = [
+    {id:'usage',label:'📖 使用方法'},
+    {id:'code',label:'💻 代码示例',show:!!s.code},
+    {id:'formula',label:'🧮 计算公式',show:s.formulas&&s.formulas.length>0},
+    {id:'api',label:'🔌 API接入',show:!!s.api||(s.cmd&&s.cmd.includes('api'))},
+  ].filter(t=>t.show!==false);
+
+  html += `<div class="tabs">`;
+  tabs.forEach((t,i)=>{
+    html += `<button class="tab-btn ${i===0?'active':''}" onclick="switchTab(this,'tab-${t.id}','${id}')">${t.label}</button>`;
+  });
+  html += `</div>`;
+
+  // Tab: 使用方法
+  html += `<div class="tab-content active" id="tab-usage"><div style="display:flex;flex-direction:column;gap:8px">`;
+  if (s.usage && s.usage.length>0) {
+    html += `<p style="font-weight:600;color:var(--gold)">命令行用法：</p>`;
+    s.usage.forEach(u=>html+=`<pre><code>${u}</code></pre>`);
+  } else {
+    html += `<p>通过 <code>${s.cmd||'lh'}</code> 命令入口使用。</p>`;
+  }
+  html += `</div></div>`;
+
+  // Tab: 代码示例
+  if (s.code) {
+    html += `<div class="tab-content" id="tab-code"><pre><code>${escapeHtml(s.code)}</code></pre></div>`;
+  }
+
+  // Tab: 计算公式
+  if (s.formulas && s.formulas.length>0) {
+    html += `<div class="tab-content" id="tab-formula">`;
+    s.formulas.forEach(f=>{
+      html += `<div class="formula-box">
+        <div class="formula-label">${f.name}</div>
+        <div style="font-size:1.1em;margin:6px 0">${f.expr}</div>
+        ${f.note?`<div style="font-size:0.85em;color:var(--text-dim);margin-top:6px">📌 ${f.note}</div>`:''}
+      </div>`;
+    });
+    html += `</div>`;
+  }
+
+  // Tab: API接入
+  if (s.api || (s.cmd&&s.cmd.includes('api'))) {
+    html += `<div class="tab-content" id="tab-api">`;
+    if (s.api) {
+      html += `<div class="info-box">
+        <strong>🔗 服务地址：</strong><code>${s.api}</code>
+      </div>`;
+    }
+    html += `<p style="margin-top:12px">通过 <code>lh</code> 命令统一调用，或直接HTTP请求对应端口。</p>`;
+    html += `<pre><code># 示例：调用API
+curl -X GET http://127.0.0.1:PORT/api/endpoint</code></pre>`;
+    html += `</div>`;
+  }
+
+  // Related skills
+  const related = SKILLS.filter(r=>r.cat===s.cat&&r.id!==s.id).slice(0,5);
+  if (related.length>0) {
+    html += `<div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--border)">
+      <div style="font-weight:600;color:var(--gold);margin-bottom:8px">📂 同分类其他技能：</div>
+      <div class="tag-cloud">`;
+    related.forEach(r=>html+=`<span class="tag" onclick="navigate('skill/${r.id}')">${r.name}</span>`);
+    html += `</div></div>`;
+  }
+
+  mc.innerHTML = html;
+}
+
+// ── CATEGORY ──
+function renderCategory(mc, cat) {
+  const items = cat==='all' ? SKILLS : SKILLS.filter(s=>s.cat===cat);
+  let html = `<h2 style="color:var(--gold);margin-bottom:4px">${cat==='all'?'全部分类':cat}</h2>
+    <p style="color:var(--text-dim);margin-bottom:16px">共 ${items.length} 个技能/引擎</p>
+    <div class="cards-grid">`;
+  items.forEach(s=>{
+    const hasF = s.formulas&&s.formulas.length>0;
+    const hasA = !!s.api;
+    html += `<div class="card" onclick="navigate('skill/${s.id}')">
+      <span class="card-cat">${s.cat}</span>
+      <div class="card-title">${s.name}</div>
+      <div class="card-desc">${s.desc.substring(0,100)}…</div>
+      <div class="card-meta">
+        ${hasF?'<span class="badge badge-yellow">含公式</span>':''}
+        ${hasA?'<span class="badge badge-blue">有API</span>':''}
+      </div>
+    </div>`;
+  });
+  html += `</div>`;
+  mc.innerHTML = html;
+}
+
+// ── API PAGE ──
+function renderAPI(mc) {
+  const cats = [...new Set(API_ENDPOINTS.map(a=>a.cat))];
+  let html = `<h2 style="color:var(--gold)">🔌 API 接口文档</h2>
+    <p style="color:var(--text-dim);margin-bottom:16px">共 ${API_ENDPOINTS.length} 个API端点·${cats.length} 个分类</p>`;
+
+  cats.forEach(cat=>{
+    const eps = API_ENDPOINTS.filter(a=>a.cat===cat);
+    html += `<div class="section-title">${cat} (${eps.length})</div>`;
+    html += `<table class="api-table">
+      <thead><tr><th>方法</th><th>端点</th><th>说明</th><th>端口</th><th>主机</th></tr></thead><tbody>`;
+    eps.forEach(a=>{
+      html += `<tr>
+        <td class="method ${a.method.toLowerCase()}">${a.method}</td>
+        <td><code>${a.path}</code></td>
+        <td>${a.desc}</td>
+        <td>${a.port}</td>
+        <td><code>${a.host}</code></td>
+      </tr>`;
+    });
+    html += `</tbody></table>`;
+  });
+
+  html += `<div class="info-box" style="margin-top:20px">
+    <strong>📌 调用说明：</strong>
+    所有内部API通过 <code>https://uid9622.cn/api/...</code> 经由Nginx反向代理访问（公网），
+    或直接 <code>127.0.0.1:PORT</code> 访问（鲲鹏本地）。外网不可直连本地端口。
+  </div>`;
+
+  mc.innerHTML = html;
+}
+
+// ── SEARCH ──
+function renderSearch(mc, q) {
+  const lower = q.toLowerCase();
+  const results = SKILLS.filter(s=>
+    s.name.toLowerCase().includes(lower) ||
+    s.desc.toLowerCase().includes(lower) ||
+    s.tags.some(t=>t.toLowerCase().includes(lower)) ||
+    s.cat.toLowerCase().includes(lower) ||
+    (s.cmd||'').toLowerCase().includes(lower)
+  );
+
+  let html = `<h2 style="color:var(--gold)">🔍 搜索: "${q}"</h2>
+    <p style="color:var(--text-dim);margin-bottom:16px">找到 ${results.length} 个结果</p>`;
+
+  if (results.length===0) {
+    html += `<div class="empty"><div class="icon">🔍</div>未找到匹配的技能/引擎</div>`;
+  } else {
+    html += `<div class="cards-grid">`;
+    results.forEach(s=>{
+      // Highlight match in desc
+      let desc = s.desc;
+      if (lower.length>0) {
+        const re = new RegExp(`(${escapeRegex(lower)})`,'gi');
+        desc = desc.replace(re, '<mark style="background:var(--gold);color:#000;padding:0 2px">$1</mark>');
+      }
+      html += `<div class="card" onclick="navigate('skill/${s.id}')">
+        <span class="card-cat">${s.cat}</span>
+        <div class="card-title">${s.name}</div>
+        <div class="card-desc">${desc.substring(0,120)}…</div>
+        <div class="card-meta">${s.tags.map(t=>`<span class="badge badge-blue">${t}</span>`).join('')}</div>
+      </div>`;
+    });
+    html += `</div>`;
+  }
+  mc.innerHTML = html;
+}
+
+// ── Helpers ──
+function switchTab(btn, tabId, skillId) {
+  const parent = btn.parentElement.parentElement;
+  parent.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  parent.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  const tab = document.getElementById(tabId);
+  if (tab) tab.classList.add('active');
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function escapeRegex(s) { return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+
+// ── Init ──
+function init() {
+  const initHash = window.location.hash.replace('#','') || 'home';
+  currentRoute = initHash;
+  if (initHash==='home'){currentSkillId=null;currentCat='all';}
+  else if (initHash.startsWith('skill/')) currentSkillId=initHash.replace('skill/','');
+  else if (initHash.startsWith('category/')) currentCat=initHash.replace('category/','');
+  render();
+}
+window.addEventListener('DOMContentLoaded', init);
+</script>
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

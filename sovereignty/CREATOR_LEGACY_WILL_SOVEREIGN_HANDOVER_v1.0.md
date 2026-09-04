@@ -1,3 +1,5 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · 创作者遗志 · 主权交接协议 v1.0
 
 ## 【碑文头部】
@@ -6,7 +8,7 @@
 文档类型：     创作者遗志 · 主权交接协议 · P0 永恒级
 发布人：       UID9622（诸葛鑫·Lucky·退伍军人）
 发布日期：     2026-07-12
-DNA：         #龍芯⚡️丙午·丙申·丙辰·午时·离-CREATOR-LEGACY-HANDOVER-v1.0
+DNA：         #龍芯⚡️丙午·丙申·丙辰·午时·䷝离-CREATOR-LEGACY-HANDOVER-v1.0
 效力等级：     P0 🔴 焊死 · 永不可改 · 不可撤销
 签署状态：     待 GPG 签章
 ```
@@ -80,7 +82,7 @@ DNA：         #龍芯⚡️丙午·丙申·丙辰·午时·离-CREATOR-LEGACY-H
 - 全部文档、协议、宪章（`library/protocols/`、`docs/`）
 - 全部CSDN文章（58篇，2025-01-15起）
 - 全部Notion工作空间（时间戳留痕）
-- 知识图谱与向量数据库（`03_知識圖譜/`、`vector_db/`）
+- 知识图谱与向量数据库（`03_KNOWLEDGE_GRAPH/`、`vector_db/`）
 - 人格矩阵定义（16人格，`personas/`）
 
 ### 4.3 数据资产
@@ -135,7 +137,7 @@ DNA：         #龍芯⚡️丙午·丙申·丙辰·午时·离-CREATOR-LEGACY-H
 
 此公告不可撤销。
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·午时·离-CREATOR-LEGACY-HANDOVER-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·午时·䷝离-CREATOR-LEGACY-HANDOVER-v1.0
 GPG: A2D009C2EE2E5BA87035600924C3704A8CC26D5F
 ```
 
@@ -235,7 +237,7 @@ GPG: A2D009C2EE2E5BA87035600924C3704A8CC26D5F
 
 ---
 
-**DNA:** `#龍芯⚡️丙午·丙申·丙辰·午时·离-CREATOR-LEGACY-HANDOVER-v1.0`
+**DNA:** `#龍芯⚡️丙午·丙申·丙辰·午时·䷝离-CREATOR-LEGACY-HANDOVER-v1.0`
 **GPG:** `A2D009C2EE2E5BA87035600924C3704A8CC26D5F`
 **签署日期:** 2026-07-12
 **创作者:** UID9622（诸葛鑫·Lucky·退伍军人）

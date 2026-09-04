@@ -1,5 +1,8 @@
+#!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 #
-# DNA: #龍芯⚡️2026-07-21-迁移-install_brain-v1.0
+# DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-迁移-install_brain-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 # 来源: 龍魂待整理/05-AI人格-Agent/files/install_brain.sh
@@ -82,7 +85,7 @@ echo "[✓] 本地 search 测试 (搜 'CLAUDE.md'):"
 bash "$REPO_ROOT/bin/本地_search.sh" "CLAUDE.md" 2>/dev/null | head -10
 
 # 字符律
-SIMP=$(grep -c "龙" "$REPO_ROOT/CLAUDE.md" 2>/dev/null)
+SIMP=$(grep -c "龍" "$REPO_ROOT/CLAUDE.md" 2>/dev/null)
 SIMP="${SIMP:-0}"
 if [ "$SIMP" -eq 0 ]; then
     echo "[✓] 龍字符律守住·无简体污染"

@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂万年历字体构建脚本
-DNA: #龍芯⚡️2026-06-27-LONGHUN-CALENDAR-FONT-BUILD-v1.0
+DNA: #龍芯⚡️丙午·甲午·壬申·丙午·䷙大畜-LONGHUN-CALENDAR-FONT-BUILD-v1.0
 
 原始 LonghunFont-Regular.otf 为品牌占位字体（不含完整 CJK 字形），
 本脚本基于 SIL OFL 1.1 授权的 Noto Sans SC 生成带 LonghunFont 品牌名的

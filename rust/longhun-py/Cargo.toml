@@ -1,0 +1,19 @@
+# DNA: #龍芯⚡️丙午·丙申·壬子·子时·䷕贲-RUST-PYTHON-BINDINGS-v1.0-UID9622
+# 创建者: 诸葛鑫（UID9622）
+# 协议: MulanPSL v2 (工程层)
+
+[package]
+name = "longhun-py"
+version = "0.1.0"
+edition = "2021"
+description = "龍魂Rust内核 Python绑定 · PyO3 FFI · 跨平台"
+authors = ["诸葛鑫（UID9622）"]
+license = "MulanPSL-2.0"
+
+[lib]
+name = "longhun_core"
+crate-type = ["cdylib"]
+
+[dependencies]
+lhcore = { package = "longhun-core", path = "../longhun-core" }
+pyo3 = { version = "0.29", features = ["extension-module"] }

@@ -1,0 +1,1 @@
+/Users/zuimeidedeyihan/longhun-system/bin/personas/p02_baobao.py

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+🐉 龍魂 · 小艺技能接入配置 v1.0
+DNA: #龍芯⚡️丙午·丙酉·丙寅·申时-XIAOYI-SKILL-v1.0-UID9622
+确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+三色: 🟢 通过
+
+说明：
+  1. 本文件为华为小艺语音助手接入龍魂主权网关的示例配置。
+  2. 实际发布需按华为快服务/小艺技能平台要求转换为平台接受的 JSON/DSL。
+  3. 所有后端调用必须经过主权网关，绝不允许直连鲲鹏。
+-->
+<skill>
+  <basic>
+    <name>龙魂助手</name>
+    <version>1.0.0</version>
+    <description>通过龍魂主权网关访问鲲鹏服务器能力，服务 UID9622。</description>
+    <icon>longhun_icon.png</icon>
+    <author>UID9622</author>
+    <min_platform_version>4.0</min_platform_version>
+  </basic>
+
+  <intents>
+    <!-- 记忆查询 -->
+    <intent name="QueryMemory" confidence="0.8">
+      <utterance>查询我的记忆</utterance>
+      <utterance>我的记忆是什么</utterance>
+      <utterance>龙魂记忆</utterance>
+      <utterance>回忆一下</utterance>
+      <parameter name="query" required="false" type="string"/>
+      <action>queryMemory</action>
+    </intent>
+
+    <!-- 命令执行 -->
+    <intent name="ExecuteCommand" confidence="0.7">
+      <utterance>帮我执行 [command]</utterance>
+      <utterance>运行 [command]</utterance>
+      <utterance>执行 [command]</utterance>
+      <parameter name="command" required="true" type="string"/>
+      <action>executeCommand</action>
+    </intent>
+
+    <!-- CNSH 代码 -->
+    <intent name="CNSHEdit" confidence="0.7">
+      <utterance>写 [description] 代码</utterance>
+      <utterance>生成 [description] 脚本</utterance>
+      <utterance>用 CNSH 写 [description]</utterance>
+      <parameter name="description" required="true" type="string"/>
+      <action>cnshedit</action>
+    </intent>
+
+    <!-- 网关状态 -->
+    <intent name="GatewayStatus" confidence="0.9">
+      <utterance>龙魂状态</utterance>
+      <utterance>网关状态</utterance>
+      <utterance>系统状态</utterance>
+      <action>gatewayStatus</action>
+    </intent>
+  </intents>
+
+  <action_handler>
+    <!-- 会话启动：小艺首次调用时必须先获取 session_id -->
+    <action name="startSession" method="POST">
+      <endpoint>${GATEWAY_HOST}/api/xiaoyi/session/start</endpoint>
+      <headers>
+        <header name="Content-Type">application/json</header>
+        <header name="X-Dragon-DNA">${DRAGON_DNA}</header>
+        <header name="X-Proxy-ID">xiaoyi</header>
+      </headers>
+      <body>{"user_id":"UID9622"}</body>
+      <response_mapping>
+        <field name="session_id" path="$.session_id"/>
+        <field name="expires_in" path="$.expires_in"/>
+      </response_mapping>
+    </action>
+
+    <!-- 查询记忆：转发到记忆服务 -->
+    <action name="queryMemory" method="POST">
+      <endpoint>${GATEWAY_HOST}/api/proxy/memory</endpoint>
+      <headers>
+        <header name="Content-Type">application/json</header>
+        <header name="X-Dragon-DNA">${DRAGON_DNA}</header>
+        <header name="X-Proxy-ID">xiaoyi</header>
+        <header name="X-Xiaoyi-Session">${XIAOYI_SESSION}</header>
+        <header name="X-Dragon-Signature">${GPG_SIGNATURE}</header>
+      </headers>
+      <body>{"query":"${query}"}</body>
+    </action>
+
+    <!-- 执行命令：转发到任务编排服务 -->
+    <action name="executeCommand" method="POST">
+      <endpoint>${GATEWAY_HOST}/api/proxy/task</endpoint>
+      <headers>
+        <header name="Content-Type">application/json</header>
+        <header name="X-Dragon-DNA">${DRAGON_DNA}</header>
+        <header name="X-Proxy-ID">xiaoyi</header>
+        <header name="X-Xiaoyi-Session">${XIAOYI_SESSION}</header>
+        <header name="X-Dragon-Signature">${GPG_SIGNATURE}</header>
+      </headers>
+      <body>{"command":"${command}"}</body>
+    </action>
+
+    <!-- CNSH 代码生成：转发到 CNSH 编辑器服务 -->
+    <action name="cnshedit" method="POST">
+      <endpoint>${GATEWAY_HOST}/api/proxy/cnsheditor</endpoint>
+      <headers>
+        <header name="Content-Type">application/json</header>
+        <header name="X-Dragon-DNA">${DRAGON_DNA}</header>
+        <header name="X-Proxy-ID">xiaoyi</header>
+        <header name="X-Xiaoyi-Session">${XIAOYI_SESSION}</header>
+        <header name="X-Dragon-Signature">${GPG_SIGNATURE}</header>
+      </headers>
+      <body>{"description":"${description}"}</body>
+    </action>
+
+    <!-- 网关状态：直接访问状态端点 -->
+    <action name="gatewayStatus" method="GET">
+      <endpoint>${GATEWAY_HOST}/api/sovereign/status</endpoint>
+      <headers>
+        <header name="X-Dragon-DNA">${DRAGON_DNA}</header>
+        <header name="X-Proxy-ID">xiaoyi</header>
+        <header name="X-Xiaoyi-Session">${XIAOYI_SESSION}</header>
+        <header name="X-Dragon-Signature">${GPG_SIGNATURE}</header>
+      </headers>
+    </action>
+  </action_handler>
+
+  <auth>
+    <type>dna-gpg-hmac</type>
+    <dna>${DRAGON_DNA}</dna>
+    <signature_method>hmac-sha256</signature_method>
+    <signature_key_env>LONGHUN_CONFIRM_KEY</signature_key_env>
+    <note>真实 GPG 环境优先使用 gpg --verify；环境不可用时回退到 HMAC-SHA256(CONFIRM, payload)。</note>
+  </auth>
+
+  <backend>
+    <gateway_host>http://119.13.90.27:8766</gateway_host>
+    <timeout_seconds>30</timeout_seconds>
+    <retry_policy>
+      <max_retries>3</max_retries>
+      <retry_interval_ms>1000</retry_interval_ms>
+    </retry_policy>
+  </backend>
+
+  <sovereign>
+    <owner>UID9622</owner>
+    <owner_name>诸葛鑫</owner_name>
+    <device>鲲鹏服务器</device>
+    <data_residency>中国境内</data_residency>
+    <no_direct_access>true</no_direct_access>
+  </sovereign>
+</skill>

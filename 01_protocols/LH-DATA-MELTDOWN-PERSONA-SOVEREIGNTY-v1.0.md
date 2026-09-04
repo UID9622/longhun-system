@@ -1,6 +1,10 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂数据熔断 · 人格主权协议 v1.0
 
-> DNA: `#龍芯⚡️丙午·丙申·丙辰·己丑·需-DATA-MELTDOWN-PERSONA-SOVEREIGNTY-v1.0`
+> DNA: `#龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-DATA-MELTDOWN-PERSONA-SOVEREIGNTY-v1.0`
 > 密级: L1 底座层 · 熔断机制核心组件
 > 来源: UID9622 /投喂 · 外部AI建议吸收后龍魂优化完善
 > 状态: 🟢 底座焊死

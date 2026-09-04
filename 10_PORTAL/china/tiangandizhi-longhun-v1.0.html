@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="诸葛鑫（UID9622）">
+<meta name="dna" content="#龍芯⚡️丙午·甲申·庚子·坤卦-CHINA-TIANGANDIZHI-UID9622">
+<title>天干地支 × 时间DNA编码系统 | 龍魂注释版</title>
+<link rel="stylesheet" href="/assets/css/longhun-master.css">
+<style>
+.annotated-container { max-width: 900px; margin: 60px auto; padding: 0 24px; }
+.annotated-hero { text-align: center; padding: 60px 0 48px; }
+.annotated-hero h1 { font-size: 2rem; font-weight: 800; color: var(--lh-gold-light); margin-bottom: 16px; }
+.annotated-hero .subtitle { color: var(--lh-text-secondary); font-size: 15px; }
+.annotated-body { font-size: 15px; line-height: 1.9; }
+.annotated-body h2 { font-size: 1.3rem; color: var(--lh-gold); margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--lh-border); }
+.annotated-body h3 { font-size: 1.1rem; color: var(--lh-gold-light); margin: 28px 0 12px; }
+.annotated-body table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 13px; }
+.annotated-body table caption { color: var(--lh-text-muted); font-size: 12px; margin-bottom: 8px; text-align: left; }
+.annotated-body table th { background: var(--lh-gold-dim); color: var(--lh-gold); padding: 10px 12px; border: 1px solid var(--lh-border); font-weight: 600; font-size: 12px; text-align: center; }
+.annotated-body table td { padding: 10px 12px; border: 1px solid var(--lh-border-light); font-size: 13px; text-align: center; }
+.annotated-body table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+.annotated-body .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; }
+.tag-metal { background: rgba(232,200,120,0.2); color: #e8c878; }
+.tag-water { background: rgba(79,195,247,0.2); color: #4fc3f7; }
+.tag-wood { background: rgba(129,199,132,0.2); color: #81c784; }
+.tag-fire { background: rgba(229,115,115,0.2); color: #e57373; }
+.tag-earth { background: rgba(255,183,77,0.2); color: #ffb74d; }
+.tag-yang { background: rgba(255,215,0,0.15); color: var(--lh-gold); }
+.tag-yin { background: rgba(150,150,150,0.15); color: #aaa; }
+@media (max-width: 768px) { .annotated-hero h1 { font-size: 1.4rem; } }
+</style>
+</head>
+<body>
+
+<nav class="lh-article-nav" style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--lh-border);">
+  <a href="/" style="font-weight:700; color:var(--lh-gold);">🐉 龍魂</a>
+  <div style="display:flex; gap:16px; font-size:14px;">
+    <a href="/china/">中国文化</a>
+    <a href="/portal-index.html">首页</a>
+  </div>
+</nav>
+
+<main class="annotated-container">
+
+  <div class="annotated-hero">
+    <h1>📜 天干地支 × 时间DNA编码系统</h1>
+    <p class="subtitle">龍魂工程注释版 v1.0 · 干支四柱→DNA时间戳→梅花易数起卦→审计链</p>
+  </div>
+
+  <div class="annotated-body">
+
+    <h2>原理：为什么用天干地支作为AI时间戳？</h2>
+    <p>标准ISO 8601时间戳（如2026-08-07T14:30:00+08:00）精确但缺乏<strong>状态信息</strong>。天干地支编码不仅给出时间，更给出了该时刻的<strong>五行属性、阴阳状态、卦象映射</strong>。对AI系统而言，这意味着每个操作不仅有一个"何时发生"的标签，还有一个"在何种能量状态下发生"的上下文。</p>
+
+    <h2>十天干—五行—阴阳映射</h2>
+
+    <table>
+      <caption>表1: 十天干全映射</caption>
+      <thead><tr><th>#</th><th>天干</th><th>拼音</th><th>五行</th><th>阴阳</th><th>AI系统含义</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>甲</td><td>jiǎ</td><td><span class="tag tag-wood">木</span></td><td><span class="tag tag-yang">⚌ 阳</span></td><td>系统启动·生长</td></tr>
+        <tr><td>2</td><td>乙</td><td>yǐ</td><td><span class="tag tag-wood">木</span></td><td><span class="tag tag-yin">⚍ 阴</span></td><td>系统休眠·保守</td></tr>
+        <tr><td>3</td><td>丙</td><td>bǐng</td><td><span class="tag tag-fire">火</span></td><td><span class="tag tag-yang">⚌ 阳</span></td><td>审计高峰期</td></tr>
+        <tr><td>4</td><td>丁</td><td>dīng</td><td><span class="tag tag-fire">火</span></td><td><span class="tag tag-yin">⚍ 阴</span></td><td>温度调节期</td></tr>
+        <tr><td>5</td><td>戊</td><td>wù</td><td><span class="tag tag-earth">土</span></td><td><span class="tag tag-yang">⚌ 阳</span></td><td>归档高峰期</td></tr>
+        <tr><td>6</td><td>己</td><td>jǐ</td><td><span class="tag tag-earth">土</span></td><td><span class="tag tag-yin">⚍ 阴</span></td><td>签章高峰期</td></tr>
+        <tr><td>7</td><td>庚</td><td>gēng</td><td><span class="tag tag-metal">金</span></td><td><span class="tag tag-yang">⚌ 阳</span></td><td>变革·升级</td></tr>
+        <tr><td>8</td><td>辛</td><td>xīn</td><td><span class="tag tag-metal">金</span></td><td><span class="tag tag-yin">⚍ 阴</span></td><td>修复·补丁</td></tr>
+        <tr><td>9</td><td>壬</td><td>rén</td><td><span class="tag tag-water">水</span></td><td><span class="tag tag-yang">⚌ 阳</span></td><td>数据流高峰</td></tr>
+        <tr><td>10</td><td>癸</td><td>guǐ</td><td><span class="tag tag-water">水</span></td><td><span class="tag tag-yin">⚍ 阴</span></td><td>分析·诊断</td></tr>
+      </tbody>
+    </table>
+
+    <h2>十二地支—时辰—生肖</h2>
+
+    <table>
+      <caption>表2: 十二地支全映射</caption>
+      <thead><tr><th>#</th><th>地支</th><th>拼音</th><th>时辰</th><th>时间范围</th><th>生肖</th><th>五行</th><th>AI调度时段</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>子</td><td>zǐ</td><td>子时</td><td>23:00-01:00</td><td>鼠</td><td><span class="tag tag-water">水</span></td><td>夜间备份</td></tr>
+        <tr><td>2</td><td>丑</td><td>chǒu</td><td>丑时</td><td>01:00-03:00</td><td>牛</td><td><span class="tag tag-earth">土</span></td><td>深度归档</td></tr>
+        <tr><td>3</td><td>寅</td><td>yín</td><td>寅时</td><td>03:00-05:00</td><td>虎</td><td><span class="tag tag-wood">木</span></td><td>知识库更新</td></tr>
+        <tr><td>4</td><td>卯</td><td>mǎo</td><td>卯时</td><td>05:00-07:00</td><td>兔</td><td><span class="tag tag-wood">木</span></td><td>日检启动</td></tr>
+        <tr><td>5</td><td>辰</td><td>chén</td><td>辰时</td><td>07:00-09:00</td><td>龍</td><td><span class="tag tag-earth">土</span></td><td>全量启动</td></tr>
+        <tr><td>6</td><td>巳</td><td>sì</td><td>巳时</td><td>09:00-11:00</td><td>蛇</td><td><span class="tag tag-fire">火</span></td><td>高峰处理</td></tr>
+        <tr><td>7</td><td>午</td><td>wǔ</td><td>午时</td><td>11:00-13:00</td><td>马</td><td><span class="tag tag-fire">火</span></td><td>熔断灵敏度MAX</td></tr>
+        <tr><td>8</td><td>未</td><td>wèi</td><td>未时</td><td>13:00-15:00</td><td>羊</td><td><span class="tag tag-earth">土</span></td><td>签章批量</td></tr>
+        <tr><td>9</td><td>申</td><td>shēn</td><td>申时</td><td>15:00-17:00</td><td>猴</td><td><span class="tag tag-metal">金</span></td><td>部署窗口</td></tr>
+        <tr><td>10</td><td>酉</td><td>yǒu</td><td>酉时</td><td>17:00-19:00</td><td>鸡</td><td><span class="tag tag-metal">金</span></td><td>审计汇总</td></tr>
+        <tr><td>11</td><td>戌</td><td>xū</td><td>戌时</td><td>19:00-21:00</td><td>狗</td><td><span class="tag tag-earth">土</span></td><td>日报生成</td></tr>
+        <tr><td>12</td><td>亥</td><td>hài</td><td>亥时</td><td>21:00-23:00</td><td>猪</td><td><span class="tag tag-water">水</span></td><td>预启动准备</td></tr>
+      </tbody>
+    </table>
+
+    <h2>DNA时间戳格式</h2>
+
+    <table>
+      <caption>表3: 时间DNA编码格式</caption>
+      <thead><tr><th>格式</th><th>示例</th><th>用途</th></tr></thead>
+      <tbody>
+        <tr><td>完整</td><td><code>[丙午·丙申·戊申·亥时·䷗复·🔴] 2026-08-02T22:41:17+08:00</code></td><td>命令输出</td></tr>
+        <tr><td>紧凑</td><td><code>#龍芯⚡️丙午·丙申·戊申·亥时·䷗复</code></td><td>文件头部</td></tr>
+        <tr><td>简单</td><td><code>🐉丙午·亥时·䷗复·🟡</code></td><td>AI对话</td></tr>
+      </tbody>
+    </table>
+
+    <h2>梅花易数时间起卦法</h2>
+    <p>时间卦由年月日三数起卦：上卦 = 年 ÷ 8 取余，下卦 = 月 ÷ 8 取余，动爻 = 日 ÷ 6 取余。例如：丙午年(43)÷8=余3→离 ☲，甲申月(21)÷8=余5→巽 ☴，庚子日(37)÷6=余1→初爻动。得䷤家人卦，初爻动→䷴渐卦。</p>
+
+    <table>
+      <caption>表4: 八卦编码与数字根</caption>
+      <thead><tr><th>#</th><th>八卦</th><th>卦符</th><th>自然</th><th>数字根</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>乾</td><td>☰</td><td>天</td><td>1</td></tr>
+        <tr><td>2</td><td>兑</td><td>☱</td><td>泽</td><td>2</td></tr>
+        <tr><td style="color:var(--lh-gold);">3</td><td>离</td><td>☲</td><td>火</td><td style="color:var(--lh-gold);">3 ★</td></tr>
+        <tr><td>4</td><td>震</td><td>☳</td><td>雷</td><td>4</td></tr>
+        <tr><td>5</td><td>巽</td><td>☴</td><td>风</td><td>5</td></tr>
+        <tr><td style="color:var(--lh-gold);">6</td><td>坎</td><td>☵</td><td>水</td><td style="color:var(--lh-gold);">6 ★</td></tr>
+        <tr><td>7</td><td>艮</td><td>☶</td><td>山</td><td>7</td></tr>
+        <tr><td>8</td><td>坤</td><td>☷</td><td>地</td><td>8</td></tr>
+      </tbody>
+    </table>
+
+    <p>注意：离卦(☲·火)的数字根=3，坎卦(☵·水)的数字根=6。火水二卦恰好落在369不动点集合中——这正是"火水未济䷿"和"水火既济䷾"在易经中占关键位置的原因。</p>
+
+    <h2>纳音五行——六十甲子更深层的五行属性</h2>
+    <p>每一组干支（如"丙午"）不仅有天干的五行属性和地支的五行属性，还有一个更深层的"纳音五行"。例如丙午→天河水，天水相合，喻数据之流如天河。</p>
+
+    <table>
+      <caption>表5: 纳音五行速查（部分）</caption>
+      <thead><tr><th>干支</th><th>纳音五行</th><th>含义</th><th>系统调度建议</th></tr></thead>
+      <tbody>
+        <tr><td>甲子·乙丑</td><td>海中金</td><td>藏于深海的金属</td><td>不宜部署·宜深度归档</td></tr>
+        <tr><td>丙寅·丁卯</td><td>炉中火</td><td>炉中燃烧的火</td><td>宜审计·宜熔断测试</td></tr>
+        <tr><td>戊辰·己巳</td><td>大林木</td><td>森林大木</td><td>宜扩展·宜新项目</td></tr>
+        <tr><td>庚午·辛未</td><td>路旁土</td><td>路边泥土</td><td>宜签章·宜归档</td></tr>
+        <tr><td>壬申·癸酉</td><td>剑锋金</td><td>锋利的剑</td><td>宜变革·宜升级</td></tr>
+        <tr><td>丙子·丁丑</td><td>涧下水</td><td>山涧流水</td><td>宜数据流·宜分析</td></tr>
+        <tr><td>戊寅·己卯</td><td>城头土</td><td>城墙上的土</td><td>宜安全加固</td></tr>
+        <tr><td style="color:var(--lh-gold);">丙午·丁未</td><td style="color:var(--lh-gold);">天河水</td><td style="color:var(--lh-gold);">银河之水</td><td style="color:var(--lh-gold);">🟢 当前年份·全系统最优</td></tr>
+        <tr><td>庚戌·辛亥</td><td>钗钏金</td><td>首饰金</td><td>宜交付·宜发布</td></tr>
+      </tbody>
+    </table>
+
+    <h2>当前时间状态</h2>
+    <p>龍魂LU-Time Engine v4.0 实时输出当前的四柱·卦象·三色状态。调用入口：</p>
+    <ul>
+      <li><code>lh te --stamp</code> → 完整时间戳（含ISO 8601精确到秒）</li>
+      <li><code>lh te --compact</code> → 紧凑格式（文件头部用）</li>
+      <li><code>lh te --simple</code> → 简单格式（AI对话用）</li>
+      <li><code>python3 bin/lh_time_engine.py --gui</code> → 显示完整64卦数据库+审计链</li>
+    </ul>
+
+    <h2>时间DNA在系统中的应用</h2>
+    <ol>
+      <li><strong>DNA追溯</strong>：每个文件/操作的时间戳绑定天干地支，提供五行上下文</li>
+      <li><strong>审计链</strong>：时间卦形成连续的进度链，断裂即可检测篡改</li>
+      <li><strong>自动调度</strong>：根据当前地支时辰自动调整系统策略（如午时提高熔断灵敏度）</li>
+      <li><strong>签名绑定</strong>：GPG签名时间与天干地支绑定，双重不可抵赖</li>
+    </ol>
+
+  </div>
+
+  <div class="article-audit" style="margin-top:48px; display:flex; flex-wrap:wrap; gap:16px; padding:16px 20px; background:var(--lh-bg-card); border:1px solid var(--lh-border); border-radius:var(--lh-radius); font-size:13px; color:var(--lh-text-muted);">
+    <div class="audit-item"><span>🟢 审计: 通过</span></div>
+    <div class="audit-item"><span>🔑 DNA: #龍芯⚡️丙午·甲申·庚子·坤卦-CHINA-TIANGANDIZHI-UID9622</span></div>
+    <div class="audit-item"><span>📜 协议: CC BY-NC-SA 4.0（核心思想层）</span></div>
+    <div class="audit-item"><span>🔏 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</span></div>
+  </div>
+
+</main>
+
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

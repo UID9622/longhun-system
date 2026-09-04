@@ -1,0 +1,397 @@
+<!--
+  DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-APP-SQUARE-v1.0-UID9622
+  创建者: 诸葛鑫（UID9622）
+  License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+  说明: 龍魂官网应用广场·全站清爽导航·分组卡片+即时搜索
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="longxin">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="龍魂系统应用广场 - 全站导航索引。核心平台·审计安全·知识中枢·论文文章·可视化流场·工具箱·文化宣言">
+<meta name="keywords" content="龍魂,应用广场,导航,工具箱,AI,数字主权,UID9622">
+<meta property="og:title" content="龍魂系统 · 应用广场">
+<meta property="og:description" content="全站清爽导航·70+ 应用一键直达">
+<meta property="og:type" content="website">
+<title>龍魂系统 · 应用广场</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/apps/brand/favicon-512.png">
+<link rel="icon" type="image/svg+xml" href="/apps/brand/longhun-logo.svg">
+<style>
+:root{
+  --bg:#0a0a14;--bg2:#111121;--bg3:#181830;--card:#141426;
+  --gold:#d4a574;--gold-light:#edd5b8;--gold-dim:rgba(212,165,116,.10);
+  --text:#e8dcc8;--text-dim:#a09080;--text-faint:#7a6f60;
+  --border:rgba(212,165,116,.14);--radius:14px;
+  --accent:#d4a574;--accent-dim:rgba(212,165,116,.08);
+  --green:#27ae60;--red:#c0392b;--blue:#60a5fa;--purple:#a78bfa;
+  --shadow:0 10px 30px rgba(0,0,0,.35);--glow:0 0 22px rgba(212,165,116,.15);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:
+  radial-gradient(1200px 600px at 80% -10%,rgba(212,165,116,.06),transparent),
+  radial-gradient(900px 500px at 0% 0%,rgba(167,139,250,.05),transparent),
+  var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+a{color:inherit;text-decoration:none}
+.container{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* ===== 顶栏 ===== */
+.topbar{position:sticky;top:0;z-index:100;background:rgba(10,10,20,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.topbar-inner{display:flex;align-items:center;gap:18px;height:62px}
+.logo{font-size:17px;font-weight:800;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.logo .brand{color:var(--gold);text-shadow:0 0 14px var(--gold-dim)}
+.logo small{font-size:11px;color:var(--text-faint);font-weight:400}
+.search-box{flex:1;max-width:440px;margin-left:auto;position:relative}
+.search-box input{width:100%;height:38px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:0 14px 0 38px;color:var(--text);font-size:13px;outline:none;transition:.2s}
+.search-box input::placeholder{color:var(--text-faint)}
+.search-box input:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-dim)}
+.search-box .icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-faint);font-size:15px}
+.btn-home{display:flex;align-items:center;gap:6px;background:var(--gold-dim);border:1px solid var(--border);color:var(--gold);padding:7px 16px;border-radius:10px;font-size:13px;font-weight:600;white-space:nowrap;transition:.2s}
+.btn-home:hover{background:var(--gold);color:var(--bg);box-shadow:var(--glow)}
+
+/* ===== Hero ===== */
+.hero{padding:52px 0 30px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:12px;color:var(--text-dim);margin-bottom:14px}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green)}
+.hero h1{font-size:32px;font-weight:900;letter-spacing:1px;color:var(--gold);text-shadow:0 0 24px var(--gold-dim)}
+.hero h1 span{color:var(--text)}
+.hero p{color:var(--text-dim);font-size:14px;margin-top:10px}
+.count-stats{display:flex;gap:26px;justify-content:center;margin-top:18px;font-size:12px;color:var(--text-dim)}
+.count-stats b{color:var(--gold);font-size:18px;display:block}
+
+/* ===== 分组 ===== */
+.group{margin-top:34px}
+.group-head{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.group-head .g-ico{width:34px;height:34px;border-radius:10px;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:17px}
+.group-head h2{font-size:17px;font-weight:800}
+.group-head small{color:var(--text-faint);font-size:12px;font-weight:400;margin-left:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:12px}
+.card{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;transition:.2s;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);opacity:0;transition:.2s}
+.card:hover{transform:translateY(-3px);border-color:rgba(212,165,116,.45);box-shadow:var(--shadow)}
+.card:hover::before{opacity:1}
+.card .ico{width:42px;height:42px;flex-shrink:0;border-radius:11px;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:21px}
+.card .meta{min-width:0}
+.card .t{font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .d{font-size:11.5px;color:var(--text-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+.card .arrow{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--text-faint);font-size:13px;opacity:0;transition:.2s}
+.card:hover .arrow{opacity:1;color:var(--gold)}
+
+/* 产品档案解说角标（JS 注入·避免嵌套链接） */
+.profile-wrap{position:relative}
+.profile-link{position:absolute;right:8px;top:8px;width:26px;height:26px;border-radius:8px;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;opacity:0;transition:.2s;z-index:2}
+.card:hover ~ .profile-link,.profile-link:hover{opacity:1;border-color:var(--gold);box-shadow:var(--glow)}
+.btn-profiles{display:inline-flex;align-items:center;gap:6px;background:var(--gold-dim);border:1px solid var(--border);color:var(--gold);padding:7px 16px;border-radius:10px;font-size:13px;font-weight:600;margin-top:16px;transition:.2s}
+.btn-profiles:hover{background:var(--gold);color:var(--bg);box-shadow:var(--glow)}
+
+/* 空结果 */
+.empty{display:none;text-align:center;padding:60px 0;color:var(--text-faint)}
+.empty .big{font-size:42px;margin-bottom:10px}
+
+/* 页脚 */
+.foot{border-top:1px solid var(--border);margin-top:52px;padding:26px 0 34px;text-align:center}
+.foot .dna{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;color:var(--text-faint);word-break:break-all;margin-top:8px}
+.foot .gpg{font-size:11px;color:var(--text-faint);margin-top:4px}
+
+/* 响应式 */
+@media(max-width:760px){
+  .topbar-inner{flex-wrap:wrap;height:auto;padding:10px 0;gap:10px}
+  .search-box{max-width:none;margin-left:0;order:3;flex-basis:100%}
+  .hero h1{font-size:24px}
+  .grid{grid-template-columns:1fr}
+  .count-stats{gap:14px;flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 顶栏 ===== -->
+<div class="topbar">
+  <div class="container topbar-inner">
+    <a href="/" class="logo"><span class="brand">☰ 龍🇨🇳魂 ☷</span> 应用广场 <small>uid9622.cn</small></a>
+    <div class="search-box">
+      <span class="icon">⌕</span>
+      <input type="text" id="q" placeholder="搜索应用：审计 / 论文 / 流场 / DNA…" autocomplete="off">
+    </div>
+    <a href="/" class="btn-home">⌂ 返回首页</a>
+  </div>
+</div>
+
+<!-- ===== Hero ===== -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-badge"><span class="dot"></span> v1.0 · 全站导航索引 · 一键直达</div>
+    <h1>龍魂<span>应用广场</span></h1>
+    <p>70+ 个真实应用与页面，按领域分组，搜索即达。数据主权，握在老百姓自己手里。</p>
+    <div class="count-stats">
+      <div><b id="c-all">0</b>全部应用</div>
+      <div><b>7</b>大领域</div>
+      <div><b>192</b>引擎支撑</div>
+      <div><b>20</b>人格矩阵</div>
+    </div>
+    <div><a class="btn-profiles" href="/apps/profiles/index.html">📚 产品档案总索引（每个产品都有详细解说）</a></div>
+  </div>
+</div>
+
+<div class="container" id="app">
+
+<!-- ═══ 1 核心平台 ═══ -->
+<div class="group" data-g="平台">
+  <div class="group-head"><div class="g-ico">🛡️</div><h2>核心平台 <small>系统心脏</small></h2></div>
+  <div class="grid">
+    <a class="card" href="/apps/dashboard/" data-t="三维神经看板" data-d="全系统实时状态总览">
+      <div class="ico">🎛️</div><div class="meta"><div class="t">三维神经看板</div><div class="d">全系统实时状态总览</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/ai-hub/" data-t="AI Hub 多模型平台" data-d="透明审计·多模型统一入口">
+      <div class="ico">🧠</div><div class="meta"><div class="t">AI Hub 多模型平台</div><div class="d">透明审计·多模型统一入口</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/team-orchestrator/" data-t="军团指挥中枢" data-d="20人格协作编排 v2.0">
+      <div class="ico">⚔️</div><div class="meta"><div class="t">军团指挥中枢</div><div class="d">20人格协作编排 v2.0</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/service-control.html" data-t="服务控制台" data-d="launchd 服务一键启停">
+      <div class="ico">🛠️</div><div class="meta"><div class="t">服务控制台</div><div class="d">launchd 服务一键启停</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/flow-field.html" data-t="流场总控" data-d="全系统节点流可视化">
+      <div class="ico">🌊</div><div class="meta"><div class="t">流场总控</div><div class="d">全系统节点流可视化</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/transparent-audit.html" data-t="透明审计" data-d="多引擎冲突仲裁">
+      <div class="ico">⚖️</div><div class="meta"><div class="t">透明审计</div><div class="d">多引擎冲突仲裁</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/trust-chain.html" data-t="信任链" data-d="GPG 签名信任网络">
+      <div class="ico">⛓️</div><div class="meta"><div class="t">信任链</div><div class="d">GPG 签名信任网络</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/unified_visual/" data-t="统一视觉色彩协议" data-d="一眼识别优先级">
+      <div class="ico">🎨</div><div class="meta"><div class="t">统一视觉色彩协议</div><div class="d">一眼识别优先级</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/admin/" data-t="管理后台" data-d="系统管理入口">
+      <div class="ico">🖥️</div><div class="meta"><div class="t">管理后台</div><div class="d">系统管理入口</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/duty.html" data-t="人格分工矩阵" data-d="谁负责什么·自动路由">
+      <div class="ico">🧩</div><div class="meta"><div class="t">人格分工矩阵</div><div class="d">谁负责什么·自动路由</div></div><span class="arrow">→</span></a>
+  </div>
+</div>
+
+<!-- ═══ 2 审计与安全 ═══ -->
+<div class="group" data-g="审计">
+  <div class="group-head"><div class="g-ico">🏛️</div><h2>审计与安全 <small>守护防线</small></h2></div>
+  <div class="grid">
+    <a class="card" href="/apps/audit-battle-hub/" data-t="审计对抗中枢" data-d="左右互搏·红蓝对抗">
+      <div class="ico">🥊</div><div class="meta"><div class="t">审计对抗中枢</div><div class="d">左右互搏·红蓝对抗</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/cnsh-validator/" data-t="CNSH 溯源验证编辑器" data-d="代码溯源·差异对比">
+      <div class="ico">🧬</div><div class="meta"><div class="t">CNSH 溯源验证编辑器</div><div class="d">代码溯源·差异对比</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/dna-identity/" data-t="DNA 身份仪表盘" data-d="AI 溯源与审计">
+      <div class="ico">🪪</div><div class="meta"><div class="t">DNA 身份仪表盘</div><div class="d">AI 溯源与审计</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/seven-factor-identity/" data-t="七因子行为密码学" data-d="信用仪表盘·行为指纹">
+      <div class="ico">🖐️</div><div class="meta"><div class="t">七因子行为密码学</div><div class="d">信用仪表盘·行为指纹</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/behavioral-crypto.html" data-t="行为密码学" data-d="七因子来源追溯·主权仪表板">
+      <div class="ico">🔬</div><div class="meta"><div class="t">行为密码学</div><div class="d">七因子来源追溯·主权仪表板</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/soft-culture/" data-t="软文化污染隔离" data-d="文化污染识别面板">
+      <div class="ico">🧼</div><div class="meta"><div class="t">软文化污染隔离</div><div class="d">文化污染识别面板</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/civil-audit/" data-t="民间审计" data-d="公众监督入口">
+      <div class="ico">⚖️</div><div class="meta"><div class="t">民间审计</div><div class="d">公众监督入口</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/deben-audit/" data-t="德本审计" data-d="离火运五条底线检查">
+      <div class="ico">🛡️</div><div class="meta"><div class="t">德本审计</div><div class="d">离火运五条底线检查</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/five-harms-expose/" data-t="五害曝光台" data-d="数字五害公开展示">
+      <div class="ico">🚨</div><div class="meta"><div class="t">五害曝光台</div><div class="d">数字五害公开展示</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/data-radar/" data-t="数据雷达" data-d="数据态势感知">
+      <div class="ico">📡</div><div class="meta"><div class="t">数据雷达</div><div class="d">数据态势感知</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/antenna-8gate/" data-t="八门天线" data-d="八闸门决策流场">
+      <div class="ico">📻</div><div class="meta"><div class="t">八门天线</div><div class="d">八闸门决策流场</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/hunter/" data-t="猎手计划" data-d="全球 AI 合规性排行榜">
+      <div class="ico">🎯</div><div class="meta"><div class="t">猎手计划</div><div class="d">全球 AI 合规性排行榜</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/mental-immune/" data-t="精神免疫系统" data-d="心理防线·一面盾">
+      <div class="ico">🧠</div><div class="meta"><div class="t">精神免疫系统</div><div class="d">心理防线·一面盾</div></div><span class="arrow">→</span></a>
+  </div>
+</div>
+
+<!-- ═══ 3 知识中枢 ═══ -->
+<div class="group" data-g="知识">
+  <div class="group-head"><div class="g-ico">📚</div><h2>知识中枢 <small>认知仓库</small></h2></div>
+  <div class="grid">
+    <a class="card" href="/apps/knowledge/" data-t="知识中枢" data-d="统一知识底座入口">
+      <div class="ico">🧭</div><div class="meta"><div class="t">知识中枢</div><div class="d">统一知识底座入口</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/knowledge-matrix/" data-t="知识矩阵" data-d="多域知识图谱索引">
+      <div class="ico">🗺️</div><div class="meta"><div class="t">知识矩阵</div><div class="d">多域知识图谱索引</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/cnsh-dictionary/" data-t="CNSH 标准词典" data-d="龍魂语义库·术语桥接">
+      <div class="ico">📖</div><div class="meta"><div class="t">CNSH 标准词典</div><div class="d">龍魂语义库·术语桥接</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/protocol-structure/" data-t="统一协议结构门户" data-d="协议树形导航">
+      <div class="ico">🏛️</div><div class="meta"><div class="t">统一协议结构门户</div><div class="d">协议树形导航</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/digital-legacy/" data-t="数字存在证明" data-d="DigitalLegacy 存证">
+      <div class="ico">🏺</div><div class="meta"><div class="t">数字存在证明</div><div class="d">DigitalLegacy 存证</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/memory-eternity/" data-t="记忆永存" data-d="跨会话记忆沉淀">
+      <div class="ico">🧬</div><div class="meta"><div class="t">记忆永存</div><div class="d">跨会话记忆沉淀</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/evolution/" data-t="自适应进化中枢" data-d="系统自进化面板">
+      <div class="ico">🌱</div><div class="meta"><div class="t">自适应进化中枢</div><div class="d">系统自进化面板</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/ai-chats/" data-t="AI 对话档案馆" data-d="历次对话存档浏览">
+      <div class="ico">💬</div><div class="meta"><div class="t">AI 对话档案馆</div><div class="d">历次对话存档浏览</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/home/" data-t="龍魂主页" data-d="数字主权系统品牌页">
+      <div class="ico">🏠</div><div class="meta"><div class="t">龍魂主页</div><div class="d">数字主权系统品牌页</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/reports/" data-t="报告中心" data-d="审计与专题报告">
+      <div class="ico">🧾</div><div class="meta"><div class="t">报告中心</div><div class="d">审计与专题报告</div></div><span class="arrow">→</span></a>
+  </div>
+</div>
+
+<!-- ═══ 4 论文与文章 ═══ -->
+<div class="group" data-g="论文">
+  <div class="group-head"><div class="g-ico">📜</div><h2>论文与文章 <small>学术阵地</small></h2></div>
+  <div class="grid">
+    <a class="card" href="/apps/articles/paper-luoshu-369-v1.0.html" data-t="洛书369与AI决策不变量" data-d="数理根基论文">
+      <div class="ico">📐</div><div class="meta"><div class="t">洛书369与AI决策不变量</div><div class="d">数理根基论文</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/articles/paper-daodejing-recursion-v1.0.html" data-t="道德经递归生成定理" data-d="哲学可计算化">
+      <div class="ico">🌿</div><div class="meta"><div class="t">道德经递归生成定理</div><div class="d">哲学可计算化</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/articles/behavioral-crypto-v3.0.html" data-t="行为密码学统一理论 v3.0" data-d="七因子理论体系">
+      <div class="ico">🔬</div><div class="meta"><div class="t">行为密码学统一理论 v3.0</div><div class="d">七因子理论体系</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/articles/paper-cnsh-flow-v1.0.html" data-t="CNSH流场压缩核" data-d="六维翻译路径压缩编码">
+      <div class="ico">🌊</div><div class="meta"><div class="t">CNSH流场压缩核</div><div class="d">六维翻译路径压缩编码</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/articles/dao-lead-values-map.html" data-t="道引·价值观对齐地图" data-d="中国开源模型对齐">
+      <div class="ico">🗺️</div><div class="meta"><div class="t">道引·价值观对齐地图</div><div class="d">中国开源模型对齐</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/articles/paper-ant-colony-v1.0.html" data-t="蚁群架构论文" data-d="多智能体信息素协议">
+      <div class="ico">🐜</div><div class="meta"><div class="t">蚁群架构论文</div><div class="d">多智能体信息素协议</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/articles/world-model-math-v1.0.html" data-t="易经世界模型" data-d="数学物理基础">
+      <div class="ico">☯️</div><div class="meta"><div class="t">易经世界模型</div><div class="d">数学物理基础</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/articles/paper-wuxing-group-v1.0.html" data-t="五行循环群定理" data-d="五行群论形式化">
+      <div class="ico">🌗</div><div class="meta"><div class="t">五行循环群定理</div><div class="d">五行群论形式化</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/articles/three-layer-binding.html" data-t="三层绑定覆写码架构" data-d="可视化交互版">
+      <div class="ico">📖</div><div class="meta"><div class="t">三层绑定覆写码架构</div><div class="d">可视化交互版</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/viz/whitepapers/" data-t="白皮书可视化总览" data-d="全部白皮书一页看">
+      <div class="ico">📊</div><div class="meta"><div class="t">白皮书可视化总览</div><div class="d">全部白皮书一页看</div></div><span class="arrow">→</span></a>
+  </div>
+</div>
+
+<!-- ═══ 5 可视化流场 ═══ -->
+<div class="group" data-g="可视化">
+  <div class="group-head"><div class="g-ico">🌊</div><h2>可视化流场 <small>洛书涡流</small></h2></div>
+  <div class="grid">
+    <a class="card" href="/apps/visualizations/sancai-flow/v8.1.html" data-t="三才流场 v8.1" data-d="忠孝义智能活体仪表盘">
+      <div class="ico">🐲</div><div class="meta"><div class="t">三才流场 v8.1</div><div class="d">忠孝义智能活体仪表盘</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/visualizations/unified-v9.html" data-t="统一流场 v9" data-d="洛书涡流×三才轨道">
+      <div class="ico">🐉</div><div class="meta"><div class="t">统一流场 v9</div><div class="d">洛书涡流×三才轨道</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/visualizations/flow-monitor.html" data-t="流场实时监控" data-d="系统实时动态">
+      <div class="ico">🌊</div><div class="meta"><div class="t">流场实时监控</div><div class="d">系统实时动态</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/visualizations/hetu-ground.html" data-t="洛书九宫页面地图" data-d="全站地图可视化">
+      <div class="ico">🌀</div><div class="meta"><div class="t">洛书九宫页面地图</div><div class="d">全站地图可视化</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/visualizations/master-control-flow.html" data-t="流场总控台 v2.0" data-d="全局掌控视图">
+      <div class="ico">🎛️</div><div class="meta"><div class="t">流场总控台 v2.0</div><div class="d">全局掌控视图</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/visualizations/flow-field/v9.html" data-t="不动点透视图 v9" data-d="流场核心不动点">
+      <div class="ico">🐉</div><div class="meta"><div class="t">不动点透视图 v9</div><div class="d">流场核心不动点</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/visualizations/flow-mapping.html" data-t="流场映射层" data-d="FlowFieldMapping">
+      <div class="ico">🔄</div><div class="meta"><div class="t">流场映射层</div><div class="d">FlowFieldMapping</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/visualizations/flow-index.html" data-t="流场索引" data-d="洛书涡流 v2.0">
+      <div class="ico">🌊</div><div class="meta"><div class="t">流场索引</div><div class="d">洛书涡流 v2.0</div></div><span class="arrow">→</span></a>
+  </div>
+</div>
+
+<!-- ═══ 6 工具箱 ═══ -->
+<div class="group" data-g="工具">
+  <div class="group-head"><div class="g-ico">🛠️</div><h2>工具箱 <small>随手可用</small></h2></div>
+  <div class="grid">
+    <a class="card" href="/apps/dna-generator/" data-t="DNA 生成器" data-d="干支卦 DNA 一键生成">
+      <div class="ico">🧬</div><div class="meta"><div class="t">DNA 生成器</div><div class="d">干支卦 DNA 一键生成</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/tools/memory-editor/p0.html" data-t="记忆编辑器" data-d="记忆可视化编辑 v2.0">
+      <div class="ico">✏️</div><div class="meta"><div class="t">记忆编辑器</div><div class="d">记忆可视化编辑 v2.0</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/cnsh-ruyi/" data-t="CNSH 如意编排" data-d="多 AI 任务编排引擎">
+      <div class="ico">🧞</div><div class="meta"><div class="t">CNSH 如意编排</div><div class="d">多 AI 任务编排引擎</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/api-docs.html" data-t="API 文档" data-d="全系统接口规范">
+      <div class="ico">📡</div><div class="meta"><div class="t">API 文档</div><div class="d">全系统接口规范</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/longhun-font.html" data-t="龍魂字体" data-d="LonghunFont 展示">
+      <div class="ico">🔤</div><div class="meta"><div class="t">龍魂字体</div><div class="d">LonghunFont 展示</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/vault.html" data-t="数据保险柜" data-d="个人数据压缩加密归档">
+      <div class="ico">💰</div><div class="meta"><div class="t">数据保险柜</div><div class="d">个人数据压缩加密归档</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/models/" data-t="模型管理中心" data-d="模型注册与状态">
+      <div class="ico">🤖</div><div class="meta"><div class="t">模型管理中心</div><div class="d">模型注册与状态</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/pangdonglai/" data-t="胖东来分成审计" data-d="透明公开·焊死不等式">
+      <div class="ico">💰</div><div class="meta"><div class="t">胖东来分成审计</div><div class="d">透明公开·焊死不等式</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/guanlan/" data-t="观澜浏览器" data-d="AI 联动控制台">
+      <div class="ico">🦅</div><div class="meta"><div class="t">观澜浏览器</div><div class="d">AI 联动控制台</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/pathfinder-lab/" data-t="路径规划推演舱" data-d="多路径推演 v4.1.5">
+      <div class="ico">🗺️</div><div class="meta"><div class="t">路径规划推演舱</div><div class="d">多路径推演 v4.1.5</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/video-studio/" data-t="视频工坊" data-d="AI 解说视频生成 v3.0">
+      <div class="ico">🎬</div><div class="meta"><div class="t">视频工坊</div><div class="d">AI 解说视频生成 v3.0</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/warp-lab/" data-t="Warp 实验室" data-d="实验性引擎工坊">
+      <div class="ico">⚗️</div><div class="meta"><div class="t">Warp 实验室</div><div class="d">实验性引擎工坊</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/activation-lab/" data-t="激活实验室" data-d="系统激活与注册">
+      <div class="ico">🧪</div><div class="meta"><div class="t">激活实验室</div><div class="d">系统激活与注册</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/ai-chat/" data-t="AI 对话" data-d="在线对话入口">
+      <div class="ico">💬</div><div class="meta"><div class="t">AI 对话</div><div class="d">在线对话入口</div></div><span class="arrow">→</span></a>
+  </div>
+</div>
+
+<!-- ═══ 7 文化与宣言 ═══ -->
+<div class="group" data-g="文化">
+  <div class="group-head"><div class="g-ico">🏮</div><h2>文化与宣言 <small>根之所系</small></h2></div>
+  <div class="grid">
+    <a class="card" href="/apps/national-soul/" data-t="中华文化主权门户" data-d="官方网站·国家魂">
+      <div class="ico">🏛️</div><div class="meta"><div class="t">中华文化主权门户</div><div class="d">官方网站·国家魂</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/rite-blade/" data-t="禮兵雙軌宣言" data-d="龍魂系统宣言">
+      <div class="ico">⚔️</div><div class="meta"><div class="t">禮兵雙軌宣言</div><div class="d">龍魂系统宣言</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/manifesto/" data-t="龍魂宣言" data-d="核心理念声明">
+      <div class="ico">📜</div><div class="meta"><div class="t">龍魂宣言</div><div class="d">核心理念声明</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/pgp/" data-t="GPG 签名页" data-d="公钥与信任锚">
+      <div class="ico">🔏</div><div class="meta"><div class="t">GPG 签名页</div><div class="d">公钥与信任锚</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/china/yijing-longhun-annotated-v1.0.html" data-t="易经六十四卦注释" data-d="易经×系统状态向量">
+      <div class="ico">☯️</div><div class="meta"><div class="t">易经六十四卦注释</div><div class="d">易经×系统状态向量</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/china/tiangandizhi-longhun-v1.0.html" data-t="天干地支×时间DNA" data-d="干支时间编码系统">
+      <div class="ico">🌀</div><div class="meta"><div class="t">天干地支×时间DNA</div><div class="d">干支时间编码系统</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/china/daodejing-longhun-annotated-v1.0.html" data-t="道德经×底层锚" data-d="道德经可计算化">
+      <div class="ico">🌿</div><div class="meta"><div class="t">道德经×底层锚</div><div class="d">道德经可计算化</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/apps/guardian/" data-t="龍盾守护" data-d="贴身守护面板">
+      <div class="ico">🛡️</div><div class="meta"><div class="t">龍盾守护</div><div class="d">贴身守护面板</div></div><span class="arrow">→</span></a>
+    <a class="card" href="/apps/apps/commander/" data-t="指挥官" data-d="指挥官控制台">
+      <div class="ico">🎖️</div><div class="meta"><div class="t">指挥官</div><div class="d">指挥官控制台</div></div><span class="arrow">→</span></a>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- 空结果 -->
+<div class="empty" id="empty">
+  <div class="big">🕳️</div>
+  <div>没有匹配的应用，换个关键词试试</div>
+</div>
+
+<!-- ===== 页脚 ===== -->
+<div class="foot">
+  <div class="container">
+    <div>🐉 龍魂系统 · 应用广场 · 为人民服务 · 数字主权守护者</div>
+    <div class="dna">DNA: #龍芯⚡️丙午·丙申·庚申·亥时-APP-SQUARE-v1.0-UID9622</div>
+    <div class="gpg">GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F · License: MulanPSL v2</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // 产品档案解说角标：给每个卡片注入「📄 详细解说」入口（包装容器避免嵌套链接）
+  [].slice.call(document.querySelectorAll('a.card')).forEach(function(card){
+    var href=card.getAttribute('href').replace(/\.html$/,'').replace(/\/$/,'');
+    var slug=href.split('/').pop();
+    if(!slug)return;
+    var wrap=document.createElement('div');
+    wrap.className='profile-wrap';
+    card.parentNode.insertBefore(wrap,card);
+    wrap.appendChild(card);
+    var doc=document.createElement('a');
+    doc.href='/apps/profiles/'+slug+'.html';
+    doc.className='profile-link';
+    doc.title='📄 详细解说';
+    doc.textContent='📄';
+    wrap.appendChild(doc);
+  });
+
+  var q=document.getElementById('q'),empty=document.getElementById('empty');
+  var cards=[].slice.call(document.querySelectorAll('a.card'));
+  var groups=[].slice.call(document.querySelectorAll('.group'));
+  var allCount=document.getElementById('c-all');
+  allCount.textContent=cards.length;
+  var keys=cards.map(function(c){return (c.dataset.t||'')+' '+(c.dataset.d||'');});
+  function filter(){
+    var kw=q.value.trim().toLowerCase();
+    var visible=0;
+    cards.forEach(function(c,i){
+      var hit=!kw||keys[i].toLowerCase().indexOf(kw)>-1;
+      (c.parentNode||c).style.display=hit?'':'none';
+      if(hit)visible++;
+    });
+    groups.forEach(function(g){
+      var has=[].some.call(g.querySelectorAll('a.card'),function(c){return (c.parentNode||c).style.display!=='none';});
+      g.style.display=has?'':'none';
+    });
+    empty.style.display=visible?'none':'block';
+  }
+  q.addEventListener('input',filter);
+})();
+</script>
+</body>
+</html>

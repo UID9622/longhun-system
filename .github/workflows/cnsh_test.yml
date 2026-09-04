@@ -1,0 +1,93 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+name: 🐉 CNSH 测试工具链 · 全量 CI
+# DNA: #龍芯⚡️丙午·丙申·戊申·亥时·䷗复-CNSH-CI-v1.0-UID9622
+# 真实资产对齐: lint=bin/cnsh_editor.py(370条规则) · 自检=编译器+全样例编译
+#              · 安全=bin/cnsh_editor.py --security · M73类库直连
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - '**.cnsh'
+      - 'bin/cnsh_*.py'
+      - 'bin/lh_audit_gate.py'
+      - 'tests/**'
+      - 'include/CNSH_TestSuite.h'
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  cnsh-test:
+    name: CNSH 全量测试（三色审计）
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install pyyaml 2>/dev/null || true
+
+      - name: 🔍 Step 1 · DNA 完整性校验
+        run: |
+          python3 bin/cnsh_dna_check.py --loose
+          echo "✅ DNA 完整性校验通过"
+
+      - name: 📏 Step 2 · 语法纠错引擎（370条规则）
+        run: |
+          python3 bin/cnsh_editor.py --version || python3 bin/cnsh_editor.py "测试 语法"
+          echo "✅ 语法纠错引擎可用"
+
+      - name: 🔨 Step 3 · 编译器自测（全样例编译）
+        run: |
+          python3 bin/cnsh_compiler.py --version
+          for f in tests/cnsh_samples/*.cnsh; do
+            python3 bin/cnsh_compiler.py "$f" -o /tmp/ci_out.py || exit 1
+          done
+          echo "✅ 编译器自测通过（$(ls tests/cnsh_samples/*.cnsh | wc -l) 样例）"
+
+      - name: 🧪 Step 4 · 单元测试（三色审计）
+        run: |
+          python3 bin/cnsh_test_runner.py --verbose
+          echo "✅ 单元测试通过"
+
+      - name: 🔄 Step 5 · 转译回归测试
+        run: |
+          python3 tests/transpile/run_transpile_tests.py
+          echo "✅ 转译测试通过"
+
+      - name: 📊 Step 6 · 覆盖率报告
+        run: |
+          python3 bin/cnsh_coverage.py
+          echo "✅ 覆盖率报告生成"
+
+      - name: 🔐 Step 7 · 安全审计
+        run: |
+          python3 bin/cnsh_editor.py --security "测试 文本" || true
+          echo "✅ 安全审计完成（输出见上方）"
+
+      - name: 📤 上传测试报告
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cnsh-test-reports
+          path: |
+            test_reports/
+            _work/
+          retention-days: 14
+
+      - name: 📋 三色汇总
+        if: always()
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "🐉 CNSH CI 三色汇总"
+          echo "DNA: #龍芯⚡️$(date +%Y-%m-%d)-CI-RUN-UID9622"
+          for f in test_reports/test_report_*.json; do
+            python3 -c "import json,sys; r=json.load(open('$f')); print('三色: '+r['tri_color']+' | 通过率: '+str(round(r['pass_rate']*100,1))+'%')"
+          done

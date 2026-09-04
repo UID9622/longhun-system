@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ╔═══════════════════════════════════════════════════════════════╗
 ║  龍魂系统 · Notion 精准拉取引擎 v1.0                          ║
 ║  指定页面/数据库 → 递归下载所有子页面 → 训练语料                ║
-║  DNA: #龍芯⚡️丙午·辛未·乙酉·午时·姤-TARGETED-PULL-v1.0       ║
+║  DNA: #龍芯⚡️丙午·辛未·乙酉·午时·䷫姤-TARGETED-PULL-v1.0       ║
 ║  UID: 9622                                                   ║
 ╚═══════════════════════════════════════════════════════════════╝
 
@@ -14,17 +17,17 @@
   python3 scripts/notion_targeted_pull.py --url "xxx" --to-corpus  # 直接转训练语料
 """
 
-import os
-import re
-import sys
-import json
-import time
-import sqlite3
-import pathlib
 import argparse
+import json
+import os
+import pathlib
+import re
+import sqlite3
+import sys
+import time
 import unicodedata
-from datetime import datetime, timezone, timedelta
-from typing import Any, Dict, List, Optional, Set, Tuple
+from datetime import datetime, timedelta, timezone
+from typing import Any
 
 import requests
 
@@ -32,7 +35,7 @@ import requests
 # 常量
 # ══════════════════════════════════════════════════════════════
 
-DNA_SIGNATURE = "#龍芯⚡️丙午·辛未·乙酉·午时·姤-TARGETED-PULL-v1.0"
+DNA_SIGNATURE = "#龍芯⚡️丙午·辛未·乙酉·午时·䷫姤-TARGETED-PULL-v1.0"
 CONFIRM_SEAL = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 CST = timezone(timedelta(hours=8))
 
@@ -105,41 +108,60 @@ def now_iso() -> str:
     return datetime.now(CST).isoformat()
 
 
-def api_get(token: str, url: str, params: Optional[Dict[str, Any]] = None, retries: int = 3) -> requests.Response:
+def api_get(token: str, url: str, params: dict[str, Any] | None = None, retries: int = 3) -> requests.Response:
+    last_err: Exception | None = None
     for attempt in range(retries):
-        r = requests.get(
-            url,
-            headers={"Authorization": f"Bearer {token}", "Notion-Version": "2022-06-28"},
-            params=params or {},
-            timeout=60,
-        )
-        if r.status_code == 429:
+        try:
+            r = requests.get(
+                url,
+                headers={"Authorization": f"Bearer {token}", "Notion-Version": "2022-06-28"},
+                params=params or {},
+                timeout=60,
+            )
+            if r.status_code == 429:
+                wait = 2 ** attempt + 0.5
+                print(f"    ⏳ 限流，等待 {wait:.1f}s...", flush=True)
+                time.sleep(wait)
+                continue
+            return r
+        except (requests.exceptions.ConnectionError, requests.exceptions.ReadTimeout,
+                requests.exceptions.ConnectTimeout, requests.exceptions.ChunkedEncodingError) as e:
+            # v2.0.1(P09 审计): 之前只退避 429，socket 异常静默丢整批数据——现在显式重试+告警
+            last_err = e
             wait = 2 ** attempt + 0.5
-            print(f"    ⏳ 限流，等待 {wait:.1f}s...", flush=True)
+            print(f"    🔴 连接异常({type(e).__name__}) 重试 {attempt + 1}/{retries}: {url[:70]}", flush=True)
             time.sleep(wait)
-            continue
-        return r
-    return r
+    print(f"    ⚠️ 重试{retries}次仍失败: {url[:70]} err={last_err}", flush=True)
+    raise RuntimeError(f"Notion API 连接失败(重试{retries}次): {url[:70]}") from last_err
 
 
-def api_post(token: str, url: str, body: Optional[Dict[str, Any]] = None, retries: int = 3) -> requests.Response:
+def api_post(token: str, url: str, body: dict[str, Any] | None = None, retries: int = 3) -> requests.Response:
+    last_err: Exception | None = None
     for attempt in range(retries):
-        r = requests.post(
-            url,
-            headers={"Authorization": f"Bearer {token}", "Notion-Version": "2022-06-28", "Content-Type": "application/json"},
-            json=body or {},
-            timeout=60,
-        )
-        if r.status_code == 429:
+        try:
+            r = requests.post(
+                url,
+                headers={"Authorization": f"Bearer {token}", "Notion-Version": "2022-06-28", "Content-Type": "application/json"},
+                json=body or {},
+                timeout=60,
+            )
+            if r.status_code == 429:
+                wait = 2 ** attempt + 0.5
+                print(f"    ⏳ 限流，等待 {wait:.1f}s...", flush=True)
+                time.sleep(wait)
+                continue
+            return r
+        except (requests.exceptions.ConnectionError, requests.exceptions.ReadTimeout,
+                requests.exceptions.ConnectTimeout, requests.exceptions.ChunkedEncodingError) as e:
+            last_err = e
             wait = 2 ** attempt + 0.5
-            print(f"    ⏳ 限流，等待 {wait:.1f}s...", flush=True)
+            print(f"    🔴 连接异常({type(e).__name__}) 重试 {attempt + 1}/{retries}: {url[:70]}", flush=True)
             time.sleep(wait)
-            continue
-        return r
-    return r
+    print(f"    ⚠️ 重试{retries}次仍失败: {url[:70]} err={last_err}", flush=True)
+    raise RuntimeError(f"Notion API 连接失败(重试{retries}次): {url[:70]}") from last_err
 
 
-def rich_text_to_md(rich_text: List[Dict[str, Any]]) -> str:
+def rich_text_to_md(rich_text: list[dict[str, Any]]) -> str:
     parts = []
     for rt in rich_text:
         if rt.get("type") != "text":
@@ -227,11 +249,11 @@ def save_page_md(page_id: str, title: str, icon: str, notion_url: str, source_ur
     return md_path
 
 
-def save_checkpoint(data: Dict[str, Any]) -> None:
+def save_checkpoint(data: dict[str, Any]) -> None:
     CHECKPOINT_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def load_checkpoint() -> Optional[Dict[str, Any]]:
+def load_checkpoint() -> dict[str, Any] | None:
     if CHECKPOINT_FILE.exists():
         return json.loads(CHECKPOINT_FILE.read_text(encoding="utf-8"))
     return None
@@ -241,25 +263,25 @@ def load_checkpoint() -> Optional[Dict[str, Any]]:
 # 块拉取引擎（递归）
 # ══════════════════════════════════════════════════════════════
 
-class BlockTooLarge(RuntimeError):
+class BlockTooLargeError(RuntimeError):
     pass
 
 
-def fetch_blocks(token: str, block_id: str, depth: int = 0, max_blocks: int = 0) -> Tuple[str, int, List[str], List[str]]:
+def fetch_blocks(token: str, block_id: str, depth: int = 0, max_blocks: int = 0) -> tuple[str, int, list[str], list[str]]:
     """
     递归拉取 block children。
     返回: (markdown_text, block_count, child_page_ids, child_db_ids)
     """
-    md_parts: List[str] = []
-    child_pages: List[str] = []
-    child_dbs: List[str] = []
+    md_parts: list[str] = []
+    child_pages: list[str] = []
+    child_dbs: list[str] = []
     count = 0
 
     if depth > DEPTH_LIMIT:
         return "", 0, [], []
 
     base_url = f"https://api.notion.com/v1/blocks/{block_id}/children"
-    params: Dict[str, Any] = {"page_size": 100}
+    params: dict[str, Any] = {"page_size": 100}
 
     while True:
         r = api_get(token, base_url, params)
@@ -270,7 +292,7 @@ def fetch_blocks(token: str, block_id: str, depth: int = 0, max_blocks: int = 0)
         for b in data.get("results", []):
             count += 1
             if max_blocks and count > max_blocks:
-                raise BlockTooLarge(f"超过上限 {max_blocks} blocks")
+                raise BlockTooLargeError(f"超过上限 {max_blocks} blocks")
 
             if count % 100 == 0:
                 print(f"    📦 {count} blocks (depth={depth})...", flush=True)
@@ -348,7 +370,7 @@ def fetch_blocks(token: str, block_id: str, depth: int = 0, max_blocks: int = 0)
                         child_dbs.extend(cd)
                         if child_md.strip():
                             md_parts.append(child_md)
-                    except (RuntimeError, BlockTooLarge):
+                    except (RuntimeError, BlockTooLargeError):
                         pass
             else:
                 plain = (body.get("rich_text") or [{}])[0].get("plain_text", "")
@@ -364,7 +386,7 @@ def fetch_blocks(token: str, block_id: str, depth: int = 0, max_blocks: int = 0)
                     child_dbs.extend(cd)
                     if child_md.strip():
                         md_parts.append(child_md)
-                except (RuntimeError, BlockTooLarge) as e:
+                except (RuntimeError, BlockTooLargeError) as e:
                     md_parts.append(f"> ⚠️ 子块跳过: {e}")
 
         if not data.get("has_more"):
@@ -375,10 +397,10 @@ def fetch_blocks(token: str, block_id: str, depth: int = 0, max_blocks: int = 0)
     return "\n\n".join(md_parts), count, child_pages, child_dbs
 
 
-def _fetch_table_rows(token: str, table_id: str) -> List[List[str]]:
-    rows: List[List[str]] = []
+def _fetch_table_rows(token: str, table_id: str) -> list[list[str]]:
+    rows: list[list[str]] = []
     base_url = f"https://api.notion.com/v1/blocks/{table_id}/children"
-    params: Dict[str, Any] = {"page_size": 100}
+    params: dict[str, Any] = {"page_size": 100}
     while True:
         r = api_get(token, base_url, params)
         if r.status_code != 200:
@@ -399,10 +421,10 @@ def _fetch_table_rows(token: str, table_id: str) -> List[List[str]]:
 # 数据库拉取
 # ══════════════════════════════════════════════════════════════
 
-def query_database(token: str, database_id: str) -> List[Dict[str, Any]]:
+def query_database(token: str, database_id: str) -> list[dict[str, Any]]:
     """查询数据库，返回所有页面条目（带进度输出）"""
     pages = []
-    body: Dict[str, Any] = {"page_size": 100}
+    body: dict[str, Any] = {"page_size": 100}
     page_num = 0
 
     while True:
@@ -435,14 +457,14 @@ def query_database(token: str, database_id: str) -> List[Dict[str, Any]]:
     return pages
 
 
-def _extract_title(props: Dict[str, Any]) -> str:
+def _extract_title(props: dict[str, Any]) -> str:
     """从 properties 中提取标题"""
-    for key, val in props.items():
+    for _key, val in props.items():
         if val.get("type") == "title":
             texts = val.get("title", [])
             return rich_text_to_md(texts) if texts else "无标题"
     # Fallback: 尝试其他文本类型
-    for key, val in props.items():
+    for _key, val in props.items():
         if val.get("type") in ("rich_text", "text"):
             texts = val.get("rich_text") or val.get("text") or []
             return rich_text_to_md(texts) if texts else "无标题"
@@ -453,7 +475,7 @@ def _extract_title(props: Dict[str, Any]) -> str:
 # 页面类型检测
 # ══════════════════════════════════════════════════════════════
 
-def detect_type(token: str, notion_id: str, raw_url: str = "") -> Tuple[str, Dict[str, Any]]:
+def detect_type(token: str, notion_id: str, raw_url: str = "") -> tuple[str, dict[str, Any]]:
     """
     检测 Notion 对象类型：page 或 database。
     优化: 如果URL包含 ?v= 优先尝试数据库（避免无效的page请求）。
@@ -461,7 +483,7 @@ def detect_type(token: str, notion_id: str, raw_url: str = "") -> Tuple[str, Dic
     """
     # 如果URL含 ?v= 参数，99%是数据库视图，直接查数据库
     if "?v=" in raw_url:
-        print(f"   🔍 DB探测中...", flush=True)
+        print("   🔍 DB探测中...", flush=True)
         try:
             r = api_get(token, f"https://api.notion.com/v1/databases/{notion_id}")
         except Exception as e:
@@ -472,7 +494,7 @@ def detect_type(token: str, notion_id: str, raw_url: str = "") -> Tuple[str, Dic
             data = r.json()
             title_list = data.get("title", [])
             title = rich_text_to_md(title_list) if title_list else "数据库"
-            print(f"   类型: database (从?v=判定)", flush=True)
+            print("   类型: database (从?v=判定)", flush=True)
             return "database", {
                 "title": title,
                 "icon": (data.get("icon") or {}).get("emoji", "🗃️"),
@@ -514,7 +536,7 @@ def detect_type(token: str, notion_id: str, raw_url: str = "") -> Tuple[str, Dic
 
 def download_page_recursive(token: str, page_id: str, title: str, icon: str,
                             notion_url: str, source_url: str, conn: sqlite3.Connection,
-                            visited: Set[str], all_md_contents: List[str]) -> Tuple[int, int]:
+                            visited: set[str], all_md_contents: list[str]) -> tuple[int, int]:
     """
     递归下载页面及其所有子页面、子数据库。
     返回 (total_pages, total_blocks)
@@ -529,14 +551,14 @@ def download_page_recursive(token: str, page_id: str, title: str, icon: str,
         md_body, block_count, child_pages, child_dbs = fetch_blocks(
             token, page_id, max_blocks=MAX_BLOCKS_PER_PAGE
         )
-    except BlockTooLarge:
+    except BlockTooLargeError:
         print(f"    🟡 页面过大(>{MAX_BLOCKS_PER_PAGE} blocks)，仅下载前{MAX_BLOCKS_PER_PAGE}块", flush=True)
         try:
             md_body, block_count, child_pages, child_dbs = fetch_blocks(
                 token, page_id, max_blocks=MAX_BLOCKS_PER_PAGE
             )
-        except BlockTooLarge:
-            print(f"    🔴 跳过", flush=True)
+        except BlockTooLargeError:
+            print("    🔴 跳过", flush=True)
             return 0, 0
 
     md_path = save_page_md(page_id, title, icon, notion_url, source_url, md_body, block_count, conn)
@@ -577,8 +599,8 @@ def download_page_recursive(token: str, page_id: str, title: str, icon: str,
 
 
 def download_database_recursive(token: str, database_id: str, source_url: str,
-                                 conn: sqlite3.Connection, visited: Set[str],
-                                 all_md_contents: List[str]) -> Tuple[int, int]:
+                                 conn: sqlite3.Connection, visited: set[str],
+                                 all_md_contents: list[str]) -> tuple[int, int]:
     """
     下载数据库的所有条目，每个条目作为页面递归下载。
     返回 (total_pages, total_blocks)
@@ -617,7 +639,7 @@ def download_database_recursive(token: str, database_id: str, source_url: str,
 
 
 def process_url(token: str, url: str, conn: sqlite3.Connection,
-                visited: Set[str], all_md_contents: List[str]) -> Tuple[int, int]:
+                visited: set[str], all_md_contents: list[str]) -> tuple[int, int]:
     """处理单个 Notion URL"""
     raw_id = extract_id_from_url(url)
     notion_id = format_notion_id(raw_id)
@@ -643,7 +665,7 @@ def process_url(token: str, url: str, conn: sqlite3.Connection,
 # 训练语料生成
 # ══════════════════════════════════════════════════════════════
 
-def generate_training_corpus(all_md_contents: List[str]) -> pathlib.Path:
+def generate_training_corpus(all_md_contents: list[str]) -> pathlib.Path:
     """将所有拉取的 Markdown 合并为训练语料"""
     if not all_md_contents:
         print("⚠️ 无内容可生成训练语料")
@@ -704,8 +726,8 @@ def main() -> int:
     token = load_token()
     conn = init_db()
 
-    visited: Set[str] = set()
-    all_md_contents: List[str] = []
+    visited: set[str] = set()
+    all_md_contents: list[str] = []
 
     # 从检查点恢复
     if args.resume:
@@ -736,7 +758,7 @@ def main() -> int:
 
     # 统计
     print(f"\n{'═'*60}")
-    print(f"📊 拉取完成统计:")
+    print("📊 拉取完成统计:")
     print(f"   页面总数: {total_pages}")
     print(f"   块总数: {total_blocks}")
     print(f"   输出目录: {TARGET_DIR}")
@@ -753,7 +775,7 @@ def main() -> int:
     # 清理检查点
     if CHECKPOINT_FILE.exists():
         print(f"\n📋 检查点已保存: {CHECKPOINT_FILE}")
-        print(f"   下次可运行 --resume 继续")
+        print("   下次可运行 --resume 继续")
 
     print(f"\n✅ 拉取完成 · DNA: {DNA_SIGNATURE}")
     return 0

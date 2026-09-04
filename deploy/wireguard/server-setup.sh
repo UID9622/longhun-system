@@ -1,7 +1,9 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ═══════════════════════════════════════════════
 # 龍魂 · WireGuard 服务器端一键部署
 # DNA: #龍芯⚡️丙午·乙申·己酉·亥时·WG-SERVER-SETUP-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 目标: 华为云鲲鹏 (Ubuntu/Debian)
 # ═══════════════════════════════════════════════
 set -euo pipefail

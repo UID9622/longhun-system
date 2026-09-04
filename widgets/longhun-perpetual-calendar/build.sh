@@ -1,6 +1,8 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂万年历构建脚本
-# DNA: #龍芯⚡️2026-06-27-LONGHUN-CALENDAR-BUILD-v1.1
+# DNA: #龍芯⚡️丙午·甲午·壬申·丙午·䷙大畜-LONGHUN-CALENDAR-BUILD-v1.1
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e
 
@@ -8,7 +10,7 @@ WIDGET_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 echo "🐉 龍魂万年历构建开始"
 
-# 1. 生成 LonghunFont 实用字体（基于 Noto Sans SC，保留 Longhun 品牌名）
+# 1. 生成 LonghunFont 实用字体（基于 Noto Sans SC，保留 LongHun 品牌名）
 echo "🔤 正在构建 LonghunFont 字体..."
 python3 "$WIDGET_DIR/build-font.py"
 

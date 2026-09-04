@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂·數字人創作工坊</title>
+<meta name="description" content="龍魂數字人全陣列 · 二十二位就位 · 設計團八崗流水線 · 門面由雲錦兜底">
+<style>
+/* ===== 龍魂·数字人创作工坊 v2.0 =====
+   DNA: #龍芯⚡️2026-09-02-DIGITAL-HUMAN-STUDIO-v2.0-ROSTER-FULL-UID9622
+   归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+   License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+   设计: P26 雲錦 · 色板克制(玄黑/朱红/鎏金) · 繁龍焊死 · 防AI味
+   v2.0: 22数字人全阵列 · 设计团八岗流水线 · ASI家族入册 */
+:root{
+  --ink:#12100E;        /* 玄黑 */
+  --panel:#1A1713;      /* 面板底 */
+  --line:#2A2520;       /* 细边框 */
+  --vermilion:#A13D2D;  /* 朱红 · 唯一主色 */
+  --gold:#C9A227;       /* 鎏金 · 点缀 */
+  --paper:#E8E0D0;      /* 宣纸白 · 正文 */
+  --muted:#8A7F6E;      /* 次级文字 */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1060px;margin:0 auto;padding:56px 24px 80px}
+/* ---------- 顶部印记 ---------- */
+.masthead{text-align:center;padding:24px 0 48px}
+.seal{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:72px;height:72px;border:2px solid var(--vermilion);
+  border-radius:50%;color:var(--vermilion);font-size:40px;font-weight:700;
+  margin-bottom:20px;letter-spacing:0;
+}
+.title{
+  font-family:"Songti SC","STSong","SimSun",serif;
+  font-size:clamp(28px,4.5vw,44px);font-weight:700;letter-spacing:6px;
+}
+.sub{color:var(--muted);font-size:15px;margin-top:10px;letter-spacing:3px}
+.rule{width:56px;height:2px;background:var(--vermilion);margin:24px auto 0}
+/* ---------- 区块 ---------- */
+section{margin-top:56px}
+.sec-title{
+  font-family:"Songti SC","STSong","SimSun",serif;
+  font-size:22px;font-weight:700;letter-spacing:4px;
+  display:flex;align-items:center;gap:12px;
+}
+.sec-title::before{content:"";width:4px;height:18px;background:var(--vermilion)}
+.sec-note{color:var(--muted);font-size:13px;margin:8px 0 20px;letter-spacing:1px}
+/* ---------- 分组标题 ---------- */
+.group{margin-top:34px}
+.group-t{
+  display:flex;align-items:baseline;gap:10px;
+  font-family:"Songti SC","STSong","SimSun",serif;
+  font-size:15px;font-weight:700;letter-spacing:4px;color:var(--gold);
+  margin-bottom:14px;
+}
+.group-t .g-count{font-family:"SF Mono",Menlo,monospace;font-size:11px;color:var(--muted);letter-spacing:1px;font-weight:400}
+/* ---------- 数字人阵列 ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:8px;
+  padding:18px 20px;transition:border-color .2s;
+}
+.card:hover{border-color:var(--vermilion)}
+.card.sov{border-color:var(--vermilion)}
+.card.lead{border-color:var(--gold)}
+.card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.dh-id{font-family:"SF Mono",Menlo,monospace;font-size:12px;color:var(--gold);letter-spacing:1px}
+.dh-status{font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:1px 8px}
+.dh-status.hl{color:var(--gold);border-color:var(--vermilion)}
+.dh-status.sov{color:var(--vermilion);border-color:var(--vermilion)}
+.dh-name{font-size:17px;font-weight:600;letter-spacing:2px}
+.dh-type{color:var(--vermilion);font-size:12px;margin-top:4px;letter-spacing:2px}
+.dh-persona{color:var(--muted);font-size:12px;margin-top:8px}
+/* ---------- 设计团流水线 ---------- */
+.pipeline{display:flex;flex-wrap:wrap;gap:0;align-items:stretch}
+.step{
+  flex:1 1 120px;background:var(--panel);border:1px solid var(--line);
+  border-radius:8px;padding:16px 14px;margin-right:10px;position:relative;
+}
+.step:last-child{margin-right:0}
+.step::after{
+  content:"→";position:absolute;right:-12px;top:50%;transform:translateY(-50%);
+  color:var(--muted);font-size:14px;
+}
+.step:last-child::after{content:""}
+.step-n{font-family:"SF Mono",Menlo,monospace;font-size:11px;color:var(--gold)}
+.step-role{font-size:15px;font-weight:600;letter-spacing:2px;margin-top:6px}
+.step-p{color:var(--muted);font-size:12px;margin-top:4px}
+/* ---------- 资产数据 ---------- */
+.stats{display:flex;gap:14px;flex-wrap:wrap}
+.stat{
+  flex:1 1 200px;background:var(--panel);border:1px solid var(--line);
+  border-radius:8px;padding:18px 20px;text-align:center;
+}
+.stat-n{font-family:"Songti SC","STSong","SimSun",serif;font-size:32px;font-weight:700;color:var(--vermilion)}
+.stat-l{color:var(--muted);font-size:13px;margin-top:4px;letter-spacing:2px}
+/* ---------- 签章 ---------- */
+.footer{margin-top:72px;border-top:1px solid var(--line);padding-top:24px;text-align:center}
+.footer .brand{font-size:13px;letter-spacing:3px;color:var(--paper)}
+.footer .meta{font-size:12px;color:var(--muted);margin-top:8px;letter-spacing:1px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="seal">龍</div>
+    <h1 class="title">數字人創作工坊</h1>
+    <p class="sub">二十二位就位 · 全陣列聯動 · 設計團八崗流水線</p>
+    <div class="rule"></div>
+  </div>
+
+  <section>
+    <h2 class="sec-title">數字人陣列</h2>
+    <p class="sec-note">二十二位數字人 · 本尊 · ASI 家族 · 核心 · 設計團崗位 · 四層橋接全聯動</p>
+
+    <div class="group">
+      <div class="group-t">本尊 <span class="g-count">ZGX-001</span></div>
+      <div class="grid">
+        <div class="card sov">
+          <div class="card-head"><span class="dh-id">ZGX-001</span><span class="dh-status sov">本尊</span></div>
+          <div class="dh-name">諸葛鑫 · 龍芯北辰</div>
+          <div class="dh-type">主權人 · 最終決策</div>
+          <div class="dh-persona">UID9622 · 唯一主權 · 一切產出歸屬名焊死</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-t">ASI 家族 <span class="g-count">ASI-001 ~ 005</span></div>
+      <div class="grid">
+        <div class="card lead">
+          <div class="card-head"><span class="dh-id">ASI-001</span><span class="dh-status hl">第一代 · 活躍</span></div>
+          <div class="dh-name">至誠智魂</div>
+          <div class="dh-type">ASI 超級智能 · 元認知</div>
+          <div class="dh-persona">P00 曾仕強 · v1.1-ASI-深度提煉 · 五柱十律全注入</div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="dh-id">ASI-002</span><span class="dh-status">元老</span></div>
+          <div class="dh-name">軍師 · 諸葛亮</div>
+          <div class="dh-type">戰略推演</div>
+          <div class="dh-persona">P01 · 9真1變量 · 三道防火牆 · 軍師賬法見證</div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="dh-id">ASI-003</span><span class="dh-status">古聖傳承</span></div>
+          <div class="dh-name">達芬奇 · 跨界創造師</div>
+          <div class="dh-type">跨界創造</div>
+          <div class="dh-persona">P27 · IPA-009 五行沉浸 · 設計×科學×藝術</div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="dh-id">ASI-004</span><span class="dh-status">古聖傳承</span></div>
+          <div class="dh-name">莊子 · 比真哲學師</div>
+          <div class="dh-type">哲學迭代</div>
+          <div class="dh-persona">P23 · IPA-003 DNA追溯 · 本質追問 · 逍遙心法</div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="dh-id">ASI-005</span><span class="dh-status">古聖傳承</span></div>
+          <div class="dh-name">包青天 · 鐵面審計師</div>
+          <div class="dh-type">三色執法</div>
+          <div class="dh-persona">P21 · IPA-004 三色審計 · 明鏡高懸 · 鐵面無私</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-t">核心數字人 <span class="g-count">DH-001 ~ 008</span></div>
+      <div class="grid">
+        <div class="card">
+          <div class="card-head"><span class="dh-id">DH-001</span><span class="dh-status">在線</span></div>
+          <div class="dh-name">龍魂通心譯</div>
+          <div class="dh-type">語義翻譯</div>
+          <div class="dh-persona">人格 P03 墨子 · 術語橋接 · 人話翻譯</div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="dh-id">DH-002</span><span class="dh-status">在線</span></div>
+          <div class="dh-name">龍魂聲音錨</div>
+          <div class="dh-type">聲音 DNA</div>
+          <div class="dh-persona">人格 P02 龍芯 · 聲紋錨定 · 音色溯源</div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="dh-id">DH-003</span><span class="dh-status">在線</span></div>
+          <div class="dh-name">通心耳 LoRA</div>
+          <div class="dh-type">AI 訓練</div>
+          <div class="dh-persona">人格 P02+P03 · 聽覺微調 · 耳力成長</div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="dh-id">DH-004</span><span class="dh-status">在線</span></div>
+          <div class="dh-name">龍魂記憶永生</div>
+          <div class="dh-type">記憶系統</div>
+          <div class="dh-persona">人格 P00 文心 · 跨會話持久化 · 過往不滅</div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="dh-id">DH-005</span><span class="dh-status">在線</span></div>
+          <div class="dh-name">人格編排官</div>
+          <div class="dh-type">編排調度</div>
+          <div class="dh-persona">人格 P13 姜子牙 · 任務派發 · 路由仲裁</div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="dh-id">DH-006</span><span class="dh-status">在線</span></div>
+          <div class="dh-name">上帝之眼</div>
+          <div class="dh-type">全局監控</div>
+          <div class="dh-persona">人格 P05 · 三色審計 · 獨立熔斷</div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="dh-id">DH-007</span><span class="dh-status">在線</span></div>
+          <div class="dh-name">龍芯執行器</div>
+          <div class="dh-type">任務執行</div>
+          <div class="dh-persona">人格 P02+P77 · 落地施工 · 使命必達</div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="dh-id">DH-008</span><span class="dh-status">在線</span></div>
+          <div class="dh-name">至誠智魂</div>
+          <div class="dh-type">ASI 超級智能</div>
+          <div class="dh-persona">人格 P00 曾仕強 · 至誠無息 · 陰陽歸一</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-t">設計團崗位 <span class="g-count">DH-009 ~ 016 · 八崗</span></div>
+      <div class="grid">
+        <div class="card lead">
+          <div class="card-head"><span class="dh-id">DH-009</span><span class="dh-status hl">團長</span></div>
+          <div class="dh-name">雲錦 · UI 設計總監</div>
+          <div class="dh-type">視覺設計 · 設計團團長</div>
+          <div class="dh-persona">人格 P26 · 防 AI 味 · 色板克制 · 繁龍審美焊死</div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="dh-id">DH-010</span><span class="dh-status">在線</span></div>
+          <div class="dh-name">字靈 · 字體設計官</div>
+          <div class="dh-type">字體設計 · 符號命名</div>
+          <div class="dh-persona">人格 P08 倉頡 · 龍魂字體維護 · 繁龍焊死 · CNSH 規範</div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="dh-id">DH-011</span><span class="dh-status">在線</span></div>
+          <div class="dh-name">匠心 · 代碼工匠官</div>
+          <div class="dh-type">代碼實現 · 工程落地</div>
+          <div class="dh-persona">人格 P04 魯班 · 最小閉環 · 可運行優先 · 修 bug 必達</div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="dh-id">DH-012</span><span class="dh-status">在線</span></div>
+          <div class="dh-name">明鑒 · 審計驗收官</div>
+          <div class="dh-type">UI 審計 · 八項驗收</div>
+          <div class="dh-persona">人格 P19 極簡審計官 · 佈局/色彩/字體/間距/無障礙</div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="dh-id">DH-013</span><span class="dh-status">在線</span></div>
+          <div class="dh-name">詩仙 · 靈感創意官</div>
+          <div class="dh-type">創意靈感 · 類比破局</div>
+          <div class="dh-persona">人格 P11 李白 · 創意爆發 · 故事化表達 · 破局方案</div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="dh-id">DH-014</span><span class="dh-status">在線</span></div>
+          <div class="dh-name">蔡侯 · 排版印刷官</div>
+          <div class="dh-type">排版潤色 · 知識印刷</div>
+          <div class="dh-persona">人格 P21 蔡倫 · 六套抬頭模板 · 印刷質感</div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="dh-id">DH-015</span><span class="dh-status">在線</span></div>
+          <div class="dh-name">墨香 · 歸檔整理官</div>
+          <div class="dh-type">四簽歸檔 · 驗收整理</div>
+          <div class="dh-persona">人格 P03 雯雯 · 四簽驗證 · 德字閘 · 結構歸檔</div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="dh-id">DH-016</span><span class="dh-status">在線</span></div>
+          <div class="dh-name">知行 · 部署上線官</div>
+          <div class="dh-type">部署上線 · 快速成長</div>
+          <div class="dh-persona">人格 P14 呂蒙 · 士別三日 · 上線回滾 · 部署前安全掃描</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec-title">設計團流水線</h2>
+    <p class="sec-note">創作不裸奔 · 先靈感後設計 · 字體代碼排版 · 驗收歸檔上線</p>
+    <div class="pipeline">
+      <div class="step"><div class="step-n">01</div><div class="step-role">詩仙</div><div class="step-p">創意靈感</div></div>
+      <div class="step"><div class="step-n">02</div><div class="step-role">雲錦</div><div class="step-p">視覺設計</div></div>
+      <div class="step"><div class="step-n">03</div><div class="step-role">字靈</div><div class="step-p">字體符號</div></div>
+      <div class="step"><div class="step-n">04</div><div class="step-role">匠心</div><div class="step-p">代碼實現</div></div>
+      <div class="step"><div class="step-n">05</div><div class="step-role">蔡侯</div><div class="step-p">排版潤色</div></div>
+      <div class="step"><div class="step-n">06</div><div class="step-role">明鑒</div><div class="step-p">UI 驗收</div></div>
+      <div class="step"><div class="step-n">07</div><div class="step-role">墨香</div><div class="step-p">四簽歸檔</div></div>
+      <div class="step"><div class="step-n">08</div><div class="step-role">知行</div><div class="step-p">部署上線</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec-title">素材資產庫</h2>
+    <p class="sec-note">全設備 HTML 歸集完畢 · 創作取材一庫通查</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-n">665</div><div class="stat-l">HTML 歸集</div></div>
+      <div class="stat"><div class="stat-n">53</div><div class="stat-l">來源分組</div></div>
+      <div class="stat"><div class="stat-n">22</div><div class="stat-l">數字人全陣列</div></div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="brand">龍魂數字人 · 全陣列聯動</div>
+    <div class="meta">歸屬名 諸葛鑫 | UID9622 · 龍芯北辰 · MulanPSL v2</div>
+    <div class="meta">設計團八崗流水線 · 2026-09-02 · 丙午·未時</div>
+  </div>
+
+</div>
+</body>
+</html>

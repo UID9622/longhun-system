@@ -1,0 +1,97 @@
+{
+  "title": "CNSH Runtime Governance Theory",
+  "authors": [
+    "UID9622"
+  ],
+  "abstract": "",
+  "keywords": [],
+  "entities": [
+    {
+      "id": "Axiom_1",
+      "type": "Axiom",
+      "name": "Axiom 1",
+      "content": "No execution without audit",
+      "latex": "No execution without audit",
+      "depends_on": [],
+      "references": [],
+      "tags": [],
+      "created_at": "2026-08-02T09:49:05.675922",
+      "dna": "#龍芯⚡️20260802094905-ENTITY-87661f50",
+      "proof": "",
+      "meaning": ""
+    },
+    {
+      "id": "Definition_2",
+      "type": "Definition",
+      "name": "Definition 1",
+      "content": "Digital Root is the modulo-9 reduction of any integer",
+      "latex": "dr(n)=1+((n-1) \\bmod 9)",
+      "depends_on": [],
+      "references": [],
+      "tags": [],
+      "created_at": "2026-08-02T09:49:05.676035",
+      "dna": "#龍芯⚡️20260802094905-ENTITY-21c6f59b",
+      "proof": "",
+      "meaning": ""
+    },
+    {
+      "id": "Lemma_3",
+      "type": "Lemma",
+      "name": "Lemma 1",
+      "content": "If dr(n) ∈ {1,2,4,5,7,8}, then n is in GREEN state",
+      "latex": "If dr(n) ∈ {1,2,4,5,7,8}, then n is in GREEN state",
+      "depends_on": [],
+      "references": [],
+      "tags": [],
+      "created_at": "2026-08-02T09:49:05.676124",
+      "dna": "#龍芯⚡️20260802094905-ENTITY-6aa2a378",
+      "proof": "By definition of tri-color governance set G",
+      "meaning": ""
+    },
+    {
+      "id": "Theorem_4",
+      "type": "Theorem",
+      "name": "Theorem 1",
+      "content": "Every CNSH runtime execution is traceable via DNA chain",
+      "latex": "Every CNSH runtime execution is traceable via DNA chain",
+      "depends_on": [],
+      "references": [],
+      "tags": [],
+      "created_at": "2026-08-02T09:49:05.676207",
+      "dna": "#龍芯⚡️20260802094905-ENTITY-30718425",
+      "proof": "By induction on the DNAStack push chain",
+      "meaning": ""
+    },
+    {
+      "id": "Corollary_5",
+      "type": "Corollary",
+      "name": "Corollary 1",
+      "content": "All GREEN state executions pass without manual review",
+      "latex": "All GREEN state executions pass without manual review",
+      "depends_on": [],
+      "references": [],
+      "tags": [],
+      "created_at": "2026-08-02T09:49:05.676335",
+      "dna": "#龍芯⚡️20260802094905-ENTITY-9013a653",
+      "proof": "",
+      "meaning": ""
+    },
+    {
+      "id": "Formula_6",
+      "type": "Formula",
+      "name": "Formula 1",
+      "content": "DR = 0.35N + 0.25S + 0.25R + 0.15T",
+      "latex": "DR = 0.35N + 0.25S + 0.25R + 0.15T",
+      "depends_on": [],
+      "references": [],
+      "tags": [],
+      "created_at": "2026-08-02T09:49:05.676582",
+      "dna": "#龍芯⚡️20260802094905-ENTITY-cb419417",
+      "proof": "",
+      "meaning": "动态数字根"
+    }
+  ],
+  "created_at": "2026-08-02T09:49:05.674890",
+  "updated_at": "2026-08-02T09:49:05.676601",
+  "dna": "#龍芯⚡️20260802094905-PAPER-fc86c948"
+}

@@ -1,7 +1,10 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-7eb2b848
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-EMBED-WATERMARK-v1.0
 """
 龍魂字元库 · 龍纹水印嵌入脚本
-将 U+E200（龍纹）图标以 0.15 倍缩放后，嵌入到除源图标外所有字形的右下角 (520,520)。
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+将 U+E200（龙纹）图标以 0.15 倍缩放后，嵌入到除源图标外所有字形的右下角 (520,520)。
 """
 import json
 import os
@@ -28,7 +31,7 @@ SOURCE_UNICODE = "U+E200"
 VIEWBOX_SIZE = 600
 WATERMARK_TARGET = (520, 520)  # 水印中心目标位置
 WATERMARK_SCALE = 0.15         # 缩放比例，约 45x45
-WATERMARK_STROKES = 20         # 源龍纹图标的笔画数
+WATERMARK_STROKES = 20         # 源龙纹图标的笔画数
 
 
 def collect_points(path):
@@ -90,7 +93,7 @@ def main():
     print(f"[2/6] 共读取 {total} 个字形")
 
     # -----------------------------------------------------------------------
-    # 定位并预处理龍纹源图标
+    # 定位并预处理龙纹源图标
     # -----------------------------------------------------------------------
     source_glyph = None
     source_name = None
@@ -148,14 +151,14 @@ def main():
     meta["前一版本"] = prev_version
     meta["总字符数"] = total
     meta["水印编码"] = SOURCE_UNICODE
-    meta["水印名称"] = source_glyph.get("名称", "龍纹")
+    meta["水印名称"] = source_glyph.get("名称", "龙纹")
     meta["水印缩放比例"] = WATERMARK_SCALE
     meta["水印中心位置"] = list(WATERMARK_TARGET)
     meta["水印笔画数"] = WATERMARK_STROKES
     meta["水印DNA"] = "#龍芯⚡️2026-06-22-LONGHUN-FONT-EMBED-WATERMARK-v1.0"
     meta["水印描述"] = (
         f"每个字形右下角（中心 {WATERMARK_TARGET}）嵌入 {SOURCE_UNICODE} "
-        f"龍纹水印，缩放 {WATERMARK_SCALE}，约 45×45 大小，作为龍魂字体身份标识。"
+        f"龙纹水印，缩放 {WATERMARK_SCALE}，约 45×45 大小，作为龍魂字体身份标识。"
     )
     meta["水印时间"] = datetime.now(timezone.utc).isoformat()
 

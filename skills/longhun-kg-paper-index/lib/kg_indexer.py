@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂知识图谱 · 轻量论文索引器
@@ -7,7 +11,7 @@ LongHun KG Paper Indexer (self-contained)
 直接操作 ~/.longhun/global_index/global_index.db，与全局索引服务共用同一份数据，
 但无需导入 watchdog 等守护进程依赖。
 
-DNA: #龍芯⚡️2026-07-01-KG-PAPER-INDEXER-v1.0
+DNA: #龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-KG-PAPER-INDEXER-v1.0
 """
 
 import hashlib

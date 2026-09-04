@@ -1,0 +1,224 @@
+#龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-CICD-GH-V1.0-UID9622
+#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼♀️❤️♾️-DEVICE-BIND-SOUL
+
+# 🐉 龍魂主权 CI/CD · GitHub Actions
+# 仓库: UID9622/longhun-system · 主分支: main
+# 每次 push/PR 自动跑 8 步主权管道
+
+name: 🐉 龍魂主权转换
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'src/**'
+      - '*.py'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - 'package.json'
+      - 'requirements.txt'
+      - 'go.mod'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - '*.py'
+      - 'Cargo.toml'
+      - 'package.json'
+      - 'requirements.txt'
+      - 'go.mod'
+  workflow_dispatch:
+    inputs:
+      chip_target:
+        description: '目标芯片'
+        type: choice
+        options:
+          - auto
+          - kunpeng
+          - ascend
+          - phytium
+          - loongarch
+          - sunway
+        default: 'auto'
+
+env:
+  LH_OUTPUT: ./lh-output
+  LH_BINARY: tools/lh-station/target/debug/lh-station
+  CARGO_TERM_COLOR: always
+
+jobs:
+  # ═══════════════════════════════════════
+  # Job 1: 构建 lh-station (debug)
+  # ═══════════════════════════════════════
+  build-lh-station:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 安装 Rust 工具链
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-unknown-linux-gnu
+
+      - name: 构建 lh-station
+        run: |
+          cd tools/lh-station
+          cargo build
+          echo "LH_PATH=$(pwd)/target/debug/lh-station" >> $GITHUB_ENV
+
+      - name: 上传二进制
+        uses: actions/upload-artifact@v4
+        with:
+          name: lh-station
+          path: tools/lh-station/target/debug/lh-station
+          retention-days: 1
+
+  # ═══════════════════════════════════════
+  # Job 2: 运行 8 步主权管道
+  # ═══════════════════════════════════════
+  lh-transform:
+    needs: build-lh-station
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 下载 lh-station
+        uses: actions/download-artifact@v4
+        with:
+          name: lh-station
+          path: /tmp
+
+      - name: 安装
+        run: |
+          chmod +x /tmp/lh-station
+          sudo mv /tmp/lh-station /usr/local/bin/
+          lh-station init
+
+      - name: 🔍 运行主权转换 (8 步管道)
+        id: transform
+        run: |
+          CHIP="${{ github.event.inputs.chip_target || 'auto' }}"
+          lh-station transform . --chip "$CHIP" -o $LH_OUTPUT
+          echo "DNA=$(jq -r '.dna' $LH_OUTPUT/manifest.json)" >> $GITHUB_OUTPUT
+
+      - name: 🛡️ 主权完整性验证
+        run: lh-station verify $LH_OUTPUT
+
+      - name: 📊 生成主权报告
+        id: report
+        run: |
+          cat >> $GITHUB_STEP_SUMMARY << 'EOF'
+          ## 🐉 龍魂主权转换报告
+          EOF
+          echo "| 维度 | 值 |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|------|" >> $GITHUB_STEP_SUMMARY
+          DNA=$(jq -r '.dna' $LH_OUTPUT/manifest.json)
+          LANG=$(jq -r '.language' $LH_OUTPUT/manifest.json)
+          FILES=$(jq -r '.total_files' $LH_OUTPUT/manifest.json)
+          INJ=$(jq -r '.injected' $LH_OUTPUT/manifest.json)
+          SIG=$(jq -r '.signed' $LH_OUTPUT/manifest.json)
+          echo "| DNA | $DNA |" >> $GITHUB_STEP_SUMMARY
+          echo "| 语言 | $LANG |" >> $GITHUB_STEP_SUMMARY
+          echo "| 文件 | $FILES |" >> $GITHUB_STEP_SUMMARY
+          echo "| 注入 | $INJ |" >> $GITHUB_STEP_SUMMARY
+          echo "| 签名 | $SIG |" >> $GITHUB_STEP_SUMMARY
+          if [ -f $LH_OUTPUT/.cost-report.json ]; then
+            RISK=$(jq -r '.data_sovereign_risk' $LH_OUTPUT/.cost-report.json)
+            COST=$(jq -r '.estimated_monthly_cny' $LH_OUTPUT/.cost-report.json)
+            echo "| 主权风险 | **$RISK** |" >> $GITHUB_STEP_SUMMARY
+            echo "| 月成本 | ¥$COST |" >> $GITHUB_STEP_SUMMARY
+            CROSS=$(jq -r '.cross_border_apis | length' $LH_OUTPUT/.cost-report.json 2>/dev/null || echo 0)
+            if [ "$CROSS" != "0" ]; then
+              echo "" >> $GITHUB_STEP_SUMMARY
+              echo "⚠️ 跨境 API:" >> $GITHUB_STEP_SUMMARY
+              jq -r '.cross_border_apis[] | "- \(.endpoint) [\(.provider)]"' $LH_OUTPUT/.cost-report.json >> $GITHUB_STEP_SUMMARY
+            fi
+          fi
+          if [ -f $LH_OUTPUT/.seal-record.json ]; then
+            SEAL_HASH=$(jq -r '.seal_hash[0:16]' $LH_OUTPUT/.seal-record.json)
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "🧬 封印: \`$SEAL_HASH...\`" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "report_file=$LH_OUTPUT/report.md" >> $GITHUB_OUTPUT
+
+      - name: 📊 PR 评论报告
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let body = '## 🐉 龍魂主权转换报告\n\n';
+
+            const manifest = JSON.parse(fs.readFileSync('${{ env.LH_OUTPUT }}/manifest.json'));
+            body += `| 维度 | 值 |\n|------|------|\n`;
+            body += `| DNA | ${manifest.dna} |\n`;
+            body += `| 语言 | ${manifest.language} |\n`;
+            body += `| 文件 | ${manifest.total_files} |\n`;
+            body += `| 注入 | ${manifest.injected} |\n`;
+            body += `| 签名 | ${manifest.signed} |\n`;
+
+            try {
+              const cost = JSON.parse(fs.readFileSync('${{ env.LH_OUTPUT }}/.cost-report.json'));
+              body += `| 主权风险 | **${cost.data_sovereign_risk}** |\n`;
+              body += `| 月成本 | ¥${cost.estimated_monthly_cny} |\n`;
+              if (cost.cross_border_apis && cost.cross_border_apis.length > 0) {
+                body += '\n⚠️ 跨境 API:\n';
+                cost.cross_border_apis.forEach(a => body += `- ${a.endpoint} [${a.provider}]\n`);
+              }
+            } catch(e) {}
+
+            try {
+              const seal = JSON.parse(fs.readFileSync('${{ env.LH_OUTPUT }}/.seal-record.json'));
+              body += `\n🧬 封印: \`${seal.seal_hash.substring(0,16)}...\`\n`;
+            } catch(e) {}
+
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: body
+            });
+
+      - name: 上传转换产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: lh-output-${{ github.sha }}
+          path: ${{ env.LH_OUTPUT }}/
+          retention-days: 30
+
+  # ═══════════════════════════════════════
+  # Job 3: Release (仅 tag)
+  # ═══════════════════════════════════════
+  lh-release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: lh-transform
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 下载产物
+        uses: actions/download-artifact@v4
+        with:
+          name: lh-output-${{ github.sha }}
+          path: lh-output
+
+      - name: 创建 Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: lh-output/**/*
+          body: |
+            ## 🐉 龍魂主权代码发布
+            
+            经完整 8 步管道转换：
+            - 🔍 语言检测 ✅
+            - 💉 主权注入 ✅
+            - 🔧 芯片适配 ✅
+            - 🛡️ 安全审查 ✅
+            - 💰 API 成本分析 ✅
+            - 🔏 GPG 签名 ✅
+            - 📦 打包输出 ✅
+            - 🧬 记忆封印 ✅
+            
+            > DNA: 见 manifest.json
+            > 下载 Artifacts 获取完整转换产物。

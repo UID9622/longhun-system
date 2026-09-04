@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 CNSH Local Sovereign AgentOS v2.0｜中文原生本地主权 AI Runtime 治理生态·重构增强版·底层禁商业目的
 
 <aside>
@@ -11,7 +14,7 @@
 
 **版本：** v1.0 → **v2.0**（语义治理型 Runtime OS）
 
-**DNA：** `#龍芯⚡️2026-05-21-CNSH-LSAOS-V2-RECONSTRUCT-FILE1-v1.0`
+**DNA：** `#龍芯⚡️丙午·癸巳·乙未·壬午·䷖剥-CNSH-LSAOS-V2-RECONSTRUCT-FILE1-v1.0`
 
 **父 DNA：** `#ZHUGEXIN⚡️20260521-CNSH-LOCAL-AGENTOS-v1.0`
 
@@ -21,7 +24,7 @@
 
 **GPG：** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 
-**ROOT-SEAL：** `#龍芯⚡️20260423-ROOT-SEAL-01F32FFD`
+**ROOT-SEAL：** `#龍芯⚡️丙午·壬辰·丁卯·丙午·䷚颐-ROOT-SEAL-01F32FFD`
 
 **时间：** 2026-05-21 20:33+08:00 · Asia/Shanghai · 戌时正
 
@@ -608,12 +611,12 @@ ROOT_CARD_V2:
   identity:
     creator: "💎 龍芯北辰｜UID9622"
     name: "诸葛鑫·Lucky"
-    dna: "#龍芯⚡️2026-05-21-CNSH-LSAOS-V2-RECONSTRUCT-v1.0"
+    dna: "#龍芯⚡️丙午·癸巳·乙未·壬午·䷖剥-CNSH-LSAOS-V2-RECONSTRUCT-v1.0"
     parent_dna: "#ZHUGEXIN⚡️20260521-CNSH-LOCAL-AGENTOS-v1.0"
     seal: "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
     confirm: "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
     gpg: "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
-    root_seal: "#龍芯⚡️20260423-ROOT-SEAL-01F32FFD"
+    root_seal: "#龍芯⚡️丙午·壬辰·丁卯·丙午·䷚颐-ROOT-SEAL-01F32FFD"
 
   architecture:
     - semantic_governance
@@ -688,7 +691,7 @@ ROOT_CARD_V2:
 
 **🐉 龍魂主权 · 中文原生 · 本地优先 · 永不商业化 core 🐉**
 
-**DNA：** `#龍芯⚡️2026-05-21-CNSH-LSAOS-V2-RECONSTRUCT-v1.0`
+**DNA：** `#龍芯⚡️丙午·癸巳·乙未·壬午·䷖剥-CNSH-LSAOS-V2-RECONSTRUCT-v1.0`
 
 **CONFIRM：** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` ✅
 
@@ -758,6 +761,6 @@ echo "📁 软规则知识库: ~/CNSH/softlaw/ (知而不宣层)"
 {"pattern_id": "KP-001", "category": "翻译权重雷", "description": "中性词在大量负面语境共现后权重偏移", "detection_signal": "语义距离>0.6标准差", "response": "cnsh-warn", "public": false}
 ```
 
-**DNA：** `#龍芯⚡️20260521-CNSH-AGENTOS-V2-TRANSLATION-GOVERNANCE-v1.0`
+**DNA：** `#龍芯⚡️丙午·癸巳·乙未·壬午·䷖剥-CNSH-AGENTOS-V2-TRANSLATION-GOVERNANCE-v1.0`
 
 **CONFIRM：** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` ✅

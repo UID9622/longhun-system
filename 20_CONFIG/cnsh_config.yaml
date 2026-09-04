@@ -1,0 +1,67 @@
+# 🐉 CNSH 解释器配置 v1.1
+# DNA: #龍芯⚡️2026-08-31-CNSH-CONFIG-v1.1-UID9622
+# 创建者: 诸葛鑫（UID9622）
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+
+cnsh:
+  # ── 变量环境 ─────────────────────────────────
+  variables:
+    allow_any_symbols: true          # 允许任意符号变量名（# @ $ % ! 等）
+    allow_chinese_operators: true    # 允许中文运算符（加减乘除等于大于小于）
+    long_form_delimiter: "${...}"   # 长格式包裹（支持空格）
+    scope_stack: true                # 启用作用域堆栈
+
+  # ── 注释 ─────────────────────────────────────
+  comments:
+    line: "//"          # 行注释（# 不再作为注释符号）
+    block_start: "/*"
+    block_end: "*/"
+
+  # ── DNA主权校验 ───────────────────────────────
+  dna:
+    strict_mode: true                       # 严格模式：无签名拒绝执行
+    gpg_fingerprint: "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+    pattern: "#龍芯⚡️{YYYY-MM-DD}-{项目}-{版本}-UID9622"
+    check_header_lines: 30                  # 检查前30行
+    on_fail: reject                         # reject | warn | ignore
+
+  # ── 内置函数 ──────────────────────────────────
+  builtins:
+    - 输出
+    - 输入
+    - 类型
+    - 长度
+    - 整数
+    - 浮点
+    - 字符
+    - 列表
+
+  # ── 性能调优（对照评估§三-3·文档§四-3）────────────
+  performance:
+    ast_cache_size: 64            # AST缓存大小（CNSSH_ENV_CACHE_SIZE 可覆盖；0=关闭）
+    max_vars: null                # 变量数量上限（CNSSH_ENV_MAX_VARS 可覆盖；null=不限）
+    use_regex_precompile: false   # 词法已手写扫描器，无需正则预编译
+
+  # ── 监控（对照评估§四-4）──────────────────────
+  monitoring:
+    track_vars: true              # 变量数峰值
+    track_time: true              # 语句执行耗时
+    track_cache_hit: true         # AST缓存命中率
+    track_errors: true            # 解析失败率
+    prometheus_exporter: false    # 默认关闭（轻量优先·按需开启）
+
+  # ── 调试 ─────────────────────────────────────
+  debug: false
+  log_level: info
+
+  # ── 系统环境变量注入 ──────────────────────────
+  env_inject:
+    CNSSH_ENV_ALLOW_SYMBOLS: "true"
+    CNSSH_ENV_STRICT_DNA: "true"
+    CNSSH_ENV_CACHE_SIZE: "64"
+    CNSH_ENV_ALLOW_SYMBOLS: "true"   # 旧前缀兼容
+    CNSH_STRICT_DNA: "true"
+    CNSH_UID: "UID9622"
+    CNSH_GPG: "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"

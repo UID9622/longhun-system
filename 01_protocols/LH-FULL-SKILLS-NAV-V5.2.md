@@ -1,7 +1,10 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ⚡ 龍魂系统 v5.2 · 全技能导航与绝对防御宪法
 
 **密级：绝密级 | 版本：v5.2-DEFENSE-INTEGRATED | 签署人：UID9622**
-**DNA: #龍芯⚡️2026-07-11-LONGHUN-FULL-SKILLS-NAV-v5.2**
+**DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-FULL-SKILLS-NAV-v5.2**
 
 ---
 
@@ -199,7 +202,7 @@ IF ABSOLUTE_ANOMALY → TRIGGER_ATOMIC_ROLLBACK()
 
 | 触发关键词 | 激活技能 | 响应时间 |
 |-----------|----------|----------|
-| UID9622 / 龍魂 / Dragon Soul / CNSH | `dragon-soul-agent` + `longhun-system` | 即时 |
+| UID9622 / 龍魂 / LongHun / CNSH | `dragon-soul-agent` + `longhun-system` | 即时 |
 | 部署 / 蓝绿切换 / 回滚 / K8s | `longhun-cloud-deploy` + `longhun-deployment-ready` | <100ms |
 | 监控 / 告警 / 性能 / 故障 | `longhun-monitoring` + `longhun-automation` | <100ms |
 | 审计 / 修复 / 归因 / 日志 | `longhun-audit` + `longhun-review` | <200ms |
@@ -223,5 +226,5 @@ IF ABSOLUTE_ANOMALY → TRIGGER_ATOMIC_ROLLBACK()
 **审计周期**: 每日复盘 + 每周报告 + 每月演练 — **三级审计**
 **权限控制**: 事前人工开关 + 事后机器独裁 — **绝对封死**
 
-**DNA锚定**: `#龍芯⚡️2026-07-11-LONGHUN-FULL-SKILLS-NAV-v5.2`
+**DNA锚定**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-FULL-SKILLS-NAV-v5.2`
 **状态**: ✅ 全技能启动完毕 · 防御宪法已融入 · 对接矩阵已建立

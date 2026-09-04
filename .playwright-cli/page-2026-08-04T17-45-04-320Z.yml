@@ -1,0 +1,46 @@
+- generic [ref=f1e3]:
+  - generic [ref=f1e4]:
+    - img "logo" [ref=f1e6] [cursor=pointer]
+    - generic [ref=f1e10]:
+      - generic [ref=f1e11]: 简体中文
+      - generic:
+        - list:
+          - listitem [ref=f1e17] [cursor=pointer]:
+            - generic [ref=f1e18]: 简体中文
+          - listitem [ref=f1e20] [cursor=pointer]:
+            - generic [ref=f1e21]: 繁體中文（中國香港）
+          - listitem [ref=f1e22] [cursor=pointer]:
+            - generic [ref=f1e23]: 繁體中文（中國台灣）
+          - listitem [ref=f1e24] [cursor=pointer]:
+            - generic [ref=f1e25]: English
+          - listitem [ref=f1e26] [cursor=pointer]:
+            - generic [ref=f1e27]: 日本語
+          - listitem [ref=f1e28] [cursor=pointer]:
+            - generic [ref=f1e29]: Bahasa Indonesia
+          - listitem [ref=f1e30] [cursor=pointer]:
+            - generic [ref=f1e31]: Bahasa Melayu
+          - listitem [ref=f1e32] [cursor=pointer]:
+            - generic [ref=f1e33]: Deutsch
+          - listitem [ref=f1e34] [cursor=pointer]:
+            - generic [ref=f1e35]: Español
+          - listitem [ref=f1e36] [cursor=pointer]:
+            - generic [ref=f1e37]: Français
+          - listitem [ref=f1e38] [cursor=pointer]:
+            - generic [ref=f1e39]: Italiano
+          - listitem [ref=f1e40] [cursor=pointer]:
+            - generic [ref=f1e41]: Português (Brasil)
+          - listitem [ref=f1e42] [cursor=pointer]:
+            - generic [ref=f1e43]: Русский
+          - listitem [ref=f1e44] [cursor=pointer]:
+            - generic [ref=f1e45]: Tiếng Việt
+          - listitem [ref=f1e46] [cursor=pointer]:
+            - generic [ref=f1e47]: ภาษาไทย
+          - listitem [ref=f1e48] [cursor=pointer]:
+            - generic [ref=f1e49]: 한국어
+  - generic [ref=f1e50]:
+    - generic [ref=f1e52]:
+      - img "pic" [ref=f1e53]
+      - button "animation" [ref=f1e55]
+    - generic [ref=f1e107]:
+      - generic [ref=f1e108]: 先进团队 先用飞书
+      - generic [ref=f1e109]: 字节跳动旗下 AI 工作平台

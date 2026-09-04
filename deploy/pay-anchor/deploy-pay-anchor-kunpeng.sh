@@ -1,9 +1,12 @@
+#!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env bash
 # ╔══════════════════════════════════════════════════════════════════════════╗
 # ║  🐉 龍魂·支付锚定取证引擎 · 鲲鹏部署脚本 v1.0                               ║
 # ║  Deploy: 本地Mac → 华为云鲲鹏ECS + OBS不可删除备份                         ║
 # ╠══════════════════════════════════════════════════════════════════════════╣
-# ║  DNA: #龍芯⚡️2026-07-12-PAY-ANCHOR-KUNPENG-DEPLOY-v1.0                    ║
+# ║  DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-PAY-ANCHOR-KUNPENG-DEPLOY-v1.0                    ║
 # ║  目标: 华为 TaiShan 200 · 鲲鹏920 · openEuler / Ubuntu 24.04              ║
 # ║  架构: ARM64 · Python 3.10+                                               ║
 # ║  铁律:                                                                     ║

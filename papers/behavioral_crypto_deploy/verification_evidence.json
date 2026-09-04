@@ -1,0 +1,100 @@
+{
+  "items": [
+    {
+      "factor": "F1",
+      "score": 1.0,
+      "status": "PASS",
+      "message": "Identity DNA verified",
+      "metadata": {
+        "dna": "#龍芯⚡2026-08-21-IDENTITY-VERIFY-UID9622-4D9693AA"
+      }
+    },
+    {
+      "factor": "F2",
+      "score": 1.0,
+      "status": "PASS",
+      "message": "Temporal anchor verified",
+      "metadata": {
+        "iso_time": "2026-08-21T02:50:46+08:00",
+        "shichen": "未时",
+        "digit_root": 7
+      }
+    },
+    {
+      "factor": "F3",
+      "score": 1.0,
+      "status": "PASS",
+      "message": "Rule trace verified",
+      "metadata": {
+        "count": 1
+      }
+    },
+    {
+      "factor": "F4",
+      "score": 0.95,
+      "status": "PASS",
+      "message": "Persona route verified",
+      "metadata": {
+        "route": [
+          "宝宝",
+          "上帝之眼"
+        ]
+      }
+    },
+    {
+      "factor": "F5",
+      "score": 1.0,
+      "status": "PASS",
+      "message": "Protected lexicon verified",
+      "metadata": {
+        "missing": [],
+        "violation_ratio": 0.0
+      }
+    },
+    {
+      "factor": "F6",
+      "score": 0.99998213962389,
+      "status": "PASS",
+      "message": "Style vector verified",
+      "metadata": {
+        "similarity": 0.99998213962389
+      }
+    },
+    {
+      "factor": "F7",
+      "score": 0.95,
+      "status": "PASS",
+      "message": "Honest mistake ledger verified",
+      "metadata": {
+        "count": 1
+      }
+    },
+    {
+      "factor": "COMPOSITE",
+      "score": 0.9887769640508989,
+      "status": "PASS",
+      "message": "Composite verification complete",
+      "metadata": {
+        "scores": [
+          1.0,
+          1.0,
+          1.0,
+          0.95,
+          1.0,
+          0.99998213962389,
+          0.95
+        ],
+        "weights": [
+          0.25,
+          0.15,
+          0.15,
+          0.12,
+          0.12,
+          0.11,
+          0.1
+        ]
+      }
+    }
+  ],
+  "hard_failures": []
+}

@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # kimi
 
 **路径**：`kimi`
@@ -32,4 +35,4 @@
 - 运行前请确认依赖已安装。
 - 建议先阅读源码注释，了解每个脚本的副作用。
 
-**DNA**:#龍芯⚡️2026-06-17-KIMI-README-v1.0
+**DNA**:#龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-KIMI-README-v1.0

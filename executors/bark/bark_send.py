@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷼中孚-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
-║   🐉 龙魂·Bark 推送工具 v2.0 — 自建/官方双模式                            ║
+║   🐉 龍魂·Bark 推送工具 v2.0 — 自建/官方双模式                            ║
 ║   Bark Send Tool · 仅发送 · 不审计不存储                                   ║
 ╠══════════════════════════════════════════════════════════════════════════╣
 ║   用途: 服务器cron脚本调用，仅做Bark HTTP推送                               ║
@@ -35,7 +40,7 @@ else:
     BARK_URL = f"https://api.day.app/{BARK_KEY}"  # 官方 API
 
 
-def send_bark(title: str, body: str, group: str = "龙魂系统", level: str = "info") -> bool:
+def send_bark(title: str, body: str, group: str = "龍魂系统", level: str = "info") -> bool:
     """发送Bark推送 · 自动适配自建/官方模式"""
     if not BARK_KEY and not BARK_SERVER:
         print("Error: BARK_KEY 或 BARK_SERVER 未配置", file=sys.stderr)
@@ -80,7 +85,7 @@ def main():
     parser.add_argument("title", help="推送标题")
     parser.add_argument("body", nargs="?", default="", help="推送内容")
     parser.add_argument("--stdin", action="store_true", help="从stdin读取内容")
-    parser.add_argument("--group", default="龙魂系统", help="推送分组")
+    parser.add_argument("--group", default="龍魂系统", help="推送分组")
     args = parser.parse_args()
 
     body = args.body

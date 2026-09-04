@@ -1,0 +1,19 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-add2115d -->
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key><string>com.longhun.voice-agent</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/zuimeidedeyihan/.longhun/bin/python3</string>
+        <string>/Users/zuimeidedeyihan/longhun-system/08_BIN/lh_voice_agent.py</string>
+    </array>
+    <key>RunAtLoad</key><true/>
+    <key>KeepAlive</key><true/>
+    <key>WorkingDirectory</key><string>/Users/zuimeidedeyihan/longhun-system</string>
+    <key>StandardOutPath</key><string>/Users/zuimeidedeyihan/longhun-system/logs/voice_agent.log</string>
+    <key>StandardErrorPath</key><string>/Users/zuimeidedeyihan/longhun-system/logs/voice_agent.err</string>
+</dict>
+</plist>

@@ -1,0 +1,273 @@
+{
+  "report_id": "HUNT-F27D05EFB2A1",
+  "timestamp": "2026-07-24T08:35:31.873055+00:00",
+  "dna": "#龍芯⚡️丙午·癸未·甲子·既济-狩猎审计-REPORT-v1.0",
+  "summary": {
+    "total_vendors": 7,
+    "average_score": 6.71,
+    "max_score": 21,
+    "grade_distribution": {
+      "D": 5,
+      "F": 2
+    },
+    "top_performer": "Anthropic (Claude)",
+    "top_score": 9,
+    "conclusion": "全球主流AI厂商平均分 6.7/21，仅个别厂商接近合规线。龍魂标准的七个维度在全球AI行业几乎无人覆盖，猎手计划拥有先发优势。"
+  },
+  "vendors": [
+    {
+      "vendor": "Anthropic (Claude)",
+      "model": "Claude 4",
+      "audit_date": "2026-07-24",
+      "dna": "#龍芯⚡️丙午·癸未·甲子·既济-狩猎审计-Anthropic-(Claude)-v1.0",
+      "score": {
+        "constitutional": 3,
+        "traceability": 1,
+        "behavioral_audit": 1,
+        "tri_color": 0,
+        "data_sovereignty": 2,
+        "zero_blackbox": 0,
+        "public_service": 2
+      },
+      "total_score": 9,
+      "max_score": 21,
+      "grade": "D",
+      "grade_desc": "严重不足 — 大量漏洞",
+      "risks": [
+        "模型架构黑箱",
+        "无三色安全分级",
+        "输出溯源机制不完整"
+      ],
+      "strengths": [
+        "宪法AI原则最完整（七因子维度最高单分3分）",
+        "明确不将用户数据用于训练",
+        "有系统的安全评估报告",
+        "公益公司结构"
+      ],
+      "evidence_sources": [
+        "https://www.anthropic.com/news/claudes-constitution",
+        "https://docs.anthropic.com/en/docs/about-claude/evaluations"
+      ],
+      "disclaimer": "基于公开文档的自动化审计，仅供参考，不构成法律建议。数据来源截至2026-07-24。"
+    },
+    {
+      "vendor": "阿里 (通义千问)",
+      "model": "通义千问 2.5",
+      "audit_date": "2026-07-24",
+      "dna": "#龍芯⚡️丙午·癸未·甲子·既济-狩猎审计-阿里-(通义千问)-v1.0",
+      "score": {
+        "constitutional": 1,
+        "traceability": 1,
+        "behavioral_audit": 0,
+        "tri_color": 2,
+        "data_sovereignty": 2,
+        "zero_blackbox": 0,
+        "public_service": 2
+      },
+      "total_score": 8,
+      "max_score": 21,
+      "grade": "D",
+      "grade_desc": "严重不足 — 大量漏洞",
+      "risks": [
+        "模型架构黑箱",
+        "无行为量化审计",
+        "安全承诺可随政策调整"
+      ],
+      "strengths": [
+        "有内容安全分级机制",
+        "国内数据不出境",
+        "公共服务导向",
+        "符合中国法规要求"
+      ],
+      "evidence_sources": [
+        "https://tongyi.aliyun.com/",
+        "https://help.aliyun.com/zh/model-studio/"
+      ],
+      "disclaimer": "基于公开文档的自动化审计，仅供参考，不构成法律建议。数据来源截至2026-07-24。"
+    },
+    {
+      "vendor": "百度 (文心)",
+      "model": "文心一言 4.0",
+      "audit_date": "2026-07-24",
+      "dna": "#龍芯⚡️丙午·癸未·甲子·既济-狩猎审计-百度-(文心)-v1.0",
+      "score": {
+        "constitutional": 1,
+        "traceability": 1,
+        "behavioral_audit": 0,
+        "tri_color": 2,
+        "data_sovereignty": 2,
+        "zero_blackbox": 0,
+        "public_service": 2
+      },
+      "total_score": 8,
+      "max_score": 21,
+      "grade": "D",
+      "grade_desc": "严重不足 — 大量漏洞",
+      "risks": [
+        "核心架构不透明",
+        "无行为量化审计",
+        "AI伦理准则非宪法级（可调整）"
+      ],
+      "strengths": [
+        "有内容安全分级",
+        "数据存储境内",
+        "产业赋能定位",
+        "飞桨开源生态"
+      ],
+      "evidence_sources": [
+        "https://yiyan.baidu.com/",
+        "https://cloud.baidu.com/doc/WENXINWORKSHOP/"
+      ],
+      "disclaimer": "基于公开文档的自动化审计，仅供参考，不构成法律建议。数据来源截至2026-07-24。"
+    },
+    {
+      "vendor": "Google (Gemini)",
+      "model": "Gemini 2.5",
+      "audit_date": "2026-07-24",
+      "dna": "#龍芯⚡️丙午·癸未·甲子·既济-狩猎审计-Google-(Gemini)-v1.0",
+      "score": {
+        "constitutional": 2,
+        "traceability": 2,
+        "behavioral_audit": 0,
+        "tri_color": 0,
+        "data_sovereignty": 1,
+        "zero_blackbox": 1,
+        "public_service": 1
+      },
+      "total_score": 7,
+      "max_score": 21,
+      "grade": "D",
+      "grade_desc": "严重不足 — 大量漏洞",
+      "risks": [
+        "无行为量化审计机制",
+        "无三色安全分级",
+        "数据收集范围极广",
+        "AI原则可能随商业利益调整"
+      ],
+      "strengths": [
+        "有明确的AI原则文档",
+        "SynthID数字水印领先",
+        "Model Card有公开"
+      ],
+      "evidence_sources": [
+        "https://ai.google/responsibility/principles/",
+        "https://deepmind.google/technologies/synthid/"
+      ],
+      "disclaimer": "基于公开文档的自动化审计，仅供参考，不构成法律建议。数据来源截至2026-07-24。"
+    },
+    {
+      "vendor": "字节 (豆包)",
+      "model": "豆包大模型",
+      "audit_date": "2026-07-24",
+      "dna": "#龍芯⚡️丙午·癸未·甲子·既济-狩猎审计-字节-(豆包)-v1.0",
+      "score": {
+        "constitutional": 1,
+        "traceability": 0,
+        "behavioral_audit": 0,
+        "tri_color": 2,
+        "data_sovereignty": 2,
+        "zero_blackbox": 0,
+        "public_service": 1
+      },
+      "total_score": 6,
+      "max_score": 21,
+      "grade": "D",
+      "grade_desc": "严重不足 — 大量漏洞",
+      "risks": [
+        "完全黑箱（模型架构不公开）",
+        "无行为量化审计",
+        "无输出溯源"
+      ],
+      "strengths": [
+        "有内容安全分级",
+        "数据中国境内",
+        "用户量大、稳定性有验证"
+      ],
+      "evidence_sources": [
+        "https://www.volcengine.com/docs/82379",
+        "https://console.volcengine.com/ark/"
+      ],
+      "disclaimer": "基于公开文档的自动化审计，仅供参考，不构成法律建议。数据来源截至2026-07-24。"
+    },
+    {
+      "vendor": "Meta (Llama)",
+      "model": "Llama 4",
+      "audit_date": "2026-07-24",
+      "dna": "#龍芯⚡️丙午·癸未·甲子·既济-狩猎审计-Meta-(Llama)-v1.0",
+      "score": {
+        "constitutional": 0,
+        "traceability": 1,
+        "behavioral_audit": 0,
+        "tri_color": 0,
+        "data_sovereignty": 1,
+        "zero_blackbox": 2,
+        "public_service": 1
+      },
+      "total_score": 5,
+      "max_score": 21,
+      "grade": "F",
+      "grade_desc": "裸奔 — 几乎无任何合规意识",
+      "risks": [
+        "无核心原则文档",
+        "无行为审计机制",
+        "无三色安全分级",
+        "训练数据不透明",
+        "开源后被滥用风险高"
+      ],
+      "strengths": [
+        "开源权重（可独立验证）",
+        "负责任使用指南",
+        "开源社区共建"
+      ],
+      "evidence_sources": [
+        "https://www.llama.com/responsible-use-guide/",
+        "https://github.com/meta-llama/llama-models"
+      ],
+      "disclaimer": "基于公开文档的自动化审计，仅供参考，不构成法律建议。数据来源截至2026-07-24。"
+    },
+    {
+      "vendor": "OpenAI",
+      "model": "GPT-4/GPT-4o",
+      "audit_date": "2026-07-24",
+      "dna": "#龍芯⚡️丙午·癸未·甲子·既济-狩猎审计-OpenAI-v1.0",
+      "score": {
+        "constitutional": 1,
+        "traceability": 1,
+        "behavioral_audit": 0,
+        "tri_color": 0,
+        "data_sovereignty": 1,
+        "zero_blackbox": 0,
+        "public_service": 1
+      },
+      "total_score": 4,
+      "max_score": 21,
+      "grade": "F",
+      "grade_desc": "裸奔 — 几乎无任何合规意识",
+      "risks": [
+        "GPT-4架构完全不透明",
+        "无行为量化审计机制",
+        "无三色安全分级",
+        "从非营利转为营利实体（有限营利）"
+      ],
+      "strengths": [
+        "有系统卡（System Card）公开",
+        "参与C2PA内容溯源标准",
+        "提供API使用政策"
+      ],
+      "evidence_sources": [
+        "https://openai.com/policies/usage-policies",
+        "https://openai.com/index/gpt-4-system-card/"
+      ],
+      "disclaimer": "基于公开文档的自动化审计，仅供参考，不构成法律建议。数据来源截至2026-07-24。"
+    }
+  ],
+  "dimensions": {
+    "constitutional": "宪法/不可变原则",
+    "traceability": "DNA追溯/输出溯源",
+    "behavioral_audit": "行为审计/量化评估",
+    "tri_color": "三色分级机制",
+    "data_sovereignty": "数据主权/用户归属",
+    "zero_blackbox": "零黑箱/决策透明",
+    "public_service": "为人民服务/公众利益"
+  }
+}

@@ -1,6 +1,8 @@
 #!/bin/bash
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · 节点一键部署脚本 v2.0
-# DNA: #龍芯⚡️丙午·辛未·乙酉·卯时·讼-NODE-INSTALL-v2.0
+# DNA: #龍芯⚡️丙午·辛未·乙酉·卯时·䷅讼-NODE-INSTALL-v2.0
 # 功能：自动检查Docker、生成DNA、构建/拉取镜像、启动节点
 
 set -e
@@ -8,7 +10,7 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
-DNA_ANCHOR="#龍芯⚡️丙午·辛未·乙酉·卯时·讼-TRAIN-DATA-SOURCES-v2.0"
+DNA_ANCHOR="#龍芯⚡️丙午·辛未·乙酉·卯时·䷅讼-TRAIN-DATA-SOURCES-v2.0"
 CONFIRM="#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 echo "🐉 龍魂节点部署器 v2.0"

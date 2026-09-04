@@ -1,5 +1,5 @@
 // WebSocket 客户端服务
-// DNA:#龍芯⚡️2026-06-04-WS-CLIENT-v1.0
+// DNA:#龍芯⚡️丙午·癸巳·己酉·庚午·䷨损-WS-CLIENT-v1.0
 
 import { useRef, useState, useCallback } from 'react'
 import { useOverlayStore } from '../store/overlay'

@@ -1,0 +1,62 @@
+# 🐉 龍魂 AI 网关 · 流控配置 v1.1
+# DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-FLOW-CONTROL-CONFIG-v1.1
+# 创建者: 诸葛鑫（UID9622）
+# License: MulanPSL v2
+
+# ── 默认配置 ──────────────────────────────────────
+default:
+  enabled: true
+  tokens_per_second: 100        # 每秒100 token
+  burst_size: 20                # 突发容量
+  timeout: 5.0                  # 默认超时(秒)
+  fallback_action: passthrough  # 超时动作: passthrough/degrade/block
+  audit_sample_rate: 0.01       # allowed事件采样率(1%)
+  max_sessions: 10000           # 最大会话数(LRU淘汰)
+  degrade_duration: 60.0        # 降级恢复时间(秒)
+  degrade_rate_multiplier: 0.5  # 降级速率乘数
+
+# ── 场景预设 ──────────────────────────────────────
+scenes:
+  stream:
+    tokens_per_second: 100
+    burst_size: 30
+    timeout: 3.0
+    fallback_action: passthrough
+
+  chat:
+    tokens_per_second: 50
+    burst_size: 15
+    timeout: 10.0
+    fallback_action: passthrough
+
+  batch:
+    tokens_per_second: 200
+    burst_size: 50
+    timeout: 30.0
+    fallback_action: degrade
+
+  admin:
+    tokens_per_second: 500
+    burst_size: 100
+    timeout: 5.0
+    fallback_action: passthrough
+
+# ── 租户覆盖（按session_id前缀匹配） ──────────────
+tenants:
+  vip-:
+    tokens_per_second: 200
+    burst_size: 40
+    fallback_action: passthrough
+
+  batch-:
+    tokens_per_second: 500
+    burst_size: 100
+    fallback_action: degrade
+
+# ── 监控 ──────────────────────────────────────────
+monitoring:
+  prometheus_metrics: true         # 暴露/metrics端点
+  audit_log: true                  # 审计日志落盘
+  audit_log_path: logs/flow_control_audit.jsonl
+  bark_alert: false                # Bark推送告警(高并发阻塞时)
+  bark_alert_threshold: 0.5        # 阻塞率>50%触发告警

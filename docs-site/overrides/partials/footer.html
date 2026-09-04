@@ -1,0 +1,34 @@
+{% import "partials/language.html" as lang with context %}
+<footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid" style="text-align: center; padding: 0.6rem 0;">
+      <div style="font-size: .8rem; line-height: 1.8;">
+        <p style="margin: .2rem 0;">
+          💬 发现文档问题？请通过
+          <a href="https://github.com/UID9622/longhun-system/issues/new?template=shame_report.yml&labels=docs-feedback"
+             style="color: inherit; text-decoration: underline;">耻辱墙提交反馈</a>
+          &nbsp;·&nbsp; 当前文档 DNA: <code id="lh-page-dna">#龍帳⚡️2026-09-04-DOCS-SITE-v1.0-UID9622</code>
+        </p>
+        <p style="margin: 0;">
+          🔐 可验证 · GPG 签名指纹: <code>A2D0092CEE2E5BA87035600924C3704A8CC26D5F</code>
+        </p>
+        <p style="margin: 0; opacity: .85;">
+          归属名: 诸葛鑫 | UID9622 · 龍芯北辰 &nbsp;·&nbsp; 时间戳: 丙午年·壬申月·庚戌日
+        </p>
+        <p style="margin: 0; opacity: .7;">
+          验证: <code>gpg --verify &lt;file&gt;.asc &lt;file&gt;</code> · 源文档 GPG 分离签名与 <code>12_DOCS/</code> 同步 · 中国 · 华为云 · 鲲鹏
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  try {
+    var t = document.body.innerText || '';
+    var m = t.match(/(?:DNA|DNA码|DNA:)[:：]?\s*(#龍[^\s\n·<\u0022'”]+)/);
+    var el = document.getElementById('lh-page-dna');
+    if (el && m && m[1]) { el.textContent = m[1]; }
+  } catch (e) {}
+})();
+</script>

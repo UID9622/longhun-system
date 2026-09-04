@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99e (TeX Live 2026)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: turbulence-longhun-v3.1.aux
+The style file: plain.bst
+Database file #1: turbulence-longhun-v3.1.bib
+Warning--empty publisher in Banach1922
+You've used 8 entries,
+            2118 wiz_defined-function locations,
+            544 strings with 4979 characters,
+and the built_in function-call counts, 1849 in all, are:
+= -- 170
+> -- 62
+< -- 1
++ -- 27
+- -- 18
+* -- 84
+:= -- 328
+add.period$ -- 24
+call.type$ -- 8
+change.case$ -- 28
+chr.to.int$ -- 0
+cite$ -- 9
+duplicate$ -- 88
+empty$ -- 176
+format.name$ -- 18
+if$ -- 386
+int.to.chr$ -- 0
+int.to.str$ -- 8
+missing$ -- 12
+newline$ -- 43
+num.names$ -- 16
+pop$ -- 55
+preamble$ -- 1
+purify$ -- 25
+quote$ -- 0
+skip$ -- 53
+stack$ -- 0
+substring$ -- 66
+swap$ -- 9
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 22
+warning$ -- 1
+while$ -- 18
+width$ -- 9
+write$ -- 83
+(There was 1 warning)

@@ -1,6 +1,6 @@
 [build-system]
 requires = ["setuptools>=68.0", "wheel"]
-build-backend = "setuptools.backends._legacy:_Backend"
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "longhun-system"
@@ -9,13 +9,13 @@ description = "龍魂系统 · 中国文化底座的AI主权系统 · 21人格�
 authors = [
     {name = "UID9622 · 诸葛鑫·Lucky·龍芯北辰", email = "9622@longhun.local"}
 ]
-license = {text = "CN-SOVEREIGN-LICENSE-v1.0"}
+license = {text = "MulanPSL v2 (code) + CC BY-NC-SA 4.0 (docs) — layered, see 01_protocols/LH-LAYERED-LICENSE-v1.0.md"}
 requires-python = ">=3.11"
 readme = "README.md"
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
-    "License :: Other/Proprietary License",
+    "License :: OSI Approved :: Mulan Permissive Software License v2 (MulanPSL-2.0)",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -78,11 +78,19 @@ all = [
 # ═══════════════════════════════════════════════
 
 [project.scripts]
-lh = "bin.longhun_cli:main"
-longhun = "bin.longhun_cli:main"
+lh = "bin.lh:main"
+longhun = "bin.lh:main"
 
 [project.gui-scripts]
 longhun-dashboard = "bin.longhun_cli:dashboard"
+
+# ═══════════════════════════════════════════════
+# 包发现
+# ═══════════════════════════════════════════════
+
+[tool.setuptools.packages.find]
+include = ["bin*", "cnsh*", "engines*", "longhun*"]
+exclude = ["tests*", "*__pycache__*", "._*", "*.egg-info"]
 
 # ═══════════════════════════════════════════════
 # 工具配置

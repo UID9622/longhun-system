@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂 CodeBuddy MVP 插件集 v1.0
 
 > DNA: `#龍芯⚡️丙午·辛未·CODEBUDDY-MVP-PLUGINS-v1.0`
@@ -27,7 +30,7 @@ bash install.sh
 
 安装方式：把 `.vsix` 文件拖进 CodeBuddy 侧边栏扩展视图，或按 `Cmd+Shift+P` →「从 VSIX 安装」。
 
-> ⚠️ 仅本地分发，不上传到任何扩展市场。
+> ⚠️ 仅本地分发，不上传到任何扩展市场。\n> 📥 在线下载: https://uid9622.cn/tools/cnsh-syntax-2.0.0.vsix\n> 安装方式：下载 `.vsix` → CodeBuddy 侧边栏扩展视图 → 拖入安装，或 `Cmd+Shift+P` →「从 VSIX 安装」
 
 ## 六个 MVP
 

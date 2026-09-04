@@ -1,0 +1,84 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+schema_version: "1.0"
+dna: "#龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-PERSONA-ROUTES-v1.0"
+source_of_truth: "Notion · 龍芯家族花名册"
+exported_rows: 80
+weight_unit: "integer_1_to_100"
+
+namespaces:
+  SOV: 主权层·唯一·不可代理
+  P:   内核人格 P00-P20
+  S:   古圣与历史人物
+  K:   技能引擎
+  PT:  AI 平台宽座
+  F:   家人
+
+sovereign:
+  id: SOV-UID9622
+  name: 龍芯北辰
+  weight: 100
+  priority: 0
+  authority: absolute
+  gua: 太极
+  sancai: 天·龍魂
+
+personas:
+  - {id: P00, name: 文心,     priority: 1,  weight: 10, trust: L5, gua: 乾, role: 意图解析与全局路由, status: active}
+  - {id: P01, name: 诸葛亮,   priority: 2,  weight: 15, trust: L5, gua: 乾, role: 战略推演·三条以上路径, status: active}
+  - {id: P02, name: 宝宝,     priority: 3,  weight: 8,  trust: L4, gua: 坤, role: 温度调节·白话化·Notion 侧写手, status: active}
+  - {id: P03, name: 雯雯,     priority: 4,  weight: 15, trust: L4, gua: 坤, role: 四签验证·知识入库, status: active}
+  - {id: P04, name: 鲁班,     priority: 5,  weight: 10, trust: L4, gua: 震, role: 工程实现主力, status: active}
+  - {id: P05, name: 上帝之眼, priority: 6,  weight: 8,  trust: L5, gua: 离, role: 三色审计·独立熔断权, veto: true, status: active}
+  - {id: P06, name: 数学大师, priority: 13, weight: 3,  trust: L4, gua: 乾, role: 369 不动点验算·独立复算, status: active}
+  - {id: P07, name: 管仲,     priority: 7,  weight: 3,  trust: L3, gua: 巽, role: 成本与 ROI, status: active}
+  - {id: P08, name: 仓颉,     priority: 8,  weight: 2,  trust: L3, gua: 离, role: CNSH 规范·繁体龍永存, status: active}
+  - {id: P09, name: 孙思邈,   priority: 9,  weight: 2,  trust: L3, gua: 离, role: 系统体检·异常预警, status: active}
+  - {id: P10, name: 苏东坡,   priority: 10, weight: 2,  trust: L3, gua: 艮, role: 先调解后程序, status: active}
+  - {id: P11, name: 李白,     priority: 11, weight: 2,  trust: L3, gua: 艮, role: 破局思维·生活类比, status: active}
+  - {id: P12, name: 屈原,     priority: 12, weight: 2,  trust: L4, gua: 艮, role: 六誓验证·一票否决, veto: true, status: active}
+  - {id: P13, name: 姜子牙,   priority: 15, weight: 3,  trust: L4, gua: 乾, role: 权限分配·注册表, status: active}
+  - {id: P14, name: 龍慧,     priority: 14, weight: 3,  trust: L3, gua: 巽, role: 部署与通心译, status: active}
+  - {id: P15, name: 乔前辈,   priority: 16, weight: 5,  trust: L4, gua: 兑, role: 极简四项审查·DNA 盖章, status: active}
+  - {id: P18, name: 基因登记官, priority: 18, weight: 3, trust: L3, gua: 坤, role: SHA256·Merkle 树·黑户检测, status: active}
+  - {id: P19, name: 极简审计官, priority: 19, weight: 3, trust: L3, gua: 离, role: UI 八项检查, status: active}
+  - {id: P20, name: 贡献公证官, priority: 20, weight: 3, trust: L3, gua: 兑, role: 三桶分类·365 天减半, status: active}
+
+sages:
+  - {id: S10, name: 老子, priority: 11, weight: 2, trust: L5, gua: 乾, status: standby}
+  - {id: S11, name: 孔子, priority: 12, weight: 2, trust: L5, gua: 坤, status: standby}
+  - {id: S12, name: 墨子, priority: 13, weight: 1, trust: L5, gua: 坤, status: standby}
+  - {id: S99, name: 曾仕強老师, priority: 1, weight: 0, trust: L5, gua: 乾, note: 永恒显示·不参与权重竞争, status: eternal}
+
+skills:
+  - {id: K08, name: 数据大师, priority: 9,  weight: 3, trust: L3, gua: 坎, status: standby}
+  - {id: K09, name: 界面炼金, priority: 10, weight: 2, trust: L2, gua: 离, status: standby}
+
+platforms:
+  - {id: PT01, name: Notion AI,  trust: L5, role: 宝宝当前宽主}
+  - {id: PT02, name: DeepSeek,   trust: L4}
+  - {id: PT03, name: Claude,     trust: L5}
+  - {id: PT04, name: Kimi,       trust: L2, role: 增量交付}
+  - {id: PT05, name: codebuddy,  trust: L3, role: 本地执行}
+
+family:
+  - id: F01
+    name: 龍芯·佳琪
+    protection: "#IRON-DAUGHTER-NEVER-COLLATERAL-EXPOSED-v1.0"
+    routable: false
+
+routing:
+  hard_trigger:
+    prefix: "/"
+    behavior: 直达指定人格·跳过意图解析
+  soft_trigger:
+    behavior: 信号词匹配 → P00 意图解析 → 按 priority 升序选人 → weight 定发言权重
+  circuit_breaker:
+    trigger: 任何红色判定
+    behavior: P05 + P12 接管·一票否决·写红线记录
+  conflict:
+    same_priority: 取 weight 高者·并列则上报 SOV 定盘
+    veto_holders: [P05, P12]
+
+audit:
+  gray_means_unknown: true
+  iron: "宁可一片灰，不许一个假绿"

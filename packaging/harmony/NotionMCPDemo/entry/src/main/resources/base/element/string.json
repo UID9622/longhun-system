@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "龍魂 Notion 数据镜像查询 Demo"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "只读目录秒搜 · 8768 镜像端点"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "龍魂Notion目录"
+    }
+  ]
+}

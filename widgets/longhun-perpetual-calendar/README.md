@@ -1,6 +1,8 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂万年历 · LongHun Perpetual Calendar
 
-> DNA:#龍芯⚡️2026-06-27-LONGHUN-PERPETUAL-CALENDAR-FILE1-v1.0
+> DNA:#龍芯⚡️丙午·甲午·壬申·丙午·䷙大畜-LONGHUN-PERPETUAL-CALENDAR-FILE1-v1.0
 > 原则：自主字体、自主渲染、自主主权，不按苹果/谷歌/华为标准走。
 
 ## 来源

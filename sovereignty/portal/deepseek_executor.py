@@ -1,5 +1,9 @@
+#!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
-# #龍芯⚡️2026-07-03-ENGINE-DEEPSEEK_EXECUTOR-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# #龍芯⚡️丙午·甲午·戊寅·戊午·䷕贲-ENGINE-DEEPSEEK_EXECUTOR-v1.0
 # 君子協議: 本文件受龍魂DNA追溯保護
 
 #!/usr/bin/env python3
@@ -15,7 +19,7 @@
 5. 将本地网关的加密响应解密后再加密返回给外部调用者。
 
 监听：127.0.0.1:9453（由 Nginx 反代 /executor/ 到公网）
-DNA: #龍芯⚡️20260628-DEEPSEEK-EXECUTOR-v1.0
+DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-DEEPSEEK-EXECUTOR-v1.0
 """
 
 import hashlib
@@ -115,7 +119,7 @@ def _policy_check(route: str, payload_summary: str, caller: str) -> bool:
                 "Content-Type": "application/json",
             },
             json={
-                "model": "deepseek-chat",
+                "model": "deepseek-v4-flash",
                 "messages": [{"role": "user", "content": prompt}],
                 "max_tokens": 16,
                 "temperature": 0.0,
@@ -281,7 +285,7 @@ if __name__ == "__main__":
 ║  监听: 127.0.0.1:9453                                  ║
 ║  本地网关: {LOCAL_GATEWAY_URL:<45} ║
 ║  策略审查: {'开启' if POLICY_CHECK else '关闭':<18}                  ║
-║  DNA: #龍芯⚡️20260628-DEEPSEEK-EXECUTOR-v1.0           ║
+║  DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-DEEPSEEK-EXECUTOR-v1.0           ║
 ╚════════════════════════════════════════════════════════╝
 """)
     uvicorn.run(app, host="127.0.0.1", port=9453, log_level="info")

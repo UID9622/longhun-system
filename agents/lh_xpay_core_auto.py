@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 XPay 支付网关 v1.1 (自动验证版)
@@ -6,7 +10,7 @@ XPay Payment Gateway v1.1 (Auto Mode)
 
 自动模式：无需交易演示，自动验证系统就绪度
 
-DNA:#龍芯⚡️2026-06-05-XPAY-CORE-AUTO-FILE1-v1.1
+DNA:#龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-XPAY-CORE-AUTO-FILE1-v1.1
 """
 
 import json

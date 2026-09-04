@@ -1,6 +1,9 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂统一知识中枢升级报告
 
-**DNA**: `#龍芯⚡️2026-06-22-UNIFIED-KG-FILE1-v1.0`  
+**DNA**: `#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-UNIFIED-KG-FILE1-v1.0`  
 **升级时间**: 2026-06-24  
 **执行者**: Kimi Code CLI · 龍魂主控
 
@@ -117,7 +120,7 @@ CREATE TABLE node_vectors (
 
 | 数据源 | 同步内容 | 节点数 |
 |---|---|---|
-| `03_知識圖譜/graph_data.json` | 项目文件、技能、模块、媒体等节点及关系 | 161 |
+| `03_KNOWLEDGE_GRAPH/graph_data.json` | 项目文件、技能、模块、媒体等节点及关系 | 161 |
 | `~/.longhun/notion_pages/notion_pages.db` | pages + entities + relations + occurrences | 3443 |
 | `~/_work/dragon_knowledge.db` | harvested_code 代码记录 + 作者/语言节点 | 3 |
 | `brain/memories.db` | 记忆链 | 0（当前为空） |
@@ -204,10 +207,10 @@ curl "http://localhost:8444/api/unified/stats"
 
 ## 十、DNA 追溯
 
-- 本次升级 DNA: `#龍芯⚡️2026-06-22-UNIFIED-KG-v1.0`
-- 核心脚本 DNA: `#龍芯⚡️2026-06-22-UNIFIED-KG-v1.0`
-- API 升级 DNA: `#龍芯⚡️2026-06-19-LONGHUN-KNOWLEDGE-GRAPH-v1.0` → 扩展统一接口
-- 脑干修复 DNA: `#龍芯⚡️2026-06-22-BRAIN-DB-RECOVER-v1.0`
+- 本次升级 DNA: `#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-UNIFIED-KG-v1.0`
+- 核心脚本 DNA: `#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-UNIFIED-KG-v1.0`
+- API 升级 DNA: `#龍芯⚡️丙午·甲午·甲子·庚午·䷙大畜-LONGHUN-KNOWLEDGE-GRAPH-v1.0` → 扩展统一接口
+- 脑干修复 DNA: `#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-BRAIN-DB-RECOVER-v1.0`
 
 ---
 

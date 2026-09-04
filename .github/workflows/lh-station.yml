@@ -1,0 +1,322 @@
+# 龍魂代码中转站 · GitHub Actions CI/CD
+# DNA: #龍芯⚡️丙午·丙申·戊申·亥时·䷗复-LH-STATION-GITHUB-ACTIONS-v1.0-A7F3C2B1
+# 创建者: 诸葛鑫（UID9622）
+# 协议: CC BY-NC-SA 4.0（核心思想层）
+
+name: lh-station CI/CD
+
+on:
+  push:
+    paths:
+      - 'tools/lh-station/**'
+      - '.github/workflows/lh-station.yml'
+  pull_request:
+    paths:
+      - 'tools/lh-station/**'
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+  RUST_BACKTRACE: 1
+
+jobs:
+  # ── P0级 · 代码主权检查 ──
+  audit:
+    name: 🔍 主权审计 (Sovereignty Audit)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tools/lh-station
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rust 工具链
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: 缓存 Cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry/
+            ~/.cargo/git/
+            tools/lh-station/target/
+          key: ${{ runner.os }}-cargo-audit-${{ hashFiles('tools/lh-station/Cargo.lock') }}
+          restore-keys: ${{ runner.os }}-cargo-audit-
+
+      - name: cargo build (先编译)
+        run: cargo build
+
+      - name: clippy 静态分析
+        run: cargo clippy -- -D warnings
+
+      - name: cargo fmt 格式检查
+        run: cargo fmt -- --check
+
+  # ── P0级 · 编译测试矩阵 ──
+  build-and-test:
+    name: 🧪 构建 & 测试 (${{ matrix.os }})
+    needs: audit
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    defaults:
+      run:
+        working-directory: tools/lh-station
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rust 工具链
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - name: 缓存 Cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry/
+            ~/.cargo/git/
+            tools/lh-station/target/
+          key: ${{ runner.os }}-cargo-build-${{ hashFiles('tools/lh-station/Cargo.lock') }}
+          restore-keys: ${{ runner.os }}-cargo-build-
+
+      - name: cargo build (release)
+        run: cargo build --release
+
+      - name: cargo test (全量)
+        run: cargo test --release -- --nocapture
+
+      - name: 归档 release 产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: lh-station-${{ runner.os }}
+          path: tools/lh-station/target/release/lh-station*
+
+  # ── P1级 · 补充测试套件 ──
+  supplement-tests:
+    name: 🧪 补充测试套件
+    needs: audit
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tools/lh-station
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rust 工具链
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: 缓存 Cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry/
+            ~/.cargo/git/
+            tools/lh-station/target/
+          key: ${{ runner.os }}-cargo-supp-${{ hashFiles('tools/lh-station/Cargo.lock') }}
+          restore-keys: ${{ runner.os }}-cargo-supp-
+
+      - name: 运行补充测试 (P0 + P1)
+        run: |
+          cargo test --test supplement_tests -- --nocapture --test-threads=1
+
+      - name: 测试报告
+        if: always()
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "  龍魂 lh-station 补充测试报告"
+          echo "  时间: $(date -u '+%Y-%m-%dT%H:%M:%SZ')"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+  # ── P1级 · 跨平台编译检查 ──
+  cross-check:
+    name: 🏗️ 跨平台编译检查
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tools/lh-station
+    strategy:
+      fail-fast: false
+      matrix:
+        target:
+          - aarch64-unknown-linux-gnu
+          - x86_64-unknown-linux-gnu
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rust 工具链
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - name: 缓存 Cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry/
+            ~/.cargo/git/
+            tools/lh-station/target/
+          key: ${{ runner.os }}-cargo-cross-${{ matrix.target }}-${{ hashFiles('tools/lh-station/Cargo.lock') }}
+          restore-keys: ${{ runner.os }}-cargo-cross-${{ matrix.target }}-
+
+      - name: 安装交叉编译依赖
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-aarch64-linux-gnu
+
+      - name: cargo check (跨平台)
+        run: cargo check --release --target ${{ matrix.target }}
+
+  # ── 🔬 行为密码学七因子实验 ──
+  bcm-experiment:
+    name: 🔬 行为密码学实验
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 🐍 Python 3
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 🔬 七因子攻击模拟实验
+        run: |
+          cd 04_ENGINES/behavioral_crypto
+          echo "━━━ 行为密码学七因子引擎 ━━━"
+          python3 seven_factor_model.py
+          echo ""
+          echo "━━━ 攻击模拟实验 (127文档×5级) ━━━"
+          python3 experiment_runner.py --docs 127 --json experiment_results.json
+          echo ""
+          echo "━━━ 实验结果 ━━━"
+          python3 -c "
+          import json
+          with open('experiment_results.json') as f:
+              d = json.load(f)
+          print(f'文檔數: {d.get(\"total_docs\", \"?\")}')
+          rr = d.get('retention_rate', 0)
+          print(f'總體保留率: {rr*100:.1f}%')
+          print(f'三色: {\"🟢\" if rr > 0.85 else \"🟡\" if rr > 0.60 else \"🔴\"}')"
+
+      - name: 📦 存档实验结果
+        uses: actions/upload-artifact@v4
+        with:
+          name: bcm-experiment-${{ github.run_id }}
+          path: 04_ENGINES/behavioral_crypto/experiment_results.json
+          retention-days: 30
+
+      - name: 📡 实验总结
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "  🔬 行为密码学实验完成"
+          echo "  引擎: behavioral-crypto-v2.0"
+          echo "  时间: $(date -u '+%Y-%m-%dT%H:%M:%SZ')"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+  # ── P0级 · 安全扫描 ──
+  security-scan:
+    name: 🛡️ 安全扫描
+    needs: audit
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tools/lh-station
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rust 工具链
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: cargo audit (CVE 检查)
+        uses: actions-rs/audit-check@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 依赖许可证检查
+        run: |
+          cargo install cargo-deny --quiet 2>/dev/null || true
+          cargo deny check licenses 2>/dev/null || echo "⚠️ cargo-deny 未完整运行"
+
+  # ── 汇总 ──
+  summary:
+    name: ✅ 全量检查汇总
+    needs: [audit, build-and-test, supplement-tests, cross-check, bcm-experiment, security-scan]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 三色审计报告
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "  🐉 三色审计报告"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo ""
+          echo "  audit            → ${{ needs.audit.result }}"
+          echo "  build-and-test   → ${{ needs.build-and-test.result }}"
+          echo "  supplement-tests → ${{ needs.supplement-tests.result }}"
+          echo "  cross-check      → ${{ needs.cross-check.result }}"
+          echo "  bcm-experiment   → ${{ needs.bcm-experiment.result }}"
+          echo "  security-scan    → ${{ needs.security-scan.result }}"
+          echo ""
+          if [[ "${{ needs.audit.result }}" == "success" ]] && \
+             [[ "${{ needs.build-and-test.result }}" == "success" ]] && \
+             [[ "${{ needs.supplement-tests.result }}" == "success" ]] && \
+             [[ "${{ needs.cross-check.result }}" == "success" ]] && \
+             [[ "${{ needs.bcm-experiment.result }}" == "success" ]] && \
+             [[ "${{ needs.security-scan.result }}" == "success" ]]; then
+            echo "  三色: 🟢 GREEN · 全量通过 · 可部署"
+            echo "  engine: tricolor-core/1.1.0"
+          else
+            echo "  三色: 🔴 RED · 存在失败项 · 禁止部署"
+            echo "  engine: tricolor-core/1.1.0"
+          fi
+          echo ""
+          echo "  DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-AUDIT-CI-$(date +%s | head -c 8)"
+
+      - name: PR 评论 · 三色审计
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const auditOk = '${{ needs.audit.result }}' === 'success';
+            const buildOk = '${{ needs.build-and-test.result }}' === 'success';
+            const testOk = '${{ needs.supplement-tests.result }}' === 'success';
+            const crossOk = '${{ needs.cross-check.result }}' === 'success';
+            const bcmOk = '${{ needs.bcm-experiment.result }}' === 'success';
+            const secOk = '${{ needs.security-scan.result }}' === 'success';
+            const allPass = auditOk && buildOk && testOk && crossOk && bcmOk && secOk;
+
+            const rScore = allPass ? 95 : 45;
+            const emoji = allPass ? '🟢' : '🔴';
+            const status = allPass ? 'GREEN' : 'RED';
+            const disposition = allPass ? '自动放行' : '立即熔断';
+
+            const body = `### 🐉 三色审计报告
+
+            | 维度 | 值 |
+            |:---|:---:|
+            | R 值 | **${rScore}** |
+            | 状态 | **${emoji} ${status}** |
+            | 处置 | ${disposition} |
+            | 引擎 | tricolor-core/1.1.0 |
+
+            **CI 阶段结果:**
+            - 🔍 主权审计: ${auditOk ? '🟢' : '🔴'}
+            - 🧪 构建测试: ${buildOk ? '🟢' : '🔴'}
+            - 🧪 补充测试: ${testOk ? '🟢' : '🔴'}
+            - 🏗️ 跨平台: ${crossOk ? '🟢' : '🔴'}
+            - 🔬 BCM实验: ${bcmOk ? '🟢' : '🟡'}
+            - 🛡️ 安全扫描: ${secOk ? '🟢' : '🔴'}
+            `;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body
+            });

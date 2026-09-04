@@ -1,6 +1,9 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 CNSH-EUV 光刻机攻关系统 · 学习路径
 
-> **DNA锚定**: `#龍芯⚡️2026-07-18-EUV-LEARNING-PATH-v1.0`
+> **DNA锚定**: `#龍芯⚡️丙午·乙未·癸巳·戊午·䷃蒙-EUV-LEARNING-PATH-v1.0`
 > **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 > **适用对象**: UID9622 · 本地宝宝 · 龍魂系统开发者
 > **协议层级**: P2系统规则
@@ -133,6 +136,6 @@ Week 3-5: 不动点切割
 > **归档信息**
 > - 创建者: UID9622 · 诸葛鑫·龍芯北辰
 > - 创建时间: 2026-07-18
-> - DNA: `#龍芯⚡️2026-07-18-EUV-LEARNING-PATH-v1.0`
+> - DNA: `#龍芯⚡️丙午·乙未·癸巳·戊午·䷃蒙-EUV-LEARNING-PATH-v1.0`
 > - 状态: 🟢 通行
 > - 落地文件: `bin/lh_euv_lithography.py` (v1.0)

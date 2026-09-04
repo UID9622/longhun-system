@@ -1,0 +1,25 @@
+{
+  "name": "@longhun/cnsh-suite",
+  "version": "1.0.0",
+  "description": "🐉 CNSH 主权底座 · DeepSeek Harness 插件集",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": ["deepseek", "harness", "cnsh", "dragon-soul", "sovereignty"],
+  "author": "诸葛鑫 · UID9622",
+  "license": "MulanPSL-2.0",
+  "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-SUITE-UID9622",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+  "peerDependencies": {
+    "@deepseek-ai/dsh": ">=1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  }
+}

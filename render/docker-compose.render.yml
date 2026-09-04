@@ -1,0 +1,23 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# M75 渲染服务 · docker compose
+# DNA: #龍芯⚡️2026-08-25-RENDER-ENV-v1.0-UID9622
+# License: MulanPSL v2
+version: '3.8'
+services:
+  lh-render:
+    build:
+      context: .
+      dockerfile: render/Dockerfile.render
+    platform: linux/amd64   # 鲲鹏实测 x86_64 (Intel Xeon 6348)
+    ports:
+      - "8788:8788"   # 2026-08-30 同步迁移: 8972 已被本机 flow-field-api 占用
+    volumes:
+      - ./data/renders:/app/data/renders
+      - ./render/templates:/app/render/templates
+      - ./render/config/render.yaml:/app/render/config/render.yaml
+    environment:
+      - LH_UID=UID9622
+      - LH_LOCAL_ONLY=true
+      - LH_MAX_CONCURRENCY=8
+    shm_size: 2gb
+    restart: unless-stopped

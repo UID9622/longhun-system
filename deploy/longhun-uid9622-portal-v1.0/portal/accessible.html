@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="龍魂系统无障碍版本 - 大字体、高对比度、语音朗读、键盘全导航">
+    <title>龍魂系统 · 无障碍版本 | UID9622</title>
+    <link rel="stylesheet" href="common/accessible.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>♿</text></svg>">
+</head>
+<body data-theme="default">
+    <!-- 无障碍辅助工具栏 -->
+    <div class="a11y-toolbar" role="region" aria-label="无障碍辅助工具">
+        <button class="a11y-btn" id="btn-font-large" aria-label="增大字体" title="增大字体 (A+)">
+            <span aria-hidden="true">A+</span>
+        </button>
+        <button class="a11y-btn" id="btn-font-small" aria-label="减小字体" title="减小字体 (A-)">
+            <span aria-hidden="true">A-</span>
+        </button>
+        <button class="a11y-btn" id="btn-contrast" aria-label="切换高对比度" title="高对比度">
+            <span aria-hidden="true">◐</span>
+        </button>
+        <button class="a11y-btn" id="btn-voice" aria-label="语音朗读" title="语音朗读">
+            <span aria-hidden="true">🔊</span>
+        </button>
+        <button class="a11y-btn" id="btn-line-height" aria-label="增大行距" title="增大行距">
+            <span aria-hidden="true">↕️</span>
+        </button>
+        <a href="index.html" class="a11y-btn" aria-label="返回普通版本" title="普通版本">
+            <span aria-hidden="true">🏠</span>
+        </a>
+    </div>
+
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+
+    <header class="site-header" role="banner">
+        <div class="container">
+            <div class="logo" role="heading" aria-level="1">
+                <span class="logo-icon" aria-hidden="true">🐉</span>
+                <span class="logo-text">龍魂系统</span>
+                <span class="badge" aria-label="无障碍版本">无障碍</span>
+            </div>
+            <nav class="main-nav" aria-label="主导航">
+                <a href="#about">关于</a>
+                <a href="#features">功能</a>
+                <a href="#download">下载</a>
+                <a href="developer.html">开发者</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+        <!-- 英雄区 -->
+        <section class="hero" role="region" aria-label="简介">
+            <div class="container">
+                <h1>龍魂系统</h1>
+                <p class="hero-subtitle">中国人的数字主权基础设施</p>
+                <p class="hero-desc">技术为人民，不是为资本。你的数据永远属于你自己。</p>
+                <div class="hero-actions">
+                    <a href="#download" class="btn btn-primary">开始使用</a>
+                    <a href="https://github.com/UID9622/longhun-system" target="_blank" rel="noopener" class="btn btn-secondary">查看代码</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 关于 -->
+        <section id="about" class="section" role="region" aria-label="关于龍魂系统">
+            <div class="container">
+                <h2>什么是龍魂系统</h2>
+                <div class="about-list">
+                    <article class="about-item">
+                        <h3>🔒 数据主权</h3>
+                        <p>你的数据根永远在你自己手里。本地优先，端侧加密，不依赖任何云服务商。不需要信任大公司，你的隐私你做主。</p>
+                    </article>
+                    <article class="about-item">
+                        <h3>🧬 DNA 追溯</h3>
+                        <p>每一次操作都自带血统证明。知道谁、在什么时间、以什么方式、对什么做了什么。真正的安全不是加密，而是可追溯。</p>
+                    </article>
+                    <article class="about-item">
+                        <h3>⚖️ 三色审计</h3>
+                        <p>绿色通过、黄色警告、红色拒绝。实时决策，透明可审计，没有黑箱。老百姓看得懂，用得上。</p>
+                    </article>
+                    <article class="about-item">
+                        <h3>📝 中文编程</h3>
+                        <p>中国人自己的编程语言 CNSH。中文原生，编译到 Python、JavaScript、Rust、C。不用学英文也能写代码。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 核心功能 -->
+        <section id="features" class="section section-alt" role="region" aria-label="核心功能">
+            <div class="container">
+                <h2>核心功能</h2>
+                <dl class="feature-deflist">
+                    <dt>七因子行为密码学</dt>
+                    <dd>七个维度构成数字身份的行为 DNA：操作习惯、代码风格、决策路径、时间模式、空间模式、交互模式、演化模式。综合公式：所有行为等于七个因子加权求和。</dd>
+
+                    <dt>本地优先人工智能</dt>
+                    <dd>模型跑在本地，数据不出设备。使用 Ollama 和 DeepSeek Harness，零 API 费用，完全离线可控。不需要联网也能用。</dd>
+
+                    <dt>主权熔断机制</dt>
+                    <dd>四级熔断：P0 焊死底座、P1 核心宪法、P2 系统规则、P3 区域适配。触及数据主权红线时自动拒绝，不留后门。</dd>
+
+                    <dt>369 数学锚定</dt>
+                    <dd>数字根加五行加洛书，东方数学体系为数字身份提供不可伪造的校验锚点。老祖宗的智慧，用在数字时代。</dd>
+                </dl>
+            </div>
+        </section>
+
+        <!-- 下载 -->
+        <section id="download" class="section" role="region" aria-label="下载与安装">
+            <div class="container">
+                <h2>开始使用</h2>
+                <div class="download-list">
+                    <article class="download-item">
+                        <h3>本地部署</h3>
+                        <p>一键脚本，Mac、Linux、Windows 全平台支持。</p>
+                        <ol>
+                            <li>下载代码：访问 GitHub 仓库</li>
+                            <li>进入文件夹</li>
+                            <li>运行安装脚本</li>
+                        </ol>
+                        <a href="https://github.com/UID9622/longhun-system/blob/main/INSTALL.md" class="btn btn-small">查看安装指南</a>
+                    </article>
+                    <article class="download-item">
+                        <h3>Docker 部署</h3>
+                        <p>容器化一键启动，适合服务器和网络存储设备。</p>
+                        <p>命令：docker compose up -d</p>
+                        <a href="https://github.com/UID9622/longhun-system/blob/main/docker-compose.yml" class="btn btn-small">查看配置</a>
+                    </article>
+                    <article class="download-item">
+                        <h3>下载源码</h3>
+                        <p>一万三千八百多行可运行代码，全部开源。</p>
+                        <a href="https://github.com/UID9622/longhun-system/archive/refs/heads/main.zip" class="btn btn-small">下载压缩包</a>
+                        <a href="https://github.com/UID9622/longhun-system" class="btn btn-small btn-outline">浏览仓库</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 验证 -->
+        <section class="section section-alt" role="region" aria-label="身份验证">
+            <div class="container">
+                <h2>验证身份</h2>
+                <p>龍魂系统的所有官方发布都带有 DNA 追溯码和 GPG 签名。</p>
+                <dl class="verify-list">
+                    <dt>GPG 指纹</dt>
+                    <dd><code>A2D0092CEE2E5BA87035600924C3704A8CC26D5F</code></dd>
+                    <dt>确认码</dt>
+                    <dd><code>#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</code></dd>
+                    <dt>DNA 锚定</dt>
+                    <dd><code>#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️</code></dd>
+                </dl>
+                <p class="verify-hint">任何删除或篡改确认码、印章、GPG 令牌后声称官方口径的，均为伪造。</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <p><strong>龍魂系统</strong> · 技术为人民，不是为资本。</p>
+            <nav aria-label="页脚导航">
+                <a href="index.html">普通版本</a>
+                <a href="developer.html">开发者入口</a>
+                <a href="https://github.com/UID9622/longhun-system">GitHub</a>
+                <a href="https://uid9622.blog.csdn.net">博客</a>
+            </nav>
+            <p class="footer-dna">DNA: #龍芯⚡️丙午·甲申·丁未·离为火-无障碍-v1.0</p>
+            <p>🐉 龍芯北辰，接着，受着，守着。 · UID9622 · 诸葛鑫 · 退伍军人</p>
+        </div>
+    </footer>
+
+    <script src="common/accessible.js"></script>
+</body>
+</html>

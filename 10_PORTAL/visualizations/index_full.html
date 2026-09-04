@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<!--
+DNA: #龍芯⚡️2026-08-31-AELUS-DYNAMIC-FLOW-v1.0-UID9622
+创建者: 诸葛鑫（UID9622）
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+协议: CC BY-NC-SA 4.0（核心思想层）
+父系: 10_PORTAL/visualizations/aelus-consciousness-flow-v1.0.html
+说明: 全功能版 — 动态Φ(WS联动) · 节点点击高亮因果 · CCapture.js 视频导出
+-->
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>AELUS WORLD — 动态意识流场 (全功能版)</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { overflow:hidden; background:#05080f; font-family:'Courier New', monospace; }
+        canvas { display:block; }
+
+        /* HUD */
+        #hud {
+            position:fixed; top:24px; left:32px; z-index:20;
+            color:rgba(0,255,255,0.7); pointer-events:none; user-select:none;
+        }
+        #hud .title { font-size:22px; font-weight:600; letter-spacing:4px; background:linear-gradient(90deg,#00d4ff,#7b61ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+        #hud .sub { font-size:12px; color:rgba(255,255,255,0.2); margin-bottom:10px; letter-spacing:2px; }
+        #hud .stat { font-size:13px; margin-top:4px; }
+        #hud .stat .val { font-size:20px; font-weight:bold; color:#00e5ff; }
+        #hud .stat .phi { color:#ffab00; font-size:26px; }
+
+        /* 控制按钮组 */
+        #controls {
+            position:fixed; bottom:30px; left:50%; transform:translateX(-50%);
+            z-index:30; background:rgba(8,12,24,0.85); backdrop-filter:blur(16px);
+            padding:12px 24px; border-radius:16px; border:1px solid rgba(0,255,255,0.08);
+            display:flex; gap:14px; flex-wrap:wrap; justify-content:center;
+            box-shadow:0 8px 40px rgba(0,0,0,0.6);
+            pointer-events:auto;
+        }
+        #controls button {
+            background:transparent; border:1px solid rgba(0,255,255,0.15);
+            color:rgba(255,255,255,0.5); padding:6px 16px; border-radius:20px;
+            font-family:'Courier New',monospace; font-size:12px; cursor:pointer;
+            transition:0.2s;
+        }
+        #controls button:hover { border-color:rgba(0,255,255,0.4); color:#fff; background:rgba(0,255,255,0.05); }
+        #controls button.active { border-color:#00d4ff; color:#00d4ff; background:rgba(0,212,255,0.1); }
+        #controls button.recording { border-color:#ff4444; color:#ff4444; background:rgba(255,68,68,0.15); animation: pulse 1s infinite; }
+        #controls label { color:rgba(255,255,255,0.3); font-size:11px; display:flex; align-items:center; gap:6px; }
+        #controls input[type=number] { width:52px; background:transparent; border:1px solid rgba(0,255,255,0.2); color:#00d4ff; padding:4px; border-radius:4px; text-align:center; font-family:'Courier New',monospace; font-size:12px; }
+        @keyframes pulse { 0%{opacity:1} 50%{opacity:0.4} 100%{opacity:1} }
+
+        #status {
+            position:fixed; bottom:100px; left:50%; transform:translateX(-50%);
+            z-index:25; color:rgba(255,255,255,0.15); font-size:11px;
+            text-align:center; pointer-events:none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="hud">
+    <div class="title">⚡ AELUS WORLD</div>
+    <div class="sub">动态 Φ · 点击节点高亮因果</div>
+    <div class="stat"><span style="color:rgba(255,255,255,0.3);">整合度 Φ </span><span class="val phi" id="phiDisplay">0.431</span></div>
+    <div class="stat"><span style="color:rgba(255,255,255,0.3);">激活节点 </span><span class="val" id="activeDisplay">6</span><span style="color:rgba(255,255,255,0.2);font-size:14px;"> / 120</span></div>
+    <div class="stat"><span style="color:rgba(255,255,255,0.3);">突触连接 </span><span class="val" id="synapseDisplay">469</span></div>
+    <div class="stat" id="wsStatus" style="color:rgba(255,0,0,0.5);font-size:12px;">🔗 WebSocket 未连接</div>
+</div>
+
+<div id="controls">
+    <button id="btnAutoRotate" class="active">⟳ 自转</button>
+    <button id="btnRecord">⏺ 录制 WebM</button>
+    <button id="btnResetHighlight">✕ 清除高亮</button>
+    <label>时长 <input type="number" id="recordDuration" value="10" min="1" max="60" /> s</label>
+</div>
+<div id="status">点击任意激活节点 → 高亮其因果连接</div>
+
+<!-- 引入 Three.js 和 CCapture -->
+<script type="importmap">
+{
+    "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/ccapture.js@1.1.0/build/CCapture.min.js"></script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+
+// ============================================================
+//  1. 核心常量
+// ============================================================
+const CONFIG = {
+    phi: 0.431,
+    activeCount: 6,
+    totalNodes: 120,
+    synapseCount: 469,
+    layers: ['物理体','扫描','编码','传输','重建','解码','输出']
+};
+const LAYER_RADII = [8, 6.8, 5.6, 4.4, 3.2, 2.0, 0.9];
+
+// ============================================================
+//  2. 生成节点 & 边 (固定)
+// ============================================================
+const nodes = [];
+const activeIndices = new Set();
+while(activeIndices.size < CONFIG.activeCount) {
+    activeIndices.add(Math.floor(Math.random() * CONFIG.totalNodes));
+}
+for (let i=0; i<CONFIG.totalNodes; i++) {
+    const layerIdx = i % CONFIG.layers.length;
+    const r = LAYER_RADII[layerIdx] + (Math.random()-0.5)*0.3;
+    const theta = 2*Math.PI*Math.random();
+    const phi = Math.acos(2*Math.random()-1);
+    const isActive = activeIndices.has(i);
+    nodes.push({
+        id: i, layer: layerIdx,
+        x: r*Math.sin(phi)*Math.cos(theta), y: r*Math.cos(phi), z: r*Math.sin(phi)*Math.sin(theta),
+        baseR: r, theta, phi,
+        active: isActive, phase: Math.random()*2*Math.PI,
+        radius: isActive ? 0.25 : 0.08
+    });
+}
+
+const edges = [];
+while (edges.length < CONFIG.synapseCount) {
+    const src = nodes[Math.floor(Math.random()*nodes.length)];
+    let tgt=null; const r=Math.random();
+    if (r<0.7) { const c=nodes.filter(n=>Math.abs(n.layer-src.layer)===1&&n.id!==src.id); if(c.length) tgt=c[Math.floor(Math.random()*c.length)]; }
+    else if (r<0.9) { const c=nodes.filter(n=>n.layer===src.layer&&n.id!==src.id); if(c.length) tgt=c[Math.floor(Math.random()*c.length)]; }
+    else { const c=nodes.filter(n=>Math.abs(n.layer-src.layer)>=3&&n.id!==src.id); if(c.length) tgt=c[Math.floor(Math.random()*c.length)]; }
+    if (tgt && !edges.some(e=>(e.source===src.id&&e.target===tgt.id)||(e.source===tgt.id&&e.target===src.id))) {
+        edges.push({ source: src.id, target: tgt.id, sourceNode: src, targetNode: tgt });
+    }
+    if (edges.length>20000) break;
+}
+
+// ============================================================
+//  3. Three.js 场景
+// ============================================================
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x05080f);
+
+const camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.1, 100);
+camera.position.set(14, 7, 16);
+camera.lookAt(0, 0, 0);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.2;
+document.body.prepend(renderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.06;
+controls.autoRotate = true;
+controls.autoRotateSpeed = 0.8;
+controls.minDistance = 4;
+controls.maxDistance = 35;
+
+// Post-processing
+const composer = new EffectComposer(renderer);
+composer.addPass(new RenderPass(scene, camera));
+const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 0.45, 0.3, 0.1);
+composer.addPass(bloomPass);
+
+// 灯光
+const ambient = new THREE.AmbientLight(0x112244, 0.4); scene.add(ambient);
+const dirLight = new THREE.DirectionalLight(0x4488ff, 1.2); dirLight.position.set(5,10,7); scene.add(dirLight);
+const backLight = new THREE.DirectionalLight(0x7744ff, 0.6); backLight.position.set(-5,-3,-10); scene.add(backLight);
+
+// ============================================================
+//  4. 构建场景对象
+// ============================================================
+let nodePoints, edgeLines, particleSystem, activeGlows=[], ringMeshes=[], phiRing, starsField;
+let highlightEdges = null;  // 高亮线段对象
+let highlightedNodeId = -1;
+
+// 调色板
+const PALETTES = {
+    nebula: { primary:'#00d4ff', nodeActive:0x00ffcc, nodeInactive:0x1a3a5a, edgeActive:0x44ddff, edgeInactive:0x225577, particle:0x44ddff }
+};
+let currentPalette = 'nebula';
+const p = PALETTES.nebula;
+
+function buildScene() {
+    // 清理旧对象
+    const toRemove = [];
+    scene.children.forEach(child => {
+        if (['Points','LineSegments','Mesh'].includes(child.type) && child !== starsField && child !== phiRing) {
+            toRemove.push(child);
+        }
+    });
+    toRemove.forEach(child => scene.remove(child));
+    activeGlows.forEach(m => scene.remove(m)); activeGlows=[];
+    ringMeshes.forEach(m => scene.remove(m)); ringMeshes=[];
+
+    // 层级环
+    LAYER_RADII.forEach((r, idx) => {
+        const geo = new THREE.RingGeometry(r-0.02, r+0.02, 64);
+        const mat = new THREE.MeshBasicMaterial({ color: p.primary, transparent:true, opacity:0.05+idx*0.01, side:THREE.DoubleSide, depthWrite:false });
+        const mesh = new THREE.Mesh(geo, mat);
+        mesh.rotation.x = Math.PI/2;
+        scene.add(mesh);
+        ringMeshes.push(mesh);
+    });
+
+    // 突触连接
+    const pos=[]; const col=[];
+    edges.forEach(e => {
+        const s=e.sourceNode, t=e.targetNode;
+        const active = s.active || t.active;
+        pos.push(s.x,s.y,s.z, t.x,t.y,t.z);
+        const c = active ? new THREE.Color(p.edgeActive) : new THREE.Color(p.edgeInactive);
+        for(let i=0;i<2;i++) col.push(c.r,c.g,c.b);
+    });
+    const edgeGeo = new THREE.BufferGeometry();
+    edgeGeo.setAttribute('position', new THREE.Float32BufferAttribute(pos,3));
+    edgeGeo.setAttribute('color', new THREE.Float32BufferAttribute(col,3));
+    const edgeMat = new THREE.LineBasicMaterial({ vertexColors:true, transparent:true, opacity:0.6, blending:THREE.AdditiveBlending, depthWrite:false });
+    edgeLines = new THREE.LineSegments(edgeGeo, edgeMat);
+    scene.add(edgeLines);
+
+    // 节点
+    const nPos=[]; const nCol=[]; const nSizes=[];
+    nodes.forEach(n => {
+        nPos.push(n.x,n.y,n.z);
+        nSizes.push(n.radius);
+        const c = n.active ? new THREE.Color(p.nodeActive) : new THREE.Color(p.nodeInactive);
+        nCol.push(c.r,c.g,c.b);
+        if (n.active) {
+            const glowGeo = new THREE.SphereGeometry(0.4,16,16);
+            const glowMat = new THREE.MeshBasicMaterial({ color: p.nodeActive, transparent:true, opacity:0.15, blending:THREE.AdditiveBlending, depthWrite:false });
+            const mesh = new THREE.Mesh(glowGeo, glowMat);
+            mesh.position.set(n.x,n.y,n.z);
+            scene.add(mesh);
+            activeGlows.push({ mesh, phase:n.phase });
+        }
+    });
+    const nodeGeo = new THREE.BufferGeometry();
+    nodeGeo.setAttribute('position', new THREE.Float32BufferAttribute(nPos,3));
+    nodeGeo.setAttribute('color', new THREE.Float32BufferAttribute(nCol,3));
+    nodeGeo.setAttribute('size', new THREE.Float32BufferAttribute(nSizes,1));
+    const nodeMat = new THREE.PointsMaterial({ size:0.15, vertexColors:true, transparent:true, opacity:0.9, blending:THREE.AdditiveBlending, depthWrite:false, sizeAttenuation:true });
+    nodePoints = new THREE.Points(nodeGeo, nodeMat);
+    scene.add(nodePoints);
+
+    // Phi 环
+    if (phiRing) scene.remove(phiRing);
+    const phiGeo = new THREE.TorusGeometry(0.6 + CONFIG.phi*0.8, 0.03, 16, 64);
+    const phiMat = new THREE.MeshBasicMaterial({ color:'#ffab00', transparent:true, opacity:0.5, blending:THREE.AdditiveBlending, depthWrite:false });
+    phiRing = new THREE.Mesh(phiGeo, phiMat);
+    scene.add(phiRing);
+
+    // 粒子系统
+    buildParticles(220);
+}
+
+function buildParticles(count) {
+    if (particleSystem) scene.remove(particleSystem);
+    const geo = new THREE.BufferGeometry();
+    const pos = new Float32Array(count*3);
+    geo.setAttribute('position', new THREE.BufferAttribute(pos,3));
+    const mat = new THREE.PointsMaterial({ size:0.08, color:p.particle, transparent:true, opacity:0.9, blending:THREE.AdditiveBlending, depthWrite:false, sizeAttenuation:true });
+    particleSystem = new THREE.Points(geo, mat);
+    scene.add(particleSystem);
+
+    window.particleData = [];
+    for (let i=0; i<count; i++) {
+        const edge = edges[Math.floor(Math.random()*edges.length)];
+        window.particleData.push({
+            edge, progress: Math.random(),
+            speed: (0.002 + CONFIG.phi*0.012) * 1.0
+        });
+    }
+    updateParticles(true);
+}
+
+function updateParticles(force=false) {
+    if (!particleSystem) return;
+    const pos = particleSystem.geometry.attributes.position.array;
+    const data = window.particleData || [];
+    for (let i=0; i<data.length; i++) {
+        const p = data[i];
+        const s = p.edge.sourceNode, t = p.edge.targetNode;
+        const si = s.id*3, ti = t.id*3;
+        const nArr = nodePoints.geometry.attributes.position.array;
+        const sx=nArr[si], sy=nArr[si+1], sz=nArr[si+2];
+        const tx=nArr[ti], ty=nArr[ti+1], tz=nArr[ti+2];
+        const prog = p.progress;
+        const mt = 1-prog;
+        pos[i*3] = mt*sx + prog*tx;
+        pos[i*3+1] = mt*sy + prog*ty;
+        pos[i*3+2] = mt*sz + prog*tz;
+        p.progress += p.speed * (0.8 + 0.4 * CONFIG.phi);
+        if (p.progress > 1) {
+            p.progress = 0;
+            p.edge = edges[Math.floor(Math.random()*edges.length)];
+            p.speed = (0.002 + CONFIG.phi*0.012) * 1.0;
+        }
+    }
+    particleSystem.geometry.attributes.position.needsUpdate = true;
+}
+
+// 星星
+function buildStars() {
+    const geo = new THREE.BufferGeometry();
+    const pos = new Float32Array(2000*3);
+    for(let i=0;i<2000*3;i++) pos[i]=(Math.random()-0.5)*80;
+    geo.setAttribute('position', new THREE.BufferAttribute(pos,3));
+    const mat = new THREE.PointsMaterial({ color:0x446688, size:0.04, transparent:true, opacity:0.3, blending:THREE.AdditiveBlending, depthWrite:false });
+    starsField = new THREE.Points(geo, mat);
+    scene.add(starsField);
+}
+buildStars();
+buildScene();
+
+// ============================================================
+//  5. 高亮功能：点击激活节点，突出其所有连接
+// ============================================================
+function highlightNode(nodeId) {
+    // 清除旧高亮
+    if (highlightEdges) { scene.remove(highlightEdges); highlightEdges = null; }
+    highlightedNodeId = nodeId;
+    if (nodeId < 0) return;
+
+    const targetNode = nodes.find(n => n.id === nodeId);
+    if (!targetNode) return;
+
+    // 找出所有与 targetNode 相连的边
+    const connectedEdges = edges.filter(e => e.source === nodeId || e.target === nodeId);
+    if (connectedEdges.length === 0) return;
+
+    // 构建高亮线段 (亮黄色)
+    const pos = [];
+    connectedEdges.forEach(e => {
+        const s = e.sourceNode, t = e.targetNode;
+        pos.push(s.x,s.y,s.z, t.x,t.y,t.z);
+    });
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.Float32BufferAttribute(pos,3));
+    const mat = new THREE.LineBasicMaterial({ color:0xffaa00, linewidth:1, transparent:true, opacity:0.9 });
+    highlightEdges = new THREE.LineSegments(geo, mat);
+    scene.add(highlightEdges);
+}
+
+// 射线点击检测
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+
+renderer.domElement.addEventListener('click', (event) => {
+    // 计算鼠标位置归一化坐标
+    const rect = renderer.domElement.getBoundingClientRect();
+    mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+    raycaster.setFromCamera(mouse, camera);
+    // 检测节点点云
+    const intersects = raycaster.intersectObject(nodePoints);
+    if (intersects.length > 0) {
+        const index = intersects[0].index;
+        const node = nodes[index];
+        if (node && node.active) {
+            highlightNode(node.id);
+            document.getElementById('status').textContent = `🔍 高亮节点 ${node.id} (${CONFIG.layers[node.layer]}) 的 ${edges.filter(e=>e.source===node.id||e.target===node.id).length} 条连接`;
+        } else {
+            highlightNode(-1);
+            document.getElementById('status').textContent = '点击激活节点以高亮因果结构';
+        }
+    }
+});
+
+// 清除高亮按钮
+document.getElementById('btnResetHighlight').addEventListener('click', () => {
+    highlightNode(-1);
+    document.getElementById('status').textContent = '✕ 已清除高亮';
+});
+
+// ============================================================
+//  6. WebSocket 客户端：动态接收 Φ 值
+// ============================================================
+let ws = null;
+let wsConnected = false;
+
+// 智能选址：线上 https → 经 nginx wss 代理 /ws；本地 http → 直连 8901
+function resolveWsUrl() {
+    if (location.protocol === 'https:') {
+        return `wss://${location.host}/ws`;
+    }
+    return `ws://${location.hostname}:8901`;
+}
+
+function connectWebSocket() {
+    const url = resolveWsUrl();
+    ws = new WebSocket(url);
+    ws.onopen = () => {
+        wsConnected = true;
+        document.getElementById('wsStatus').textContent = '🔗 WebSocket 已连接 (Φ 动态)';
+        document.getElementById('wsStatus').style.color = 'rgba(0,255,0,0.7)';
+    };
+    ws.onmessage = (event) => {
+        try {
+            const data = JSON.parse(event.data);
+            if (data.phi !== undefined) {
+                CONFIG.phi = data.phi;
+                // 更新 Bloom 强度与 Φ 联动 (0.2~1.2)
+                bloomPass.strength = 0.2 + CONFIG.phi * 1.0;
+                // 更新 Φ 环大小
+                if (phiRing) {
+                    const newGeo = new THREE.TorusGeometry(0.6 + CONFIG.phi*0.8, 0.03, 16, 64);
+                    phiRing.geometry.dispose();
+                    phiRing.geometry = newGeo;
+                }
+                // 更新粒子速度因子
+                if (window.particleData) {
+                    window.particleData.forEach(p => p.speed = (0.002 + CONFIG.phi*0.012) * 1.0);
+                }
+                // Φ 联动节点颜色饱和度
+                updateColors();
+                document.getElementById('phiDisplay').textContent = CONFIG.phi.toFixed(5);
+            }
+        } catch(e) { console.warn('WS parse error', e); }
+    };
+    ws.onclose = () => {
+        wsConnected = false;
+        document.getElementById('wsStatus').textContent = '🔗 WebSocket 断开，尝试重连...';
+        document.getElementById('wsStatus').style.color = 'rgba(255,0,0,0.5)';
+        setTimeout(connectWebSocket, 2000);
+    };
+    ws.onerror = (err) => {
+        console.warn('WebSocket error', err);
+        ws.close();
+    };
+}
+
+// 颜色饱和度联动 Φ：整合度高 → 节点越鲜活
+function updateColors() {
+    if (!nodePoints) return;
+    const colors = nodePoints.geometry.attributes.color.array;
+    const saturation = 0.4 + CONFIG.phi * 0.6;   // 0.4 ~ 1.0
+    nodes.forEach((n, i) => {
+        const c = n.active
+            ? new THREE.Color().setHSL(0.52, saturation, 0.55 + CONFIG.phi*0.1)
+            : new THREE.Color().setHSL(0.60, saturation*0.3, 0.15 + CONFIG.phi*0.1);
+        colors[i*3] = c.r;
+        colors[i*3+1] = c.g;
+        colors[i*3+2] = c.b;
+    });
+    nodePoints.geometry.attributes.color.needsUpdate = true;
+}
+
+// 启动连接
+connectWebSocket();
+
+// ============================================================
+//  7. 视频录制 (CCapture.js)
+// ============================================================
+let capturer = null;
+let isRecording = false;
+let frameCount = 0;
+window.recordingMaxFrames = 600;  // 默认 10秒 @ 60fps
+
+document.getElementById('btnRecord').addEventListener('click', () => {
+    if (isRecording) {
+        // 停止录制
+        capturer.stop();
+        capturer = null;
+        isRecording = false;
+        document.getElementById('btnRecord').textContent = '⏺ 录制 WebM';
+        document.getElementById('btnRecord').classList.remove('recording');
+        document.getElementById('status').textContent = '✅ 录制完成，正在下载...';
+        return;
+    }
+
+    // 读取录制时长
+    const duration = parseInt(document.getElementById('recordDuration').value) || 10;
+    window.recordingMaxFrames = Math.max(1, Math.min(60, duration)) * 60;
+
+    // 开始录制
+    capturer = new CCapture({
+        format: 'webm',
+        framerate: 60,
+        quality: 90,
+        name: `AELUS_Phi${CONFIG.phi.toFixed(2)}`,
+        verbose: false
+    });
+    capturer.start();
+    isRecording = true;
+    frameCount = 0;
+    document.getElementById('btnRecord').textContent = '⏹ 停止录制';
+    document.getElementById('btnRecord').classList.add('recording');
+    document.getElementById('status').textContent = `⏺ 录制中... (最多 ${duration} 秒)`;
+});
+
+// ============================================================
+//  8. 动画循环
+// ============================================================
+const clock = new THREE.Clock();
+
+function animate() {
+    const t = clock.getElapsedTime();
+
+    // 更新节点呼吸（幅度随 Φ 联动：整合度高 → 呼吸更剧烈）
+    const breatheRange = 0.01 + CONFIG.phi * 0.04;  // 0.01 ~ 0.05
+    const posAttr = nodePoints.geometry.attributes.position;
+    const sizeAttr = nodePoints.geometry.attributes.size;
+    const arr = posAttr.array;
+    const sArr = sizeAttr.array;
+    nodes.forEach((n, i) => {
+        const breathe = 1 + breatheRange * Math.sin(t*0.3 + n.phase);
+        const r = n.baseR * breathe;
+        const angleOffset = t * 0.01 * (n.layer+1) * 0.3;
+        arr[i*3] = r * Math.sin(n.phi) * Math.cos(n.theta + angleOffset);
+        arr[i*3+1] = r * Math.cos(n.phi + 0.02*Math.sin(t*0.2+n.phase));
+        arr[i*3+2] = r * Math.sin(n.phi) * Math.sin(n.theta + angleOffset);
+        if (n.active) sArr[i] = 0.12 + 0.08 * Math.sin(t*0.8 + n.phase);
+    });
+    posAttr.needsUpdate = true;
+    sizeAttr.needsUpdate = true;
+
+    // 光晕脉冲
+    activeGlows.forEach((item) => {
+        const scale = 1 + 0.3 * Math.sin(t*0.5 + item.phase);
+        item.mesh.scale.set(scale, scale, scale);
+        item.mesh.material.opacity = 0.08 + 0.12 * Math.sin(t*0.6 + item.phase);
+    });
+
+    // 更新粒子位置
+    updateParticles();
+
+    // 高亮线条跟随节点运动 (如果有)
+    if (highlightEdges) {
+        const posAttrH = highlightEdges.geometry.attributes.position;
+        const posH = posAttrH.array;
+        // 重新构建高亮线位置 (由于节点在动，需要刷新)
+        const connectedEdges = edges.filter(e => e.source === highlightedNodeId || e.target === highlightedNodeId);
+        let idx = 0;
+        connectedEdges.forEach(e => {
+            const s = e.sourceNode, t = e.targetNode;
+            const si = s.id*3, ti = t.id*3;
+            const arrN = nodePoints.geometry.attributes.position.array;
+            posH[idx*3] = arrN[si]; posH[idx*3+1] = arrN[si+1]; posH[idx*3+2] = arrN[si+2];
+            posH[idx*3+3] = arrN[ti]; posH[idx*3+4] = arrN[ti+1]; posH[idx*3+5] = arrN[ti+2];
+            idx++;
+        });
+        posAttrH.needsUpdate = true;
+    }
+
+    // 更新 Phi 环旋转
+    if (phiRing) {
+        phiRing.rotation.x = Math.PI/2 + 0.2*Math.sin(t*0.1);
+        phiRing.rotation.z = t*0.05;
+    }
+
+    // 录制
+    if (isRecording && capturer) {
+        capturer.capture(renderer.domElement);
+        frameCount++;
+        if (frameCount >= window.recordingMaxFrames) {
+            // 自动停止
+            capturer.stop();
+            capturer = null;
+            isRecording = false;
+            document.getElementById('btnRecord').textContent = '⏺ 录制 WebM';
+            document.getElementById('btnRecord').classList.remove('recording');
+            document.getElementById('status').textContent = '✅ 录制完成，自动下载';
+        }
+    }
+
+    controls.update();
+    composer.render();
+    requestAnimationFrame(animate);
+}
+animate();
+
+// ============================================================
+//  9. 响应式
+// ============================================================
+window.addEventListener('resize', () => {
+    const w = window.innerWidth, h = window.innerHeight;
+    camera.aspect = w/h; camera.updateProjectionMatrix();
+    renderer.setSize(w,h); composer.setSize(w,h);
+});
+
+// 自动旋转开关
+document.getElementById('btnAutoRotate').addEventListener('click', function() {
+    controls.autoRotate = !controls.autoRotate;
+    this.classList.toggle('active');
+});
+
+console.log('✅ 全功能 AELUS 流场已启动');
+</script>
+</body>
+</html>

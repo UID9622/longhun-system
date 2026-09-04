@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷓观-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # ╔═══════════════════════════════════════════════════════════════════════════╗
 # ║  龍魂宝宝 · 架构技能引擎 v3.0                                            ║
@@ -259,7 +264,7 @@ class 宝宝技能引擎:
       具体计算由各专业人格执行 · 各司其职 · 不抢活
     """
 
-    DNA = "#龍芯⚡️2026-07-07-BAOBAO-SKILLS-v3.1"
+    DNA = "#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-BAOBAO-SKILLS-v3.1"
     # v3.1 更新: 新增 IPA 人格归属声明·宝宝不再包揽所有技能
 
     @staticmethod

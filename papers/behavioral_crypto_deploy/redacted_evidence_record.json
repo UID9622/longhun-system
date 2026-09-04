@@ -1,0 +1,67 @@
+{
+  "record_type": "LONGHUN_REDACTED_EVIDENCE_RECORD",
+  "version": "v1.0",
+  "record_id": "RED-EVIDENCE-UID9622-20260821-B68919AF",
+  "originator": {
+    "uid": "UID9622",
+    "display_name": "Zhuge Xin / 諸葛鑫 / 龍芯北辰",
+    "gpg_fingerprint": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+  },
+  "artifact": {
+    "title": "Behavioral Cryptography",
+    "section": "Deployment Script",
+    "artifact_hash": "sha256:374e199f60d00c2a94727caa12fc9dcaf14401b9bb5c40ae7dca3d4546bb44f3",
+    "created_range": {
+      "start": "2026-08-21T02:50:46+08:00",
+      "end": "2026-08-21T02:50:46+08:00"
+    }
+  },
+  "evidence_summary": {
+    "root_concept_origin": "human-originated",
+    "ai_role": "formalization and polishing",
+    "protected_terms_preserved": [
+      "UID9622",
+      "龍魂系统",
+      "Longhun System",
+      "CNSH",
+      "DNA追溯",
+      "三色审计",
+      "Behavioral Cryptography",
+      "Mistake Ledger"
+    ],
+    "rule_trace_available": true,
+    "persona_route_available": true,
+    "mistake_ledger_available": true,
+    "verification_confidence": 0.9887769640508989
+  },
+  "redactions": [
+    {
+      "field": "private_conversation_raw",
+      "reason": "private personal context",
+      "retention": "hash_only"
+    },
+    {
+      "field": "local_file_paths",
+      "reason": "local device privacy",
+      "retention": "summary_only"
+    },
+    {
+      "field": "sealed_logs",
+      "reason": "contains sensitive operational context",
+      "retention": "hash_only"
+    }
+  ],
+  "verification_material": {
+    "public_dna": "#龍芯⚡2026-08-21-PUBLIC-VERIFY-E8BFE757",
+    "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "seal": "#ZHUGEXIN⚡2025-🇨🇳🐉⚖♠🧚❤♾-DEVICE-BIND-SOUL",
+    "hash_chain_root": "sha256:b701fb3047271e53af390f5f04ec6518c412c6aa5b82fdc55e7970a0fb5e88e8"
+  },
+  "review_mode": {
+    "public_review": true,
+    "restricted_review_available": true,
+    "sealed_review_requires_originator_consent": true
+  },
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "seal": "#ZHUGEXIN⚡2025-🇨🇳🐉⚖♠🧚❤♾-DEVICE-BIND-SOUL"
+}

@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂宝宝守护助手 · FastAPI 后端
-# DNA:#龍芯⚡️2026-06-04-BAOBAO-BACKEND-v1.0
+# DNA:#龍芯⚡️丙午·癸巳·己酉·庚午·䷨损-BAOBAO-BACKEND-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 import asyncio
 import json

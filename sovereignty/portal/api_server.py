@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 中国国家数字身份统一认证入口 v2.0 · API 服务
@@ -13,7 +17,7 @@ China National Digital Identity Unified Authentication Portal v2.0 API
 
 监听：0.0.0.0:8444
 
-DNA:#龍芯⚡️2026-06-20-CHINA-DIGITAL-IDENTITY-API-FILE1-v2.0
+DNA:#龍芯⚡️丙午·甲午·乙丑·壬午·䷨损-CHINA-DIGITAL-IDENTITY-API-FILE1-v2.0
 """
 
 import sys
@@ -27,6 +31,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 # 挂载新路由
 from model_router import router as model_router
 from knowledge_api import router as knowledge_router, _get_graph, _archive_docs_list
+from cn_innovation_kg_api import router as cn_innovation_kg_router
+from clipboard_vault_api import router as clipboard_vault_router
 
 # 确保能找到 static 目录
 STATIC_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static")
@@ -73,6 +79,8 @@ app.add_middleware(
 # 挂载新路由
 app.include_router(model_router)
 app.include_router(knowledge_router)
+app.include_router(cn_innovation_kg_router)
+app.include_router(clipboard_vault_router)
 
 # 挂载静态页面
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
@@ -181,6 +189,11 @@ def api_docs():
             {"path": "/api/graph/edges", "method": "GET", "desc": "知识图谱边"},
             {"path": "/api/graph/query", "method": "POST", "desc": "节点子图查询"},
             {"path": "/api/graph/stats", "method": "GET", "desc": "图谱统计"},
+            {"path": "/api/clipboard-vault/stats", "method": "GET", "desc": "剪贴板容器统计"},
+            {"path": "/api/clipboard-vault/items", "method": "GET", "desc": "列出容器剪贴项"},
+            {"path": "/api/clipboard-vault/save", "method": "POST", "desc": "保存剪贴内容到容器"},
+            {"path": "/api/clipboard-vault/sync-to-kg", "method": "POST", "desc": "容器内容同步到知识图谱"},
+            {"path": "/api/clipboard-vault/kg-ready", "method": "GET", "desc": "导出 KG 就绪 JSON"},
         ],
     }
 
@@ -210,7 +223,7 @@ def 信息():
         "slogan": "芯可龍，云可私，网可断，心不可失",
         "tech_stack": 中心.技术栈,
         "declaration": 中心.生成主权宣言(),
-        "dna": "#龍芯⚡️2026-06-20-CHINA-DIGITAL-IDENTITY-API-v2.0"
+        "dna": "#龍芯⚡️丙午·甲午·乙丑·壬午·䷨损-CHINA-DIGITAL-IDENTITY-API-v2.0"
     }
 
 
@@ -243,5 +256,5 @@ if __name__ == "__main__":
     import uvicorn
     print("🐉 中国国家数字身份统一认证入口 v2.0 启动")
     print("   地址: http://127.0.0.1:8444")
-    print("   DNA:#龍芯⚡️2026-06-20-CHINA-DIGITAL-IDENTITY-API-v2.0")
+    print("   DNA:#龍芯⚡️丙午·甲午·乙丑·壬午·䷨损-CHINA-DIGITAL-IDENTITY-API-v2.0")
     uvicorn.run(app, host="127.0.0.1", port=8444)

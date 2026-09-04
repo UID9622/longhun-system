@@ -1,7 +1,9 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-6a012eb7
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-from __future__ import annotations
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-CHECK-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 """
 LonghunFont 字元库校验器 v1.0
@@ -50,16 +52,18 @@ def load_library(path: Path):
         return json.load(f)
 
 
-def validate_structure(data: dict[str, Any], errors: list[Any]):
+def validate_structure(data: dict, errors: list):
     """校验顶层结构"""
     for key in REQUIRED_TOP_KEYS:
         if key not in data:
             errors.append(f"缺少顶层键: {key}")
 
 
-def validate_glyphs(data: dict[str, Any], errors: list[Any]):
+def validate_glyphs(data: dict, errors: list):
     """校验每个字元条目"""
     glyphs = data.get("字符集_cnsh9622", {})
+    if not glyphs:
+        return
     if not isinstance(glyphs, dict):
         errors.append("字符集_cnsh9622 必须是字典")
         return
@@ -102,7 +106,7 @@ def validate_glyphs(data: dict[str, Any], errors: list[Any]):
             )
 
 
-def count_categories(glyphs: dict[str, Any]):
+def count_categories(glyphs: dict):
     """分类统计字元"""
     chinese = 0
     latin = 0

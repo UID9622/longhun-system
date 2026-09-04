@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷈小畜-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # ╔═══════════════════════════════════════════════════════════════════════════╗
 # ║  DNA追溯头（不可删除 · 删除即断链）                                       ║
@@ -40,7 +45,7 @@ if str(_HUB_DIR) not in sys.path:
 class PersonaBridge:
     """宝宝守护助手的人格中枢桥接器"""
 
-    DNA = "#龍芯⚡️2026-07-07-BAOBAO-PERSONA-BRIDGE-v1.2"
+    DNA = "#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-BAOBAO-PERSONA-BRIDGE-v1.2"
     # v1.1: 新增IPA分发执行·宝宝不一个人扛
     # v1.2: 集成统一路由器·名称归一·家族归属·自动冲突检测
 

@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 """
 🐉 龍魂 × Kimi API 客户端封装
@@ -10,7 +13,7 @@
   • 多模态请求支持（文本、图像、文件）
   • 故障转移和断路器
 
-DNA:#龍芯⚡️2026-06-08-KIMI-CLIENT-v1.0
+DNA:#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-KIMI-CLIENT-v1.0
 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 理论指导：曾仕强老师（永恒显示）
@@ -70,7 +73,7 @@ class KimiClient:
                             "index": 0,
                         }
                     ],
-                    "model": result.get("model", "deepseek-chat"),
+                    "model": result.get("model", "deepseek-v4-flash"),
                     "provider": result.get("provider", "deepseek"),
                     "dna": result.get("dna"),
                 }

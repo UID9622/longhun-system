@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 """
 UID9622 全文压缩系统 - 本地最小可执行版
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 LU-FULLTEXT-COMPRESS-AUTO-COLLECT v1.1 - Local Demo
 
-DNA:#龍芯⚡️2026-06-03-FULLTEXT-COMPRESS-LOCAL-v1.0
+DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-FULLTEXT-COMPRESS-LOCAL-v1.0
 用法: python3 fulltext_compress.py input.txt
 输出:
   - input.compress.md     (压缩卡)

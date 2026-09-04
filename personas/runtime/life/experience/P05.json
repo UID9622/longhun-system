@@ -1,0 +1,23 @@
+{
+  "persona": "P05",
+  "items": [
+    {
+      "id": "E-20260813-001",
+      "at": "2026-08-13T17:27:18",
+      "kind": "process",
+      "lesson": "审计结论必须标注实测/推演, 不能标已验证",
+      "improve": "没跑过的代码一律🟡, 红线立即冻结",
+      "applied": false,
+      "source_task": "核心锚学习回路接入"
+    },
+    {
+      "id": "E-20260813-002",
+      "at": "2026-08-13T17:28:33",
+      "kind": "process",
+      "lesson": "lh入口--persona/--task参数会被顶层REMAINDER flag劫持",
+      "improve": "位置子命令优先分发+参数回收已修复",
+      "applied": false,
+      "source_task": "lh路由劫持修复"
+    }
+  ]
+}

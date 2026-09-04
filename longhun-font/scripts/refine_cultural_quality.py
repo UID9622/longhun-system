@@ -1,6 +1,9 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-09ca946a
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-QUALITY-REFINE-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 """
 LonghunFont 文化符号质量精修
@@ -240,7 +243,7 @@ REFINEMENTS = {
     chr(0xE103): ("水", oracle_water),
     chr(0xE104): ("火", oracle_fire),
     chr(0xE114): ("木", oracle_wood),
-    chr(0xE120): ("龍", oracle_dragon),
+    chr(0xE120): ("龙", oracle_dragon),
     chr(0xE121): ("凤", oracle_phoenix),
     chr(0xE127): ("鼎", oracle_ding),
     # 中国风图标

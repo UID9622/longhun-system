@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂 · 会话模板库 v1.0
 
 > 生态内所有 AI 协作必须遵循本模板体系。
@@ -58,6 +61,7 @@ python3 bin/lh_template_match.py "鸿蒙 ArkTS 实战：项目里程碑时间线
 |------|------|
 | `ALL-IN-ONE.md` | 12套模板合订完整版（推荐） |
 | `01-通用开发.md` ~ `12-紧急修复.md` | 单模板文件 |
+| `quantum/` | 🧬 量子模板引擎库 17 套（Notion 同步·文档/发布/系统流程） |
 | `README.md` | 本说明 |
 | `bin/lh_template_match.py` | 标题→模板自动路由器 |
 

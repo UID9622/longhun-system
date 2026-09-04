@@ -1,0 +1,24 @@
+[package]
+name = "lh-station"
+version = "1.0.0"
+edition = "2021"
+description = "龍魂代码中转站 — 任何代码进来，带主权出去"
+authors = ["诸葛鑫 (UID9622)"]
+license = "MulanPSL v2"
+repository = "https://github.com/uid9622/longhun-system"
+
+[[bin]]
+name = "lh-station"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+walkdir = "2"
+chrono = { version = "0.4", features = ["serde"] }
+sha2 = "0.10"
+glob = "0.3"
+toml = "0.8"
+hex = "0.4"
+rand = "0.8"

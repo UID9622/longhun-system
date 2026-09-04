@@ -1,0 +1,669 @@
+{
+  "dna": "#龍芯⚡️2026-08-19-BAD-EP01-FULL-STORYBOARD-v1.0-UID9622",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+  "title": "坏蛋项目 · EP01「雪夜初见」完整分镜表",
+  "source_event_map": "bad-project-ep01-event-map.json",
+  "total_duration_sec": 154,
+  "note": "受《坏蛋是怎样炼成的》人物关系启发，原创剧情。K3主创意，本地模型辅助格式化。",
+  "shots": [
+    {
+      "shot_id": "E01-S01",
+      "duration_sec": 6,
+      "shot_type": "全景",
+      "camera": "航拍降下",
+      "visual": "灰白东北小城，雪覆盖屋顶与街道。镜头缓缓降到地面。",
+      "characters": [],
+      "props": [],
+      "audio": "风声、远处学校铃声",
+      "dialogue": "",
+      "emotion": "苍茫",
+      "asset_refs": [
+        "ENV-01_东北校园.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E01-S02",
+      "duration_sec": 4,
+      "shot_type": "中景",
+      "camera": "跟拍",
+      "visual": "学生们涌出校门，有人推搡、笑闹。谢文东独自走在人群边缘。",
+      "characters": [
+        "HD-001-少年谢文东"
+      ],
+      "props": [],
+      "audio": "人声嘈杂",
+      "dialogue": "",
+      "emotion": "疏离",
+      "asset_refs": [
+        "HD-001_谢文东_少年锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E01-S03",
+      "duration_sec": 5,
+      "shot_type": "特写",
+      "camera": "侧拍，推近",
+      "visual": "几个学生故意撞谢文东肩膀，他踉跄一步，嘴角却仍带笑。",
+      "characters": [
+        "HD-001-少年谢文东"
+      ],
+      "props": [],
+      "audio": "撞肩声、几声嘲笑",
+      "dialogue": "学生甲：装什么装。",
+      "emotion": "隐忍",
+      "asset_refs": [
+        "HD-001_谢文东_少年锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E01-S04",
+      "duration_sec": 4,
+      "shot_type": "特写",
+      "camera": "正面慢推",
+      "visual": "谢文东抬眼，那双凤眼阴柔带笑，眼底却没有温度。",
+      "characters": [
+        "HD-001-少年谢文东"
+      ],
+      "props": [],
+      "audio": "心跳声",
+      "dialogue": "谢文东：（轻声）没事。",
+      "emotion": "静水深流",
+      "asset_refs": [
+        "HD-001_谢文东_少年锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E01-S05",
+      "duration_sec": 6,
+      "shot_type": "远景",
+      "camera": "固定长焦",
+      "visual": "谢文东独自走远，雪落在他身上。画外是向问天的声音。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-101-向问天（画外）"
+      ],
+      "props": [],
+      "audio": "龍慧慧旁白+向问天画外音",
+      "dialogue": "向问天（画外）：那年东北的雪，埋了很多事，也埋了很多人。\n旁白：那一年雪很大，没人注意这个笑得很浅的少年。",
+      "emotion": "命运伏笔",
+      "asset_refs": [
+        "ENV-01_东北校园.png",
+        "HD-101_向问天_锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E02-S01",
+      "duration_sec": 5,
+      "shot_type": "全景",
+      "camera": "手持微抖，低角度",
+      "scene_id": "ENV-02",
+      "visual": "雪夜老街，霓虹招牌「民生录像厅」在 wet pavement 上反光。三五个混混把谢文东逼到墙边。",
+      "characters": [
+        "HD-001-少年谢文东"
+      ],
+      "props": [],
+      "audio": "风声、远处汽车喇叭、混混笑声",
+      "dialogue": "",
+      "emotion": "压迫感",
+      "asset_refs": [
+        "ENV-02_老街雨夜.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E02-S02",
+      "duration_sec": 4,
+      "shot_type": "特写",
+      "camera": " eye-level，缓慢推近",
+      "scene_id": "ENV-02",
+      "visual": "谢文东背靠湿墙，嘴角仍带着那抹笑。眼睛里没有惧。",
+      "characters": [
+        "HD-001-少年谢文东"
+      ],
+      "props": [],
+      "audio": "心跳声渐起",
+      "dialogue": "混混头：小子，今天这保护费，你交不交？",
+      "emotion": "静水深流",
+      "asset_refs": [
+        "HD-001_谢文东_少年锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E02-S03",
+      "duration_sec": 3,
+      "shot_type": "中景",
+      "camera": "侧跟，从谢文东身后绕出",
+      "scene_id": "ENV-02",
+      "visual": "三眼从街角阴影里走出来，皮夹克领口竖起，眉心竖印在霓虹下泛红。",
+      "characters": [
+        "HD-002-三眼"
+      ],
+      "props": [
+        "B-S_打火机_大哥大_金链.png"
+      ],
+      "audio": "打火机咔哒一声，火焰照亮半张脸",
+      "dialogue": "",
+      "emotion": "山雨欲来",
+      "asset_refs": [
+        "HD-002_三眼_雨夜持刀.png",
+        "HD-002_三眼_侧面.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E02-S04",
+      "duration_sec": 6,
+      "shot_type": "双人过肩",
+      "camera": "左右切换，节奏加快",
+      "scene_id": "ENV-02",
+      "visual": "三眼挡在谢文东面前，与混混头对峙。雪落在两人之间。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼"
+      ],
+      "props": [],
+      "audio": "风停了一瞬，霓虹嗡嗡声",
+      "dialogue": "三眼：他的人，我罩了。\n混混头：三眼，这没你的事。\n三眼：现在有了。",
+      "emotion": "忠义烈火",
+      "asset_refs": [
+        "HD-001_谢文东_少年锚点图.png",
+        "HD-002_三眼_锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E02-S05",
+      "duration_sec": 4,
+      "shot_type": "特写",
+      "camera": "快速推近眉心",
+      "scene_id": "ENV-02",
+      "visual": "三眼眉心竖疤在怒意中泛红，眼神像刀。",
+      "characters": [
+        "HD-002-三眼"
+      ],
+      "props": [],
+      "audio": "低频鼓点一击",
+      "dialogue": "三眼：（低声）滚。",
+      "emotion": "暴烈前兆",
+      "asset_refs": [
+        "HD-002_三眼_锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E02-S06",
+      "duration_sec": 8,
+      "shot_type": "近景+快速切",
+      "camera": "手持，跟随动作",
+      "scene_id": "ENV-02",
+      "visual": "三眼动手。没有花哨，三拳两脚，混混倒地。谢文东始终靠墙站着，没动。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼"
+      ],
+      "props": [],
+      "audio": "闷响、倒地声、霓虹电流声",
+      "dialogue": "",
+      "emotion": "暴力美学",
+      "asset_refs": [
+        "HD-002_三眼_雨夜持刀.png"
+      ],
+      "check": "🟡 动作需后期修手"
+    },
+    {
+      "shot_id": "E02-S07",
+      "duration_sec": 6,
+      "shot_type": "双人近景",
+      "camera": " eye-level，雪落在两人肩头",
+      "scene_id": "ENV-02",
+      "visual": "打斗结束。三眼回头，谢文东第一次认真看他。两人对视。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼"
+      ],
+      "props": [],
+      "audio": "风声回来，远处警笛若有若无",
+      "dialogue": "三眼：你叫什么？\n谢文东：谢文东。\n三眼：道上混这么久，头一回有人叫我本名。\n谢文东：本名才好记。",
+      "emotion": "命运交汇",
+      "asset_refs": [
+        "HD-001_谢文东_少年锚点图.png",
+        "HD-002_三眼_锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E02-S08",
+      "duration_sec": 5,
+      "shot_type": "特写→拉远",
+      "camera": "从两人交握的手拉远到全景",
+      "scene_id": "ENV-02",
+      "visual": "谢文东伸出手，三眼愣了一下，握住。镜头拉远，两个年轻人站在空荡的街上。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼"
+      ],
+      "props": [],
+      "audio": "龍慧慧旁白起：钱买不来平安，人才行。",
+      "dialogue": "谢文东：钱买不来平安，人才行。\n三眼：（笑了一下）你这个人，有点意思。",
+      "emotion": "结盟起点",
+      "asset_refs": [
+        "ENV-02_老街雨夜.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E02-S09",
+      "duration_sec": 4,
+      "shot_type": "空镜",
+      "camera": "固定，慢门",
+      "scene_id": "ENV-02",
+      "visual": "霓虹招牌闪烁，地上的雪被脚印踩乱。一把旧打火机躺在水洼里，火光熄灭。",
+      "characters": [],
+      "props": [
+        "B-S_打火机_大哥大_金链.png"
+      ],
+      "audio": "旁白继续：那一晚，两个年轻人的影子被路灯拉得很长。",
+      "dialogue": "",
+      "emotion": "余韵",
+      "asset_refs": [
+        "ENV-02_老街雨夜.png",
+        "B-S_打火机_大哥大_金链.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E03-S01",
+      "duration_sec": 4,
+      "shot_type": "中景",
+      "camera": "跟随进门",
+      "visual": "三眼推门，谢文东跟在后面。屋内烟雾缭绕，高强坐在角落，李爽在摆弄大哥大。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼",
+        "HD-003-高强",
+        "HD-004-李爽"
+      ],
+      "props": [
+        "B-S_打火机_大哥大_金链.png"
+      ],
+      "audio": "录像机杂音、老式粤语歌",
+      "dialogue": "",
+      "emotion": "江湖气",
+      "asset_refs": [
+        "ENV-02_老街雨夜.png",
+        "B-S_打火机_大哥大_金链.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E03-S02",
+      "duration_sec": 5,
+      "shot_type": "双人近景",
+      "camera": "正反打",
+      "visual": "高强抬头看谢文东，没起身。李爽咧嘴大笑迎上来。",
+      "characters": [
+        "HD-003-高强",
+        "HD-004-李爽",
+        "HD-001-少年谢文东"
+      ],
+      "props": [],
+      "audio": "李爽笑声",
+      "dialogue": "李爽：三眼哥，这谁啊？\n三眼：谢文东。以后自己人。\n高强：（冷冷）是不是自己人，得看事儿。",
+      "emotion": "信任试探",
+      "asset_refs": [
+        "HD-003_高强_锚点图.png",
+        "HD-004_李爽_锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E03-S03",
+      "duration_sec": 6,
+      "shot_type": "中景",
+      "camera": "环绕",
+      "visual": "四人围坐破旧沙发。李爽倒酒，高强不碰杯，三眼居中，谢文东安静坐着。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼",
+        "HD-003-高强",
+        "HD-004-李爽"
+      ],
+      "props": [
+        "B-S_打火机_大哥大_金链.png"
+      ],
+      "audio": "倒酒声、老式电视雪花声",
+      "dialogue": "李爽：坐！都是自己人！\n谢文东：（端起杯，没喝）谢了。",
+      "emotion": "豪爽破冰",
+      "asset_refs": [
+        "HD-004_李爽_锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E03-S04",
+      "duration_sec": 5,
+      "shot_type": "特写",
+      "camera": "推近",
+      "visual": "高强盯着谢文东的眼睛，想看出什么。谢文东不躲。",
+      "characters": [
+        "HD-003-高强",
+        "HD-001-少年谢文东"
+      ],
+      "props": [],
+      "audio": "低沉背景音乐",
+      "dialogue": "高强：你凭什么入局？\n谢文东：（笑）凭我不会卖朋友。",
+      "emotion": "张力",
+      "asset_refs": [
+        "HD-003_高强_锚点图.png",
+        "HD-001_谢文东_少年锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E03-S05",
+      "duration_sec": 5,
+      "shot_type": "近景",
+      "camera": "固定",
+      "visual": "三眼一拍桌子，四杯都震了一下。李爽愣住，然后笑得更欢。",
+      "characters": [
+        "HD-002-三眼",
+        "HD-004-李爽"
+      ],
+      "props": [],
+      "audio": "拍桌声",
+      "dialogue": "三眼：我信他。\n李爽：三眼哥信，我也信！来，走一个！",
+      "emotion": "结盟落定",
+      "asset_refs": [
+        "HD-002_三眼_锚点图.png",
+        "HD-004_李爽_锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E03-S06",
+      "duration_sec": 5,
+      "shot_type": "慢推",
+      "camera": "从酒杯推近到四人脸",
+      "visual": "四只杯子碰在一起。镜头缓缓推近，四张年轻的脸。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼",
+        "HD-003-高强",
+        "HD-004-李爽"
+      ],
+      "props": [],
+      "audio": "碰杯声、龍慧慧旁白",
+      "dialogue": "旁白：文东会的雏形，就从这个破旧的录像厅开始。",
+      "emotion": "少年豪图",
+      "asset_refs": [
+        "HD-001_谢文东_少年锚点图.png",
+        "HD-002_三眼_锚点图.png",
+        "HD-003_高强_锚点图.png",
+        "HD-004_李爽_锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E03-S07",
+      "duration_sec": 4,
+      "shot_type": "空镜",
+      "camera": "固定",
+      "visual": "窗外雪还在下，霓虹把雪染成红色。",
+      "characters": [],
+      "props": [],
+      "audio": "老式粤语歌继续",
+      "dialogue": "",
+      "emotion": "余韵",
+      "asset_refs": [
+        "ENV-02_老街雨夜.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E04-S01",
+      "duration_sec": 4,
+      "shot_type": "特写",
+      "camera": "门缝视角",
+      "visual": "门被猛地推开，更多混混涌进来，比刚才多一倍。",
+      "characters": [],
+      "props": [],
+      "audio": "撞门声、脚步声",
+      "dialogue": "混混头：刚才那个三眼呢？出来！",
+      "emotion": "压迫升级",
+      "asset_refs": [
+        "ENV-02_老街雨夜.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E04-S02",
+      "duration_sec": 3,
+      "shot_type": "中景",
+      "camera": "快速摇",
+      "visual": "四人同时站起。高强皱眉，李爽骂了一句，三眼活动手腕。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼",
+        "HD-003-高强",
+        "HD-004-李爽"
+      ],
+      "props": [],
+      "audio": "椅子倒地声",
+      "dialogue": "李爽：没完了是吧？",
+      "emotion": "紧张",
+      "asset_refs": [
+        "HD-004_李爽_锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E04-S03",
+      "duration_sec": 5,
+      "shot_type": "特写",
+      "camera": "缓慢推近",
+      "visual": "谢文东从怀里取出一把刀——刀鞘黑金，柄缠暗红。他手不抖。",
+      "characters": [
+        "HD-001-少年谢文东"
+      ],
+      "props": [
+        "S-01-01-001_金刀"
+      ],
+      "audio": "金刀出鞘金属声",
+      "dialogue": "",
+      "emotion": "仪式感",
+      "asset_refs": [
+        "S-01-01-001_金刀_谢文东.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E04-S04",
+      "duration_sec": 4,
+      "shot_type": "特写",
+      "camera": "正面对脸",
+      "visual": "谢文东 still 微笑，但眼神变了。阴柔的笑，狠厉的眼。",
+      "characters": [
+        "HD-001-少年谢文东"
+      ],
+      "props": [
+        "S-01-01-001_金刀"
+      ],
+      "audio": "心跳声加速",
+      "dialogue": "谢文东：（轻声）我不想伤人。但你们，别逼我。",
+      "emotion": "阴柔杀伐",
+      "asset_refs": [
+        "HD-001_谢文东_少年锚点图.png",
+        "S-01-01-001_金刀_谢文东.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E04-S05",
+      "duration_sec": 6,
+      "shot_type": "近景+快速切",
+      "camera": "手持",
+      "visual": "三眼和高强同时出手。但谢文东只出了一刀——刀背，击退最前面的人。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼",
+        "HD-003-高强"
+      ],
+      "props": [
+        "S-01-01-001_金刀"
+      ],
+      "audio": "打斗声、金刀破风声",
+      "dialogue": "",
+      "emotion": " controlled violence",
+      "asset_refs": [
+        "S-01-01-001_金刀_谢文东.png"
+      ],
+      "check": "🟡 刀光/手部需修"
+    },
+    {
+      "shot_id": "E04-S06",
+      "duration_sec": 4,
+      "shot_type": "特写",
+      "camera": "低角度",
+      "visual": "混混头倒在地上，抬头看谢文东。谢文东居高临下，金刀垂在身侧。",
+      "characters": [
+        "HD-001-少年谢文东"
+      ],
+      "props": [
+        "S-01-01-001_金刀"
+      ],
+      "audio": "喘息声",
+      "dialogue": "谢文东：走。别再回来。",
+      "emotion": "威慑",
+      "asset_refs": [
+        "HD-001_谢文东_少年锚点图.png",
+        "S-01-01-001_金刀_谢文东.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E04-S07",
+      "duration_sec": 4,
+      "shot_type": "远景",
+      "camera": "固定",
+      "visual": "混混们互相搀扶退出门。谢文东把金刀收回怀中，恢复那个安静的笑。",
+      "characters": [
+        "HD-001-少年谢文东"
+      ],
+      "props": [
+        "S-01-01-001_金刀"
+      ],
+      "audio": "门关上、风声",
+      "dialogue": "",
+      "emotion": "深藏不露",
+      "asset_refs": [
+        "ENV-02_老街雨夜.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E05-S01",
+      "duration_sec": 5,
+      "shot_type": "中景",
+      "camera": "门外跟拍",
+      "visual": "四人走出录像厅。雪比刚才更大。没人说话。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼",
+        "HD-003-高强",
+        "HD-004-李爽"
+      ],
+      "props": [],
+      "audio": "风声、脚踩雪声",
+      "dialogue": "",
+      "emotion": "沉默的约定",
+      "asset_refs": [
+        "ENV-02_老街雨夜.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E05-S02",
+      "duration_sec": 4,
+      "shot_type": "特写",
+      "camera": "仰拍",
+      "visual": "路灯下，四人的影子被拉得很长。谢文东的影子在中间。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼",
+        "HD-003-高强",
+        "HD-004-李爽"
+      ],
+      "props": [],
+      "audio": "龍慧慧旁白起",
+      "dialogue": "旁白：那一晚雪下得很大。",
+      "emotion": "命运感",
+      "asset_refs": [
+        "ENV-02_老街雨夜.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E05-S03",
+      "duration_sec": 5,
+      "shot_type": "双人近景",
+      "camera": "侧拍",
+      "visual": "三眼看谢文东，第一次露出认可的表情。",
+      "characters": [
+        "HD-002-三眼",
+        "HD-001-少年谢文东"
+      ],
+      "props": [],
+      "audio": "旁白继续",
+      "dialogue": "三眼：谢文东，以后有事，喊我。\n谢文东：会有事的。",
+      "emotion": "结盟确认",
+      "asset_refs": [
+        "HD-002_三眼_锚点图.png",
+        "HD-001_谢文东_少年锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E05-S04",
+      "duration_sec": 4,
+      "shot_type": "近景",
+      "camera": "正面",
+      "visual": "李爽搓手哈气，高强难得笑了一下。",
+      "characters": [
+        "HD-004-李爽",
+        "HD-003-高强"
+      ],
+      "props": [],
+      "audio": "李爽笑声",
+      "dialogue": "李爽：行了行了，冻死我了，找地儿喝酒去！\n高强：（嘴角微扬）走。",
+      "emotion": "兄弟雏形",
+      "asset_refs": [
+        "HD-004_李爽_锚点图.png",
+        "HD-003_高强_锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E05-S05",
+      "duration_sec": 2,
+      "shot_type": "空镜",
+      "camera": "航拍升起",
+      "visual": "四人背影渐渐变小，消失在雪夜街道尽头。",
+      "characters": [],
+      "props": [],
+      "audio": "旁白收尾",
+      "dialogue": "旁白：没有人看见，东北未来的格局，就在一个录像厅门口，被四个年轻人重新写了。",
+      "emotion": "少年豪图",
+      "asset_refs": [
+        "ENV-02_老街雨夜.png"
+      ],
+      "check": "🟢"
+    }
+  ]
+}

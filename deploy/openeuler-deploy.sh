@@ -1,7 +1,9 @@
 #!/bin/bash
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ═══════════════════════════════════════════════════════════════════
 #  龍魂系統 · 華為鯤鵬openEuler一鍵部署腳本 v2.0
-#  DNA: #龍芯⚡️2026-07-06-DEPLOY-OPENEULER-v2.0
+#  DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-DEPLOY-OPENEULER-v2.0
 #  歸屬: UID9622｜龍芯北辰｜CNSH
 #  原則: 只加不減 · 原版每一步焊死不動 · 加法擴展
 # ═══════════════════════════════════════════════════════════════════
@@ -23,7 +25,7 @@ log_err() { echo "  🔴 $*" | tee -a "$LOG_FILE"; }
 # ─── 預檢 · 系統環境檢查（新增·加法#A）──────────────────────
 log "══════════════════════════════════════════"
 log "  龍魂系統 · openEuler部署腳本 v2.0"
-log "  DNA: #龍芯⚡️2026-07-06-DEPLOY-v2.0"
+log "  DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-DEPLOY-v2.0"
 log "  開始時間: $DEPLOY_TIME"
 log "══════════════════════════════════════════"
 
@@ -282,7 +284,7 @@ log "[8/12] 創建基礎配置..."
 cat > ~/longhun-system/README.md << 'EOF'
 # 龍魂系統
 
-**DNA:** `#龍芯⚡️2026-07-06-DEPLOY-OPENEULER-v2.0`
+**DNA:** `#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-DEPLOY-OPENEULER-v2.0`
 **歸屬:** `UID9622｜龍芯北辰｜CNSH`
 **狀態:** `已部署 · openEuler · ARM64`
 
@@ -349,7 +351,7 @@ VERSION=v2.0.0
 DEPLOY_DATE=$DEPLOY_TIME
 ARCH=$ARCH
 OS=$OS_NAME $OS_VER
-DNA=#龍芯⚡️2026-07-06-DEPLOY-OPENEULER-v2.0
+DNA=#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-DEPLOY-OPENEULER-v2.0
 CONFIRM=$CONFIRM
 VEREOF
 log_ok "版本文件創建完成"
@@ -361,7 +363,7 @@ cat > ~/longhun-system/cnsh_vars.json << 'CNSHVARS'
   "@@system": {
     "name": "龍魂系統",
     "version": "v2.0.0",
-    "dna": "#龍芯⚡️2026-07-06-DEPLOY-v2.0"
+    "dna": "#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-DEPLOY-v2.0"
   },
   "@@channel": {
     "feishu": {
@@ -395,7 +397,7 @@ log "[8d] 創建健康檢查腳本..."
 cat > ~/longhun-system/scripts/health-check.sh << 'HEALTHSCRIPT'
 #!/bin/bash
 # 龍魂系統健康檢查 v2.0
-# DNA: #龍芯⚡️2026-07-06-HEALTH-CHECK-v2.0
+# DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-HEALTH-CHECK-v2.0
 
 TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
 LOG_DIR=~/longhun-system/logs
@@ -468,7 +470,7 @@ log "[8e] 創建備份腳本..."
 cat > ~/longhun-system/scripts/backup.sh << 'BACKUPSCRIPT'
 #!/bin/bash
 # 龍魂系統備份腳本
-# DNA: #龍芯⚡️2026-07-06-BACKUP-v1.0
+# DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-BACKUP-v1.0
 
 BACKUP_DIR=~/longhun-system/backups
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
@@ -498,7 +500,7 @@ log "[8f] 創建部署驗證腳本..."
 cat > ~/longhun-system/scripts/verify-deploy.sh << 'VERIFYSCRIPT'
 #!/bin/bash
 # 龍魂系統部署驗證
-# DNA: #龍芯⚡️2026-07-06-VERIFY-DEPLOY-v1.0
+# DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-VERIFY-DEPLOY-v1.0
 
 PASS=0
 FAIL=0
@@ -727,7 +729,7 @@ log "[8i] 配置定時任務..."
 cat > /tmp/longhun-crontab << CRONTAB
 # ═══════════════════════════════════════════
 #  龍魂系統 · 定時任務
-#  DNA: #龍芯⚡️2026-07-06-CRON-v1.0
+#  DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-CRON-v1.0
 # ═══════════════════════════════════════════
 
 # 每2小時健康檢查
@@ -848,7 +850,7 @@ log_ok "操作別名配置完成"
 log "[8m] 創建Docker Compose模板..."
 cat > ~/longhun-system/docker-compose.yml << 'DCOMPOSE'
 # 龍魂系統 · Docker Compose
-# DNA: #龍芯⚡️2026-07-06-DOCKER-COMPOSE-v1.0
+# DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-DOCKER-COMPOSE-v1.0
 version: '3.8'
 
 services:
@@ -893,7 +895,7 @@ cat > ~/longhun-system/scripts/setup-ssl.sh << 'SSLSCRIPT'
 #!/bin/bash
 # 龍魂SSL證書配置
 # 支持: Let's Encrypt (Certbot) / 華為雲SCM手動導入
-# DNA: #龍芯⚡️2026-07-06-SSL-SETUP-v1.0
+# DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-SSL-SETUP-v1.0
 
 DOMAIN="${1:-longhun888.com}"
 EMAIL="${2:-uid9622@petalmail.com}"
@@ -929,7 +931,7 @@ cat > "$SUMMARY_FILE" << SUMMARYEOF
 # 龍魂系統 · 部署摘要
 
 **部署時間:** $DEPLOY_TIME
-**DNA:** #龍芯⚡️2026-07-06-DEPLOY-OPENEULER-v2.0
+**DNA:** #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-DEPLOY-OPENEULER-v2.0
 **CONFIRM:** $CONFIRM
 
 ## 系統信息
@@ -1037,4 +1039,4 @@ echo "════════════════════════�
 # 清理臨時文件
 rm -f /tmp/longhun-crontab /tmp/orig-crontab 2>/dev/null || true
 
-log "部署腳本執行完畢 · DNA: #龍芯⚡️2026-07-06-DEPLOY-v2.0"
+log "部署腳本執行完畢 · DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-DEPLOY-v2.0"

@@ -1,3 +1,5 @@
+// DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-a7ebb22e
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 import { getDb } from "../api/queries/connection";
 // TODO: import tables from "./schema"
 

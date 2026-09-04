@@ -1,7 +1,9 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂本地开源模型 · 一键部署脚本
 # deploy_local_models.sh
 # DNA: #龍芯⚡️丙午·辛未·DEPLOY-LOCAL-MODELS-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 用途: 部署本地备胎模型（国产网络故障时离线可用）
 
 set -euo pipefail

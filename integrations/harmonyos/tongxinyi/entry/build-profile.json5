@@ -1,34 +1,25 @@
+// DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-ff48a7c2
 {
-  // 通心译 — 模块构建配置
   "apiType": "stageMode",
   "buildOption": {
     "arkOptions": {
       "runtimeOnly": {
-        "sources": [
-          "./src/main/ets/**/*.ets"
+        "packages": [
+          "@ohos.arkui.UIContext"
         ]
       }
+    },
+    // 龍魂 Native 并发与高性能计算 · C++ 构建
+    "externalNativeOptions": {
+      "path": "./src/main/cpp/CMakeLists.txt",
+      "arguments": "-DUSE_HUGE_PAGES=OFF -DUSE_NUMA=OFF -DENABLE_PROFILING=OFF",
+      "cppFlags": "-O3 -march=armv8-a+fp+simd",
+      "abiFilters": ["arm64-v8a"]
     }
   },
-  "buildOptionSet": [
-    {
-      "name": "release",
-      "arkOptions": {
-        "obfuscation": {
-          "ruleOptions": {
-            "enable": true,
-            "files": ["./obfuscation-rules.txt"]
-          }
-        }
-      }
-    }
-  ],
   "targets": [
     {
       "name": "default"
-    },
-    {
-      "name": "ohosTest"
     }
   ]
 }

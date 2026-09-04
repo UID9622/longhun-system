@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<!--
+DNA:    #龍芯⚡️2026-08-31-LONGHUN-SYSTEM-D3-TOPO-v1.1-PHI-ACTIVATION-UID9622
+创建者: 诸葛鑫（UID9622）
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+协议:   CC BY-NC-SA 4.0（核心思想层）· 代码工程层 MulanPSL v2
+License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+GPG:    A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+范式:   LH-OUTPUT-PARADIGM-v1.0 九段式
+数据源: .codebuddy/longhun_neural_net.json（唯一真源）
+v1.1:   Φ 黄金分割调谐器（滑块 1.20~2.20 默认 1.618034）· 激活节点分布三策略（连接数/权重/层级）· 激活=金色辉光+脉冲+更强排斥
+三色:   🟢 D3拓扑页 v1.1 · Φ调谐+激活分布策略落地
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂系统 · 神经网络拓扑 D3 总览 v1.0</title>
+<style>
+  :root{
+    --bg:#0a0e14; --panel:#111722; --panel2:#0d131d;
+    --gold:#d4af37; --gold2:#f0d77b; --gold-dim:rgba(212,175,55,.45);
+    --text:#e8e3d3; --text-dim:#8b8b85; --line:#2a3242;
+    --cyan:#5fd4d0; --purple:#b48ce0; --red:#e0604f; --pink:#e88fb4;
+    --teal:#6fce8f; --orange:#e0944f; --slate:#9aa8bf;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%;background:var(--bg);color:var(--text);
+    font-family:"PingFang SC","Noto Sans SC","Microsoft YaHei",-apple-system,sans-serif;overflow:hidden}
+  #topbar{position:fixed;top:0;left:0;right:0;z-index:20;height:52px;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 20px;background:linear-gradient(180deg,#121826cc,#0a0e1400);
+    border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+  #topbar .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:1px}
+  #topbar .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);
+    box-shadow:0 0 12px var(--gold)}
+  #topbar .meta{font-size:12px;color:var(--text-dim)}
+  #topbar .meta b{color:var(--gold2)}
+  #legend{position:fixed;left:16px;bottom:16px;z-index:20;background:var(--panel);
+    border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:12px;
+    min-width:190px;box-shadow:0 8px 30px rgba(0,0,0,.5)}
+  #legend h4{margin-bottom:8px;color:var(--gold2);font-size:12px;letter-spacing:1px}
+  #legend .row{display:flex;align-items:center;gap:8px;margin:4px 0;color:var(--text-dim)}
+  #legend .sw{width:12px;height:12px;border-radius:50%;flex:none}
+  #legend .sw.palace{width:14px;height:14px;border-radius:4px;border:1.5px solid var(--gold)}
+  #legend .sw.gate{width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;
+    border-bottom:12px solid var(--orange)}
+  #stats{position:fixed;right:16px;bottom:16px;z-index:20;text-align:right;font-size:11px;
+    color:var(--text-dim);line-height:1.7}
+  #stats b{color:var(--gold2)}
+  #phi-panel{position:fixed;right:16px;top:64px;z-index:20;background:var(--panel);
+    border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:12px;
+    min-width:218px;box-shadow:0 8px 30px rgba(0,0,0,.5)}
+  #phi-panel h4{margin-bottom:10px;color:var(--gold2);font-size:12px;letter-spacing:1px}
+  #phi-panel .phi-row{display:flex;justify-content:space-between;align-items:center;color:var(--text-dim);margin-bottom:4px}
+  #phi-panel .phi-row b{color:var(--gold2);font-family:ui-monospace,Menlo,monospace}
+  #phi-panel input[type=range]{width:100%;accent-color:var(--gold);cursor:pointer}
+  #phi-panel .strat{display:flex;gap:6px;margin-top:12px}
+  #phi-panel .strat button{flex:1;padding:5px 2px;font-size:11px;color:var(--text-dim);
+    background:var(--panel2);border:1px solid var(--line);border-radius:6px;cursor:pointer;transition:.15s}
+  #phi-panel .strat button:hover{color:var(--text)}
+  #phi-panel .strat button.on{color:var(--gold2);border-color:var(--gold-dim);background:#1a2233}
+  #phi-panel .hint{color:var(--text-dim);font-size:10px;margin-top:8px;line-height:1.6}
+  .node .core-glow{filter:url(#glow)}
+  .node.active .nlabel{fill:var(--gold2);font-weight:600}
+  .node.pulse .core-glow{animation:lhpulse 2.4s ease-in-out infinite}
+  @keyframes lhpulse{0%,100%{opacity:1}50%{opacity:.6}}
+  @media (max-width:700px){#phi-panel{display:none}}
+  #tooltip{position:fixed;z-index:40;pointer-events:none;opacity:0;transition:opacity .12s;
+    background:rgba(10,14,20,.96);border:1px solid var(--gold-dim);border-radius:8px;
+    padding:10px 13px;font-size:12px;max-width:280px;box-shadow:0 10px 34px rgba(0,0,0,.65)}
+  #tooltip .t-name{font-weight:600;color:var(--gold2);margin-bottom:4px;font-size:13px}
+  #tooltip .t-sub{color:var(--text-dim);margin-bottom:5px}
+  #tooltip .t-desc{color:var(--text);line-height:1.5}
+  #tooltip .t-tag{display:inline-block;margin-top:6px;padding:2px 8px;border-radius:20px;
+    border:1px solid var(--line);color:var(--text-dim);font-size:11px}
+  #status{position:fixed;left:16px;top:64px;z-index:20;font-size:11px;color:var(--text-dim);
+    display:flex;flex-direction:column;gap:6px}
+  #status .chip{background:var(--panel);border:1px solid var(--line);border-radius:20px;
+    padding:3px 10px;display:inline-flex;align-items:center;gap:6px;width:fit-content}
+  .link{stroke:#8a7a3a;stroke-opacity:.35}
+  .link.weak{stroke-dasharray:4 4;stroke:#5a4a2a;stroke-opacity:.5}
+  .link.hot{stroke:var(--gold2);stroke-opacity:.95}
+  .node{cursor:grab}
+  .node:active{cursor:grabbing}
+  .node text{pointer-events:none;user-select:none}
+  .node .nlabel{font-size:11px;fill:var(--text);paint-order:stroke;
+    stroke:var(--bg);stroke-width:3px}
+  .node .nsub{font-size:9px;fill:var(--text-dim)}
+  .node.fade{opacity:.12}
+  .link.fade{opacity:.05}
+  .ring{fill:none;stroke:var(--gold-dim);stroke-dasharray:3 6}
+  @media (max-width:700px){#legend,#stats{display:none}}
+</style>
+</head>
+<body>
+
+<div id="topbar">
+  <div class="brand"><span class="dot"></span>龍魂系统 · 神经网络拓扑 D3 总览</div>
+  <div class="meta">数据源 <b>longhun_neural_net.json</b> · 洛书九宫架构 · <b>41</b> 条神经网络边</div>
+</div>
+
+<div id="status">
+  <span class="chip">🟢 19 人格满编</span>
+  <span class="chip">🟢 192 引擎 · 50 技能</span>
+  <span class="chip">🟢 8 数字人 · 16 服务</span>
+</div>
+
+<div id="legend">
+  <h4>图例 LEGEND</h4>
+  <div class="row"><span class="sw palace"></span>洛书九宫层（L0-L8）</div>
+  <div class="row"><span class="sw" style="background:var(--gold)"></span>战略层人格</div>
+  <div class="row"><span class="sw" style="background:var(--cyan)"></span>执行层人格</div>
+  <div class="row"><span class="sw" style="background:var(--purple)"></span>文化层人格</div>
+  <div class="row"><span class="sw" style="background:var(--red)"></span>守护层人格</div>
+  <div class="row"><span class="sw" style="background:var(--pink)"></span>隔离区人格</div>
+  <div class="row"><span class="sw" style="background:var(--teal)"></span>子系统人格</div>
+  <div class="row"><span class="sw gate"></span>三闸门 GATE-01~03</div>
+  <div class="row"><span class="sw" style="background:var(--slate)"></span>引擎 / 小队</div>
+  <div class="row" style="margin-top:6px"><span style="color:var(--gold-dim)">——</span> 边·粗细=权重</div>
+  <div class="row"><span style="color:var(--gold-dim)">╌╌</span> 暂缓链路(权重0)</div>
+</div>
+
+<div id="stats">
+  节点 <b id="st-nodes">–</b> · 边 <b id="st-links">–</b><br>
+  点击节点高亮邻居 · 滚轮缩放 · 拖拽移动<br>
+  <span id="st-time"></span>
+</div>
+
+<div id="phi-panel">
+  <h4>Φ 布局调谐 · PHI TUNER</h4>
+  <div class="phi-row"><span>Φ 数值</span><b id="phi-val">1.6180</b></div>
+  <input id="phi-range" type="range" min="1.20" max="2.20" step="0.001" value="1.618034">
+  <div class="hint">Φ↑ 排斥更强·环更收拢 · 拖动即生效</div>
+  <div class="strat">
+    <button data-strat="degree" class="on">按连接数</button>
+    <button data-strat="weight">按权重</button>
+    <button data-strat="hierarchy">按层级</button>
+  </div>
+  <div class="hint">激活节点 = 金色辉光+脉冲 · 排斥更强分布更散</div>
+</div>
+
+<div id="tooltip"></div>
+
+<script src="../assets/d3.v7.min.js"></script>
+<script>
+"use strict";
+/* ═══════════ 数据（内嵌自 longhun_neural_net.json · 唯一真源） ═══════════ */
+
+const NODES = [
+  // ── 洛书九宫（中宫 + 八方位 · lx/ly 为锚点坐标 0~1） ──
+  {id:"center_5",   name:"中宫5 · UID9622",      sub:"唯一主权 · 确认码 · GPG",            group:"palace", lx:0.50, ly:0.50, size:40, status:"🟢", desc:"诸葛鑫 · 龍芯北辰 · 唯一主权人。确认码 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z · GPG A2D0092CEE2E5BA87035600924C3704A8CC26D5F"},
+  {id:"north_9",    name:"北9 · L0神圣+L1内核",   sub:"宪法 · 永恒锁 · 369 · 算法引擎",      group:"palace", lx:0.50, ly:0.06, size:28, status:"🟢", desc:"CONSTITUTION.md · P0_ETERNAL_LOCK.md · 369不动点 · 河图洛书 · 五行八卦 · 算法引擎群"},
+  {id:"northeast_8",name:"东北8 · L2技能层",      sub:"人格矩阵 · 安全审计",                group:"palace", lx:0.90, ly:0.14, size:25, status:"🟢", desc:"02_SKILLS 技能文档 · bin/personas 人格执行器 · 审计安全"},
+  {id:"east_3",     name:"东3 · L3路由层",        sub:"意图 → 人格分发",                   group:"palace", lx:0.97, ly:0.50, size:25, status:"🟢", desc:"IPA路由注册表 · 语义路由中英双轨 · INTENT_ROUTE_MAP"},
+  {id:"southeast_2",name:"东南2 · L4闸门层",      sub:"数字根 · 身份 · 伦理",               group:"palace", lx:0.90, ly:0.86, size:25, status:"🟢", desc:"GATE-01~03 · 熔断链 · DNA追溯 · 草日志"},
+  {id:"south_1",    name:"南1 · L5服务层",        sub:"门户 · 仪表盘 · 任务落地",           group:"palace", lx:0.50, ly:0.95, size:25, status:"🟢", desc:"services/portal 门户 · services/dashboard 仪表盘 60+ 页面"},
+  {id:"southwest_6",name:"西南6 · L6集成层",      sub:"MCP · 桥接 · 验收签章",             group:"palace", lx:0.10, ly:0.86, size:25, status:"🟢", desc:"integrations MCP/API · bridges 桥接 · 验收签章"},
+  {id:"west_7",     name:"西7 · L7数据层",        sub:"语义防火墙 · 水晶知识",              group:"palace", lx:0.03, ly:0.50, size:25, status:"🟢", desc:"semantic_shield 语义防火墙 · crystal_knowledge 水晶知识 · 数据主权"},
+  {id:"northwest_4",name:"西北4 · L8治理层",      sub:"审计报告 · DNA治理",                group:"palace", lx:0.10, ly:0.14, size:25, status:"🟢", desc:"governance/reports 审计报告 · governance/dna DNA治理"},
+
+  // ── 三闸门 ──
+  {id:"GATE-01", name:"GATE-01 · 数字根熔断闸", sub:"dr∈{1,2,4,5,7,8}→🟢 · 6→🟡 · {3,9}→🔴", group:"gate", status:"🟢", desc:"P06 数学大师 执掌。数字根不通过即熔断，不讨论。"},
+  {id:"GATE-02", name:"GATE-02 · 身份认证门",   sub:"UID9622 + 确认码 + GPG 签章",           group:"gate", status:"🟢", desc:"P00 文心 执掌。三重身份锚定，缺一不可。"},
+  {id:"GATE-03", name:"GATE-03 · 伦理防火墙",   sub:"涉童/伤弱/伪造DNA → 立即熔断",         group:"gate", status:"🟢", desc:"P05 上帝之眼 执掌。伦理红线，一票否决。"},
+
+  // ── 人格 19 位（战略层） ──
+  {id:"P00", name:"P00 文心",      sub:"元认知统筹 10%", group:"strategy", status:"🟢", desc:"意图解析 · 任务派发 · 总军师"},
+  {id:"P01", name:"P01 诸葛亮",    sub:"战略推演 15%",   group:"strategy", status:"🟢", desc:"推演 · 贡献值 · 时间衰减 · 多路径选优"},
+  {id:"P05", name:"P05 上帝之眼",  sub:"三色审计 5%",    group:"strategy", status:"🟢", desc:"独立熔断 · 全链路审计 · 安全扫描"},
+  // ── 人格（执行层） ──
+  {id:"P03", name:"P03 雯雯",      sub:"结构归档 15%",   group:"exec", status:"🟢", desc:"四签验证 · 德字闸 · 归档整理"},
+  {id:"P04", name:"P04 鲁班",      sub:"技术执行 10%",   group:"exec", status:"🟢", desc:"写代码 · 搭架构 · 修bug · 施工队长"},
+  {id:"P06", name:"P06 数学大师",  sub:"权重计算 5%",    group:"exec", status:"🟢", desc:"数字根 · 五行 · 权重 · 镜像审计"},
+  // ── 人格（文化层） ──
+  {id:"P08", name:"P08 仓颉",      sub:"符号语言 3%",    group:"culture", status:"🟢", desc:"命名规范 · CNSH · 龍魂字典"},
+  {id:"P09", name:"P09 孙思邈",    sub:"系统诊断 3%",    group:"culture", status:"🟢", desc:"健康检查 · 治未病"},
+  {id:"P10", name:"P10 苏东坡",    sub:"豁达跨界 3%",    group:"culture", status:"🟢", desc:"冲突化解 · 通俗翻译"},
+  {id:"P11", name:"P11 李白",      sub:"创意爆发 3%",    group:"culture", status:"🟢", desc:"破局思维 · 天马行空"},
+  {id:"P12", name:"P12 屈原",      sub:"价值底线 3%",    group:"culture", status:"🟢", desc:"六誓验证 · 数据主权底线"},
+  {id:"P14", name:"P14 吕蒙",      sub:"部署成长 3%",    group:"culture", status:"🟢", desc:"快速成长 · 部署执行 · 士别三日"},
+  // ── 人格（守护层） ──
+  {id:"P13", name:"P13 姜子牙",    sub:"封神榜权限 5%",  group:"guard", status:"🟢", desc:"模块注册 · 权限分配 · 九宫派位"},
+  {id:"P15", name:"P15 乔前辈",    sub:"极简工程 5%",    group:"guard", status:"🟢", desc:"DNA盖章 · 四签验收 · 极简交付"},
+  {id:"P72", name:"P72 龍盾",      sub:"贴身管家 10%",   group:"guard", status:"🟢", desc:"自适应威胁响应 · 双熔断联动 · 24h守护"},
+  // ── 人格（隔离区） ──
+  {id:"P02", name:"P02 宝宝",      sub:"情感温度 30%",   group:"iso", status:"🟢", desc:"隔离区专用 · 防沉迷 · 情感温度调节"},
+  // ── 人格（子系统） ──
+  {id:"P18", name:"P18 基因登记官", sub:"SHA256·Merkle", group:"subsys", status:"🟢", desc:"DNA注册 · 哈希校验 · 黑户检测"},
+  {id:"P19", name:"P19 极简审计官", sub:"8项UI审计",     group:"subsys", status:"🟢", desc:"前端质量 · 一票否决"},
+  {id:"P20", name:"P20 贡献公证官", sub:"三分桶·信任分", group:"subsys", status:"🟢", desc:"信任积分 · 贡献公证"},
+
+  // ── 核心引擎 / 小队 ──
+  {id:"human_brain_engine_v2", name:"🧠 脑引擎 v2",    sub:"人脑神经网络",    group:"engine", status:"🟢", desc:"7阶段思考循环 · 16人格神经元 · 三色审计内置 · SQLite持久化"},
+  {id:"persona_orchestrator",  name:"🎭 人格编排官",    sub:"意图→人格路由",   group:"engine", status:"🟢", desc:"17人格 · 50+意图域 · 语义路由"},
+  {id:"skill_bus",             name:"🔌 技能总线",      sub:"45工具·13分类",   group:"engine", status:"🟢", desc:"语义路由 · 链式编排"},
+  {id:"persona_team",          name:"🤝 人格小队",      sub:"四大应用小队",    group:"engine", status:"🟢", desc:"APP-PMO/CODE/PR/SEC 全链路联动"},
+  {id:"digital_human_bridge",  name:"👥 数字人桥",      sub:"8数字人·四层",   group:"engine", status:"🟢", desc:"数字人 ↔ 人格同步 · 四层桥接"},
+  {id:"dna_registry",          name:"🧬 DNA登记",       sub:"SHA256·Merkle",  group:"engine", status:"🟢", desc:"物理+虚拟+身份全维DNA登记 · 归属验证"},
+  {id:"dna_timeline",          name:"🗓️ DNA时间轴",    sub:"L0-L4 五层",      group:"engine", status:"🟢", desc:"光年级→瞬时级 DNA 追溯"},
+  {id:"ecosystem_passport",    name:"🛂 生态通行证",    sub:"四层级会员",      group:"engine", status:"🟢", desc:"free/basic/pro/founder · 服务注册 · API密钥"},
+  {id:"ecosystem",             name:"🌐 生态",          sub:"16注册服务",      group:"engine", status:"🟢", desc:"许愿池 · XPay · 多币种"},
+  {id:"semantic_shield",       name:"🛡️ 语义防火墙",   sub:"L7数据层",        group:"engine", status:"🟢", desc:"反语义注入 · 涉密语义模板 · 火气通心译"},
+  {id:"auto_heal",             name:"💊 自动自愈",      sub:"每小时",          group:"engine", status:"🟢", desc:"四道体检 · 自动修复分级 · launchd定时"},
+  {id:"cnsh_compiler",         name:"🔠 CNSH编译器",   sub:"8语言",           group:"engine", status:"🟢", desc:"CNSH多语言编译 · 国密签名 · 双向编译"},
+  {id:"cnsh_run",              name:"▶ CNSH直跑",      sub:"芯片检测",        group:"engine", status:"🟢", desc:"CNSH终端直跑 · 8语言一键"},
+  {id:"ant_colony_router",     name:"🐜 蚁群路由",      sub:"国产优先",        group:"engine", status:"🟢", desc:"权重轮询 · 熔断降级 · 7节点健康"},
+  {id:"search_engine",         name:"🔎 搜索引擎",      sub:"Bing+百度",       group:"engine", status:"🟢", desc:"多源搜索 · SQLite缓存 · :9631"},
+  {id:"global_search_v2",      name:"🌍 全球搜索v2",    sub:"5人格×4节点",    group:"engine", status:"🟡", desc:"legacy · 已被 search_engine 取代"},
+  {id:"core_template_v2",      name:"📐 核心模板",      sub:"Flask面板",       group:"engine", status:"🟢", desc:"开源模板 · 3图表 · 10节点蚁群"},
+  {id:"fixpoint_fill_gap_v2",  name:"🔩 不动点填坑",    sub:"19人格×7数字人", group:"engine", status:"🟢", desc:"八卦路由 × 三闸门 × 三色审计 全系统融合"},
+  {id:"bagua_router",          name:"☯ 八卦路由",      sub:"态势路由",        group:"engine", status:"🟢", desc:"64卦统一调度"},
+  {id:"think_cycle_db",        name:"🗄️ 思考周期库",   sub:"SQLite",          group:"engine", status:"🟢", desc:"audit_trail · 权重版本链"},
+  {id:"persona_weight_tuner",  name:"⚖️ 权重调谐器",   sub:"safe mode",       group:"engine", status:"🟢", desc:"反思反馈 → 敏感度矩阵调谐"},
+  {id:"persona_matrix",        name:"🧮 人格矩阵",      sub:"19人格",          group:"engine", status:"🟢", desc:"16核心 + 3子系统"},
+  {id:"engines",               name:"⚙️ 引擎群",       sub:"192可执行",       group:"engine", status:"🟢", desc:"bin/lh_*.py + .sh 全引擎"},
+  {id:"APP-PMO", name:"📋 PMO小队", sub:"P01主·P03副", group:"team", status:"🟢", desc:"推演→归档→分配→沟通"},
+  {id:"APP-CODE",name:"💻 代码小队", sub:"P04主·P15副", group:"team", status:"🟢", desc:"实现→整合→创新→审查"},
+  {id:"APP-PR",  name:"🔍 PR审查队", sub:"P05主·P19副", group:"team", status:"🟢", desc:"审计→诊断→评分→终审"},
+  {id:"APP-SEC", name:"🛡️ 安全小队", sub:"P05主·P72副", group:"team", status:"🟢", desc:"扫描→响应→审查→验证"},
+  {id:"video_generator", name:"🎬 视频生成", sub:"[暂缓]", group:"engine", status:"🟡", desc:"待国产模型成熟"},
+  {id:"voice_clone",     name:"🗣️ 声音克隆", sub:"[暂缓]", group:"engine", status:"🟡", desc:"需伦理审查"}
+];
+
+/* 41 条神经网络边 · 原样取自 longhun_neural_net.json */
+const RAW_EDGES = [
+  {f:"center_5(UID9622)",t:"north_9(L0神圣)",type:"主权锚定",w:1.0},
+  {f:"center_5(UID9622)",t:"east_3(L3路由)",type:"意图输入",w:1.0},
+  {f:"east_3(L3路由)",t:"west_7(L7数据)",type:"意图→语义解析",w:0.9},
+  {f:"west_7(L7数据)",t:"south_1(L5服务)",type:"路由→执行落地",w:0.9},
+  {f:"northeast_8(L2技能)",t:"west_7(L7数据)",type:"安全审计前置",w:0.95},
+  {f:"south_1(L5服务)",t:"southwest_6(L6集成)",type:"执行→验收签章",w:0.85},
+  {f:"southwest_6(L6集成)",t:"southeast_2(L4闸门)",type:"验收→回流追溯",w:0.85},
+  {f:"southeast_2(L4闸门)",t:"center_5(UID9622)",type:"闭环反馈",w:0.8},
+  {f:"northwest_4(L8治理)",t:"northeast_8(L2技能)",type:"边界→安全",w:0.7},
+  {f:"GATE-01(数字根)",t:"GATE-02(身份认证)",type:"闸门链",w:1.0},
+  {f:"GATE-02(身份认证)",t:"GATE-03(伦理)",type:"闸门链",w:1.0},
+  {f:"GATE-03(伦理)",t:"west_7(L7数据)",type:"通过→路由",w:1.0},
+  {f:"P05(上帝之眼)",t:"GATE-01(数字根)",type:"审计→闸门",w:0.95},
+  {f:"P72(龍盾)",t:"northeast_8(L2技能)",type:"守护→安全层",w:0.9},
+  {f:"P13(姜子牙)",t:"skill_bus",type:"编排→技能路由",w:0.85},
+  {f:"skill_bus",t:"engines",type:"路由→执行引擎",w:0.9},
+  {f:"digital_human_bridge",t:"persona_matrix",type:"数字人↔人格同步",w:0.8},
+  {f:"auto_heal",t:"ecosystem",type:"自愈→生态健康报告",w:0.85},
+  {f:"dna_registry",t:"dna_timeline",type:"DNA登记→时间轴锚定",w:0.9},
+  {f:"ecosystem_passport",t:"dna_registry",type:"通行证→DNA验证",w:0.85},
+  {f:"semantic_shield",t:"west_7(L7数据)",type:"防火墙→语义路由",w:0.95},
+  {f:"human_brain_engine_v2",t:"persona_matrix",type:"v2→16人格神经元激活",w:0.98},
+  {f:"human_brain_engine_v2",t:"skill_bus",type:"v2思考输出→技能总线分发",w:0.9},
+  {f:"persona_matrix",t:"human_brain_engine_v2",type:"人格反馈→v2反思学习",w:0.85},
+  {f:"dna_registry",t:"human_brain_engine_v2",type:"DNA登记→v2思考周期追溯",w:0.8},
+  {f:"human_brain_engine_v2",t:"GATE-03(伦理)",type:"v2审计内置→伦理防火墙",w:0.9},
+  {f:"human_brain_engine_v2",t:"think_cycle_db",type:"v2思考输出→SQLite持久化",w:1.0},
+  {f:"persona_weight_tuner",t:"human_brain_engine_v2",type:"权重学习反馈→敏感度更新",w:0.9},
+  {f:"think_cycle_db",t:"persona_weight_tuner",type:"历史周期→权重分析输入",w:0.85},
+  {f:"video_generator",t:"GATE-03(伦理)",type:"[暂缓] 视频生成→伦理审计",w:0.0},
+  {f:"voice_clone",t:"GATE-03(伦理)",type:"[暂缓] 克隆→伦理防火墙",w:0.0},
+  {f:"persona_team",t:"persona_matrix",type:"应用小队→基础人格联动",w:1.0},
+  {f:"persona_team",t:"GATE-01(数字根)",type:"小队拉起→数字根前置检查",w:0.9},
+  {f:"persona_team",t:"GATE-03(伦理)",type:"小队任务→伦理审计",w:0.9},
+  {f:"APP-PMO",t:"APP-CODE",type:"PMO派发→代码研发承接",w:0.95},
+  {f:"APP-CODE",t:"APP-PR",type:"代码交付→PR审查",w:0.95},
+  {f:"APP-PR",t:"APP-SEC",type:"审查通过→安全扫描",w:0.95},
+  {f:"APP-SEC",t:"P15(乔前辈)",type:"安全通过→DNA盖章",w:0.9},
+  {f:"P15(乔前辈)",t:"P03(雯雯)",type:"盖章→归档入链",w:0.9},
+  {f:"global_search_v2",t:"ant_colony_router",type:"搜索→通心译蚁群路由分发",w:0.95},
+  {f:"global_search_v2",t:"cnsh_compiler",type:"多语言查询→CNSH编译解析",w:0.9},
+  {f:"ant_colony_router",t:"global_search_v2",type:"路由结果→搜索索引选择",w:0.85},
+  {f:"cnsh_run",t:"cnsh_compiler",type:"运行脚本→编译器调用",w:1.0},
+  {f:"global_search_v2",t:"ecosystem_passport",type:"搜索结果→通行证权限校验",w:0.8},
+  {f:"cnsh_compiler",t:"dna_registry",type:"编译产物→DNA追溯登记",w:0.85},
+  {f:"core_template_v2",t:"global_search_v2",type:"模板面板→搜索引擎API占位",w:0.75},
+  {f:"core_template_v2",t:"ant_colony_router",type:"模板节点→蚁群路由注册",w:0.7},
+  {f:"fixpoint_fill_gap_v2",t:"persona_orchestrator",type:"填坑引擎→19人格编排联动",w:0.95},
+  {f:"fixpoint_fill_gap_v2",t:"digital_human_bridge",type:"填坑引擎→8数字人四层桥接",w:0.85},
+  {f:"fixpoint_fill_gap_v2",t:"bagua_router",type:"填坑引擎→八卦态势路由",w:0.8},
+  {f:"fixpoint_fill_gap_v2",t:"auto_heal",type:"填坑引擎→三色审计联动",w:0.75}
+];
+
+/* ═══════════ 数据处理 ═══════════ */
+const NODE_MAP = Object.fromEntries(NODES.map(n=>[n.id,n]));
+const idOf = s => s.replace(/\(.*\)$/,"");
+const LINKS = RAW_EDGES
+  .map(e=>({source:idOf(e.f), target:idOf(e.t), type:e.type, weight:e.w}))
+  .filter(e=>NODE_MAP[e.source] && NODE_MAP[e.target]);
+
+/* ═══════════ Φ 黄金分割 & 激活分布模型（v1.1） ═══════════ */
+const PHI0 = (1+Math.sqrt(5))/2;            // 1.6180339887 黄金分割
+let PHI = PHI0;
+
+const HIER_ACT = { palace:1.00, gate:.92, strategy:.88, guard:.82, exec:.72,
+                   subsys:.64, culture:.58, team:.66, engine:.50 };
+
+const nid = o => typeof o==="object" ? o.id : o;   // forceLink 初始化前后兼容
+function rawActivation(strategy, d){
+  if(strategy==="hierarchy") return HIER_ACT[d.group]||.5;
+  let s=0;
+  if(strategy==="degree"){
+    LINKS.forEach(l=>{ if(nid(l.source)===d.id||nid(l.target)===d.id) s++; });
+  }else{
+    LINKS.forEach(l=>{ if(nid(l.source)===d.id) s+=l.weight; if(nid(l.target)===d.id) s+=l.weight; });
+  }
+  return s;
+}
+let actStrategy = "degree";
+let actCache = new Map();
+function computeActivation(){
+  const raw = new Map(NODES.map(n=>[n.id, rawActivation(actStrategy,n)]));
+  const max = Math.max(...raw.values(), .0001);
+  actCache = new Map(NODES.map(n=>[n.id, raw.get(n.id)/max]));
+}
+const actOf = d => actCache.get(d.id)||0;
+computeActivation();
+
+/* ═══════════ 颜色与形状 ═══════════ */
+const COLOR = {
+  palace:"none",       // 特殊：金框
+  gate:"none",         // 特殊：菱形
+  strategy:"#d4af37",  exec:"#5fd4d0",  culture:"#b48ce0",
+  guard:"#e0604f",     iso:"#e88fb4",   subsys:"#6fce8f",
+  engine:"#9aa8bf",    team:"#7fa8c9"
+};
+
+/* ═══════════ 布局与渲染 ═══════════ */
+const width  = window.innerWidth;
+const height = window.innerHeight - 52;
+const svg = d3.select("body").append("svg")
+    .attr("width", width).attr("height", height).attr("viewBox", [0,0,width,height])
+    .style("position","fixed").style("top",52).style("left",0)
+    .style("background","radial-gradient(1200px 700px at 50% 42%, #101828 0%, #0a0e14 60%, #070a0f 100%)");
+
+/* 激活辉光滤镜 */
+svg.append("defs").append("filter").attr("id","glow")
+    .attr("x","-70%").attr("y","-70%").attr("width","240%").attr("height","240%")
+    .html('<feGaussianBlur stdDeviation="3.4" result="b"/>'+
+          '<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>');
+
+const g = svg.append("g");
+
+/* 洛书九宫方位环 */
+const ringR = Math.min(width,height)*0.31;
+const ring = g.append("g").attr("class","ring-layer");
+ring.append("circle").attr("cx",width/2).attr("cy",(height+52)/2-26)
+    .attr("r",ringR).attr("class","ring");
+ring.append("circle").attr("cx",width/2).attr("cy",(height+52)/2-26)
+    .attr("r",ringR*0.45).attr("class","ring")
+    .attr("stroke-opacity",.2);
+const diag = [[-1,-1],[1,-1],[-1,1],[1,1]].map(([x,y])=>
+  [width/2+x*ringR, (height+52)/2-26+y*ringR]);
+ring.append("line").attr("x1",diag[0][0]).attr("y1",diag[0][1])
+    .attr("x2",diag[2][0]).attr("y2",diag[2][1])
+    .attr("stroke","#2a3242").attr("stroke-width",1).attr("stroke-dasharray","3 6");
+ring.append("line").attr("x1",diag[1][0]).attr("y1",diag[1][1])
+    .attr("x2",diag[3][0]).attr("y2",diag[3][1])
+    .attr("stroke","#2a3242").attr("stroke-width",1).attr("stroke-dasharray","3 6");
+
+/* zoom */
+const zoom = d3.zoom().scaleExtent([0.25,3]).on("zoom",(ev)=>g.attr("transform",ev.transform));
+svg.call(zoom);
+
+/* 边 */
+const link = g.append("g").selectAll("line").data(LINKS).join("line")
+    .attr("class", d=> d.weight<=0.1 ? "link weak" : "link")
+    .attr("stroke-width", d=> Math.max(.6, d.weight*2.6))
+    .attr("stroke-opacity", d=> d.weight<=0.1 ? .5 : .2 + d.weight*.45);
+
+/* tooltip */
+const tip = d3.select("#tooltip");
+function showTip(d, ev){
+  tip.html(
+    `<div class="t-name">${d.name} ${d.status||""}</div>
+     ${d.sub?`<div class="t-sub">${d.sub}</div>`:""}
+     ${d.desc?`<div class="t-desc">${d.desc}</div>`:""}
+     ${d.group?`<span class="t-tag">${d.group}</span>`:""}`)
+    .style("left",(ev.clientX+14)+"px").style("top",(ev.clientY+14)+"px")
+    .style("opacity",1);
+}
+function hideTip(){ tip.style("opacity",0); }
+
+/* 节点绘制函数（按组形状 · v1.1 激活辉光） */
+function drawNode(sel){
+  const g = sel.append("g").attr("class","node");
+  g.each(function(d){
+    const node = d3.select(this);
+    const act = actOf(d);
+    const r = (d.size||16) * (PHI0/PHI) * (1 + .34*act);   // 激活节点放大
+    const isHot = act>=.55;
+    if(d.group==="palace"){
+      node.append("rect").attr("x",-r*2.1).attr("y",-r*.95).attr("width",r*4.2)
+        .attr("height",r*1.9).attr("rx",8)
+        .attr("fill","#111a29").attr("stroke","#d4af37")
+        .attr("stroke-width",d.id==="center_5"?2.5:1.4)
+        .attr("stroke-opacity",.85);
+      node.append("text").attr("class","nlabel").attr("y",-4).attr("text-anchor","middle")
+        .text(d.name);
+      node.append("text").attr("class","nsub").attr("y",13).attr("text-anchor","middle")
+        .text(d.sub||"").attr("opacity",.75);
+    } else if(d.group==="gate"){
+      node.append("path")
+        .attr("d",`M0,${-r*1.15} L${r*.95},0 L0,${r*1.15} L${-r*.95},0 Z`)
+        .attr("fill","#2a1c10").attr("stroke","#e0944f").attr("stroke-width",1.6)
+        .attr("class", isHot?"core-glow":null);
+      node.append("text").attr("class","nlabel").attr("y",r*1.75).attr("text-anchor","middle")
+        .text(d.name.split(" ·")[0]);
+    } else {
+      node.append("circle").attr("r",r)
+        .attr("fill",COLOR[d.group]||"#9aa8bf")
+        .attr("fill-opacity",isHot?.22:.16)
+        .attr("stroke",isHot?"#f0d77b":(COLOR[d.group]||"#9aa8bf"))
+        .attr("stroke-width",d.status==="🟡"?1.6:(isHot?1.9:1.3))
+        .attr("class", isHot ? "core-glow" : null);
+      node.append("circle").attr("r",Math.max(2.6,r*.16))
+        .attr("fill",isHot?"#f0d77b":(COLOR[d.group]||"#9aa8bf"));
+      node.append("text").attr("class","nlabel").attr("y",-r-5).attr("text-anchor","middle")
+        .text(d.name);
+      node.append("text").attr("class","nsub").attr("y",-r+9).attr("text-anchor","middle")
+        .text(d.sub||"").attr("opacity",.7);
+    }
+    if(isHot) node.classed("active",true);
+    if(act>=.85) node.classed("pulse",true);
+  });
+  return g;
+}
+
+let node = g.append("g").selectAll("g.node").data(NODES).join(drawNode);
+
+/* ═══════════ 力学仿真：洛书九宫锚定 + 力导向（v1.1 Φ×激活感知） ═══════════ */
+const sim = d3.forceSimulation(NODES)
+  .force("center", d3.forceCenter(width/2,(height+52)/2-26))
+  .force("x", d3.forceX(d=> d.lx!=null ? width*d.lx : width/2)
+        .strength(d=> d.lx!=null ? 1.0 : .045))
+  .force("y", d3.forceY(d=> d.ly!=null ? (height+52)*d.ly-26 : (height+52)/2-26)
+        .strength(d=> d.ly!=null ? 1.0 : .045));
+
+function applyForces(){
+  sim.force("link", d3.forceLink(LINKS).id(d=>d.id)
+      .distance(d=> d.weight<=0.1 ? 120 : (70+110*(1-d.weight))*(PHI0/PHI)));
+  sim.force("charge", d3.forceManyBody()
+      .strength(d=> d.group==="palace" ? -1600*(PHI/PHI0)
+                 : -420*(PHI/PHI0)*(1+.55*(actOf(d))))      // 激活节点排斥更强→分布更散
+      .distanceMax(700));
+  sim.force("collide", d3.forceCollide()
+      .radius(d=> (d.size||16)*(PHI0/PHI)*(1+.34*(actOf(d)))+14).strength(.9));
+}
+applyForces();
+
+function applyRing(){
+  ring.selectAll("circle").attr("r", (d,i)=> i===0 ? ringR : ringR*0.45*(PHI0/PHI));
+}
+applyRing();
+
+function renderNodes(){
+  g.selectAll("g.node").remove();
+  node = g.append("g").selectAll("g.node").data(NODES).join(drawNode);
+  bindNodeEvents();
+}
+
+/* 固定九宫锚点节点 */
+NODES.filter(d=>d.lx!=null).forEach(d=>{ d.fx=d.lx!=null?width*d.lx:null; d.fy=d.ly!=null?(height+52)*d.ly-26:null; });
+
+sim.on("tick",()=>{
+  link.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y)
+      .attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
+  node.attr("transform",d=>`translate(${d.x},${d.y})`);
+});
+
+/* ═══════════ 交互 ═══════════ */
+function neighbors(d){
+  const s = new Set([d.id]);
+  LINKS.forEach(l=>{
+    const a=typeof l.source==="object"?l.source.id:l.source;
+    const b=typeof l.target==="object"?l.target.id:l.target;
+    if(a===d.id)s.add(b);
+    if(b===d.id)s.add(a);
+  });
+  return s;
+}
+let selected=null;
+function bindNodeEvents(){
+node.on("click",(ev,d)=>{
+  selected = selected===d.id ? null : d.id;
+  const set = selected ? neighbors(d) : null;
+  node.attr("class", d=> (set && !set.has(d.id)) ? "node fade" : "node");
+  link.attr("class", d=>{
+    const a=typeof d.source==="object"?d.source.id:d.source;
+    const b=typeof d.target==="object"?d.target.id:d.target;
+    if(!set) return d.weight<=0.1?"link weak":"link";
+    if(set.has(a)&&set.has(b)) return d.weight<=0.1?"link weak hot":"link hot";
+    return "link fade";
+  });
+})
+.on("mouseover",(ev,d)=>showTip(d,ev))
+.on("mousemove",(ev,d)=>tip.style("left",(ev.clientX+14)+"px").style("top",(ev.clientY+14)+"px"))
+.on("mouseout",hideTip)
+.call(d3.drag()
+.on("start",(ev,d)=>{ if(!ev.active) sim.alphaTarget(.25).restart(); d.fx=d.x; d.fy=d.y; })
+.on("drag",(ev,d)=>{ d.fx=ev.x; d.fy=ev.y; })
+.on("end",(ev,d)=>{ if(!ev.active) sim.alphaTarget(0);
+    if(d.lx!=null){ d.fx=width*d.lx; d.fy=(height+52)*d.ly-26; }
+    else d.fx=null,d.fy=null; }));
+}
+bindNodeEvents();
+
+/* ═══════════ Φ 滑块 & 激活策略切换（v1.1） ═══════════ */
+function settle(){
+applyRing();
+renderNodes();
+applyForces();
+sim.alpha(.65).restart();
+}
+document.getElementById("phi-range").addEventListener("input", ev=>{
+PHI = parseFloat(ev.target.value);
+document.getElementById("phi-val").textContent = PHI.toFixed(4);
+settle();
+});
+document.querySelectorAll("#phi-panel .strat button").forEach(b=>b.addEventListener("click",()=>{
+actStrategy = b.dataset.strat;
+document.querySelectorAll("#phi-panel .strat button").forEach(x=>x.classList.toggle("on",x===b));
+computeActivation();
+settle();
+}));
+
+/* 统计与页脚 */
+d3.select("#st-nodes").text(NODES.length);
+d3.select("#st-links").text(LINKS.length);
+d3.select("#st-time").text("🐉 丙午·甲申·乙巳 · 巳时 · ䷋否 · 🟢");
+
+window.addEventListener("resize",()=>{ /* 保持响应式缩放，不重布局 */ });
+</script>
+</body>
+</html>

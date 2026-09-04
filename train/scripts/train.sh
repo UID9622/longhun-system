@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂本地训练引擎 · 一键训练脚本
-# DNA: #龍芯⚡️2026-06-28-LONGHUN-TRAIN-SCRIPT-v1.0
+# DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-LONGHUN-TRAIN-SCRIPT-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -euo pipefail
 
@@ -9,7 +11,7 @@ PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 echo "🐉 龍魂本地训练启动"
 echo "   项目目录: $PROJECT_DIR"
-echo "   DNA: #龍芯⚡️2026-06-28-LONGHUN-TRAIN-SCRIPT-v1.0"
+echo "   DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-LONGHUN-TRAIN-SCRIPT-v1.0"
 
 cd "$PROJECT_DIR"
 

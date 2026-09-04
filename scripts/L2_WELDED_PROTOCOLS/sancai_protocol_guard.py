@@ -1,5 +1,11 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+# License: CC BY-NC-SA 4.0（核心思想层·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 #!/usr/bin/env python3
-# #龍芯⚡️2026-07-04-SANCAI-PROTOCOL-GUARD-v1.0
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-SANCAI-PROTOCOL-GUARD-v1.0
 # -*- coding: utf-8 -*-
 """
 三才算法协议守护脚本

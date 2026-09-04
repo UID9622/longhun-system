@@ -1,0 +1,542 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-9100dc73 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂激活舱 · 管理后台</title>
+<style>
+:root {
+  --bg:#0a0a14;--bg2:#111121;--bg3:#1a1a2e;--bg4:#22223b;
+  --gold:#d4a574;--gold-light:#edd5b8;--gold-dark:#b8854a;
+  --text:#e8dcc8;--text-dim:#a09080;--text-muted:#6b6b7b;
+  --green:#27ae60;--red:#c0392b;--cyan:#4ecdc4;
+  --border:rgba(212,165,116,.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+header{position:sticky;top:0;z-index:100;background:rgba(10,10,20,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:18px;font-weight:800;color:var(--gold);letter-spacing:2px}
+.nav-links{display:flex;gap:20px;list-style:none;font-size:13px}
+.nav-links a{color:var(--text-dim);text-decoration:none}
+.nav-links a:hover{color:var(--gold)}
+main{max-width:1200px;margin:0 auto;padding:32px 24px}
+.dna-bar{text-align:center;font-family:monospace;font-size:11px;color:var(--text-dim);margin-bottom:16px}
+
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:20px}
+.card h2{font-size:17px;color:var(--gold-light);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card h2 .icon{font-size:20px}
+
+.login-card{max-width:420px;margin:80px auto;text-align:center}
+input{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px;color:var(--text);font-size:14px;margin-top:8px}
+input:focus{outline:none;border-color:var(--gold)}
+.btn-primary{padding:10px 22px;border-radius:20px;border:none;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);font-size:13px;font-weight:600;cursor:pointer;margin-top:16px}
+.btn-primary:hover{opacity:.9}
+.btn-outline{padding:8px 16px;border-radius:20px;border:1px solid var(--gold);background:transparent;color:var(--gold);font-size:12px;cursor:pointer}
+.btn-outline:hover{background:rgba(212,165,116,.08)}
+
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:20px}
+.stat-box{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+.stat-box .value{font-size:24px;font-weight:700;color:var(--gold-light)}
+.stat-box .label{font-size:12px;color:var(--text-dim);margin-top:4px}
+
+.tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.tab{padding:8px 16px;border-radius:20px;border:1px solid var(--border);background:var(--bg3);color:var(--text-dim);font-size:13px;cursor:pointer}
+.tab.active{border-color:var(--gold);background:rgba(212,165,116,.12);color:var(--gold-light)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+.table{width:100%;border-collapse:collapse;font-size:12px}
+.table th,.table td{padding:10px 8px;border-bottom:1px solid var(--border);text-align:left}
+.table th{color:var(--gold-light);font-weight:600}
+.table td{color:var(--text-dim)}
+.table tr:hover td{background:rgba(212,165,116,.05)}
+.status-confirmed{color:var(--green)}
+.status-pending{color:var(--gold)}
+.tag{display:inline-block;padding:2px 8px;border-radius:10px;background:var(--bg3);border:1px solid var(--border);font-size:11px;color:var(--text-dim)}
+
+.filter-row{display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.filter-row input,.filter-row select{flex:1;min-width:150px;margin-top:0}
+
+.log-panel,.comment-panel{max-height:400px;overflow-y:auto;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px;font-family:monospace;font-size:11px}
+.log-entry,.comment-entry{padding:8px 0;border-bottom:1px solid var(--border)}
+.log-entry:last-child,.comment-entry:last-child{border-bottom:none}
+.log-time,.comment-time{color:var(--text-muted)}
+.log-result.ok{color:var(--green)}
+.log-result.err{color:var(--red)}
+
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);padding:10px 20px;border-radius:10px;background:var(--bg2);border:1px solid var(--gold);color:var(--gold);font-size:13px;z-index:99999;opacity:0;pointer-events:none;transition:.3s}
+.toast.show{opacity:1}
+
+.hidden{display:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">龍魂<span style="font-size:13px;font-weight:400;color:var(--text-dim)">· 激活舱管理后台</span></div>
+  <ul class="nav-links">
+    <li><a href="/activation-lab/">返回前台</a></li>
+  </ul>
+</header>
+
+<main>
+  <div class="dna-bar">#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-ACTIVATION-ADMIN-v1.0</div>
+
+  <!-- 登录 -->
+  <div class="card login-card" id="loginCard">
+    <h2><span class="icon">🔐</span>管理后台登录</h2>
+    <p style="font-size:13px;color:var(--text-dim);margin-bottom:12px">请输入龍魂确认码进行认证</p>
+    <input id="tokenInput" type="password" placeholder="#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z">
+    <button class="btn-primary" onclick="login()">进入后台</button>
+  </div>
+
+  <!-- 管理面板 -->
+  <div id="adminPanel" class="hidden">
+    <div class="card">
+      <h2><span class="icon">📊</span>实时统计</h2>
+      <div class="stats-grid">
+        <div class="stat-box"><div class="value" id="sTotalAmount">-</div><div class="label">累计支持</div></div>
+        <div class="stat-box"><div class="value" id="sTotalOrders">-</div><div class="label">订单总数</div></div>
+        <div class="stat-box"><div class="value" id="sConfirmed">-</div><div class="label">已确认</div></div>
+        <div class="stat-box"><div class="value" id="sPending">-</div><div class="label">待支付</div></div>
+        <div class="stat-box"><div class="value" id="sMfa">-</div><div class="label">已绑定 MFA</div></div>
+        <div class="stat-box"><div class="value" id="sComments">-</div><div class="label">评论数</div></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn-outline" onclick="loadStats()">🔄 刷新统计</button>
+        <button class="btn-outline" onclick="testEmail()">📧 测试邮件通知</button>
+        <span id="providerStatus" class="tag"></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab('orders')">🎫 订单管理</button>
+        <button class="tab" onclick="switchTab('comments')">💬 评论管理</button>
+        <button class="tab" onclick="switchTab('logs')">📜 运行日志</button>
+      </div>
+
+      <!-- 订单 -->
+      <div id="tab-orders" class="tab-content active">
+        <div class="filter-row">
+          <select id="orderFilter" onchange="loadOrders()">
+            <option value="">全部订单</option>
+            <option value="confirmed">已确认</option>
+            <option value="pending">待支付</option>
+          </select>
+          <input id="orderSearch" placeholder="搜索订单号 / 支付人 / 交易单号" oninput="filterOrders()">
+        </div>
+        <div style="overflow-x:auto">
+          <table class="table">
+            <thead>
+              <tr><th>订单号</th><th>金额</th><th>支付人</th><th>状态</th><th>支付渠道</th><th>MFA</th><th>时间</th><th>交易单号</th></tr>
+            </thead>
+            <tbody id="ordersBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 评论 -->
+      <div id="tab-comments" class="tab-content">
+        <div class="comment-panel" id="commentsPanel">
+          <div style="text-align:center;color:var(--text-dim);padding:20px">加载中…</div>
+        </div>
+      </div>
+
+      <!-- 日志 -->
+      <div id="tab-logs" class="tab-content">
+        <div class="log-panel" id="logsPanel">
+          <div style="text-align:center;color:var(--text-dim);padding:20px">加载中…</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const API_BASE = '/api/activation';
+let token = localStorage.getItem('lh_admin_token') || '';
+
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2000); }
+
+async function api(path, body, method='GET'){
+  const opts = {method, headers: {'Authorization': 'Bearer ' + btoa(unescape(encodeURIComponent(token)))}};
+  if(body){ opts.headers['Content-Type']='application/json'; opts.body=JSON.stringify(body); }
+  const res = await fetch(API_BASE + path, opts);
+  const text = await res.text();
+  try{ return {ok:res.ok, data:JSON.parse(text)}; }
+  catch{ return {ok:res.ok, data:text}; }
+}
+
+function login(){
+  token = document.getElementById('tokenInput').value.trim();
+  if(!token){ toast('请输入确认码'); return; }
+  localStorage.setItem('lh_admin_token', token);
+  checkAuth();
+}
+
+async function checkAuth(){
+  const r = await api('/admin/stats');
+  if(r.ok){
+    document.getElementById('loginCard').classList.add('hidden');
+    document.getElementById('adminPanel').classList.remove('hidden');
+    renderStats(r.data);
+    loadOrders();
+    loadComments();
+    loadLogs();
+  } else {
+    toast('认证失败: ' + (r.data.error || '未知错误'));
+    localStorage.removeItem('lh_admin_token');
+  }
+}
+
+function renderStats(data){
+  document.getElementById('sTotalAmount').textContent = data.total_amount + ' CNY';
+  document.getElementById('sTotalOrders').textContent = data.total_orders;
+  document.getElementById('sConfirmed').textContent = data.confirmed_orders;
+  document.getElementById('sPending').textContent = data.pending_orders;
+  document.getElementById('sMfa').textContent = data.mfa_bound;
+  document.getElementById('sComments').textContent = (data.counters && data.counters.comment) || 0;
+  const p = data.providers || {};
+  document.getElementById('providerStatus').textContent = `支付宝:${p.alipay?'开':'关'} 微信:${p.wechat_pay?'开':'关'}`;
+}
+
+async function loadStats(){
+  const r = await api('/admin/stats');
+  if(r.ok) renderStats(r.data); else toast('加载统计失败');
+}
+
+async function loadOrders(){
+  const filter = document.getElementById('orderFilter').value;
+  const r = await api('/admin/orders' + (filter ? '?status='+filter : ''));
+  if(!r.ok){ toast('加载订单失败'); return; }
+  window.allOrders = r.data.orders || [];
+  renderOrders(window.allOrders);
+}
+
+function renderOrders(orders){
+  const tbody = document.getElementById('ordersBody');
+  tbody.innerHTML = orders.map(o => `
+    <tr>
+      <td>${o.order_id}</td>
+      <td>${o.amount} ${o.currency}</td>
+      <td>${o.name}</td>
+      <td class="status-${o.status}">${o.status==='confirmed'?'已确认':'待支付'}</td>
+      <td>${o.payment_provider || '-'}</td>
+      <td>${o.mfa_bound?'✅':'-'}</td>
+      <td>${o.created_at?.slice(0,19).replace('T',' ') || '-'}</td>
+      <td style="max-width:150px;overflow:hidden;text-overflow:ellipsis">${o.tx_id || '-'}</td>
+    </tr>
+  `).join('');
+}
+
+function filterOrders(){
+  const kw = document.getElementById('orderSearch').value.trim().toLowerCase();
+  if(!kw){ renderOrders(window.allOrders); return; }
+  renderOrders(window.allOrders.filter(o =>
+    (o.order_id||'').toLowerCase().includes(kw) ||
+    (o.name||'').toLowerCase().includes(kw) ||
+    (o.tx_id||'').toLowerCase().includes(kw)
+  ));
+}
+
+async function loadComments(){
+  const r = await api('/admin/comments?limit=100');
+  const panel = document.getElementById('commentsPanel');
+  if(!r.ok){ panel.innerHTML='<div style="text-align:center;padding:20px">加载失败</div>'; return; }
+  const list = r.data.comments || [];
+  panel.innerHTML = list.length ? list.map(c => `
+    <div class="comment-entry">
+      <div><span class="comment-time">${c.created_at?.slice(0,19).replace('T',' ') || '-'}</span> · ${c.name}</div>
+      <div style="color:var(--text);margin-top:4px">${c.content}</div>
+      <div style="color:var(--text-muted);font-size:10px;margin-top:4px">IP: ${c.ip || '-'} · UA: ${(c.ua||'').slice(0,60)}</div>
+    </div>
+  `).join('') : '<div style="text-align:center;padding:20px">暂无评论</div>';
+}
+
+async function loadLogs(){
+  const r = await api('/admin/logs?limit=100');
+  const panel = document.getElementById('logsPanel');
+  if(!r.ok){ panel.innerHTML='<div style="text-align:center;padding:20px">加载失败</div>'; return; }
+  const list = r.data.logs || [];
+  panel.innerHTML = list.length ? list.map(l => `
+    <div class="log-entry">
+      <span class="log-time">${l.created_at?.slice(0,19).replace('T',' ') || '-'}</span>
+      <span style="color:var(--gold)">${l.action}</span>
+      <span class="log-result ${l.result==='success'?'ok':'err'}">${l.result}${l.error_code?' · '+l.error_code:''}</span>
+      <span style="color:var(--text-dim)">${l.detail || ''} ${l.order_id?'#'+l.order_id:''}</span>
+    </div>
+  `).join('') : '<div style="text-align:center;padding:20px">暂无日志</div>';
+}
+
+async function testEmail(){
+  const r = await api('/notify/test', {}, 'POST');
+  if(r.ok && r.data.success) toast('测试邮件已发送');
+  else toast('测试邮件失败: ' + (r.data.error || '未知错误'));
+}
+
+function switchTab(name){
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+}
+
+// 自动登录
+if(token) checkAuth();
+</script>
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

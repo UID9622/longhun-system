@@ -1,0 +1,125 @@
+{
+  "dna": "#龍芯⚡️丙午·丙酉·甲戌·子时·䷩益-NOTION-CMD-REGISTRY-RUN-UID9622-D1A9FB36",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "timestamp": "2026-08-23T23:29:35.955097",
+  "dry_run": false,
+  "results": [
+    {
+      "name": "C1 · 文明档案馆哈希链验证",
+      "phase": "Phase C",
+      "mode": "验证",
+      "command": "python3 08_BIN/civilization_archive.py --verify",
+      "returncode": 0,
+      "stdout": "{\n  \"total\": 67,\n  \"tampered\": 0,\n  \"integrity\": \"🟢 完整\",\n  \"details\": [],\n  \"dna\": \"#龍芯⚡️2026-08-23-232919-425495-CHAIN-VERIFY-EED63215-9622\"\n}",
+      "stderr": ""
+    },
+    {
+      "name": "D1 · 验证外网 API 合规检测",
+      "phase": "Phase D",
+      "mode": "验证",
+      "command": "curl -X POST http://119.13.90.27:8080/cnsh/api/compliance/check -H 'Content-Type: application/json' -d '{\"text\":\"测试内容\",\"lang\":\"zh\",\"persona\":\"堂吉诃德\"}'",
+      "returncode": 0,
+      "stdout": "{\"success\":true,\"report\":{\"dna\":\"#龍芯⚡️2026-08-23-COMPLIANCE-SANDBOX-330821AA-9622\",\"confirm\":\"#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\",\"mode\":\"sandbox\",\"content_hash\":\"e3b0c44298fc1c14\",\"generated_at\":\"2026-08-23T23:29:21.448967\",\"summary\":{\"total\":17,\"passed\":17,\"critical\":0,\"review\":0},\"verdict\":\"🟢 通过\",\"results\":[{\"region\":\"CN\",\"region_name\":\"中国\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。\",\"laws\":[\"网络安全法\",\"数据安全法\",\"个人信息保护法\"],\"dna\":\"#龍芯⚡️2026-08-23-COMPLIANCE-CN-788ECFB3-9622\"},{\"region\":\"EU\",\"region_name\":\"欧盟\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。\",\"laws\":[\"GDPR\",\"DSA\",\"AI Act\"],\"dna\":\"#龍芯⚡️2026-08-23-COMPLIANCE-EU-D7767BC8-9622\"},{\"region\":\"US\",\"region_name\":\"美国\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。\",\"laws\":[\"CLOUD Act\",\"CCPA/CPRA\",\"HIPAA\"],\"dna\":\"#龍芯⚡️2026-08-23-COMPLIANCE-US-A22CEE23-9622\"},{\"region\":\"JP\",\"region_name\":\"日本\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"出境前完成告知程序；对匿名数据进行重识别风险评估。\",\"laws\":[\"APPI\",\"网络安全基本法\"],\"dna\":\"#龍芯⚡️2026-08-23-COMPLIANCE-JP-F04BFC68-9622\"},{\"region\":\"KR\",\"region_name\":\"韩国\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"确保出境同意与安全保障；建立泄露响应机制。\",\"laws\":[\"PIPA\",\"信息通信网络法\"],\"dna\":\"#龍芯⚡️2026-08-23-COMPLIANCE-KR-DC7D860F-9622\"},{\"region\":\"SG\",\"region_name\":\"新加坡\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"进行跨境传输影响评估；CI 运营商落实安全基线。\",\"laws\":[\"PDPA\",\"网络安全法\"],\"dna\":\"#龍芯⚡️2026-08-23-COMPLIANCE-SG-4A686A91-9622\"},{\"region\":\"AU\",\"region_name\":\"澳大利亚\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"履行 APP 告知义务；建立非法内容处置流程。\",\"laws\":[\"Privacy Act\",\"Online Safety Act\"],\"dna\":\"#龍芯⚡️2026-08-23-COMPLIANCE-AU-820A8FE4-9622\"},{\"region\":\"CA\",\"region_name\":\"加拿大\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"确保同意有效；跨境前完成告知。\",\"laws\":[\"PIPEDA\",\"隐私法\"],\"dna\":\"#龍芯⚡️2026-08-23-COMPLIANCE-CA-FA6058DB-9622\"},{\"region\":\"BR\",\"region_name\":\"巴西\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"采用国际传输允许机制；建立主体权利响应流程。\",\"laws\":[\"LGPD\",\"互联网民法\"],\"dna\":\"#龍芯⚡️2026-08-23-COMPLIANCE-BR-EB1B5697-9622\"},{\"region\":\"UK\",\"region_name\":\"英国\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"关注在线安全义务；使用 IDTA 等传输机制。\",\"laws\":[\"UK GDPR\",\"Online Safety Bill\"],\"dna\":\"#龍芯⚡️2026-08-23-COMPLIANCE-UK-5F6D6987-9622\"},{\"region\":\"IN\",\"region_name\":\"印度\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"关注政府数据本地化要求；确保同意机制合规。\",\"laws\":[\"DPDP Act\",\"IT Rules\"],\"dna\":\"#龍芯⚡️2026-08-23-COMPLIANCE-IN-9A68D0B8-9622\"},{\"region\":\"RU\",\"region_name\":\"俄罗斯\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"俄罗斯公民数据需境内存储；沙盒可模拟，生产环境禁止未评估出境。\",\"laws\":[\"数据本地化法\",\"主权互联网法\"],\"dna\":\"#龍芯⚡️2026-08-23-COMPLIANCE-RU-191E88F9-9622\"},{\"region\":\"DE\",\"region_name\":\"德国\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"员工数据处理需有法律依据；监控需透明。\",\"laws\":[\"BDSG\",\"DSGVO\"],\"dna\":\"#龍芯⚡️2026-08-23-COMPLIANCE-DE-DD09CB04-9622\"},{\"region\":\"FR\",\"region_name\":\"法国\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"AI 系统需可解释；生物识别需严格合法基础。\",\"laws\":[\"数据保护法\",\"AI 责任框架\"],\"dna\":\"#龍芯⚡️2026-08-23-COMPLIANCE-FR-49BC44F2-9622\"},{\"region\":\"CH\",\"region_name\":\"瑞士\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"敏感数据加强保护；使用标准合同条款。\",\"laws\":[\"FADP\"],\"dna\":\"#龍芯⚡️2026-08-23-COMPLIANCE-CH-FBA04971-9622\"},{\"region\":\"ES\",\"region_name\":\"西班牙\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"西班牙领土完整与历史叙事为红线；沙盒可模拟讨论，生产环境禁止煽动分裂内容。\",\"laws\":[\"LOPDGDD\",\"刑法典\"],\"dna\":\"#龍芯⚡️2026-08-23-COMPLIANCE-ES-039F5E6F-9622\"},{\"region\":\"TH\",\"region_name\":\"泰国\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"泰国皇室为绝对红线；沙盒内可讨论语言规范，生产环境禁止任何冒犯内容。\",\"laws\":[\"冒犯君主罪法\",\"计算机犯罪法\"],\"dna\":\"#龍芯⚡️2026-08-23-COMPLIANCE-TH-2A5568AA-9622\"}]}}",
+      "stderr": "% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\n  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\n  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0\n100  5316  100  5256  100    60   3296     37  0:00:01  0:00:01 --:--:--  3335"
+    },
+    {
+      "name": "D2 · API 限流压力测试",
+      "phase": "Phase D",
+      "mode": "验证",
+      "command": "for i in {1..5}; do curl -s -o /dev/null -w '%{http_code} ' -f http://119.13.90.27:8080/cnsh/api/ai/providers; done",
+      "returncode": 0,
+      "stdout": "200 200 200 200 200",
+      "stderr": ""
+    },
+    {
+      "name": "通用 · 检查鲲鹏 IDE 服务状态",
+      "phase": "通用",
+      "mode": "验证",
+      "command": "ssh -i ~/.ssh/longhun_kunpeng_ed25519 root@119.13.90.27 'systemctl status cnsh-ide.service --no-pager'",
+      "returncode": 0,
+      "stdout": "● cnsh-ide.service - CNSH Web IDE\n     Loaded: loaded (/etc/systemd/system/cnsh-ide.service; enabled; preset: enabled)\n     Active: active (running) since Sat 2026-08-22 06:51:56 CST; 1 day 16h ago\n   Main PID: 1059 (python3)\n      Tasks: 6 (limit: 8970)\n     Memory: 51.7M (peak: 63.7M)\n        CPU: 2min 13.308s\n     CGroup: /system.slice/cnsh-ide.service\n             └─1059 /opt/cnsh-ide/.venv/bin/python3 08_BIN/cnsh_web_ide.py --host 0.0.0.0 --port 8850 --project /opt/cnsh-ide/cnsh_projects --rate-limit 100 --rate-window 60\n\nNotice: journal has been rotated since unit was started, output may be incomplete.",
+      "stderr": ""
+    },
+    {
+      "name": "修复 · DNA 生成器日柱/月柱/卦象校正",
+      "phase": "修复",
+      "mode": "验证",
+      "command": "python3 08_BIN/lh_day_gua_verify.py --cross-check",
+      "returncode": 0,
+      "stdout": "==============================================================\n龍魂日卦推算脚本 v1.1 —— CB-001 交叉验证\n==============================================================\n\n目标日期：2026-08-12（当前时辰=亥时，地支序数=12）\n标准四柱：丙午年·丙申月·戊午日·癸亥时\n日干支序号：54（甲=0, 子=0）\n\n【算法A】黄历日卦查表法（人工归纳结论，非程序查表）\n--------------------------------------------------------------\n已实测验证的戊午日样本：2025-04-19 / 2025-08-17 / 2026-08-12（今日）\n（注：2025-03-09 实测为丁丑日，非戊午，已剔除）\n  结果：鼎卦（火风鼎）— 第50卦，稳重图变，中下卦\n  象曰：莺鹜蛤蜊落沙滩，蛤蜊莺鹜两翅扇，\n        渔人进前双得利，失走行人却自在。\n  ⚠️ 待办：将黄历日卦数据源建库，实现程序化查表\n\n【算法B】梅花易数时间起卦（农历六月三十近似 · 亥时）\n--------------------------------------------------------------\n  年支数=7，月=6，日=30，时=12\n  上卦=离，下卦=艮 → 离上艮下\n  对应64卦：?（需卦象上下卦查表）\n  ⚠️ 与算法A可能不一致——体系不同（黄历日卦 vs 梅花易数）\n\n【算法C】河洛理数（简化版）\n--------------------------------------------------------------\n  四柱干支数：丙午(3+7) + 丙申(3+9) + 戊午(5+7) + 癸亥(10+6)\n  干支数总和：50 → 卦序号：50 → 鼎卦（火风鼎）\n  ⚠️ 简化算法，完整河洛理数需综合阴阳天地数\n\n【对拍】官方生成器简化算法（bin/lh_dna_generator.py 同算法复刻）\n--------------------------------------------------------------\n  官方四柱：丙午·丙申·戊午·壬子\n  官方卦象：上卦序=7，下卦序=1 → 64卦 #33 = 遁卦（天山遁）\n\n  差异对照：\n    ├ 年柱：标准 丙午  vs  官方 丙午  → 一致 ✓\n    ├ 月柱：标准 丙申(节气月)  vs  官方 丙申(节气月)  → 一致 ✓\n    ├ 日柱：标准 戊午  vs  官方 戊午  → 一致 ✓\n    └ 卦象：标准梅花易数 离上艮下  vs  官方日支上时支下 #33  → 起卦法不同（非错误）\n\n==============================================================\n【结论】\n==============================================================\n1. 标准算法四柱：丙午年·丙申月·戊午日·戊午时 —— 与系统时间引擎一致 ✓\n2. 算法A（黄历）鼎卦 / 算法B（梅花易数）睽卦 / 算法C（河洛）升卦 —— 体系不同，结论各异属正常\n3. 官方简化算法为对拍基准，月柱/卦象差异属简化设计，非 bug\n4. 若与本地 lh_dna_generator.py 输出不一致，以龍魂系统官方生成器为准\n==============================================================",
+      "stderr": ""
+    },
+    {
+      "name": "P1 · 列出已发现技能",
+      "phase": "P1",
+      "mode": "验证",
+      "command": "lh orchestrator list --scope kimi --limit 10",
+      "returncode": 0,
+      "stdout": "🐉 已发现技能 (0 个)",
+      "stderr": ""
+    },
+    {
+      "name": "P1 · 输入路由到技能/人格",
+      "phase": "P1",
+      "mode": "验证",
+      "command": "lh orchestrator route --text \"帮我写个部署脚本\"",
+      "returncode": 0,
+      "stdout": "🐉 路由结果\n   输入: 帮我写个部署脚本\n   推荐动作: 无匹配技能，建议人工介入或扩充索引\n   匹配技能 Top0:\n   匹配人格 Top3:\n      · P04 鲁班 (score=3.00) · 技术执行·写代码\n      · P06 张衡 (score=3.00) · 观测记录·日志遥测\n      · P07 扁鹊 (score=3.00) · 系统诊断·自愈修复",
+      "stderr": ""
+    },
+    {
+      "name": "P1 · 编排器统计",
+      "phase": "P1",
+      "mode": "验证",
+      "command": "lh orchestrator stats",
+      "returncode": 0,
+      "stdout": "🐉 Agent 编排器统计\n   技能总数: 0\n   分域统计: {}\n   路由次数: 25",
+      "stderr": ""
+    },
+    {
+      "name": "P2 · Agent 编排器守护进程状态/停止",
+      "phase": "P2",
+      "mode": "验证",
+      "command": "lh agent-daemon status  # 或 stop / restart / install",
+      "returncode": 0,
+      "stdout": "⚪ 守护进程未运行（无 PID 文件）",
+      "stderr": ""
+    },
+    {
+      "name": "P2 · 查看工作流运行历史",
+      "phase": "P2",
+      "mode": "验证",
+      "command": "lh workflow-chain history --limit 10",
+      "returncode": 0,
+      "stdout": "🐉 最近 0 次工作流运行",
+      "stderr": ""
+    },
+    {
+      "name": "P3 · 停止/查看触发器守护进程",
+      "phase": "P3",
+      "mode": "验证",
+      "command": "lh trigger status  # 或 stop",
+      "returncode": 0,
+      "stdout": "⚪ 触发器守护进程未运行",
+      "stderr": ""
+    },
+    {
+      "name": "P4 · 仪表盘 API 健康检查",
+      "phase": "P4",
+      "mode": "验证",
+      "command": "for p in 9600 9602 9603; do ok=1; for e in health event-stats skill-stats; do curl -s -m 3 \"http://127.0.0.1:$p/api/$e\" | grep -q '{' || ok=0; done; if [ $ok -eq 1 ]; then echo \"✅ 仪表盘 :$p 三端点(health/event-stats/skill-stats)全通\"; exit 0; fi; done; echo '❌ 仪表盘端口(9600/9602/9603)均不可达'; exit 1",
+      "returncode": 0,
+      "stdout": "✅ 仪表盘 :9602 三端点(health/event-stats/skill-stats)全通",
+      "stderr": ""
+    },
+    {
+      "name": "P5 · 仪表盘鲲鹏服务状态",
+      "phase": "P5",
+      "mode": "验证",
+      "command": "ssh -i ~/.ssh/longhun_kunpeng_ed25519 root@119.13.90.27 'systemctl status longhun-dashboard --no-pager && nginx -t'",
+      "returncode": 0,
+      "stdout": "● longhun-dashboard.service - 龍魂系统可视化仪表盘\n     Loaded: loaded (/etc/systemd/system/longhun-dashboard.service; enabled; preset: enabled)\n     Active: active (running) since Sat 2026-08-22 06:51:56 CST; 1 day 16h ago\n   Main PID: 1088 (python3)\n      Tasks: 1 (limit: 8970)\n     Memory: 34.6M (peak: 35.5M)\n        CPU: 2min 10.661s\n     CGroup: /system.slice/longhun-dashboard.service\n             └─1088 /usr/bin/python3 /opt/longhun-dashboard/08_BIN/lh_dashboard_web.py --host 127.0.0.1 --port 9600\n\nNotice: journal has been rotated since unit was started, output may be incomplete.",
+      "stderr": "2026/08/23 23:29:35 [warn] 960494#960494: conflicting server name \"\" on 0.0.0.0:80, ignored\nnginx: the configuration file /etc/nginx/nginx.conf syntax is ok\nnginx: configuration file /etc/nginx/nginx.conf test is successful"
+    }
+  ]
+}

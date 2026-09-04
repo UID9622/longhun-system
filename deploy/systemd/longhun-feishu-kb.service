@@ -1,0 +1,21 @@
+[Unit]
+Description=龍魂·飞书知识库自动更新服务
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/opt/longhun-system
+ExecStart=/usr/bin/python3 /opt/longhun-system/bin/lh_feishu_kb_fetcher.py fetch
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=longhun-feishu-kb
+
+# 安全加固
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/opt/longhun/data/knowledge/feishu
+ReadOnlyPaths=/opt/longhun-system/bin

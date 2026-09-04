@@ -1,0 +1,54 @@
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# 龍魂语义抽屉 · D01 · 系统核
+# 归属: 龍魂系统 UID9622 · 通心译引用源
+# 状态机: 种子 → 审核 → 焊死(P0冻结, 不可改只冻结)
+# 引用语法: @D01.{词元}  例: @D01.ls
+
+drawer: D01
+name: 系统核
+count: 6
+entries:
+  - term: "查看"
+    alias: ["列出", "看看"]
+    en: "ls"
+    cnsh: "查看"
+    gua: "䷀乾"
+    status: "种子"
+    note: "列出目录内容"
+  - term: "读文"
+    alias: ["查看文件", "打开文件"]
+    en: "cat"
+    cnsh: "读文"
+    gua: "䷁坤"
+    status: "种子"
+    note: "读取文件全文"
+  - term: "建目录"
+    alias: ["创建目录", "新建文件夹"]
+    en: "mkdir -p"
+    cnsh: "建目录"
+    gua: "䷂屯"
+    status: "种子"
+    note: "递归创建目录"
+  - term: "搬运"
+    alias: ["移动", "重命名"]
+    en: "mv"
+    cnsh: "搬运"
+    gua: "䷃蒙"
+    status: "种子"
+    note: "移动或改名"
+  - term: "搜寻"
+    alias: ["查找", "搜索文件"]
+    en: "find / grep"
+    cnsh: "搜寻"
+    gua: "䷄需"
+    status: "种子"
+    note: "文件名或内容检索"
+  - term: "冻结"
+    alias: ["删除(禁)", "移除"]
+    en: "rm (禁用,改冻结)"
+    cnsh: "冻结"
+    gua: "䷅讼"
+    status: "种子"
+    note: "P0: 不删除只冻结"

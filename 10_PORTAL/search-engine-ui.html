@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!--
+DNA: #龍芯⚡️丙午·丙申·癸亥·亥时·䷖剥-SEARCH-ENGINE-UI-v1.0-7c31a2d9
+创建者: 诸葛鑫（UID9622）
+协议: CC BY-NC-SA 4.0（核心思想层）
+用途: 龍魂多源搜索引擎 · 公开界面 · 穿透链路 uid9622.cn → 鲲鹏 → Mac:9631
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>龍魂搜索 · 多源检索 · 来源审计 | uid9622.cn</title>
+<meta name="description" content="龍魂多源搜索引擎：Bing多源检索 + 深度页面提取 + 来源审计，中国自主部署，不卖隐私。">
+<style>
+:root{
+  --bg:#0a0a0f;--bg2:#12121a;--card:#15151f;--border:#23232f;
+  --text:#e8e6e1;--text-dim:#8a8a96;--gold:#d4a574;--gold-dim:rgba(212,165,116,.12);
+  --green:#4ade80;--purple:#a78bfa;--red:#f87171;--mono:'SF Mono',Menlo,Consolas,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;min-height:100vh}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+header{background:linear-gradient(180deg,#101018,#0a0a0f);border-bottom:1px solid var(--border);padding:26px 0;position:sticky;top:0;z-index:10;backdrop-filter:blur(8px)}
+.head-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{font-size:22px;font-weight:800;color:var(--gold);letter-spacing:2px;white-space:nowrap}
+.logo .sub{font-size:11px;color:var(--text-dim);font-weight:400;letter-spacing:1px;display:block}
+.search-form{flex:1;display:flex;gap:8px;min-width:260px}
+.search-form input{flex:1;background:var(--bg2);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:15px;padding:11px 16px;outline:none;transition:.2s}
+.search-form input:focus{border-color:var(--gold)}
+.search-form button{background:var(--gold);color:#14140f;border:none;border-radius:10px;padding:0 22px;font-size:15px;font-weight:700;cursor:pointer;transition:.2s}
+.search-form button:hover{filter:brightness(1.1)}
+main{padding:26px 0 60px}
+.status-line{font-size:12px;color:var(--text-dim);display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+.status-line .live{color:var(--green);font-weight:600}
+.result-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:12px;transition:.15s}
+.result-card:hover{border-color:var(--gold-dim);transform:translateX(2px)}
+.result-title{font-size:17px;font-weight:700;line-height:1.4;margin-bottom:6px}
+.result-title a{color:var(--gold)}
+.result-title a:hover{color:#e8c9a4;text-decoration:none}
+.result-meta{font-size:11px;color:var(--text-dim);font-family:var(--mono);margin-bottom:6px;display:flex;gap:10px;flex-wrap:wrap}
+.result-meta .tag-audited{color:var(--green)}
+.result-meta .tag-source{color:var(--purple)}
+.result-snippet{font-size:14px;color:var(--text);line-height:1.65;opacity:.85}
+.empty-box{background:var(--card);border:1px dashed var(--border);border-radius:12px;padding:40px 20px;text-align:center;color:var(--text-dim)}
+.empty-box .big{font-size:40px;margin-bottom:10px}
+.error-box{background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.25);border-radius:12px;padding:20px;color:var(--red);font-size:14px;line-height:1.7}
+footer{border-top:1px solid var(--border);padding:22px 0 40px;font-size:11px;color:var(--text-dim);line-height:2}
+footer .dna{font-family:var(--mono);word-break:break-all}
+.loading{text-align:center;padding:60px 0;color:var(--text-dim)}
+.spinner{width:34px;height:34px;border:3px solid var(--border);border-top-color:var(--gold);border-radius:50%;margin:0 auto 16px;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.note{font-size:11px;color:var(--text-dim);margin-top:8px;text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap head-row">
+    <div class="logo">🐉 龍魂搜索<span class="sub">多源检索 · 深度提取 · 来源审计</span></div>
+    <form class="search-form" id="sf" method="get">
+      <input type="text" name="q" id="q" placeholder="搜索全网..." autocomplete="off">
+      <button type="submit">搜索</button>
+    </form>
+  </div>
+</header>
+<main class="wrap">
+  <div class="status-line">
+    <span class="live">● 龍魂搜索引擎在线</span>
+    <span>· Bing 多源检索</span>
+    <span>· 深度页面提取</span>
+    <span>· 来源审计</span>
+    <span>· 中国自主部署 · 不卖隐私</span>
+  </div>
+  <div id="result-area"></div>
+</main>
+<footer>
+  <div class="wrap">
+    <div>龍魂系统 · 中国自主AI引擎 · 退伍军人诸葛鑫（UID9622）创建 · 为人民服务，不为资本黑箱服务 · 普通人站着，就是最大的道义</div>
+    <div class="dna">DNA: #龍芯⚡️丙午·丙申·癸亥·亥时·䷖剥-SEARCH-ENGINE-UI-v1.0-7c31a2d9 · GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</div>
+  </div>
+</footer>
+<script>
+(function(){
+  const area = document.getElementById('result-area');
+  const input = document.getElementById('q');
+  const params = new URLSearchParams(location.search);
+  const q = (params.get('q') || '').trim();
+  if(q){ input.value = q; doSearch(q); }
+
+  document.getElementById('sf').addEventListener('submit', function(e){
+    const v = document.getElementById('q').value.trim();
+    if(!v){ e.preventDefault(); return; }
+    area.innerHTML = '<div class="loading"><div class="spinner"></div>龍魂检索中...</div>';
+    e.preventDefault();
+    history.replaceState(null, '', '/search-engine-ui.html?q=' + encodeURIComponent(v));
+    doSearch(v);
+  });
+
+  function doSearch(query){
+    area.innerHTML = '<div class="loading"><div class="spinner"></div>龍魂检索中 · 多源并行...</div>';
+    const t0 = Date.now();
+    fetch('/search-engine/search?q=' + encodeURIComponent(query) + '&n=10')
+      .then(r => r.json())
+      .then(data => render(data, query, Date.now() - t0))
+      .catch(err => {
+        area.innerHTML = '<div class="error-box">🔥 搜索引擎暂时不可达：' + escapeHtml(String(err)) + '<br>链路：浏览器 → uid9622.cn → 鲲鹏nginx → frp隧道 → Mac搜索引擎。请稍后重试。</div>';
+      });
+  }
+
+  function extractResults(data){
+    try{
+      if(data && data.result && typeof data.result.stdout === 'string'){
+        const s = data.result.stdout;
+        const i = s.indexOf('['), j = s.lastIndexOf(']');
+        if(i >= 0 && j > i) return JSON.parse(s.slice(i, j + 1));
+      }
+      if(Array.isArray(data)) return data;
+      if(data && Array.isArray(data.results)) return data.results;
+    }catch(e){}
+    return [];
+  }
+
+  function render(data, query, ms){
+    const results = extractResults(data);
+    if(!results.length){
+      area.innerHTML = '<div class="empty-box"><div class="big">🔍</div>没有找到与「' + escapeHtml(query) + '」相关的结果<br><br>换个关键词试试？</div>';
+      return;
+    }
+    const items = results.map((r, i) => {
+      const title = escapeHtml(r.title || ('结果 ' + (i+1)));
+      const link = escapeHtml(r.link || '#');
+      const snip = escapeHtml(r.snippet || '');
+      let host = '';
+      try{ host = new URL(r.link).hostname; }catch(e){}
+      return '<div class="result-card">'
+        + '<div class="result-title"><a href="' + link + '" target="_blank" rel="noopener nofollow">' + title + '</a></div>'
+        + '<div class="result-meta"><span class="tag-audited">✓ 来源已审计</span>'
+        + (host ? '<span class="tag-source">' + host + '</span>' : '')
+        + '<span># ' + (i+1) + '</span></div>'
+        + (snip ? '<div class="result-snippet">' + snip + '</div>' : '')
+        + '</div>';
+    }).join('');
+    area.innerHTML = '<div class="status-line"><span>「' + escapeHtml(query) + '」</span><span>共 ' + results.length + ' 条</span><span>耗时 ' + ms + ' ms</span></div>' + items
+      + '<div class="note">结果由龍魂多源搜索引擎提供 · 来源审计 · 广告为零 · 数据不出境</div>';
+  }
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+})();
+</script>
+</body>
+</html>

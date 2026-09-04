@@ -1,0 +1,103 @@
+{
+  "header": {
+    "dna": "#龍芯⚡️20260902-CONTRIBUTOR-MEMORIAL-v1.0-9622",
+    "creator": "诸葛鑫（UID9622）",
+    "attribution": "诸葛鑫 | UID9622 · 龍芯北辰",
+    "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+    "license": "MulanPSL v2"
+  },
+  "generated_at": "2026-09-04T20:00:23.490127+00:00",
+  "merkle_root": "11fa1de02d7103f63795591848d22ae242ddf33666fd0f5e2c2620962d9583fc",
+  "contributor_count": 6,
+  "total_commits": 224,
+  "tree": {
+    "leaves": {
+      "346045695@qq.com": "a1495c0cc8b60822e4c80273901817ce9bf2b616689a1b5b13d9336b20f0ac5b",
+      "319369578+longhun-bot[bot]@users.noreply.github.com": "26de8c1e5580ec90bd78fc26c9428f0071ef84d21592e32fba752e9204342ab2",
+      "codebuddy@ai.copilot": "d37ab9d33117b17b235be8e66b27f23010aa27fdbf1be9d8d2b37523f370b50f",
+      "deepseek@data.audit": "4aadbce8b08ac2888d271af197cc816c7cec253a392c7aaa000a5c5190b5e649",
+      "qingkong66@community.github": "09f2ff3e52bafecdd3f96be0e052a21c1887b127766a09dfc5c1ccea961724e4",
+      "kimi@ai.assistant": "971db9fd77571a13ecfb9a94aaecc902124df2d8e67ed788e337590216f15c45"
+    },
+    "level_1": [
+      "90269ef0d3598e12bf6eb0a7081687b4084b5887334d322b5817e4bbe685ee4e",
+      "5395c0fc5ccdf774fe9fcbbf3c92f21c6baec0ca7735b0ccc20a6495b4fc07c4",
+      "6505f00a0400c4b14f8f9883c9417f666cbd334a2aa8c9a6dbc21412aecb632d"
+    ],
+    "level_2": [
+      "c5a6e3480abf631530e35b5e26e82a185201f0a054be0510df05696d166d82fb",
+      "c94e60c5a911a293cc5db8e323fa4f2f6423e56d33ca9002ad6c39bdd94327d4"
+    ],
+    "level_3": [
+      "11fa1de02d7103f63795591848d22ae242ddf33666fd0f5e2c2620962d9583fc"
+    ],
+    "root": "11fa1de02d7103f63795591848d22ae242ddf33666fd0f5e2c2620962d9583fc",
+    "depth": 3
+  },
+  "contributors": [
+    {
+      "name": "诸葛鑫",
+      "email": "346045695@qq.com",
+      "source": "git",
+      "commits": 223,
+      "first": "2026-08-07T08:16:52+00:00",
+      "last": "2026-09-04T13:30:26+00:00",
+      "node_hash": "a1495c0cc8b60822e4c80273901817ce9bf2b616689a1b5b13d9336b20f0ac5b",
+      "share_pct": 99.55
+    },
+    {
+      "name": "longhun-bot[bot]",
+      "email": "319369578+longhun-bot[bot]@users.noreply.github.com",
+      "source": "git",
+      "commits": 1,
+      "first": "2026-09-03T23:49:18+00:00",
+      "last": "2026-09-03T23:49:18+00:00",
+      "node_hash": "26de8c1e5580ec90bd78fc26c9428f0071ef84d21592e32fba752e9204342ab2",
+      "share_pct": 0.45
+    },
+    {
+      "name": "CodeBuddy",
+      "email": "codebuddy@ai.copilot",
+      "source": "manual",
+      "commits": 0,
+      "first": "",
+      "last": "",
+      "note": "AI编码协作者·2026-08起全面参与系统构建",
+      "node_hash": "d37ab9d33117b17b235be8e66b27f23010aa27fdbf1be9d8d2b37523f370b50f",
+      "share_pct": 0.0
+    },
+    {
+      "name": "DeepSeek",
+      "email": "deepseek@data.audit",
+      "source": "manual",
+      "commits": 0,
+      "first": "",
+      "last": "",
+      "note": "跨框架审计数据集来源·Issue #1622被审对象",
+      "node_hash": "4aadbce8b08ac2888d271af197cc816c7cec253a392c7aaa000a5c5190b5e649",
+      "share_pct": 0.0
+    },
+    {
+      "name": "qingkong66",
+      "email": "qingkong66@community.github",
+      "source": "manual",
+      "commits": 0,
+      "first": "",
+      "last": "",
+      "note": "社区伙伴·Issue #1622审计数据集主入口贡献者",
+      "node_hash": "09f2ff3e52bafecdd3f96be0e052a21c1887b127766a09dfc5c1ccea961724e4",
+      "share_pct": 0.0
+    },
+    {
+      "name": "Kimi",
+      "email": "kimi@ai.assistant",
+      "source": "manual",
+      "commits": 0,
+      "first": "",
+      "last": "",
+      "note": "AI协作者·历史构建与文档补全",
+      "node_hash": "971db9fd77571a13ecfb9a94aaecc902124df2d8e67ed788e337590216f15c45",
+      "share_pct": 0.0
+    }
+  ]
+}

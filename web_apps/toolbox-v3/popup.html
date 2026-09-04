@@ -1,0 +1,32 @@
+<!-- DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f -->
+<!-- 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
+<!-- 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>🐉 龍魂 · 采集器状态</title>
+<style>
+  body { width: 260px; margin: 0; padding: 14px; background: #0a0a12; color: #e8e6e3;
+         font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; font-size: 13px; }
+  h1 { font-size: 14px; margin: 0 0 10px; color: #d4af37; }
+  .row { display: flex; justify-content: space-between; padding: 5px 0;
+         border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
+  .on { background: #4ade80; } .off { background: #f87171; }
+  .btn { width: 100%; margin-top: 12px; padding: 8px; border: 1px solid rgba(212,175,55,.4);
+         border-radius: 8px; background: transparent; color: #d4af37; cursor: pointer; }
+  .btn:hover { background: rgba(212,175,55,.1); }
+  .muted { color: #888; font-size: 11px; margin-top: 8px; }
+</style>
+</head>
+<body>
+  <h1>🐉 龍魂 · DeepSeek 采集器</h1>
+  <div class="row"><span>本地服务(8769)</span><span><span id="srvDot" class="dot off"></span><span id="srvTxt">检测中</span></span></div>
+  <div class="row"><span>已采集(会话内)</span><span id="capturedCount">0</span></div>
+  <div class="row"><span>待补发(离线)</span><span id="pendingCount">0</span></div>
+  <button class="btn" id="flushBtn">立即补发</button>
+  <div class="muted">未启动本地服务时，对话暂存浏览器，恢复后自动补发。</div>
+  <script src="popup.js"></script>
+</body>
+</html>

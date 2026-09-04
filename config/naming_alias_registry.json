@@ -1,0 +1,168 @@
+{
+  "meta": {
+    "dna": "#龍芯⚡️丙午·丙申·辛酉·丙申·䷉履-NAMING-ALIAS-1c857e60",
+    "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "version": "v1.2",
+    "updated": "2026-08-16T03:50:20",
+    "desc": "老命名→规范名 别名映射环境 · 老文件物理不动·环境变量识别",
+    "env": "LH_NAMING_ALIAS_FILE（自定义别名文件路径·默认本文件）",
+    "principle": "存量老命名不改·映射即识别·新规范约束新增",
+    "usage": "lh naming alias → 看板 / register / resolve / scan / import / unregister"
+  },
+  "aliases": {
+    "LH-CODE-NAMING-STANDARD-v1.0.md": {
+      "canonical": "01_代码命名规范_☯UID9622·丙午·丙申·辛酉·丙申·䷉履_CODE-NAMING-v1.0.md",
+      "layer": "L0",
+      "status": "legacy",
+      "note": "存量老命名规范·已被引用链焊死·别名识别"
+    },
+    "LH-CNSH-命名规范-合规检查-v1.0.md": {
+      "canonical": "01_CNSH命名规范合规检查_☯UID9622·丙午·丙申·辛酉·丙申·䷉履_CNSH-NAMING-CHECK-v1.0.md",
+      "layer": "L0",
+      "status": "legacy",
+      "note": "存量CNSH命名规范·别名识别"
+    },
+    "lh_media_player.py": {
+      "canonical": "08_BIN/L2_工具_媒体播放器_☯UID9622·丙午·丙申·辛酉·丙申·䷉履.py",
+      "layer": "L2",
+      "status": "legacy",
+      "note": "龍魂全媒体播放器旧入口·bin/lh_media_player.py 为 symlink·别名识别"
+    },
+    "lh_knowledge_龍魂媒体播放器_v1_0.md": {
+      "canonical": "03_KNOWLEDGE_GRAPH/03_龍魂媒体播放器_☯UID9622·丙午·丙申·辛酉·丙申·䷉履_MEDIA-PLAYER-v1.0.md",
+      "layer": "L0",
+      "status": "legacy",
+      "note": "龍魂媒体播放器知识图谱旧名·别名识别"
+    },
+    "lh_autoflow.py": {
+      "canonical": "05_ENGINES/L1_引擎_自动流_☯UID9622·丙午·丙申·辛酉·丙申·䷉履.py",
+      "layer": "L1",
+      "status": "legacy",
+      "note": "龍魂主权网关自动流引擎旧入口·symlink·别名识别"
+    },
+    "lh_identity_activation.py": {
+      "canonical": "08_BIN/L1_引擎_身份激活_☯UID9622·丙午·丙申·辛酉·丙申·䷉履.py",
+      "layer": "L1",
+      "status": "legacy",
+      "note": "龍魂身份激活引擎·激活时强制加载仓库主权网关协议·symlink"
+    },
+    "lh_learning_path.py": {
+      "canonical": "08_BIN/L2_工具_学习路径生成器_☯UID9622·丙午·丙申·辛酉·丙申·䷉履.py",
+      "layer": "L2",
+      "status": "legacy",
+      "note": "龍魂开发者学习路径生成器·别名入口·symlink"
+    },
+    "lh_crawler_learn.py": {
+      "canonical": "08_BIN/L2_工具_爬虫学习器_☯UID9622·丙午·丙申·辛酉·丙申·䷉履.py",
+      "layer": "L2",
+      "status": "legacy",
+      "note": "龍魂爬虫学习器·别名入口·symlink"
+    },
+    "developer_knowledge_graph.md": {
+      "canonical": "03_KNOWLEDGE_GRAPH/03_开发者知识图谱_☯UID9622·丙午·丙申·辛酉·丙申·䷉履_DEVELOPER-KG-v1.0.md",
+      "layer": "L0",
+      "status": "legacy",
+      "note": "龍魂开发者知识图谱旧名·别名识别"
+    },
+    "deepseek-harness-kunpeng": {
+      "canonical": "deploy/deepseek-harness-kunpeng",
+      "layer": "L3",
+      "status": "legacy",
+      "note": "DeepSeek Harness鲲鹏ARM64部署目录·本地Ollama零API费用·DSH终端执行配置"
+    },
+    "fast-index": {
+      "canonical": "05_ENGINES/lh_fast_index_core.py",
+      "layer": "L1",
+      "status": "active",
+      "note": "龍魂快速索引核心编排器·系统底座功能·五层认知索引"
+    },
+    "index-philosophy": {
+      "canonical": "03_KNOWLEDGE_GRAPH/03_快速索引设计哲学_☯UID9622·丙午·丙申·壬戌·巳时_INDEX-PHILOSOPHY-v2.0.md",
+      "layer": "L0",
+      "status": "active",
+      "note": "快速索引设计哲学v2.0知识图谱入口"
+    },
+    "LH-INDEX-PHILOSOPHY-v2.0.md": {
+      "canonical": "01_protocols/LH-INDEX-PHILOSOPHY-v2.0.md",
+      "layer": "L0",
+      "status": "active",
+      "note": "快速索引设计哲学v2.0协议文档"
+    },
+    "terminal-writer": {
+      "canonical": "05_ENGINES/lh_terminal_writer.py",
+      "layer": "L1",
+      "status": "active",
+      "note": "龍魂多模型终端写作引擎·DSH/Kimi/CodeBuddy/Ollama/自定义模型自动故障转移"
+    },
+    "lh-write": {
+      "canonical": "05_ENGINES/lh_terminal_writer.py",
+      "layer": "L1",
+      "status": "active",
+      "note": "终端写作引擎别名·lh-dsh write 底层入口"
+    },
+    "terminal-writer-kg": {
+      "canonical": "03_KNOWLEDGE_GRAPH/03_多模型终端写作引擎_☯UID9622·丙午·丙申·丁酉·子时_TERMINAL-WRITER-v1.0.md",
+      "layer": "L0",
+      "status": "active",
+      "note": "多模型终端写作引擎v1.0知识图谱入口"
+    },
+    "industry-governance": {
+      "canonical": "05_ENGINES/lh_industry_governance.py",
+      "layer": "L1",
+      "status": "active",
+      "note": "龍魂行业痛点治理编排引擎·八大痛点系统治理·对外API"
+    },
+    "governance-api": {
+      "canonical": "05_ENGINES/lh_governance_api.py",
+      "layer": "L2",
+      "status": "active",
+      "note": "行业痛点治理REST API服务·默认127.0.0.1:8781"
+    },
+    "industry-governance-kg": {
+      "canonical": "03_KNOWLEDGE_GRAPH/03_行业痛点治理系统_☯UID9622·丙午·丙申·丁酉·丑时_INDUSTRY-GOVERNANCE-v1.0.md",
+      "layer": "L0",
+      "status": "active",
+      "note": "行业痛点治理系统v1.0知识图谱入口"
+    },
+    "lh_bilingual_router.py": {
+      "canonical": "08_BIN/lh_bilingual_router.py",
+      "layer": "L1",
+      "status": "active",
+      "note": "龍魂中英双语命令路由器·英文canonical+中文alias·不强制中文为计算机底座"
+    },
+    "bilingual-router": {
+      "canonical": "08_BIN/lh_bilingual_router.py",
+      "layer": "L1",
+      "status": "active",
+      "note": "中英双语路由器友好别名"
+    },
+    "bilingual-command-map": {
+      "canonical": "config/bilingual_command_map.json",
+      "layer": "L4",
+      "status": "active",
+      "note": "中英双语命令映射表·支持命令/痛点多语言别名·环境变量LH_BILINGUAL_CMD_FILE可切换"
+    },
+    "lh_transparent_dashboard.py": {
+      "canonical": "08_BIN/lh_transparent_dashboard.py",
+      "layer": "L2",
+      "status": "active",
+      "note": "龍魂透明看板·永远没有黑箱操作·治理事件/耻辱墙/荣誉墙/影子AI实时公开"
+    },
+    "transparent-dashboard": {
+      "canonical": "08_BIN/lh_transparent_dashboard.py",
+      "layer": "L2",
+      "status": "active",
+      "note": "透明看板友好别名·君子协议可视化"
+    },
+    "transparent-dashboard-kg": {
+      "canonical": "03_KNOWLEDGE_GRAPH/03_透明看板_☯UID9622·丙午·丙申·丁酉·辰时_TRANSPARENT-DASHBOARD-v1.0.md",
+      "layer": "L0",
+      "status": "active",
+      "note": "透明看板v1.0知识图谱入口"
+    }
+  },
+  "_dna_chain": [
+    "DNA:V1|丙午·丙申·癸亥·辰时·䷗复|P04鲁班|创建|透明看板+双语路由封装|bhash:c74ac97d|chash:dc7f968c|←GENESIS",
+    "DNA:V2|丙午·丙申·癸亥·辰时·䷗复|P04鲁班|修改|引擎修复-二次追加验证|bhash:ee800a32|chash:8ea3f6e4|←dc7f968c"
+  ]
+}

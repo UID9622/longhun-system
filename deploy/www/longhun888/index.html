@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 龍魂 · CNSH 知识管理系统</title>
+<meta name="description" content="龍魂 CNSH - 集成 Obsidian 和 Ollama 的本地知识管理与 AI 智能助手系统">
+<style>
+:root {
+  --bg0: #030310; --bg1: #070720; --bg2: #0b0b2e; --bg3: #0f0f3a;
+  --bd: #1c1c55; --bd2: #2a2a6a;
+  --gold: #d4af37; --goldb: #ffd700; --goldd: #6a4e0e;
+  --red: #ff3355; --grn: #00ff88; --cyn: #00d4ff;
+  --pur: #7b2dff; --purs: #a855f7;
+  --tp: #e8e0f8; --ts: #6868a8; --td: #2e2e66;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg0);
+  color: var(--tp);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+.container { max-width: 800px; width: 100%; }
+.logo {
+  font-size: 5rem;
+  margin-bottom: 0.5rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+h1 {
+  font-size: 2.8rem;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--ts);
+  margin-bottom: 2rem;
+}
+.status-card {
+  background: var(--bg1);
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--td);
+}
+.status-row:last-child { border-bottom: none; }
+.label { color: var(--ts); font-size: 0.95rem; }
+.value { font-weight: 600; }
+.online { color: var(--grn); }
+.info { color: var(--cyn); }
+.endpoint-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.endpoint-card {
+  background: var(--bg1);
+  border: 1px solid var(--bd);
+  border-radius: 8px;
+  padding: 1rem;
+  transition: border-color 0.3s, transform 0.2s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.endpoint-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+.endpoint-card .method {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+.method.get { background: rgba(0,255,136,0.15); color: var(--grn); }
+.method.post { background: rgba(0,212,255,0.15); color: var(--cyn); }
+.endpoint-card .path {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.85rem;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+.endpoint-card .desc {
+  font-size: 0.8rem;
+  color: var(--ts);
+}
+.footer {
+  margin-top: 2rem;
+  color: var(--td);
+  font-size: 0.8rem;
+}
+.footer a { color: var(--goldd); text-decoration: none; }
+.footer a:hover { color: var(--gold); }
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 0 2px;
+}
+.badge.local { background: var(--grng); color: var(--grn); }
+.badge.dragon { background: var(--yelg); color: var(--goldb); }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="logo">🐉</div>
+  <h1>龍魂 · CNSH</h1>
+  <p class="subtitle">
+    集成 Obsidian &amp; Ollama 的本地知识管理 + AI 智能助手
+  </p>
+
+  <div class="status-card" id="status-card">
+    <div class="status-row">
+      <span class="label">🟢 系统状态</span>
+      <span class="value" id="sys-status">检测中...</span>
+    </div>
+    <div class="status-row">
+      <span class="label">🤖 Ollama 模型</span>
+      <span class="value" id="ollama-status">检测中...</span>
+    </div>
+    <div class="status-row">
+      <span class="label">📦 版本</span>
+      <span class="value" id="version">-</span>
+    </div>
+    <div class="status-row">
+      <span class="label">🔐 传输</span>
+      <span class="value online">HTTPS（Cloudflare）</span>
+    </div>
+  </div>
+
+  <h3 style="color:var(--gold);margin-bottom:1rem;">API 端点</h3>
+  <div class="endpoint-grid">
+    <a href="/api/ollama/status" class="endpoint-card" target="_blank">
+      <span class="method get">GET</span>
+      <div class="path">/api/ollama/status</div>
+      <div class="desc">Ollama 模型状态</div>
+    </a>
+    <a href="#" class="endpoint-card">
+      <span class="method post">POST</span>
+      <div class="path">/api/ollama/generate</div>
+      <div class="desc">AI 文本生成</div>
+    </a>
+    <a href="#" class="endpoint-card">
+      <span class="method get">GET</span>
+      <div class="path">/api/knowledge/search</div>
+      <div class="desc">知识库搜索</div>
+    </a>
+    <a href="#" class="endpoint-card">
+      <span class="method post">POST</span>
+      <div class="path">/api/obsidian/upload</div>
+      <div class="desc">文档上传处理</div>
+    </a>
+    <a href="/health" class="endpoint-card" target="_blank">
+      <span class="method get">GET</span>
+      <div class="path">/health</div>
+      <div class="desc">健康检查</div>
+    </a>
+    <a href="/bcm/" class="endpoint-card" target="_blank">
+      <span class="method get">GET</span>
+      <div class="path">/bcm/</div>
+      <div class="desc">行为密码学仪表盘</div>
+    </a>
+  </div>
+
+  <div style="margin:1rem 0;">
+    <span class="badge local">🏠 本地优先</span>
+    <span class="badge dragon">🐉 龍魂守护</span>
+    <span class="badge local">🇨🇳 中国主权</span>
+  </div>
+
+  <div class="footer">
+    <p>龍魂 · CNSH v1.0 | <a href="https://github.com" target="_blank">开源</a> | MulanPSL v2</p>
+    <p>创建者: 诸葛鑫（UID9622）| 为人民服务</p>
+    <p style="margin-top:0.5rem;font-size:0.7rem;">DNA: #龍芯⚡️丙午·丙申·癸丑·戊午·䷨损-LONGHUN888-LANDING-v1.0</p>
+  </div>
+</div>
+
+<script>
+// 页面加载后自动检测服务状态
+async function checkStatus() {
+  try {
+    const health = await fetch('/health');
+    const data = await health.json();
+    document.getElementById('sys-status').innerHTML = '<span class="online">🟢 在线</span>';
+    document.getElementById('version').textContent = data.version || 'v1.0.0';
+  } catch(e) {
+    document.getElementById('sys-status').innerHTML = '<span style="color:var(--red)">🔴 离线</span>';
+  }
+
+  try {
+    const ollama = await fetch('/api/ollama/status');
+    const odata = await ollama.json();
+    document.getElementById('ollama-status').textContent = odata.model || '就绪';
+  } catch(e) {
+    document.getElementById('ollama-status').textContent = '—';
+  }
+}
+checkStatus();
+</script>
+</body>
+</html>

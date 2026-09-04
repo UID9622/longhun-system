@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 /**
  * Upload WeChat Mini Program using miniprogram-ci.
  *
@@ -49,7 +52,7 @@ async function main() {
   });
 
   const version = args.version || '1.0.0';
-  const desc = args.desc || `Longhun mini program upload at ${new Date().toISOString()}`;
+  const desc = args.desc || `LongHun mini program upload at ${new Date().toISOString()}`;
 
   try {
     const uploadResult = await ci.upload({

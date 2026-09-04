@@ -1,0 +1,45 @@
+{
+  "档案": {
+    "ZGX-001": {
+      "name": "诸葛鑫",
+      "persona": "",
+      "status": "active",
+      "数字根": 1,
+      "五行": "水",
+      "fallback": false,
+      "审计": "🟢",
+      "动作": "enter",
+      "node_id": "FLOW-9622-20260901-F4A12318",
+      "DNA": "#龍芯⚡️2026-09-01-ZGX-001诸葛鑫-v1.0"
+    },
+    "ASI-001": {
+      "name": "至诚智魂",
+      "persona": "P00 曾仕强智慧总师",
+      "status": "active",
+      "数字根": 3,
+      "五行": "木",
+      "fallback": false,
+      "审计": "🔴",
+      "动作": "fuse",
+      "node_id": "FLOW-9622-20260901-5611EC4C",
+      "DNA": "#龍芯⚡️2026-09-01-ASI-001至诚智魂-v1.0"
+    },
+    "ASI-002": {
+      "name": "军师·诸葛亮",
+      "persona": "P01 诸葛亮",
+      "status": "active",
+      "数字根": 7,
+      "五行": "火",
+      "fallback": false,
+      "审计": "🟢",
+      "动作": "enter",
+      "node_id": "FLOW-9622-20260901-A526AAD6",
+      "DNA": "#龍芯⚡️2026-09-01-ASI-002军师·诸葛亮-v1.0"
+    }
+  },
+  "meta": {
+    "generated_at": "2026-09-01T00:41:43",
+    "engine": "lh_wuxing_core v4.0（数字根→河图五行）",
+    "count": 3
+  }
+}

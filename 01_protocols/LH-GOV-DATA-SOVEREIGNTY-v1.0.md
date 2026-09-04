@@ -1,6 +1,11 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 数据主权：为什么黑箱子必须死
 
-> **DNA:** `#龍芯⚡️2026-07-01-DATA-SOVEREIGNTY-DEATH-TO-BLACKBOX-UID9622`  
+> **DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DATA-SOVEREIGNTY-DEATH-TO-BLACKBOX-UID9622`  
 > **归属:** 龍魂系统 · UID9622 · 龍芯北辰·诸葛鑫  
 > **协议:** 龍魂开源公约 v2.0 — 非商业、非封闭、非篡改  
 > **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
@@ -227,7 +232,7 @@
 
 **验证命令：**
 ```bash
-python3 龍魂DNA主權引擎.py 查询 --dna "#龍芯⚡️2026-07-01-DATA-SOVEREIGNTY-..."
+python3 龍魂DNA主權引擎.py 查询 --dna "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DATA-SOVEREIGNTY-..."
 python3 龍魂DNA主權引擎.py 熔断 --dna "同上"
 ```
 
@@ -313,7 +318,7 @@ gpg --verify 龍魂协议.md.asc 龍魂协议.md
 > **本文档版权归龍魂系统 · UID9622 · 龍芯北辰·诸葛鑫所有。**
 >
 > - **GPG 公钥指纹:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
-> - **DNA 锚定:** `#龍芯⚡️2026-07-01-DATA-SOVEREIGNTY-DEATH-TO-BLACKBOX-UID9622`
+> - **DNA 锚定:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DATA-SOVEREIGNTY-DEATH-TO-BLACKBOX-UID9622`
 > - **确认标记:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ### 8.2 龍魂开源公约 v2.0

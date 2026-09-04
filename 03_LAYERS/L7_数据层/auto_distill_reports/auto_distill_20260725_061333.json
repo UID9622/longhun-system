@@ -1,0 +1,54 @@
+{
+  "报告ID": "auto_distill_20260725_061333",
+  "DNA": "#龍芯⚡️20260725-AUTO-DISTILL-42f33301",
+  "模式": "干运行",
+  "时间": "2026-07-25T06:13:33.978726+00:00",
+  "整体状态": "🟢 全部通过",
+  "步骤": [
+    {
+      "name": "单元测试",
+      "passed": true,
+      "status": "🟢",
+      "returncode": 0,
+      "stdout": "r.py::TestChineseBaseDetection::test_deepseek_llama_masquerade_blocked PASSED [  6%]\ntests/test_base_reorganizer.py::TestChineseBaseDetection::test_deepseek_qwen_allowed PASSED [ 12%]\ntests/test_base_reorganizer.py::TestChineseBaseDetection::test_english_blacklist_rejected PASSED [ 18%]\ntests/test_base_reorganizer.py::TestChineseBaseDetection::test_exact_whitelist_match PASSED [ 25%]\ntests/test_base_reorganizer.py::TestChineseBaseDetection::test_gibberish_not_chinese PASSED [ 31%]\ntests/test_base_reorganizer.py::TestChineseBaseDetection::test_variant_tags_accepted PASSED [ 37%]\ntests/test_base_reorganizer.py::TestConceptRelationshipInjector::test_export_roundtrip PASSED [ 43%]\ntests/test_base_reorganizer.py::TestConceptRelationshipInjector::test_generate_pairs_count PASSED [ 50%]\ntests/test_base_reorganizer.py::TestConceptRelationshipInjector::test_training_data_format PASSED [ 56%]\ntests/test_base_reorganizer.py::TestCNSHScenarioGenerator::test_all_scenario_types_present PASSED [ 62%]\ntests/test_base_reorganizer.py::TestCNSHScenarioGenerator::test_default_count PASSED [ 68%]\ntests/test_base_reorganizer.py::TestCNSHScenarioGenerator::test_partial_count PASSED [ 75%]\ntests/test_base_reorganizer.py::TestDNATraceChain::test_broken_link_detection PASSED [ 81%]\ntests/test_base_reorganizer.py::TestDNATraceChain::test_chain_integrity PASSED [ 87%]\ntests/test_base_reorganizer.py::TestBaseReorganizerDryRun::test_collect_training_data_sources PASSED [ 93%]\ntests/test_base_reorganizer.py::TestBaseReorganizerDryRun::test_pipeline_dry_run PASSED [100%]\n\n============================= slowest 10 durations =============================\n0.10s call     tests/test_base_reorganizer.py::TestBaseReorganizerDryRun::test_collect_training_data_sources\n0.09s call     tests/test_base_reorganizer.py::TestBaseReorganizerDryRun::test_pipeline_dry_run\n\n(8 durations < 0.005s hidden.  Use -vv to show these durations.)\n============================== 16 passed in 0.22s ==============================\n",
+      "stderr": "",
+      "elapsed": 0.48
+    },
+    {
+      "name": "CNSH语料生成",
+      "passed": true,
+      "corpus_count": 300,
+      "status": "🟢",
+      "returncode": 0,
+      "stdout": "📚 CNSH启蒙语料库: 300 条 → /Users/zuimeidedeyihan/longhun-system/data/reorganize/cnsh_corpus/cnsh_training_corpus_20260725.jsonl\n============================================================\n📚 CNSH启蒙语料库生成\n============================================================\n\n每个领域: 100 条\n领域: task_definition / rule_definition / audit_execution\n总条数: 300\n\n✅ 已导出到: /Users/zuimeidedeyihan/longhun-system/data/reorganize/cnsh_corpus/cnsh_training_corpus_20260725.jsonl\n\n💡 这套语料是教AI『用CNSH思考』的启蒙教材。\n   覆盖：任务定义 · 规则定义 · 审计执行\n",
+      "stderr": "",
+      "elapsed": 0.06
+    },
+    {
+      "name": "概念关系注入",
+      "passed": true,
+      "status": "🟢",
+      "returncode": 0,
+      "stdout": "\n💉 概念关系注入: 85 对\n💉 概念关系注入: 112 条 → /Users/zuimeidedeyihan/longhun-system/data/reorganize/concept_relations/concept_relations_20260725.jsonl\n🎬 CNSH场景生成: 75 条 → /Users/zuimeidedeyihan/longhun-system/data/reorganize/cnsh_scenarios/cnsh_scenarios_20260725.jsonl\n   概念对: 85 → 112 条训练数据\n   CNSH场景: 75 条\n   产出: /Users/zuimeidedeyihan/longhun-system/data/reorganize/concept_relations/concept_relations_20260725.jsonl\n   产出: /Users/zuimeidedeyihan/longhun-system/data/reorganize/cnsh_scenarios/cnsh_scenarios_20260725.jsonl\n   DNA: #龍芯⚡️20260725-REORG-INJECT-29901bc5\n\n✅ 概念关系注入完成\n   概念对: 85\n   CNSH场景: 75\n   DNA: #龍芯⚡️20260725-REORG-INJECT-29901bc5\n\n💡 概念关系数据已存入 data/reorganize/concept_relations/\n   CNSH场景数据已存入 data/reorganize/cnsh_scenarios/\n   下次覆盖训练时会自动包含这些数据。\n",
+      "stderr": "",
+      "elapsed": 0.06
+    },
+    {
+      "name": "自动训练",
+      "passed": true,
+      "dry_run": true
+    },
+    {
+      "name": "全系统审计",
+      "passed": true,
+      "dry_run": true
+    },
+    {
+      "name": "模型可用性验证",
+      "passed": true,
+      "skipped": true
+    }
+  ],
+  "产出模型": "未产出",
+  "确认码": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+}

@@ -1,0 +1,162 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-b273a120 -->
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNSH Web 技术站</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>🐉 CNSH Web 技术站</h1>
+        <span class="subtitle">中文原生脚本 · 本地运行 · 数据不出境</span>
+    </header>
+    <main>
+        <aside>
+            <h2>示例</h2>
+            <ul id="example-list"></ul>
+            <h2 style="margin-top:1rem">文档</h2>
+            <ul>
+                <li onclick="loadDocs()">README</li>
+            </ul>
+        </aside>
+        <div class="workspace">
+            <div class="toolbar">
+                <button onclick="runCode()">▶ 运行</button>
+                <button onclick="compileCode()">🔧 编译</button>
+                <select id="target">
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="rust">Rust</option>
+                    <option value="c">C</option>
+                </select>
+                <label>优化 <select id="optimize">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select></label>
+                <label><input type="checkbox" id="strict-types"> 严格类型</label>
+            </div>
+            <div class="editor-wrap">
+                <textarea id="editor"># DNA:#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-WEB-FILE1-v2.1
+
+输出("你好，CNSH Web 技术站！")
+</textarea>
+            </div>
+            <div class="output">
+                <div class="output-header">
+                    <span class="active" onclick="showTab('console', this)">控制台</span>
+                    <span onclick="showTab('compile', this)">编译产物</span>
+                    <span onclick="showTab('docs', this)">文档</span>
+                </div>
+                <div class="output-body" id="output-body">等待运行...</div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script>
+        const editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
+            lineNumbers: true,
+            mode: 'text/plain',
+            theme: 'default',
+            tabSize: 4,
+        });
+
+        let currentTab = 'console';
+        const outputBody = document.getElementById('output-body');
+
+        function showTab(tab, el) {
+            currentTab = tab;
+            document.querySelectorAll('.output-header span').forEach(s => s.classList.remove('active'));
+            el.classList.add('active');
+        }
+
+        function setOutput(html) {
+            outputBody.innerHTML = html;
+        }
+
+        async function loadExamples() {
+            const resp = await fetch('/api/examples');
+            const list = await resp.json();
+            const ul = document.getElementById('example-list');
+            ul.innerHTML = list.map(ex => `<li onclick="loadExample('${ex.name}')">${ex.name}</li>`).join('');
+        }
+
+        async function loadExample(name) {
+            const resp = await fetch(`/api/examples/${name}`);
+            const data = await resp.json();
+            editor.setValue(data.content);
+            setOutput(`已加载示例：${name}`);
+            showTab('console', document.querySelectorAll('.output-header span')[0]);
+        }
+
+        async function runCode() {
+            const payload = {
+                source: editor.getValue(),
+                optimize: parseInt(document.getElementById('optimize').value),
+                strict_types: document.getElementById('strict-types').checked,
+            };
+            setOutput('运行中...');
+            const resp = await fetch('/api/run', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
+            const data = await resp.json();
+            let html = '';
+            if (data.diagnostics && data.diagnostics.length) {
+                html += data.diagnostics.map(d => `<div class="diag-error">${escapeHtml(d)}</div>`).join('');
+            }
+            if (data.success) {
+                html += `<div>${escapeHtml(data.stdout)}</div>`;
+                html += `<div style="color:#94a3b8">返回值: ${escapeHtml(data.result)}</div>`;
+            } else {
+                html += `<div class="diag-error">${escapeHtml(data.error || '执行失败')}</div>`;
+            }
+            setOutput(html);
+            showTab('console', document.querySelectorAll('.output-header span')[0]);
+        }
+
+        async function compileCode() {
+            const payload = {
+                source: editor.getValue(),
+                target: document.getElementById('target').value,
+                optimize: parseInt(document.getElementById('optimize').value),
+            };
+            setOutput('编译中...');
+            const resp = await fetch('/api/compile', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
+            const data = await resp.json();
+            if (data.success) {
+                setOutput(`<pre>${escapeHtml(data.code)}</pre>`);
+            } else {
+                setOutput(`<div class="diag-error">${escapeHtml(data.error || '编译失败')}</div>`);
+            }
+            showTab('compile', document.querySelectorAll('.output-header span')[1]);
+        }
+
+        async function loadDocs() {
+            const resp = await fetch('/api/docs');
+            const data = await resp.json();
+            setOutput(`<pre>${escapeHtml(data.content)}</pre>`);
+            showTab('docs', document.querySelectorAll('.output-header span')[2]);
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        loadExamples();
+    </script>
+</body>
+</html>

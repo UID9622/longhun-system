@@ -1,0 +1,48 @@
+{
+  "metadata": {
+    "name": "涉密语义库模板",
+    "version": "1.0",
+    "dna": "#龍芯⚡️丙午·丙申·甲寅·癸酉-SECRET-SEMANTIC-LIB-v1.0",
+    "description": "保护中国核心技术与商业机密的内部代号系统",
+    "note": "本文件为模板，真实项目代号应在私有层分配"
+  },
+  "technology_stack": [
+    {"real": "龍芯 CPU", "code": "北辰", "anchor": "北极星", "level": "L1"},
+    {"real": "鸿蒙 OS", "code": "洪荒", "anchor": "开天辟地", "level": "L1"},
+    {"real": "鲲鹏芯片", "code": "北冥", "anchor": "庄子·逍遥游", "level": "L1"},
+    {"real": "昇腾 AI 芯片", "code": "昆仑", "anchor": "万山之祖", "level": "L1"},
+    {"real": "麒麟芯片", "code": "祥瑞", "anchor": "瑞兽", "level": "L1"},
+    {"real": "欧拉 openEuler", "code": "后土", "anchor": "大地之母", "level": "L1"},
+    {"real": "高斯 GaussDB", "code": "青囊", "anchor": "华佗药囊", "level": "L1"},
+    {"real": "仓颉编程语言", "code": "造字", "anchor": "仓颉造字", "level": "L1"},
+    {"real": "华为 Mate 60", "code": "南斗", "anchor": "南斗六星", "level": "L2"},
+    {"real": "北斗导航", "code": "司南", "anchor": "古代指南针", "level": "L1"},
+    {"real": "星闪 NearLink", "code": "流萤", "anchor": "短距微光", "level": "L1"},
+    {"real": "长城服务器", "code": "烽火台", "anchor": "边防预警", "level": "L1"}
+  ],
+  "longhun_modules": [
+    {"real": "龍魂系统", "code": "九州", "description": "中国代称"},
+    {"real": "CNSH 语言", "code": "龍文", "description": "中文原生脚本"},
+    {"real": "通心译", "code": "心桥", "description": "意图翻译层"},
+    {"real": "DNA 追溯", "code": "血脉", "description": "追溯链"},
+    {"real": "三色审计", "code": "三才", "description": "天地人"},
+    {"real": "上帝之眼", "code": "昊天", "description": "群体审计"},
+    {"real": "黑天使军团", "code": "玄甲", "description": "安全审计"},
+    {"real": "人民原声", "code": "乡音", "description": "真实表达"}
+  ],
+  "project_template": {
+    "project_code": "项目「春耕」",
+    "real_name": "（仅内部记录）",
+    "owner": "UID9622",
+    "level": "L2",
+    "authorized": ["UID9622"],
+    "external_description": "一个本地数据处理工具",
+    "dna": "#龍芯⚡️...-PROJECT-春耕-..."
+  },
+  "rules": {
+    "internal_can_use_real": true,
+    "external_must_use_code": true,
+    "code_explanation_forbidden": true,
+    "dynamic_rotation": true
+  }
+}

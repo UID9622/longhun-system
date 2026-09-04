@@ -1,7 +1,10 @@
-<!-- #龍芯⚡️20260624010825168-AUTO-DNA-AB428105 自动注入·分层治理自愈引擎 · 来源可查 -->
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+<!-- #龍芯⚡️丙午·甲午·己巳·乙丑·䷮困-AUTO-DNA-AB428105 自动注入·分层治理自愈引擎 · 来源可查 -->
 # 用户主目录 · 龍魂相关资产总索引
 
-**DNA**:#龍芯⚡️2026-06-16-HOME-DIRECTORY-LONGHUN-INDEX-FILE1-v1.0  
+**DNA**:#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-HOME-DIRECTORY-LONGHUN-INDEX-FILE1-v1.0  
 **来源路径**: `/Users/zuimeidedeyihan`  
 **扫描时间**: 2026-06-15T20:16:14.901491+00:00  
 **责任**: UID9622·不免责

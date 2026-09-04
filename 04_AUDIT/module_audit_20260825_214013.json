@@ -1,0 +1,86 @@
+{
+  "timestamp": "2026-08-25T21:40:13.126890",
+  "dna": "#龍芯⚡️2026-08-25-AUDIT-GATE-UID9622",
+  "tool": "lh_audit_gate.py v1.0",
+  "module": "全量",
+  "total_steps": 9,
+  "green": 9,
+  "red": 0,
+  "overall": "🟢",
+  "elapsed_s": 12.0,
+  "steps": [
+    {
+      "step": 1,
+      "name": "德本审计五问",
+      "ok": true,
+      "rc": 0,
+      "out_tail": "",
+      "err_tail": "自查项: 交付人逐条确认"
+    },
+    {
+      "step": 2,
+      "name": "DNA 完整性校验",
+      "ok": true,
+      "rc": 0,
+      "out_tail": "na\": true,\n      \"missing_dna\": [],\n      \"valid\": true,\n      \"dnas\": [\n        \"#龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622\",\n        \"#龍芯⚡️2026-06-26-测试程序\"\n      ]\n    }\n  ]\n}\n\n三色: 🟢 | 合法: 50/50\n",
+      "err_tail": ""
+    },
+    {
+      "step": 3,
+      "name": "语法纠错引擎冒烟",
+      "ok": true,
+      "rc": 0,
+      "out_tail": "📝 原文: 测试 语法\n✅ 纠错: 测试语。\n\n📊 统计: 应用 2 条规则, 5 条警告\n",
+      "err_tail": ""
+    },
+    {
+      "step": 4,
+      "name": "编译器自测",
+      "ok": true,
+      "rc": 0,
+      "out_tail": "",
+      "err_tail": ""
+    },
+    {
+      "step": 5,
+      "name": "单元测试（三色审计）",
+      "ok": true,
+      "rc": 0,
+      "out_tail": "report_20260825_214011.json\n  🔐 M73 哈希产权注册成功: aeae217416dff995...\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n总计: 5 | ✅ 通过: 5 | ❌ 失败: 0\n通过率: 100.0% | 耗时: 0.66s\n三色: 🟢\nDNA:  #龍芯⚡️2026-08-25-TEST-REPORT-UID9622\n",
+      "err_tail": ""
+    },
+    {
+      "step": 6,
+      "name": "转译回归测试",
+      "ok": true,
+      "rc": 0,
+      "out_tail": " | 发现 5 个源文件\n  test_fibonacci: python:🟢 c:🟡 js:🟡\n  test_grade: python:🟢 c:🟡 js:🟡\n  test_hello: python:🟢 c:🟡 js:🟡\n  test_minimal: python:🟢 c:🟡 js:🟡\n  test_operators: python:🟢 c:🟡 js:🟡\n\n三色: 🟢 | 通过: 5/5\n",
+      "err_tail": ""
+    },
+    {
+      "step": 7,
+      "name": "覆盖率报告",
+      "ok": true,
+      "rc": 0,
+      "out_tail": " \"executable\": 20,\n      \"dna\": true,\n      \"compiles\": true\n    }\n  }\n}\n📊 HTML 报告: /Users/zuimeidedeyihan/longhun-system/test_reports/coverage.html\n\n三色: 🟢 | 可编译率: 100.0% | DNA覆盖: 100.0% | 综合: 100.0%\n",
+      "err_tail": ""
+    },
+    {
+      "step": 8,
+      "name": "安全审计（XSS/SQL/路径注入扫描）",
+      "ok": true,
+      "rc": 0,
+      "out_tail": "📝 原文: 测试\n✅ 纠错: 测。\n\n📊 统计: 应用 1 条规则, 5 条警告\n",
+      "err_tail": ""
+    },
+    {
+      "step": 9,
+      "name": "GPG 签名扫描（cnsh 工具链）",
+      "ok": true,
+      "rc": 0,
+      "out_tail": "总计: 1 | 已签: 1 | 未签: 0\n",
+      "err_tail": ""
+    }
+  ],
+  "conclusion": "放行交付（未跑过的代码不得标🟢已验证）"
+}

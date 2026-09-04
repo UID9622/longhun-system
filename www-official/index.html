@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!--
+  龍魂系统 · 官网首页 v1.0
+  ============================================================
+  DNA:    #龍芯⚡️2026-09-03-HOMEPAGE-v1.0-UID9622
+  创建者: 诸葛鑫（UID9622）
+  归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+  协议:   CC BY-NC-SA 4.0（核心思想层）· 工程实现层 MulanPSL v2
+  根哈希: FB48FCE383AF689E
+  GPG:    A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+  说明:   单文件静态页 · 无外部字体/脚本依赖 · 链接为相对路径
+  ============================================================
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="诸葛鑫 | UID9622 · 龍芯北辰">
+<meta name="description" content="龍魂系统：中国自主知识产权的神经符号系统。为人民服务，数据主权归用户。Technology serves the people. Sovereignty is not for sale.">
+<meta name="keywords" content="龍魂, LongHun, 神经符号系统, CNSH, UID9622, 龍芯北辰, 数据主权">
+<meta name="dna" content="#龍芯⚡️2026-09-03-HOMEPAGE-v1.0-UID9622">
+<title>龍魂系统 · LongHun · 中国自主知识产权的神经符号系统</title>
+<style>
+  :root{
+    --bg:#0a0e17; --panel:#0d1117; --card:#111826; --line:#21262d;
+    --gold:#ffab00; --gold-soft:#d4a437; --blue:#58a6ff; --text:#c9d1d9;
+    --muted:#8b949e; --green:#7ee787; --dim:#484f58;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(88,166,255,.10), transparent 60%),
+      radial-gradient(900px 500px at 10% 0%, rgba(255,171,0,.06), transparent 55%),
+      var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",sans-serif;
+    line-height:1.7;
+    min-height:100vh;
+  }
+  .wrap{ max-width:960px; margin:0 auto; padding:0 20px 40px; }
+
+  /* ── 顶栏 ─────────────────────────────── */
+  header.hero{
+    text-align:center; padding:64px 0 34px;
+    border-bottom:2px solid var(--gold); margin-bottom:36px;
+  }
+  .dragon{ font-size:52px; line-height:1; filter:drop-shadow(0 0 14px rgba(255,171,0,.35)); }
+  h1{
+    font-size:34px; color:var(--gold); letter-spacing:4px; margin:14px 0 6px;
+    text-shadow:0 0 22px rgba(255,171,0,.22);
+  }
+  .tag-en{ color:var(--muted); font-size:13px; letter-spacing:3px; }
+  .chips{ margin-top:20px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
+  .chip{
+    background:#161b22; border:1px solid #30363d; border-radius:14px;
+    padding:3px 12px; font-size:12px; color:var(--gold);
+  }
+
+  /* ── 区块通用 ─────────────────────────── */
+  section.block{ margin:34px 0; }
+  .sec-head{
+    display:flex; align-items:baseline; gap:10px;
+    border-left:4px solid var(--blue); padding-left:12px; margin-bottom:18px;
+  }
+  .sec-head h2{ font-size:20px; color:var(--blue); letter-spacing:1px; }
+  .sec-head .en{ color:var(--dim); font-size:11px; letter-spacing:2px; }
+  .card{
+    background:var(--panel); border:1px solid var(--line);
+    border-radius:10px; padding:20px 22px;
+  }
+
+  /* ── 简介 ─────────────────────────────── */
+  .lead{ font-size:17px; }
+  .lead b{ color:var(--gold); }
+  blockquote.principle{
+    margin:18px 0 4px; padding:14px 18px;
+    background:#121a28; border:1px solid #243044; border-left:4px solid var(--gold);
+    border-radius:8px;
+  }
+  blockquote.principle .en{ font-family:ui-monospace,SFMono-Regular,Menlo,monospace; color:var(--green); font-size:14px; }
+  blockquote.principle .zh{ color:var(--muted); font-size:12px; margin-top:4px; }
+
+  /* ── 能力网格 ─────────────────────────── */
+  .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+  .mod{
+    background:var(--card); border:1px solid var(--line); border-top:3px solid transparent;
+    border-radius:10px; padding:14px 16px; transition:border-color .18s, transform .18s;
+  }
+  .mod:hover{ border-top-color:var(--gold); transform:translateY(-2px); }
+  .mod h3{ font-size:15px; color:#e6edf3; }
+  .mod h3 .emo{ margin-right:6px; }
+  .mod p{ font-size:12px; color:var(--muted); margin-top:6px; }
+  .mod code{ color:var(--green); font-size:11px; }
+  .more{
+    margin-top:14px; text-align:right; font-size:13px;
+  }
+  .more a{ color:var(--blue); text-decoration:none; }
+  .more a:hover{ text-decoration:underline; }
+
+  /* ── 链接 ─────────────────────────────── */
+  a{ color:var(--blue); text-decoration:none; }
+  a:hover{ text-decoration:underline; }
+  .btn{
+    display:inline-block; background:transparent; border:1px solid var(--gold); color:var(--gold);
+    border-radius:20px; padding:6px 18px; font-size:14px; transition:background .18s,color .18s;
+  }
+  .btn:hover{ background:var(--gold); color:#0a0e17; text-decoration:none; }
+  ul.tight{ list-style:none; }
+  ul.tight li{ padding:6px 0 6px 22px; position:relative; font-size:14px; }
+  ul.tight li::before{ content:"›"; position:absolute; left:6px; color:var(--gold); font-weight:700; }
+  .tag{ color:var(--dim); font-size:11px; margin-left:8px; }
+
+  /* ── 页脚 ─────────────────────────────── */
+  footer{
+    margin-top:44px; border-top:1px solid var(--line); padding:24px 0 8px;
+    text-align:center; font-size:11px; color:var(--muted); line-height:2;
+  }
+  footer .sovereign{ color:var(--gold); letter-spacing:1px; font-size:13px; }
+  footer code{ background:#161b22; color:var(--green); border-radius:4px; padding:1px 6px; word-break:break-all; }
+
+  @media (max-width:600px){
+    .wrap{ padding:0 14px 30px; }
+    header.hero{ padding:40px 0 26px; }
+    h1{ font-size:24px; }
+    .lead{ font-size:15px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ① 系统简介 -->
+  <header class="hero">
+    <div class="dragon">🐉</div>
+    <h1>龍魂系统</h1>
+    <div class="tag-en">LONGHUN · NEURO-SYMBOLIC SYSTEM · CN INDEPENDENT IP</div>
+    <div class="chips">
+      <span class="chip">神经符号</span>
+      <span class="chip">为人民服务</span>
+      <span class="chip">数据主权归用户</span>
+      <span class="chip">🟢 三色审计</span>
+      <span class="chip">零中间层 · 纯 Python</span>
+    </div>
+  </header>
+
+  <section class="block" id="intro">
+    <div class="sec-head"><h2>壹 · 一句话认识龍魂</h2><span class="en">WHAT IS LONGHUN</span></div>
+    <div class="card">
+      <p class="lead"><b>龍魂</b> = 中国自主知识产权的<b>神经符号系统</b>：以中文神经符号语言（CNSH）为统一底座，贯通自然语言理解、知识图谱、数字孪生与本地模型推理。<b>为人民服务 · 数据主权归用户</b> —— 数据不出机、算法可复核、零后台无后门。</p>
+      <blockquote class="principle">
+        <div class="en">Principle: Technology serves the people. Sovereignty is not for sale.</div>
+        <div class="zh">译：科技为人民服务 · 主权绝不出售。</div>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ② 能力清单 -->
+  <section class="block" id="capabilities">
+    <div class="sec-head"><h2>贰 · 能力清单（8 大模块）</h2><span class="en">CAPABILITY INVENTORY · 2026-09-03</span></div>
+    <div class="grid">
+      <div class="mod"><h3><span class="emo">🕸️</span>图谱 / 知识拓扑</h3><p><code>lh topo</code> · 多源同步 · 活体校验 · 开放拓扑页</p></div>
+      <div class="mod"><h3><span class="emo">🧠</span>模型治理</h3><p><code>lh model</code> · 注册表 + Ollama 实测 · 合规三色审计</p></div>
+      <div class="mod"><h3><span class="emo">🤖</span>长期智能体</h3><p><code>lh agent</code> · 自主长任务 · 队列持久化 · 断点续跑</p></div>
+      <div class="mod"><h3><span class="emo">📊</span>基准测试</h3><p><code>lh bench</code> · 本地四项基准 · 自动报告 + GPG 签名</p></div>
+      <div class="mod"><h3><span class="emo">🐉</span>归一审判官 / 耻辱墙</h3><p><code>lh judge</code> · DNA 指纹扫描 · 剽窃公示 · 误报可申诉</p></div>
+      <div class="mod"><h3><span class="emo">🗄️</span>存储优化</h3><p><code>lh storage</code> · 占用体检 · 日志轮转 · P0 冻结非裸删</p></div>
+      <div class="mod"><h3><span class="emo">🌐</span>对外接口 / 子命令</h3><p><code>lh api · flow · bazi</code> · CIL API 网关 · 数字根 · 八字排盘</p></div>
+      <div class="mod"><h3><span class="emo">📁</span>核心常驻命令</h3><p><code>lh health · audit · security</code> · 交互台 · 压缩 · GPG 一键签名</p></div>
+    </div>
+    <div class="more">
+      <a href="../docs/龙魂系统能力清单-2026-09-03.md">📄 完整能力清单（已落地 · 可本地复现）→</a>
+      <span class="tag">相对 www 部署目录：docs/ 需与 www/ 同级发布</span>
+    </div>
+  </section>
+
+  <!-- ③ 社区接入指南 -->
+  <section class="block" id="community">
+    <div class="sec-head"><h2>叁 · 社区接入</h2><span class="en">COMMUNITY ONBOARDING</span></div>
+    <div class="card">
+      <ul class="tight">
+        <li>Clone 主源：<code>git clone https://github.com/UID9622/longhun-system.git</code></li>
+        <li>国内镜像：<code>git clone https://gitee.com/uid9622/longhun-system.git</code></li>
+        <li>环境要求：Python 3.11+ · macOS / Linux · 可选 Ollama（本地推理 · 数据不出机）</li>
+        <li>快速自检三连：<code>lh health --json</code> · <code>lh topo list</code> · <code>lh model list</code></li>
+        <li>用龍魂逻辑 = 认龍魂协议（M78 科技普惠诚信）：不是霸权，是因果律；不是霸凌，是科技普惠这个词落地。</li>
+      </ul>
+      <p style="margin-top:16px;">
+        <a class="btn" href="../docs/社区接入指南.md">🤝 阅读社区接入指南 →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ④ 耻辱墙入口 -->
+  <section class="block" id="shamewall">
+    <div class="sec-head"><h2>肆 · 耻辱墙 · 剽窃公示与举报</h2><span class="en">SHAME WALL</span></div>
+    <div class="card">
+      <p>龍魂系统 DNA 指纹（品牌词 / API 端点 / 组合逻辑 / 9622 端口）每日自动扫描 GitHub / HuggingFace / arXiv / AppStore 等平台。剽窃者将被公示于耻辱墙 —— <b style="color:var(--gold)">这不是霸凌，是科技普惠的诚信落地</b>。若你发现未授权使用龍魂逻辑的系统，欢迎举报；若你的系统被误判，可申诉，误报记录 append-only 永不删除。</p>
+      <p style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+        <a class="btn" href="https://github.com/UID9622/longhun-system/issues/new?template=shame_report.yml" target="_blank" rel="noopener">⚖️ 提交剽窃举报（shame_report 模板）</a>
+        <span style="font-size:12px; color:var(--muted);">
+          本地公示：<code>lh judge view</code> · <code>~/.longhun/shame_wall/shame_wall.html</code>（每日 02:00 自动更新）
+        </span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ⑤ 页脚 -->
+  <footer>
+    <div class="sovereign">🐉 龍魂 · LongHun · 数字主权归 诸葛鑫 | UID9622 · 龍芯北辰</div>
+    <div>归属名: 诸葛鑫 | UID9622 · 龍芯北辰</div>
+    <div>DNA: <code>#龍芯⚡️2026-09-03-HOMEPAGE-v1.0-UID9622</code></div>
+    <div>根哈希: <code>FB48FCE383AF689E</code> · GPG: <code>A2D0092CEE2E5BA87035600924C3704A8CC26D5F</code></div>
+    <div>协议: CC BY-NC-SA 4.0（核心思想层）· MulanPSL v2（工程实现层）· 为人民服务 · 主权不出售</div>
+  </footer>
+
+</div>
+</body>
+</html>

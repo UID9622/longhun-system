@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "DNA": "#龙芯⚡️丙午·丙申·丙辰·未时·需-CNSH-BRAIN-PERSONA-MAP-v1.0",
+    "DNA": "#龍芯⚡️丙午·丙申·丙辰·未时·需-CNSH-BRAIN-PERSONA-MAP-v1.0",
     "GPG": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
-    "description": "CNSH神经网络翻译引擎·8大脑区→龙魂P人格映射表",
+    "description": "CNSH神经网络翻译引擎·8大脑区→龍魂P人格映射表",
     "version": "v1.0",
     "created": "2026-07-11",
     "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
@@ -64,7 +64,7 @@
       "fingerprint_types": {
         "syntax": "缩进风格+命名风格+括号风格+注释风格",
         "algorithm": "控制流模式+算法复杂度+特征序列",
-        "dna": "#ZHUGEXIN⚡️ 和 #龙芯⚡️ 前缀识别",
+        "dna": "#ZHUGEXIN⚡️ 和 #龍芯⚡️ 前缀识别",
         "semantic_hash": "内容结构哈希"
       }
     },
@@ -111,7 +111,7 @@
       "name": "代码优化脑区",
       "name_en": "Code Optimizer",
       "persona": "P02",
-      "persona_name": "龙芯修复师",
+      "persona_name": "龍芯修复师",
       "doc_name": "修复师🔧",
       "role": "code_optimizer",
       "skill_check": ["算法优化", "结构优化", "性能优化", "可读性改进"],

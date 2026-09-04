@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 """
 ╔══════════════════════════════════════════════════════════════════════╗
 ║            CNSH 核心 MCP Server v2.0 — CNSH 块写入/查询/审计           ║
-║  DNA: #龍芯⚡️2026-07-13-CNSH-CORE-MCP-v2.0                         ║
+║  DNA: #龍芯⚡️丙午·乙未·戊子·戊午·䷙大畜-CNSH-CORE-MCP-v2.0                         ║
 ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                     ║
 ║  创建者: UID9622（诸葛鑫·Lucky）                                     ║
 ║  三色审计: 🟢 通过                                                   ║
@@ -286,7 +290,7 @@ async def _handle_health(args: dict[str, Any]) -> dict[str, Any]:
         "ok": True,
         "server": "cnsh-core",
         "version": "2.0.0",
-        "identity_dna": "#龍芯⚡️2026-07-13-CNSH-CORE-MCP-v2.0",
+        "identity_dna": "#龍芯⚡️丙午·乙未·戊子·戊午·䷙大畜-CNSH-CORE-MCP-v2.0",
         "modules": modules,
         "api_backend": "up" if api_up else "down",
         "api_url": CNSH_API,
@@ -316,7 +320,7 @@ def _handle_dna_validate(args: dict[str, Any]) -> dict[str, Any]:
             "has_dragon": "龍" in dna,
             "has_lightning": "⚡️" in dna or "⚡" in dna,
             "min_length": len(dna) > 10,
-            "standard_prefix": dna.startswith("#龍芯⚡️") or dna.startswith("#龙芯⚡️"),
+            "standard_prefix": dna.startswith("#龍芯⚡️") or dna.startswith("#龍芯⚡️"),
         }
     }
 

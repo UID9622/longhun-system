@@ -1,0 +1,20 @@
+# DNA: #龍芯⚡️2026-08-22-SYSTEMD-ALIGN-v1.0
+[Unit]
+Description=龍魂官网账号认证 API (port 9658)
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/longhun-system
+ExecStart=/usr/bin/python3 /opt/longhun-system/bin/lh_web_auth_api.py --host 127.0.0.1 --port 9658
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONPATH=/opt/longhun-system/bin
+
+NoNewPrivileges=yes
+PrivateTmp=yes
+
+[Install]
+WantedBy=multi-user.target

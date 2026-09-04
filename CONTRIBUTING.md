@@ -1,119 +1,178 @@
-# 龍魂系统 · 贡献指南
+# 🐉 Contributing · 龍魂 longhun-cli 贡献指南
 
-> DNA: `#龍芯⚡️2026-07-06-CONTRIBUTING-CREATE-v1.0-D9A4C1E8`
-
-## 欢迎贡献
-
-感谢你对龍魂系统的关注！龍魂系统是一个中国自主可控的 AI 行为治理框架与数字主权基础设施。
-
-## 贡献方式
-
-### 1. 报告问题
-
-发现 Bug 或有改进建议？请通过以下方式报告：
-
-- 详细描述问题或建议
-- 提供复现步骤（如适用）
-- 注明操作系统和 Python 版本
-
-### 2. 提交代码
-
-#### 开发环境准备
-
-```bash
-# 克隆仓库
-git clone https://github.com/UID9622/longhun-system.git
-cd longhun-system
-
-# 安装开发依赖
-pip install -e ".[dev]"
-
-# 安装 pre-commit 钩子
-pre-commit install
-```
-
-#### 代码规范
-
-1. **CNSH 命名规范**：变量命名遵循 `CNSH-PROTOCOL.md` 中的规则
-2. **龍字必须繁体**：代码和文档中 `龍` 字必须使用繁体，简体 `龍` 视为不规范
-3. **DNA 追溯码**：所有新文件必须包含 DNA 追溯码头部注释
-4. **Python 风格**：遵循 `ruff` 配置（line-length=120）
-5. **类型注解**：关键函数建议添加类型注解
-
-#### 提交规范
-
-```bash
-# 提交信息格式
-<类型>: <简短描述>
-
-# 类型包括：
-# feat:     新功能
-# fix:      错误修复
-# docs:     文档更新
-# refactor: 代码重构（不改变功能）
-# test:     添加或修改测试
-# chore:    构建/工具/依赖更新
-# audit:    审计相关
-# security: 安全相关
-
-# 示例
-git commit -m "feat: 添加河图洛书 DNA 生成器"
-git commit -m "fix: 修复三色审计引擎边界条件"
-git commit -m "docs: 更新 API 文档"
-```
-
-### 3. 编写测试
-
-- 测试目录：`tests/`
-- 测试框架：pytest
-- 运行测试：`pytest tests/`
-- 覆盖率要求：新增代码应包含对应测试
-
-### 4. 文档贡献
-
-- 文档使用 Markdown 格式
-- 文件命名使用下划线 `_` 连接
-- 重要的架构文档需要包含 DNA 追溯码
-
-## 审查流程
-
-1. 提交前运行 `pre-commit run --all-files` 确保代码质量
-2. 提交前运行 `pytest` 确保测试通过
-3. 提交 PR 后等待审查
-4. 所有变更需要通过三色审计
-
-## 🏷 Good First Issue
-
-如果你是第一次贡献，这些是最适合入手的任务——我们标注了 `good first issue` 标签：
-
-1. **文档翻译** — 将中文文档翻译为英文（或反过来）
-2. **添加单元测试** — 为现有模块补充测试用例
-3. **修复 ruff 提示** — 运行 `ruff check` 并修复代码风格问题
-4. **完善 README** — 补充模块的使用示例
-5. **CNSH 示例** — 用 CNSH 语言写示例程序放到 `examples/`
-6. **错误信息优化** — 让报错信息更友好、更易理解
-7. **安装脚本测试** — 在不同系统上测试 `install.sh`
-8. **日志格式统一** — 统一各模块的日志输出格式
-9. **配置文件模板** — 为 `.env.example` 补充说明注释
-10. **FAQ 整理** — 从 Discussions 中收集常见问题整理成 FAQ
-
-👉 在 [Issues](https://github.com/UID9622/longhun-system/issues?q=label%3A%22good+first+issue%22) 页面找到标记 `good first issue` 的任务，评论说"我来做"即可认领。
-
-## 🤝 贡献者荣誉墙
-
-所有贡献者都会被收录进 README 的贡献者名单。贡献包括但不限于：
-- 提交代码（PR）
-- 报告 Bug（Issue）
-- 改进文档
-- 回答问题（Discussions）
-- 分享使用案例
-
-## 社区守则
-
-- 尊重原创作者 UID9622（诸葛鑫·Lucky）的数字主权
-- 讨论聚焦技术，避免政治敏感话题
-- 建设性批评，尊重他人劳动
+> 归属名: **诸葛鑫 | UID9622 · 龍芯北辰** · GPG: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
+> 分层许可: 代码 AGPL-3.0 · 思想/文档 CC BY-NC-SA 4.0
 
 ---
 
-> 龍魂系统·数据主权归于人民 🐉
+## 1. 提交规范
+
+### 1.1 分支与流程
+
+```bash
+# 1. 从主线拉分支
+git checkout -b feat/<功能名>
+
+# 2. 小步提交（一次一个逻辑变更）
+git add <文件>
+git commit -m "<类型>: <一句话说明>"
+
+# 3. 推送到自己的分支并提 PR
+git push origin feat/<功能名>
+```
+
+### 1.2 Commit Message 规范
+
+```
+<类型>: <摘要>（≤72 字符）
+
+<可选>详细说明 / 影响面 / 验证方式
+```
+
+| 类型 | 用途 |
+|:---|:---|
+| `feat` | 新功能 |
+| `fix` | 修复 |
+| `docs` | 文档 |
+| `refactor` | 重构（不改变行为） |
+| `perf` | 性能 |
+| `test` | 测试 |
+| `chore` | 构建/工具链 |
+| `license` | 许可证/归属名变更 |
+
+### 1.3 不变量（提交前必查）
+
+- 无硬编码密钥 / 令牌（一律走 `lh_vault` / 环境变量）
+- 无 `~/Downloads`、`/tmp` 等临时路径产出
+- 新增/修改文件带文件头（DNA · 创建者 · 归属名 · 协议）
+- 关键阈值注明出处（哪条协议 / 哪个公式）
+
+---
+
+## 2. GPG 签名要求（🔒 硬性）
+
+所有**核心文件**与**对外发布物**必须 GPG 分离签名，未签名 → 评审否决（GATE-11）。
+
+```bash
+# 签名
+python3 bin/lh_gpg_sign.py sign <文件或目录>
+# 或
+gpg --batch --yes --armor --detach-sign -u A2D0092CEE2E5BA87035600924C3704A8CC26D5F <文件>
+
+# 全量补签
+python3 bin/lh_gpg_sign.py sign .
+
+# 发布前全量验证
+python3 bin/lh_gpg_sign.py scan .
+# 或
+gpg --verify <文件>.asc <文件>
+```
+
+签名产出规则:
+- 新建/修改 `.md` `.py` `.sh` 等核心文件 → 自动补签
+- `.asc` 与源文件同目录，不可分离
+- 发布产物（whl / tar.gz / 文档）随 GitHub Release 一并上传 `.asc`
+
+---
+
+## 3. 三色审计流程（交付前必过）
+
+| 色 | 含义 | 放行条件 |
+|:---|:---|:---|
+| 🟢 | 全检查点通过 | 已实测（没跑过的代码不得标"已验证"） |
+| 🟡 | 推演/待核 | 写明"待核什么 + 验证路径"，48h 内复查 |
+| 🔴 | 红线/安全风险 | 立即停止 + 锁定 + 追溯 |
+
+审计链路（十道闸口）:
+
+```
+GATE-01 身份闸 → 02 意图闸 → 03 语义闸 → 04 数字根闸 → 05 伦理闸
+→ 06 数据闸 → 07 协议闸 → 08 人格闸 → 09 DNA闸 → 10 归档闸
+→ GATE-11 GPG 签名闸（发布物）
+```
+
+每次交付附三色标记:
+```json
+{ "executor": "...", "trigger_time": "...", "audit_mark": "🟢",
+  "risk_score": 0, "gpg_signature": "A2D0092...", "dna": "#龍芯..." }
+```
+
+---
+
+## 4. COMMAND_INDEX 登记（新增命令/服务必做）
+
+新增任何子命令、服务、端口后，必须更新 `.codebuddy/COMMAND_INDEX.md`:
+
+| 登记位 | 内容 |
+|:---|:---|
+| 「🆕 最近更新」区 | 一行：方向 / 变更 / 结果（含日期） |
+| 「三秒速查」命令表 | `lh <cmd>` 用法 + 引擎路径 + 说明 |
+| 端口矩阵（若占端口） | 端口 / 服务名 / 绑定 / 状态 |
+
+样例（三秒速查区）:
+
+```markdown
+| 🆕 **流场子命令** 🌀 | `lh flow "<文本>" [--json]` | 数字根/五行/八卦→Node JSON · 引擎 `08_BIN/lh_flow.py` · 新增2026-09-01 |
+```
+
+登记完重签 COMMAND_INDEX:
+```bash
+python3 bin/lh_gpg_sign.py sign --force .codebuddy/COMMAND_INDEX.md
+```
+
+---
+
+## 5. 测试要求
+
+```bash
+# 冒烟（新增命令后必跑）
+python3 -m longhun_cli.cli version
+python3 -m longhun_cli.cli flow "龙魂对外首发" --json
+python3 -m longhun_cli.cli bazi --date 1990-01-01 --time 08:00 --json
+python3 -m longhun_cli.cli health --json
+
+# JSON 可解析断言
+lh flow "龙魂对外首发" --json | python3 -c "import sys,json; d=json.load(sys.stdin); assert d['element'] in '水火木金土'; print('OK')"
+```
+
+- 输出必须是**可解析 JSON**（机器可消费）
+- 提交时附测试通过结果（三色标记 🟢）
+
+---
+
+## 6. 新代码 CNSH 命名闸口（🔒 硬性 · 2026-09-01 焊死）
+
+> 任何新增 `.py` 文件必须使用 **CNSH 中文命名（文件名含汉字）**，否则不入库。
+
+- **强制钩子**：`.git/hooks/pre-commit` 已装——commit 时自动检查本次新增 .py，违规即拦截（exit 1）
+- **存量豁免**：存量英文命名脚本（约 3.5 万）不强制改造，只做 A-BOM 备案（`--abom`）
+- **显式绕行**：`git commit --no-verify` 可绕过，但须 P05 审计留档
+
+```bash
+# 闸口命令
+python3 08_BIN/lh_cnsh_gate.py --pre-commit   # 入库瞬间硬拦截（git diff --cached 新增文件）
+python3 08_BIN/lh_cnsh_gate.py --repo         # 全仓库巡检（软报告）
+python3 08_BIN/lh_cnsh_gate.py --abom         # A-BOM 备案（存量命名分布统计）
+python3 08_BIN/lh_cnsh_gate.py --self-check   # 自检
+```
+
+**配套**：算法/配置常量统一从 `packaging/longhun_cli/longhun_cli/constants.py` 引用（捆绑规则#4）。
+
+---
+
+## 7. 许可与署名
+
+- 代码（.py/.sh/构建产物）: **AGPL-3.0-or-later**
+- 思想/文档（.md/协议/白皮书）: **CC BY-NC-SA 4.0**
+- 全部产出强制实名归属: `诸葛鑫 | UID9622 · 龍芯北辰`
+- 删 DNA 追溯码伪称原创 = 违约（耻辱柱）
+
+---
+
+## 8. 沟通
+
+- 直接说 · 不绕 · 结论先行 · 三色标记（🟢🟡🔴）
+- 不知道说不知道 · 推演标"推演" · 实测才标"已验证"
+- 决策权归 UID9622 · 有分歧摆证据
+
+*龍魂 · 文化主权 · 接口即主权声明* 🐉

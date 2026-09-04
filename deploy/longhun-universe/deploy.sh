@@ -1,7 +1,10 @@
 #!/bin/bash
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂宇宙 · 华为云鲲鹏一键部署脚本
 # UID9622 | 龍芯北辰 | 2026-07-18
 # DNA: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e
 
@@ -52,7 +55,7 @@ location /universe/ {
     # 缓存策略
     expires 7d;
     add_header Cache-Control "public, immutable";
-    add_header X-Longhun-Universe "1650万路径";
+    add_header X-LongHun-Universe "1650万路径";
     add_header X-Data-Sovereignty "China-HuaweiCloud-Kunpeng";
     add_header X-UID "9622-Lucky";
 }

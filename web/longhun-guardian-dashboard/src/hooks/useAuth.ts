@@ -1,3 +1,5 @@
+// DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-cfdb9e07
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 import { trpc } from "@/providers/trpc";
 import { useCallback, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router";

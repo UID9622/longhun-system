@@ -1,7 +1,9 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ═══════════════════════════════════════════════
 # 龍魂 · WireGuard 客户端一键部署 (Mac)
 # DNA: #龍芯⚡️丙午·乙申·己酉·亥时·WG-CLIENT-SETUP-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 目标: macOS (Apple Silicon / Intel)
 # ═══════════════════════════════════════════════
 set -euo pipefail

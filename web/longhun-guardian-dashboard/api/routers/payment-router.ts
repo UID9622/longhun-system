@@ -1,6 +1,7 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 /**
  * 龍魂 e-CNY 支付回调路由
- * DNA: #龍芯⚡️2026-07-11-LONGHUN-PAYMENT-ROUTER-v1.0
+ * DNA: #龍芯⚡️丙午·乙未·丙戌·甲午·䷕贲-LONGHUN-PAYMENT-ROUTER-v1.0
  * 接收支付平台回调 → 入队 → 异步处理 → 幂等性保证
  */
 import { z } from "zod";

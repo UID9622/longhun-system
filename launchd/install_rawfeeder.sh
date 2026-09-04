@@ -1,6 +1,8 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 安装龍魂投喂器开机自启服务
-# DNA: #龍芯⚡️2026-07-01-LONGHUN-RAW-FEEDER-INSTALL
+# DNA: #龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGHUN-RAW-FEEDER-INSTALL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 set -e
 PLIST_SRC="$(cd "$(dirname "$0")" && pwd)/com.longhun.rawfeeder.plist"
 PLIST_DST="$HOME/Library/LaunchAgents/com.longhun.rawfeeder.plist"

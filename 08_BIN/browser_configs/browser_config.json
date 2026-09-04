@@ -1,0 +1,26 @@
+{
+  "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+  "viewport_width": 1920,
+  "viewport_height": 1080,
+  "timezone": "Asia/Shanghai",
+  "locale": "zh-CN",
+  "geolocation": {
+    "latitude": 31.23,
+    "longitude": 121.47
+  },
+  "devtools_enabled": true,
+  "headless": true,
+  "security": {
+    "anti_fingerprint": true,
+    "webgl_enabled": false,
+    "canvas_fingerprint": false,
+    "privacy_mode": false,
+    "block_cookies": true,
+    "block_trackers": true
+  },
+  "network": {
+    "download": 100,
+    "upload": 50,
+    "latency": 100
+  }
+}

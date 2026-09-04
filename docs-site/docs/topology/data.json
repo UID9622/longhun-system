@@ -1,0 +1,296 @@
+{
+  "updated_at": "2026-09-05T04:10:07+08:00",
+  "root_hash": "824EDDE86F104FD2",
+  "topo": "📢 对外交付图谱 v1.0",
+  "verify": {
+    "ok": true,
+    "node_total": 22,
+    "gaps": 0
+  },
+  "nodes": [
+    {
+      "name": "反馈报告_2026-09-05",
+      "group": "A反馈",
+      "type": "report",
+      "doc_type": "",
+      "title": "",
+      "status": "🟢 可用",
+      "dna": "#龍芯⚡️2026-09-05-DOCS-WEEKLY-UID9622",
+      "link": "https://uid9622.cn/docs/反馈报告_2026-09-05/",
+      "desc": "首份对外反馈报告·weekly双落·GPG已签·关联docs_feedback_weekly周报任务"
+    },
+    {
+      "name": "扩散素材包_2026-09-05",
+      "group": "B扩散",
+      "type": "asset",
+      "doc_type": "",
+      "title": "",
+      "status": "🟢 可用",
+      "dna": "#龍芯⚡️2026-09-05-REACH-OUT-PACK-UID9622",
+      "link": "",
+      "desc": "4平台扩散素材包·5文件GPG全签·lh publish outreach 可查"
+    },
+    {
+      "name": "V2EX版",
+      "group": "B扩散",
+      "type": "copy",
+      "doc_type": "",
+      "title": "",
+      "status": "🟢 可用",
+      "dna": "#龍芯⚡️2026-09-05-V2EX-REACH-OUT-UID9622",
+      "link": "https://uid9622.cn/docs/v2ex/",
+      "desc": "技术分享贴·不营销·求试用反馈"
+    },
+    {
+      "name": "开源中国版",
+      "group": "B扩散",
+      "type": "copy",
+      "doc_type": "",
+      "title": "",
+      "status": "🟢 可用",
+      "dna": "#龍芯⚡️2026-09-05-OSC-REACH-OUT-UID9622",
+      "link": "https://uid9622.cn/docs/osc/",
+      "desc": "项目介绍·开源合规·仓库导向"
+    },
+    {
+      "name": "知乎版",
+      "group": "B扩散",
+      "type": "copy",
+      "doc_type": "",
+      "title": "",
+      "status": "🟢 可用",
+      "dna": "#龍芯⚡️2026-09-05-ZHIHU-REACH-OUT-UID9622",
+      "link": "https://uid9622.cn/docs/zhihu/",
+      "desc": "问题导向·非广告声明"
+    },
+    {
+      "name": "HackerNews版",
+      "group": "B扩散",
+      "type": "copy",
+      "doc_type": "",
+      "title": "",
+      "status": "🟢 可用",
+      "dna": "#龍芯⚡️2026-09-05-HN-REACH-OUT-UID9622",
+      "link": "https://uid9622.cn/docs/hackernews/",
+      "desc": "Show HN 英文·开发者语境"
+    },
+    {
+      "name": "文档站反馈入口",
+      "group": "C入口",
+      "type": "endpoint",
+      "doc_type": "",
+      "title": "",
+      "status": "🟢 可用",
+      "dna": "#龍帳⚡️2026-09-04-DOCS-SITE-v1.0-UID9622",
+      "link": "https://uid9622.cn/docs/",
+      "desc": "每页底部反馈区块·耻辱墙提交链接+当前文档DNA+GPG指纹·模板shame_report.yml+labels=docs-feedback"
+    },
+    {
+      "name": "耻辱墙",
+      "group": "C入口",
+      "type": "endpoint",
+      "doc_type": "",
+      "title": "",
+      "status": "🟢 可用",
+      "dna": "#龍帳⚡️2026-09-04-DOCS-SITE-v1.0-UID9622",
+      "link": "https://github.com/UID9622/longhun-system/issues/new?template=shame_report.yml",
+      "desc": "反馈最终流入地·Issue模板·每周分类·DNA锚=文档站footer反馈入口"
+    },
+    {
+      "name": "对外发布稿_2026-09-05",
+      "group": "D发布",
+      "type": "article",
+      "doc_type": "",
+      "title": "",
+      "status": "🟢 可用",
+      "dna": "#龍芯⚡️2026-09-05-PRESS-RELEASE-UID9622",
+      "link": "https://uid9622.cn/docs/龙魂系统对外发布稿-2026-09-05/",
+      "desc": "正式发布稿·解决问题→方案→5分钟→导航→文化主权声明·GPG已签"
+    },
+    {
+      "name": "公告 Issue #99",
+      "group": "D发布",
+      "type": "issue",
+      "doc_type": "",
+      "title": "",
+      "status": "🟢 可用",
+      "dna": "#龍帳⚡️2026-09-04-DOCS-SITE-v1.0-UID9622",
+      "link": "https://github.com/UID9622/longhun-system/issues/99",
+      "desc": "对外文档正式上线公告·正文无DNA·语义锚=文档站上线码"
+    },
+    {
+      "name": "导读文章_2026-09-05",
+      "group": "D发布",
+      "type": "article",
+      "doc_type": "",
+      "title": "",
+      "status": "🟢 可用",
+      "dna": "#龍芯⚡️2026-09-05-GUIDE-UID9622",
+      "link": "https://uid9622.cn/docs/龙魂系统导读-2026-09-05/",
+      "desc": "龙魂系统导读·对外第一入口"
+    },
+    {
+      "name": "DEPENDENCIES",
+      "group": "D发布",
+      "type": "document",
+      "doc_type": "依赖清单",
+      "title": "龍魂系统·依赖清单总览 / Longhun System · Dependency Overview",
+      "status": "🟢 可用",
+      "dna": "#龍芯⚡️2026-09-05-依赖清单-v1.0-UID9622",
+      "link": "https://uid9622.cn/docs/DEPENDENCIES/",
+      "desc": "对外交付文档·依赖清单 · v5.2.0 · 3350字节 · GPG已签"
+    },
+    {
+      "name": "INSTALL",
+      "group": "D发布",
+      "type": "document",
+      "doc_type": "安装指南",
+      "title": "龍魂系统·安装指南 / Longhun System · Installation Guide",
+      "status": "🟢 可用",
+      "dna": "#龍芯⚡️2026-09-05-安装指南-v1.0-UID9622",
+      "link": "https://uid9622.cn/docs/INSTALL/",
+      "desc": "对外交付文档·安装指南 · v5.2.0 · 3848字节 · GPG已签"
+    },
+    {
+      "name": "USAGE",
+      "group": "D发布",
+      "type": "document",
+      "doc_type": "使用说明",
+      "title": "龍魂系统·使用指南 / Longhun System · Usage Guide",
+      "status": "🟢 可用",
+      "dna": "#龍芯⚡️2026-09-05-使用指南-v1.0-UID9622",
+      "link": "https://uid9622.cn/docs/USAGE/",
+      "desc": "对外交付文档·使用说明 · v5.2.0 · 4841字节 · GPG已签"
+    },
+    {
+      "name": "API_REFERENCE",
+      "group": "D发布",
+      "type": "document",
+      "doc_type": "API技术文档",
+      "title": "龍魂系统·API 技术文档 / Longhun System · API Reference",
+      "status": "🟢 可用",
+      "dna": "#龍芯⚡️2026-09-05-API技术文档-v1.0-UID9622",
+      "link": "https://uid9622.cn/docs/API_REFERENCE/",
+      "desc": "对外交付文档·API技术文档 · v5.2.0 · 4627字节 · GPG已签"
+    },
+    {
+      "name": "JSONRPC",
+      "group": "D发布",
+      "type": "document",
+      "doc_type": "JSON-RPC协议",
+      "title": "龍魂系统·JSON-RPC 接口文档 / Longhun System · JSON-RPC Reference",
+      "status": "🟢 可用",
+      "dna": "#龍芯⚡️2026-09-05-JSONRPC-v1.0-UID9622",
+      "link": "https://uid9622.cn/docs/JSONRPC/",
+      "desc": "对外交付文档·JSON-RPC协议 · v5.2.0 · 2863字节 · GPG已签"
+    },
+    {
+      "name": "MCP_GUIDE",
+      "group": "D发布",
+      "type": "document",
+      "doc_type": "MCP接入指南",
+      "title": "龍魂系统·MCP 接入指南 / Longhun System · MCP Integration Guide",
+      "status": "🟢 可用",
+      "dna": "#龍芯⚡️2026-09-05-MCP接入指南-v1.0-UID9622",
+      "link": "https://uid9622.cn/docs/MCP_GUIDE/",
+      "desc": "对外交付文档·MCP接入指南 · v5.2.0 · 2954字节 · GPG已签"
+    },
+    {
+      "name": "NOTION_MCP_GUIDE",
+      "group": "D发布",
+      "type": "document",
+      "doc_type": "Notion MCP指南",
+      "title": "龍魂系统·Notion MCP 接入指南 / Longhun System · Notion MCP Guide",
+      "status": "🟢 可用",
+      "dna": "#龍芯⚡️2026-09-05-Notion-MCP-指南-v1.0-UID9622",
+      "link": "https://uid9622.cn/docs/NOTION_MCP_GUIDE/",
+      "desc": "对外交付文档·Notion MCP指南 · v5.2.0 · 3382字节 · GPG已签"
+    },
+    {
+      "name": "TROUBLESHOOTING",
+      "group": "D发布",
+      "type": "document",
+      "doc_type": "故障排查",
+      "title": "龍魂系统·故障排查指南 / Longhun System · Troubleshooting Guide",
+      "status": "🟢 可用",
+      "dna": "#龍芯⚡️2026-09-05-故障排查-v1.0-UID9622",
+      "link": "https://uid9622.cn/docs/TROUBLESHOOTING/",
+      "desc": "对外交付文档·故障排查 · v5.2.0 · 4854字节 · GPG已签"
+    },
+    {
+      "name": "龍魂对外交付文档体系-v1.0",
+      "group": "D发布",
+      "type": "document",
+      "doc_type": "对外交付文档体系",
+      "title": "📚 龍魂系统·对外交付文档体系 v1.0（总索引）",
+      "status": "🟢 可用",
+      "dna": "#龍芯⚡️2026-09-05-对外交付文档体系-v1.0-UID9622",
+      "link": "https://uid9622.cn/docs/龍魂对外交付文档体系-v1.0/",
+      "desc": "对外交付文档·对外交付文档体系 · v5.2.0 · 2878字节 · GPG已签"
+    },
+    {
+      "name": "30分钟接入龙魂系统",
+      "group": "D发布",
+      "type": "article",
+      "doc_type": "30分钟接入指南",
+      "title": "⚡ 30 分钟接入龍魂系统（从 git clone 到第一条命令）",
+      "status": "🟢 可用",
+      "dna": "#龍芯⚡️2026-09-05-30分钟接入指南-v1.0-UID9622",
+      "link": "https://uid9622.cn/docs/30分钟接入龙魂系统/",
+      "desc": "对外交付文档·30分钟接入指南 · v5.2.0 · 3449字节 · GPG已签"
+    },
+    {
+      "name": "QUICKSTART",
+      "group": "D发布",
+      "type": "document",
+      "doc_type": "快速开始",
+      "title": "龍魂系统·快速开始 / Longhun System · Quick Start（5 分钟上手）",
+      "status": "🟢 可用",
+      "dna": "#龍芯⚡️2026-09-05-快速开始-v1.0-UID9622",
+      "link": "https://uid9622.cn/docs/QUICKSTART/",
+      "desc": "对外交付文档·快速开始 · v5.2.0 · 3409字节 · GPG已签"
+    }
+  ],
+  "edges": [
+    {
+      "source": "对外发布稿_2026-09-05",
+      "target": "扩散素材包_2026-09-05",
+      "type": "relates_to",
+      "label": "发布后扩散",
+      "src_link": "https://uid9622.cn/docs/龙魂系统对外发布稿-2026-09-05/",
+      "tgt_link": ""
+    },
+    {
+      "source": "反馈报告_2026-09-05",
+      "target": "文档站反馈入口",
+      "type": "relates_to",
+      "label": "反馈从入口来",
+      "src_link": "https://uid9622.cn/docs/反馈报告_2026-09-05/",
+      "tgt_link": "https://uid9622.cn/docs/"
+    },
+    {
+      "source": "文档站反馈入口",
+      "target": "耻辱墙",
+      "type": "relates_to",
+      "label": "反馈最终流入耻辱墙",
+      "src_link": "https://uid9622.cn/docs/",
+      "tgt_link": "https://github.com/UID9622/longhun-system/issues/new?template=shame_report.yml"
+    },
+    {
+      "source": "扩散素材包_2026-09-05",
+      "target": "公告 Issue #99",
+      "type": "relates_to",
+      "label": "素材源自公告",
+      "src_link": "",
+      "tgt_link": "https://github.com/UID9622/longhun-system/issues/99"
+    },
+    {
+      "source": "对外发布稿_2026-09-05",
+      "target": "公告 Issue #99",
+      "type": "relates_to",
+      "label": "发布稿=公告扩展",
+      "src_link": "https://uid9622.cn/docs/龙魂系统对外发布稿-2026-09-05/",
+      "tgt_link": "https://github.com/UID9622/longhun-system/issues/99"
+    }
+  ]
+}

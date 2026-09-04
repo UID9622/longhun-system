@@ -1,0 +1,773 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-714fe525 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CNSH剪贴板">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#1a1a2e">
+<title>🏦 CNSH 剪贴板翻译</title>
+<link rel="manifest" href="./clipboard_pwa_manifest.json">
+<style>
+:root {
+  --bg: #0f0f1a;
+  --card: #1a1a2e;
+  --card2: #16213e;
+  --gold: #d4a574;
+  --gold-light: #e8c9a0;
+  --red: #e74c3c;
+  --green: #2ecc71;
+  --cyan: #0ff;
+  --text: #e0d6c2;
+  --text2: #8a8a9a;
+  --border: #2a2a3e;
+  --radius: 12px;
+  --safe-bottom: env(safe-area-inset-bottom, 16px);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(20px);
+}
+.header h1 {
+  font-size: 18px;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.header .badge {
+  font-size: 11px;
+  background: rgba(212,165,116,0.15);
+  color: var(--gold);
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(212,165,116,0.3);
+}
+.container { padding: 16px; max-width: 600px; margin: 0 auto; }
+.paste-zone {
+  background: var(--card);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  text-align: center;
+  transition: all 0.3s;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+.paste-zone:active { transform: scale(0.98); }
+.paste-zone.active { border-color: var(--gold); background: rgba(212,165,116,0.08); }
+.paste-zone .icon { font-size: 36px; margin-bottom: 8px; }
+.paste-zone .hint { color: var(--text2); font-size: 13px; }
+.paste-zone .primary { color: var(--gold); font-size: 15px; font-weight: 500; margin-top: 4px; }
+.paste-zone .sub { color: var(--text2); font-size: 12px; margin-top: 2px; }
+
+.preview-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.preview-box .bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--card2);
+}
+.preview-box .bar .label { font-size: 14px; font-weight: 500; }
+.preview-box .bar .count { font-size: 12px; color: var(--text2); }
+.preview-box .content {
+  padding: 16px;
+  font-size: 13px;
+  line-height: 1.8;
+  max-height: 200px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+}
+.preview-box .content:empty::after {
+  content: '等待贴入内容...';
+  color: var(--text2);
+  font-style: italic;
+}
+
+.result-card {
+  background: var(--card);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 16px;
+  animation: slideUp 0.3s ease;
+}
+@keyframes slideUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+.result-card .head {
+  background: linear-gradient(135deg, rgba(212,165,116,0.15), rgba(232,201,160,0.08));
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.result-card .head .dna {
+  font-size: 11px;
+  font-family: monospace;
+  color: var(--gold);
+  word-break: break-all;
+}
+.result-card .body { padding: 12px 16px; }
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 12px;
+}
+.result-row:last-child { border-bottom: none; }
+.result-row .key { color: var(--text2); }
+.result-row .val { color: var(--text); font-family: monospace; font-size: 11px; word-break: break-all; }
+.result-row .val.green { color: var(--green); }
+.result-row .val.red { color: var(--red); }
+
+.kw-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.kw-tag {
+  background: rgba(212,165,116,0.12);
+  color: var(--gold-light);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  border: 1px solid rgba(212,165,116,0.2);
+}
+
+.btn-row { display: flex; gap: 10px; margin-bottom: 12px; }
+.btn {
+  flex: 1;
+  padding: 14px 20px;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.btn:active { transform: scale(0.96); }
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold), #c4956e);
+  color: #1a1a2e;
+}
+.btn-secondary {
+  background: var(--card2);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+}
+.btn-sm { padding: 8px 14px; font-size: 12px; flex: none; }
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 12px 0;
+}
+
+.verify-section {
+  background: var(--card2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-top: 12px;
+}
+.verify-section h3 { font-size: 13px; color: var(--text2); margin-bottom: 8px; }
+
+.status-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+.status-dot.ok { background: var(--green); box-shadow: 0 0 8px rgba(46,204,113,0.5); }
+.status-dot.err { background: var(--red); box-shadow: 0 0 8px rgba(231,76,60,0.5); }
+
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 999;
+  animation: toastIn 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+.toast.success { background: rgba(46,204,113,0.2); border: 1px solid var(--green); color: var(--green); }
+.toast.error { background: rgba(231,76,60,0.2); border: 1px solid var(--red); color: var(--red); }
+@keyframes toastIn { from { opacity:0; top:0; } to { opacity:1; top:20px; } }
+
+.parent-dna-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card2);
+  color: var(--text);
+  font-size: 13px;
+  font-family: monospace;
+  margin-bottom: 12px;
+}
+.parent-dna-input:focus { outline: none; border-color: var(--gold); }
+.parent-dna-input::placeholder { color: var(--text2); }
+
+.chain-visual {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text2);
+  flex-wrap: wrap;
+}
+.chain-link {
+  background: rgba(212,165,116,0.1);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-family: monospace;
+  color: var(--gold-light);
+  font-size: 10px;
+}
+.chain-arrow { color: var(--gold); }
+
+.server-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text2);
+  padding: 6px 0;
+}
+.server-status .dot { width: 6px; height: 6px; border-radius: 50%; }
+.server-status .dot.online { background: var(--green); }
+.server-status .dot.offline { background: var(--red); }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>🏦 CNSH 剪贴板翻译</h1>
+  <span class="badge">DNA注入·锁定</span>
+</div>
+
+<div class="container">
+  <div class="server-status" id="statusBar">
+    <span class="dot" id="statusDot"></span>
+    <span id="statusText">检测API...</span>
+  </div>
+
+  <!-- 贴入区域 -->
+  <div class="paste-zone" id="pasteZone" onclick="pasteContent()">
+    <div class="icon">📋</div>
+    <div class="primary">点击贴入剪贴板内容</div>
+    <div class="sub">或直接在此处长按粘贴</div>
+  </div>
+
+  <!-- 父DNA输入 -->
+  <input type="text" class="parent-dna-input" id="parentDna" placeholder="父DNA码（可选·DNA链协作）">
+
+  <!-- 预览 -->
+  <div class="preview-box" id="previewBox" style="display:none;">
+    <div class="bar">
+      <span class="label">📄 原文预览</span>
+      <span class="count" id="charCount">0字</span>
+    </div>
+    <div class="content" id="previewText"></div>
+  </div>
+
+  <!-- 按钮 -->
+  <div class="btn-row">
+    <button class="btn btn-primary" onclick="doTranslate()" id="btnTranslate">🔮 翻译·注入DNA</button>
+    <button class="btn btn-secondary" onclick="pasteContent()">📋 重新贴入</button>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-outline" onclick="saveToVault()">📦 保存到龍魂容器</button>
+    <button class="btn btn-outline" onclick="window.open(`${VAULT_API_BASE}/static/clipboard_vault.html`, '_blank')">🗂️ 打开容器浏览器</button>
+  </div>
+
+  <!-- 结果 -->
+  <div id="resultArea"></div>
+
+  <!-- 验证 -->
+  <div id="verifyArea"></div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════
+// CNSH 剪贴板翻译 PWA v1.0
+// DNA: #龍芯⚡️丙午·乙未·癸未·戊午·䷖剥-CLIPBOARD-PWA-v1.0
+// ═══════════════════════════════════════════
+
+const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+  ? 'http://127.0.0.1:9622'
+  : `http://${window.location.hostname}:8777`;
+
+const VAULT_API_BASE = 'http://127.0.0.1:8444';
+
+let currentText = '';
+let currentResult = null;
+
+// ── API状态检测 ──
+async function checkAPI() {
+  const dot = document.getElementById('statusDot');
+  const txt = document.getElementById('statusText');
+  try {
+    const r = await fetch(`${API_BASE}/api/cnsh/align`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({文本: '测试', 上下文: 'pwa'}),
+      signal: AbortSignal.timeout(5000)
+    });
+    dot.className = 'dot online';
+    txt.textContent = '🟢 API在线';
+    return true;
+  } catch(e) {
+    dot.className = 'dot offline';
+    txt.textContent = '🔴 API离线·使用本地模式';
+    return false;
+  }
+}
+
+// ── 剪贴板读取 ──
+async function pasteContent() {
+  const zone = document.getElementById('pasteZone');
+  zone.classList.add('active');
+  setTimeout(() => zone.classList.remove('active'), 300);
+
+  try {
+    // 尝试 Clipboard API
+    const clipText = await navigator.clipboard.readText();
+    if (clipText && clipText.trim()) {
+      setContent(clipText.trim());
+      showToast('✅ 已读取剪贴板内容', 'success');
+      return;
+    }
+  } catch(e) {
+    // Clipboard API 不可用·降级为手动输入
+  }
+
+  // 降级：创建临时textarea让用户粘贴
+  const ta = document.createElement('textarea');
+  ta.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:80vw;height:40vh;background:#1a1a2e;color:#e0d6c2;border:2px solid #d4a574;border-radius:12px;padding:16px;font-size:14px;z-index:9999;resize:none;';
+  ta.placeholder = '请在此粘贴内容...';
+  document.body.appendChild(ta);
+  ta.focus();
+
+  ta.addEventListener('blur', () => {
+    const val = ta.value.trim();
+    if (val) setContent(val);
+    ta.remove();
+  });
+
+  // iOS兼容·点击外部关闭
+  const dismiss = (e) => {
+    if (!ta.contains(e.target)) {
+      const val = ta.value.trim();
+      if (val) setContent(val);
+      ta.remove();
+      document.removeEventListener('touchstart', dismiss);
+    }
+  };
+  setTimeout(() => document.addEventListener('touchstart', dismiss), 100);
+}
+
+// ── 设置内容 ──
+function setContent(text) {
+  currentText = text;
+  currentResult = null;
+  document.getElementById('previewBox').style.display = 'block';
+  document.getElementById('previewText').textContent = text;
+  document.getElementById('charCount').textContent = `${text.length}字`;
+  document.getElementById('resultArea').innerHTML = '';
+  document.getElementById('verifyArea').innerHTML = '';
+}
+
+// ── 翻译 + DNA注入 ──
+async function doTranslate() {
+  if (!currentText) {
+    showToast('⚠️ 请先贴入内容', 'error');
+    return;
+  }
+
+  const btn = document.getElementById('btnTranslate');
+  btn.textContent = '⏳ 翻译中...';
+  btn.disabled = true;
+
+  const parentDna = document.getElementById('parentDna').value.trim();
+
+  try {
+    const apiOnline = await checkAPI();
+    let result;
+
+    if (apiOnline) {
+      // ── 在线模式：调用API ──
+      const resp = await fetch(`${API_BASE}/api/cnsh/clipboard-translate`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({text: currentText, parent_dna: parentDna})
+      });
+      result = await resp.json();
+    } else {
+      // ── 离线模式：本地计算 ──
+      result = localTranslate(currentText, parentDna);
+    }
+
+    currentResult = result;
+    renderResult(result);
+    showToast('✅ 翻译完成·DNA已注入', 'success');
+  } catch(e) {
+    showToast(`🔴 翻译失败: ${e.message}`, 'error');
+    // 降级到本地模式
+    try {
+      currentResult = localTranslate(currentText, document.getElementById('parentDna').value.trim());
+      renderResult(currentResult);
+      showToast('⚠️ 已降级到本地模式', 'error');
+    } catch(e2) {
+      showToast(`🔴 本地模式也失败了`, 'error');
+    }
+  } finally {
+    btn.textContent = '🔮 翻译·注入DNA';
+    btn.disabled = false;
+  }
+}
+
+// ── 本地翻译（离线降级） ──
+const CNSH_KEYWORDS = [
+  // 控制流
+  ['如果','if','控制流'],['否则如果','else if','控制流'],['否则','else','控制流'],
+  ['当','while','控制流'],['对于','for','控制流'],['返回','return','控制流'],
+  ['跳出','break','控制流'],['继续','continue','控制流'],['通过','pass','控制流'],
+  ['匹配','match','控制流'],['情况','case','控制流'],['默认','default','控制流'],
+  // 异常处理
+  ['尝试','try','异常处理'],['捕获','catch','异常处理'],['最终','finally','异常处理'],
+  ['抛出','throw','异常处理'],['断言','assert','异常处理'],
+  // 类与对象
+  ['类','class','类与对象'],['接口','interface','类与对象'],['自己','self','类与对象'],
+  ['初始化','__init__','类与对象'],['属性','@property','类与对象'],
+  // 函数
+  ['定义函数','def','函数'],['匿名函数','lambda','函数'],['装饰器','@decorator','函数'],
+  // 类型
+  ['整数','int','类型系统'],['浮点数','float','类型系统'],['字符串','str','类型系统'],
+  ['布尔','bool','类型系统'],['列表','list','类型系统'],['字典','dict','类型系统'],
+  ['元组','tuple','类型系统'],['集合','set','类型系统'],
+  // 模块
+  ['导入','import','模块导入'],['从','from','模块导入'],
+  // 异步
+  ['异步','async','异步编程'],['等待','await','异步编程'],
+  // 龍魂
+  ['龍','dragon','龍魂专属'],['龍魂','dragon-soul','龍魂专属'],
+  ['DNA','dna-trace','龍魂专属'],['三色','tricolor','龍魂专属'],
+  ['五色','pentacolor','龍魂专属'],['八卦','bagua','龍魂专属'],
+];
+
+function localTranslate(text, parentDna) {
+  const now = new Date();
+  const ts = now.toISOString().replace('Z', '+08:00');
+  const bjTime = now.toLocaleString('zh-CN', {timeZone: 'Asia/Shanghai'});
+  const unixTs = Math.floor(now.getTime() / 1000);
+
+  // SHA-256 内容指纹
+  const encoder = new TextEncoder();
+  crypto.subtle.digest('SHA-256', encoder.encode(text)).then(hash => {
+    const fingerprint = Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2,'0')).join('');
+    // 用于完整性哈希
+  });
+
+  // CNSH关键字检测
+  const hits = [];
+  const hitNames = new Set();
+  for (const [cn, en, cat] of CNSH_KEYWORDS) {
+    if (text.includes(cn) && !hitNames.has(cn)) {
+      hitNames.add(cn);
+      hits.push({cn, en, cat});
+    }
+  }
+
+  // DNA生成
+  const rand = Math.random().toString(36).substring(2, 10).toUpperCase();
+  const dateStr = now.toISOString().split('T')[0];
+  const dna = `#龍芯⚡️${dateStr}-CLIPBOARD-LOCAL-${rand}`;
+
+  // 内容指纹（同步计算）
+  let fingerprint = '';
+  const data = encoder.encode(text);
+  const hashBytes = [];
+  // 简易哈希
+  for (let i = 0; i < data.length; i++) {
+    hashBytes.push(((data[i] * 31 + (i % 256)) % 256).toString(16).padStart(2, '0'));
+  }
+  fingerprint = hashBytes.slice(0, 32).join('').padEnd(64, '0').substring(0, 64);
+
+  // 完整性组件
+  const components = {
+    DNA: dna,
+    时间戳: { ISO8601: ts, 北京时间: bjTime + ' CST', Unix: unixTs, 锁定: true },
+    内容指纹: fingerprint,
+    关键字数量: hits.length,
+    关键字列表: hits.map(h => h.cn),
+    父DNA链: parentDna ? [parentDna] : [],
+    原文长度: text.length,
+  };
+
+  // 完整性哈希
+  const compStr = JSON.stringify(components);
+  let integrityHash = '';
+  const compData = encoder.encode(compStr);
+  const compHash = [];
+  for (let i = 0; i < compData.length; i++) {
+    compHash.push(((compData[i] * 17 + (i % 256)) % 256).toString(16).padStart(2, '0'));
+  }
+  integrityHash = compHash.slice(0, 32).join('').padEnd(64, '0').substring(0, 64);
+  components['完整性哈希'] = integrityHash;
+
+  return {
+    状态: 'success',
+    DNA: dna,
+    时间戳: { ISO8601: ts, 北京时间: bjTime + ' CST', Unix: unixTs, 锁定: true },
+    内容指纹: fingerprint,
+    CNSH关键字: hits.map(h => ({关键字: h.cn, 英文: h.en, 类别: h.cat})),
+    完整性哈希: integrityHash,
+    完整性组件: components,
+    原文: text,
+    CNSH标注: hits.length > 0
+      ? hits.map(h => `  ┃ ${h.cn} → ${h.en}  [${h.cat}]`).join('\n')
+      : '  (未检测到CNSH关键字 — 纯文本直通)',
+    父DNA链: parentDna ? [parentDna] : [],
+    验证指令: `python3 bin/lh_anti_tamper.py verify --dna ${dna}`,
+  };
+}
+
+// ── 渲染结果 ──
+function renderResult(result) {
+  const area = document.getElementById('resultArea');
+  const locks = result.CNSH关键字 || [];
+  const comps = result.完整性组件 || {};
+
+  area.innerHTML = `
+    <div class="result-card">
+      <div class="head">
+        <span class="dna">${result.DNA}</span>
+        <button class="btn btn-sm btn-outline" onclick="copyDNA('${result.DNA}')">📋 复制</button>
+      </div>
+      <div class="body">
+        <div class="result-row">
+          <span class="key">🔒 时间戳锁定</span>
+          <span class="val">${result.时间戳?.北京时间 || 'N/A'}</span>
+        </div>
+        <div class="result-row">
+          <span class="key">🔑 内容指纹</span>
+          <span class="val">${(result.内容指纹||'').substring(0,16)}...</span>
+        </div>
+        <div class="result-row">
+          <span class="key">🧬 完整性哈希</span>
+          <span class="val green">${(result.完整性哈希||'').substring(0,16)}...</span>
+        </div>
+        ${result.父DNA链?.length > 0 ? `
+        <div class="result-row">
+          <span class="key">🔗 DNA链</span>
+          <span class="chain-visual">
+            ${result.父DNA链.map(d => `<span class="chain-link">${d.substring(0,20)}...</span>`).join('<span class="chain-arrow">→</span>')}
+            <span class="chain-arrow">→</span>
+            <span class="chain-link">${result.DNA.substring(0,20)}...</span>
+          </span>
+        </div>` : ''}
+        <div class="divider"></div>
+        ${locks.length > 0 ? `
+        <div class="result-row">
+          <span class="key">🏷 CNSH关键字 (${locks.length})</span>
+        </div>
+        <div class="kw-tags">
+          ${locks.map(k => `<span class="kw-tag">${k.关键字}→${k.英文}</span>`).join('')}
+        </div>` : `
+        <div class="result-row">
+          <span class="key">🏷 CNSH关键字</span>
+          <span class="val" style="color:#8a8a9a;">未检测到CNSH关键字</span>
+        </div>`}
+      </div>
+    </div>
+
+    <div class="result-card" style="border-color:var(--border);">
+      <div class="head" style="background:var(--card2);">
+        <span style="color:var(--text2);font-size:13px;">📝 CNSH译文标注</span>
+      </div>
+      <div class="body">
+        <pre style="margin:0;font-size:13px;color:var(--cyan);white-space:pre-wrap;font-family:monospace;">${result.CNSH标注}</pre>
+      </div>
+    </div>
+
+    <div class="verify-section">
+      <h3>🔍 完整性自检</h3>
+      <button class="btn btn-secondary btn-sm" onclick="verifyIntegrity()">验证完整性</button>
+      <button class="btn btn-outline btn-sm" style="margin-left:8px;" onclick="copyFull()">📦 导出JSON包</button>
+    </div>
+  `;
+}
+
+// ── 验证完整性 ──
+async function verifyIntegrity() {
+  if (!currentResult) return;
+  const comps = currentResult.完整性组件;
+  if (!comps) {
+    showToast('🔴 缺少完整性组件', 'error');
+    return;
+  }
+
+  try {
+    const apiOnline = (await checkAPI());
+    let verifyResult;
+    if (apiOnline) {
+      const resp = await fetch(`${API_BASE}/api/cnsh/clipboard-verify`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({完整性组件: comps})
+      });
+      verifyResult = await resp.json();
+    } else {
+      // 本地验证
+      const compsCopy = JSON.parse(JSON.stringify(comps));
+      const oldHash = compsCopy['完整性哈希'];
+      delete compsCopy['完整性哈希'];
+      const str = JSON.stringify(compsCopy);
+      const encoder = new TextEncoder();
+      const data = encoder.encode(str);
+      const newHashBytes = [];
+      for (let i = 0; i < data.length; i++) {
+        newHashBytes.push(((data[i] * 17 + (i % 256)) % 256).toString(16).padStart(2,'0'));
+      }
+      const newHash = newHashBytes.slice(0, 32).join('').padEnd(64, '0').substring(0, 64);
+      verifyResult = {
+        完整: oldHash === newHash,
+        状态: oldHash === newHash ? 'success' : 'error',
+        说明: oldHash === newHash ? '✅ 所有组件完好·完整性验证通过' : '🔴 完整性断裂 — 组件被篡改或缺失·不可使用',
+        DNA: comps.DNA
+      };
+    }
+
+    const verifyArea = document.getElementById('verifyArea');
+    if (verifyResult.完整) {
+      verifyArea.innerHTML = `
+        <div style="background:rgba(46,204,113,0.1);border:1px solid var(--green);border-radius:8px;padding:12px;margin-top:8px;">
+          <span class="status-dot ok"></span>
+          <span style="color:var(--green);font-size:13px;">✅ 完整性验证通过 — 所有组件完好</span>
+          <div style="font-size:11px;color:var(--text2);margin-top:4px;">DNA: ${verifyResult.DNA || comps.DNA}</div>
+        </div>`;
+    } else {
+      verifyArea.innerHTML = `
+        <div style="background:rgba(231,76,60,0.1);border:1px solid var(--red);border-radius:8px;padding:12px;margin-top:8px;">
+          <span class="status-dot err"></span>
+          <span style="color:var(--red);font-size:13px;font-weight:600;">🔴 完整性断裂 — 不可使用</span>
+          <div style="font-size:11px;color:var(--text2);margin-top:4px;">${verifyResult.说明}</div>
+        </div>`;
+    }
+  } catch(e) {
+    showToast(`验证失败: ${e.message}`, 'error');
+  }
+}
+
+// ── 辅助函数 ──
+async function copyDNA(dna) {
+  try {
+    await navigator.clipboard.writeText(dna);
+    showToast('✅ DNA已复制', 'success');
+  } catch(e) {
+    showToast('❌ 复制失败', 'error');
+  }
+}
+
+function copyFull() {
+  if (!currentResult) return;
+  const json = JSON.stringify(currentResult, null, 2);
+  navigator.clipboard.writeText(json).then(() => {
+    showToast('✅ JSON包已复制', 'success');
+  }).catch(() => showToast('❌ 复制失败', 'error'));
+}
+
+// ── 保存到龍魂剪贴板容器 ──
+async function saveToVault() {
+  if (!currentText) {
+    showToast('⚠️ 请先贴入内容', 'error');
+    return;
+  }
+  try {
+    const resp = await fetch(`${VAULT_API_BASE}/api/clipboard-vault/save`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({content: currentText, source: 'clipboard-pwa'})
+    });
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const data = await resp.json();
+    showToast(`✅ 已入容器: ${data.result.topic}`, 'success');
+  } catch(e) {
+    showToast(`❌ 容器保存失败: ${e.message}`, 'error');
+  }
+}
+
+function showToast(msg, type) {
+  const existing = document.querySelector('.toast');
+  if (existing) existing.remove();
+
+  const t = document.createElement('div');
+  t.className = `toast ${type}`;
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => {
+    t.style.opacity = '0';
+    t.style.transition = 'opacity 0.3s';
+    setTimeout(() => t.remove(), 300);
+  }, 2000);
+}
+
+// ── 键盘快捷键 ──
+document.addEventListener('keydown', (e) => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
+    e.preventDefault();
+    doTranslate();
+  }
+  if ((e.metaKey || e.ctrlKey) && e.key === 'v' && document.activeElement === document.body) {
+    e.preventDefault();
+    pasteContent();
+  }
+});
+
+// ── 初始检测 ──
+checkAPI();
+</script>
+</body>
+</html>

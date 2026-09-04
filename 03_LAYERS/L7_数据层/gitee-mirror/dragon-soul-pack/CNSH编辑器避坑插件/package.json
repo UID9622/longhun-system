@@ -1,0 +1,96 @@
+{
+  "name": "cnsh-editor-vscode",
+  "displayName": "CNSH 编辑器避坑插件",
+  "description": "为 CNSH 中文编程语言提供语法高亮、关键字补全、变量审计和避坑提示",
+  "version": "1.0.0",
+  "publisher": "uid9622",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/uid9622/dragon-soul-pack"
+  },
+  "license": "MulanPSL-2.0",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters",
+    "Snippets"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "cnsh",
+        "aliases": [
+          "CNSH",
+          "cnsh"
+        ],
+        "extensions": [
+          ".cnsh"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "cnsh",
+        "scopeName": "source.cnsh",
+        "path": "./syntaxes/cnsh.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "cnsh.auditVariables",
+        "title": "CNSH: 审计变量命名",
+        "category": "CNSH"
+      },
+      {
+        "command": "cnsh.compileToC",
+        "title": "CNSH: 编译为 C",
+        "category": "CNSH"
+      },
+      {
+        "command": "cnsh.showDNA",
+        "title": "CNSH: 显示当前文件 DNA",
+        "category": "CNSH"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "cnsh.auditVariables",
+          "when": "editorLangId == cnsh",
+          "group": "cnsh@1"
+        },
+        {
+          "command": "cnsh.compileToC",
+          "when": "editorLangId == cnsh",
+          "group": "cnsh@2"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "CNSH 编辑器配置",
+      "properties": {
+        "cnsh.enableAuditOnSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "保存 .cnsh 文件时自动审计变量命名"
+        },
+        "cnsh.compilerPath": {
+          "type": "string",
+          "default": "",
+          "description": "CNSH 编译器路径（留空则使用内置路径）"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "test": "node test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.75.0",
+    "vscode-test": "^1.4.1"
+  }
+}

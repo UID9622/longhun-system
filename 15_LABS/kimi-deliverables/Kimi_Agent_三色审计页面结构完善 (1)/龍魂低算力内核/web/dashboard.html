@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>🐉 龍魂生态 · 开发者面板</title>
+    <!-- DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DEV-DASHBOARD-UID9622 -->
+    <link rel="stylesheet" href="static/style.css?v=2" />
+</head>
+<body>
+<div class="page-container wide">
+    <div style="width:100%;">
+        <div class="top-bar">
+            <div>
+                <span class="brand">🐉 龍魂生态 · 开发者面板</span>
+                <span class="sub">月度主权 · 1元/月起步 · 上不封顶</span>
+            </div>
+            <a href="register" style="font-size:13px;">← 注册新开发者</a>
+        </div>
+
+        <div class="dash-grid">
+            <!-- 左列：查询 + 概览 -->
+            <div style="display:flex;flex-direction:column;gap:20px;">
+                <div class="panel">
+                    <h3>🔍 查询开发者</h3>
+                    <div class="form-group" style="margin-bottom:10px;">
+                        <input type="text" id="dnaInput" placeholder="粘贴开发者DNA（#龍芯⚡️...）" />
+                    </div>
+                    <button class="btn" id="queryBtn" onclick="queryDeveloper()">查询 / 载入</button>
+                    <div class="loading" id="loading" style="font-size:12px;">⏳ 查询中...</div>
+                </div>
+
+                <div class="panel" id="devPanel" style="display:none;">
+                    <h3>🧬 开发者概览</h3>
+                    <div class="stat-row"><span class="k">昵称</span><span class="v" id="dNick">-</span></div>
+                    <div class="stat-row"><span class="k">状态</span><span class="v" id="dStatus">-</span></div>
+                    <div class="stat-row"><span class="k">注册时间</span><span class="v" id="dReg">-</span></div>
+                    <div class="stat-row"><span class="k">贡献分</span><span class="v" id="dScore">-</span></div>
+                    <div class="stat-row"><span class="k">DNA 注入数</span><span class="v" id="dCount">-</span></div>
+                    <div class="stat-row"><span class="k">GPG 公钥</span><span class="v" id="dGpg">-</span></div>
+                    <div style="margin-top:12px;">
+                        <span class="k" style="font-size:12px;color:#888;">DNA</span>
+                        <div class="dna" id="dDna" style="font-family:monospace;color:#d4af37;font-size:12px;word-break:break-all;"></div>
+                        <button class="copy-btn" style="margin-top:6px;" onclick="copyDna()">📋 复制</button>
+                    </div>
+                </div>
+
+                <div class="fee-card" id="feePanel" style="display:none;">
+                    <div class="fee-header">
+                        <span>🧬 月度主权确认金</span>
+                        <span class="fee-badge" id="feeBadge">-</span>
+                    </div>
+                    <div class="fee-body">
+                        <div class="fee-info"><span>本月状态</span><span id="feeMsg">-</span></div>
+                        <div class="fee-info"><span>累计缴纳</span><span id="feeTotal">¥0.00</span></div>
+                        <div class="fee-info"><span>计费起始月</span><span id="feeStart">-</span></div>
+                        <button class="btn-fee" id="payNowBtn" onclick="payMonthly()">💳 支付月费 (1元起)</button>
+                        <div class="fee-history" id="feeHistory"><div class="empty">暂无缴费历史</div></div>
+                        <div class="fee-note">* 每月1元起步，上不封顶。连续3个月未缴将冻结开发者DNA，代码只读。多缴入公共池，公开透明。</div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3>🏆 贡献榜 Top 50</h3>
+                    <div id="leaderboard"></div>
+                </div>
+
+                <div class="panel">
+                    <h3>📤 数据导出（管理员）</h3>
+                    <div class="form-group" style="margin-bottom:8px;">
+                        <input type="password" id="adminToken" placeholder="管理员 Token（用于导出历史账单）" style="width:100%;" />
+                    </div>
+                    <div style="display:flex;flex-wrap:wrap;gap:6px;">
+                        <button class="btn-export" onclick="exportData('fee-records')">💳 缴费记录</button>
+                        <button class="btn-export" onclick="exportData('contributions')">🏅 贡献记录</button>
+                        <button class="btn-export" onclick="exportData('code-dna')">🧬 代码DNA</button>
+                        <button class="btn-export" onclick="exportData('developers')">👥 开发者名册</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右列：代码DNA + 贡献记录 -->
+            <div style="display:flex;flex-direction:column;gap:20px;">
+                <div class="panel">
+                    <h3>📜 我的代码 DNA（<span id="codeCount">0</span>）</h3>
+                    <div id="codeList"><div class="empty">暂无数据 · 请先查询开发者</div></div>
+                </div>
+
+                <div class="panel">
+                    <h3>📈 贡献记录（<span id="contribCount">0</span>）</h3>
+                    <div id="contribList"><div class="empty">暂无数据 · 请先查询开发者</div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            🔐 数据主权归你 · 贡献分随注入累积 · 龍魂生态 🐉<br />
+            <span id="footerDna"></span>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentDna = '';
+
+    // URL 参数预填（注册成功跳转时自动载入）
+    (function () {
+        const params = new URLSearchParams(window.location.search);
+        const dna = params.get('dna');
+        if (dna) {
+            document.getElementById('dnaInput').value = dna;
+            queryDeveloper();
+        }
+        loadLeaderboard();
+    })();
+
+    async function queryDeveloper() {
+        const dna = document.getElementById('dnaInput').value.trim();
+        if (!dna) { alert('请先粘贴开发者DNA'); return; }
+        currentDna = dna;
+        const loading = document.getElementById('loading');
+        loading.classList.add('show');
+        try {
+            const resp = await fetch(`api/developer/${encodeURIComponent(dna)}`);
+            const data = await resp.json();
+            if (!data.success) { alert(`❌ ${data.detail || '查询失败'}`); return; }
+            renderDeveloper(data.developer);
+            loadCodes(dna);
+            loadContribs(dna);
+            loadFeeStatus(dna);
+        } catch (e) {
+            alert(`❌ 网络错误: ${e.message}`);
+        } finally {
+            loading.classList.remove('show');
+        }
+    }
+
+    function renderDeveloper(dev) {
+        document.getElementById('devPanel').style.display = 'block';
+        document.getElementById('dNick').textContent = dev.nickname;
+        document.getElementById('dStatus').textContent = dev.status === 'active' ? '🟢 已激活' : (dev.paid ? '🟢 已激活' : '🟡 待支付');
+        document.getElementById('dReg').textContent = (dev.registered_at || '').replace('T', ' ').slice(0, 19);
+        document.getElementById('dScore').textContent = dev.contribution_score;
+        document.getElementById('dCount').textContent = dev.dna_count;
+        document.getElementById('dGpg').textContent = dev.gpg_public_key ? '✅ 已绑定' : '—';
+        document.getElementById('dDna').textContent = dev.dna;
+        document.getElementById('footerDna').textContent = dev.dna;
+    }
+
+    // ========== 月度主权确认金 ==========
+    async function loadFeeStatus(dna) {
+        const panel = document.getElementById('feePanel');
+        try {
+            const resp = await fetch(`api/developer/fee-status?dna=${encodeURIComponent(dna)}`);
+            const data = await resp.json();
+            panel.style.display = 'block';
+
+            const badge = document.getElementById('feeBadge');
+            const badgeMap = { active: '🟢 活跃', grace: '🟡 宽限', frozen: '🔴 冻结', invalid: '❓ 无效' };
+            badge.textContent = badgeMap[data.status] || '❓ 未知';
+            badge.className = 'fee-badge ' + data.status;
+            document.getElementById('feeMsg').textContent = data.message || '';
+
+            const dev = await (await fetch(`api/developer/${encodeURIComponent(dna)}`)).json();
+            document.getElementById('feeTotal').textContent = `¥${(dev.developer.total_contributed || 0).toFixed(2)}`;
+            document.getElementById('feeStart').textContent = dev.developer.fee_start_month || '-';
+
+            const payBtn = document.getElementById('payNowBtn');
+            if (data.status === 'frozen') {
+                payBtn.textContent = '🔓 补缴恢复';
+                payBtn.disabled = false;
+            } else if (data.status === 'active') {
+                payBtn.textContent = '💳 续缴月费 (1元起)';
+                payBtn.disabled = false;
+            } else {
+                payBtn.textContent = '💳 缴纳欠费 (1元起)';
+                payBtn.disabled = false;
+            }
+
+            // 历史账单
+            const hist = await (await fetch(`api/developer/fee-history?dna=${encodeURIComponent(dna)}&limit=12`)).json();
+            const histEl = document.getElementById('feeHistory');
+            if (!hist.records || !hist.records.length) {
+                histEl.innerHTML = '<div class="empty">暂无缴费历史</div>';
+            } else {
+                histEl.innerHTML = hist.records.map(r => `
+                    <div class="fee-history-row">
+                        <span>${r.year_month}</span>
+                        <span class="${r.status === 'paid' ? 'paid' : 'pending'}">${r.status === 'paid' ? '✅ ¥' + r.amount.toFixed(2) : '🟡 待缴 ¥' + r.amount.toFixed(2)}</span>
+                    </div>
+                `).join('');
+            }
+        } catch (e) {
+            panel.style.display = 'block';
+            document.getElementById('feeMsg').textContent = '加载失败';
+        }
+    }
+
+    async function payMonthly() {
+        if (!currentDna) return;
+        const payBtn = document.getElementById('payNowBtn');
+        payBtn.disabled = true;
+        try {
+            // 1. 生成当月账单
+            const billResp = await fetch('api/developer/bill', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ developer_dna: currentDna, amount: 1.0, channel: 'sandbox' })
+            });
+            const bill = await billResp.json();
+            if (bill.error) { alert(`❌ ${bill.error}`); return; }
+            if (bill.status === 'paid') { alert('✅ 本月已缴费'); return; }
+
+            // 2. 确认支付（沙箱闭环）
+            const ok = confirm(`确认支付 ${bill.amount} 元月费？\n\n${bill.slogan || ''}`);
+            if (!ok) return;
+
+            const payResp = await fetch('api/developer/pay-monthly', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ developer_dna: currentDna, order_id: bill.order_id, channel: 'sandbox' })
+            });
+            const result = await payResp.json();
+            alert(result.success ? `✅ ${result.message}` : `❌ ${result.error || result.detail || '支付失败'}`);
+            queryDeveloper();
+        } catch (e) {
+            alert(`❌ 网络错误: ${e.message}`);
+        } finally {
+            payBtn.disabled = false;
+        }
+    }
+
+    async function exportData(kind) {
+        const token = document.getElementById('adminToken').value.trim();
+        if (!token) { alert('请输入管理员 Token'); return; }
+        const fmt = confirm('导出为 CSV（Excel可打开）？\n点"取消"则导出 JSON。') ? 'csv' : 'json';
+        const resp = await fetch(`api/export/${kind}?token=${encodeURIComponent(token)}&format=${fmt}`);
+        const data = await resp.json();
+        if (!data.success) { alert(`❌ ${data.error || '导出失败'}`); return; }
+        const blob = new Blob([data.content], { type: fmt === 'csv' ? 'text/csv;charset=utf-8' : 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `${kind}-${new Date().toISOString().slice(0, 10)}.${fmt}`;
+        a.click();
+        URL.revokeObjectURL(a.href);
+    }
+
+    async function loadCodes(dna) {
+        const resp = await fetch(`api/code/search?developer_dna=${encodeURIComponent(dna)}`);
+        const data = await resp.json();
+        document.getElementById('codeCount').textContent = data.count || 0;
+        const list = document.getElementById('codeList');
+        if (!data.count) { list.innerHTML = '<div class="empty">暂无代码DNA · 用 CLI 注入即可累积</div>'; return; }
+        list.innerHTML = data.codes.map(c => `
+            <div class="list-item">
+                <div class="t">🧬 ${c.dna}</div>
+                <div class="d">📄 ${c.file_path} · ${c.language} · ${c.line_count}行</div>
+                <div class="d">🕐 ${(c.created_at || '').replace('T', ' ').slice(0, 19)}</div>
+            </div>
+        `).join('');
+    }
+
+    async function loadContribs(dna) {
+        const resp = await fetch(`api/developer/${encodeURIComponent(dna)}/contributions`);
+        const data = await resp.json();
+        document.getElementById('contribCount').textContent = data.count || 0;
+        const list = document.getElementById('contribList');
+        if (!data.count) { list.innerHTML = '<div class="empty">暂无贡献记录</div>'; return; }
+        const typeName = { code: '💻 代码', registration: '🏁 注册', protocol: '📜 协议', doc: '📄 文档', community: '🤝 社区' };
+        list.innerHTML = data.contributions.map(c => `
+            <div class="list-item">
+                <div class="t">${typeName[c.contribution_type] || c.contribution_type} · +${c.score}分</div>
+                <div class="d">${c.content || ''}</div>
+                <div class="d">🕐 ${(c.created_at || '').replace('T', ' ').slice(0, 19)}</div>
+            </div>
+        `).join('');
+    }
+
+    async function loadLeaderboard() {
+        try {
+            const resp = await fetch('api/leaderboard');
+            const data = await resp.json();
+            const el = document.getElementById('leaderboard');
+            if (!data.count) { el.innerHTML = '<div class="empty">暂无开发者</div>'; return; }
+            el.innerHTML = data.developers.map((d, i) => `
+                <div class="list-item" style="cursor:pointer;" onclick="document.getElementById('dnaInput').value='${d.dna}';queryDeveloper();">
+                    <div class="t">${i + 1}. ${d.nickname}</div>
+                    <div class="d">⚡ ${d.contribution_score}分 · 🧬 ${d.dna_count} 注入</div>
+                </div>
+            `).join('');
+        } catch (e) { /* 排行榜加载失败不阻塞 */ }
+    }
+
+    function copyDna() {
+        if (!currentDna) return;
+        navigator.clipboard.writeText(currentDna).then(() => {
+            alert('✅ DNA 已复制');
+        });
+    }
+</script>
+</body>
+</html>

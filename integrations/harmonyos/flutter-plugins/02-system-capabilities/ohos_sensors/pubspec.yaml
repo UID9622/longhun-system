@@ -1,0 +1,26 @@
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+name: ohos_sensors
+description: 🐉 龍魂·鸿蒙传感器插件 - 支持加速度计、陀螺仪、磁力计等
+version: 2.0.0
+homepage: https://github.com/UID9622/longhun-system
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      openharmony:
+        pluginClass: OhosSensorPlugin
+        fileName: OhosSensorPlugin.ets

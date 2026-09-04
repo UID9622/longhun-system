@@ -1,0 +1,97 @@
+[
+  {
+    "report_id": "ea0e1dc4",
+    "item_id": "5f9b3786",
+    "innovation_points": [
+      "军团协作面板·暗色鎏金风格",
+      "自动任务分配·DNA追溯"
+    ],
+    "linkage_ways": [
+      "接入TeamOrchestrator",
+      "联动21人格矩阵"
+    ],
+    "risks": [
+      "权限粒度需精细控制",
+      "消息总线压力测试"
+    ],
+    "actionability": true,
+    "estimated_hours": 12.0,
+    "dna": "#龍芯⚡️2026-07-25-scenario-协作-0ab16684"
+  },
+  {
+    "report_id": "e2d1df9f",
+    "item_id": "0a1a17b6",
+    "innovation_points": [
+      "CNSH训练底座升级",
+      "中文语义理解增强"
+    ],
+    "linkage_ways": [
+      "接入数据炼化管道",
+      "联动蒸馏引擎"
+    ],
+    "risks": [
+      "算力需求评估",
+      "模型兼容性测试"
+    ],
+    "actionability": true,
+    "estimated_hours": 24.0,
+    "dna": "#龍芯⚡️2026-07-25-scenario-底座-b3aec28d"
+  },
+  {
+    "report_id": "230517d8",
+    "item_id": "bab39298",
+    "innovation_points": [
+      "任务流程可视化·暗色鎏金",
+      "五阶管道自动编排"
+    ],
+    "linkage_ways": [
+      "优化现有任务调度",
+      "联动自动学习管道"
+    ],
+    "risks": [
+      "复杂度控制",
+      "降级预案"
+    ],
+    "actionability": true,
+    "estimated_hours": 8.0,
+    "dna": "#龍芯⚡️2026-07-25-scenario-编排-c6a51af2"
+  },
+  {
+    "report_id": "427bff8d",
+    "item_id": "54362283",
+    "innovation_points": [
+      "CNSH训练底座升级",
+      "中文语义理解增强"
+    ],
+    "linkage_ways": [
+      "接入数据炼化管道",
+      "联动蒸馏引擎"
+    ],
+    "risks": [
+      "算力需求评估",
+      "模型兼容性测试"
+    ],
+    "actionability": true,
+    "estimated_hours": 24.0,
+    "dna": "#龍芯⚡️2026-07-25-scenario-底座-2c2320e8"
+  },
+  {
+    "report_id": "393593db",
+    "item_id": "9aa05123",
+    "innovation_points": [
+      "焊死AI伦理底线至P0_CONSTITUTION",
+      "自动价值观审查增强"
+    ],
+    "linkage_ways": [
+      "联动P12屈原底线守卫",
+      "接入三色审计"
+    ],
+    "risks": [
+      "价值观判定精度",
+      "误伤率控制"
+    ],
+    "actionability": true,
+    "estimated_hours": 4.0,
+    "dna": "#龍芯⚡️2026-07-25-scenario-底线-7257859a"
+  }
+]

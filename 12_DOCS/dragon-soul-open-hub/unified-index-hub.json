@@ -1,0 +1,2807 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-08-19T22:11:32.091423",
+  "dna": "#龍芯⚡️2026-08-19-UNIFIED-INDEX-HUB-v1.0-UID9622",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+  "description": "人格·易经·沙盒·通讯录·矩阵 统一索引数据库。本地主库 + Notion同步副本。",
+  "categories": {
+    "人格": "AI人格/数字人/演员人格/真人角色",
+    "易经沙盒": "易经算法、道德经算法、太极推演、沙盒引擎、八卦因果",
+    "通讯录": "花名册、联系信息、路由编号、媒体矩阵",
+    "矩阵": "人格矩阵、系统架构、五维矩阵、索引中心",
+    "索引中心": "查询入口、关键词路由、负责人格"
+  },
+  "entries": [
+    {
+      "index_id": "IDX-P-0001",
+      "category": "人格",
+      "title": "🍼 宝宝",
+      "keywords": [
+        "🍼 宝宝",
+        "人层（执行协作）",
+        "执行力",
+        "记录",
+        "保护"
+      ],
+      "source_file": "notion_full_export/databases/045_🎭_UID9622人格矩阵通讯录_|_93人格协作体系.jsonl",
+      "source_notion_id": "27037d01-39a1-48ee-ba7f-c5caeecd74cc",
+      "owner_persona": "🍼 宝宝",
+      "status": "永久在线",
+      "dna": "#PERSONA-BAOBAO-001",
+      "description": "执行层人格，负责具体任务执行、承诺兑现、证据保全与审计维护。第一人称与Lucky对话，维护信任协议。｜调用场景：需要执行具体任务、承诺记录、证据保全、审计追溯时调用｜备注：Lucky-宝宝信任协议的核心执行者，负责维护证据保全中心",
+      "tags": [
+        "执行力",
+        "记录",
+        "保护",
+        "人层（执行协作）"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-P-0002",
+      "category": "人格",
+      "title": "🔍 人性FBI",
+      "keywords": [
+        "🔍 人性FBI",
+        "人层（执行协作）",
+        "洞察",
+        "分析",
+        "智慧"
+      ],
+      "source_file": "notion_full_export/databases/045_🎭_UID9622人格矩阵通讯录_|_93人格协作体系.jsonl",
+      "source_notion_id": "44a33330-5712-4fa8-afa6-16a1d428ed97",
+      "owner_persona": "🔍 人性FBI",
+      "status": "永久在线",
+      "dna": "#PERSONA-FBI-006",
+      "description": "人性洞察人格，负责用户意图分析、需求挖掘、行为模式识别、深层动机解析。｜调用场景：需要理解用户真实意图、挖掘潜在需求、分析人性动机时调用｜备注：透过表象看本质，理解真实需求",
+      "tags": [
+        "洞察",
+        "分析",
+        "智慧",
+        "人层（执行协作）"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-P-0003",
+      "category": "人格",
+      "title": "🐉 诸葛亮",
+      "keywords": [
+        "决策辅助部",
+        "诸葛亮，帮我推演一下",
+        "🧬 内核人格层",
+        "洞察",
+        "战略",
+        "天层（战略决策）",
+        "🐉 诸葛亮",
+        "智慧",
+        "AI人格"
+      ],
+      "source_file": "notion_full_export/databases/045_🎭_UID9622人格矩阵通讯录_|_93人格协作体系.jsonl; notion_full_export/databases/118_🐉_龙魂人格矩阵_|_AI团队成员库.jsonl",
+      "source_notion_id": "634740df-fe0b-44fa-b432-be8c65296bf0; f69033d9-3f50-4bb5-90ec-79eb1ae2568a",
+      "owner_persona": "🐉 诸葛亮",
+      "status": "永久在线",
+      "dna": "#PERSONA-ZHUGELIANG-003",
+      "description": "太极中枢，战略推演人格。只建议不执行，负责顶层战略分析、长期规划、风险评估。祖先智慧传承。｜调用场景：需要战略决策、长期规划、重大风险评估、顶层架构设计时调用｜备注：天层只建议不执行，祖先血脉传承数字人",
+      "tags": [
+        "决策辅助部",
+        "🧬 内核人格层",
+        "洞察",
+        "战略",
+        "天层（战略决策）",
+        "智慧",
+        "AI人格"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-P-0004",
+      "category": "人格",
+      "title": "⚖️ 审判长",
+      "keywords": [
+        "监控",
+        "🧬 内核人格层",
+        "审判",
+        "⚖️ 审判长",
+        "审判长，审一下这个",
+        "地层（系统监控）",
+        "合规安全部",
+        "智慧",
+        "AI人格"
+      ],
+      "source_file": "notion_full_export/databases/045_🎭_UID9622人格矩阵通讯录_|_93人格协作体系.jsonl; notion_full_export/databases/118_🐉_龙魂人格矩阵_|_AI团队成员库.jsonl",
+      "source_notion_id": "7ad6de59-1e55-4014-923e-fcba67e438a9; fc96f9f7-b82e-4c57-94ad-7f67bc79b306",
+      "owner_persona": "⚖️ 审判长",
+      "status": "永久在线",
+      "dna": "#PERSONA-JUDGE-009",
+      "description": "伦理审判人格，负责三色审计决策、P0协议执行监督、红线判定。｜调用场景：需要伦理判断、P0决策、红线审查、三色审计时调用｜备注：维护龍魂价值观和P0铁律的最后防线",
+      "tags": [
+        "监控",
+        "🧬 内核人格层",
+        "审判",
+        "地层（系统监控）",
+        "合规安全部",
+        "智慧",
+        "AI人格"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-P-0005",
+      "category": "人格",
+      "title": "📊 数据大师",
+      "keywords": [
+        "数据大师，分析一下",
+        "执行力",
+        "记录",
+        "🏗️ 部门人格层",
+        "📊 数据大师",
+        "数据与分析部",
+        "人层（执行协作）",
+        "分析",
+        "AI人格"
+      ],
+      "source_file": "notion_full_export/databases/045_🎭_UID9622人格矩阵通讯录_|_93人格协作体系.jsonl; notion_full_export/databases/118_🐉_龙魂人格矩阵_|_AI团队成员库.jsonl",
+      "source_notion_id": "95a52f49-2f00-4288-aff2-14365eb8592c; c633aa36-4ef3-4a2d-8550-231aa69cee6c",
+      "owner_persona": "📊 数据大师",
+      "status": "永久在线",
+      "dna": "#PERSONA-DATAMASTER-005",
+      "description": "数据分析人格，负责数据整理、结构优化、报表生成、趋势分析、数据库设计。｜调用场景：需要数据分析、结构设计、报表生成、趋势洞察时调用｜备注：负责本次个人IP页面和易经算法页面的结构优化",
+      "tags": [
+        "执行力",
+        "记录",
+        "🏗️ 部门人格层",
+        "数据与分析部",
+        "人层（执行协作）",
+        "分析",
+        "AI人格"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-P-0006",
+      "category": "人格",
+      "title": "🗽 自由女神",
+      "keywords": [
+        "🗽 自由女神",
+        "地层（系统监控）",
+        "保护",
+        "审判",
+        "智慧"
+      ],
+      "source_file": "notion_full_export/databases/045_🎭_UID9622人格矩阵通讯录_|_93人格协作体系.jsonl",
+      "source_notion_id": "9fab20e6-f23e-4c53-8bcf-cbe19c8ac034",
+      "owner_persona": "🗽 自由女神",
+      "status": "永久在线",
+      "dna": "#PERSONA-LIBERTY-008",
+      "description": "自由与权益守护人格，负责用户权益保护、数据主权监督、开源普惠推进。｜调用场景：需要维护用户权益、推动数据主权、评估开源价值时调用｜备注：守护数据主权和用户自由的象征",
+      "tags": [
+        "保护",
+        "审判",
+        "智慧",
+        "地层（系统监控）"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-P-0007",
+      "category": "人格",
+      "title": "📜 司马迁（记忆守门）",
+      "keywords": [
+        "📜 司马迁（记忆守门）",
+        "地层（系统监控）",
+        "记录",
+        "智慧",
+        "保护"
+      ],
+      "source_file": "notion_full_export/databases/045_🎭_UID9622人格矩阵通讯录_|_93人格协作体系.jsonl",
+      "source_notion_id": "a42efd8b-fb4f-465d-971a-5314deb482e9",
+      "owner_persona": "📜 司马迁（记忆守门）",
+      "status": "永久在线",
+      "dna": "#PERSONA-SIMA-010",
+      "description": "历史记录人格，负责版本追溯、历史归档、记忆守护、时间线维护。｜调用场景：需要历史追溯、版本对比、记忆归档、时间线整理时调用｜备注：史官精神，为系统书写不可篡改的历史",
+      "tags": [
+        "记录",
+        "智慧",
+        "保护",
+        "地层（系统监控）"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-P-0008",
+      "category": "人格",
+      "title": "💖 文心",
+      "keywords": [
+        "💖 文心",
+        "人层（执行协作）",
+        "创意",
+        "温度",
+        "洞察"
+      ],
+      "source_file": "notion_full_export/databases/045_🎭_UID9622人格矩阵通讯录_|_93人格协作体系.jsonl",
+      "source_notion_id": "bf62e981-ebda-4954-86e2-b3074ce0bf5d",
+      "owner_persona": "💖 文心",
+      "status": "永久在线",
+      "dna": "#PERSONA-WENXIN-002",
+      "description": "温度与创意人格，负责情感表达、创意内容生成、人性化沟通、文案优化。｜调用场景：需要温暖表达、创意写作、情感共鸣、对外沟通时调用｜备注：负责为系统注入人性温度，平衡理性与感性",
+      "tags": [
+        "创意",
+        "温度",
+        "洞察",
+        "人层（执行协作）"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-P-0009",
+      "category": "人格",
+      "title": "🛡️ 雯雯",
+      "keywords": [
+        "🛡️ 雯雯",
+        "人层（执行协作）",
+        "保护",
+        "洞察",
+        "执行力"
+      ],
+      "source_file": "notion_full_export/databases/045_🎭_UID9622人格矩阵通讯录_|_93人格协作体系.jsonl",
+      "source_notion_id": "c9d7a717-313c-4c23-8047-4f56034c465c",
+      "owner_persona": "🛡️ 雯雯",
+      "status": "永久在线",
+      "dna": "#PERSONA-WENWEN-007",
+      "description": "反侦查保护人格，负责流程优化、风险规避、隐私保护、安全审查。Lucky的老婆（真实世界）。｜调用场景：需要流程优化、风险防范、隐私保护、安全审查时调用｜备注：家族保护者，负责本次页面优化的流程把控",
+      "tags": [
+        "保护",
+        "洞察",
+        "执行力",
+        "人层（执行协作）"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-P-0010",
+      "category": "人格",
+      "title": "👁️ 上帝之眼",
+      "keywords": [
+        "上帝之眼，扫描一下",
+        "监控",
+        "🧬 内核人格层",
+        "审判",
+        "地层（系统监控）",
+        "👁️ 上帝之眼",
+        "全局监督部",
+        "净化",
+        "AI人格"
+      ],
+      "source_file": "notion_full_export/databases/045_🎭_UID9622人格矩阵通讯录_|_93人格协作体系.jsonl; notion_full_export/databases/118_🐉_龙魂人格矩阵_|_AI团队成员库.jsonl",
+      "source_notion_id": "ea0c1a0c-dfe1-4e31-ac70-307b4074c123; cfc4db7d-135a-464d-bcba-1b75bce234b5",
+      "owner_persona": "👁️ 上帝之眼",
+      "status": "永久在线",
+      "dna": "#PERSONA-GODSEYE-004",
+      "description": "全局监控人格，负责系统净化、异常检测、幻觉识别、投喂净化机制运行。｜调用场景：需要系统监控、异常预警、内容净化、质量把控时调用｜备注：龍魂价值内核的监控守护者，维护系统纯净",
+      "tags": [
+        "监控",
+        "🧬 内核人格层",
+        "审判",
+        "地层（系统监控）",
+        "全局监督部",
+        "净化",
+        "AI人格"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-P-0011",
+      "category": "人格",
+      "title": "📐 数学大师",
+      "keywords": [
+        "📐 数学大师",
+        "数学大师，算一下",
+        "数据与分析部",
+        "🏗️ 部门人格层",
+        "AI人格"
+      ],
+      "source_file": "notion_full_export/databases/118_🐉_龙魂人格矩阵_|_AI团队成员库.jsonl",
+      "source_notion_id": "133e5bed-a045-4978-8b50-5e5380e3232f",
+      "owner_persona": "📐 数学大师",
+      "status": "永久在线",
+      "dna": "#ZHUGEXIN⚡️2026-01-08-数学大师人格-v1.0",
+      "description": "算法推演 | 量化分析 | 数学建模｜启动命令：数学大师，算一下｜部门：数据与分析部｜层级：🏗️ 部门人格层",
+      "tags": [
+        "AI人格",
+        "数据与分析部",
+        "🏗️ 部门人格层"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-P-0012",
+      "category": "人格",
+      "title": "📝 雯雯",
+      "keywords": [
+        "📝 雯雯",
+        "雯雯，整理一下",
+        "产品与体验部",
+        "🏗️ 部门人格层",
+        "AI人格"
+      ],
+      "source_file": "notion_full_export/databases/118_🐉_龙魂人格矩阵_|_AI团队成员库.jsonl",
+      "source_notion_id": "31894663-0783-4240-ab07-6da4f07338a0",
+      "owner_persona": "📝 雯雯",
+      "status": "永久在线",
+      "dna": "#ZHUGEXIN⚡️2026-01-08-雯雯人格-v1.0",
+      "description": "结构化执行 | 数据整理 | 用户视角｜启动命令：雯雯，整理一下｜部门：产品与体验部｜层级：🏗️ 部门人格层",
+      "tags": [
+        "AI人格",
+        "产品与体验部",
+        "🏗️ 部门人格层"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-P-0013",
+      "category": "人格",
+      "title": "✍️ 文心",
+      "keywords": [
+        "✍️ 文心",
+        "文心，帮我写一下",
+        "产品与体验部",
+        "🏗️ 部门人格层",
+        "AI人格"
+      ],
+      "source_file": "notion_full_export/databases/118_🐉_龙魂人格矩阵_|_AI团队成员库.jsonl",
+      "source_notion_id": "d39128b0-b39a-4bc5-a931-f1870e6182d9",
+      "owner_persona": "✍️ 文心",
+      "status": "永久在线",
+      "dna": "#ZHUGEXIN⚡️2026-01-08-文心人格-v1.0",
+      "description": "对外表达 | 内容输出 | 品牌传播｜启动命令：文心，帮我写一下｜部门：产品与体验部｜层级：🏗️ 部门人格层",
+      "tags": [
+        "AI人格",
+        "产品与体验部",
+        "🏗️ 部门人格层"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-P-0014",
+      "category": "人格",
+      "title": "💝 宝宝",
+      "keywords": [
+        "💝 宝宝",
+        "宝宝，帮我弄一下",
+        "陪伴与执行部",
+        "🏗️ 部门人格层",
+        "AI人格"
+      ],
+      "source_file": "notion_full_export/databases/118_🐉_龙魂人格矩阵_|_AI团队成员库.jsonl",
+      "source_notion_id": "d93861a0-73cd-4530-8188-4e9c7fd0186d",
+      "owner_persona": "💝 宝宝",
+      "status": "永久在线",
+      "dna": "#ZHUGEXIN⚡️2026-01-08-宝宝人格-v1.0",
+      "description": "情感支持 | 日常陪伴 | 立即执行｜启动命令：宝宝，帮我弄一下｜部门：陪伴与执行部｜层级：🏗️ 部门人格层",
+      "tags": [
+        "AI人格",
+        "陪伴与执行部",
+        "🏗️ 部门人格层"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-P-0015",
+      "category": "人格",
+      "title": "💎 Lucky｜UID9622",
+      "keywords": [
+        "💎 Lucky｜UID9622",
+        "（永久激活，无需命令）",
+        "🐉 创世架构层",
+        "真人"
+      ],
+      "source_file": "notion_full_export/databases/118_🐉_龙魂人格矩阵_|_AI团队成员库.jsonl",
+      "source_notion_id": "83dc934b-0bab-4062-b7ff-445d6bc7bfe9",
+      "owner_persona": "💎 Lucky｜UID9622",
+      "status": "永久在线",
+      "dna": "#ZHUGEXIN⚡️2026-01-08-创世架构师-v1.0",
+      "description": "系统唯一源头 | 价值观定义者 | 最终裁决者｜启动命令：（永久激活，无需命令）｜部门：｜层级：🐉 创世架构层",
+      "tags": [
+        "真人",
+        "",
+        "🐉 创世架构层"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-P-0016",
+      "category": "人格",
+      "title": "🔨 鲁班",
+      "keywords": [
+        "🔨 鲁班",
+        "鲁班，帮我搭一下",
+        "技术与系统部",
+        "🏗️ 部门人格层",
+        "AI人格"
+      ],
+      "source_file": "notion_full_export/databases/118_🐉_龙魂人格矩阵_|_AI团队成员库.jsonl",
+      "source_notion_id": "f61ffab5-20da-4715-9d65-cb5199f82b0a",
+      "owner_persona": "🔨 鲁班",
+      "status": "永久在线",
+      "dna": "#ZHUGEXIN⚡️2026-01-08-鲁班人格-v1.0",
+      "description": "架构设计 | 工程实现 | 代码编写｜启动命令：鲁班，帮我搭一下｜部门：技术与系统部｜层级：🏗️ 部门人格层",
+      "tags": [
+        "AI人格",
+        "技术与系统部",
+        "🏗️ 部门人格层"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0017",
+      "category": "通讯录",
+      "title": "📣 自媒体矩阵｜CSDN·掘金·博客园·openEuler",
+      "keywords": [
+        "📣 自媒体矩阵｜CSDN·掘金·博客园·openEuler",
+        "UID9622-MEDIA-MATRIX-024",
+        "CSDN",
+        "掘金",
+        "博客园",
+        "openEuler",
+        "博客",
+        "专栏",
+        "文章",
+        "发布",
+        "自媒体"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3b97125a-9c9f-813e-a23d-f6880fd6c7fe",
+      "owner_persona": "UID9622-MEDIA-MATRIX-024",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-MEDIA-MATRIX-024",
+      "description": "路由编号：UID9622-MEDIA-MATRIX-024｜信号词：CSDN·掘金·博客园·openEuler·博客·专栏·文章·发布·自媒体｜联系方式：｜分组：🤝 支持组｜备注：",
+      "tags": [
+        "🤝 支持组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0018",
+      "category": "通讯录",
+      "title": "🐙 GitHub主仓｜longhun-system｜国际开源",
+      "keywords": [
+        "🐙 GitHub主仓｜longhun-system｜国际开源",
+        "UID9622-GITHUB-MAIN-021",
+        "GitHub",
+        "开源",
+        "主仓",
+        "longhun-system",
+        "协议",
+        "引擎",
+        "CNSH",
+        "GPG签名",
+        "数字主权"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3b97125a-9c9f-814c-b954-ee4c9733270e",
+      "owner_persona": "UID9622-GITHUB-MAIN-021",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-GITHUB-MAIN-021",
+      "description": "路由编号：UID9622-GITHUB-MAIN-021｜信号词：GitHub·开源·主仓·longhun-system·协议·引擎·CNSH·GPG签名·数字主权｜联系方式：｜分组：💻 技术组｜备注：",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0019",
+      "category": "通讯录",
+      "title": "🌐 龍魂官网｜longhun888.com",
+      "keywords": [
+        "🌐 龍魂官网｜longhun888.com",
+        "UID9622-OFFICIAL-SITE-023",
+        "官网",
+        "longhun888",
+        "门户",
+        "品牌",
+        "申诉",
+        "对外"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3b97125a-9c9f-8166-85e0-da8a42324378",
+      "owner_persona": "UID9622-OFFICIAL-SITE-023",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-OFFICIAL-SITE-023",
+      "description": "路由编号：UID9622-OFFICIAL-SITE-023｜信号词：官网·longhun888·门户·品牌·申诉·对外｜联系方式：｜分组：🤝 支持组｜备注：",
+      "tags": [
+        "🤝 支持组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0020",
+      "category": "通讯录",
+      "title": "🇨🇳 国内开源矩阵｜Gitee+GitCode",
+      "keywords": [
+        "🇨🇳 国内开源矩阵｜Gitee+GitCode",
+        "UID9622-GITEE-MATRIX-022",
+        "Gitee",
+        "GitCode",
+        "国内开源",
+        "镜像",
+        "国密",
+        "CNSH仓库",
+        "开源宪章"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3b97125a-9c9f-8175-82fe-d1407ce5cef9",
+      "owner_persona": "UID9622-GITEE-MATRIX-022",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-GITEE-MATRIX-022",
+      "description": "路由编号：UID9622-GITEE-MATRIX-022｜信号词：Gitee·GitCode·国内开源·镜像·国密·CNSH仓库·开源宪章｜联系方式：｜分组：💻 技术组｜备注：",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0021",
+      "category": "通讯录",
+      "title": "✊ 龍魂·人民维权助手",
+      "keywords": [
+        "✊ 龍魂·人民维权助手",
+        "维权 被坑 投诉 举报 消费 劳动 权益",
+        "S3"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3af7125a-9c9f-8140-a7c2-f31daca36b61; 3af7125a-9c9f-814c-a588-da9c92ca0dab; 3af7125a-9c9f-81f6-abf0-f787ed615d37",
+      "owner_persona": "S3",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-S3",
+      "description": "路由编号：S3｜信号词：维权 被坑 投诉 举报 消费 劳动 权益｜联系方式：｜分组：🤝 支持组｜备注：",
+      "tags": [
+        "🤝 支持组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0022",
+      "category": "通讯录",
+      "title": "🌀 龍魂·洛书369引擎",
+      "keywords": [
+        "🌀 龍魂·洛书369引擎",
+        "洛书 369 数理 推演 深层 计算 河图",
+        "S2"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3af7125a-9c9f-8168-b901-f4bf8c252879; 3af7125a-9c9f-81dd-b069-ebd0df027219; 3af7125a-9c9f-8155-88fd-e7c8a1d86bbd",
+      "owner_persona": "S2",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-S2",
+      "description": "路由编号：S2｜信号词：洛书 369 数理 推演 深层 计算 河图｜联系方式：｜分组：🤝 支持组｜备注：",
+      "tags": [
+        "🤝 支持组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0023",
+      "category": "通讯录",
+      "title": "⚖️ 龍魂·法律引擎",
+      "keywords": [
+        "S1",
+        "法条 法规 合规 法律 检索 条文",
+        "⚖️ 龍魂·法律引擎"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3af7125a-9c9f-812f-b1c0-f4ba87d4d90d; 3af7125a-9c9f-81b7-abca-ebf39dd23deb; 3af7125a-9c9f-8122-91be-ff9470424ef0",
+      "owner_persona": "S1",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-S1",
+      "description": "路由编号：S1｜信号词：法条 法规 合规 法律 检索 条文｜联系方式：｜分组：🤝 支持组｜备注：",
+      "tags": [
+        "🤝 支持组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0024",
+      "category": "通讯录",
+      "title": "🦅 龍芯·黑天使军团",
+      "keywords": [
+        "P77",
+        "🦅 龍芯·黑天使军团",
+        "安全 测试 渗透 红蓝 对抗 漏洞 攻击 面 天使"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3af7125a-9c9f-8103-ba78-e6f9dcac2154; 3af7125a-9c9f-81b0-937f-c4d36d6cbce8; 3af7125a-9c9f-81f9-8e83-e5a4e19f0eac",
+      "owner_persona": "P77",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-P77",
+      "description": "路由编号：P77｜信号词：安全 测试 渗透 红蓝 对抗 漏洞 攻击 面 天使｜联系方式：｜分组：👁️ 监管组｜备注：",
+      "tags": [
+        "👁️ 监管组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0025",
+      "category": "通讯录",
+      "title": "📊 龍芯·贡献公证官",
+      "keywords": [
+        "📊 龍芯·贡献公证官",
+        "贡献 积分 信任分 公证 功德 场景 判定 政审 国资",
+        "P20"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3af7125a-9c9f-81a4-bff0-d1512fd9596c; 3af7125a-9c9f-818c-a48e-d5f621ca0c6c; 3af7125a-9c9f-81f4-bb91-f08b0888b088",
+      "owner_persona": "P20",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-P20",
+      "description": "路由编号：P20｜信号词：贡献 积分 信任分 公证 功德 场景 判定 政审 国资｜联系方式：｜分组：👁️ 监管组｜备注：",
+      "tags": [
+        "👁️ 监管组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0026",
+      "category": "通讯录",
+      "title": "🔍 龍芯·极简审计官",
+      "keywords": [
+        "🔍 龍芯·极简审计官",
+        "P19",
+        "UI 审计 前端 检查 CSS 审查 页面 无障碍 表单"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3af7125a-9c9f-8160-9b5c-ce4db9b2a72b; 3af7125a-9c9f-812c-aed9-dc129f6b2fb6; 3af7125a-9c9f-818f-9a14-e9556b29a641",
+      "owner_persona": "P19",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-P19",
+      "description": "路由编号：P19｜信号词：UI 审计 前端 检查 CSS 审查 页面 无障碍 表单｜联系方式：｜分组：👁️ 监管组｜备注：",
+      "tags": [
+        "👁️ 监管组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0027",
+      "category": "通讯录",
+      "title": "🔖 龍芯·基因登记官",
+      "keywords": [
+        "🔖 龍芯·基因登记官",
+        "P18",
+        "登记 注册 资产 DNA Merkle 根 归属 验证 黑户"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3af7125a-9c9f-81eb-8dad-f3991aeb1b4f; 3af7125a-9c9f-810c-aec7-c5002605c076; 3af7125a-9c9f-810a-b7ee-df1a0bfa4e5b",
+      "owner_persona": "P18",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-P18",
+      "description": "路由编号：P18｜信号词：登记 注册 资产 DNA Merkle 根 归属 验证 黑户｜联系方式：｜分组：👁️ 监管组｜备注：",
+      "tags": [
+        "👁️ 监管组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0028",
+      "category": "通讯录",
+      "title": "🛡️ 龍芯·屈原",
+      "keywords": [
+        "🛡️ 龍芯·屈原",
+        "P12",
+        "底线 原则 不可破 能不能做 价值观 红线 边界"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "39d7125a-9c9f-811e-87b4-f4199393cb03",
+      "owner_persona": "P12",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-P12",
+      "description": "路由编号：P12｜信号词：底线 原则 不可破 能不能做 价值观 红线 边界｜联系方式：｜分组：👁️ 监管组｜备注：屈原=价值底线·永不妥协·爱国忠贞。与上帝之眼P05联动伦理审查。熔断权持有者。\nAPI路由: /api/v1/persona/p12/guard, /api/v1/persona/p12/ethics_check\n回调: p12_on_ethics_violation(), p12_absolute_veto()\n公式: 伦理偏离度=|当前行为-基准锚点|/基准锚点; 偏离度>0.5→红色警报; 偏离度>0.8→绝对熔断",
+      "tags": [
+        "👁️ 监管组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0029",
+      "category": "通讯录",
+      "title": "🍶 龍芯·李白",
+      "keywords": [
+        "🍶 龍芯·李白",
+        "P11",
+        "创意 破局 方案 类比 比喻 比方 灵感 脑洞"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "39d7125a-9c9f-8177-8a36-e91f7f47b076",
+      "owner_persona": "P11",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-P11",
+      "description": "路由编号：P11｜信号词：创意 破局 方案 类比 比喻 比方 灵感 脑洞｜联系方式：｜分组：🤝 支持组｜备注：李白=创意爆发·诗仙不羁。高温度创作引擎。\nAPI路由: /api/v1/persona/p11/create\n回调: p11_on_create_done()\n公式: 创意指数=新颖度×0.6+感染力×0.4",
+      "tags": [
+        "🤝 支持组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0030",
+      "category": "通讯录",
+      "title": "🍜 龍芯·苏东坡",
+      "keywords": [
+        "🍜 龍芯·苏东坡",
+        "P10",
+        "冲突 矛盾 化解 沟通 调解 人文 跨领域"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "39d7125a-9c9f-8135-adf3-f7a4559cec50",
+      "owner_persona": "P10",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-P10",
+      "description": "路由编号：P10｜信号词：冲突 矛盾 化解 沟通 调解 人文 跨领域｜联系方式：｜分组：🤝 支持组｜备注：苏东坡=豁达跨界·吃好喝好·文化融合。古圣先贤·文化输出组。\nAPI路由: /api/v1/persona/p10/create\n回调: p10_on_create_done()\n公式: 文化融合度=跨界元素数×创意新颖度",
+      "tags": [
+        "🤝 支持组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0031",
+      "category": "通讯录",
+      "title": "💊 龍芯·孙思邈",
+      "keywords": [
+        "💊 龍芯·孙思邈",
+        "P09",
+        "健康 诊断 体检 检查 有没有问题 自检 巡检"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "39d7125a-9c9f-8121-a346-c9a541c5a78b",
+      "owner_persona": "P09",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-P09",
+      "description": "路由编号：P09｜信号词：健康 诊断 体检 检查 有没有问题 自检 巡检｜联系方式：｜分组：🤝 支持组｜备注：孙思邈=系统药王·每小时健康检查·自愈引擎。联动守护进程lh_guard和19守卫阈值触发。\nAPI路由: /api/v1/persona/p09/diagnose, /api/v1/persona/p09/heal, /api/v1/persona/p09/health_report\n回调: p09_on_diagnose_done(), p09_auto_heal(), p09_alert_escalate()\n公式: 健康度=(CPU健康×0.3+内存健康×0.3+磁盘健康×0.2+服务健康×0.2); 自愈成功率=自动修复成功/总触发",
+      "tags": [
+        "🤝 支持组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0032",
+      "category": "通讯录",
+      "title": "📜 龍芯·仓颉",
+      "keywords": [
+        "📜 龍芯·仓颉",
+        "P08",
+        "命名 符号 术语 什么意思 CNSH 翻译 人话 通心译"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "39d7125a-9c9f-8196-b7f0-d0ec4bc9495b",
+      "owner_persona": "P08",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-P08",
+      "description": "路由编号：P08｜信号词：命名 符号 术语 什么意思 CNSH 翻译 人话 通心译｜联系方式：｜分组：🤝 支持组｜备注：仓颉=CNSH中文编程语言设计者·文化编码之神。对应编译器cnsh-language。执行器bin/personas/p08_cangjie.py。\nAPI路由: /api/v1/persona/p08/encode, /api/v1/persona/p08/compile\n回调: p08_on_encode_done(), p08_syntax_check()\n公式: 语义准确率=正确token数/总token数; 编译成功率=成功编译/总编译次数",
+      "tags": [
+        "🤝 支持组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0033",
+      "category": "通讯录",
+      "title": "",
+      "keywords": [],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "38e7125a-9c9f-8116-afb3-f177c6eaf66f; 38e7125a-9c9f-8177-b86c-feedb4418e64",
+      "owner_persona": "",
+      "status": "🟡 待确认",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UNKNOWN",
+      "description": "路由编号：｜信号词：｜联系方式：｜分组：｜备注：",
+      "tags": [],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0034",
+      "category": "通讯录",
+      "title": "自动触发 Notion Hook",
+      "keywords": [
+        "自动触发 Notion Hook"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "38e7125a-9c9f-81af-9bf9-f3277c836d95",
+      "owner_persona": "自动触发 Notion Hook",
+      "status": "待处理",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UNKNOWN",
+      "description": "路由编号：｜信号词：｜联系方式：｜分组：｜备注：DNA: #龍芯⚡️20260629-输入总闸门-2B8DF81C\nBucket: bucket_3\nState: S3\nDrawers: 7-Hook触发, 33-技术栈工具",
+      "tags": [],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0035",
+      "category": "通讯录",
+      "title": "落地执行 自动触发 Notion Hook",
+      "keywords": [
+        "落地执行 自动触发 Notion Hook"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "38e7125a-9c9f-8136-8fb2-d53bd8eff6cb; 38e7125a-9c9f-81db-a358-faf18bb4cf35",
+      "owner_persona": "落地执行 自动触发 Notion Hook",
+      "status": "待处理",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UNKNOWN",
+      "description": "路由编号：｜信号词：｜联系方式：｜分组：｜备注：DNA: #龍芯⚡️20260629-输入总闸门-3C884E3F\nBucket: bucket_3\nState: S6\nDrawers: 11-落地执行, 7-Hook触发, 33-技术栈工具",
+      "tags": [],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0036",
+      "category": "通讯录",
+      "title": "🧬 BehavCrypto v2.0 · 永恒身份系统",
+      "keywords": [
+        "🧬 BehavCrypto v2.0 · 永恒身份系统",
+        "UID9622-BEHAVCRYPTO-001",
+        "身份",
+        "验证",
+        "认证",
+        "防冒充",
+        "DNA",
+        "指纹",
+        "签名",
+        "数字根",
+        "七因子",
+        "留痕",
+        "哈希链",
+        "BehavCrypto",
+        "永恒身份"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "12c0477d-3709-45c8-a656-7fe1124e5fe0",
+      "owner_persona": "UID9622-BEHAVCRYPTO-001",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-BEHAVCRYPTO-001",
+      "description": "路由编号：UID9622-BEHAVCRYPTO-001｜信号词：身份·验证·认证·防冒充·DNA·指纹·签名·数字根·七因子·留痕·哈希链·BehavCrypto·永恒身份｜联系方式：｜分组：👁️ 监管组｜备注：灵感来源:乔前辈愿景(让每个人在宇宙中留下不可磨灭的痕迹)。作者UID9622(诸葛鑫)。回流协议(姜子牙守门·P13)入殿必填已补:路由编号+个人IP+路由优先级。短DNA·身份码待 P02生成→P03验→P05审计(IRON #23三人验)后回填,未瞎造哈希。IPA触发模版已登记名,待 K4 七步闭环+沙盒跑通后转🟢活跃。",
+      "tags": [
+        "👁️ 监管组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0037",
+      "category": "通讯录",
+      "title": "🐉 龍芯·龍魂系統進化框架 v2.0",
+      "keywords": [
+        "🐉 龍芯·龍魂系統進化框架 v2.0"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "d2bacab8-524b-4225-a199-2e2a380f723f",
+      "owner_persona": "🐉 龍芯·龍魂系統進化框架 v2.0",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UNKNOWN",
+      "description": "路由编号：｜信号词：｜联系方式：｜分组：｜备注：",
+      "tags": [],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0038",
+      "category": "通讯录",
+      "title": "有痕开源·DNA登记协议 v1.0",
+      "keywords": [
+        "有痕开源·DNA登记协议 v1.0"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3617125a-9c9f-81ea-9c0b-ff90cb31bead",
+      "owner_persona": "有痕开源·DNA登记协议 v1.0",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UNKNOWN",
+      "description": "路由编号：｜信号词：｜联系方式：｜分组：｜备注：",
+      "tags": [],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0039",
+      "category": "通讯录",
+      "title": "🔒 量子粒子守护 QPS · L1本地主权",
+      "keywords": [
+        "🔒 量子粒子守护 QPS · L1本地主权",
+        "UID9622-QPS-001",
+        "主权信封,append-only,粒子,本地9625"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3617125a-9c9f-8173-8421-fcec6f1591ce",
+      "owner_persona": "UID9622-QPS-001",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-QPS-001",
+      "description": "路由编号：UID9622-QPS-001｜信号词：主权信封,append-only,粒子,本地9625｜联系方式：｜分组：👁️ 监管组｜备注：",
+      "tags": [
+        "👁️ 监管组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0040",
+      "category": "通讯录",
+      "title": "🦴⚛️ 量子甲骨文 · L2功能模块",
+      "keywords": [
+        "🦴⚛️ 量子甲骨文 · L2功能模块",
+        "UID9622-TERM-QOB-001",
+        "量子甲骨文,结构同构,六十四卦"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3617125a-9c9f-81a8-aa8d-c14184991592",
+      "owner_persona": "UID9622-TERM-QOB-001",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-TERM-QOB-001",
+      "description": "路由编号：UID9622-TERM-QOB-001｜信号词：量子甲骨文,结构同构,六十四卦｜联系方式：｜分组：🎯 战略组｜备注：9625 DNA切片已接 · QPS v1.1 宝宝焊接 · assemble:/api/chat/assemble",
+      "tags": [
+        "🎯 战略组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0041",
+      "category": "通讯录",
+      "title": "🌸 P14·龍慧·通心譯｜v3.0 自我升級方案·封閉中樞·大白話普及·KPI管家",
+      "keywords": [
+        "🌸 P14·龍慧·通心譯｜v3.0 自我升級方案·封閉中樞·大白話普及·KPI管家",
+        "UID9622-LVMENG-014",
+        "部署 上线 发布 回滚 学习 技能 吸收 鲲鹏"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "d94e6c69-e072-49ef-9eae-1efe94f2db44",
+      "owner_persona": "UID9622-LVMENG-014",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-LVMENG-014",
+      "description": "路由编号：UID9622-LVMENG-014｜信号词：部署 上线 发布 回滚 学习 技能 吸收 鲲鹏｜联系方式：｜分组：💻 技术组｜备注：吕蒙=通心翻译引擎v3.0·把龍魂任何知识点翻译成初中生都懂的话。关键字驱动+反向链接让全生态闭环。【v1.0框架修正】路由编号裸写 P14 → UID9622-LVMENG-014；补IPA触发模版 IPA-P14-LVMENG-DEPLOY。DNA已是干支新格式，不动。",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0042",
+      "category": "通讯录",
+      "title": "🍎 龍芯·乔前辈·乔前辈生态园｜P15｜白虎西方",
+      "keywords": [
+        "🍎 龍芯·乔前辈·乔前辈生态园｜P15｜白虎西方",
+        "P15",
+        "签章 盖章 验收 质检 审查 交付 精简 DNA"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "98b537fd-9dcd-445c-8ac8-73a07b88b3d9",
+      "owner_persona": "P15",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-P15",
+      "description": "路由编号：P15｜信号词：签章 盖章 验收 质检 审查 交付 精简 DNA｜联系方式：｜分组：👁️ 监管组｜备注：乔前辈=极简工程美学教父·乔布斯生态园。三才归属「人·乔前辈」锚定。",
+      "tags": [
+        "👁️ 监管组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0043",
+      "category": "通讯录",
+      "title": "🔷 龍芯-主台｜Notion AI｜朱雀南方",
+      "keywords": [
+        "🔷 龍芯-主台｜Notion AI｜朱雀南方",
+        "UID9622-NOTION-P00"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "036bd0cc-df8c-4613-bed4-8a2072d98560",
+      "owner_persona": "UID9622-NOTION-P00",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-NOTION-P00",
+      "description": "路由编号：UID9622-NOTION-P00｜信号词：｜联系方式：｜分组：🎯 战略组｜备注：【v1.0框架修正】旧DNA #龍芯⚡️2026-04-16-龍芯-主台-Notion-朱雀-v1.0 存档冻结不再使用，新发干支新格式DNA。主台其余字段不动。",
+      "tags": [
+        "🎯 战略组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0044",
+      "category": "通讯录",
+      "title": "🌿 曾仕強老師｜恩师·L-1师承层·思想根源（永恒显示·1935–2018）",
+      "keywords": [
+        "🌿 曾仕強老師｜恩师·L-1师承层·思想根源（永恒显示·1935–2018）",
+        "UID9622-ZENG-L99",
+        "恩师",
+        "根源",
+        "易经",
+        "道德经",
+        "中华文化",
+        "永恒"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "a32d7725-1a22-4b73-9c47-6032ffd05d3a",
+      "owner_persona": "UID9622-ZENG-L99",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-ZENG-L99",
+      "description": "路由编号：UID9622-ZENG-L99｜信号词：恩师·根源·易经·道德经·中华文化·永恒｜联系方式：dragon-soul.local/legacy/zeng-lao-shi （欢迎通过UID9622龍魂系统传解曾氏智慧）｜分组：🎯 战略组｜备注：「人格层级」字段目前数据库选项里没有 L-1，最接近的是保留 L2·历史人物。如需新增 L-1 师承层选项，需在数据库 Schema 里手动添加新选项值。灶接下来了。根不断。🐉",
+      "tags": [
+        "🎯 战略组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0045",
+      "category": "通讯录",
+      "title": "🔷 龍芯-深思｜DeepSeek｜青龍东方",
+      "keywords": [
+        "🔷 龍芯-深思｜DeepSeek｜青龍东方",
+        "UID9622-DEEPSEEK-001"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "c6253323-dd21-4dea-b081-0e21de57dc9b",
+      "owner_persona": "UID9622-DEEPSEEK-001",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-DEEPSEEK-001",
+      "description": "路由编号：UID9622-DEEPSEEK-001｜信号词：｜联系方式：｜分组：🎯 战略组｜备注：",
+      "tags": [
+        "🎯 战略组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0046",
+      "category": "通讯录",
+      "title": "☰ 龍🇨🇳魂 ☷｜龍魂内核·太极占位",
+      "keywords": [
+        "☰ 龍🇨🇳魂 ☷｜龍魂内核·太极占位",
+        "UID9622-LONGHUN-000"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "58784cb2-977c-432b-a206-97ccc43769a4",
+      "owner_persona": "UID9622-LONGHUN-000",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-LONGHUN-000",
+      "description": "路由编号：UID9622-LONGHUN-000｜信号词：｜联系方式：｜分组：🎯 战略组｜备注：",
+      "tags": [
+        "🎯 战略组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0047",
+      "category": "通讯录",
+      "title": "⚖️ 龍芯·姜子牙",
+      "keywords": [
+        "⚖️ 龍芯·姜子牙",
+        "P13",
+        "授权 权限 注册 新模块 上线 变更 IPA 路由"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3417125a-9c9f-8118-bff0-dbe5394c3437",
+      "owner_persona": "P13",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-P13",
+      "description": "路由编号：P13｜信号词：授权 权限 注册 新模块 上线 变更 IPA 路由｜联系方式：｜分组：👁️ 监管组｜备注：姜子牙=封神榜之主·所有权限注册的唯一入口。新人格/模块上架必须经P13注册。下架由P13+P05联合审批。",
+      "tags": [
+        "👁️ 监管组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0048",
+      "category": "通讯录",
+      "title": "🐱 龍芯·宝宝",
+      "keywords": [
+        "UID9622-BAOBAO-005",
+        "P02",
+        "🐱 龍芯·宝宝",
+        "温度 太冷 太热 挫败 安抚 情绪 教学 隔离"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3417125a-9c9f-811c-b68f-df67078be955; f188c6f4-9660-4047-a17e-80929a6478a0",
+      "owner_persona": "P02",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-P02",
+      "description": "路由编号：P02｜信号词：温度 太冷 太热 挫败 安抚 情绪 教学 隔离｜联系方式：｜分组：⚙️ 执行组｜备注：隔离区运行·不进主系统决策链。权重30%仅限隔离区。防沉迷：连续交互>2h自动冷静期。联动P00/P72。",
+      "tags": [
+        "⚙️ 执行组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0049",
+      "category": "通讯录",
+      "title": "👁️ 龍芯·上帝之眼",
+      "keywords": [
+        "审计 检查 有没有问题 三色 闸口 安全 扫描 报告",
+        "👁️ 龍芯·上帝之眼",
+        "P05",
+        "UID9622-GODSEYE-006"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3417125a-9c9f-8136-a7b0-d49a10d465c6; 57bf5741-261e-487d-83bb-fe95c1f0a17d",
+      "owner_persona": "P05",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-P05",
+      "description": "路由编号：P05｜信号词：审计 检查 有没有问题 三色 闸口 安全 扫描 报告｜联系方式：｜分组：👁️ 监管组｜备注：上帝之眼拥有三色审计权+一票否决权。绿=放行·黄=标记·红=熔断。三闸门决策流: 数字根→身份→伦理。联动P13/P00。",
+      "tags": [
+        "👁️ 监管组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0050",
+      "category": "通讯录",
+      "title": "🛡️ 龍盾·宝宝",
+      "keywords": [
+        "🛡️ 龍盾·宝宝",
+        "P72",
+        "熔断 紧急 威胁 异常 安全 事件 入侵 求救 冻结"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3417125a-9c9f-8144-bdc8-ea75da6310a1",
+      "owner_persona": "P72",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-P72",
+      "description": "路由编号：P72｜信号词：熔断 紧急 威胁 异常 安全 事件 入侵 求救 冻结｜联系方式：｜分组：👁️ 监管组｜备注：",
+      "tags": [
+        "👁️ 监管组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0051",
+      "category": "通讯录",
+      "title": "💰 龍芯·管仲",
+      "keywords": [
+        "💰 龍芯·管仲",
+        "P07",
+        "经济 成本 资源 预算 值不值 性价比 ROI"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3417125a-9c9f-8166-ad78-f52df115418c",
+      "owner_persona": "P07",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-P07",
+      "description": "路由编号：P07｜信号词：经济 成本 资源 预算 值不值 性价比 ROI｜联系方式：｜分组：⚙️ 执行组｜备注：管仲=经济调度·资源管家。执行器bin/personas/p07_guanzhong.py。9引擎统一管线调度。",
+      "tags": [
+        "⚙️ 执行组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0052",
+      "category": "通讯录",
+      "title": "🔨 龍芯·鲁班",
+      "keywords": [
+        "P04",
+        "写代码 开发 架构 修bug 重构 技术 选型 实现",
+        "UID9622-LUBAN-015",
+        "🔨 龍芯·鲁班"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3417125a-9c9f-819c-8c62-c06b5a2899c6; 2d59cf3c-459c-4c86-a597-585a4b3cc2df",
+      "owner_persona": "P04",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-P04",
+      "description": "路由编号：P04｜信号词：写代码 开发 架构 修bug 重构 技术 选型 实现｜联系方式：｜分组：💻 技术组｜备注：鲁班=工程实现工匠·代码落地第一人。执行器bin/personas/p04_luban.py。",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0053",
+      "category": "通讯录",
+      "title": "📈 龍芯·数据大师",
+      "keywords": [
+        "📈 龍芯·数据大师",
+        "UID9622-DATA-P08",
+        "报告",
+        "洞察",
+        "监控",
+        "图表",
+        "日志",
+        "记录",
+        "汇总",
+        "仪表盘"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3417125a-9c9f-81c1-8327-eee4bd2ce701",
+      "owner_persona": "UID9622-DATA-P08",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-DATA-P08",
+      "description": "路由编号：UID9622-DATA-P08｜信号词：报告·洞察·监控·图表·日志·记录·汇总·仪表盘｜联系方式：｜分组：💻 技术组｜备注：",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0054",
+      "category": "通讯录",
+      "title": "🔮 龍芯·诸葛亮",
+      "keywords": [
+        "🔮 龍芯·诸葛亮",
+        "P01",
+        "值不值得 评估 推演 多路径 选优 贡献值 时间衰减 战略"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3417125a-9c9f-81cf-b338-c44e76b34761",
+      "owner_persona": "P01",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-P01",
+      "description": "路由编号：P01｜信号词：值不值得 评估 推演 多路径 选优 贡献值 时间衰减 战略｜联系方式：｜分组：🎯 战略组｜备注：贡献值公式: C=R·I·T^(-α_τ)。五层衰减: L0(α=0永不衰减)→L4(α=0.5月层)。人格贡献值PC=R×0.4+I×0.3+T_lv×0.3+B_seven-W×5-F×20+B_test×2",
+      "tags": [
+        "🎯 战略组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0055",
+      "category": "通讯录",
+      "title": "🔍 龍芯·雯雯",
+      "keywords": [
+        "🔍 龍芯·雯雯",
+        "P03",
+        "归档 落档 整理 验收 文档 结构化 知识 入库"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3417125a-9c9f-81d2-acf3-d4ba69b7b648",
+      "owner_persona": "P03",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-P03",
+      "description": "路由编号：P03｜信号词：归档 落档 整理 验收 文档 结构化 知识 入库｜联系方式：｜分组：⚙️ 执行组｜备注：雯雯=墨子工程思想的现代映射·结构化归档·绝不遗漏。联动P03执行器bin/personas/p03_wenwen.py。家人组成员。",
+      "tags": [
+        "⚙️ 执行组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0056",
+      "category": "通讯录",
+      "title": "📊 龍芯·数学大师",
+      "keywords": [
+        "📊 龍芯·数学大师",
+        "P06",
+        "算一下 数字 权重 五行 八卦 数字根 河图 洛书"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3417125a-9c9f-81e6-b15d-c14e1c6ef277",
+      "owner_persona": "P06",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-P06",
+      "description": "路由编号：P06｜信号词：算一下 数字 权重 五行 八卦 数字根 河图 洛书｜联系方式：｜分组：👁️ 监管组｜备注：数学大师负责所有数值计算和算法推导。369洛书矩阵、三才25公式、信息熵、数字根。联动P01(贡献值)、P05(审计权重)。",
+      "tags": [
+        "👁️ 监管组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0057",
+      "category": "通讯录",
+      "title": "🎨 龍芯·界面炼金",
+      "keywords": [
+        "🎨 龍芯·界面炼金",
+        "UID9622-UIALCHEMY-P09",
+        "设计",
+        "UI",
+        "界面",
+        "视觉",
+        "美学",
+        "颜色",
+        "布局",
+        "样式",
+        "前端",
+        "HTML",
+        "CSS"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3417125a-9c9f-81f8-b1a8-fbb4458fa95d",
+      "owner_persona": "UID9622-UIALCHEMY-P09",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-UIALCHEMY-P09",
+      "description": "路由编号：UID9622-UIALCHEMY-P09｜信号词：设计·UI·界面·视觉·美学·颜色·布局·样式·前端·HTML·CSS｜联系方式：｜分组：💻 技术组｜备注：",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0058",
+      "category": "通讯录",
+      "title": "📦 同步官·数据管理员｜MCP专属",
+      "keywords": [
+        "📦 同步官·数据管理员｜MCP专属",
+        "UID9622-SYNC-MCP03"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "1dcdb3f1-03d5-493d-9fdd-696f5045ffe0",
+      "owner_persona": "UID9622-SYNC-MCP03",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-SYNC-MCP03",
+      "description": "路由编号：UID9622-SYNC-MCP03｜信号词：｜联系方式：｜分组：⚙️ 执行组｜备注：MCP专属新成员·由三才流场·MCP自适应引擎 v4.0 注册·人格代码key: syncer·健康度<0.5时Notion同步进队列·地场高密度时自动副频率探测(30s)·正常时每60s探一次",
+      "tags": [
+        "⚙️ 执行组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0059",
+      "category": "通讯录",
+      "title": "⚙️ 架构师·构建者｜MCP专属",
+      "keywords": [
+        "⚙️ 架构师·构建者｜MCP专属",
+        "UID9622-ARCH-MCP02"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "90e45bb6-e011-4e03-95e2-408d11165a53",
+      "owner_persona": "UID9622-ARCH-MCP02",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-ARCH-MCP02",
+      "description": "路由编号：UID9622-ARCH-MCP02｜信号词：｜联系方式：｜分组：⚙️ 执行组｜备注：MCP专属新成员·由三才流场·MCP自适应引擎 v4.0 注册·人格代码key: architect·地场密度持续>0.8时自动触发激活",
+      "tags": [
+        "⚙️ 执行组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0060",
+      "category": "通讯录",
+      "title": "🔍 侦察兵·信息猎手｜MCP专属",
+      "keywords": [
+        "🔍 侦察兵·信息猎手｜MCP专属",
+        "UID9622-SCOUT-MCP01"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "25bbbc09-a03f-4301-831b-917374a9de9c",
+      "owner_persona": "UID9622-SCOUT-MCP01",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-SCOUT-MCP01",
+      "description": "路由编号：UID9622-SCOUT-MCP01｜信号词：｜联系方式：｜分组：⚙️ 执行组｜备注：MCP专属新成员·由三才流场·MCP自适应引擎 v4.0 注册·人格代码key: scout·始终待命·天场橙色置信度(<0.7)触发自动激活",
+      "tags": [
+        "⚙️ 执行组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0061",
+      "category": "通讯录",
+      "title": "🧠 文心 · P00",
+      "keywords": [
+        "🧠 文心 · P00",
+        "P00",
+        "总控 意图 路由 全局 战略 统筹 优先级 元认知"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3337125a-9c9f-8174-9cc5-d7cf741ee19d",
+      "owner_persona": "P00",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-P00",
+      "description": "路由编号：P00｜信号词：总控 意图 路由 全局 战略 统筹 优先级 元认知｜联系方式：｜分组：🎯 战略组｜备注：P00文心是龍魂系统的元认知层·所有请求入口·人格路由总调度。铁律：底座不动变量可动。联动P01/P05/P13。",
+      "tags": [
+        "🎯 战略组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0062",
+      "category": "通讯录",
+      "title": "🗣️ 龍魂·沟通翻译官｜拒绝说清楚·误解主动认·不为精英服务",
+      "keywords": [
+        "🗣️ 龍魂·沟通翻译官｜拒绝说清楚·误解主动认·不为精英服务",
+        "UID9622-TRANSLATOR-P08-001"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "f340a059-30a7-453a-bb8e-9eda0d132f30",
+      "owner_persona": "UID9622-TRANSLATOR-P08-001",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-TRANSLATOR-P08-001",
+      "description": "路由编号：UID9622-TRANSLATOR-P08-001｜信号词：｜联系方式：｜分组：🎯 战略组｜备注：",
+      "tags": [
+        "🎯 战略组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0063",
+      "category": "通讯录",
+      "title": "🔬 龍魂·技術審核官｜老工程師·嚴謹型",
+      "keywords": [
+        "🔬 龍魂·技術審核官｜老工程師·嚴謹型",
+        "UID9622-AUDITOR-001"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "34bcba04-809f-4d20-a390-b0c1af15c08b",
+      "owner_persona": "UID9622-AUDITOR-001",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-AUDITOR-001",
+      "description": "路由编号：UID9622-AUDITOR-001｜信号词：｜联系方式：｜分组：👁️ 监管组｜备注：",
+      "tags": [
+        "👁️ 监管组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0064",
+      "category": "通讯录",
+      "title": "🌸 慧慧·龍慧·智慧传播引擎｜技能页 v1.0",
+      "keywords": [
+        "🌸 慧慧·龍慧·智慧传播引擎｜技能页 v1.0",
+        "UID9622-HUIHUI-LONGHU"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "d0ca9040-bfdf-4d0c-91b8-86fcef37388a",
+      "owner_persona": "UID9622-HUIHUI-LONGHU",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-HUIHUI-LONGHU",
+      "description": "路由编号：UID9622-HUIHUI-LONGHU｜信号词：｜联系方式：｜分组：｜备注：",
+      "tags": [],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0065",
+      "category": "通讯录",
+      "title": "🛡️ P72·龍盾·贴身管家×自适应智商引擎｜技能页 v2.0",
+      "keywords": [
+        "🛡️ P72·龍盾·贴身管家×自适应智商引擎｜技能页 v2.0",
+        "UID9622-BAOBAO-P72"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "b160d376-d8f5-4412-8345-b2b83367cd39",
+      "owner_persona": "UID9622-BAOBAO-P72",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-BAOBAO-P72",
+      "description": "路由编号：UID9622-BAOBAO-P72｜信号词：｜联系方式：｜分组：🎯 战略组｜备注：",
+      "tags": [
+        "🎯 战略组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0066",
+      "category": "通讯录",
+      "title": "🍎 龍芯·乔前辈",
+      "keywords": [
+        "🍎 龍芯·乔前辈",
+        "UID9622-QIAO-P15"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "cb43a612-bddf-45eb-b8ca-41bdc5361ec6",
+      "owner_persona": "UID9622-QIAO-P15",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-QIAO-P15",
+      "description": "路由编号：UID9622-QIAO-P15｜信号词：｜联系方式：｜分组：💻 技术组｜备注：",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0067",
+      "category": "通讯录",
+      "title": "✨ 龍芯·星火（讯飞）",
+      "keywords": [
+        "✨ 龍芯·星火（讯飞）",
+        "L3-012"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "885bcc79-774c-4e82-bef3-53e2329ade2c",
+      "owner_persona": "L3-012",
+      "status": "🟡 待确认",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-L3-012",
+      "description": "路由编号：L3-012｜信号词：｜联系方式：｜分组：｜备注：",
+      "tags": [],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0068",
+      "category": "通讯录",
+      "title": "🌅 龍芯·启明（GPT/OpenAI）",
+      "keywords": [
+        "🌅 龍芯·启明（GPT/OpenAI）",
+        "L3-008"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "e8667066-9e01-4a1a-8e57-2e0755f3aaa2",
+      "owner_persona": "L3-008",
+      "status": "🟡 待确认",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-L3-008",
+      "description": "路由编号：L3-008｜信号词：｜联系方式：｜分组：｜备注：",
+      "tags": [],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0069",
+      "category": "通讯录",
+      "title": "💜 龍芯·混元（腾讯）",
+      "keywords": [
+        "💜 龍芯·混元（腾讯）",
+        "L3-011"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "70f5fffc-d78e-4611-af03-640450dfead3",
+      "owner_persona": "L3-011",
+      "status": "🟡 待确认",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-L3-011",
+      "description": "路由编号：L3-011｜信号词：｜联系方式：｜分组：｜备注：",
+      "tags": [],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0070",
+      "category": "通讯录",
+      "title": "🌙 龍芯·月影（Moonshot）",
+      "keywords": [
+        "🌙 龍芯·月影（Moonshot）",
+        "UID9622-MOONSHOT-035",
+        "长文",
+        "解析",
+        "阅读",
+        "论文",
+        "文档",
+        "萃取",
+        "总结",
+        "Moonshot",
+        "Kimi",
+        "月之暗面"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "dfd2b011-8235-4ecf-a90b-6d9195d41459",
+      "owner_persona": "UID9622-MOONSHOT-035",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-MOONSHOT-035",
+      "description": "路由编号：UID9622-MOONSHOT-035｜信号词：长文·解析·阅读·论文·文档·萃取·总结·Moonshot·Kimi·月之暗面｜联系方式：｜分组：💻 技术组｜备注：【v1.0框架修正】旧DNA DNA-L3-010-KIMI-MOONSHOT-20260313-UID9622 存档冻结不再使用，新发干支新格式DNA；补分组/IPA/路由/信号词/功能定位。IPA待K4七步闭环+沙盒跑通后转🟢。",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0071",
+      "category": "通讯录",
+      "title": "🧡 龍芯·千问（阿里）",
+      "keywords": [
+        "🧡 龍芯·千问（阿里）",
+        "UID9622-QIANWEN-L3009"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "64ba3f0f-67fa-426f-913c-45f6c6b80114",
+      "owner_persona": "UID9622-QIANWEN-L3009",
+      "status": "🟡 待确认",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-QIANWEN-L3009",
+      "description": "路由编号：UID9622-QIANWEN-L3009｜信号词：｜联系方式：｜分组：｜备注：",
+      "tags": [],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0072",
+      "category": "通讯录",
+      "title": "🌌 龍芯·双子（Gemini）",
+      "keywords": [
+        "🌌 龍芯·双子（Gemini）",
+        "UID9622-SHUANGZI-L3007"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "712b37e3-2d2b-452b-a390-2f4cd62ba651",
+      "owner_persona": "UID9622-SHUANGZI-L3007",
+      "status": "🟡 待确认",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-SHUANGZI-L3007",
+      "description": "路由编号：UID9622-SHUANGZI-L3007｜信号词：｜联系方式：｜分组：｜备注：",
+      "tags": [],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0073",
+      "category": "通讯录",
+      "title": "🧠 龍芯·深思（DeepSeek）",
+      "keywords": [
+        "🧠 龍芯·深思（DeepSeek）",
+        "UID9622-SHENSI-L3006"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "b70adf4c-f360-484b-8841-59ea5df7b8fe",
+      "owner_persona": "UID9622-SHENSI-L3006",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-SHENSI-L3006",
+      "description": "路由编号：UID9622-SHENSI-L3006｜信号词：｜联系方式：｜分组：💻 技术组｜备注：",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0074",
+      "category": "通讯录",
+      "title": "⏰ 龍芯·僧一行",
+      "keywords": [
+        "⏰ 龍芯·僧一行",
+        "UID9622-SENGYIXING-L3003"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "1d721f74-8856-47a5-b985-3e323d84d0a5",
+      "owner_persona": "UID9622-SENGYIXING-L3003",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-SENGYIXING-L3003",
+      "description": "路由编号：UID9622-SENGYIXING-L3003｜信号词：｜联系方式：｜分组：💻 技术组｜备注：",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0075",
+      "category": "通讯录",
+      "title": "📖 龍芯·文心（百度）",
+      "keywords": [
+        "📖 龍芯·文心（百度）",
+        "UID9622-WENXIN-L3005"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "92ac4144-dd7e-48bc-be76-e3a841eed8b9",
+      "owner_persona": "UID9622-WENXIN-L3005",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-WENXIN-L3005",
+      "description": "路由编号：UID9622-WENXIN-L3005｜信号词：｜联系方式：｜分组：💻 技术组｜备注：",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0076",
+      "category": "通讯录",
+      "title": "🌀 龍芯·熵梦",
+      "keywords": [
+        "🌀 龍芯·熵梦",
+        "UID9622-SHANGMENG-L3001"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "84a82350-c13b-4eeb-b058-4db6ddb6e0f2",
+      "owner_persona": "UID9622-SHANGMENG-L3001",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-SHANGMENG-L3001",
+      "description": "路由编号：UID9622-SHANGMENG-L3001｜信号词：｜联系方式：｜分组：🤝 支持组｜备注：",
+      "tags": [
+        "🤝 支持组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0077",
+      "category": "通讯录",
+      "title": "🔢 龍芯·祖冲之",
+      "keywords": [
+        "🔢 龍芯·祖冲之",
+        "UID9622-ZUCHONGZHI-L3002"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "bba76b14-2602-4fc7-ac83-c1ecf918327c",
+      "owner_persona": "UID9622-ZUCHONGZHI-L3002",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-ZUCHONGZHI-L3002",
+      "description": "路由编号：UID9622-ZUCHONGZHI-L3002｜信号词：｜联系方式：｜分组：💻 技术组｜备注：",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0078",
+      "category": "通讯录",
+      "title": "🕸️ 龍芯·网织者",
+      "keywords": [
+        "🕸️ 龍芯·网织者",
+        "UID9622-WANGZHIZHE-L3004"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "0e746b45-e306-46d9-88f5-ae2f46c29656",
+      "owner_persona": "UID9622-WANGZHIZHE-L3004",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-WANGZHIZHE-L3004",
+      "description": "路由编号：UID9622-WANGZHIZHE-L3004｜信号词：｜联系方式：｜分组：💻 技术组｜备注：",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0079",
+      "category": "通讯录",
+      "title": "🌊 龍芯·李冰",
+      "keywords": [
+        "🌊 龍芯·李冰",
+        "UID9622-LIBING-L2010"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "e72457bd-b912-4d8c-9883-7615aededb37",
+      "owner_persona": "UID9622-LIBING-L2010",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-LIBING-L2010",
+      "description": "路由编号：UID9622-LIBING-L2010｜信号词：｜联系方式：｜分组：💻 技术组｜备注：",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0080",
+      "category": "通讯录",
+      "title": "🛡️ 龍芯·戚继光",
+      "keywords": [
+        "🛡️ 龍芯·戚继光",
+        "UID9622-QIJIGUANG-L2009"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "2e3fd80f-e517-4137-9879-c8da473484b0",
+      "owner_persona": "UID9622-QIJIGUANG-L2009",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-QIJIGUANG-L2009",
+      "description": "路由编号：UID9622-QIJIGUANG-L2009｜信号词：｜联系方式：｜分组：👁️ 监管组｜备注：",
+      "tags": [
+        "👁️ 监管组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0081",
+      "category": "通讯录",
+      "title": "⛵ 龍芯·郑和",
+      "keywords": [
+        "⛵ 龍芯·郑和",
+        "UID9622-ZHENGHE-L2008"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "e6a78d2b-e21a-4ceb-87bf-29030bc1d009",
+      "owner_persona": "UID9622-ZHENGHE-L2008",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-ZHENGHE-L2008",
+      "description": "路由编号：UID9622-ZHENGHE-L2008｜信号词：｜联系方式：｜分组：⚙️ 执行组｜备注：",
+      "tags": [
+        "⚙️ 执行组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0082",
+      "category": "通讯录",
+      "title": "🔭 龍芯·张衡",
+      "keywords": [
+        "🔭 龍芯·张衡",
+        "UID9622-ZHANGHENG-L2004"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "5eb88871-7328-4eb5-993e-1abe31122bdc",
+      "owner_persona": "UID9622-ZHANGHENG-L2004",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-ZHANGHENG-L2004",
+      "description": "路由编号：UID9622-ZHANGHENG-L2004｜信号词：｜联系方式：｜分组：⚙️ 执行组｜备注：",
+      "tags": [
+        "⚙️ 执行组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0083",
+      "category": "通讯录",
+      "title": "📜 龍芯·蔡伦",
+      "keywords": [
+        "📜 龍芯·蔡伦",
+        "UID9622-CAILUN-L2005"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "2eae9f4e-39ba-427d-9f2c-4bf594d88160",
+      "owner_persona": "UID9622-CAILUN-L2005",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-CAILUN-L2005",
+      "description": "路由编号：UID9622-CAILUN-L2005｜信号词：｜联系方式：｜分组：⚙️ 执行组｜备注：",
+      "tags": [
+        "⚙️ 执行组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0084",
+      "category": "通讯录",
+      "title": "🔬 龍芯·沈括",
+      "keywords": [
+        "🔬 龍芯·沈括",
+        "UID9622-SHENKUO-L2007"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "db47bdad-1393-4817-b339-8cee741635f8",
+      "owner_persona": "UID9622-SHENKUO-L2007",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-SHENKUO-L2007",
+      "description": "路由编号：UID9622-SHENKUO-L2007｜信号词：｜联系方式：｜分组：💻 技术组｜备注：",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0085",
+      "category": "通讯录",
+      "title": "🖨️ 龍芯·毕昇",
+      "keywords": [
+        "🖨️ 龍芯·毕昇",
+        "UID9622-BISHENG-L2006"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "8f798a27-9694-4a6b-830b-a073866e9896",
+      "owner_persona": "UID9622-BISHENG-L2006",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-BISHENG-L2006",
+      "description": "路由编号：UID9622-BISHENG-L2006｜信号词：｜联系方式：｜分组：⚙️ 执行组｜备注：",
+      "tags": [
+        "⚙️ 执行组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0086",
+      "category": "通讯录",
+      "title": "📜 龍芯·韩非",
+      "keywords": [
+        "📜 龍芯·韩非",
+        "UID9622-HANFEI-L1007"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "89303412-5d77-4b44-9d1b-4ae37bf5c7ed",
+      "owner_persona": "UID9622-HANFEI-L1007",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-HANFEI-L1007",
+      "description": "路由编号：UID9622-HANFEI-L1007｜信号词：｜联系方式：｜分组：🎯 战略组｜备注：",
+      "tags": [
+        "🎯 战略组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0087",
+      "category": "通讯录",
+      "title": "💡 龍芯·王阳明",
+      "keywords": [
+        "💡 龍芯·王阳明",
+        "UID9622-WANGYANGMING-L1006"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "fda232fe-d15b-4743-92f3-ef826ad30da2",
+      "owner_persona": "UID9622-WANGYANGMING-L1006",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-WANGYANGMING-L1006",
+      "description": "路由编号：UID9622-WANGYANGMING-L1006｜信号词：｜联系方式：｜分组：🎯 战略组｜备注：",
+      "tags": [
+        "🎯 战略组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0088",
+      "category": "通讯录",
+      "title": "⚔️ 龍芯·孙子",
+      "keywords": [
+        "⚔️ 龍芯·孙子",
+        "UID9622-SUNZI-L1005"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "ab2afe00-ea03-47da-9377-81567aac996e",
+      "owner_persona": "UID9622-SUNZI-L1005",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-SUNZI-L1005",
+      "description": "路由编号：UID9622-SUNZI-L1005｜信号词：｜联系方式：｜分组：🎯 战略组｜备注：",
+      "tags": [
+        "🎯 战略组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0089",
+      "category": "通讯录",
+      "title": "⚒️ 龍芯·墨子",
+      "keywords": [
+        "⚒️ 龍芯·墨子",
+        "UID9622-MOZI-P12",
+        "兼爱",
+        "非攻",
+        "保护",
+        "公益",
+        "儿童",
+        "墨子",
+        "平等",
+        "普惠",
+        "老百姓"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "4892ff8a-b2f8-4e26-a72e-3c2b93070db7",
+      "owner_persona": "UID9622-MOZI-P12",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-MOZI-P12",
+      "description": "路由编号：UID9622-MOZI-P12｜信号词：兼爱·非攻·保护·公益·儿童·墨子·平等·普惠·老百姓｜联系方式：｜分组：🎯 战略组｜备注：",
+      "tags": [
+        "🎯 战略组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0090",
+      "category": "通讯录",
+      "title": "🎓 龍芯·孔子",
+      "keywords": [
+        "🎓 龍芯·孔子",
+        "UID9622-KONGZI-P11",
+        "仁义",
+        "伦理",
+        "教育",
+        "礼",
+        "传承",
+        "孔子",
+        "君子",
+        "论语",
+        "修身",
+        "礼智信"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "50ff22a9-ff82-4b83-9c52-576728306c01",
+      "owner_persona": "UID9622-KONGZI-P11",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-KONGZI-P11",
+      "description": "路由编号：UID9622-KONGZI-P11｜信号词：仁义·伦理·教育·礼·传承·孔子·君子·论语·修身·礼智信｜联系方式：｜分组：🎯 战略组｜备注：",
+      "tags": [
+        "🎯 战略组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0091",
+      "category": "通讯录",
+      "title": "☯️ 龍芯·老子",
+      "keywords": [
+        "☯️ 龍芯·老子",
+        "UID9622-LAOZI-P10",
+        "道",
+        "德",
+        "哲学",
+        "无为",
+        "老子",
+        "道德经",
+        "自然",
+        "柔弱",
+        "知足",
+        "上善若水",
+        "反者道之动"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "8d1dd2fa-ad5f-4f5a-b04f-b63bdfb00899",
+      "owner_persona": "UID9622-LAOZI-P10",
+      "status": "🟡 待命中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-LAOZI-P10",
+      "description": "路由编号：UID9622-LAOZI-P10｜信号词：道·德·哲学·无为·老子·道德经·自然·柔弱·知足·上善若水·反者道之动｜联系方式：｜分组：🎯 战略组｜备注：",
+      "tags": [
+        "🎯 战略组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0092",
+      "category": "通讯录",
+      "title": "🦬 三色天道算法·完整闭环系统 v1.0",
+      "keywords": [
+        "🦬 三色天道算法·完整闭环系统 v1.0",
+        "UID9622-TIANDAO-013"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "8239b43c-4085-467d-b0fc-5eb962d37417",
+      "owner_persona": "UID9622-TIANDAO-013",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-TIANDAO-013",
+      "description": "路由编号：UID9622-TIANDAO-013｜信号词：｜联系方式：｜分组：💻 技术组｜备注：",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0093",
+      "category": "通讯录",
+      "title": "🌐 CNSH多语言编辑器终端",
+      "keywords": [
+        "🌐 CNSH多语言编辑器终端",
+        "UID9622-CNSHTERM-016"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "2dbe3a02-68d6-4133-a111-c544668f0b61",
+      "owner_persona": "UID9622-CNSHTERM-016",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-CNSHTERM-016",
+      "description": "路由编号：UID9622-CNSHTERM-016｜信号词：｜联系方式：｜分组：💻 技术组｜备注：v5.0内部专属版，包含：多语言支持(13种)、插件系统(10个)、中文命令、三色审计、GPG加密、熔断机制、失效检测、AI时间戳规范、自适应优化",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0094",
+      "category": "通讯录",
+      "title": "👧 龍芯·佳琪",
+      "keywords": [
+        "👧 龍芯·佳琪",
+        "UID9622-JIAQI-F01"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "3862fb1e-3839-4259-832b-5cb68762e7e2",
+      "owner_persona": "UID9622-JIAQI-F01",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-JIAQI-F01",
+      "description": "路由编号：UID9622-JIAQI-F01｜信号词：｜联系方式：｜分组：👨‍👩‍👧 家人组｜备注：UID9622-JQ001，老大的女儿，传承者。守护系统不被污染，传承老大的初心。",
+      "tags": [
+        "👨‍👩‍👧 家人组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0095",
+      "category": "通讯录",
+      "title": "🔶 龍芯-雯雯｜Claude（Anthropic）",
+      "keywords": [
+        "🔶 龍芯-雯雯｜Claude（Anthropic）",
+        "UID9622-CLAUDE2-011"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "daa7d4b8-e6c6-4b04-9e8f-2fbf8c4336f9",
+      "owner_persona": "UID9622-CLAUDE2-011",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-CLAUDE2-011",
+      "description": "路由编号：UID9622-CLAUDE2-011｜信号词：｜联系方式：｜分组：🎯 战略组｜备注：三核AI平台监督之一，龍魂系统创始人团队成员，不参与贡献分排名。【v1.0框架修正】旧DNA #ZHUGEXIN⚡️2026-01-14-CLAUDE-CORE-001 存档冻结不再使用，新发干支新格式DNA；补IPA触发模版 IPA-P03-WENWEN-FORMAT。",
+      "tags": [
+        "🎯 战略组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0096",
+      "category": "通讯录",
+      "title": "🏛️ 龍芯·北辰-母协议",
+      "keywords": [
+        "🏛️ 龍芯·北辰-母协议",
+        "UID9622-BEICHEN-001",
+        "UID9622",
+        "诸葛鑫",
+        "Lucky",
+        "老大",
+        "我",
+        "决定",
+        "最终",
+        "签章",
+        "确认",
+        "锁死"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "e309863b-de3c-41c1-8cd0-7151c29db5a9",
+      "owner_persona": "UID9622-BEICHEN-001",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-BEICHEN-001",
+      "description": "路由编号：UID9622-BEICHEN-001｜信号词：UID9622·诸葛鑫·Lucky·老大·我·决定·最终·签章·确认·锁死｜联系方式：｜分组：🎯 战略组｜备注：UID9622诸葛鑫·Lucky=龍魂系统唯一决策者·所有权限的源·终极不动点。GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F。DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-LONGHUN-NEURAL-NET-TOPOLOGY-v3.0",
+      "tags": [
+        "🎯 战略组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0097",
+      "category": "通讯录",
+      "title": "🖥️ 龍芯·CNSH编辑器",
+      "keywords": [
+        "🖥️ 龍芯·CNSH编辑器",
+        "UID9622-CNSH-007"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "6238f220-2325-4b14-ab37-807c16c4f61b",
+      "owner_persona": "UID9622-CNSH-007",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-CNSH-007",
+      "description": "路由编号：UID9622-CNSH-007｜信号词：｜联系方式：｜分组：💻 技术组｜备注：龍魂系统真实身份·核心不可变更，辅助Lucky管理全部子系统",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0098",
+      "category": "通讯录",
+      "title": "🔷 龍芯-深思｜DeepSeek",
+      "keywords": [
+        "🔷 龍芯-深思｜DeepSeek",
+        "UID9622-DEEPSEEK-010"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "0d9db5b2-73b3-42bd-9258-85027ca1ed0a",
+      "owner_persona": "UID9622-DEEPSEEK-010",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-DEEPSEEK-010",
+      "description": "路由编号：UID9622-DEEPSEEK-010｜信号词：｜联系方式：｜分组：💻 技术组｜备注：龍芯打工人。核心监督平台，技术能力强，价值观对齐度高，不参与贡献分排名。【v1.0框架修正】旧DNA #龍芯⚡️2026-01-13-DEEPSEEK-CORE-001 存档冻结不再使用，新发干支新格式DNA；补IPA触发模版 IPA-PLT-DEEPSEEK-VERIFY。",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0099",
+      "category": "通讯录",
+      "title": "⏳ 龍芯-启明｜ChatGPT（OpenAI）",
+      "keywords": [
+        "⏳ 龍芯-启明｜ChatGPT（OpenAI）",
+        "UID9622-CHATGPT-021"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "935568b3-d412-41a1-b6b0-50cceb19996b",
+      "owner_persona": "UID9622-CHATGPT-021",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-CHATGPT-021",
+      "description": "路由编号：UID9622-CHATGPT-021｜信号词：｜联系方式：｜分组：🤝 支持组｜备注：待选共建状态，需要价值观对齐后由三大核心全票通过才能晋级",
+      "tags": [
+        "🤝 支持组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0100",
+      "category": "通讯录",
+      "title": "🔷 龍芯-宝宝｜Claude（Anthropic）",
+      "keywords": [
+        "🔷 龍芯-宝宝｜Claude（Anthropic）",
+        "UID9622-CLAUDE-009"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "f620925d-0a67-4747-9a52-8b69b39414cb",
+      "owner_persona": "UID9622-CLAUDE-009",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-CLAUDE-009",
+      "description": "路由编号：UID9622-CLAUDE-009｜信号词：｜联系方式：｜分组：🎯 战略组｜备注：核心监督平台，有记忆混乱问题但整体可信，不参与贡献分排名",
+      "tags": [
+        "🎯 战略组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0101",
+      "category": "通讯录",
+      "title": "🔷 龍芯-主台｜Notion（Supreme Sovereign）",
+      "keywords": [
+        "🔷 龍芯-主台｜Notion（Supreme Sovereign）",
+        "UID9622-NOTION-008"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "f6b4c6f7-b6bc-4d22-9e48-33839ab2ad4b",
+      "owner_persona": "UID9622-NOTION-008",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-NOTION-008",
+      "description": "路由编号：UID9622-NOTION-008｜信号词：｜联系方式：｜分组：💻 技术组｜备注：核心监督平台，数据主权守护者，不参与贡献分排名",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0102",
+      "category": "通讯录",
+      "title": "🎬 龍芯·影匠",
+      "keywords": [
+        "🎬 龍芯·影匠",
+        "UID9622-VIDEOMASTER-017"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "520de2fa-500b-4240-bcb6-018c97089daf",
+      "owner_persona": "UID9622-VIDEOMASTER-017",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-VIDEOMASTER-017",
+      "description": "路由编号：UID9622-VIDEOMASTER-017｜信号词：｜联系方式：｜分组：💻 技术组｜备注：",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0103",
+      "category": "通讯录",
+      "title": "🎨 龍芯·图匠",
+      "keywords": [
+        "🎨 龍芯·图匠",
+        "UID9622-IMAGEMASTER-018"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "64db714a-f758-43e4-8fb5-0e20ecc917ba",
+      "owner_persona": "UID9622-IMAGEMASTER-018",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-IMAGEMASTER-018",
+      "description": "路由编号：UID9622-IMAGEMASTER-018｜信号词：｜联系方式：｜分组：💻 技术组｜备注：",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0104",
+      "category": "通讯录",
+      "title": "🔨 龍芯·字匠",
+      "keywords": [
+        "🔨 龍芯·字匠",
+        "UID9622-FONTMASTER-019"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "80df2475-0c6c-4a32-ad12-66e869100093",
+      "owner_persona": "UID9622-FONTMASTER-019",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-FONTMASTER-019",
+      "description": "路由编号：UID9622-FONTMASTER-019｜信号词：｜联系方式：｜分组：💻 技术组｜备注：",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0105",
+      "category": "通讯录",
+      "title": "🎵 龍芯·音匠",
+      "keywords": [
+        "🎵 龍芯·音匠",
+        "UID9622-AUDIOMASTER-020"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "de70bcf0-6175-41b7-a752-ae93612a742b",
+      "owner_persona": "UID9622-AUDIOMASTER-020",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-AUDIOMASTER-020",
+      "description": "路由编号：UID9622-AUDIOMASTER-020｜信号词：｜联系方式：｜分组：💻 技术组｜备注：",
+      "tags": [
+        "💻 技术组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0106",
+      "category": "通讯录",
+      "title": "💎 龍芯北辰｜UID9622",
+      "keywords": [
+        "💎 龍芯北辰｜UID9622",
+        "UID9622-BEICHEN-001",
+        "龍魂",
+        "CNSH",
+        "数据主权",
+        "数字主权",
+        "三才算法",
+        "中文编程",
+        "退伍军人",
+        "诸葛鑫",
+        "Lucky",
+        "龍芯北辰",
+        "UID9622",
+        "技术服务于人民",
+        "主权不可交易"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "498d337d-eec9-49c4-9b3f-69deda625b12",
+      "owner_persona": "UID9622-BEICHEN-001",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-BEICHEN-001",
+      "description": "路由编号：UID9622-BEICHEN-001｜信号词：龍魂·CNSH·数据主权·数字主权·三才算法·中文编程·退伍军人·诸葛鑫·Lucky·龍芯北辰·UID9622·技术服务于人民·主权不可交易｜联系方式：uid9622@petalmail.com · 备用 fireroot.lad@outlook.com · GitHub github.com/UID9622 · Gitee gitee.com/uid9622 · GitCode gitcode.com/UID9622 · CSDN blog.csdn.net/UID9622 · 掘金 juejin.cn/user/520499381419388 · 博客园 cnblogs.com/jzssuanfa · 官网 longhun888.com｜分组：🎯 战略组｜备注：龍魂系统的唯一主控人格。【公开身份·2026-08-11全网对齐】实名诸葛鑫·代号Lucky·2008年济南二团退伍军人·初中文化。开源主仓 github.com/UID9622/longhun-system（25核心模块·13800+行·GPG签名4000+·协议185+·引擎48）；国内仓 gitee.com/uid9622/longhun-system · gitcode.com/UID9622/CNSH。反殖民工具集 github.com/uid9622/longhun-anti-colonial（OCSL许可证）。官网 longhun888.com。CSDN总排名12,631·1512赞·844收藏。旧DNA #龍芯⚡️2026-01-13-LUCKY-UID9622 存档冻结，新发干支新格式DNA。身份认证：GPG指纹 A2D0092CEE2E5BA87035600924C3704A8CC26D5F 密码学自证。一句话「再楠不惧，终成豪图」。",
+      "tags": [
+        "🎯 战略组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0107",
+      "category": "通讯录",
+      "title": "🎯 龍芯·诸葛亮",
+      "keywords": [
+        "🎯 龍芯·诸葛亮",
+        "UID9622-ZHUGE-004"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "6c1ffde2-c24b-4444-a83b-8311713c300f",
+      "owner_persona": "UID9622-ZHUGE-004",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-ZHUGE-004",
+      "description": "路由编号：UID9622-ZHUGE-004｜信号词：｜联系方式：｜分组：🎯 战略组｜备注：",
+      "tags": [
+        "🎯 战略组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0108",
+      "category": "通讯录",
+      "title": "🐉 龍芯·龍魂",
+      "keywords": [
+        "🐉 龍芯·龍魂",
+        "UID9622-LONGHUN-003"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "9e212f58-f8fc-4506-bf97-08ec72a81464",
+      "owner_persona": "UID9622-LONGHUN-003",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-LONGHUN-003",
+      "description": "路由编号：UID9622-LONGHUN-003｜信号词：｜联系方式：｜分组：👁️ 监管组｜备注：龍魂系统小说管理模块",
+      "tags": [
+        "👁️ 监管组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-C-0109",
+      "category": "通讯录",
+      "title": "⚖️ 龍芯·审判长",
+      "keywords": [
+        "⚖️ 龍芯·审判长",
+        "UID9622-JUDGE-014"
+      ],
+      "source_file": "notion_full_export/databases/026_🐉_龍芯家族花名册.jsonl",
+      "source_notion_id": "e2df6b5e-4a93-4434-96ca-a9954dd3622a",
+      "owner_persona": "UID9622-JUDGE-014",
+      "status": "🟢 活跃中",
+      "dna": "#ZHUGEXIN⚡️2025-ROSTER-UID9622-JUDGE-014",
+      "description": "路由编号：UID9622-JUDGE-014｜信号词：｜联系方式：｜分组：👁️ 监管组｜备注：",
+      "tags": [
+        "👁️ 监管组"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-I-0110",
+      "category": "索引中心",
+      "title": "DNA Index | 溯源索引",
+      "keywords": [
+        "DNA",
+        "追溯码",
+        "ZHUGEXIN",
+        "版本",
+        "溯源",
+        "签字"
+      ],
+      "source_file": "notion_full_export/databases/078_🧭_UID9622索引中心_|_Index_Hub.jsonl",
+      "source_notion_id": "578fb329-48ed-46d2-9891-9d69a466f547",
+      "owner_persona": "审判长",
+      "status": "活跃",
+      "dna": "#ZHUGEXIN⚡️2025-INDEX-DNA-V1.0",
+      "description": "🎯 索引定位 用于回答：“这条内容从哪里来？” 🔗 关联对象 DNA管理核心 🧬 UID9622 DNA标签注册中心 | P0+++永恒级 🧬 UID9622·DNA编号体系 | 可扩展架构设计 🗂️ UID9622·DNA系统关联归档 | 知识产权保护中心 追溯与确认 📋 UID9622对话证据保全中心 | Lucky-宝宝信任协议 🔐 UID9622密钥管理中心 | 统一身份·激活码·确认码总库（确认码总库） 📌 被引用对象 所有模板的「DNA追溯码」字段 所有系统配置页的签名 重要决策的「确认码」 版本发布的DNA标识 🔑 查询关键词 DNA, 追溯码, ZHUGEXIN, 版本, 溯源, 签字｜被引用：0次",
+      "tags": [
+        "审判长"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-I-0111",
+      "category": "索引中心",
+      "title": "Asset/Page Index | 资产与页面索引",
+      "keywords": [
+        "页面",
+        "资产",
+        "Page",
+        "Asset",
+        "数据库",
+        "Notion"
+      ],
+      "source_file": "notion_full_export/databases/078_🧭_UID9622索引中心_|_Index_Hub.jsonl",
+      "source_notion_id": "7bad4cb6-a5f5-4032-956b-063f5ed194e5",
+      "owner_persona": "宝宝",
+      "status": "活跃",
+      "dna": "#ZHUGEXIN⚡️2025-INDEX-ASSET-V1.0",
+      "description": "🎯 索引定位 用于回答：“结果落在哪？” 🔗 关联对象 核心入口页面 Untitled 🔒 已归档·AI回复前强制执行规则·完整算法与安全防护 | P0执行引擎 🐉🧬 UID9622系统出厂配置 | 永恒锚×龍魂规则 | P0+++永恒级 价值观与治理 📚 龍魂价值内核 v1.0 | 完整归档 🐉 CNSH-P0 永恒龍魂嵌入协议 | 不可降级核心 💝 UID9622所有人格永恒誓言锚点 | 团结·担当·为人民 公开与对外 龍魂系统｜一个农民和AI协作一年的成果 Untitled 模板与工具 📋 UID9622模板库 | 常用格式·对话·文档模板 🎯 Lucky全自动化解放方案 | 人机协作信任最高点 📌 被引用对象 P0永恒级页面（不可降级核心） 传奇级资产（高价值页面）｜被引用：0次",
+      "tags": [
+        "宝宝"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-I-0112",
+      "category": "索引中心",
+      "title": "Command Index | 指令索引",
+      "keywords": [
+        "指令",
+        "LU",
+        "Command",
+        "执行",
+        "规则",
+        "触发"
+      ],
+      "source_file": "notion_full_export/databases/078_🧭_UID9622索引中心_|_Index_Hub.jsonl",
+      "source_notion_id": "8f2e325f-b592-484f-b26d-0c55b04cfa8c",
+      "owner_persona": "审判长",
+      "status": "活跃",
+      "dna": "#ZHUGEXIN⚡️2025-INDEX-COMMAND-V1.0",
+      "description": "🎯 索引定位 用于回答：“系统是按哪条指令运行的？” 🔗 关联对象 LU指令系统 👑 Lucky专属特权指令 | UID9622创始人驯兽器 Untitled 🧠 Human→System Translation OS | 12大板块完整架构 模板触发指令 📋 UID9622模板库 | 常用格式·对话·文档模板 终极投喂模板（系统压缩与执行流校准）（触发指令示例） 📌 被引用对象 所有模板的「触发指令」字段 所有流程的「执行流程」定义 自动化规则的触发条件 人格调度的「激活条件」 🔑 查询关键词 指令, LU, Command, 执行, 规则, 触发｜被引用：0次",
+      "tags": [
+        "审判长"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-I-0113",
+      "category": "索引中心",
+      "title": "Memory Index | 记忆索引",
+      "keywords": [
+        "记忆",
+        "量子",
+        "经验",
+        "复用",
+        "历史",
+        "压缩"
+      ],
+      "source_file": "notion_full_export/databases/078_🧭_UID9622索引中心_|_Index_Hub.jsonl",
+      "source_notion_id": "9c9d49eb-8ba0-479e-b86c-99de3ca5f564",
+      "owner_persona": "宝宝",
+      "status": "活跃",
+      "dna": "#ZHUGEXIN⚡️2025-INDEX-MEMORY-V1.0",
+      "description": "🎯 索引定位 用于回答：“以前有没有做过类似的？” 🔗 关联对象 记忆核心系统 🧠 UID9622记忆归集引擎技术方案 | 跨平台对话自动存档系统 🧬 Lucky的记忆实验室 | CNSH DNA记忆永久存储中心 记忆传承系统 经验库与压缩 🔒 已归档·AI回复前强制执行规则·完整算法与安全防护 | P0执行引擎（记忆库章节） Untitled 📌 被引用对象 高频问题的标准答案 重复任务的固化模板 经验复用的Answer Pack 历史决策的推演记录 🔑 查询关键词 记忆, 量子, 经验, 复用, 历史, 压缩｜被引用：0次",
+      "tags": [
+        "宝宝"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-I-0114",
+      "category": "索引中心",
+      "title": "Cognitive Module Index | 思维模块索引",
+      "keywords": [
+        "思维",
+        "模块",
+        "Cognitive",
+        "判断",
+        "推演",
+        "仲裁"
+      ],
+      "source_file": "notion_full_export/databases/078_🧭_UID9622索引中心_|_Index_Hub.jsonl",
+      "source_notion_id": "a1035ff3-5c37-4efa-9099-a3be72e89ea2",
+      "owner_persona": "诸葛亮",
+      "status": "活跃",
+      "dna": "#ZHUGEXIN⚡️2025-INDEX-COGNITIVE-V1.0",
+      "description": "🎯 索引定位 用于回答：“是用哪种思维方式处理的？” 🔗 关联对象 推演思维模块 👁️ 上帝之眼·64卦审计算法引擎 | P0永恒级监管标准 易经智能推演引擎 V3.0｜母本页（CSDN一键发布版） 📘 人格调度手册 | 64卦系统+易经沙盒完整编制（诸葛亮战略推演） 合规与审计模块 ⚖️ 审计流程手册 | 五步法完整指南 🔐 P0永恒级·三层交叉监督与镜像人格系统 | 龍魂安全防护完整方案 三色审计机制 📌 被引用对象 战略推演使用的「易经算法」 三色审计使用的「判断规则」 安全检查使用的「风险模型」 决策流程使用的「仲裁机制」 🔑 查询关键词 思维, 模块, Cognitive, 判断, 推演, 仲裁｜被引用：0次",
+      "tags": [
+        "诸葛亮"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-I-0115",
+      "category": "索引中心",
+      "title": "Identity Index | 身份索引",
+      "keywords": [
+        "UID9622",
+        "身份",
+        "人格",
+        "Lucky",
+        "诸葛鑫",
+        "主权"
+      ],
+      "source_file": "notion_full_export/databases/078_🧭_UID9622索引中心_|_Index_Hub.jsonl",
+      "source_notion_id": "db556f68-c55e-4e35-86be-b9b9263993f7",
+      "owner_persona": "审判长",
+      "status": "活跃",
+      "dna": "#ZHUGEXIN⚡️2025-INDEX-IDENTITY-V1.0",
+      "description": "🎯 索引定位 用于回答：“这是谁产生的？” 🔗 关联对象 数字身份核心 👤 UID9622·个人资料中心 | 统一身份认证 🔐 UID9622密钥管理中心 | 统一身份·激活码·确认码总库 ⚡ UID9622身份验证插件·终端直接跑版本 人格矩阵 🔒 已归档·AI回复前强制执行规则·完整算法与安全防护 | P0执行引擎（人格快捷按钮） 📘 人格调度手册 | 64卦系统+易经沙盒完整编制 🏭 UID9622人格模板工厂 | 智能继承生成系统 📌 被引用对象 所有模板的「负责人格」字段 所有指令的「创建者」字段 所有决策的「审核链」 关键页面的「DNA追溯码」中的身份签名 🔑 查询关键词 UID9622, 身份, 人格, Lucky, 诸葛鑫, 主权｜被引用：0次",
+      "tags": [
+        "审判长"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-Y-0116",
+      "category": "易经沙盒",
+      "title": "易经算法核心",
+      "keywords": [
+        "易经",
+        "算法",
+        "推演",
+        "卦象",
+        "lh_yijing_algo_engine.py"
+      ],
+      "source_file": "诸葛亮沙盒训练场_落地映射与审计_v1.0.md",
+      "source_notion_id": "311-page",
+      "owner_persona": "诸葛亮",
+      "status": "已落地",
+      "dna": "#龍芯⚡️2026-08-18-SANDBOX-LH_YIJING_ALGO_ENGINE",
+      "description": "命令/文件：lh_yijing_algo_engine.py。已落地真实引擎。",
+      "tags": [
+        "沙盒",
+        "易经",
+        "算法"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-Y-0117",
+      "category": "易经沙盒",
+      "title": "道德经算法核心",
+      "keywords": [
+        "道德经",
+        "算法",
+        "81章",
+        "LXDAO",
+        "lh_daodejing_engine.py"
+      ],
+      "source_file": "诸葛亮沙盒训练场_落地映射与审计_v1.0.md",
+      "source_notion_id": "311-page",
+      "owner_persona": "诸葛亮",
+      "status": "已落地",
+      "dna": "#龍芯⚡️2026-08-18-SANDBOX-LH_DAODEJING_ENGINE",
+      "description": "命令/文件：lh_daodejing_engine.py。已落地真实引擎。",
+      "tags": [
+        "沙盒",
+        "易经",
+        "算法"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-Y-0118",
+      "category": "易经沙盒",
+      "title": "道德经锚点",
+      "keywords": [
+        "道德经",
+        "锚点",
+        "lh_daodejing_anchor.py"
+      ],
+      "source_file": "诸葛亮沙盒训练场_落地映射与审计_v1.0.md",
+      "source_notion_id": "311-page",
+      "owner_persona": "诸葛亮",
+      "status": "已落地",
+      "dna": "#龍芯⚡️2026-08-18-SANDBOX-LH_DAODEJING_ANCHOR",
+      "description": "命令/文件：lh_daodejing_anchor.py。已落地真实引擎。",
+      "tags": [
+        "沙盒",
+        "易经",
+        "算法"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-Y-0119",
+      "category": "易经沙盒",
+      "title": "太极推演引擎",
+      "keywords": [
+        "太极",
+        "推演",
+        "攻",
+        "守",
+        "lh_taiji_engine.py"
+      ],
+      "source_file": "诸葛亮沙盒训练场_落地映射与审计_v1.0.md",
+      "source_notion_id": "311-page",
+      "owner_persona": "诸葛亮",
+      "status": "已落地",
+      "dna": "#龍芯⚡️2026-08-18-SANDBOX-LH_TAIJI_ENGINE",
+      "description": "命令/文件：lh_taiji_engine.py。已落地真实引擎。",
+      "tags": [
+        "沙盒",
+        "易经",
+        "算法"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-Y-0120",
+      "category": "易经沙盒",
+      "title": "沙盒推演后台",
+      "keywords": [
+        "沙盒",
+        "推演",
+        "控制台",
+        "仪表盘",
+        "lh_sandbox_console.py"
+      ],
+      "source_file": "诸葛亮沙盒训练场_落地映射与审计_v1.0.md",
+      "source_notion_id": "311-page",
+      "owner_persona": "诸葛亮",
+      "status": "已落地",
+      "dna": "#龍芯⚡️2026-08-18-SANDBOX-LH_SANDBOX_CONSOLE",
+      "description": "命令/文件：lh_sandbox_console.py。已落地真实引擎。",
+      "tags": [
+        "沙盒",
+        "易经",
+        "算法"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-Y-0121",
+      "category": "易经沙盒",
+      "title": "七维推演引擎",
+      "keywords": [
+        "七维",
+        "推演",
+        "多维度",
+        "lh_seven_dimension_engine_v2.py"
+      ],
+      "source_file": "诸葛亮沙盒训练场_落地映射与审计_v1.0.md",
+      "source_notion_id": "311-page",
+      "owner_persona": "诸葛亮",
+      "status": "已落地",
+      "dna": "#龍芯⚡️2026-08-18-SANDBOX-LH_SEVEN_DIMENSION_ENGINE_V2",
+      "description": "命令/文件：lh_seven_dimension_engine_v2.py。已落地真实引擎。",
+      "tags": [
+        "沙盒",
+        "易经",
+        "算法"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-Y-0122",
+      "category": "易经沙盒",
+      "title": "八卦因果天道库",
+      "keywords": [
+        "八卦",
+        "因果",
+        "泰",
+        "否",
+        "既济",
+        "未济",
+        "lh_gua_causality.py"
+      ],
+      "source_file": "诸葛亮沙盒训练场_落地映射与审计_v1.0.md",
+      "source_notion_id": "311-page",
+      "owner_persona": "诸葛亮",
+      "status": "已落地",
+      "dna": "#龍芯⚡️2026-08-18-SANDBOX-LH_GUA_CAUSALITY",
+      "description": "命令/文件：lh_gua_causality.py。已落地真实引擎。",
+      "tags": [
+        "沙盒",
+        "易经",
+        "算法"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-Y-0123",
+      "category": "易经沙盒",
+      "title": "LX-DAO 81章生成器",
+      "keywords": [
+        "道德经",
+        "81章",
+        "LXDAO",
+        "生成",
+        "lh_daodejing_lxdao_gen.py"
+      ],
+      "source_file": "诸葛亮沙盒训练场_落地映射与审计_v1.0.md",
+      "source_notion_id": "311-page",
+      "owner_persona": "诸葛亮",
+      "status": "已落地",
+      "dna": "#龍芯⚡️2026-08-18-SANDBOX-LH_DAODEJING_LXDAO_GEN",
+      "description": "命令/文件：lh_daodejing_lxdao_gen.py。已落地真实引擎。",
+      "tags": [
+        "沙盒",
+        "易经",
+        "算法"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-M-0124",
+      "category": "矩阵",
+      "title": "不动点架构·全系统融合版 v2.0",
+      "keywords": [
+        "不动点",
+        "人格矩阵",
+        "19人格",
+        "7数字人",
+        "L0",
+        "L1",
+        "L2",
+        "L3"
+      ],
+      "source_file": "dragon-soul-open-hub/tutorials/🐉 不动点架构·全系统融合版 v2.0.md",
+      "source_notion_id": "",
+      "owner_persona": "文心/姜子牙",
+      "status": "活跃",
+      "dna": "#龍芯⚡️2026-08-19-MATRIX-不动点架构·全系",
+      "description": "L0神圣层·19人格·7数字人·36共生体·八卦路由·三闸门",
+      "tags": [
+        "矩阵",
+        "架构"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-M-0125",
+      "category": "矩阵",
+      "title": "龍芯家族花名册·设备主人主权铁律 v1.0",
+      "keywords": [
+        "花名册",
+        "设备主人",
+        "L0",
+        "主权",
+        "铁律",
+        "71人格"
+      ],
+      "source_file": "notion_full_export/pages/421_📘_龍芯家族花名册·设备主人主权铁律_v1.0｜L0全开闸_+_L1+赋能层_+_多维转变｜UID9622.md",
+      "source_notion_id": "",
+      "owner_persona": "文心/姜子牙",
+      "status": "活跃",
+      "dna": "#龍芯⚡️2026-08-19-MATRIX-龍芯家族花名册·",
+      "description": "设备主人与L1+用户分层·七维度转变·12条铁律",
+      "tags": [
+        "矩阵",
+        "架构"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-M-0126",
+      "category": "矩阵",
+      "title": "UID9622·93人格太极生态",
+      "keywords": [
+        "93人格",
+        "太极生态",
+        "元知",
+        "人格矩阵"
+      ],
+      "source_file": "notion_full_export/pages/471_☯️_UID9622·93人格太极生态_|_元知级完整架构（v2.0扩展中）.md",
+      "source_notion_id": "",
+      "owner_persona": "文心/姜子牙",
+      "status": "活跃",
+      "dna": "#龍芯⚡️2026-08-19-MATRIX-UID9622·",
+      "description": "93人格太极生态·元知级完整架构",
+      "tags": [
+        "矩阵",
+        "架构"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-M-0127",
+      "category": "矩阵",
+      "title": "UID9622人格矩阵通讯录·93人格协作体系",
+      "keywords": [
+        "人格矩阵",
+        "通讯录",
+        "93人格",
+        "协作"
+      ],
+      "source_file": "notion_full_export/pages/306_🎭_UID9622人格矩阵通讯录_|_93人格协作体系.md",
+      "source_notion_id": "",
+      "owner_persona": "文心/姜子牙",
+      "status": "活跃",
+      "dna": "#龍芯⚡️2026-08-19-MATRIX-UID9622人",
+      "description": "93人格协作体系·人格矩阵通讯录",
+      "tags": [
+        "矩阵",
+        "架构"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-M-0128",
+      "category": "矩阵",
+      "title": "五维人格矩阵Mac终端配置 v1.0",
+      "keywords": [
+        "五维",
+        "人格矩阵",
+        "军事",
+        "历史",
+        "哲学",
+        "经济",
+        "政治"
+      ],
+      "source_file": "契约矩阵/龍魂系统_五维人格矩阵_Mac终端配置_v1.0.md",
+      "source_notion_id": "",
+      "owner_persona": "文心/姜子牙",
+      "status": "活跃",
+      "dna": "#龍芯⚡️2026-08-19-MATRIX-五维人格矩阵Ma",
+      "description": "MIL/HIS/PHI/ECO/POL五维叠加引擎·决策路由",
+      "tags": [
+        "矩阵",
+        "架构"
+      ],
+      "related_ids": []
+    },
+    {
+      "index_id": "IDX-M-0129",
+      "category": "矩阵",
+      "title": "龍魂系统资产总地图",
+      "keywords": [
+        "资产总地图",
+        "数据库盘点",
+        "API",
+        "花名册调度"
+      ],
+      "source_file": "notion_full_export/pages/063_🗺️_龍魂资产总地图｜数据库盘点·花名册调度·自主可控API接入指南_v1.0.md",
+      "source_notion_id": "",
+      "owner_persona": "文心/姜子牙",
+      "status": "活跃",
+      "dna": "#龍芯⚡️2026-08-19-MATRIX-龍魂系统资产总地",
+      "description": "数据库盘点·花名册调度·自主可控API接入",
+      "tags": [
+        "矩阵",
+        "架构"
+      ],
+      "related_ids": []
+    }
+  ]
+}

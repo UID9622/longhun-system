@@ -1,3 +1,6 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ================================================================
 🐉 CNSH｜龍魂系统第一性原理总纲 v2.0·补全版
 路径: protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md
@@ -400,7 +403,7 @@ SI 公式 (F18 主权指数):
 ================================================================
 
 VERSION:     v2.0 + §19-§24 补全版
-DNA:         #龍芯⚡2026-05-19-CNSH-FIRST-PRINCIPLES-SUPPLEMENT-v1.0
+DNA:         #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-FIRST-PRINCIPLES-SUPPLEMENT-v1.0
 PARENT:      CNSH 第一性原理总纲 v2.0 (老大母稿·18 节)
 CONFIRM:     #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL:        #ZHUGEXIN⚡2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL

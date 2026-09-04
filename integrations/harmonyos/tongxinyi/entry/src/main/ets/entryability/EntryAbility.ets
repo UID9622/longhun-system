@@ -1,106 +1,140 @@
-/*
- * ==========================================================================
- * 通心译 — 应用入口 ✅ 检查项#4 (能力检查) + 权限初始化
- * DNA:#龍芯⚡️丙午·丙申·癸丑·午时·需-TONGXINYI-ENTRY-v1.0
- * ==========================================================================
- * 启动流程:
- *   1. 能力检查 (非阻塞，记录日志)
- *   2. 加载主页面
- *   3. 权限检查 + 请求
- *   4. 初始化通心译核心引擎
- * ==========================================================================
- */
+// DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-ee48178a
+// entry/src/main/ets/entryability/EntryAbility.ets
+// 龍魂 · EntryAbility生命周期 · ArkTS
 
-import UIAbility from '@ohos.app.ability.UIAbility';
-import window from '@ohos.window';
-import { Permissions } from '@ohos.abilityAccessCtrl';
-import { DeviceCapability } from '../utils/DeviceCapability';
-import { PermissionHelper } from '../permissions/PermissionHelper';
-import { DRAGON_SOUL_MARKS } from '../common/types';
+import { AbilityConstant, UIAbility, Want, window } from '@kit.AbilityKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+import { appState } from '../models/AppState';
 
-const REQUIRED_PERMISSIONS: Array<Permissions> = [
-  'ohos.permission.INTERNET',
-  'ohos.permission.GET_NETWORK_INFO',
-  'ohos.permission.READ_PASTEBOARD'
-];
-
-const REQUIRED_CAPS: string[] = [
-  DeviceCapability.CAPS.INTERNET,
-  DeviceCapability.CAPS.PASTEBOARD,
-  DeviceCapability.CAPS.NETWORK_INFO,
-  DeviceCapability.CAPS.CRYPTO
-];
+const TAG = 'LonghunEntryAbility';
 
 export default class EntryAbility extends UIAbility {
-  onCreate(want: Record<string, Object>, launchParam: Record<string, Object>): void {
-    console.info(`[${DRAGON_SOUL_MARKS.DNA}] onCreate`);
+  // === 创建时 ===
+  onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
+    hilog.info(0x0000, TAG, '[龍魂] Ability onCreate');
 
-    // 能力检查 (非阻塞，记录日志)
-    const missing = DeviceCapability.validateRequiredCaps(REQUIRED_CAPS);
-    if (missing.length > 0) {
-      console.warn(`[TongxinYi] 缺少系统能力: ${missing.join(', ')}`);
+    // 初始化全局状态
+    appState.init();
+
+    // 记录启动参数
+    const paramsStr = JSON.stringify(want.parameters || {});
+    hilog.info(0x0000, TAG, `[龍魂] 启动参数: ${paramsStr}`);
+
+    // 处理深度链接
+    if (want.uri) {
+      this.handleDeepLink(want.uri);
     }
-
-    // 记录启动信息
-    console.info(`[TongxinYi] 设备类型: ${DeviceCapability.getDeviceType()}`);
-    console.info(`[TongxinYi] SDK版本: ${DeviceCapability.getSDKVersion()}`);
-    console.info(`[TongxinYi] 屏幕密度: ${DeviceCapability.getScreenDensity()}`);
   }
 
-  async onWindowStageCreate(windowStage: window.WindowStage): Promise<void> {
-    console.info(`[TongxinYi] onWindowStageCreate`);
+  // === 销毁时 ===
+  onDestroy(): void {
+    hilog.info(0x0000, TAG, '[龍魂] Ability onDestroy');
+
+    // 持久化状态
+    appState.persist();
+  }
+
+  // === 窗口创建时 ===
+  onWindowStageCreate(windowStage: window.WindowStage): void {
+    hilog.info(0x0000, TAG, '[龍魂] Ability onWindowStageCreate');
 
     // 加载主页面
-    try {
-      await windowStage.loadContent('pages/Index', (err) => {
-        if (err.code) {
-          console.error(`[TongxinYi] 加载页面失败: ${err.code} ${err.message}`);
+    windowStage.loadContent('pages/Index', (err, data) => {
+      if (err.code) {
+        hilog.error(0x0000, TAG, `[龍魂] 加载页面失败: ${JSON.stringify(err)}`);
+        return;
+      }
+      hilog.info(0x0000, TAG, '[龍魂] 页面加载成功');
+
+      // 获取窗口实例
+      const win = windowStage.getMainWindowSync();
+
+      // 监听窗口大小变化（响应式适配）
+      win.on('windowSizeChange', (size: window.Size) => {
+        hilog.info(0x0000, TAG, `[龍魂] 窗口变化: ${size.width}x${size.height}`);
+        AppStorage.setOrCreate('window_width', size.width);
+        AppStorage.setOrCreate('window_height', size.height);
+      });
+
+      // 监听窗口失焦/获焦
+      win.on('windowFocusChange', (isFocus: boolean) => {
+        hilog.info(0x0000, TAG, `[龍魂] 窗口焦点: ${isFocus}`);
+        AppStorage.setOrCreate('window_focused', isFocus);
+      });
+    });
+  }
+
+  // === 窗口销毁时 ===
+  onWindowStageDestroy(): void {
+    hilog.info(0x0000, TAG, '[龍魂] Ability onWindowStageDestroy');
+  }
+
+  // === 前台时 ===
+  onForeground(): void {
+    hilog.info(0x0000, TAG, '[龍魂] Ability onForeground');
+
+    // 恢复状态
+    appState.loadNavHistory();
+  }
+
+  // === 后台时 ===
+  onBackground(): void {
+    hilog.info(0x0000, TAG, '[龍魂] Ability onBackground');
+
+    // 保存状态
+    appState.persist();
+  }
+
+  // === 新Want ===
+  onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void {
+    hilog.info(0x0000, TAG, '[龍魂] Ability onNewWant');
+
+    // 处理新的启动参数（如通知点击）
+    if (want.uri) {
+      this.handleDeepLink(want.uri);
+    }
+
+    if (want.parameters) {
+      AppStorage.setOrCreate('launch_params', want.parameters);
+    }
+  }
+
+  // === 处理深度链接 ===
+  private handleDeepLink(uri: string): void {
+    hilog.info(0x0000, TAG, `[龍魂] 深度链接: ${uri}`);
+
+    // 解析URI: longhun://page/project?id=123
+    const questionIdx = uri.indexOf('?');
+    const path = questionIdx >= 0 ? uri.substring(0, questionIdx) : uri;
+    const params: Record<string, string> = {};
+
+    if (questionIdx >= 0) {
+      const query = uri.substring(questionIdx + 1);
+      query.split('&').forEach(pair => {
+        const eqIdx = pair.indexOf('=');
+        if (eqIdx >= 0) {
+          const k = decodeURIComponent(pair.substring(0, eqIdx));
+          const v = decodeURIComponent(pair.substring(eqIdx + 1));
+          params[k] = v;
         }
       });
-    } catch (err) {
-      console.error(`[TongxinYi] loadContent异常: ${JSON.stringify(err)}`);
     }
 
-    // 权限检查
-    const tokenID = await PermissionHelper.getTokenID();
-    if (tokenID > 0) {
-      const results = await Promise.all(
-        REQUIRED_PERMISSIONS.map(p => PermissionHelper.checkPermission(tokenID, p))
-      );
-      const allGranted = results.every(Boolean);
+    // 存储深度链接信息
+    AppStorage.setOrCreate('deep_link_path', path);
+    AppStorage.setOrCreate('deep_link_params', JSON.stringify(params));
 
-      if (!allGranted) {
-        console.info(`[TongxinYi] 首次启动·请求权限...`);
-        const context = this.context as Record<string, Object>;
-        // 延迟请求权限，避免阻塞启动
-        setTimeout(async () => {
-          try {
-            const granted = await PermissionHelper.requestPermissions(
-              this.context as unknown as Record<string, Object>,
-              REQUIRED_PERMISSIONS
-            );
-            console.info(`[TongxinYi] 权限请求结果: ${granted}`);
-          } catch (err) {
-            console.error(`[TongxinYi] 权限请求失败`);
-          }
-        }, 500);
-      }
+    hilog.info(0x0000, TAG, `[龍魂] 深度链接解析: path=${path}, params=${JSON.stringify(params)}`);
+  }
+
+  // === 内存不足 ===
+  onMemoryLevel(level: AbilityConstant.MemoryLevel): void {
+    hilog.warn(0x0000, TAG, `[龍魂] 内存警告: ${level}`);
+
+    if (level === AbilityConstant.MemoryLevel.MEMORY_LEVEL_MODERATE ||
+        level === AbilityConstant.MemoryLevel.MEMORY_LEVEL_LOW) {
+      // 清理非必要缓存
+      appState.persist();
     }
-  }
-
-  onForeground(): void {
-    console.info(`[TongxinYi] onForeground`);
-  }
-
-  onBackground(): void {
-    console.info(`[TongxinYi] onBackground`);
-  }
-
-  onWindowStageDestroy(): void {
-    console.info(`[TongxinYi] onWindowStageDestroy`);
-  }
-
-  onDestroy(): void {
-    console.info(`[TongxinYi] onDestroy - ${DRAGON_SOUL_MARKS.SEAL}`);
   }
 }

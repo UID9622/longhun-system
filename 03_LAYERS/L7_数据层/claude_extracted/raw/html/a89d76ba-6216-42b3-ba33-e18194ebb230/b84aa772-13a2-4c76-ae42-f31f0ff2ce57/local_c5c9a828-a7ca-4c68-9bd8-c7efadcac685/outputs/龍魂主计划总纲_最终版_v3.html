@@ -1,0 +1,894 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-b9836223 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>龍魂主计划总纲 · 最终版 v3.0 | UID9622</title>
+  <style>
+    :root {
+      --bg-deep:    #050510;
+      --bg-card:    #0a0a28;
+      --bg-panel:   #0d0d35;
+      --border:     #1e1e5a;
+      --gold:       #d4af37;
+      --gold-b:     #ffd700;
+      --gold-d:     #7a5e18;
+      --purple:     #7b2dff;
+      --purple-s:   #a855f7;
+      --red:        #ff3355;
+      --red-g:      rgba(255,51,85,.22);
+      --yellow:     #ffcc00;
+      --yellow-g:   rgba(255,204,0,.18);
+      --green:      #00ff88;
+      --green-g:    rgba(0,255,136,.16);
+      --cyan:       #00d4ff;
+      --cosmos:     #8b00ff;
+      --tp:         #e8e0f8;
+      --ts:         #7070a8;
+      --td:         #38386a;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      background:var(--bg-deep);
+      color:var(--tp);
+      font-family:'PingFang SC','Noto Serif SC','微软雅黑',serif;
+      line-height:1.85;
+      overflow-x:hidden;
+    }
+    body::before{
+      content:'';position:fixed;inset:0;
+      background:
+        radial-gradient(ellipse 60% 40% at 15% 25%, rgba(123,45,255,.06) 0%,transparent 70%),
+        radial-gradient(ellipse 50% 50% at 85% 75%, rgba(0,212,255,.04) 0%,transparent 65%),
+        radial-gradient(ellipse 80% 60% at 50% 50%, rgba(212,175,55,.025) 0%,transparent 80%);
+      pointer-events:none;z-index:0;
+    }
+
+    /* ── Layout ── */
+    .page{max-width:1120px;margin:0 auto;padding:40px 28px;position:relative;z-index:1}
+
+    /* ── Header ── */
+    .hdr{text-align:center;padding:64px 0 48px;border-bottom:1px solid var(--border);margin-bottom:64px;position:relative}
+    .hdr::after{content:'';position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);width:220px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+    .hdr-seal{font:11px/2 'JetBrains Mono',monospace;color:var(--gold-d);letter-spacing:3px;margin-bottom:20px}
+    .hdr-title{font-size:clamp(32px,5vw,52px);font-weight:900;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-b) 45%,var(--purple-s) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.25;margin-bottom:14px}
+    .hdr-sub{font-size:17px;color:var(--ts);margin-bottom:28px}
+    .hdr-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;font:11px 'JetBrains Mono',monospace;color:var(--td)}
+    .hdr-meta b{color:var(--gold-d)}
+
+    /* ── Section ── */
+    .sec{margin-bottom:76px}
+    .sec-hdr{display:flex;align-items:center;gap:14px;margin-bottom:32px}
+    .sec-num{font:11px 'JetBrains Mono',monospace;color:var(--gold-d);border:1px solid var(--gold-d);padding:4px 9px;letter-spacing:2px;flex-shrink:0}
+    .sec-title{font-size:22px;font-weight:700;color:var(--gold);white-space:nowrap}
+    .sec-line{flex:1;height:1px;background:linear-gradient(90deg,var(--gold-d),transparent)}
+
+    /* ── Cards ── */
+    .card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:26px 28px;margin-bottom:18px;position:relative;overflow:hidden}
+    .card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%}
+    .card.red::before{background:var(--red);box-shadow:0 0 18px var(--red-g)}
+    .card.yellow::before{background:var(--yellow);box-shadow:0 0 18px var(--yellow-g)}
+    .card.green::before{background:var(--green);box-shadow:0 0 18px var(--green-g)}
+    .card.gold::before{background:linear-gradient(180deg,var(--gold),var(--gold-d))}
+    .card.cosmos::before{background:linear-gradient(180deg,var(--purple),var(--cosmos))}
+    .card-title{font-size:15px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+    .badge{display:inline-block;padding:2px 9px;border-radius:3px;font:10px 'JetBrains Mono',monospace;letter-spacing:1px}
+    .badge.red{background:var(--red-g);color:var(--red);border:1px solid var(--red)}
+    .badge.yellow{background:var(--yellow-g);color:var(--yellow);border:1px solid var(--yellow)}
+    .badge.green{background:var(--green-g);color:var(--green);border:1px solid var(--green)}
+    .badge.cosmos{background:rgba(139,0,255,.18);color:var(--purple-s);border:1px solid var(--purple)}
+    .badge.gold{background:rgba(212,175,55,.12);color:var(--gold);border:1px solid var(--gold-d)}
+    .card p,.card-body{color:var(--ts);font-size:14px;line-height:2.1}
+
+    /* ── Diagram wrapper ── */
+    .diag{background:var(--bg-panel);border:1px solid var(--border);border-radius:12px;padding:32px 28px;margin:28px 0}
+    .diag-title{text-align:center;font:11px 'JetBrains Mono',monospace;color:var(--gold-d);letter-spacing:3px;text-transform:uppercase;margin-bottom:24px}
+
+    /* ── Sancai grid ── */
+    .sancai-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+    .sancai-stat{text-align:center;padding:18px 12px;border-radius:8px}
+    .sancai-stat.heaven{background:rgba(0,212,255,.05);border:1px solid rgba(0,212,255,.2)}
+    .sancai-stat.earth {background:rgba(0,255,136,.05);border:1px solid rgba(0,255,136,.2)}
+    .sancai-stat.human {background:rgba(212,175,55,.05);border:1px solid rgba(212,175,55,.2)}
+    .sancai-icon{font-size:22px;margin-bottom:6px}
+    .sancai-label{font:11px 'JetBrains Mono',monospace;margin-bottom:8px}
+    .sancai-pct{font-size:34px;font-weight:900;margin:6px 0}
+    .sancai-desc{font-size:11px;color:var(--td);line-height:1.7}
+    .heaven .sancai-pct{color:var(--cyan)}
+    .earth  .sancai-pct{color:var(--green)}
+    .human  .sancai-pct{color:var(--gold)}
+    .heaven .sancai-label{color:rgba(0,212,255,.6)}
+    .earth  .sancai-label{color:rgba(0,255,136,.6)}
+    .human  .sancai-label{color:rgba(212,175,55,.6)}
+
+    /* ── Luoshu grid ── */
+    .luoshu{display:grid;grid-template-columns:repeat(3,56px);gap:6px;margin:0 auto;width:max-content}
+    .lu-cell{width:56px;height:56px;display:flex;align-items:center;justify-content:center;font:18px 'JetBrains Mono',monospace;border:1px solid var(--border)}
+    .lu-cell.center{border:2px solid var(--gold);background:rgba(212,175,55,.08);color:var(--gold-b);font-size:22px}
+    .lu-cell:not(.center){color:rgba(0,212,255,.7)}
+
+    /* ── Pipeline ── */
+    .pipeline{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:18px 20px;background:rgba(0,0,0,.3);border-radius:8px;font:13px 'JetBrains Mono',monospace;margin-bottom:22px}
+    .pip-step{background:var(--bg-card);border:1px solid var(--border);padding:7px 13px;border-radius:4px;color:var(--tp);white-space:nowrap}
+    .pip-step.final{border-color:var(--gold-d);color:var(--gold)}
+    .pip-arrow{color:var(--gold-d)}
+
+    /* ── DB table ── */
+    .db-tbl{width:100%;border-collapse:collapse;font-size:13px}
+    .db-tbl th{background:rgba(212,175,55,.07);color:var(--gold);padding:11px 15px;text-align:left;border:1px solid var(--border);font-weight:400;letter-spacing:.5px}
+    .db-tbl td{padding:10px 15px;border:1px solid var(--border);color:var(--ts);vertical-align:top;line-height:1.8}
+    .db-tbl tr:hover td{background:rgba(255,255,255,.015)}
+
+    /* ── Tool grid ── */
+    .tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+    .tool-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:18px 20px;transition:border-color .25s}
+    .tool-card:hover{border-color:var(--gold-d)}
+    .tool-name{font-size:14px;font-weight:700;color:var(--tp);margin-bottom:5px}
+    .tool-file{font:10px 'JetBrains Mono',monospace;color:var(--gold-d);margin-bottom:8px}
+    .tool-desc{font-size:12px;color:var(--td);line-height:1.7}
+    .squad-label{font:11px 'JetBrains Mono',monospace;color:var(--gold-d);letter-spacing:2px;margin:24px 0 12px;padding-left:2px}
+
+    /* ── Roadmap ── */
+    .roadmap{padding-left:42px;position:relative}
+    .roadmap::before{content:'';position:absolute;left:14px;top:6px;bottom:6px;width:1px;background:linear-gradient(180deg,var(--gold),var(--purple),transparent)}
+    .rm-item{position:relative;margin-bottom:34px}
+    .rm-item::before{content:'';position:absolute;left:-34px;top:8px;width:10px;height:10px;border-radius:50%;border:2px solid var(--gold);background:var(--bg-deep)}
+    .rm-phase{font:10px 'JetBrains Mono',monospace;color:var(--gold-d);letter-spacing:2px;margin-bottom:5px}
+    .rm-title{font-size:15px;font-weight:700;color:var(--tp);margin-bottom:7px}
+    .rm-body{font-size:13px;color:var(--ts);line-height:2}
+
+    /* ── Local engines ── */
+    .engine-list{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:22px 26px;font:13px 'JetBrains Mono',monospace;line-height:2.5}
+    .engine-dir{color:var(--td);margin-bottom:4px}
+    .engine-file{color:var(--gold)}
+    .engine-sep{color:var(--td);margin:0 8px}
+    .engine-desc{color:var(--ts);font-size:12px}
+
+    /* ── DNA block ── */
+    .dna-block{font:12px 'JetBrains Mono',monospace;color:var(--gold);background:rgba(212,175,55,.05);border:1px solid rgba(212,175,55,.18);padding:14px 20px;border-radius:4px;margin:16px 0;letter-spacing:.5px;word-break:break-all}
+
+    /* ── Manifesto ── */
+    .manifesto{font-size:16px;color:var(--tp);line-height:2.3}
+    .manifesto em{font-style:normal;color:var(--gold)}
+
+    /* ── Footer ── */
+    .ftr{border-top:1px solid var(--border);padding:44px 0 28px;margin-top:80px;text-align:center}
+    .ftr-seal{font:11px 'JetBrains Mono',monospace;color:var(--td);line-height:3;letter-spacing:.8px}
+    .ftr-seal b{color:var(--gold-d)}
+
+    /* ── Canvas ── */
+    #sancai{display:block;margin:0 auto;border-radius:8px;background:#050510}
+
+    /* ── SVG container ── */
+    svg{max-width:100%;display:block;margin:0 auto}
+
+    /* Breathing glow on canvas wrapper */
+    .canvas-wrap{position:relative}
+    .breath-hint{text-align:center;font:10px 'JetBrains Mono',monospace;color:var(--td);margin-top:10px;letter-spacing:2px}
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar{width:4px}
+    ::-webkit-scrollbar-track{background:var(--bg-deep)}
+    ::-webkit-scrollbar-thumb{background:var(--gold-d);border-radius:2px}
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ═══════════════ HEADER ═══════════════ -->
+  <div class="hdr">
+    <div class="hdr-seal">UID9622 · CONFIRMED · #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</div>
+    <h1 class="hdr-title">龍魂主计划总纲</h1>
+    <p class="hdr-sub">数字主权系统 · 最终版 v3.0 · 含三图架构 · 可直接嵌入</p>
+    <div class="hdr-meta">
+      <span><b>创始人</b> 诸葛鑫 · 龍芯北辰</span>
+      <span><b>版本</b> v3.0 FINAL</span>
+      <span><b>日期</b> 2026-05-10</span>
+      <span><b>三色审计</b> 🟢 已通过</span>
+      <span><b>数据级别</b> L1_INTERNAL</span>
+      <span><b>主权根</b> dr=5 · 土 · 承载</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════ 01 系统宣言 ═══════════════ -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-num">01</div>
+      <div class="sec-title">系统宣言</div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="card gold">
+      <p class="manifesto">
+        龍魂系统不是一个产品，是一个农民用一年时间，和AI协作造出来的<em>数字主权体系</em>。<br><br>
+        核心哲学：<em>人不是数据的奴隶，而是主权的持有者</em>。<br><br>
+        每一条知识有<em>DNA</em>。每一个决策有<em>追溯</em>。每一次流动有<em>三才</em>。<br>
+        主权怎么走、DNA怎么留、流场怎么呼吸——这份总纲一图说清。
+      </p>
+      <div class="dna-block">#龍芯⚡️20260510-DOC-MASTERMIND-FINAL-v3.0</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ 02 全局三层架构图 ═══════════════ -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-num">02</div>
+      <div class="sec-title">全局三层架构图</div>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="diag">
+      <div class="diag-title">龍魂生态全景 · 四层分明 · 主权路由图</div>
+
+      <svg viewBox="0 0 900 660" xmlns="http://www.w3.org/2000/svg" width="900" height="660">
+        <defs>
+          <!-- Tier fills -->
+          <linearGradient id="gR" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#ff3355" stop-opacity=".14"/>
+            <stop offset="100%" stop-color="#ff3355" stop-opacity=".03"/>
+          </linearGradient>
+          <linearGradient id="gY" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#ffcc00" stop-opacity=".14"/>
+            <stop offset="100%" stop-color="#ffcc00" stop-opacity=".03"/>
+          </linearGradient>
+          <linearGradient id="gG" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#00ff88" stop-opacity=".14"/>
+            <stop offset="100%" stop-color="#00ff88" stop-opacity=".03"/>
+          </linearGradient>
+          <linearGradient id="gC" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#8b00ff" stop-opacity=".18"/>
+            <stop offset="100%" stop-color="#7b2dff" stop-opacity=".04"/>
+          </linearGradient>
+          <!-- Arrow marker -->
+          <marker id="arr" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M1 1 L4 4 L1 7" fill="none" stroke="#d4af37" stroke-width="1.3"/>
+          </marker>
+          <marker id="arrP" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M1 1 L4 4 L1 7" fill="none" stroke="#7b2dff" stroke-width="1.3"/>
+          </marker>
+        </defs>
+
+        <!-- LAYER 1: 私密层 -->
+        <rect x="18" y="18" width="864" height="136" rx="8" fill="url(#gR)" stroke="#ff3355" stroke-width=".8" stroke-opacity=".5"/>
+        <rect x="18" y="18" width="5" height="136" rx="2" fill="#ff3355" opacity=".9"/>
+        <text x="40" y="50" fill="#ff5577" font-size="14" font-family="monospace" font-weight="bold">🔴 私密层（只有老大）· SOVEREIGN CORE</text>
+        <line x1="40" y1="60" x2="860" y2="60" stroke="#ff3355" stroke-width=".4" stroke-opacity=".35"/>
+        <text x="58" y="82" fill="#cc4466" font-size="12" font-family="monospace">├─ 本地对话 · 私人心里话 · 情绪表达 · 绝对隔离</text>
+        <text x="58" y="100" fill="#cc4466" font-size="12" font-family="monospace">├─ 终端宝宝 · Claude Code CLI · 25个记忆文件 · Cowork总参谋部</text>
+        <text x="58" y="118" fill="#cc4466" font-size="12" font-family="monospace">└─ 本地服务 :9622 / :8081 / :8765 / :11434 · 双盾引擎守护</text>
+        <!-- Badge -->
+        <rect x="730" y="24" width="140" height="22" rx="4" fill="rgba(255,51,85,.12)" stroke="#ff3355" stroke-width=".5"/>
+        <text x="800" y="38" fill="#ff5577" font-size="10" font-family="monospace" text-anchor="middle">dr=5 · 土 · 承载</text>
+
+        <!-- Arrow 1 -->
+        <line x1="450" y1="154" x2="450" y2="180" stroke="#d4af37" stroke-width="1.4" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+        <text x="460" y="171" fill="#7a5e18" font-size="10" font-family="monospace">授权路由 →</text>
+
+        <!-- LAYER 2: 代理层 -->
+        <rect x="18" y="182" width="864" height="152" rx="8" fill="url(#gY)" stroke="#ffcc00" stroke-width=".8" stroke-opacity=".4"/>
+        <rect x="18" y="182" width="5" height="152" rx="2" fill="#ffcc00" opacity=".85"/>
+        <text x="40" y="214" fill="#ffcc00" font-size="14" font-family="monospace" font-weight="bold">🟡 代理层（授权才能跑）· AGENT LAYER</text>
+        <line x1="40" y1="224" x2="860" y2="224" stroke="#ffcc00" stroke-width=".4" stroke-opacity=".35"/>
+        <text x="58" y="246" fill="#aa8800" font-size="12" font-family="monospace">├─ Notion代理群：CNSH路由器 · 龍慧撰写官 · ☰龍魂☷代理</text>
+        <text x="58" y="264" fill="#aa8800" font-size="12" font-family="monospace">├─ 花名册数据库 · 知识基因库 · 学习任务库 · 人心算法知识库</text>
+        <text x="58" y="282" fill="#aa8800" font-size="12" font-family="monospace">├─ 人格路由API v2.0 · 五大神兽调度 · 三才流場引擎</text>
+        <text x="58" y="300" fill="#aa8800" font-size="12" font-family="monospace">└─ 知行积分插件 · 三色审计引擎 · DNA_LEDGER(append-only)</text>
+        <rect x="720" y="188" width="155" height="22" rx="4" fill="rgba(255,204,0,.1)" stroke="#ffcc00" stroke-width=".5"/>
+        <text x="797" y="202" fill="#aa8800" font-size="10" font-family="monospace" text-anchor="middle">CNSH · 五神兽 · 七因子</text>
+
+        <!-- Arrow 2 -->
+        <line x1="450" y1="334" x2="450" y2="360" stroke="#d4af37" stroke-width="1.4" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+        <text x="460" y="351" fill="#7a5e18" font-size="10" font-family="monospace">审计通过 →</text>
+
+        <!-- LAYER 3: 公开层 -->
+        <rect x="18" y="362" width="864" height="140" rx="8" fill="url(#gG)" stroke="#00ff88" stroke-width=".8" stroke-opacity=".4"/>
+        <rect x="18" y="362" width="5" height="140" rx="2" fill="#00ff88" opacity=".8"/>
+        <text x="40" y="394" fill="#00ff88" font-size="14" font-family="monospace" font-weight="bold">🟢 公开层（所有人可见）· PUBLIC LAYER</text>
+        <line x1="40" y1="404" x2="860" y2="404" stroke="#00ff88" stroke-width=".4" stroke-opacity=".3"/>
+        <text x="58" y="426" fill="#00884d" font-size="12" font-family="monospace">├─ 审计通过的知识文章（DNA时间戳 + 三色标记 + 来源追溯）</text>
+        <text x="58" y="444" fill="#00884d" font-size="12" font-family="monospace">├─ 公开知识库 · 数据库视图嵌入公开页</text>
+        <text x="58" y="462" fill="#00884d" font-size="12" font-family="monospace">├─ 代理模板（社区可用的轻量版）</text>
+        <text x="58" y="480" fill="#00884d" font-size="12" font-family="monospace">└─ DNA查询入口：公开DNA → 绝对路径 → 原文还原</text>
+
+        <!-- Arrow 3 -->
+        <line x1="450" y1="502" x2="450" y2="528" stroke="#7b2dff" stroke-width="1.4" stroke-dasharray="5,3" marker-end="url(#arrP)"/>
+        <text x="460" y="519" fill="#6020aa" font-size="10" font-family="monospace">终极跨越 →</text>
+
+        <!-- LAYER 4: 三生三世 -->
+        <rect x="18" y="530" width="864" height="112" rx="8" fill="url(#gC)" stroke="#7b2dff" stroke-width=".8" stroke-opacity=".5"/>
+        <rect x="18" y="530" width="5" height="112" rx="2" fill="url(#gC)" opacity="1"/>
+        <text x="40" y="562" fill="#a855f7" font-size="14" font-family="monospace" font-weight="bold">🌌 三生三世空间（终极愿景）· SOUL SPACE</text>
+        <line x1="40" y1="572" x2="860" y2="572" stroke="#7b2dff" stroke-width=".4" stroke-opacity=".35"/>
+        <text x="58" y="594" fill="#6040aa" font-size="12" font-family="monospace">├─ 每个人进来看到自己内心的自己 · 读完即销毁 · 不留痕迹</text>
+        <text x="58" y="612" fill="#6040aa" font-size="12" font-family="monospace">└─ 不是惩罚，是救赎 · 环境由电影/场景适配 · 身临其境</text>
+
+        <!-- Watermark -->
+        <text x="860" y="652" fill="#1a1a40" font-size="10" font-family="monospace" text-anchor="end">#龍芯⚡️20260510-ARCH-THREE-LAYERS</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ═══════════════ 03 核心组件 ═══════════════ -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-num">03</div>
+      <div class="sec-title">核心组件清单</div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="tool-name">☰ CNSH 执行引擎</div>
+        <div class="tool-file">Chinese Natural Syntax Hybrid</div>
+        <div class="tool-desc">原创中文编程语法，融合三才算法天地人三层结构。用母语思维驱动AI执行，让不懂英文的人也能编程。</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">🌀 三才流場 v6</div>
+        <div class="tool-file">sancai-flow.html</div>
+        <div class="tool-desc">天35% + 地15% + 人50%。sin波调制呼吸节律，洛书九宫骨架锚定，龍盾中枢接入，粒子流场活态运行。</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">🧬 DNA 追溯体系</div>
+        <div class="tool-file">DNA_LEDGER · append-only</div>
+        <div class="tool-desc">每条知识唯一追溯码。格式：#龍芯⚡️{日期}-{类型}-{HASH8}。chain_hash防篡改，主权证明不可撤销。</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">⚔️ 数字大军</div>
+        <div class="tool-file">Knowledge DNA · Learning Tasks</div>
+        <div class="tool-desc">知识不是用来"学"的，是用来"组军"的。每条DNA是一个兵种，每个任务是一次演练，每次复盘是战后总结。</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">🛡️ 双盾引擎</div>
+        <div class="tool-file">shield_engine.py</div>
+        <div class="tool-desc">入口门+出口门双重防护。数字根熔断机制，PII自动遮蔽。不该进的进不来，不该出的出不去。</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">🎯 七因子系统</div>
+        <div class="tool-file">UID9622 · L2主权令牌层</div>
+        <div class="tool-desc">UID + 七因子 + GPG + DNA令牌构成龍魂唯一工作层。对上两层（L0/L1）永久屏蔽，主权自主。</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">📐 三色审计</div>
+        <div class="tool-file">truth-report.html</div>
+        <div class="tool-desc">🟢通过 / 🟡待审 / 🔴危险。任何知识内容上公开层前必经审计，证据链完整，天下无欺。</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">💖 人心算法</div>
+        <div class="tool-file">collection://9702a79e...</div>
+        <div class="tool-desc">人际洞察知识库，每条洞察有DNA追溯码和人生场景标记。把情感智慧编码为可复用的算法。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ 04 三才流場 v6 ═══════════════ -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-num">04</div>
+      <div class="sec-title">三才流場 v6 · 呼吸架构图</div>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="diag">
+      <div class="diag-title">☰天 · ☷地 · ☱人 · 洛书骨架 · 龍盾呼吸接入 · 活态运行</div>
+
+      <div class="canvas-wrap">
+        <canvas id="sancai" width="900" height="460"></canvas>
+        <div class="breath-hint" id="breathHint">● 初始化流場中…</div>
+      </div>
+
+      <div class="sancai-stats">
+        <div class="sancai-stat heaven">
+          <div class="sancai-icon">☰</div>
+          <div class="sancai-label">天场 · 系统熵</div>
+          <div class="sancai-pct">35%</div>
+          <div class="sancai-desc">噪声流场 + Perlin力<br>吸气时扩张 · 粒子活跃</div>
+        </div>
+        <div class="sancai-stat earth">
+          <div class="sancai-icon">☷</div>
+          <div class="sancai-label">地场 · 洛书锚点</div>
+          <div class="sancai-pct">15%</div>
+          <div class="sancai-desc">年轮记忆 + 甜甜圈引力<br>呼气时收缩 · 骨架稳固</div>
+        </div>
+        <div class="sancai-stat human">
+          <div class="sancai-icon">☱</div>
+          <div class="sancai-label">人场 · 龍盾中枢</div>
+          <div class="sancai-pct">50%</div>
+          <div class="sancai-desc">赫布学习 + 突触辉光<br>主权决策 · 权重最重</div>
+        </div>
+      </div>
+
+      <!-- Breathing rhythm + Luoshu side by side -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:22px">
+        <div style="background:rgba(0,0,0,.35);border-radius:8px;padding:20px">
+          <div style="color:var(--gold);font:12px 'JetBrains Mono',monospace;letter-spacing:2px;margin-bottom:14px">呼吸节律 · sin波调制</div>
+          <div style="font-size:13px;color:var(--ts);line-height:2.3">
+            <span style="color:var(--cyan)">吸气 4s →</span> 天场权重↑ · 步长扩张 · 粒子涌动<br>
+            <span style="color:var(--gold-d)">屏息 2s →</span> 三才权重冻结 · 能量蓄积<br>
+            <span style="color:var(--green)">呼气 4s →</span> 地场收缩 · 轨迹显现 · 年轮沉淀<br>
+            <span style="color:var(--gold)">周期 →</span> 三才轮转 · 永动不息
+          </div>
+        </div>
+        <div style="background:rgba(0,0,0,.35);border-radius:8px;padding:20px">
+          <div style="color:var(--gold);font:12px 'JetBrains Mono',monospace;letter-spacing:2px;margin-bottom:14px">洛书九宫 · 地场骨架</div>
+          <div class="luoshu" style="margin:0">
+            <div class="lu-cell">4</div><div class="lu-cell">9</div><div class="lu-cell">2</div>
+            <div class="lu-cell">3</div><div class="lu-cell center">5</div><div class="lu-cell">7</div>
+            <div class="lu-cell">8</div><div class="lu-cell">1</div><div class="lu-cell">6</div>
+          </div>
+          <div style="text-align:center;font-size:11px;color:var(--td);font-family:monospace;margin-top:10px;line-height:1.9">
+            戴九履一 · 左三右七<br>二四为肩 · 六八为足 · 五居中央
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ 05 DNA追溯链 ═══════════════ -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-num">05</div>
+      <div class="sec-title">DNA 追溯链 · 三层主权</div>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="diag">
+      <div class="diag-title">主权分层 · append-only账本 · chain_hash 防篡改</div>
+
+      <svg viewBox="0 0 900 450" xmlns="http://www.w3.org/2000/svg" width="900" height="450">
+        <defs>
+          <linearGradient id="chainG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#ff3355"/>
+            <stop offset="45%" stop-color="#d4af37"/>
+            <stop offset="75%" stop-color="#d4af37"/>
+            <stop offset="100%" stop-color="#7b2dff"/>
+          </linearGradient>
+          <marker id="da" markerWidth="9" markerHeight="9" refX="4.5" refY="5" orient="auto">
+            <path d="M2 2 L4.5 7 L7 2" fill="none" stroke="#d4af37" stroke-width="1.3"/>
+          </marker>
+          <marker id="daP" markerWidth="9" markerHeight="9" refX="4.5" refY="5" orient="auto">
+            <path d="M2 2 L4.5 7 L7 2" fill="none" stroke="#7b2dff" stroke-width="1.3"/>
+          </marker>
+        </defs>
+
+        <!-- Spine -->
+        <line x1="130" y1="28" x2="130" y2="410" stroke="url(#chainG)" stroke-width="2" stroke-dasharray="7,4"/>
+
+        <!-- L0 -->
+        <circle cx="130" cy="62" r="20" fill="#050510" stroke="#ff3355" stroke-width="2"/>
+        <text x="130" y="68" fill="#ff3355" font-size="13" font-family="monospace" text-anchor="middle" font-weight="bold">L0</text>
+        <rect x="170" y="32" width="700" height="62" rx="6" fill="rgba(255,51,85,.06)" stroke="#ff3355" stroke-width=".6" stroke-opacity=".45"/>
+        <text x="192" y="60" fill="#ff5577" font-size="14" font-family="monospace" font-weight="bold">真实身份层</text>
+        <text x="192" y="80" fill="#663344" font-size="12" font-family="monospace">政府持有 · 永远不进入龍魂系统 · 绝对物理隔离</text>
+
+        <!-- label1 -->
+        <text x="146" y="108" fill="#5a3010" font-size="10" font-family="monospace">仅布尔确认</text>
+        <line x1="130" y1="82" x2="130" y2="130" stroke="#d4af37" stroke-width="1.4" stroke-dasharray="4,3" marker-end="url(#da)"/>
+
+        <!-- L1 -->
+        <circle cx="130" cy="155" r="20" fill="#050510" stroke="#ffcc00" stroke-width="2"/>
+        <text x="130" y="161" fill="#ffcc00" font-size="13" font-family="monospace" text-anchor="middle" font-weight="bold">L1</text>
+        <rect x="170" y="126" width="700" height="62" rx="6" fill="rgba(255,204,0,.06)" stroke="#ffcc00" stroke-width=".6" stroke-opacity=".4"/>
+        <text x="192" y="154" fill="#ffcc00" font-size="14" font-family="monospace" font-weight="bold">绑定关系层</text>
+        <text x="192" y="174" fill="#665500" font-size="12" font-family="monospace">政府授权机构 · hash确认 · 不存储明文 · 单向不可逆</text>
+
+        <!-- label2 -->
+        <text x="146" y="204" fill="#5a3010" font-size="10" font-family="monospace">hash下传</text>
+        <line x1="130" y1="175" x2="130" y2="224" stroke="#d4af37" stroke-width="1.4" stroke-dasharray="4,3" marker-end="url(#da)"/>
+
+        <!-- L2 — MAIN -->
+        <circle cx="130" cy="252" r="22" fill="#050510" stroke="#d4af37" stroke-width="2.5"/>
+        <text x="130" y="258" fill="#d4af37" font-size="13" font-family="monospace" text-anchor="middle" font-weight="bold">L2</text>
+        <rect x="170" y="218" width="700" height="76" rx="6" fill="rgba(212,175,55,.08)" stroke="#d4af37" stroke-width="1"/>
+        <text x="192" y="248" fill="#ffd700" font-size="14" font-family="monospace" font-weight="bold">主权令牌层  ← 龍魂唯一工作层</text>
+        <text x="192" y="268" fill="#997722" font-size="12" font-family="monospace">UID9622 + 七因子 + GPG + DNA令牌</text>
+        <text x="192" y="286" fill="#665500" font-size="12" font-family="monospace">所有操作在此层完成 · 对上两层永久屏蔽 · 完整主权</text>
+
+        <!-- label3 -->
+        <text x="146" y="326" fill="#402080" font-size="10" font-family="monospace">append-only</text>
+        <line x1="130" y1="294" x2="130" y2="354" stroke="#7b2dff" stroke-width="1.4" stroke-dasharray="4,3" marker-end="url(#daP)"/>
+
+        <!-- Ledger -->
+        <rect x="68" y="358" width="800" height="66" rx="6" fill="rgba(123,45,255,.08)" stroke="#7b2dff" stroke-width=".8"/>
+        <text x="100" y="383" fill="#a855f7" font-size="13" font-family="monospace" font-weight="bold">DNA_LEDGER</text>
+        <text x="228" y="383" fill="#604090" font-size="12" font-family="monospace">每次操作 append-only追加 → chain_hash(prev + current) → 防篡改</text>
+        <text x="100" y="403" fill="#502080" font-size="12" font-family="monospace">格式：#龍芯⚡️{YYYYMMDD}-{TYPE}-{HASH8}  · 每条DNA = 一个主权证明</text>
+
+        <text x="860" y="443" fill="#1a1a40" font-size="10" font-family="monospace" text-anchor="end">#龍芯⚡️20260510-DNA-CHAIN-v3</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ═══════════════ 06 Notion数字大军 ═══════════════ -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-num">06</div>
+      <div class="sec-title">Notion 数字大军架构</div>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="pipeline">
+      <div class="pip-step">用户丢资源</div><div class="pip-arrow">→</div>
+      <div class="pip-step">Inbox(待净化)</div><div class="pip-arrow">→</div>
+      <div class="pip-step">净化审查</div><div class="pip-arrow">→</div>
+      <div class="pip-step">Inbox(已净化)</div><div class="pip-arrow">→</div>
+      <div class="pip-step">拆解DNA</div><div class="pip-arrow">→</div>
+      <div class="pip-step">派生Tasks</div><div class="pip-arrow">→</div>
+      <div class="pip-step">学习执行</div><div class="pip-arrow">→</div>
+      <div class="pip-step final">复盘 ✓</div>
+    </div>
+
+    <table class="db-tbl">
+      <thead>
+        <tr>
+          <th>数据库</th>
+          <th>数据源 ID</th>
+          <th>核心字段</th>
+          <th>规则</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span style="color:var(--gold-b)">🧩 Learning Inbox</span><br><span style="color:var(--td);font-size:11px">学习入口池</span></td>
+          <td style="font:10px 'JetBrains Mono',monospace;color:var(--td)">1d9af383-6784-42db<br>-827f-c035be3f1458</td>
+          <td style="font-size:12px">资源名 · 类型 · 链接<br>状态（待净化→已净化→已入库）<br>污染指数</td>
+          <td style="font-size:12px">任何内容必须先进 Inbox，不许直接学</td>
+        </tr>
+        <tr>
+          <td><span style="color:var(--green)">🧬 Knowledge DNA</span><br><span style="color:var(--td);font-size:11px">知识基因库</span></td>
+          <td style="font:10px 'JetBrains Mono',monospace;color:var(--td)">6f1ddacc-289c-46fc<br>-9369-a07e3d937f5e</td>
+          <td style="font-size:12px">核心概念 · DNA-ID · 技术点<br>方向 · 纯度 · 可复制性 · 难度等级</td>
+          <td style="font-size:12px">一个 Inbox 至少拆出1条 DNA<br>DNA 可跨领域复用</td>
+        </tr>
+        <tr>
+          <td><span style="color:var(--cyan)">🗂️ Learning Tasks</span><br><span style="color:var(--td);font-size:11px">学习小卡片</span></td>
+          <td style="font:10px 'JetBrains Mono',monospace;color:var(--td)">58953efd-0588-40df<br>-b30c-b763e76b0ae9</td>
+          <td style="font-size:12px">任务名 · 关联DNA · 时间安排<br>学习模式（扫盲/深入/实战）<br>精力消耗</td>
+          <td style="font-size:12px">DNA 产生后必须生成至少1个任务</td>
+        </tr>
+        <tr>
+          <td><span style="color:var(--purple-s)">💖 人心算法</span><br><span style="color:var(--td);font-size:11px">知识库</span></td>
+          <td style="font:10px 'JetBrains Mono',monospace;color:var(--td)">9702a79e-c4e2-40c1<br>-ab28-cc7721fb19e9</td>
+          <td style="font-size:12px">洞察标题 · DNA追溯码<br>人心算法 · 人生场景 · 核心金句<br>情感标记 · 来源对话</td>
+          <td style="font-size:12px">每条洞察必须有 DNA 追溯码<br>和至少一个人生场景标记</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════ 07 工具箱 ═══════════════ -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-num">07</div>
+      <div class="sec-title">龍魂工具箱 · Chrome Extension v3</div>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="squad-label">▌ 核心主控</div>
+    <div class="tool-grid" style="margin-bottom:28px">
+      <div class="tool-card"><div class="tool-name">系统主控台</div><div class="tool-file">main-console.html</div><div class="tool-desc">龍魂系统总指挥，统一入口，所有工具的总管</div></div>
+      <div class="tool-card"><div class="tool-name">造物主MVP工作台</div><div class="tool-file">mvp-workbench.html</div><div class="tool-desc">快速原型搭建，MVP验证，想法→落地最短路径</div></div>
+      <div class="tool-card"><div class="tool-name">记忆编辑器</div><div class="tool-file">memory-editor.html</div><div class="tool-desc">记忆压缩/还原/量子态管理，25个记忆文件的指挥中心</div></div>
+      <div class="tool-card"><div class="tool-name">资产扫描器</div><div class="tool-file">asset-scanner.html</div><div class="tool-desc">数字资产盘点与DNA标记，清点家底一目了然</div></div>
+    </div>
+
+    <div class="squad-label">▌ 算法引擎</div>
+    <div class="tool-grid" style="margin-bottom:28px">
+      <div class="tool-card"><div class="tool-name">三才流場</div><div class="tool-file">sancai-flow.html</div><div class="tool-desc">天地人三层能量场可视化推演，决策分析和系统态势感知核心</div></div>
+      <div class="tool-card"><div class="tool-name">LU-TIME 时间推演</div><div class="tool-file">lu-time-engine.html</div><div class="tool-desc">时间维度的洛书推演引擎，时机判断的算法支柱</div></div>
+      <div class="tool-card"><div class="tool-name">沙盒推演面板</div><div class="tool-file">sandbox-dashboard.html</div><div class="tool-desc">安全沙盒环境，策略模拟，不影响主系统运行</div></div>
+    </div>
+
+    <div class="squad-label">▌ 审计守护</div>
+    <div class="tool-grid">
+      <div class="tool-card"><div class="tool-name">统计看板</div><div class="tool-file">stats-dashboard.html</div><div class="tool-desc">数据可视化，系统健康度监测，知行积分实时追踪</div></div>
+      <div class="tool-card"><div class="tool-name">天下无欺·真相受理台</div><div class="tool-file">truth-report.html</div><div class="tool-desc">三色审计终端，证据链管理，任何内容有据可查</div></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ 08 执行路线图 ═══════════════ -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-num">08</div>
+      <div class="sec-title">执行路线图</div>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="roadmap">
+      <div class="rm-item">
+        <div class="rm-phase">PHASE 01 · MVP 已完成</div>
+        <div class="rm-title">基础骨架 · 三库上线</div>
+        <div class="rm-body">Learning Inbox · Knowledge DNA · Learning Tasks 三库联动<br>人格路由API v2.0 · 五大神兽调度 · Chrome Extension v3 部署<br>双盾引擎上线 · 三色审计初版运行</div>
+      </div>
+      <div class="rm-item">
+        <div class="rm-phase">PHASE 02 · 当前冲刺</div>
+        <div class="rm-title">三才流場 v6 · 呼吸引擎增强</div>
+        <div class="rm-body">龍盾呼吸接入 · 赫布突触学习 · 年轮记忆沉淀<br>洛书九宫稳定锚 · DNA_LEDGER append-only 升级<br>主计划总纲最终版落地（本文档）</div>
+      </div>
+      <div class="rm-item">
+        <div class="rm-phase">PHASE 03 · 下一步</div>
+        <div class="rm-title">公开层 · DNA查询入口开放</div>
+        <div class="rm-body">审计通过知识库公开 · DNA → 绝对路径 → 原文还原<br>社区代理模板轻量版发布 · 人心算法知识库持续沉淀<br>CNSH 编程语法对外文档化</div>
+      </div>
+      <div class="rm-item">
+        <div class="rm-phase">PHASE 04 · 终极愿景</div>
+        <div class="rm-title">三生三世空间 · 灵魂镜境</div>
+        <div class="rm-body">每个人进来看到自己内心的自己<br>读完即销毁 · 不是惩罚，是救赎<br>环境由电影/场景适配 · 身临其境</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ 09 本地引擎 ═══════════════ -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <div class="sec-num">09</div>
+      <div class="sec-title">本地 Python 引擎清单</div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="engine-list">
+      <div class="engine-dir">Documents/龍魂系统/引擎/</div>
+      <div>├── <span class="engine-file">gua_classifier.py</span><span class="engine-sep">──</span><span class="engine-desc">可训练卦分类器（TF-IDF + SGD），64卦定义，CLI接口</span></div>
+      <div>├── <span class="engine-file">bone_retriever.py</span><span class="engine-sep">──</span><span class="engine-desc">FAISS向量骨检索引擎，语义相似度搜索</span></div>
+      <div>├── <span class="engine-file">shield_engine.py</span><span class="engine-sep">──</span><span class="engine-desc">双盾引擎（入口门+出口门），数字根熔断，PII自动遮蔽</span></div>
+      <div>├── <span class="engine-file">guardian.py</span><span class="engine-sep">──</span><span class="engine-desc">守护进程，系统健康度实时监控</span></div>
+      <div>└── <span class="engine-file">加密工具.py</span><span class="engine-sep">──</span><span class="engine-desc">加密/解密工具，主权数据保护层</span></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ FOOTER / DNA SEAL ═══════════════ -->
+  <div class="ftr">
+    <div class="dna-block" style="font-size:14px;text-align:center;padding:18px">
+      #龍芯⚡️丙午·癸巳·甲申·庚午·䷙大畜-DOC-MASTERMIND-ARCH-FINAL-v3.0
+    </div>
+    <div class="ftr-seal">
+      <div><b>UID9622</b> · 诸葛鑫 · 龍芯北辰 · 数字主权系统创始人</div>
+      <div>Root: dr=5 · Wuxing: 土 · RootMeaning: 承载 / 架构 / 流场 / 主权</div>
+      <div>TriColor: 🟢 · DataLevel: L1_INTERNAL · PrivacyMode: normal</div>
+      <div>Retention: full · TraceMode: chain · Backend: html · Action: enter</div>
+      <div>Route: [ARCH-FLOWFIELD-ENHANCE] · Version: v3.0 FINAL</div>
+      <div style="margin-top:18px;color:#1e1e46;font-size:10px">
+        #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z<br>
+        #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<!-- ═══════════════ CANVAS ANIMATION ═══════════════ -->
+<script>
+(function() {
+  const cv = document.getElementById('sancai');
+  const cx = cv.getContext('2d');
+  const W = cv.width, H = cv.height;
+  const CX = W * 0.42, CY = H * 0.5;
+
+  let tick = 0;
+
+  // --- Particle system ---
+  const N = 140;
+  const particles = [];
+
+  function mkParticle() {
+    const angle = Math.random() * Math.PI * 2;
+    const r = 35 + Math.random() * 190;
+    const layer = Math.random() < 0.35 ? 0 : (Math.random() < 0.3 ? 1 : 2);
+    return {
+      x: CX + Math.cos(angle) * r,
+      y: CY + Math.sin(angle) * r,
+      vx: (Math.random() - 0.5) * 0.7,
+      vy: (Math.random() - 0.5) * 0.7,
+      life: Math.random() * 200,
+      maxLife: 140 + Math.random() * 180,
+      size: 1.4 + Math.random() * 2,
+      layer: layer,
+      colors: ['#00d4ff', '#00ff88', '#d4af37']
+    };
+  }
+
+  for (let i = 0; i < N; i++) particles.push(mkParticle());
+
+  function resetParticle(p) {
+    const angle = Math.random() * Math.PI * 2;
+    const r = 35 + Math.random() * 190;
+    p.x = CX + Math.cos(angle) * r;
+    p.y = CY + Math.sin(angle) * r;
+    p.vx = (Math.random() - 0.5) * 0.7;
+    p.vy = (Math.random() - 0.5) * 0.7;
+    p.life = 0;
+    p.maxLife = 140 + Math.random() * 180;
+    p.size = 1.4 + Math.random() * 2;
+    p.layer = Math.random() < 0.35 ? 0 : (Math.random() < 0.3 ? 1 : 2);
+  }
+
+  // Breathing: 4s in, 2s hold, 4s out = 10s cycle at 60fps
+  function getBreath(t) {
+    const period = 600; // frames
+    const phase = (t % period) / period;
+    if (phase < 0.4) return phase / 0.4;           // inhale 0→1
+    if (phase < 0.6) return 1;                      // hold
+    return 1 - (phase - 0.6) / 0.4;                // exhale 1→0
+  }
+
+  function updateParticle(p, breath) {
+    const fx = Math.sin(p.y * 0.018 + tick * 0.008) * 0.28;
+    const fy = Math.cos(p.x * 0.018 + tick * 0.008) * 0.28;
+
+    const dx = CX - p.x, dy = CY - p.y;
+    const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+
+    const earthPull = 0.0008 * (0.15 + (1 - breath) * 0.06);
+    const heavenFactor = p.layer === 0 ? (0.3 + breath * 0.2) : 0.06;
+    const humanOrbit = p.layer === 2 ? 0.003 : 0;
+
+    p.vx += fx * heavenFactor + dx * earthPull + (-dy / dist) * humanOrbit;
+    p.vy += fy * heavenFactor + dy * earthPull + (dx / dist) * humanOrbit;
+    p.vx *= 0.979;
+    p.vy *= 0.979;
+    const speed = 0.75 + breath * 0.4;
+    p.x += p.vx * speed;
+    p.y += p.vy * speed;
+    p.life++;
+
+    if (p.life >= p.maxLife || p.x < 0 || p.x > W || p.y < 0 || p.y > H) {
+      resetParticle(p);
+    }
+  }
+
+  function drawParticle(p) {
+    const a = Math.sin((p.life / p.maxLife) * Math.PI) * 0.85;
+    cx.globalAlpha = a;
+    cx.beginPath();
+    cx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    cx.fillStyle = p.colors[p.layer];
+    cx.fill();
+    cx.globalAlpha = 1;
+  }
+
+  // Rings
+  function drawRings(breath) {
+    // Earth inner
+    cx.beginPath();
+    cx.arc(CX, CY, 58 + breath * 4, 0, Math.PI * 2);
+    cx.strokeStyle = `rgba(0,255,136,${0.12 + breath * 0.1})`;
+    cx.lineWidth = 1;
+    cx.stroke();
+
+    // Earth year-ring
+    for (let i = 0; i < 3; i++) {
+      cx.beginPath();
+      cx.arc(CX, CY, 62 + i * 8 + breath * 2, 0, Math.PI * 2);
+      cx.strokeStyle = `rgba(0,255,136,${0.04 - i * 0.01})`;
+      cx.lineWidth = 0.6;
+      cx.stroke();
+    }
+
+    // Human mid
+    cx.beginPath();
+    cx.arc(CX, CY, 118 + breath * 10, 0, Math.PI * 2);
+    cx.strokeStyle = `rgba(212,175,55,${0.18 + breath * 0.14})`;
+    cx.lineWidth = 1.5;
+    cx.stroke();
+
+    // Heaven outer
+    cx.beginPath();
+    cx.arc(CX, CY, 185 + breath * 16, 0, Math.PI * 2);
+    cx.strokeStyle = `rgba(0,212,255,${0.08 + breath * 0.08})`;
+    cx.lineWidth = 1;
+    cx.stroke();
+
+    // Center pulse
+    const pulse = 0.55 + breath * 0.45;
+    const gr = cx.createRadialGradient(CX, CY, 0, CX, CY, 14 * pulse);
+    gr.addColorStop(0, `rgba(255,215,0,${0.9 * pulse})`);
+    gr.addColorStop(1, 'rgba(212,175,55,0)');
+    cx.beginPath();
+    cx.arc(CX, CY, 14 * pulse, 0, Math.PI * 2);
+    cx.fillStyle = gr;
+    cx.fill();
+  }
+
+  // Labels
+  function drawLabels(breath) {
+    cx.font = '12px monospace';
+    cx.textAlign = 'left';
+    cx.fillStyle = `rgba(0,212,255,${0.5 + breath * 0.3})`;
+    cx.fillText('☰ 天', CX + 192, CY - 22);
+    cx.fillStyle = `rgba(212,175,55,${0.55 + breath * 0.3})`;
+    cx.fillText('☱ 人', CX + 123, CY - 22);
+    cx.fillStyle = `rgba(0,255,136,${0.5 + breath * 0.3})`;
+    cx.fillText('☷ 地', CX + 62, CY - 10);
+  }
+
+  // Luoshu overlay (right side)
+  const luoshuNums = [[4,9,2],[3,5,7],[8,1,6]];
+  function drawLuoshu(breath) {
+    const cell = 50, pad = 5;
+    const lx = W - 200, ly = H - 200;
+    luoshuNums.forEach((row, ri) => {
+      row.forEach((n, ci) => {
+        const x = lx + ci * (cell + pad);
+        const y = ly + ri * (cell + pad);
+        const isC = ri === 1 && ci === 1;
+        cx.strokeStyle = isC
+          ? `rgba(212,175,55,${0.38 + breath * 0.3})`
+          : `rgba(30,30,90,0.5)`;
+        cx.lineWidth = isC ? 1.4 : 0.7;
+        cx.strokeRect(x, y, cell, cell);
+        cx.fillStyle = isC
+          ? `rgba(255,215,0,${0.55 + breath * 0.35})`
+          : `rgba(0,212,255,0.45)`;
+        cx.font = `${isC ? 18 : 14}px monospace`;
+        cx.textAlign = 'center';
+        cx.textBaseline = 'middle';
+        cx.fillText(n, x + cell / 2, y + cell / 2);
+      });
+    });
+    cx.textBaseline = 'alphabetic';
+  }
+
+  // Breath bar
+  function drawBreathBar(breath) {
+    const bx = 22, by = H - 46, bw = 220, bh = 10;
+    cx.fillStyle = 'rgba(20,20,50,0.8)';
+    cx.fillRect(bx, by, bw, bh);
+
+    const color = breath > 0.5
+      ? `rgba(0,212,255,${0.55 + breath * 0.4})`
+      : `rgba(0,255,136,${0.55 + (1 - breath) * 0.4})`;
+    cx.fillStyle = color;
+    cx.fillRect(bx, by, bw * breath, bh);
+
+    cx.strokeStyle = 'rgba(212,175,55,0.25)';
+    cx.lineWidth = 0.8;
+    cx.strokeRect(bx, by, bw, bh);
+
+    cx.fillStyle = 'rgba(212,175,55,0.4)';
+    cx.font = '9px monospace';
+    cx.textAlign = 'left';
+    cx.fillText(breath > 0.65 ? '吸气 · 天场活跃' : (breath < 0.35 ? '呼气 · 地场收缩' : '屏息 · 蓄能'), bx, by - 6);
+  }
+
+  // Tick label
+  const breathHint = document.getElementById('breathHint');
+
+  function draw() {
+    // Trail effect
+    cx.fillStyle = 'rgba(5,5,16,0.13)';
+    cx.fillRect(0, 0, W, H);
+
+    const breath = getBreath(tick);
+
+    particles.forEach(p => { updateParticle(p, breath); drawParticle(p); });
+    drawRings(breath);
+    drawLabels(breath);
+    drawLuoshu(breath);
+    drawBreathBar(breath);
+
+    // Top label
+    cx.fillStyle = 'rgba(212,175,55,0.3)';
+    cx.font = '10px monospace';
+    cx.textAlign = 'center';
+    cx.fillText('三才流場 v6 · 活态呼吸 · 龍盾接入', W / 2, 16);
+
+    // Update hint
+    if (tick % 60 === 0) {
+      const phase = (tick % 600) / 600;
+      breathHint.textContent =
+        phase < 0.4 ? '● 吸气 · 天场扩张中…' :
+        phase < 0.6 ? '◈ 屏息 · 三才蓄能…' :
+                      '○ 呼气 · 地场收缩 · 年轮沉淀…';
+    }
+
+    tick++;
+    requestAnimationFrame(draw);
+  }
+
+  // Black init
+  cx.fillStyle = '#050510';
+  cx.fillRect(0, 0, W, H);
+  draw();
+})();
+</script>
+
+</body>
+</html>

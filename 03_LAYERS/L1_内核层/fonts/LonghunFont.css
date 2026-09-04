@@ -1,0 +1,35 @@
+/* 龍魂字体 · LonghunFont @font-face */
+/* DNA: #龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-LONGHUN-FONT-CSS-v2.0 */
+/* 生成工具: lh_font_manager.py css (engine v2.0) */
+
+/* LonghunFont-Regular.otf (LonghunFont-Regular) */
+@font-face {
+  font-family: 'LonghunFont';
+  src: url('/fonts/LonghunFont-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* LonghunFont-WuwuColor.otf (LonghunFont-WuwuColor) */
+@font-face {
+  font-family: 'LonghunFont Wuwu';
+  src: url('/fonts/LonghunFont-WuwuColor.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* LonghunFont-Regular.woff2 (LonghunFont-Regular.woff2) */
+@font-face {
+  font-family: 'LonghunFont';
+  src: url('/fonts/LonghunFont-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* === 辅助类 === */
+.longhun-font { font-family: 'LonghunFont', sans-serif; }
+.longhun-full { font-family: 'LonghunFont Full', 'LonghunFont', sans-serif; }
+.longhun-wuwu { font-family: 'LonghunFont Wuwu', 'LonghunFont', sans-serif; }

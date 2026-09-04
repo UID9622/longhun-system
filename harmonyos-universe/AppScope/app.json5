@@ -1,10 +1,12 @@
+// DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-e07f928b
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 {
   "app": {
-    "bundleName": "com.longhun.universe",
+    "bundleName": "com.longhun.birthdayreminder",
     "vendor": "longhun",
-    "versionCode": 1000000,
-    "versionName": "1.0.0",
-    "icon": "$media:layered_image",
+    "versionCode": 2000000,
+    "versionName": "2.0.0-persona",
+    "icon": "$media:app_icon",
     "label": "$string:app_name"
   }
 }

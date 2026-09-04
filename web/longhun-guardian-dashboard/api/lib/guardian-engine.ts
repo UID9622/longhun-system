@@ -1,6 +1,7 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 /**
  * 龍魂守护引擎 · 红蓝对抗
- * DNA: #龍芯⚡️2026-07-12-LONGHUN-GUARDIAN-ENGINE-v1.0
+ * DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-LONGHUN-GUARDIAN-ENGINE-v1.0
  * 红队扫描 → 蓝队修复 → 审计追踪 全自动流水线
  */
 
@@ -78,7 +79,7 @@ export async function scanDNACompliance(projectRoot: string): Promise<ScanResult
               severity: "warning",
               location: full.replace(projectRoot, ""),
               evidence: `发现旧版 DNA 格式`,
-              suggestion: `升级为 v∞ 格式: #龍芯⚡️丙午·甲午·丁丑·巳时·乾-MODULE-ACTION-HASH`,
+              suggestion: `升级为 v∞ 格式: #龍芯⚡️丙午·甲午·丁丑·巳时·䷀乾-MODULE-ACTION-HASH`,
             });
           }
         }

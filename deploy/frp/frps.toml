@@ -1,0 +1,43 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# ═══════════════════════════════════════════════════════════
+# 龍魂体系 | FRP 服务端配置 (鲲鹏服务器)
+# ═══════════════════════════════════════════════════════════
+# DNA: #龍芯⚡️丙午·乙未·壬戌·兌-FRP-SERVER-CONFIG-v1.0
+# 部署: /etc/frp/frps.toml (鲲鹏 119.13.90.27)
+# 启动: systemctl start frps && systemctl enable frps
+# ═══════════════════════════════════════════════════════════
+
+bindPort = 7000
+bindAddr = "0.0.0.0"
+
+# 控制台
+webServer.addr = "127.0.0.1"
+webServer.port = 7500
+webServer.user = "uid9622"
+webServer.password = "YOUR_WEB_PASSWORD_HERE"
+
+# 传输
+transport.protocol = "kcp"
+transport.tls.force = true
+
+# 鉴权
+auth.method = "token"
+auth.token = "YOUR_FRP_AUTH_TOKEN_HERE"
+
+# 日志
+log.to = "/var/log/frp/frps.log"
+log.level = "warn"
+log.maxDays = 7
+
+# 速率限制
+transport.maxPoolCount = 8
+transport.tcpMux = true
+
+# vhost ports (HTTP)
+vhostHTTPPort = 8080
+vhostHTTPSPort = 8443
+
+# 允许的端口范围
+allowPorts = [
+  { start = 8700, end = 8800 },
+]

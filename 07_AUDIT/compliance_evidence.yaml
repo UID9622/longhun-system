@@ -1,0 +1,235 @@
+# 龍魂系统 · 合规证据包
+# DNA: #龍芯⚡️丙午·乙未·辛亥·甲午·䷚颐-COMPLIANCE-v1.0-UID9622
+# 生成时间: 2026-08-05T10:26:59+08:00
+# 法律效力: 本文档为龍魂系统合规自我声明，仅供内部审计与透明公开之用
+#
+compliance_evidence:
+  version: '1.0'
+  generated_at: '2026-08-05T10:26:59+08:00'
+  dna: '#龍芯⚡️丙午·乙未·辛亥·甲午·䷚颐-COMPLIANCE-v1.0-UID9622'
+  confirm: '#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z'
+  gpg_key: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  creator: 诸葛鑫（UID9622）
+legal_applicability:
+  governing_law: 中华人民共和国法律
+  dispute_resolution: CIETAC 仲裁
+  arbitration_seat: 北京
+  arbitration_language: 中文
+  license_clause: LICENSE 第七节
+  notice_declaration: NOTICE — 不可收购·不可变卖·不可转让
+  status: 🟢
+encryption:
+  sm2:
+    implemented: true
+    standard: GM/T 0003-2012
+    status: 🟢
+  sm3:
+    implemented: true
+    standard: GB/T 32905-2016
+    status: 🟢
+    test_vector: abc → 66c7f0f462... → 通过
+  sm4:
+    implemented: true
+    standard: GB/T 32907-2016
+    status: 🟢
+  overall: 🟢
+data_sovereignty:
+  pass: true
+  checks:
+    local_ip:
+      ip: 127.0.0.1
+      is_private: true
+      status: 🟢
+      note: 私网/Loopback → 本地运行·数据不出境
+    sm4_encryption:
+      status: 🟢
+      available: true
+      standard: GB/T 32907-2016
+    cross_border:
+      status: 🟢
+      policy: 禁止跨境传输
+      legal_basis: 《个人信息保护法》第38条 · 《数据安全法》第25条
+      enforcement: P77黑天使军团 API出口审查
+    data_classification:
+      status: 🟢
+      levels:
+        D1_绝密: GPG私钥·DNA种子 → 物理隔离·永不入云
+        D2_机密: 用户认证信息·SM2私钥 → 端侧SM4加密·云上只存密文
+        D3_内部: 审计日志 → 日志脱敏·访问需授权
+        D4_公开: 开源代码·公开文档 → 自由流动
+  timestamp:
+    timestamp: '2026-08-05T10:26:59.263498+08:00'
+    unix: 1785896819.263498
+    source: local_fallback
+    timezone: Asia/Shanghai (UTC+8)
+legal_framework:
+  laws:
+    cybersecurity_law:
+      law: 《中华人民共和国网络安全法》
+      effective: '2017-06-01'
+      requirements:
+      - 网络安全保护义务
+      - 等级保护制度
+      - 个人信息保护
+      status: 🟡
+      note: 等保2.0自检已完成·待第三方正式测评
+    data_security_law:
+      law: 《中华人民共和国数据安全法》
+      effective: '2021-09-01'
+      requirements:
+      - 数据分类分级
+      - 数据安全保护
+      - 跨境传输限制
+      status: 🟢
+      note: 四级数据分类(D1-D4)·SM4国密加密·跨境禁止
+    personal_info_law:
+      law: 《中华人民共和国个人信息保护法》
+      effective: '2021-11-01'
+      requirements:
+      - 最小必要原则
+      - 知情同意
+      - 跨境限制
+      status: 🟢
+      note: 隐私白皮书已发布·本地优先·默认不收集
+    cryptography_law:
+      law: 《中华人民共和国密码法》
+      effective: '2020-01-01'
+      requirements:
+      - 商用密码标准
+      - 密码应用安全
+      status: 🟢
+      note: SM2/SM3/SM4全链路·纯Python·GM/T标准
+    generative_ai:
+      law: 《生成式人工智能服务管理暂行办法》
+      effective: '2023-08-15'
+      requirements:
+      - 训练数据合法来源
+      - 不侵害知识产权
+      - 内容标识
+      - 个人信息保护
+      status: 🟢
+      note: 45,555条自标数据·分层许可·DNA追溯·双标识
+  overall: 🟡
+etc_level_protection:
+  standard: GB/T 22239-2019《信息安全技术 网络安全等级保护基本要求》
+  self_check_completed: true
+  check_date: '2026-08-05T10:26:59+08:00'
+  dimensions:
+    物理安全:
+      status: 🟢
+      note: 鲲鹏服务器·中国境内·机房物理安全
+    网络安全:
+      status: 🟢
+      note: HTTPS/TLS 1.3·GPG签名·DNA追溯
+    主机安全:
+      status: 🟡
+      note: Mac本地+鲲鹏·systemd/launchd守护·待第三方渗透测试
+    应用安全:
+      status: 🟢
+      note: 四层熔断·十闸口·三色审计·输入验证
+    数据安全:
+      status: 🟢
+      note: D1-D4分级·SM4加密·跨境禁止·日志脱敏
+    安全管理:
+      status: 🟡
+      note: UID9622唯一决策者·待建立正式安全管理制度文档
+  gaps:
+  - 待第三方等保测评机构正式评估
+  - 待建立正式安全管理制度和应急预案文档
+  overall: 🟡
+generative_ai:
+  standard: 《生成式人工智能服务管理暂行办法》(2023-08-15)
+  self_check_completed: true
+  check_date: '2026-08-05T10:26:59+08:00'
+  items:
+    training_data_source:
+      requirement: 训练数据具有合法来源
+      status: 🟢
+      detail: 45,555条自标数据·v6.3(1273条·13知识域)·来源可追溯
+    ip_protection:
+      requirement: 不侵害他人知识产权
+      status: 🟢
+      detail: 分层许可·思想层CC BY-NC-SA+工程层MulanPSL v2·DNA追溯防伪
+    content_labeling:
+      requirement: AI生成内容进行标识
+      status: 🟢
+      detail: 强制双标识·显式水印+隐式元数据(战后整顿协议v1.0)
+    personal_info:
+      requirement: 涉及个人信息需取得同意
+      status: 🟢
+      detail: 隐私白皮书·逐项授权·零默认勾选·本地优先
+    algorithm_transparency:
+      requirement: 算法透明·可审计
+      status: 🟢
+      detail: A-BOM备案·十闸口审计·三色判定·算法审计协议v1.0
+    discrimination_prevention:
+      requirement: 防止歧视
+      status: 🟢
+      detail: P12屈原六誓验证·P05伦理闸·一票否决词过滤
+    minors_protection:
+      requirement: 未成年人保护
+      status: 🟢
+      detail: L0/∞熔断·涉童内容全系统冻结·永久封禁
+  overall: 🟢
+gpg_dna:
+  gpg_key: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  gpg_key_available: true
+  dna_format: v∞ 干支卦追溯码
+  dna_example: '#龍芯⚡️丙午·乙未·辛亥·甲午·䷚颐-COMPLIANCE-v1.0-UID9622'
+  confirm_code: '#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z'
+  status: 🟢
+file_integrity:
+  overall: 🟢
+  files:
+    LICENSE: 🟢
+    NOTICE: 🟢
+    GOVERNANCE.md: 🟢
+    CONTRIBUTING.md: 🟢
+    PRIVACY_POLICY.md: 🟢
+    CONSTITUTION.md: 🟢
+    AGENTS.md: 🟢
+    01_protocols/LH-NO-BACKEND-SOVEREIGNTY-PROTOCOL-v3.0.md: 🟢
+    01_protocols/LH-LAYERED-LICENSE-v1.0.md: 🟢
+    01_protocols/LH-DEBEN-AUDIT-v1.0.md: 🟢
+    bin/lh_sovereign_crypto.py: 🟢
+    bin/CNSH_国密工具.py: 🟢
+    bin/lh_sovereignty_guard.py: 🟢
+gpg_signatures:
+  LICENSE:
+    exists: true
+    gpg_signed: true
+    status: 🟢
+  NOTICE:
+    exists: true
+    gpg_signed: true
+    status: 🟢
+  GOVERNANCE.md:
+    exists: true
+    gpg_signed: true
+    status: 🟢
+  CONTRIBUTING.md:
+    exists: true
+    gpg_signed: true
+    status: 🟢
+  PRIVACY_POLICY.md:
+    exists: true
+    gpg_signed: true
+    status: 🟢
+  CONSTITUTION.md:
+    exists: true
+    gpg_signed: true
+    status: 🟢
+  AGENTS.md:
+    exists: true
+    gpg_signed: true
+    status: 🟢
+overall_assessment:
+  overall: 🟡
+  checks:
+    encryption: 🟢
+    legal_framework: 🟡
+    etc_level_protection: 🟡
+    generative_ai: 🟢
+    file_integrity: 🟢
+  timestamp: '2026-08-05T10:26:59+08:00'
+  dna: '#龍芯⚡️丙午·乙未·辛亥·甲午·䷚颐-COMPLIANCE-v1.0-UID9622'

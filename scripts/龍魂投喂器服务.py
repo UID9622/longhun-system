@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂投喂器服务 — 后台常驻，开机自启
 监听 Unix Domain Socket，接收什么就存什么，不删不改不过滤。
 
-DNA: #龍芯⚡️2026-07-01-LONGHUN-RAW-FEEDER-SERVICE-v1.0
+DNA: #龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGHUN-RAW-FEEDER-SERVICE-v1.0
 """
 import datetime
 import hashlib

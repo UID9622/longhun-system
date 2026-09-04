@@ -1,0 +1,9 @@
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+.vscode/**
+.vscode-test/**
+src/**
+.gitignore
+scripts/**
+tsconfig.json
+node_modules/**
+*.vsix

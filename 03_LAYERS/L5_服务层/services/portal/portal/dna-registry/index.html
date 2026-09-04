@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧬 龍魂统一DNA登记册 · 一世一双人</title>
+<style>
+/* ═══════════════════════════════════════════════════════════
+   龍魂统一DNA登记册 v1.0 · UI
+   DNA: #龍芯⚡️丙午·丙申·甲寅·庚午·䷕贲-壬申-DNA-REGISTRY-UI-v1.0
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --bg-deep: #0a0a0f;
+  --bg-panel: #111118;
+  --bg-card: #1a1a26;
+  --bg-hover: #222236;
+  --border: #2a2a40;
+  --border-active: #4a4a6a;
+  --text: #c8c8d0;
+  --text-bright: #f0f0f8;
+  --text-dim: #787888;
+  --accent-gold: #d4a843;
+  --accent-gold-dim: rgba(212,168,67,0.15);
+  --accent-blue: #4a9eff;
+  --accent-focus: #3399ff;        /* P19极简审计: 蓝色焦点框 */
+  --accent-green: #3fb950;
+  --accent-red: #f85149;
+  --accent-purple: #a371f7;
+  --badge-pending-bg: rgba(255,193,7,0.15);  /* P19: 黄色待验证底色 */
+  --badge-pending-text: #ffc107;
+  --badge-success-bg: rgba(40,167,69,0.12);   /* P19: 绿色已验证底色 */
+  --badge-success-text: #28a745;
+  --badge-error-bg: rgba(220,53,69,0.12);     /* P19: 红色失败底色 */
+  --badge-error-text: #dc3545;
+  --danger-bg: rgba(248,81,73,0.08);
+  --success-bg: rgba(63,185,80,0.08);
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+  --radius: 10px;
+  --radius-sm: 6px;
+  --radius-lg: 16px;
+  --font: 'SF Pro Display', 'PingFang SC', 'Noto Sans SC', system-ui, sans-serif;
+  --font-mono: 'SF Mono', 'JetBrains Mono', 'Cascadia Code', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  font-family: var(--font);
+  background: var(--bg-deep);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+  font-size: 16px;                  /* P19极简审计: 基准字号=16px */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── 背景粒子 ── */
+.bg-canvas {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 0; opacity: 0.3;
+}
+
+/* ── 主容器 ── */
+.app-container {
+  position: relative; z-index: 1;
+  max-width: 1200px; margin: 0 auto; padding: 24px 20px 80px;
+}
+
+/* ── 头部 ── */
+.header {
+  text-align: center; padding: 40px 0 20px;
+}
+.header h1 {
+  font-size: 2.2rem; font-weight: 700; color: var(--text-bright);
+  letter-spacing: 0.04em;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+}
+.header h1 .dna-icon { font-size: 2rem; }
+.header .subtitle {
+  color: var(--text-dim); font-size: 0.9rem; margin-top: 6px;
+}
+.header .master-dna-display {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 12px; padding: 8px 20px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 20px; font-family: var(--font-mono); font-size: 1.1rem;
+  color: var(--accent-gold); letter-spacing: 0.08em;
+  cursor: pointer; transition: all 0.2s;
+}
+.header .master-dna-display:hover {
+  border-color: var(--accent-gold);
+  background: var(--accent-gold-dim);
+}
+.master-label { font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* ── 统计卡片 ── */
+.stats-row {
+  display: flex; gap: 12px; margin: 20px 0 32px; flex-wrap: wrap;
+}
+.stat-card {
+  flex: 1; min-width: 100px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px; text-align: center;
+  transition: all 0.2s;
+}
+.stat-card:hover { border-color: var(--border-active); }
+.stat-card .stat-num { font-size: 1.8rem; font-weight: 700; }
+.stat-card .stat-label { font-size: 0.75rem; color: var(--text-dim); margin-top: 2px; }
+.stat-card.physical .stat-num { color: #4a9eff; }
+.stat-card.virtual .stat-num { color: #a371f7; }
+.stat-card.identity .stat-num { color: #f85149; }
+.stat-card.total .stat-num { color: var(--accent-gold); }
+
+/* ── UID 输入区 ── */
+.uid-bar {
+  display: flex; gap: 10px; align-items: center; margin-bottom: 28px;
+  flex-wrap: wrap; justify-content: center;
+}
+.uid-bar label { color: var(--text-dim); font-size: 0.85rem; white-space: nowrap; }
+.uid-bar input {
+  background: var(--bg-card); border: 1px solid var(--border);
+  color: var(--text-bright); padding: 10px 16px; border-radius: var(--radius-sm);
+  font-family: var(--font-mono); font-size: 0.95rem; min-width: 200px;
+  outline: none; transition: border-color 0.2s;
+}
+.uid-bar input:focus { border-color: var(--accent-gold); }
+.uid-bar .uid-btn {
+  background: var(--accent-gold-dim); border: 1px solid var(--accent-gold);
+  color: var(--accent-gold); padding: 10px 20px; border-radius: var(--radius-sm);
+  cursor: pointer; font-size: 0.9rem; font-weight: 600;
+  transition: all 0.2s;
+}
+.uid-bar .uid-btn:hover { background: var(--accent-gold); color: #000; }
+
+/* ── 类别 Tab ── */
+.category-tabs {
+  display: flex; gap: 8px; margin-bottom: 24px; justify-content: center; flex-wrap: wrap;
+}
+.category-tab {
+  padding: 11px 28px; border-radius: var(--radius);
+  background: var(--bg-card); border: 1px solid var(--border);
+  color: var(--text); cursor: pointer; font-size: 0.95rem; font-weight: 600;
+  transition: all 0.2s; user-select: none;
+  display: flex; align-items: center; gap: 6px;
+}
+.category-tab:hover { border-color: var(--border-active); background: var(--bg-hover); }
+.category-tab.active {
+  border-color: var(--accent-gold);
+  background: var(--accent-gold-dim);
+  color: var(--accent-gold);
+}
+.category-tab .tab-count {
+  font-size: 0.75rem; background: rgba(255,255,255,0.08);
+  padding: 1px 7px; border-radius: 10px;
+}
+
+/* ── 资产按钮网格 ── */
+.asset-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 12px; margin-bottom: 32px;
+}
+.asset-btn {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px 14px;
+  cursor: pointer; text-align: center;
+  transition: all 0.2s; user-select: none;
+  position: relative; overflow: hidden;
+}
+.asset-btn:hover {
+  border-color: var(--border-active);
+  background: var(--bg-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.asset-btn:active { transform: translateY(0); }
+.asset-btn .asset-icon { font-size: 1.5rem; margin-bottom: 6px; }
+.asset-btn .asset-name { font-weight: 600; font-size: 0.9rem; color: var(--text-bright); }
+.asset-btn .asset-type { font-size: 0.7rem; color: var(--text-dim); margin-top: 2px; font-family: var(--font-mono); }
+.asset-btn .asset-format-hint {
+  font-size: 0.65rem; color: var(--text-dim); margin-top: 4px;
+  opacity: 0.7; line-height: 1.3;
+}
+.asset-btn .asset-badge {
+  position: absolute; top: 8px; right: 8px;
+  font-size: 0.65rem; padding: 2px 7px; border-radius: 8px;
+}
+.asset-btn .badge-physical { background: rgba(74,158,255,0.15); color: var(--accent-blue); }
+.asset-btn .badge-virtual { background: rgba(163,113,247,0.15); color: var(--accent-purple); }
+.asset-btn .badge-identity { background: rgba(248,81,73,0.15); color: var(--accent-red); }
+
+/* ── 模态窗口 ── */
+.modal-overlay {
+  display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7); z-index: 100;
+  align-items: center; justify-content: center;
+  backdrop-filter: blur(4px);
+}
+.modal-overlay.show { display: flex; }
+.modal-card {
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 32px; width: 90%; max-width: 500px;
+  box-shadow: 0 8px 48px rgba(0,0,0,0.6);
+}
+.modal-card h2 {
+  font-size: 1.3rem; margin-bottom: 4px; color: var(--text-bright);
+  display: flex; align-items: center; gap: 8px;
+}
+.modal-card .modal-subtitle { font-size: 0.8rem; color: var(--text-dim); margin-bottom: 20px; }
+.modal-card .form-group { margin-bottom: 16px; }
+.modal-card label {
+  display: block; font-size: 0.8rem; color: var(--text-dim);
+  margin-bottom: 5px; font-weight: 500;
+}
+.modal-card input, .modal-card textarea, .modal-card select {
+  width: 100%; background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 10px 14px;
+  color: var(--text-bright); font-family: var(--font); font-size: 0.9rem;
+  outline: none; transition: border-color 0.2s;
+}
+.modal-card input:focus, .modal-card textarea:focus, .modal-card select:focus {
+  border-color: var(--accent-gold);
+}
+.modal-card .format-validator {
+  font-size: 0.7rem; color: var(--text-dim); margin-top: 4px;
+}
+.modal-card .format-validator.error { color: var(--accent-red); }
+.modal-card .format-validator.ok { color: var(--accent-green); }
+.modal-card .form-tags {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px;
+}
+.modal-card .tag-chip {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: rgba(212,168,67,0.1); border: 1px solid rgba(212,168,67,0.2);
+  padding: 3px 10px; border-radius: 12px; font-size: 0.75rem;
+  color: var(--accent-gold);
+}
+.modal-card .tag-chip .tag-remove { cursor: pointer; opacity: 0.6; }
+.modal-card .tag-chip .tag-remove:hover { opacity: 1; }
+.modal-card .form-actions {
+  display: flex; gap: 10px; margin-top: 24px; justify-content: flex-end;
+}
+.modal-card .form-actions button {
+  padding: 10px 24px; border-radius: var(--radius-sm);
+  font-weight: 600; font-size: 0.9rem; cursor: pointer; border: none;
+  transition: all 0.2s;
+}
+.modal-card .btn-cancel {
+  background: var(--bg-card); color: var(--text); border: 1px solid var(--border);
+}
+.modal-card .btn-cancel:hover { border-color: var(--border-active); }
+.modal-card .btn-submit {
+  background: var(--accent-gold); color: #000; font-weight: 700;
+}
+.modal-card .btn-submit:hover { filter: brightness(1.1); }
+.modal-card .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+.modal-card .btn-delete {
+  background: transparent; color: var(--accent-red); border: 1px solid var(--accent-red);
+}
+
+/* ── 资产列表 ── */
+.section-title {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-bright);
+  margin: 32px 0 16px; display: flex; align-items: center; gap: 8px;
+}
+.section-title .count { font-size: 0.75rem; color: var(--text-dim); font-weight: 400; }
+.asset-list { display: flex; flex-direction: column; gap: 8px; }
+.asset-list .asset-row-empty {
+  text-align: center; padding: 48px 20px; color: var(--text-dim);
+  background: var(--bg-card); border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
+.asset-row {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 18px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  transition: all 0.2s;
+  flex-wrap: wrap;
+}
+.asset-row:hover { border-color: var(--border-active); }
+.asset-row .row-icon { font-size: 1.3rem; flex-shrink: 0; }
+.asset-row .row-info { flex: 1; min-width: 0; }
+.asset-row .row-name { font-weight: 600; font-size: 0.9rem; color: var(--text-bright); }
+.asset-row .row-meta {
+  font-size: 0.7rem; color: var(--text-dim);
+  display: flex; gap: 10px; flex-wrap: wrap; margin-top: 2px;
+}
+.asset-row .row-meta span { font-family: var(--font-mono); }
+.asset-row .row-status {
+  font-size: 0.7rem; padding: 3px 10px; border-radius: 10px; font-weight: 600;
+}
+/* P19: 状态徽章统一用黄/绿/红三色 */
+.asset-row .status-verified { background: var(--badge-success-bg); color: var(--badge-success-text); }
+.asset-row .status-pending  { background: var(--badge-pending-bg); color: var(--badge-pending-text); }
+.asset-row .status-disputed { background: var(--badge-error-bg);   color: var(--badge-error-text); }
+.asset-row .row-actions { display: flex; gap: 6px; flex-shrink: 0; }
+.asset-row .row-actions button {
+  background: transparent; border: 1px solid var(--border);
+  color: var(--text-dim); padding: 5px 12px; border-radius: var(--radius-sm);
+  cursor: pointer; font-size: 0.75rem; transition: all 0.2s;
+}
+.asset-row .row-actions button:hover { border-color: var(--border-active); color: var(--text); }
+.asset-row .row-actions .btn-public { color: var(--accent-green); border-color: var(--accent-green); }
+.asset-row .row-actions .btn-private { color: var(--text-dim); }
+
+/* ── 验证区 ── */
+.verify-section {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 24px; margin-top: 32px;
+}
+.verify-section h3 {
+  font-size: 1rem; color: var(--text-bright); margin-bottom: 4px;
+  display: flex; align-items: center; gap: 8px;
+}
+.verify-section .verify-desc { font-size: 0.8rem; color: var(--text-dim); margin-bottom: 16px; }
+.verify-section .verify-form {
+  display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-end;
+}
+.verify-section input, .verify-section select {
+  background: var(--bg-hover); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 10px 14px;
+  color: var(--text-bright); font-size: 0.9rem; outline: none;
+}
+.verify-section input:focus, .verify-section select:focus { border-color: var(--accent-gold); }
+.verify-section .verify-btn {
+  background: var(--accent-gold); color: #000; border: none;
+  padding: 10px 24px; border-radius: var(--radius-sm);
+  font-weight: 700; cursor: pointer; font-size: 0.9rem; transition: all 0.2s;
+}
+.verify-section .verify-btn:hover { filter: brightness(1.1); }
+.verify-result {
+  margin-top: 16px; padding: 14px 18px; border-radius: var(--radius-sm);
+  font-weight: 600; font-size: 0.9rem;
+}
+.verify-result.pass { background: var(--success-bg); color: var(--accent-green); border: 1px solid rgba(63,185,80,0.3); }
+.verify-result.fail { background: var(--danger-bg); color: var(--accent-red); border: 1px solid rgba(248,81,73,0.3); }
+.verify-result .black-box-warning {
+  margin-top: 8px; padding: 10px; background: rgba(248,81,73,0.1);
+  border-radius: var(--radius-sm); font-size: 0.8rem; font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ── Toast 通知 ── */
+.toast-container {
+  position: fixed; top: 20px; right: 20px; z-index: 200;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.toast {
+  padding: 12px 20px; border-radius: var(--radius-sm);
+  font-size: 0.85rem; font-weight: 600;
+  box-shadow: var(--shadow); animation: slideIn 0.3s ease;
+  max-width: 400px;
+}
+.toast.success { background: var(--success-bg); color: var(--accent-green); border: 1px solid rgba(63,185,80,0.3); }
+.toast.error { background: var(--danger-bg); color: var(--accent-red); border: 1px solid rgba(248,81,73,0.3); }
+.toast.info { background: rgba(212,168,67,0.1); color: var(--accent-gold); border: 1px solid rgba(212,168,67,0.3); }
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* ── 页脚 ── */
+.footer {
+  text-align: center; padding: 40px 0 20px;
+  color: var(--text-dim); font-size: 0.75rem;
+}
+.footer .footer-dna { font-family: var(--font-mono); font-size: 0.7rem; opacity: 0.5; margin-top: 4px; }
+
+/* ── 响应式 ── */
+@media (max-width: 768px) {
+  .header h1 { font-size: 1.5rem; }
+  .asset-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  .stats-row { gap: 8px; }
+  .stat-card { padding: 12px 8px; }
+  .stat-card .stat-num { font-size: 1.4rem; }
+  .modal-card { width: 95%; padding: 20px; }
+  .verify-section .verify-form { flex-direction: column; }
+  .verify-section input, .verify-section select { width: 100%; }
+  .asset-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .asset-row .row-actions { width: 100%; justify-content: flex-end; }
+}
+
+/* ── 键盘焦点 ── */
+/* ── 键盘焦点 · P19极简审计 · 蓝色焦点框 ── */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent-focus) !important;
+  box-shadow: 0 0 0 3px rgba(51,153,255,0.25);
+}
+button:focus-visible, a:focus-visible, [tabindex]:focus-visible,
+.asset-btn:focus-visible, .category-tab:focus-visible {
+  outline: 2px solid var(--accent-focus);
+  outline-offset: 2px;
+}
+
+/* P19: 实时校验视觉反馈 — 边框红/绿实时变化 */
+input.valid   { border-color: var(--badge-success-text) !important; }
+input.invalid { border-color: var(--badge-error-text) !important; }
+
+/* P19: 状态徽章 — 黄=待验证·绿=已验证·红=失败 */
+.badge-status {
+  padding: 0.25rem 0.6rem; border-radius: 999px;
+  font-size: 0.72rem; font-weight: 600; display: inline-block;
+}
+.badge-pending { background: var(--badge-pending-bg); color: var(--badge-pending-text); }
+.badge-success { background: var(--badge-success-bg); color: var(--badge-success-text); }
+.badge-error   { background: var(--badge-error-bg);   color: var(--badge-error-text); }
+
+/* P19: 具体错误提示文案 — 不说"格式不正确" */
+.error-text {
+  color: var(--badge-error-text); font-size: 0.875rem;
+  margin-top: -0.25rem; margin-bottom: 0.5rem; display: block;
+  line-height: 1.4;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   信任积分簿 · P20 贡献公证官 · v1.0
+   DNA: #龍芯⚡️丙午·丙申·甲寅·庚午·䷕贲-壬申-TRUST-LEDGER-UI-v1.0
+   贡献分/功德分/公益分各归各桶 · 政审可查·国资可信·国际可互认
+   ═══════════════════════════════════════════════════════════ */
+
+.stat-card.social .stat-num { color: #ffb347; }
+.category-tab[data-cat="社会"]:hover { border-color: #ffb347; }
+.category-tab[data-cat="社会"].active {
+  border-color: #ffb347; background: rgba(255,179,71,0.12); color: #ffb347;
+}
+
+/* 信任积分主面板 */
+.trust-section {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 28px 24px; margin-top: 32px;
+}
+.trust-section h3 {
+  font-size: 1.1rem; color: var(--text-bright); margin-bottom: 6px;
+  display: flex; align-items: center; gap: 8px;
+}
+.trust-section .trust-desc {
+  font-size: 0.82rem; color: var(--text-dim); margin-bottom: 20px; line-height: 1.5;
+}
+
+/* 三分桶 */
+.trust-columns {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px; margin-bottom: 24px;
+}
+.trust-bucket {
+  background: var(--bg-hover); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px 16px;
+}
+.trust-bucket .bucket-header {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
+}
+.trust-bucket .bucket-icon { font-size: 1.4rem; }
+.trust-bucket .bucket-name { font-weight: 700; font-size: 0.9rem; color: var(--text-bright); }
+.trust-bucket .bucket-score {
+  font-family: var(--font-mono); font-size: 2rem; font-weight: 700;
+  margin: 8px 0 4px;
+}
+.trust-bucket .bucket-sub {
+  font-size: 0.7rem; color: var(--text-dim);
+}
+.bucket-tech .bucket-score { color: var(--accent-blue); }
+.bucket-merit .bucket-score { color: var(--accent-gold); }
+.bucket-welfare .bucket-score { color: var(--accent-green); }
+
+/* 综合信任指数 */
+.trust-index-bar {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px; background: rgba(212,168,67,0.06);
+  border: 1px solid rgba(212,168,67,0.2); border-radius: var(--radius);
+  margin-bottom: 20px;
+}
+.trust-index-bar .index-label { font-size: 0.85rem; font-weight: 600; color: var(--text-bright); white-space: nowrap; }
+.trust-index-bar .index-value {
+  font-family: var(--font-mono); font-size: 1.6rem; font-weight: 700; color: var(--accent-gold);
+}
+.trust-index-bar .index-bar-track {
+  flex: 1; height: 8px; background: var(--border);
+  border-radius: 4px; overflow: hidden;
+}
+.trust-index-bar .index-bar-fill {
+  height: 100%; background: linear-gradient(90deg, var(--accent-blue), var(--accent-gold), var(--accent-green));
+  border-radius: 4px; transition: width 0.4s ease;
+}
+
+/* 使用场景矩阵 */
+.use-case-matrix {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px; margin-top: 16px;
+}
+.use-case-card {
+  background: var(--bg-hover); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 14px 12px; text-align: center;
+}
+.use-case-card .uc-icon { font-size: 1.3rem; margin-bottom: 6px; }
+.use-case-card .uc-name { font-weight: 600; font-size: 0.85rem; color: var(--text-bright); }
+.use-case-card .uc-desc { font-size: 0.7rem; color: var(--text-dim); margin-top: 4px; line-height: 1.4; }
+.use-case-card .uc-status {
+  display: inline-block; padding: 2px 8px; border-radius: 8px;
+  font-size: 0.65rem; font-weight: 600; margin-top: 6px;
+}
+.uc-available { background: var(--badge-success-bg); color: var(--badge-success-text); }
+.uc-insufficient { background: var(--badge-pending-bg); color: var(--badge-pending-text); }
+
+/* 积分不等于... */
+.trust-disclaimer {
+  margin-top: 20px; padding: 14px 18px;
+  background: rgba(248,81,73,0.04); border-left: 3px solid var(--accent-red);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.78rem; color: var(--text-dim); line-height: 1.5;
+}
+.trust-disclaimer strong { color: var(--accent-red); }
+
+/* 社会贡献资产行 */
+.asset-row.social-contribution { border-left: 3px solid #ffb347; }
+.asset-row .row-contrib-type { font-size: 0.7rem; color: #ffb347; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<canvas class="bg-canvas" id="bgCanvas"></canvas>
+
+<div class="app-container">
+
+  <!-- 头部 -->
+  <header class="header">
+    <h1><span class="dna-icon">🧬</span>龍魂统一DNA登记册</h1>
+    <p class="subtitle">一世一双人 · 物理虚拟不二分 · 哈希可对人不可见 · 追溯本源</p>
+    <div class="master-dna-display" id="masterDnaDisplay" title="点击复制主DNA" onclick="copyMasterDna()">
+      <span class="master-label">主DNA</span>
+      <span id="masterDnaValue">---</span>
+    </div>
+  </header>
+
+  <!-- 统计卡片 -->
+  <div class="stats-row" id="statsRow">
+    <div class="stat-card total">
+      <div class="stat-num" id="statTotal">0</div>
+      <div class="stat-label">总资产</div>
+    </div>
+    <div class="stat-card physical">
+      <div class="stat-num" id="statPhysical">0</div>
+      <div class="stat-label">🔵 物理</div>
+    </div>
+    <div class="stat-card virtual">
+      <div class="stat-num" id="statVirtual">0</div>
+      <div class="stat-label">🟣 虚拟</div>
+    </div>
+    <div class="stat-card identity">
+      <div class="stat-num" id="statIdentity">0</div>
+      <div class="stat-label">🔴 身份</div>
+    </div>
+    <div class="stat-card social">
+      <div class="stat-num" id="statSocial">0</div>
+      <div class="stat-label">🌟 社会</div>
+    </div>
+  </div>
+
+  <!-- UID 输入 -->
+  <div class="uid-bar">
+    <label for="uidInput">UID:</label>
+    <input type="text" id="uidInput" value="UID9622" placeholder="输入你的UID..."
+           aria-label="用户UID" autocomplete="off">
+    <button class="uid-btn" onclick="loadRegistry()" aria-label="加载登记册">📋 加载我的登记册</button>
+  </div>
+
+  <!-- 类别标签页 -->
+  <nav class="category-tabs" id="categoryTabs">
+    <button class="category-tab active" data-cat="all" onclick="switchCategory('all')">
+      🧬 全部 <span class="tab-count" id="tabCountAll">0</span>
+    </button>
+    <button class="category-tab" data-cat="物理" onclick="switchCategory('物理')">
+      🔵 物理资产 <span class="tab-count" id="tabCountPhysical">0</span>
+    </button>
+    <button class="category-tab" data-cat="虚拟" onclick="switchCategory('虚拟')">
+      🟣 虚拟资产 <span class="tab-count" id="tabCountVirtual">0</span>
+    </button>
+    <button class="category-tab" data-cat="身份" onclick="switchCategory('身份')">
+      🔴 身份资产 <span class="tab-count" id="tabCountIdentity">0</span>
+    </button>
+    <button class="category-tab" data-cat="社会" onclick="switchCategory('社会')">
+      🌟 社会贡献 <span class="tab-count" id="tabCountSocial">0</span>
+    </button>
+  </nav>
+
+  <!-- 资产按钮网格 -->
+  <div class="asset-grid" id="assetButtonGrid">
+    <!-- JS 动态注入 -->
+  </div>
+
+  <!-- 已登记资产列表 -->
+  <h3 class="section-title">
+    📋 已登记资产 <span class="count" id="assetListCount"></span>
+  </h3>
+  <div class="asset-list" id="assetList">
+    <div class="asset-row-empty">👆 点击上方按钮注册你的第一条资产</div>
+  </div>
+
+  <!-- 验证区 -->
+  <div class="verify-section">
+    <h3>🔍 验证资产归属</h3>
+    <p class="verify-desc">不需要看到原始编号，哈希对得上就能验证。骗子·小偷·剽窃者一搜就现原形。</p>
+    <div class="verify-form">
+      <input type="text" id="verifyUid" value="UID9622" placeholder="对方UID" aria-label="验证UID">
+      <select id="verifyType" aria-label="资产类型">
+        <!-- JS 动态注入 -->
+      </select>
+      <input type="text" id="verifyNumber" placeholder="资产编号/序列号" aria-label="资产编号" style="flex:2;">
+      <button class="verify-btn" onclick="doVerify()">🔍 验证归属</button>
+    </div>
+    <div id="verifyResult"></div>
+  </div>
+
+  <!-- 🏛️ 贡献积分簿 -->
+  <div class="trust-section" id="trustLedgerSection">
+    <h3>🏛️ 贡献积分簿</h3>
+    <p class="trust-desc">
+      三分桶·不混着溜大街。贡献分=技术权威+算力优先。功德分=政审参考+国资入职。公益分=国际互认+信任桥梁。<br>
+      积分累计，不设消费、不换免支付、不绑信誉——只为关键时刻能证明：<strong>这人做了什么，值不值得信任。</strong>
+    </p>
+
+    <!-- 综合信任指数 -->
+    <div class="trust-index-bar">
+      <span class="index-label">🧬 信任指数</span>
+      <span class="index-value" id="trustIndexVal">--</span>
+      <div class="index-bar-track"><div class="index-bar-fill" id="trustIndexBar" style="width:0%"></div></div>
+      <span style="font-size:0.7rem;color:var(--text-dim)">/100</span>
+    </div>
+
+    <!-- 三分桶 -->
+    <div class="trust-columns">
+      <div class="trust-bucket bucket-tech">
+        <div class="bucket-header">
+          <span class="bucket-icon">💻</span>
+          <span class="bucket-name">技术贡献分</span>
+        </div>
+        <div class="bucket-score" id="scoreTech">0</div>
+        <div class="bucket-sub">代码贡献 + 技术文档 + 开源维护</div>
+      </div>
+      <div class="trust-bucket bucket-merit">
+        <div class="bucket-header">
+          <span class="bucket-icon">⚖️</span>
+          <span class="bucket-name">社会功德分</span>
+        </div>
+        <div class="bucket-score" id="scoreMerit">0</div>
+        <div class="bucket-sub">社区服务 × 1.5 + 公益行动 × 2.0</div>
+      </div>
+      <div class="trust-bucket bucket-welfare">
+        <div class="bucket-header">
+          <span class="bucket-icon">🤝</span>
+          <span class="bucket-name">公益服务分</span>
+        </div>
+        <div class="bucket-score" id="scoreWelfare">0</div>
+        <div class="bucket-sub">公益行动 + 国际桥接 · 不求回报</div>
+      </div>
+    </div>
+
+    <!-- 使用场景矩阵 -->
+    <h4 style="font-size:0.9rem;color:var(--text-bright);margin-bottom:4px;">📋 使用场景</h4>
+    <p style="font-size:0.75rem;color:var(--text-dim);margin-bottom:12px;">积分够了自动亮绿灯·不够亮黄灯·攒够了就能用</p>
+    <div class="use-case-matrix" id="useCaseMatrix">
+      <div class="use-case-card">
+        <div class="uc-icon">🏛️</div><div class="uc-name">政审参考</div>
+        <div class="uc-desc">国家政审·背景调查</div>
+        <div class="uc-status uc-insufficient" id="ucGov">待积累</div>
+      </div>
+      <div class="use-case-card">
+        <div class="uc-icon">🏢</div><div class="uc-name">国资入职</div>
+        <div class="uc-desc">国企·央企·要职审查</div>
+        <div class="uc-status uc-insufficient" id="ucSOE">待积累</div>
+      </div>
+      <div class="use-case-card">
+        <div class="uc-icon">🌐</div><div class="uc-name">国际交流</div>
+        <div class="uc-desc">跨文化协作·信任桥接</div>
+        <div class="uc-status uc-insufficient" id="ucIntl">待积累</div>
+      </div>
+      <div class="use-case-card">
+        <div class="uc-icon">⚡</div><div class="uc-name">算力优先</div>
+        <div class="uc-desc">技术贡献=算力调用权</div>
+        <div class="uc-status uc-insufficient" id="ucCompute">待积累</div>
+      </div>
+      <div class="use-case-card">
+        <div class="uc-icon">📜</div><div class="uc-name">学术认证</div>
+        <div class="uc-desc">论文评审·同行验证</div>
+        <div class="uc-status uc-insufficient" id="ucAcademic">待积累</div>
+      </div>
+      <div class="use-case-card">
+        <div class="uc-icon">🔍</div><div class="uc-name">司法公证</div>
+        <div class="uc-desc">行为留痕·不可篡改</div>
+        <div class="uc-status uc-insufficient" id="ucJustice">待积累</div>
+      </div>
+    </div>
+
+    <!-- 不等于什么 -->
+    <div class="trust-disclaimer">
+      <strong>⚠️ 这些积分 ≠ 信誉分 · ≠ 免支付 · ≠ 消费券 · ≠ 商业信用分。</strong><br>
+      不与任何商业平台互通·不参与个人信贷评估·不可交易·不可转让。<br>
+      唯一用途：<strong>关键时刻，国家/企业/国际社会能查到你贡献了什么，值不值得信任。</strong>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <p>🔒 本人可查 · 他人不可见 · 哈希可验证 · 不可篡改 · 不可删除 · 数据永不出本地</p>
+    <p class="footer-dna">DNA: #龍芯⚡️丙午·丙申·甲寅·壬申-DNA-REGISTRY-UI-v1.0</p>
+  </footer>
+</div>
+
+<!-- ── 注册模态窗口 ── -->
+<div class="modal-overlay" id="registerModal">
+  <div class="modal-card">
+    <h2 id="modalTitle">🧬 注册资产</h2>
+    <p class="modal-subtitle" id="modalSubtitle"></p>
+    <div class="form-group">
+      <label for="modalUid">UID</label>
+      <input type="text" id="modalUid" readonly style="opacity:0.7;">
+    </div>
+    <div class="form-group">
+      <label for="modalAssetType">资产类型（自动选择）</label>
+      <input type="text" id="modalAssetType" readonly style="opacity:0.7; font-family:var(--font-mono);">
+    </div>
+    <div class="form-group">
+      <label for="modalAssetNumber">资产编号 / 序列号 ✱</label>
+      <input type="text" id="modalAssetNumber" placeholder="输入资产编号..." autocomplete="off"
+             oninput="validateAssetNumber()" aria-required="true">
+      <div class="format-validator" id="formatValidator"></div>
+    </div>
+    <div class="form-group">
+      <label for="modalTags">标签（回车添加）</label>
+      <input type="text" id="modalTags" placeholder="输入标签后按回车..." autocomplete="off"
+             onkeydown="handleTagInput(event)">
+      <div class="form-tags" id="modalTagList"></div>
+    </div>
+    <div class="form-group">
+      <label for="modalNote">备注（可选）</label>
+      <textarea id="modalNote" placeholder="备注信息（不存明文，仅存哈希）" rows="2"></textarea>
+    </div>
+    <div class="form-actions">
+      <button class="btn-cancel" onclick="closeRegisterModal()">取消</button>
+      <button class="btn-submit" id="btnSubmit" onclick="submitRegister()">✅ 注册资产</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast 容器 -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// 龍魂统一DNA登记册 · 前端 v1.0
+// ═══════════════════════════════════════════════════════════
+
+const API_BASE = window.location.origin;
+
+let currentUid = 'UID9622';
+let currentCategory = 'all';
+let allAssetTypes = [];
+let registeredAssets = [];
+let registerTargetType = null;
+let modalTags = [];
+
+// ═══════════════════════════════════════════════════════════
+// 背景粒子动画
+// ═══════════════════════════════════════════════════════════
+
+(function initBg() {
+  const canvas = document.getElementById('bgCanvas');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let w, h;
+
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  for (let i = 0; i < 50; i++) {
+    particles.push({
+      x: Math.random() * w, y: Math.random() * h,
+      r: Math.random() * 2 + 0.5,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      alpha: Math.random() * 0.4 + 0.1
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    particles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+      if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(212,168,67,${p.alpha})`;
+      ctx.fill();
+    });
+    // 连线
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(212,168,67,${0.04 * (1 - dist / 120)})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ═══════════════════════════════════════════════════════════
+// Toast 通知
+// ═══════════════════════════════════════════════════════════
+
+function showToast(msg, type = 'info') {
+  const container = document.getElementById('toastContainer');
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  toast.textContent = msg;
+  container.appendChild(toast);
+  setTimeout(() => { toast.style.opacity = '0'; toast.style.transition = 'opacity 0.3s'; }, 3000);
+  setTimeout(() => toast.remove(), 3300);
+}
+
+// ═══════════════════════════════════════════════════════════
+// 资产类型图标映射
+// ═══════════════════════════════════════════════════════════
+
+const TYPE_ICONS = {
+  watch: '⌚', patent: '📜', ip: '🛡️', engine: '⚙️', computer: '💻',
+  phone: '📱', sim: '📶', card: '🪪', contract: '📝', deed: '🏠',
+  vehicle: '🚗', device: '🔧', email: '📧', domain: '🌐', social: '👤',
+  wallet: '💳', gpg: '🔑', api: '⚡', ssl: '🔒', repo: '📦',
+  game: '🎮', nft: '🖼️', id_card: '🆔', passport: '🛂', driver: '🚘', military: '🎖️',
+  oss_code: '💻', tech_doc: '📖', oss_maintain: '🔧', community: '👥', welfare: '🤲', intl_bridge: '🌍'
+};
+
+// P19极简审计: placeholder给格式说明·不给示例值（避免用户误以为必须包含前缀）
+const FORMAT_HINTS = {
+  watch: '请输入型号，如 116610LN',
+  patent: '请输入专利号，如 CN20241000001',
+  ip: '请输入知识产权登记号',
+  engine: '请输入发动机号',
+  computer: '请输入序列号（机身背面或系统信息中可查）',
+  phone: '请输入15位IMEI数字（拨号盘 *#06# 可查）',
+  sim: '请输入ICCID（SIM卡上20位数字）',
+  card: '请输入证件号（仅存哈希·永不明文存储）',
+  contract: '请输入合同编号',
+  deed: '请输入权证号',
+  vehicle: '请输入17位VIN码（行驶证/前挡风玻璃处可查）',
+  device: '请输入设备序列号或MAC地址',
+  email: '请输入完整邮箱地址',
+  domain: '请输入域名，不含 http://',
+  social: '请输入平台+ID，如 weibo/uid123',
+  wallet: '请输入钱包地址（0x开头42位或T开头34位）',
+  gpg: '请输入GPG密钥指纹（40位十六进制）',
+  api: '请输入API密钥指纹',
+  ssl: '请输入SSL证书指纹',
+  repo: '请输入仓库完整URL',
+  game: '请输入平台/游戏ID',
+  nft: '请输入合约地址#TokenID',
+  id_card: '请输入18位身份证号（仅存SHA256哈希·务必确认无误）',
+  passport: '请输入护照号（仅存SHA256哈希·务必确认无误）',
+  driver: '请输入驾照号（仅存SHA256哈希·务必确认无误）',
+  military: '请输入退伍证号（仅存SHA256哈希·务必确认无误）',
+  // P20: 社会贡献·积分不计费·只计时
+  oss_code: 'PR链接或Commit哈希（建议填GitHub/Gitee完整URL）',
+  tech_doc: '文章/教程URL（建议填完整链接以便验证）',
+  oss_maintain: 'Review记录或Release版本号（可追溯维护贡献）',
+  community: '平台名+记录ID（如 GitHub/discussions#123）',
+  welfare: '活动名称+时间（如 "河南救灾2026-07"）',
+  intl_bridge: '项目名+参与角色（如 "W3C-中文翻译-2026"）'
+};
+
+// P19极简审计: 具体校验规则 + 具体错误提示
+const FORMAT_VALIDATORS = {
+  phone: (v) => {
+    const cleaned = v.replace(/[-\s]/g, '');
+    if (/^\d+$/.test(cleaned)) return { ok: cleaned.length >= 14 && cleaned.length <= 16, msg: `请输入14-16位IMEI数字，您输入了${cleaned.length}位` };
+    return { ok: false, msg: 'IMEI应为纯数字（可用#*06#在拨号盘查询）' };
+  },
+  vehicle: (v) => {
+    const cleaned = v.replace(/[-\s]/g, '');
+    if (cleaned.length < 8) return { ok: false, msg: `VIN码至少8位（标准VIN为17位），您输入了${cleaned.length}位` };
+    return { ok: true, msg: 'VIN码格式通过' };
+  },
+  patent: (v) => {
+    const cleaned = v.trim().toUpperCase();
+    if (cleaned.length < 6) return { ok: false, msg: `专利号至少6位，您输入了${cleaned.length}位` };
+    return { ok: true, msg: '专利号格式通过' };
+  },
+  email: (v) => {
+    if (!v.includes('@')) return { ok: false, msg: '邮箱需要包含@符号' };
+    const domain = v.split('@').pop();
+    if (!domain || !domain.includes('.')) return { ok: false, msg: '邮箱域名无效，缺少顶级域（如 .com/.cn）' };
+    return { ok: true, msg: '邮箱格式通过' };
+  },
+  domain: (v) => {
+    if (!v.includes('.')) return { ok: false, msg: '域名需要包含顶级域（如 .com/.dev）' };
+    return { ok: true, msg: '域名格式通过' };
+  },
+  wallet: (v) => {
+    if (v.length < 26) return { ok: false, msg: `钱包地址至少26位，您输入了${v.length}位` };
+    return { ok: true, msg: '钱包地址格式通过' };
+  },
+  gpg: (v) => {
+    const hex = v.replace(/\s/g, '').toUpperCase();
+    if (!/^[0-9A-F]+$/.test(hex)) return { ok: false, msg: 'GPG指纹只能包含0-9和A-F' };
+    if (hex.length < 8) return { ok: false, msg: `GPG指纹至少8位十六进制，您输入了${hex.length}位` };
+    return { ok: true, msg: 'GPG指纹格式通过' };
+  },
+};
+
+// ═══════════════════════════════════════════════════════════
+// 初始化
+// ═══════════════════════════════════════════════════════════
+
+async function init() {
+  try {
+    const res = await fetch(`${API_BASE}/api/types`);
+    const data = await res.json();
+    allAssetTypes = data.types;
+
+    // 注入资产类型按钮
+    renderAssetButtons();
+    // 注入验证下拉
+    renderVerifySelect();
+    // 加载默认注册表
+    await loadRegistry();
+  } catch (e) {
+    console.error('API 连接失败:', e);
+    showToast('⚠️ API 服务未启动 · 请先执行 python3 L5_服务层/services/api/dna-registry/main.py', 'error');
+  }
+}
+
+function renderAssetButtons() {
+  const grid = document.getElementById('assetButtonGrid');
+  const cat = currentCategory;
+
+  grid.innerHTML = allAssetTypes
+    .filter(t => cat === 'all' || t.category === cat)
+    .map(t => {
+      const badgeClass = `badge-${t.category === '物理' ? 'physical' : t.category === '虚拟' ? 'virtual' : 'identity'}`;
+      const hint = FORMAT_HINTS[t.type] || '';
+      return `
+        <button class="asset-btn" onclick="openRegisterModal('${t.type}')"
+                aria-label="注册 ${t.name}" title="${t.verification}">
+          <span class="asset-badge ${badgeClass}">${t.category}</span>
+          <div class="asset-icon">${TYPE_ICONS[t.type] || '📌'}</div>
+          <div class="asset-name">${t.name}</div>
+          <div class="asset-type">${t.type}</div>
+          ${hint ? `<div class="asset-format-hint">${hint}</div>` : ''}
+        </button>`;
+    })
+    .join('');
+
+  updateTabCounts();
+}
+
+function renderVerifySelect() {
+  const sel = document.getElementById('verifyType');
+  sel.innerHTML = allAssetTypes.map(t =>
+    `<option value="${t.type}">${t.color} ${t.name} (${t.type})</option>`
+  ).join('');
+}
+
+function updateTabCounts() {
+  document.getElementById('tabCountAll').textContent = allAssetTypes.length;
+  document.getElementById('tabCountPhysical').textContent = allAssetTypes.filter(t => t.category === '物理').length;
+  document.getElementById('tabCountVirtual').textContent = allAssetTypes.filter(t => t.category === '虚拟').length;
+  document.getElementById('tabCountIdentity').textContent = allAssetTypes.filter(t => t.category === '身份').length;
+  document.getElementById('tabCountSocial').textContent = allAssetTypes.filter(t => t.category === '社会').length;
+}
+
+// ═══════════════════════════════════════════════════════════
+// 类别切换
+// ═══════════════════════════════════════════════════════════
+
+function switchCategory(cat) {
+  currentCategory = cat;
+  document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`.category-tab[data-cat="${cat}"]`)?.classList.add('active');
+  renderAssetButtons();
+}
+
+// ═══════════════════════════════════════════════════════════
+// 加载登记册
+// ═══════════════════════════════════════════════════════════
+
+async function loadRegistry() {
+  currentUid = document.getElementById('uidInput').value.trim() || 'UID9622';
+  document.getElementById('uidInput').value = currentUid;
+
+  try {
+    const res = await fetch(`${API_BASE}/api/list/${currentUid}`);
+    const data = await res.json();
+
+    if (data.exists) {
+      registeredAssets = data.assets;
+      document.getElementById('masterDnaValue').textContent = data.master_dna;
+      document.getElementById('statTotal').textContent = data.total;
+      document.getElementById('statPhysical').textContent = data.physical;
+      document.getElementById('statVirtual').textContent = data.virtual;
+      document.getElementById('statIdentity').textContent = data.identity;
+      document.getElementById('statSocial').textContent = data.social || 0;
+      computeTrustScores();
+    } else {
+      registeredAssets = [];
+      document.getElementById('masterDnaValue').textContent = '---';
+      document.getElementById('statTotal').textContent = '0';
+      document.getElementById('statPhysical').textContent = '0';
+      document.getElementById('statVirtual').textContent = '0';
+      document.getElementById('statIdentity').textContent = '0';
+      document.getElementById('statSocial').textContent = '0';
+      resetTrustScores();
+    }
+
+    renderAssetList();
+    document.getElementById('verifyUid').value = currentUid;
+  } catch (e) {
+    showToast('加载登记册失败', 'error');
+  }
+}
+
+function renderAssetList() {
+  const list = document.getElementById('assetList');
+  const countEl = document.getElementById('assetListCount');
+
+  if (registeredAssets.length === 0) {
+    list.innerHTML = '<div class="asset-row-empty">👆 点击上方按钮注册你的第一条资产</div>';
+    countEl.textContent = '';
+    return;
+  }
+
+  countEl.textContent = `(${registeredAssets.length}项)`;
+
+  const cat = currentCategory;
+  const filtered = cat === 'all'
+    ? registeredAssets
+    : registeredAssets.filter(a => a.category === cat);
+
+  if (filtered.length === 0) {
+    list.innerHTML = `<div class="asset-row-empty">当前类别暂无已登记资产</div>`;
+    return;
+  }
+
+  list.innerHTML = filtered.map(a => `
+    <div class="asset-row ${a.category === '社会' ? 'social-contribution' : ''}">
+      <div class="row-icon">${TYPE_ICONS[a.type] || '📌'}</div>
+      <div class="row-info">
+        <div class="row-name">${a.name}${a.category === '社会' ? ' <span class="row-contrib-type">· 贡献</span>' : ''}</div>
+        <div class="row-meta">
+          <span>hash:${a.hash}</span>
+          <span>dna:${a.dna}</span>
+          ${a.ganzhi ? `<span>${a.ganzhi}</span>` : ''}
+          ${a.tags.length ? a.tags.map(t => `<span>#${t}</span>`).join(' ') : ''}
+        </div>
+      </div>
+      <div class="row-status ${a.status === '已验证' ? 'status-verified' : a.status === '争议中' ? 'status-disputed' : 'status-pending'}">${a.status}</div>
+      <div class="row-actions">
+        <button onclick="togglePublic('${a.dna}')" aria-label="切换公开/私有" class="btn-private">🔗</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ═══════════════════════════════════════════════════════════
+// 注册模态窗口
+// ═══════════════════════════════════════════════════════════
+
+function openRegisterModal(assetType) {
+  registerTargetType = assetType;
+  modalTags = [];
+
+  const typeInfo = allAssetTypes.find(t => t.type === assetType);
+  if (!typeInfo) return;
+
+  document.getElementById('modalTitle').innerHTML = `${TYPE_ICONS[assetType] || '📌'} 注册 · ${typeInfo.name}`;
+  document.getElementById('modalSubtitle').textContent = `${typeInfo.color} ${typeInfo.category}资产 · ${typeInfo.verification}`;
+  document.getElementById('modalUid').value = currentUid;
+  document.getElementById('modalAssetType').value = assetType;
+  document.getElementById('modalAssetNumber').value = '';
+  document.getElementById('modalNote').value = '';
+  document.getElementById('modalTagList').innerHTML = '';
+  document.getElementById('formatValidator').textContent = '';
+  document.getElementById('formatValidator').className = 'format-validator';
+  document.getElementById('btnSubmit').disabled = false;
+
+  // 格式提示
+  const hint = FORMAT_HINTS[assetType];
+  if (hint) {
+    document.getElementById('modalAssetNumber').placeholder = hint;
+  }
+
+  document.getElementById('registerModal').classList.add('show');
+  setTimeout(() => document.getElementById('modalAssetNumber').focus(), 100);
+}
+
+function closeRegisterModal() {
+  document.getElementById('registerModal').classList.remove('show');
+  document.getElementById('verifyResult').innerHTML = '';
+}
+
+// P19极简审计: 实时校验 + 边框红/绿变化 + 具体错误提示
+function validateAssetNumber() {
+  const input = document.getElementById('modalAssetNumber');
+  const val = input.value.trim();
+  const el = document.getElementById('formatValidator');
+  const type = registerTargetType;
+
+  // 清除之前的样式
+  input.classList.remove('valid', 'invalid');
+
+  if (!val) {
+    el.textContent = '';
+    el.className = 'format-validator';
+    return;
+  }
+
+  // 基础长度检查
+  if (val.length < 2) {
+    el.textContent = '⚠️ 编号太短（至少2个字符）';
+    el.className = 'format-validator error error-text';
+    input.classList.add('invalid');
+    return;
+  }
+
+  // 类型特定校验
+  const validator = FORMAT_VALIDATORS[type];
+  if (validator) {
+    const result = validator(val);
+    if (result.ok) {
+      el.textContent = '✅ ' + result.msg;
+      el.className = 'format-validator ok';
+      input.classList.add('valid');
+    } else {
+      el.textContent = '⚠️ ' + result.msg;
+      el.className = 'format-validator error error-text';
+      input.classList.add('invalid');
+    }
+  } else {
+    // 无特定校验器 → 基础通过
+    el.textContent = '';
+    el.className = 'format-validator';
+    input.classList.add('valid');
+  }
+}
+
+function handleTagInput(e) {
+  if (e.key !== 'Enter') return;
+  e.preventDefault();
+  const input = document.getElementById('modalTags');
+  const val = input.value.trim();
+  if (val && !modalTags.includes(val)) {
+    modalTags.push(val);
+    renderTagChips();
+  }
+  input.value = '';
+}
+
+function renderTagChips() {
+  document.getElementById('modalTagList').innerHTML = modalTags.map((t, i) =>
+    `<span class="tag-chip">#${t} <span class="tag-remove" onclick="removeTag(${i})">&times;</span></span>`
+  ).join('');
+}
+
+function removeTag(idx) {
+  modalTags.splice(idx, 1);
+  renderTagChips();
+}
+
+async function submitRegister() {
+  const number = document.getElementById('modalAssetNumber').value.trim();
+  const note = document.getElementById('modalNote').value.trim();
+  const uid = currentUid;
+  const type = registerTargetType;
+
+  if (!number) {
+    showToast('请输入资产编号', 'error');
+    return;
+  }
+  if (number.length < 2) {
+    showToast('资产编号至少2个字符', 'error');
+    return;
+  }
+
+  const btn = document.getElementById('btnSubmit');
+  btn.disabled = true;
+  btn.textContent = '⏳ 注册中...';
+
+  try {
+    const res = await fetch(`${API_BASE}/api/register`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        uid, 资产类型: type, 资产编号: number,
+        标签: modalTags, 备注: note, 验证状态: '待验证'
+      })
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      showToast(`✅ ${data.asset_name} 注册成功 · DNA: ${data.dna}`, 'success');
+      document.getElementById('masterDnaValue').textContent = data.master_dna;
+      closeRegisterModal();
+      await loadRegistry();
+    } else {
+      showToast(data.detail || '注册失败', 'error');
+    }
+  } catch (e) {
+    showToast('注册失败 · 请检查API服务', 'error');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '✅ 注册资产';
+  }
+}
+
+// ── 点击遮罩关闭 ──
+document.getElementById('registerModal').addEventListener('click', function(e) {
+  if (e.target === this) closeRegisterModal();
+});
+
+// ── ESC 关闭 ──
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeRegisterModal();
+});
+
+// ═══════════════════════════════════════════════════════════
+// 验证归属
+// ═══════════════════════════════════════════════════════════
+
+async function doVerify() {
+  const uid = document.getElementById('verifyUid').value.trim();
+  const type = document.getElementById('verifyType').value;
+  const number = document.getElementById('verifyNumber').value.trim();
+  const resultEl = document.getElementById('verifyResult');
+
+  if (!uid || !number) {
+    resultEl.innerHTML = '<div class="verify-result fail" role="alert">请填写UID和资产编号</div>';
+    return;
+  }
+
+  resultEl.innerHTML = '<div class="verify-result" style="color:var(--text-dim)">⏳ 验证中...</div>';
+
+  try {
+    const res = await fetch(`${API_BASE}/api/verify`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ uid, 资产类型: type, 资产编号: number })
+    });
+    const data = await res.json();
+
+    if (data.verified) {
+      resultEl.innerHTML = `<div class="verify-result pass" role="alert">✅ ${data.message}</div>`;
+    } else {
+      resultEl.innerHTML = `
+        <div class="verify-result fail" role="alert">
+          ❌ ${data.message}
+          ${data.is_black_box ? `<div class="black-box-warning">⚠️ ${data.detail}<br><br>
+          <strong>黑户·无上牌·无溯源链</strong> — 此物品未在龍魂DNA登记册中注册。<br>
+          未注册 = 无归属证明 = 可能是非法所得/被盗/剽窃。<br>
+          君子爱财取之有道，黑箱子就是诈骗。</div>` : ''}
+        </div>`;
+    }
+  } catch (e) {
+    resultEl.innerHTML = '<div class="verify-result fail" role="alert">验证服务异常</div>';
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// 公开/私有切换
+// ═══════════════════════════════════════════════════════════
+
+async function togglePublic(dna) {
+  try {
+    const res = await fetch(`${API_BASE}/api/toggle-public?uid=${encodeURIComponent(currentUid)}&dna=${encodeURIComponent(dna)}`, {
+      method: 'POST'
+    });
+    const data = await res.json();
+    showToast(data.action, 'info');
+  } catch (e) {
+    showToast('操作失败', 'error');
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// 复制主DNA
+// ═══════════════════════════════════════════════════════════
+
+function copyMasterDna() {
+  const val = document.getElementById('masterDnaValue').textContent;
+  if (val === '---') return;
+  navigator.clipboard.writeText(val).then(() => {
+    showToast('📋 主DNA已复制到剪贴板', 'success');
+  }).catch(() => {
+    showToast('复制失败，请手动选择', 'error');
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// 信任积分计算引擎 · P20 贡献公证官
+// 公式: 信任指数 T = 技术贡献分 + 社会功德分 + 公益服务分
+// 三分桶·各归各桶·不混着溜大街
+// ═══════════════════════════════════════════════════════════
+
+// 积分权重常数（焊死·L1底座层）
+const SCORE_WEIGHTS = {
+  oss_code:     3.0,   // 代码贡献 = 技术权威
+  tech_doc:     2.0,   // 技术文档 = 知识共享
+  oss_maintain: 2.5,   // 开源维护 = 持续投入
+  community:    1.5,   // 社区服务 × 1.5 → 社会功德
+  welfare:      2.0,   // 公益行动 × 2.0 → 功德+公益
+  intl_bridge:  1.8,   // 国际桥接 → 公益+功德
+};
+
+// 使用场景阈值
+const UC_THRESHOLDS = {
+  gov:      { score: 50,  label: '政审参考',   check: () => trustIndex >= 50 },
+  soe:      { score: 60,  label: '国资入职',   check: () => trustIndex >= 60 },
+  intl:     { score: 30,  label: '国际交流',   check: () => scoreWelfare >= 15 },
+  compute:  { score: 30,  label: '算力优先',   check: () => scoreTech >= 20 },
+  academic: { score: 40,  label: '学术认证',   check: () => scoreTech + scoreMerit >= 40 },
+  justice:  { score: 20,  label: '司法公证',   check: () => trustIndex >= 20 },
+};
+
+let scoreTech = 0, scoreMerit = 0, scoreWelfare = 0, trustIndex = 0;
+
+function computeTrustScores() {
+  const socialAssets = registeredAssets.filter(a => a.category === '社会' && a.status !== '争议中');
+
+  // 重置
+  scoreTech = 0; scoreMerit = 0; scoreWelfare = 0;
+
+  socialAssets.forEach(a => {
+    const w = SCORE_WEIGHTS[a.type] || 1.0;
+    // 基础分：每条贡献=1分 × 权重 × 状态系数（已验证=1.0, 待验证=0.5）
+    const statusMult = a.status === '已验证' ? 1.0 : 0.5;
+    const points = 1.0 * w * statusMult;
+
+    switch (a.type) {
+      case 'oss_code':
+      case 'tech_doc':
+      case 'oss_maintain':
+        scoreTech += points;
+        break;
+      case 'community':
+        scoreMerit += points * 1.5;  // 额外社区乘数
+        break;
+      case 'welfare':
+        scoreMerit += points * 2.0;
+        scoreWelfare += points;
+        break;
+      case 'intl_bridge':
+        scoreMerit += points * 1.8;
+        scoreWelfare += points;
+        break;
+      default:
+        scoreTech += points;
+    }
+  });
+
+  trustIndex = Math.min(100, Math.round(scoreTech + scoreMerit + scoreWelfare));
+
+  // 渲染
+  document.getElementById('scoreTech').textContent = scoreTech.toFixed(1);
+  document.getElementById('scoreMerit').textContent = scoreMerit.toFixed(1);
+  document.getElementById('scoreWelfare').textContent = scoreWelfare.toFixed(1);
+  document.getElementById('trustIndexVal').textContent = trustIndex;
+  document.getElementById('trustIndexBar').style.width = trustIndex + '%';
+
+  // 使用场景更新
+  updateUseCaseMatrix();
+}
+
+function resetTrustScores() {
+  scoreTech = 0; scoreMerit = 0; scoreWelfare = 0; trustIndex = 0;
+  document.getElementById('scoreTech').textContent = '0';
+  document.getElementById('scoreMerit').textContent = '0';
+  document.getElementById('scoreWelfare').textContent = '0';
+  document.getElementById('trustIndexVal').textContent = '--';
+  document.getElementById('trustIndexBar').style.width = '0%';
+  updateUseCaseMatrix();
+}
+
+function updateUseCaseMatrix() {
+  const cases = {
+    ucGov:      UC_THRESHOLDS.gov.check(),
+    ucSOE:      UC_THRESHOLDS.soe.check(),
+    ucIntl:     UC_THRESHOLDS.intl.check(),
+    ucCompute:  UC_THRESHOLDS.compute.check(),
+    ucAcademic: UC_THRESHOLDS.academic.check(),
+    ucJustice:  UC_THRESHOLDS.justice.check(),
+  };
+
+  for (const [id, available] of Object.entries(cases)) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    if (available) {
+      el.textContent = '✅ 可用';
+      el.className = 'uc-status uc-available';
+    } else {
+      el.textContent = '⏳ 待积累';
+      el.className = 'uc-status uc-insufficient';
+    }
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// 启动
+// ═══════════════════════════════════════════════════════════
+
+init();
+</script>
+
+</body>
+</html>

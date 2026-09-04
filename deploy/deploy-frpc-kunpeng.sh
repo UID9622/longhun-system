@@ -1,4 +1,6 @@
 #!/bin/bash
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ============================================================================
 # deploy-frpc-kunpeng.sh — 华为鲲鹏一键部署 frpc 客户端
 # DNA: #龍芯⚡️丙午·辛未·FRPC-KUNPENG-v1.0

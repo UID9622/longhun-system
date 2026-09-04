@@ -1,7 +1,9 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂移动端监控自动化 · 部署 Quick Start
 
 ```
-DNA: #龍芯⚡️2026-06-07-MONITORING-QUICKSTART
+DNA: #龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-MONITORING-QUICKSTART
 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 签章: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ```
@@ -34,7 +36,7 @@ initLonghunMonitoring({
   appId: 'your-app-name',
   environment: 'production',
   autoInit: true,
-  dna: '#龍芯⚡️2026-06-07-MONITORING-QUICKSTART'
+  dna: '#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-MONITORING-QUICKSTART'
 });
 ```
 
@@ -404,7 +406,7 @@ npm run diagnose:cloud-connection
 
 📊 实时监控仪表板: https://logs.longhun.io/public
 
-DNA: #龍芯⚡️2026-06-07-MONITORING-QUICKSTART
+DNA: #龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-MONITORING-QUICKSTART
 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 签章: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 

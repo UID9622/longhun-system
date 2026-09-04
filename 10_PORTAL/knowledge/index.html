@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂·知识中枢 | Knowledge Hub</title>
+<!-- DNA: #龍芯⚡️丙午·乙未·丙申·未时·䷜坎-KNOWLEDGE-HUB-v3.0-4a2c8e1f -->
+<style>
+/* ═══════════ 变量 ═══════════ */
+:root {
+  --bg:       #08080f; --bg2:    #0c0c1a; --card:    #12122a;
+  --card2:    #181836; --border: #2a2a4a; --gold:    #d4a12c;
+  --gold-dim: #8b6914; --accent: #a78bfa; --cyan:    #22d3ee;
+  --green:    #4ade80; --orange: #fb923c; --red:     #f87171;
+  --pink:     #f472b6; --text:   #d4d4d8; --dim:     #71717a;
+  --font-sans: "PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;
+  --font-mono: "SF Mono","Fira Code","Cascadia Code",monospace;
+  --radius:   10px; --radius-sm: 6px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background:var(--bg); color:var(--text); font-family:var(--font-sans);
+  min-height:100vh; line-height:1.5;
+}
+a { color:var(--cyan); text-decoration:none; }
+a:hover { text-decoration:underline; }
+::selection { background:var(--gold-dim); color:#fff; }
+::-webkit-scrollbar { width:6px; }
+::-webkit-scrollbar-track { background:var(--bg2); }
+::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
+
+/* ═══════════ 布局 ═══════════ */
+.app { max-width:1400px; margin:0 auto; padding:0 20px 40px; }
+
+/* ═══════════ 顶部导航 ═══════════ */
+.navbar {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 0; border-bottom:1px solid var(--border); margin-bottom:20px;
+  flex-wrap:wrap; gap:12px;
+}
+.nav-left { display:flex; align-items:center; gap:12px; }
+.nav-logo { font-size:22px; color:var(--gold); font-weight:700; letter-spacing:2px; }
+.nav-ver { font-size:10px; color:var(--dim); background:var(--card); padding:2px 8px; border-radius:10px; }
+.nav-status { display:flex; gap:8px; align-items:center; }
+.status-dot { width:8px; height:8px; border-radius:50%; display:inline-block; }
+.status-dot.green { background:var(--green); box-shadow:0 0 6px var(--green); }
+.status-dot.yellow{ background:var(--orange); box-shadow:0 0 6px var(--orange); }
+.status-dot.red   { background:var(--red); box-shadow:0 0 6px var(--red); }
+.nav-actions { display:flex; gap:6px; flex-wrap:wrap; }
+.btn {
+  padding:6px 14px; border-radius:var(--radius-sm); font-size:12px;
+  border:1px solid var(--border); background:var(--card); color:var(--text);
+  cursor:pointer; transition:all .2s; white-space:nowrap;
+}
+.btn:hover { border-color:var(--gold); color:var(--gold); }
+.btn-primary { background:var(--gold-dim); border-color:var(--gold); color:#fff; }
+.btn-primary:hover { background:var(--gold); }
+.btn-sm { padding:3px 10px; font-size:11px; }
+.btn-auto { font-size:11px; display:flex; align-items:center; gap:4px; }
+
+/* ═══════════ 仪表盘行 ═══════════ */
+.dash-row {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:12px; margin-bottom:20px;
+}
+.dash-card {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:16px;
+}
+.dash-card.full { grid-column:1/-1; }
+.dash-card h3 {
+  font-size:14px; color:var(--gold); margin-bottom:12px;
+  display:flex; align-items:center; gap:8px;
+}
+.dash-card h3 .icon { font-size:16px; }
+
+/* ═══════════ 指标 ═══════════ */
+.metrics { display:flex; flex-wrap:wrap; gap:8px; }
+.metric {
+  background:var(--card2); border-radius:var(--radius-sm);
+  padding:10px 14px; min-width:100px; flex:1;
+}
+.metric .val { font-size:22px; font-weight:700; color:var(--text); }
+.metric .val.gold { color:var(--gold); }
+.metric .val.green{ color:var(--green); }
+.metric .val.cyan { color:var(--cyan); }
+.metric .val.red  { color:var(--red); }
+.metric .lbl { font-size:10px; color:var(--dim); margin-top:2px; }
+
+/* ═══════════ 进度条 ═══════════ */
+.progress-bar {
+  height:6px; background:var(--card2); border-radius:3px;
+  margin-top:6px; overflow:hidden;
+}
+.progress-fill {
+  height:100%; border-radius:3px; transition:width .6s;
+}
+.progress-fill.gold  { background:linear-gradient(90deg,var(--gold-dim),var(--gold)); }
+.progress-fill.green { background:linear-gradient(90deg,#166534,var(--green)); }
+.progress-fill.cyan  { background:linear-gradient(90deg,#155e75,var(--cyan)); }
+.progress-fill.red   { background:linear-gradient(90deg,#991b1b,var(--red)); }
+
+/* ═══════════ 模型卡片 ═══════════ */
+.model-card {
+  background:var(--card2); border:1px solid var(--border);
+  border-radius:var(--radius-sm); padding:10px 14px; margin-bottom:6px;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.model-card .name { font-size:13px; font-weight:600; }
+.model-card .info { font-size:11px; color:var(--dim); }
+.model-card .badge {
+  font-size:10px; padding:2px 8px; border-radius:8px; font-weight:600;
+}
+.badge-live  { background:#166534; color:var(--green); }
+.badge-arch  { background:#713f12; color:var(--orange); }
+.badge-dead  { background:#7f1d1d; color:var(--red); }
+
+/* ═══════════ 流水线 ═══════════ */
+.pipeline {
+  display:flex; gap:8px; flex-wrap:wrap; align-items:center;
+  padding:10px 0;
+}
+.pipe-step {
+  background:var(--card2); border:1px solid var(--border);
+  border-radius:var(--radius-sm); padding:8px 14px;
+  text-align:center; min-width:100px; flex:1;
+}
+.pipe-step .step-icon { font-size:20px; display:block; }
+.pipe-step .step-name { font-size:11px; color:var(--dim); }
+.pipe-step .step-stat { font-size:12px; font-weight:600; margin-top:2px; }
+.pipe-arrow { color:var(--dim); font-size:16px; }
+
+/* ═══════════ 开采应用列表 ═══════════ */
+.mine-list { display:flex; flex-direction:column; gap:6px; max-height:400px; overflow-y:auto; }
+.mine-item {
+  background:var(--card2); border:1px solid var(--border);
+  border-radius:var(--radius-sm); padding:10px 14px;
+  display:flex; align-items:center; gap:12px;
+}
+.mine-item .app-icon { font-size:20px; min-width:28px; text-align:center; }
+.mine-item .app-info { flex:1; min-width:0; }
+.mine-item .app-name { font-size:13px; font-weight:600; }
+.mine-item .app-detail { font-size:10px; color:var(--dim); }
+.mine-item .app-size { font-size:12px; font-weight:600; color:var(--gold); white-space:nowrap; }
+.mine-item .app-files { font-size:10px; color:var(--cyan); white-space:nowrap; }
+.mine-item .app-bar { width:80px; }
+
+/* ═══════════ 图谱概览 ═══════════ */
+.graph-stats { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:10px; }
+.graph-hubs { display:flex; flex-direction:column; gap:4px; max-height:200px; overflow-y:auto; }
+.hub-row {
+  display:flex; align-items:center; gap:8px; padding:4px 8px;
+  background:var(--card2); border-radius:4px;
+}
+.hub-row .hub-name { font-size:11px; flex:1; color:var(--cyan); }
+.hub-row .hub-deg  { font-size:11px; color:var(--gold); font-weight:600; }
+
+/* ═══════════ 标签 ═══════════ */
+.tabs {
+  display:flex; gap:4px; flex-wrap:wrap; margin-bottom:12px;
+}
+.tab {
+  padding:5px 12px; border-radius:14px; font-size:11px;
+  background:var(--card); border:1px solid var(--border);
+  color:var(--dim); cursor:pointer; transition:all .2s; white-space:nowrap;
+}
+.tab:hover { border-color:var(--accent); color:var(--text); }
+.tab.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+.tab .count { opacity:.6; margin-left:3px; }
+.tab.mining { background:var(--gold-dim); border-color:var(--gold); color:var(--gold); }
+
+/* ═══════════ 搜索 ═══════════ */
+.search-wrap {
+  position:relative; margin-bottom:12px;
+}
+.search-wrap input {
+  width:100%; padding:10px 42px 10px 14px;
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius); color:var(--text); font-size:14px;
+  outline:none; transition:border-color .2s;
+}
+.search-wrap input:focus { border-color:var(--gold); }
+.search-wrap .sicon {
+  position:absolute; right:14px; top:50%; transform:translateY(-50%);
+  font-size:16px; pointer-events:none;
+}
+
+/* ═══════════ 文章网格 ═══════════ */
+.results-info { color:var(--dim); font-size:12px; margin-bottom:8px; }
+.grid {
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:8px; margin-bottom:20px;
+}
+.card {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:14px; transition:all .2s;
+  display:flex; flex-direction:column; gap:6px;
+}
+.card:hover { border-color:var(--gold); transform:translateY(-1px); }
+.card h4 { font-size:13px; color:var(--text); line-height:1.4; }
+.card .summary {
+  font-size:11px; color:var(--dim); line-height:1.5;
+  display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;
+}
+.card .meta { display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin-top:auto; }
+.card .source {
+  font-size:10px; color:var(--cyan); padding:1px 7px;
+  background:#22d3ee12; border-radius:8px;
+}
+.card .cat {
+  font-size:10px; color:var(--accent); padding:1px 7px;
+  background:#a78bfa12; border-radius:8px;
+}
+.card .q { font-size:10px; margin-left:auto; }
+.q-high { color:var(--green); }
+.q-mid  { color:var(--orange); }
+.q-low  { color:var(--red); }
+
+.empty-state {
+  text-align:center; padding:40px 20px; color:var(--dim);
+}
+.empty-state .big { font-size:40px; margin-bottom:10px; }
+
+/* ═══════════ 活动日志 ═══════════ */
+.log-list { max-height:240px; overflow-y:auto; }
+.log-item {
+  padding:6px 10px; font-size:11px; border-bottom:1px solid var(--border);
+  display:flex; gap:8px; align-items:flex-start;
+}
+.log-item .log-time { color:var(--dim); white-space:nowrap; min-width:120px; }
+.log-item .log-act  { color:var(--accent); min-width:70px; }
+.log-item .log-msg  { color:var(--text); flex:1; }
+
+/* ═══════════ 可折叠面板 ═══════════ */
+.collapse-header {
+  display:flex; align-items:center; justify-content:space-between;
+  cursor:pointer; user-select:none;
+}
+.collapse-header .arrow { transition:transform .3s; font-size:12px; }
+.collapse-header.open .arrow { transform:rotate(90deg); }
+.collapse-body { display:none; }
+.collapse-body.show { display:block; }
+
+/* ═══════════ 页脚 ═══════════ */
+.footer {
+  text-align:center; padding:28px 20px; color:var(--dim);
+  font-size:11px; border-top:1px solid var(--border); margin-top:20px;
+}
+.footer .dna { font-family:var(--font-mono); margin-top:4px; font-size:10px; }
+.footer .audit { margin-top:3px; }
+
+/* ═══════════ 响应式 ═══════════ */
+@media (max-width:768px) {
+  .navbar { flex-direction:column; align-items:flex-start; }
+  .dash-row { grid-template-columns:1fr; }
+  .grid { grid-template-columns:1fr; }
+  .pipeline { flex-direction:column; }
+  .pipe-arrow { display:none; }
+}
+
+/* ═══════════ 脉冲动画 ═══════════ */
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+.pulse { animation:pulse 2s infinite; }
+
+/* ═══════════ 通知提示 ═══════════ */
+.toast {
+  position:fixed; bottom:20px; right:20px; z-index:999;
+  background:var(--card); border:1px solid var(--gold);
+  border-radius:var(--radius); padding:12px 20px;
+  font-size:13px; opacity:0; transform:translateY(20px);
+  transition:all .3s; pointer-events:none;
+}
+.toast.show { opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<div class="app">
+
+<!-- ═══════════ 导航栏 ═══════════ -->
+<nav class="navbar">
+  <div class="nav-left">
+    <span class="nav-logo">📡 龍魂·知识中枢</span>
+    <span class="nav-ver">v3.0 · 全能面板</span>
+  </div>
+  <div class="nav-status">
+    <span id="sysLight" title="系统状态"><span class="status-dot yellow pulse"></span></span>
+    <span id="modelLight" title="模型状态"><span class="status-dot yellow pulse"></span></span>
+    <span id="dataLight" title="数据状态"><span class="status-dot yellow pulse"></span></span>
+  </div>
+  <div class="nav-actions">
+    <button class="btn btn-primary btn-auto" onclick="runMine()" id="btnMine">⛏️ 勘探 Library</button>
+    <button class="btn btn-auto" onclick="runCrawl()">🕷️ 爬取</button>
+    <button class="btn btn-auto" onclick="runIndex()">📑 建索引</button>
+    <button class="btn btn-auto" onclick="location.href='/portal/'">🏠 门户</button>
+    <button class="btn btn-auto" onclick="location.href='/dashboard/'">🖥 监控</button>
+    <button class="btn btn-auto" onclick="window.open('https://app.notion.com/p/3ab7125a9c9f8185beb0f22f9f0eeec7','_blank')">📋 注册表</button>
+  </div>
+</nav>
+
+<!-- ═══════════ 第1行: 系统状态 + 数据资产 ═══════════ -->
+<div class="dash-row">
+  <!-- 系统实时状态 -->
+  <div class="dash-card">
+    <h3><span class="icon">🖥️</span> 系统运行状态</h3>
+    <div class="metrics" id="sysMetrics">
+      <div class="metric"><div class="val pulse">--</div><div class="lbl">CPU</div></div>
+      <div class="metric"><div class="val pulse">--</div><div class="lbl">内存</div></div>
+      <div class="metric"><div class="val pulse">--</div><div class="lbl">磁盘</div></div>
+      <div class="metric"><div class="val pulse">--</div><div class="lbl">GPU</div></div>
+    </div>
+    <div style="margin-top:10px;font-size:10px;color:var(--dim);" id="sysDetail">等待探测...</div>
+  </div>
+
+  <!-- 数据资产总览 -->
+  <div class="dash-card">
+    <h3><span class="icon">📊</span> 数据资产矩阵</h3>
+    <div class="metrics" id="dataAssets">
+      <div class="metric"><div class="val gold">--</div><div class="lbl">KB文章</div></div>
+      <div class="metric"><div class="val cyan">--</div><div class="lbl">Library可挖</div></div>
+      <div class="metric"><div class="val green">--</div><div class="lbl">训练数据</div></div>
+      <div class="metric"><div class="val">--</div><div class="lbl">图谱节点</div></div>
+    </div>
+  </div>
+
+  <!-- 模型矩阵 -->
+  <div class="dash-card">
+    <h3><span class="icon">🧠</span> 模型矩阵</h3>
+    <div id="modelMatrix" style="font-size:11px;color:var(--dim);">
+      <div class="model-card"><span class="name pulse">加载模型状态中...</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ 第2行: 自动化流水线 ═══════════ -->
+<div class="dash-card full" style="margin-bottom:20px">
+  <h3><span class="icon">⚙️</span> 自动化知识流水线 <span style="font-size:10px;color:var(--dim);">CRAWL → CLEAN → INDEX → TRAIN</span></h3>
+  <div class="pipeline" id="pipeline">
+    <div class="pipe-step"><span class="step-icon">🕷️</span><span class="step-name">爬取采集</span><span class="step-stat pulse">--</span></div>
+    <span class="pipe-arrow">→</span>
+    <div class="pipe-step"><span class="step-icon">🧹</span><span class="step-name">清洗去重</span><span class="step-stat pulse">--</span></div>
+    <span class="pipe-arrow">→</span>
+    <div class="pipe-step"><span class="step-icon">📑</span><span class="step-name">索引建库</span><span class="step-stat pulse">--</span></div>
+    <span class="pipe-arrow">→</span>
+    <div class="pipe-step"><span class="step-icon">⛏️</span><span class="step-name">Library矿场</span><span class="step-stat pulse">--</span></div>
+    <span class="pipe-arrow">→</span>
+    <div class="pipe-step"><span class="step-icon">🧠</span><span class="step-name">模型训练</span><span class="step-stat pulse">--</span></div>
+  </div>
+</div>
+
+<!-- ═══════════ 第3行: Library矿场 + 知识图谱 ═══════════ -->
+<div class="dash-row">
+  <!-- Library 数据矿场 -->
+  <div class="dash-card">
+    <div class="collapse-header open" onclick="toggleSection(this)">
+      <h3 style="margin:0"><span class="icon">⛏️</span> Library 数据矿场</h3>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="collapse-body show" style="margin-top:12px">
+      <div class="metrics" style="margin-bottom:10px" id="mineSummary">
+        <div class="metric"><div class="val gold">187</div><div class="lbl">总GB</div></div>
+        <div class="metric"><div class="val cyan">--</div><div class="lbl">可挖掘</div></div>
+        <div class="metric"><div class="val green">--</div><div class="lbl">已提取</div></div>
+        <div class="metric"><div class="val">--</div><div class="lbl">已链接</div></div>
+      </div>
+      <div class="mine-list" id="mineList">
+        <div class="mine-item"><span class="app-icon">🤖</span><div class="app-info"><div class="app-name">Claude</div><div class="app-detail">~/Library/Application Support/Claude</div></div><span class="app-size">3.1G</span><span class="app-files">会话·工作区</span></div>
+        <div class="mine-item"><span class="app-icon">🧬</span><div class="app-info"><div class="app-name">CodeBuddy CN + Extension</div><div class="app-detail">~/Library/Application Support/CodeBuddy*</div></div><span class="app-size">3.6G</span><span class="app-files">IDE·对话</span></div>
+        <div class="mine-item"><span class="app-icon">💻</span><div class="app-info"><div class="app-name">Cursor</div><div class="app-detail">~/Library/Application Support/Cursor</div></div><span class="app-size">5.1G</span><span class="app-files">编辑器·AI</span></div>
+        <div class="mine-item"><span class="app-icon">🌐</span><div class="app-info"><div class="app-name">Chrome</div><div class="app-detail">~/Library/Application Support/Google/Chrome</div></div><span class="app-size">5.6G</span><span class="app-files">浏览·缓存</span></div>
+        <div class="mine-item"><span class="app-icon">📝</span><div class="app-info"><div class="app-name">Code (VS Code)</div><div class="app-detail">~/Library/Application Support/Code</div></div><span class="app-size">0.6G</span><span class="app-files">工作区</span></div>
+        <div class="mine-item"><span class="app-icon">🗂️</span><div class="app-info"><div class="app-name">Caches</div><div class="app-detail">~/Library/Caches</div></div><span class="app-size">2.3G</span><span class="app-files">缓存</span></div>
+        <div class="mine-item"><span class="app-icon">📦</span><div class="app-info"><div class="app-name">Others (≈165G)</div><div class="app-detail">其他应用数据·容器·群组容器</div></div><span class="app-size">≈165G</span><span class="app-files">待勘探</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 知识图谱概览 -->
+  <div class="dash-card">
+    <div class="collapse-header open" onclick="toggleSection(this)">
+      <h3 style="margin:0"><span class="icon">🕸️</span> 知识图谱 · 节点链接</h3>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="collapse-body show" style="margin-top:12px">
+      <div class="metrics" style="margin-bottom:10px" id="graphMetrics">
+        <div class="metric"><div class="val">417</div><div class="lbl">节点</div></div>
+        <div class="metric"><div class="val">438</div><div class="lbl">边</div></div>
+        <div class="metric"><div class="val">2.1</div><div class="lbl">平均度</div></div>
+        <div class="metric"><div class="val">33</div><div class="lbl">节点类型</div></div>
+      </div>
+      <div style="font-size:10px;color:var(--dim);margin-bottom:6px">🔥 核心 Hub 节点 (度排行)</div>
+      <div class="graph-hubs" id="graphHubs">
+        <div class="hub-row"><span class="hub-name">L0 核心层</span><span class="hub-deg">度:61</span><div style="width:80px"><div class="progress-bar"><div class="progress-fill cyan" style="width:92%"></div></div></div></div>
+        <div class="hub-row"><span class="hub-name">Downloads 主干收件箱</span><span class="hub-deg">度:66</span><div style="width:80px"><div class="progress-bar"><div class="progress-fill gold" style="width:100%"></div></div></div></div>
+        <div class="hub-row"><span class="hub-name">HTML Tools</span><span class="hub-deg">度:30</span><div style="width:80px"><div class="progress-bar"><div class="progress-fill cyan" style="width:45%"></div></div></div></div>
+        <div class="hub-row"><span class="hub-name">Modules</span><span class="hub-deg">度:27</span><div style="width:80px"><div class="progress-bar"><div class="progress-fill cyan" style="width:41%"></div></div></div></div>
+        <div class="hub-row"><span class="hub-name">Skills</span><span class="hub-deg">度:22</span><div style="width:80px"><div class="progress-bar"><div class="progress-fill cyan" style="width:33%"></div></div></div></div>
+        <div class="hub-row"><span class="hub-name">L1 数据存储</span><span class="hub-deg">度:19</span><div style="width:80px"><div class="progress-bar"><div class="progress-fill green" style="width:29%"></div></div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ 第4行: 活动日志 ═══════════ -->
+<div class="dash-card full" style="margin-bottom:20px">
+  <div class="collapse-header open" onclick="toggleSection(this)">
+    <h3 style="margin:0"><span class="icon">📋</span> 活动日志</h3>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="collapse-body show log-list" style="margin-top:10px" id="activityLog">
+    <div class="log-item"><span class="log-time">加载中...</span><span class="log-act">--</span><span class="log-msg">正在获取活动日志</span></div>
+  </div>
+</div>
+
+<!-- ═══════════ 第5行: 知识文章 ═══════════ -->
+<div class="dash-card full">
+  <h3><span class="icon">📚</span> 知识文章索引</h3>
+
+  <!-- 搜索 -->
+  <div class="search-wrap" style="margin-top:10px">
+    <input type="text" id="search" placeholder="搜索知识库 · 支持标题/摘要/来源..." oninput="filter()">
+    <span class="sicon">🔍</span>
+  </div>
+
+  <!-- 分类标签 -->
+  <div class="tabs" id="tabsRow"></div>
+
+  <!-- 结果 -->
+  <div class="results-info" id="resultsInfo"></div>
+  <div id="content"><div class="empty-state"><div class="big">📭</div><p>知识索引加载中...</p></div></div>
+</div>
+
+<!-- ═══════════ 页脚 ═══════════ -->
+<div class="footer">
+  <p>龍魂系统 · 知识中枢 v3.0 · 数据主权归集本地 · 中国法律准绳</p>
+  <p class="dna" id="footerDna">DNA: #龍芯⚡️丙午·乙未·丙申·未时·☵坎-KNOWLEDGE-HUB-v3.0-4a2c8e1f</p>
+  <p class="audit">🟢 审计: 通过 | 🔴 告警: 无 | 🟡 待核: 无</p>
+</div>
+
+</div><!-- /app -->
+
+<!-- ═══════════ Toast ═══════════ -->
+<div class="toast" id="toast"></div>
+
+<!-- ═══════════ SCRIPTS ═══════════ -->
+<script>
+// ── 全局状态 ──
+const APP = {
+  kbData: null, articles: [], graphData: null, mineData: null, kbStats: null,
+  activeCat: "全部", activeSearch: "", sysInfo: {}, modelInfo: {},
+  activityLog: [],
+};
+
+// ── API 基础 ──
+async function api(path, opts={}) {
+  try {
+    const r = await fetch(path, opts);
+    if (r.ok) return await r.json();
+  } catch(e) { console.warn("API:", path, e); }
+  return null;
+}
+
+// ── 初始化 ──
+async function init() {
+  const results = await Promise.allSettled([
+    fetch("kb_index.json").then(r => r.ok ? r.json() : null).catch(() => null),
+    fetch("/knowledge/graph_data.json").then(r => r.ok ? r.json() : null).catch(() => null),
+    fetch("/knowledge/mine_report.json").then(r => r.ok ? r.json() : null).catch(() => null),
+    api("/api/v1/li/status"),
+    api("/api/v1/li/models"),
+    api("/api/v1/li/kb-stats"),
+    api("/api/v1/li/logs?limit=15"),
+  ]);
+
+  APP.kbData     = results[0].value;
+  APP.graphData  = results[1].value;
+  APP.mineData   = results[2].value;
+  APP.sysInfo    = results[3].value || _fallbackSys();
+  APP.modelInfo  = results[4].value || _fallbackModels();
+  APP.kbStats    = results[5].value || {};
+  APP.activityLog = (results[6].value?.logs) || [];
+
+  if (APP.kbData) APP.articles = APP.kbData.articles || [];
+
+  renderSysStatus();
+  renderDataAssets();
+  renderModelMatrix();
+  renderPipeline();
+  renderMinePanel();
+  renderGraphPanel();
+  renderActivityLog();
+  renderKB();
+
+  setInterval(refreshLive, 30000);
+  refreshLive(); // 立即刷一次
+}
+
+function _fallbackSys() {
+  return { cpu:"--", memory:"--", disk:"--", gpu:"--", uptime:"--" };
+}
+function _fallbackModels() {
+  return { models: [
+    {name:"longhun-v4.1.3", base:"Yi-1.5-9B", val:"训练中", status:"training", live:false},
+    {name:"longhun-v4.1.1", base:"Yi-1.5-9B", val:"0.8097", status:"live", live:true},
+    {name:"longhun-v4.1.1-bind", base:"Yi-1.5-9B", val:"0.9659", status:"live", live:true},
+    {name:"longhun-v3.7", base:"Qwen2.5-1.5B", val:"0.194", status:"live", live:true},
+  ]};
+}
+
+// ── 渲染 · 系统状态 ──
+function renderSysStatus() {
+  const s = APP.sysInfo || {};
+  const cpuNum = parseFloat(s.cpu) || 0;
+  const cpuCls = cpuNum ? (cpuNum < 50 ? 'green' : cpuNum < 80 ? 'orange' : 'red') : '';
+  document.getElementById("sysMetrics").innerHTML = `
+    <div class="metric"><div class="val ${cpuCls}">${s.cpu||'--'}</div><div class="lbl">CPU</div></div>
+    <div class="metric"><div class="val">${s.memory||'--'}<span style="font-size:9px;color:var(--dim)">/${s.memory_total||'--'}</span></div><div class="lbl">内存</div></div>
+    <div class="metric"><div class="val">${s.disk||'--'}<span style="font-size:9px;color:var(--dim)">/${s.disk_total||'--'}</span></div><div class="lbl">磁盘</div></div>
+    <div class="metric"><div class="val green">${s.gpu||'--'}</div><div class="lbl">GPU</div></div>
+  `;
+  document.getElementById("sysLight").innerHTML = `<span class="status-dot green" title="系统正常"></span>`;
+}
+
+// ── 渲染 · 数据资产 ──
+function renderDataAssets() {
+  const kb    = APP.kbData ? (APP.kbData.total_articles || APP.articles.length) : "--";
+  const mine  = (APP.kbStats?.mineable_files) || (APP.mineData?.total_mineable) || "--";
+  const train = APP.kbStats?.train_data ? APP.kbStats.train_data.toLocaleString() : "--";
+  const graph = APP.kbStats?.graph_nodes || (APP.graphData ? Object.keys(APP.graphData.nodes||{}).length : "--");
+  document.getElementById("dataAssets").innerHTML = `
+    <div class="metric"><div class="val gold">${kb}</div><div class="lbl">KB文章</div></div>
+    <div class="metric"><div class="val cyan">${mine}</div><div class="lbl">Library可挖</div></div>
+    <div class="metric"><div class="val green">${train}</div><div class="lbl">训练数据</div></div>
+    <div class="metric"><div class="val">${graph}</div><div class="lbl">图谱节点</div></div>
+  `;
+  const hasData = kb !== "--" || mine !== "--" || train !== "--" || graph !== "--";
+  document.getElementById("dataLight").innerHTML = `<span class="status-dot ${hasData?'green':'yellow'}" title="${hasData?'数据正常':'部分数据未加载'}"></span>`;
+}
+
+// ── 渲染 · 模型矩阵 ──
+function renderModelMatrix() {
+  const models = APP.modelInfo?.models || [];
+  if (!models.length) {
+    document.getElementById("modelMatrix").innerHTML = '<div style="font-size:11px;color:var(--dim)">⏳ 等待模型信息...</div>';
+    return;
+  }
+  let html = "";
+  for (const m of models) {
+    const badgeCls = m.status === "live" ? "badge-live" : m.status === "training" ? "badge-arch" : "badge-dead";
+    const badgeLabel = m.status === "live" ? "LIVE" : m.status === "training" ? "TRAIN" : "DEAD";
+    const runtime = m.runtime === "running" ? ' <span style="font-size:9px;color:var(--green)">●</span>' : '';
+    html += `<div class="model-card">
+      <div><span class="name">${m.name}${runtime}</span><br><span class="info">${m.base} · Val ${m.val}</span></div>
+      <span class="badge ${badgeCls}">${badgeLabel}</span>
+    </div>`;
+  }
+  document.getElementById("modelMatrix").innerHTML = html;
+  document.getElementById("modelLight").innerHTML = `<span class="status-dot green" title="模型正常"></span>`;
+}
+
+// ── 渲染 · 自动化流水线 ──
+function renderPipeline() {
+  const s = APP.kbStats || {};
+  const stages = [
+    {icon:"🕷️", name:"爬取采集", stat: s.sources||"--", detail: s.sources ? "数据源" : "--"},
+    {icon:"🧹", name:"清洗去重", stat: s.train_data ? s.train_data.toLocaleString() : "--", detail: "训练条目"},
+    {icon:"📑", name:"索引建库", stat: s.articles||(APP.kbData?.total_articles)||"--", detail: "已索引"},
+    {icon:"⛏️", name:"Library矿场", stat: s.mineable_files||(APP.mineData?.total_mineable)||"--", detail: "可挖掘"},
+    {icon:"🧠", name:"模型训练", stat: "v4.1.3", detail: "运行中"},
+  ];
+  let html = "";
+  for (let i = 0; i < stages.length; i++) {
+    const st = stages[i];
+    html += `<div class="pipe-step"><span class="step-icon">${st.icon}</span><span class="step-name">${st.name}</span><span class="step-stat">${st.stat}</span><span style="font-size:9px;color:var(--dim)">${st.detail}</span></div>`;
+    if (i < stages.length - 1) html += '<span class="pipe-arrow">→</span>';
+  }
+  document.getElementById("pipeline").innerHTML = html;
+}
+
+// ── 渲染 · 矿场面板 ──
+function renderMinePanel() {
+  const m = APP.mineData || {};
+  document.getElementById("mineSummary").innerHTML = `
+    <div class="metric"><div class="val gold">${m.total_size_gb||187}</div><div class="lbl">总计 GB</div></div>
+    <div class="metric"><div class="val cyan">${m.total_mineable||'--'}</div><div class="lbl">可挖掘文件</div></div>
+    <div class="metric"><div class="val green">${m.total_extracted||m.total_cleaned||'--'}</div><div class="lbl">已提取/清洗</div></div>
+    <div class="metric"><div class="val">${m.total_linked||m.total_train||'--'}</div><div class="lbl">已链接/训练</div></div>
+  `;
+}
+
+// ── 渲染 · 图谱 ──
+function renderGraphPanel() {
+  if (!APP.graphData) return;
+  const nodes = APP.graphData.nodes || {};
+  const edges = APP.graphData.edges || APP.graphData.links || [];
+  const nodeCount = Object.keys(nodes).length;
+  const avgDeg = nodeCount ? (edges.length * 2 / Math.max(1, nodeCount)).toFixed(1) : "--";
+  const types = {};
+  for (const n of Object.values(nodes)) { const t = n.type || "?"; types[t] = (types[t]||0) + 1; }
+  document.getElementById("graphMetrics").innerHTML = `
+    <div class="metric"><div class="val">${nodeCount}</div><div class="lbl">节点</div></div>
+    <div class="metric"><div class="val">${edges.length}</div><div class="lbl">边</div></div>
+    <div class="metric"><div class="val">${avgDeg}</div><div class="lbl">平均度</div></div>
+    <div class="metric"><div class="val">${Object.keys(types).length}</div><div class="lbl">节点类型</div></div>
+  `;
+}
+
+// ── 渲染 · 活动日志 ──
+function renderActivityLog() {
+  const logs = [...(APP.activityLog||[])];
+  const now = new Date();
+  if (logs.length === 0) {
+    logs.push({time: now.toISOString().slice(0,19).replace("T"," "), action:"启动", msg:"知识中枢 v3.1 面板已加载 · API已对接"});
+  }
+  let html = "";
+  for (const l of logs.slice(-20).reverse()) {
+    const cls = l.status === "error" ? ' style="color:var(--red)"' : l.status === "warn" ? ' style="color:var(--orange)"' : '';
+    html += `<div class="log-item"${cls}><span class="log-time">${l.time}</span><span class="log-act">${l.action}</span><span class="log-msg">${l.msg}</span></div>`;
+  }
+  document.getElementById("activityLog").innerHTML = html;
+}
+
+// ── 知识文章渲染 ──
+function renderKB() {
+  if (!APP.kbData) return;
+  renderTabs();
+  filter();
+  document.getElementById("footerDna").textContent = `DNA: ${APP.kbData.dna || "#龍芯⚡️KB-INDEX"}`;
+}
+
+function renderTabs() {
+  const cats = APP.kbData.categories || {};
+  let html = `<span class="tab active" onclick="setCat('全部')">全部<span class="count">${APP.articles.length}</span></span>`;
+  for (const [cat, info] of Object.entries(cats).sort()) {
+    html += `<span class="tab" onclick="setCat('${escHtml(cat)}')">${escHtml(cat)}<span class="count">${info.count}</span></span>`;
+  }
+  // 加入 Library 矿场标签
+  html += `<span class="tab mining" onclick="showMineData()">⛏️ Library矿场</span>`;
+  document.getElementById("tabsRow").innerHTML = html;
+}
+
+function setCat(cat) {
+  APP.activeCat = cat;
+  document.querySelectorAll(".tabs .tab").forEach(t => t.classList.remove("active"));
+  document.querySelectorAll(".tabs .tab").forEach(t => {
+    if (t.textContent.startsWith(cat)) t.classList.add("active");
+  });
+  filter();
+}
+
+function showMineData() {
+  // 滚动到矿场面板
+  document.querySelector(".collapse-header")?.scrollIntoView({behavior:"smooth"});
+  toast("⛏️ 已定位到 Library 数据矿场面板");
+}
+
+function filter() {
+  APP.activeSearch = document.getElementById("search")?.value.trim().toLowerCase() || "";
+  let filtered = APP.articles;
+
+  if (APP.activeCat !== "全部") {
+    filtered = filtered.filter(a => a.category === APP.activeCat);
+  }
+  if (APP.activeSearch) {
+    filtered = filtered.filter(a =>
+      (a.title||"").toLowerCase().includes(APP.activeSearch) ||
+      (a.summary||"").toLowerCase().includes(APP.activeSearch) ||
+      (a.source||"").toLowerCase().includes(APP.activeSearch)
+    );
+  }
+
+  document.getElementById("resultsInfo").textContent =
+    `共 ${filtered.length} 篇${APP.activeCat!=="全部"?" · 分类: "+APP.activeCat:""}${APP.activeSearch?" · 搜索: "+APP.activeSearch:""}`;
+
+  if (!filtered.length) {
+    document.getElementById("content").innerHTML = `
+      <div class="empty-state">
+        <div class="big">🔍</div>
+        <p>没有匹配的文章</p>
+        <p style="font-size:11px;color:var(--dim);margin-top:4px">试试其他关键词或分类</p>
+      </div>`;
+    return;
+  }
+
+  let html = '<div class="grid">';
+  for (const a of filtered.slice(0, 200)) {  // 限制200条防止卡顿
+    const qCls = (a.quality||0) >= 0.7 ? "q-high" : (a.quality||0) >= 0.4 ? "q-mid" : "q-low";
+    const qLabel = (a.quality||0) >= 0.7 ? "高质量" : (a.quality||0) >= 0.4 ? "中等" : "待提升";
+    html += `<div class="card">
+      <h4>${escHtml(a.title||"无标题")}</h4>
+      <div class="summary">${escHtml(a.summary||"暂无摘要")}</div>
+      <div class="meta">
+        ${a.source ? `<span class="source">${escHtml(a.source)}</span>` : ""}
+        ${a.category ? `<span class="cat">${escHtml(a.category)}</span>` : ""}
+        ${a.quality ? `<span class="q ${qCls}">${qLabel}·${a.quality}</span>` : ""}
+      </div>
+    </div>`;
+  }
+  html += '</div>';
+  document.getElementById("content").innerHTML = html;
+}
+
+// ── 定时刷新 ──
+let _refreshBusy = false;
+async function refreshLive() {
+  if (_refreshBusy) return;
+  _refreshBusy = true;
+  try {
+    const [sys, logs] = await Promise.all([
+      api("/api/v1/li/status"),
+      api("/api/v1/li/logs?limit=5"),
+    ]);
+    if (sys) { APP.sysInfo = sys; renderSysStatus(); }
+    if (logs?.logs?.length) {
+      APP.activityLog = [...APP.activityLog, ...logs.logs].slice(-50);
+      renderActivityLog();
+    }
+  } catch(e) {}
+  _refreshBusy = false;
+}
+
+// ── 快捷操作 · 勘探 Library ──
+let _mining = false;
+async function runMine() {
+  if (_mining) { toast("⛏️ 勘探已在运行中，请稍候..."); return; }
+  const btn = document.getElementById("btnMine");
+  _mining = true;
+  btn.disabled = true;
+  btn.textContent = "⏳ 勘探中...";
+  toast("⛏️ 正在勘探 ~/Library · 全流水线后台执行中");
+
+  const r = await api("/api/v1/li/mine/scan", {method:"POST"});
+  if (r) {
+    toast("🟢 勘探已启动 · 实时日志将更新结果");
+    // 轮询日志直到完成
+    let tries = 0;
+    const poll = setInterval(async () => {
+      const logs = await api("/api/v1/li/logs?limit=3");
+      if (logs?.logs?.length) {
+        APP.activityLog = [...APP.activityLog, ...logs.logs].slice(-50);
+        renderActivityLog();
+        // 检查是否有"完成"日志
+        const recent = logs.logs.map(l=>l.msg).join(" ");
+        if (recent.includes("全流水线完成") || recent.includes("流水线") || tries++ > 20) {
+          clearInterval(poll);
+          _mining = false;
+          btn.disabled = false;
+          btn.textContent = "⛏️ 勘探 Library";
+          if (recent.includes("全流水线完成")) {
+            toast("✅ 勘探完成！刷新数据中...");
+            // 刷新矿场数据
+            const mineStatus = await api("/api/v1/li/mine/status");
+            if (mineStatus) { APP.mineData = mineStatus; renderMinePanel(); }
+          }
+        }
+      }
+    }, 3000);
+    setTimeout(() => { clearInterval(poll); _mining = false; btn.disabled = false; btn.textContent = "⛏️ 勘探 Library"; }, 120000); // 2分钟超时
+  } else {
+    toast("🔴 勘探 API 未响应 · 检查知识中枢后端是否启动");
+    _mining = false;
+    btn.disabled = false;
+    btn.textContent = "⛏️ 勘探 Library";
+  }
+}
+
+// ── 快捷操作 · 爬取 ──
+async function runCrawl() {
+  toast("🕷️ 正在触发知识爬取...");
+  const r = await api("/api/v1/li/crawl", {method:"POST"});
+  if (r) {
+    toast("🟢 爬取已启动 · 日志将实时更新");
+    setTimeout(async () => {
+      const logs = await api("/api/v1/li/logs?limit=3");
+      if (logs?.logs?.length) { APP.activityLog = [...APP.activityLog, ...logs.logs].slice(-50); renderActivityLog(); }
+    }, 5000);
+  } else {
+    toast("🔴 爬取 API 未响应");
+  }
+}
+
+// ── 快捷操作 · 建索引 ──
+async function runIndex() {
+  toast("📑 正在触发索引重建...");
+  const r = await api("/api/v1/li/index", {method:"POST"});
+  if (r) {
+    toast("🟢 索引重建已启动 · 完成后刷新页面可看到新数据");
+    setTimeout(async () => {
+      const logs = await api("/api/v1/li/logs?limit=3");
+      if (logs?.logs?.length) { APP.activityLog = [...APP.activityLog, ...logs.logs].slice(-50); renderActivityLog(); }
+    }, 5000);
+  } else {
+    toast("🔴 索引 API 未响应");
+  }
+}
+
+// ── 折叠面板 ──
+function toggleSection(header) {
+  header.classList.toggle("open");
+  const body = header.nextElementSibling;
+  if (body) body.classList.toggle("show");
+}
+
+// ── Toast ──
+let toastTimer;
+function toast(msg) {
+  const el = document.getElementById("toast");
+  el.textContent = msg;
+  el.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove("show"), 3000);
+}
+
+// ── 工具函数 ──
+function escHtml(s) {
+  if (!s) return "";
+  const d = document.createElement("div");
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+// ── 启动 ──
+document.addEventListener("DOMContentLoaded", init);
+
+// ── 默认展开折叠箭头 ──
+document.querySelectorAll(".collapse-header.open .arrow").forEach(a => a.textContent = "▼");
+</script>
+
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

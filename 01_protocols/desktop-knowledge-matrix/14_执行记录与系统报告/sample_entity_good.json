@@ -1,0 +1,14 @@
+{
+  "entity_id": "CAP-TEST-001",
+  "entity_name": "测试资本实体（公益型）",
+  "entity_type": "capital",
+  "scores": {
+    "social_good": 9,
+    "worker_dignity": 9,
+    "tech_for_good": 8,
+    "national_loyalty": 10,
+    "user_sovereignty": 8,
+    "transparency": 7,
+    "historical_clean": 9
+  }
+}

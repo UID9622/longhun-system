@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# -*- coding: utf-8 -*-
+"""
+CNSH v2.1 启动脚本
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-RUN-v2.1
+"""
+import sys
+from pathlib import Path
+
+# 确保项目根目录在路径中
+ROOT = Path(__file__).parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from cnsh_v21.cli import main
+
+if __name__ == "__main__":
+    main()

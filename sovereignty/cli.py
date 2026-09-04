@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂数字身份主权 · 命令行工具
@@ -14,7 +18,7 @@
   python3 -m sovereignty.cli --layer L3   # 监督层：居民/业主维权
   python3 -m sovereignty.cli --complain 平台名 --behavior 强制收集人脸
 
-DNA:#龍芯⚡️2026-06-19-LONGHUN-SOVEREIGNTY-CLI-v1.1
+DNA:#龍芯⚡️丙午·甲午·甲子·庚午·䷙大畜-LONGHUN-SOVEREIGNTY-CLI-v1.1
 """
 
 import argparse

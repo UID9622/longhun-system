@@ -1,0 +1,925 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-7cec2f95 -->
+<!--#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-longhun-constellation-knowledge-map-v2.0 -->
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<!-- 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂星宿知识图 · 四象北辰 · 颜色不动点 · uid9622</title>
+<link rel="icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewbox='0 0 100 100'%3e%3ctext y='.9em' font-size='90'%3e🌌%3c/text%3e%3c/svg%3e">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: #030308;
+  color: #f0e6d2;
+  font-family: 'pingfang sc', 'hiragino sans gb', 'microsoft yahei', 'noto serif sc', serif;
+}
+#画布容器 { position: fixed; inset: 0; z-index: 1; }
+
+/* 水墨尘埃背景 */
+#星云背景 {
+  position: fixed; inset: 0; z-index: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(0, 201, 167, .08), transparent 45%),
+    radial-gradient(circle at 80% 20%, rgba(220, 20, 60, .06), transparent 45%),
+    radial-gradient(circle at 40% 80%, rgba(74, 144, 226, .06), transparent 45%),
+    radial-gradient(circle at 70% 70%, rgba(212, 175, 55, .05), transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, .02), transparent 55%);
+}
+
+/* 主权跑马灯条 */
+#主权跑马灯 {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  height: 28px;
+  background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+  border-bottom: 1px solid rgba(255, 215, 0, .25);
+  display: flex; align-items: center;
+  overflow: hidden;
+  font-size: 12px; letter-spacing: .08em;
+}
+#主权跑马灯 .跑马灯轨道 {
+  display: flex; white-space: nowrap;
+  animation: 跑马灯动画 20s linear infinite;
+}
+#主权跑马灯:hover .跑马灯轨道 { animation-play-state: paused; }
+@keyframes 跑马灯动画 {
+  0% { transform: translatex(0); }
+  100% { transform: translatex(-50%); }
+}
+#主权跑马灯 .跑马灯项 {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 0 24px;
+  color: #c4bca8;
+}
+#主权跑马灯 .跑马灯点 {
+  width: 8px; height: 8px; border-radius: 50%;
+  box-shadow: 0 0 8px currentcolor;
+}
+#主权跑马灯 .银色点 {
+  background: linear-gradient(90deg, #c0c0c0, #fff, #c0c0c0);
+  background-size: 200% 100%;
+  animation: 银色闪烁 1s infinite linear;
+}
+@keyframes 银色闪烁 {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* 抬头显示 */
+#抬头显示 {
+  position: fixed; top: 36px; left: 0; right: 0; z-index: 10;
+  padding: 14px 24px;
+  display: flex; justify-content: space-between; align-items: flex-start;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(3,3,8,.75) 0%, transparent 100%);
+}
+#品牌区 h1 {
+  font-size: 22px; letter-spacing: .2em;
+  color: #ffd700; text-shadow: 0 0 20px rgba(255,215,0,.5);
+  margin-bottom: 4px;
+}
+#品牌区 p {
+  font-size: 12px; color: #a89f8a; letter-spacing: .08em;
+}
+#dna徽章 {
+  font-size: 10px; color: #6b6658; font-family: monospace;
+  margin-top: 6px; opacity: .8;
+}
+#控制提示 {
+  text-align: right; font-size: 11px; color: #8a8270; line-height: 1.8;
+}
+#控制提示 kbd {
+  background: rgba(255,215,0,.12); border: 1px solid rgba(255,215,0,.25);
+  border-radius: 4px; padding: 2px 6px; color: #ffd700; font-family: monospace;
+}
+
+/* 四象图例 */
+#四象图例 {
+  position: fixed; left: 24px; bottom: 70px; z-index: 10;
+  display: flex; flex-direction: column; gap: 8px;
+  pointer-events: none;
+}
+.图例项 {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 12px; color: #c4bca8;
+  text-shadow: 0 1px 4px rgba(0,0,0,.8);
+}
+.图例点 {
+  width: 9px; height: 9px; border-radius: 50%;
+  box-shadow: 0 0 8px currentcolor;
+}
+.青龍 { color: #00c9a7; }
+.朱雀 { color: #dc143c; }
+.白虎 { color: #d4af37; }
+.玄武 { color: #4a90e2; }
+.北辰 { color: #ffd700; }
+
+/* 颜色协议图例 */
+#颜色协议 {
+  position: fixed; left: 24px; bottom: 24px; z-index: 10;
+  display: flex; gap: 14px;
+  pointer-events: none;
+  font-size: 11px; color: #8a8270;
+}
+#颜色协议 span {
+  display: inline-flex; align-items: center; gap: 5px;
+}
+#颜色协议 i {
+  width: 8px; height: 8px; border-radius: 2px;
+  box-shadow: 0 0 6px currentcolor;
+}
+
+/* 提示框 */
+#提示框 {
+  position: fixed; z-index: 30;
+  max-width: 280px;
+  background: rgba(8, 8, 14, .95);
+  border: 1px solid rgba(255, 215, 0, .35);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: #f0e6d2;
+  font-size: 13px;
+  pointer-events: none;
+  opacity: 0; transform: translatey(6px);
+  transition: opacity .2s, transform .2s;
+  box-shadow: 0 0 30px rgba(255,215,0,.12);
+  backdrop-filter: blur(6px);
+}
+#提示框.可见 { opacity: 1; transform: translatey(0); }
+#提示框 .提示标题 { color: #ffd700; font-size: 15px; font-weight: 700; margin-bottom: 5px; letter-spacing: .05em; }
+#提示框 .提示元信息 { color: #9a927f; font-size: 11px; line-height: 1.5; }
+#提示框 .提示判决 {
+  display: flex; align-items: center; gap: 6px;
+  margin-top: 8px; padding: 4px 8px; border-radius: 6px;
+  font-size: 11px; font-weight: 600;
+}
+
+/* 右侧信息面板 */
+#信息面板 {
+  position: fixed; top: 28px; right: -420px; bottom: 0; width: 380px;
+  background: rgba(5, 5, 10, .96);
+  border-left: 1px solid rgba(255, 215, 0, .2);
+  z-index: 20;
+  padding: 28px;
+  transition: right .4s cubic-bezier(.2,.8,.2,1);
+  overflow-y: auto;
+  backdrop-filter: blur(12px);
+}
+#信息面板.打开 { right: 0; }
+#信息面板 .关闭按钮 {
+  position: absolute; top: 16px; right: 20px;
+  background: none; border: none; color: #8a8270;
+  font-size: 28px; cursor: pointer; line-height: 1;
+}
+#信息面板 .关闭按钮:hover { color: #ffd700; }
+#信息面板 .面板图标 {
+  width: 56px; height: 56px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; margin-bottom: 14px;
+  box-shadow: 0 0 24px currentcolor;
+}
+#信息面板 h2 {
+  font-size: 22px; color: #ffd700; letter-spacing: .1em;
+  margin-bottom: 6px; text-shadow: 0 0 16px rgba(255,215,0,.3);
+}
+#信息面板 .面板副标题 {
+  font-size: 12px; color: #8a8270; margin-bottom: 16px;
+}
+#信息面板 .面板判决 {
+  padding: 10px 12px; border-radius: 8px; margin-bottom: 18px;
+  font-size: 12px; line-height: 1.6;
+  border: 1px solid;
+}
+#信息面板 .面板判决 .判决标题 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+#信息面板 .面板章节 {
+  margin-bottom: 18px;
+}
+#信息面板 .面板章节 h3 {
+  font-size: 13px; color: #d4af37; margin-bottom: 8px;
+  border-left: 3px solid #d4af37; padding-left: 10px;
+}
+#信息面板 .面板章节 p {
+  font-size: 13px; line-height: 1.9; color: #c4bca8;
+  text-align: justify;
+}
+#信息面板 .面板动作区 {
+  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;
+}
+#信息面板 .面板动作区 button {
+  flex: 1; min-width: 120px;
+  background: rgba(255,215,0,.1); border: 1px solid rgba(255,215,0,.35);
+  color: #ffd700; border-radius: 8px; padding: 10px 14px;
+  font-family: inherit; font-size: 12px; cursor: pointer;
+  transition: .2s;
+}
+#信息面板 .面板动作区 button:hover {
+  background: rgba(255,215,0,.2); box-shadow: 0 0 14px rgba(255,215,0,.2);
+}
+#信息面板 .面板动作区 button.次要 {
+  background: transparent; border-color: rgba(255,255,255,.15); color: #c4bca8;
+}
+#信息面板 .面板动作区 button.危险 {
+  background: rgba(255,23,68,.15); border-color: rgba(255,23,68,.5); color: #ff1744;
+}
+
+/* 底部浮动控制 */
+#浮动控制 {
+  position: fixed; bottom: 24px; right: 24px; z-index: 10;
+  display: flex; gap: 10px;
+}
+#浮动控制 button {
+  background: rgba(8,8,14,.8); border: 1px solid rgba(255,215,0,.25);
+  color: #f0e6d2; border-radius: 10px; padding: 8px 14px;
+  font-family: inherit; font-size: 12px; cursor: pointer;
+  transition: .2s;
+}
+#浮动控制 button:hover { border-color: #ffd700; color: #ffd700; }
+
+/* 红色警报遮罩 */
+#红色警报 {
+  position: fixed; inset: 0; z-index: 40;
+  pointer-events: none;
+  background: radial-gradient(circle, transparent 30%, rgba(255,23,68,.12) 70%, rgba(255,23,68,.25) 100%);
+  opacity: 0;
+  transition: opacity .15s;
+}
+#红色警报.激活 {
+  opacity: 1;
+  animation: 红色脉冲 .8s infinite alternate;
+}
+@keyframes 红色脉冲 {
+  0% { opacity: .3; }
+  100% { opacity: .7; }
+}
+
+/* 禁地大字 */
+#禁地标识 {
+  position: fixed; top: 50%; left: 50%; z-index: 45;
+  transform: translate(-50%, -50%) scale(0.6);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s, transform .2s;
+  text-align: center;
+}
+#禁地标识.激活 {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+#禁地标识 .禁地符号 {
+  font-size: 80px;
+  text-shadow: 0 0 40px rgba(255,23,68,.8);
+  line-height: 1;
+}
+#禁地标识 .禁地文字 {
+  font-size: 32px; color: #ff1744; letter-spacing: .3em;
+  text-shadow: 0 0 30px rgba(255,23,68,.8);
+  margin-top: 10px;
+  font-weight: 800;
+}
+#禁地标识 .禁地副标题 {
+  font-size: 13px; color: #ff8a9b; margin-top: 8px;
+  letter-spacing: .1em;
+}
+
+@media (max-width: 768px) {
+  #信息面板 { width: 100%; right: -100%; top: 28px; }
+  #四象图例 { left: 14px; bottom: 120px; }
+  #颜色协议 { left: 14px; bottom: 70px; flex-wrap: wrap; gap: 8px; }
+  #抬头显示 { padding: 14px; top: 28px; }
+  #品牌区 h1 { font-size: 16px; }
+  #禁地标识 .禁地符号 { font-size: 56px; }
+  #禁地标识 .禁地文字 { font-size: 22px; }
+}
+</style>
+
+<script src="../lh-utils.js"></script>
+</head>
+<body>
+<div id="星云背景"></div>
+<div id="画布容器"></div>
+
+<!-- 主权跑马灯 -->
+<div id="主权跑马灯">
+  <div class="跑马灯轨道" id="跑马灯轨道">
+    <span class="跑马灯项"><span class="跑马灯点 银色点"></span> 主权扫描中 · 颜色不动点协议 v2.0 · 任何输入先落一个颜色</span>
+    <span class="跑马灯项"><span class="跑马灯点" style="background:#00c853"></span> 🟢 绿色 = 公开 · 安全 · 可放行</span>
+    <span class="跑马灯项"><span class="跑马灯点" style="background:#ff1744"></span> 🔴 红色 = 法律红线 · 禁止执行 · 立即停止</span>
+    <span class="跑马灯项"><span class="跑马灯点" style="background:#212121;border:1px solid #666"></span> ⚫ 黑色 = 隐私 · 敏感 · 需脱敏</span>
+    <span class="跑马灯项"><span class="跑马灯点" style="background:#9c27b0"></span> 🟣 紫色 = 外部输入 · 需隔离审查</span>
+    <span class="跑马灯项"><span class="跑马灯点 银色点"></span> ⚪ 银色 = 扫描中 · 尚未判决</span>
+    <span class="跑马灯项">⚠️ 每个人的数据主权都值得保护 · 民用系统不涉军事机密 · 各国各守其界</span>
+    <span class="跑马灯项"><span class="跑马灯点 银色点"></span> 主权扫描中 · 颜色不动点协议 v2.0 · 任何输入先落一个颜色</span>
+    <span class="跑马灯项"><span class="跑马灯点" style="background:#00c853"></span> 🟢 绿色 = 公开 · 安全 · 可放行</span>
+    <span class="跑马灯项"><span class="跑马灯点" style="background:#ff1744"></span> 🔴 红色 = 法律红线 · 禁止执行 · 立即停止</span>
+    <span class="跑马灯项"><span class="跑马灯点" style="background:#212121;border:1px solid #666"></span> ⚫ 黑色 = 隐私 · 敏感 · 需脱敏</span>
+    <span class="跑马灯项"><span class="跑马灯点" style="background:#9c27b0"></span> 🟣 紫色 = 外部输入 · 需隔离审查</span>
+    <span class="跑马灯项"><span class="跑马灯点 银色点"></span> ⚪ 银色 = 扫描中 · 尚未判决</span>
+    <span class="跑马灯项">⚠️ 每个人的数据主权都值得保护 · 民用系统不涉军事机密 · 各国各守其界</span>
+  </div>
+</div>
+
+<div id="抬头显示">
+  <div id="品牌区">
+    <h1>龍魂星宿知识图</h1>
+    <p>四象北辰 · 颜色不动点 · 点击星辰查看真意与风险色</p>
+    <div id="dna徽章">#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-longhun-constellation-knowledge-map-v2.0</div>
+  </div>
+  <div id="控制提示">
+    <div><kbd>左键拖拽</kbd> 旋转星空</div>
+    <div><kbd>滚轮</kbd> 缩放远近</div>
+    <div><kbd>点击星辰</kbd> 查看详情 / 跳转章节</div>
+    <div><kbd>悬停</kbd> 浮现真意与风险色</div>
+  </div>
+</div>
+
+<div id="四象图例">
+  <div class="图例项"><span class="图例点 北辰"></span>北辰 · 龍魂核心</div>
+  <div class="图例项"><span class="图例点 青龍"></span>东方青龍 · 生发</div>
+  <div class="图例项"><span class="图例点 朱雀"></span>南方朱雀 · 礼治</div>
+  <div class="图例项"><span class="图例点 白虎"></span>西方白虎 · 刑律</div>
+  <div class="图例项"><span class="图例点 玄武"></span>北方玄武 · 智慧</div>
+</div>
+
+<div id="颜色协议">
+  <span><i style="background:#00c853"></i>绿·放行</span>
+  <span><i style="background:#ff1744"></i>红·禁地</span>
+  <span><i style="background:#212121;border:1px solid #555"></i>黑·隐私</span>
+  <span><i style="background:#9c27b0"></i>紫·隔离</span>
+  <span><i class="银色点" style="background:linear-gradient(90deg,#c0c0c0,#fff,#c0c0c0);background-size:200% 100%"></i>银·扫描</span>
+</div>
+
+<div id="提示框">
+  <div class="提示标题"></div>
+  <div class="提示元信息"></div>
+  <div class="提示判决"></div>
+</div>
+
+<div id="信息面板">
+  <button class="关闭按钮" onclick="关闭信息面板()">×</button>
+  <div class="面板图标" id="面板图标">⭐</div>
+  <h2 id="面板标题">星辰名称</h2>
+  <div class="面板副标题" id="面板副标题">四象 · 方位</div>
+  <div class="面板判决" id="面板判决">
+    <div class="判决标题"></div>
+    <div class="判决动作"></div>
+  </div>
+  <div class="面板章节">
+    <h3>真意</h3>
+    <p id="面板描述">点击星辰后，这里显示它的白话解释。</p>
+  </div>
+  <div class="面板章节">
+    <h3>关联</h3>
+    <p id="面板关联">与北辰相连，构成龍魂知识体系的一部分。</p>
+  </div>
+  <div class="面板动作区">
+    <button onclick="打开章节()" id="章节按钮">📖 打开章节</button>
+    <button class="次要" onclick="关闭信息面板()">关闭</button>
+  </div>
+</div>
+
+<!-- 红色警报与禁地标识 -->
+<div id="红色警报"></div>
+<div id="禁地标识">
+  <div class="禁地符号">🚫</div>
+  <div class="禁地文字">禁地</div>
+  <div class="禁地副标题">法律红线 · 禁止执行 · 立即停止</div>
+</div>
+
+<div id="浮动控制">
+  <button onclick="复位视角()">↺ 复位</button>
+  <button onclick="切换自动旋转()">⏵ 自转</button>
+  <button onclick="切换全屏()">⛶ 全屏</button>
+</div>
+
+<script src="../../本地库/three/three.min.js"></script>
+<script src="../../本地库/three/orbitcontrols.js"></script>
+<script>
+// ================= 颜色不动点协议 =================
+const 颜色协议 = {
+  g: { name: '绿色', code: 'g', 标签: '公开 · 安全 · 可放行', color: 0x00c853, css: '#00c853', action: '自动放行 · 留痕', reason: '无风险意图命中' },
+  r: { name: '红色', code: 'r', 标签: '法律红线 · 禁止执行 · 立即停止', color: 0xff1744, css: '#ff1744', action: '立即停止 · 上报主控', reason: '触碰法律红线或公共安全' },
+  k: { name: '黑色', code: 'k', 标签: '隐私 · 敏感 · 需脱敏', color: 0x212121, css: '#212121', action: '进观察池 · 冻结 24h · 强制脱敏', reason: '涉及个人敏感信息或数据主权' },
+  p: { name: '紫色', code: 'p', 标签: '外部输入 · 需隔离审查', color: 0x9c27b0, css: '#9c27b0', action: '隔离审查 · 外部输入不可直接落地', reason: '来自未验证外部来源' },
+  s: { name: '银色', code: 's', 标签: '扫描中 · 尚未判决', color: 0xc0c0c0, css: '#c0c0c0', action: '持续扫描 · 等待判决', reason: '系统尚未完成风险评估' }
+};
+
+// ================= 星宿知识数据（带风险色） =================
+const 星宿数据 = {
+  center: {
+    id: '北辰',
+    name: '北辰 · 龍魂',
+    direction: '中天',
+    beast: '北极',
+    color: 0xffd700,
+    size: 4.5,
+    risk: 'g',
+    desc: '天枢不动，众星拱之。龍魂系统以中国传统文化与自主可控技术为北辰，定住整个知识宇宙的中轴。',
+    chapter: 'sancai-369'
+  },
+  groups: [
+    {
+      beast: '青龍',
+      direction: '东方',
+      element: '木',
+      color: 0x00c9a7,
+      angle: math.pi / 2,
+      radius: 55,
+      nodes: [
+        { id: 'qx-1', name: '生发之机', desc: '万物始生，如春雷萌动。对应治理层中的创新激励与生态培育机制。', size: 2.0, risk: 'g', chapter: 'yijing' },
+        { id: 'qx-2', name: '仁爱之道', desc: '以人为本，服务老百姓。对应行为密码学中的善意记录与民生激励。', size: 1.7, risk: 'g', chapter: 'daodejing' },
+        { id: 'qx-3', name: '礼乐之教', desc: '以文化人，以礼序群。对应龍魂社交协议与社区自治规范。', size: 1.8, risk: 'g', chapter: 'zengshiqiang' },
+        { id: 'qx-4', name: '生生不息', desc: '循环往复，迭代不止。对应系统的自我更新与主干演化机制。', size: 1.6, risk: 's', chapter: 'yijing' }
+      ]
+    },
+    {
+      beast: '朱雀',
+      direction: '南方',
+      element: '火',
+      color: 0xdc143c,
+      angle: math.pi,
+      radius: 55,
+      nodes: [
+        { id: 'zq-1', name: '明辨之智', desc: '火性炎上，照见真伪。对应三色审计体系与dna追溯机制。', size: 2.0, risk: 'g', chapter: 'liushisigua' },
+        { id: 'zq-2', name: '礼治之则', desc: '以规则为纲，以数据为据。对应龍魂治理框架与君子协议。', size: 1.8, risk: 'g', chapter: 'sunzibingfa' },
+        { id: 'zq-3', name: '光明之行', desc: '公开透明，接受监督。对应每日复盘与审计改进流程。', size: 1.7, risk: 'g', chapter: 'chanzong' },
+        { id: 'zq-4', name: '熔断之护', desc: '异常即断，风险可控。对应主权熔断与行为约束机制。', size: 1.6, risk: 'r', chapter: 'daodejing', forbidden: '触碰主权安全与行为约束红线，系统自动熔断保护。' }
+      ]
+    },
+    {
+      beast: '白虎',
+      direction: '西方',
+      element: '金',
+      color: 0xd4af37,
+      angle: -math.pi / 2,
+      radius: 55,
+      nodes: [
+        { id: 'bh-1', name: '决断之律', desc: '金性肃杀，断邪扶正。对应法律管辖条款与专属管辖机制。', size: 2.0, risk: 'g', chapter: 'sunzibingfa' },
+        { id: 'bh-2', name: '专利之盾', desc: '保护创新成果，防止技术收割。对应ip资产清单与专利评估。', size: 1.8, risk: 'p', chapter: 'sancai-369', forbidden: '涉及知识产权与外部技术输入，需隔离审查后再落地。' },
+        { id: 'bh-3', name: '边界之界', desc: '主权为界，数据不出境。对应跨境数据治理与隐私白皮书。', size: 1.7, risk: 'k', chapter: 'huangdineijing', forbidden: '涉及数据主权与跨境隐私，属于敏感域，需脱敏处理。' },
+        { id: 'bh-4', name: '守信之约', desc: '诚信评级，违约清算。对应君子协议与信任协议。', size: 1.6, risk: 'g', chapter: 'daodejing' }
+      ]
+    },
+    {
+      beast: '玄武',
+      direction: '北方',
+      element: '水',
+      color: 0x4a90e2,
+      angle: 0,
+      radius: 55,
+      nodes: [
+        { id: 'xw-1', name: '深藏之智', desc: '水性至柔，无孔不入。对应本地数据中台与记忆归集系统。', size: 2.0, risk: 'k', chapter: 'daodejing', forbidden: '涉及个人记忆与本地数据归集，属隐私敏感域。' },
+        { id: 'xw-2', name: '安全之基', desc: '国密加密，端侧保护。对应跨平台互通与国密工具链。', size: 1.8, risk: 'g', chapter: 'huangdineijing' },
+        { id: 'xw-3', name: '记忆之海', desc: '归集压缩，永不遗忘。对应longhun-memory-bootstrap与记忆启动器。', size: 1.7, risk: 'k', chapter: 'shanhaijing', forbidden: '涉及多平台记忆日志归集，需脱敏与主权审查。' },
+        { id: 'xw-4', name: '潜行之备', desc: '备份恢复，灾备无虞。对应龍魂备份恢复系统。', size: 1.6, risk: 'g', chapter: 'jieqi' }
+      ]
+    }
+  ]
+};
+
+let 场景, 相机, 渲染器, 控制器, 射线检测器, 鼠标向量;
+let 星辰网格集合 = [], 连线集合 = [], 光晕精灵集合 = [];
+let 自动旋转 = true;
+let 当前星辰 = null;
+let 警报激活 = false;
+
+// ================= 初始化 three.js 三维引擎 =================
+function 初始化() {
+  const 容器 = document.getelementbyid('画布容器');
+
+  场景 = new three.scene();
+  场景.background = new three.color(0x030308);
+  场景.fog = new three.fogexp2(0x030308, 0.008);
+
+  相机 = new three.perspectivecamera(55, window.innerwidth / window.innerheight, 0.1, 2000);
+  相机.position.set(0, 55, 130);
+
+  渲染器 = new three.webglrenderer({ antialias: true, alpha: true });
+  渲染器.setsize(window.innerwidth, window.innerheight);
+  渲染器.setpixelratio(math.min(window.devicepixelratio, 2));
+  渲染器.outputencoding = three.srgbencoding;
+  渲染器.tonemapping = three.acesfilmictonemapping;
+  容器.appendchild(渲染器.domelement);
+
+  控制器 = new three.orbitcontrols(相机, 渲染器.domelement);
+  控制器.enabledamping = true;
+  控制器.dampingfactor = 0.04;
+  控制器.autorotate = true;
+  控制器.autorotatespeed = 0.4;
+  控制器.mindistance = 40;
+  控制器.maxdistance = 220;
+  控制器.target.set(0, 0, 0);
+
+  射线检测器 = new three.raycaster();
+  鼠标向量 = new three.vector2();
+
+  添加灯光();
+  添加星空();
+  构建星宿();
+  添加星云();
+
+  window.addeventlistener('resize', 窗口缩放);
+  渲染器.domelement.addeventlistener('mousemove', 鼠标移动);
+  渲染器.domelement.addeventlistener('click', 点击);
+
+  动画循环();
+}
+
+function 添加灯光() {
+  场景.add(new three.ambientlight(0x505070, 1.0));
+  const 中心光 = new three.pointlight(0xffd700, 3.5, 250);
+  中心光.position.set(0, 0, 0);
+  场景.add(中心光);
+
+  const 颜色列表 = [0x00c9a7, 0xdc143c, 0xd4af37, 0x4a90e2];
+  const 位置列表 = [[60,0,0], [0,0,60], [-60,0,0], [0,0,-60]];
+  颜色列表.foreach((c, i) => {
+    const 光 = new three.pointlight(c, 1.8, 160);
+    光.position.set(...位置列表[i]);
+    场景.add(光);
+  });
+}
+
+function 添加星空() {
+  const 几何体 = new three.buffergeometry();
+  const 数量 = 4000;
+  const 位置列表 = new float32array(数量 * 3);
+  for (let i = 0; i < 数量; i++) {
+    const r = 250 + math.random() * 400;
+    const theta = math.random() * math.pi * 2;
+    const phi = math.acos(2 * math.random() - 1);
+    位置列表[i*3] = r * math.sin(phi) * math.cos(theta);
+    位置列表[i*3+1] = r * math.sin(phi) * math.sin(theta);
+    位置列表[i*3+2] = r * math.cos(phi);
+  }
+  几何体.setattribute('position', new three.bufferattribute(位置列表, 3));
+  const 材质 = new three.pointsmaterial({
+    color: 0xfff8e7, size: 1.0, transparent: true, opacity: 0.9, sizeattenuation: true
+  });
+  const 星辰点 = new three.points(几何体, 材质);
+  场景.add(星辰点);
+}
+
+function 添加星云() {
+  星宿数据.groups.foreach(g => {
+    const 几何体 = new three.spheregeometry(22, 32, 32);
+    const 材质 = new three.meshbasicmaterial({
+      color: g.color, transparent: true, opacity: 0.08,
+      side: three.backside, blending: three.additiveblending, depthwrite: false
+    });
+    const 网格 = new three.mesh(几何体, 材质);
+    const x = math.cos(g.angle) * g.radius;
+    const z = math.sin(g.angle) * g.radius;
+    网格.position.set(x, 0, z);
+    场景.add(网格);
+  });
+}
+
+function 创建光晕纹理(colorhex, intensity = 1) {
+  const 画布 = document.createelement('canvas');
+  画布.width = 128; 画布.height = 128;
+  const 上下文 = 画布.getcontext('2d');
+  const 渐变 = 上下文.createradialgradient(64,64,0,64,64,64);
+  const c = new three.color(colorhex);
+  const 色值 = `${math.round(c.r*255)},${math.round(c.g*255)},${math.round(c.b*255)}`;
+  渐变.addcolorstop(0, `rgba(${色值},${intensity})`);
+  渐变.addcolorstop(0.25, `rgba(${色值},${0.55 * intensity})`);
+  渐变.addcolorstop(0.55, `rgba(${色值},${0.18 * intensity})`);
+  渐变.addcolorstop(1, 'rgba(0,0,0,0)');
+  上下文.fillstyle = 渐变;
+  上下文.fillrect(0,0,128,128);
+  return new three.canvastexture(画布);
+}
+
+function 创建星辰几何体(size) {
+  return new three.icosahedrongeometry(size, 1);
+}
+
+function 创建标签精灵(text, color) {
+  const 画布 = document.createelement('canvas');
+  const 上下文 = 画布.getcontext('2d');
+  const 字号 = 28;
+  上下文.font = `500 ${字号}px "pingfang sc", "hiragino sans gb", "microsoft yahei", serif`;
+  const 度量 = 上下文.measuretext(text);
+  const width = 度量.width + 24;
+  const height = 字号 + 20;
+  画布.width = width;
+  画布.height = height;
+  上下文.font = `500 ${字号}px "pingfang sc", "hiragino sans gb", "microsoft yahei", serif`;
+  上下文.textalign = 'center';
+  上下文.textbaseline = 'middle';
+
+  // 文字描边增强可读性
+  上下文.linewidth = 4;
+  上下文.strokestyle = 'rgba(0,0,0,0.85)';
+  上下文.stroketext(text, width / 2, height / 2 + 2);
+
+  上下文.shadowcolor = `rgba(${(color >> 16) & 255}, ${(color >> 8) & 255}, ${color & 255}, 0.9)`;
+  上下文.shadowblur = 14;
+  上下文.fillstyle = '#f0e6d2';
+  上下文.filltext(text, width / 2, height / 2 + 2);
+
+  const 纹理 = new three.canvastexture(画布);
+  纹理.minfilter = three.linearfilter;
+  const 材质 = new three.spritematerial({ map: 纹理, transparent: true, opacity: 0.95, depthwrite: false });
+  const 精灵 = new three.sprite(材质);
+  const 基础宽度 = 5.5;
+  精灵.scale.set(基础宽度, 基础宽度 * (height / width), 1);
+  return 精灵;
+}
+
+function 构建星宿() {
+  const groups = 星宿数据.groups;
+  const center = 星宿数据.center;
+
+  const 中心网格 = 创建星辰(center, new three.vector3(0, 0, 0));
+  场景.add(中心网格);
+  星辰网格集合.push(中心网格);
+
+  const 环几何体 = new three.torusgeometry(7, 0.08, 16, 100);
+  const 环材质 = new three.meshbasicmaterial({ color: 0xffd700, transparent: true, opacity: 0.8, blending: three.additiveblending });
+  const 环 = new three.mesh(环几何体, 环材质);
+  环.rotation.x = math.pi / 2;
+  场景.add(环);
+
+  groups.foreach(g => {
+    const 组中心 = new three.vector3(
+      math.cos(g.angle) * g.radius, 0, math.sin(g.angle) * g.radius
+    );
+    添加连线(new three.vector3(0,0,0), 组中心, g.color, 0.6, true);
+
+    g.nodes.foreach((node, idx) => {
+      const 散布 = 22;
+      const 偏移角 = (idx / g.nodes.length) * math.pi * 2;
+      const 节点位置 = new three.vector3(
+        组中心.x + math.cos(偏移角) * 散布 + (math.random()-0.5)*8,
+        (math.random() - 0.5) * 18,
+        组中心.z + math.sin(偏移角) * 散布 + (math.random()-0.5)*8
+      );
+      node.beast = g.beast;
+      node.direction = g.direction;
+      node.basecolor = g.color;
+      const 网格 = 创建星辰(node, 节点位置);
+      场景.add(网格);
+      星辰网格集合.push(网格);
+      添加连线(组中心, 节点位置, g.color, 0.35, false);
+    });
+
+    const 组节点 = 星辰网格集合.filter(m => m.userdata.beast === g.beast);
+    for (let i = 0; i < 组节点.length - 1; i++) {
+      添加连线(组节点[i].position, 组节点[i+1].position, g.color, 0.2, false);
+    }
+  });
+}
+
+function 创建星辰(nodedata, position) {
+  const risk = 颜色协议[nodedata.risk || 's'];
+  const 显示颜色 = nodedata.risk === 'g' || nodedata.risk === 's'
+    ? (nodedata.basecolor || nodedata.color || 0xffd700)
+    : risk.color;
+  const size = nodedata.size || 1.5;
+
+  const 几何体 = 创建星辰几何体(size);
+  const 材质 = new three.meshphysicalmaterial({
+    color: 显示颜色,
+    emissive: 显示颜色,
+    emissiveintensity: 1.2,
+    metalness: 0.4,
+    roughness: 0.15,
+    transparent: true,
+    opacity: 0.95,
+    clearcoat: 1
+  });
+  const 网格 = new three.mesh(几何体, 材质);
+  网格.position.copy(position);
+  网格.userdata = { ...nodedata, originalscale: 1, 显示颜色 };
+
+  // 风险色光晕（r/k/p 用协议色，g/s 用四象色）
+  const 光晕颜色 = nodedata.risk === 'g' || nodedata.risk === 's' ? 显示颜色 : risk.color;
+  const 光晕纹理 = 创建光晕纹理(光晕颜色, nodedata.risk === 'r' ? 1.3 : 1);
+  const 光晕材质 = new three.spritematerial({
+    map: 光晕纹理, color: 光晕颜色, transparent: true, opacity: 0.9,
+    blending: three.additiveblending, depthwrite: false
+  });
+  const 光晕 = new three.sprite(光晕材质);
+  光晕.scale.set(size * 9, size * 9, 1);
+  网格.add(光晕);
+  光晕精灵集合.push(光晕);
+
+  // 第二层更大光晕
+  const 光环纹理 = 创建光晕纹理(光晕颜色, 0.6);
+  const 光环材质 = new three.spritematerial({
+    map: 光环纹理, color: 光晕颜色, transparent: true, opacity: 0.3,
+    blending: three.additiveblending, depthwrite: false
+  });
+  const 光环 = new three.sprite(光环材质);
+  光环.scale.set(size * 22, size * 22, 1);
+  网格.add(光环);
+
+  // 名称标签
+  const 标签 = 创建标签精灵(nodedata.name, 显示颜色);
+  标签.position.set(0, size * 2.4, 0);
+  网格.add(标签);
+
+  return 网格;
+}
+
+function 添加连线(p1, p2, color, opacity, 脉冲) {
+  const 几何体 = new three.buffergeometry().setfrompoints([p1, p2]);
+  const 材质 = new three.linebasicmaterial({
+    color: color, transparent: true, opacity: opacity * 1.6, blending: three.additiveblending
+  });
+  const 连线 = new three.line(几何体, 材质);
+  if (脉冲) 连线.userdata = { 脉冲: true, phase: math.random() * math.pi * 2 };
+  场景.add(连线);
+  连线集合.push(连线);
+}
+
+// ================= 交互 =================
+function 鼠标移动(e) {
+  鼠标向量.x = (e.clientx / window.innerwidth) * 2 - 1;
+  鼠标向量.y = -(e.clienty / window.innerheight) * 2 + 1;
+
+  射线检测器.setfromcamera(鼠标向量, 相机);
+  const 相交结果 = 射线检测器.intersectobjects(星辰网格集合);
+  const 提示框元素 = document.getelementbyid('提示框');
+
+  if (相交结果.length > 0) {
+    const 星辰 = 相交结果[0].object;
+    document.body.style.cursor = 'pointer';
+    显示提示(e.clientx, e.clienty, 星辰.userdata);
+
+    // 红色节点触发警报
+    设置警报(星辰.userdata.risk === 'r');
+
+    星辰网格集合.foreach(m => {
+      const 目标缩放 = (m === 星辰) ? 1.5 : 1;
+      m.scale.lerp(new three.vector3(目标缩放, 目标缩放, 目标缩放), 0.15);
+      m.material.emissiveintensity = (m === 星辰) ? 1.6 : 0.6;
+    });
+  } else {
+    document.body.style.cursor = 'default';
+    隐藏提示();
+    设置警报(false);
+    星辰网格集合.foreach(m => {
+      m.scale.lerp(new three.vector3(1, 1, 1), 0.15);
+      m.material.emissiveintensity = 0.6;
+    });
+  }
+}
+
+function 点击(e) {
+  射线检测器.setfromcamera(鼠标向量, 相机);
+  const 相交结果 = 射线检测器.intersectobjects(星辰网格集合);
+  if (相交结果.length > 0) {
+    const 星辰 = 相交结果[0].object;
+    打开信息面板(星辰.userdata);
+  }
+}
+
+function 显示提示(x, y, data) {
+  const 提示框元素 = document.getelementbyid('提示框');
+  const risk = 颜色协议[data.risk || 's'];
+  提示框元素.queryselector('.提示标题').textcontent = data.name;
+  提示框元素.queryselector('.提示元信息').textcontent = data.desc.slice(0, 60) + '…';
+  const 判决元素 = 提示框元素.queryselector('.提示判决');
+  判决元素.textcontent = `${risk.code === 'r' ? '⛔' : risk.code === 'k' ? '🔒' : risk.code === 'p' ? '🔮' : '✓'} ${risk.code} · ${risk.标签}`;
+  判决元素.style.color = risk.css;
+  判决元素.style.background = risk.code === 'k' ? 'rgba(255,255,255,.06)' : `rgba(${(risk.color >> 16) & 255}, ${(risk.color >> 8) & 255}, ${risk.color & 255}, .1)`;
+  判决元素.style.bordercolor = risk.css;
+
+  const 矩形 = 提示框元素.getboundingclientrect();
+  let left = x + 16, top = y + 16;
+  if (left + 矩形.width > window.innerwidth) left = x - 矩形.width - 16;
+  if (top + 矩形.height > window.innerheight) top = y - 矩形.height - 16;
+  提示框元素.style.left = left + 'px';
+  提示框元素.style.top = top + 'px';
+  提示框元素.classlist.add('可见');
+}
+
+function 隐藏提示() {
+  document.getelementbyid('提示框').classlist.remove('可见');
+}
+
+function 设置警报(active) {
+  警报激活 = active;
+  document.getelementbyid('红色警报').classlist.toggle('激活', active);
+  document.getelementbyid('禁地标识').classlist.toggle('激活', active);
+}
+
+function 打开信息面板(data) {
+  当前星辰 = data;
+  const risk = 颜色协议[data.risk || 's'];
+  const 是否禁地 = data.risk === 'r' || data.risk === 'k' || data.risk === 'p';
+
+  document.getelementbyid('面板图标').textcontent = data.risk === 'r' ? '🚫' : data.risk === 'k' ? '🔒' : data.risk === 'p' ? '🔮' : data.beast ? '✦' : '☸';
+  document.getelementbyid('面板图标').style.color = risk.css;
+  document.getelementbyid('面板图标').style.boxshadow = `0 0 24px ${risk.css}`;
+  document.getelementbyid('面板标题').textcontent = data.name;
+  document.getelementbyid('面板标题').style.color = 是否禁地 ? risk.css : '#ffd700';
+  document.getelementbyid('面板副标题').textcontent = data.beast
+    ? `${data.direction}${data.beast} · 五行属${data.element || '土'}`
+    : '中天北辰 · 众星所拱';
+
+  const 判决元素 = document.getelementbyid('面板判决');
+  判决元素.queryselector('.判决标题').textcontent = `${risk.code === 'r' ? '🚫' : risk.code === 'k' ? '🔒' : risk.code === 'p' ? '🔮' : risk.code === 'g' ? '✓' : '⚪'} ${risk.code} · ${risk.标签}`;
+  判决元素.queryselector('.判决动作').textcontent = `动作：${risk.action}`;
+  判决元素.style.color = risk.css;
+  判决元素.style.bordercolor = risk.css;
+  判决元素.style.background = risk.code === 'k' ? 'rgba(255,255,255,.05)' : `rgba(${(risk.color >> 16) & 255}, ${(risk.color >> 8) & 255}, ${risk.color & 255}, .08)`;
+
+  document.getelementbyid('面板描述').textcontent = data.desc;
+  document.getelementbyid('面板关联').textcontent = data.forbidden
+    ? `⚠️ 禁地提示：${data.forbidden}\n\n此星位于${data.direction || '中天'}${data.beast || '北辰'}象限，与北辰遥相呼应。`
+    : (data.beast
+      ? `此星位于${data.direction}${data.beast}象限，与北辰遥相呼应，点击「打开章节」可深入了解其文化源头。`
+      : '北辰定中，四象环绕。点击「打开章节」可查看三六九·天地人合一的系统性阐释。');
+
+  const 章节按钮 = document.getelementbyid('章节按钮');
+  if (data.risk === 'r') {
+    章节按钮.textcontent = '⛔ 红色禁地 · 不可跳转';
+    章节按钮.classlist.add('危险');
+    章节按钮.disabled = true;
+    章节按钮.style.opacity = '0.5';
+  } else {
+    章节按钮.textcontent = '📖 打开章节';
+    章节按钮.classlist.remove('危险');
+    章节按钮.disabled = false;
+    章节按钮.style.opacity = '1';
+  }
+
+  // 打开面板时持续警报
+  设置警报(data.risk === 'r');
+
+  document.getelementbyid('信息面板').classlist.add('打开');
+}
+
+function 关闭信息面板() {
+  document.getelementbyid('信息面板').classlist.remove('打开');
+  设置警报(false);
+  当前星辰 = null;
+}
+
+function 打开章节() {
+  if (!当前星辰 || !当前星辰.chapter || 当前星辰.risk === 'r') return;
+  const 地址 = `龍魂-${当前星辰.chapter}.html`;
+  window.open(地址, '_blank');
+}
+
+function 复位视角() {
+  相机.position.set(0, 55, 130);
+  控制器.target.set(0, 0, 0);
+  控制器.update();
+}
+
+function 切换自动旋转() {
+  自动旋转 = !自动旋转;
+  控制器.autorotate = 自动旋转;
+}
+
+function 切换全屏() {
+  if (!document.fullscreenelement) document.documentelement.requestfullscreen();
+  else document.exitfullscreen();
+}
+
+function 窗口缩放() {
+  相机.aspect = window.innerwidth / window.innerheight;
+  相机.updateprojectionmatrix();
+  渲染器.setsize(window.innerwidth, window.innerheight);
+}
+
+// ================= 动画循环 =================
+function 动画循环() {
+  requestanimationframe(动画循环);
+  const 时间 = date.now() * 0.001;
+
+  星辰网格集合.foreach((网格, i) => {
+    网格.rotation.y += 0.005;
+    网格.rotation.z += 0.002;
+    const 脉冲 = 1 + math.sin(时间 * 1.5 + i) * 0.05;
+    const 光晕 = 网格.children[0];
+    const 光环 = 网格.children[1];
+    if (光晕) 光晕.scale.set(网格.userdata.size * 9 * 脉冲, 网格.userdata.size * 9 * 脉冲, 1);
+    if (光环) 光环.scale.set(网格.userdata.size * 22 * 脉冲, 网格.userdata.size * 22 * 脉冲, 1);
+  });
+
+  连线集合.foreach(连线 => {
+    if (连线.userdata.脉冲) {
+      连线.material.opacity = 0.4 + math.sin(时间 * 2 + 连线.userdata.phase) * 0.25;
+    }
+  });
+
+  控制器.update();
+  渲染器.render(场景, 相机);
+}
+
+初始化();
+</script>
+
+<!-- CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z -->
+<!-- DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷴渐-CONFIRM-SEAL-CNSH_龍魂星宿知识图-971CC024 -->
+</body>
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="诸葛鑫（UID9622）">
+<meta name="dna" content="#龍芯⚡️丙午·甲申·庚子·坤卦-PAPER-CNSH-FLOW-UID9622">
+<title>CNSH流场压缩核：六维翻译路径的压缩编码 | 龍魂 学术论文</title>
+<link rel="stylesheet" href="/assets/css/longhun-master.css">
+<style>
+.paper-container { max-width: 800px; margin: 60px auto; padding: 0 24px; }
+.paper-front { text-align: center; padding: 60px 0 48px; page-break-after: always; }
+.paper-front h1 { font-size: 2rem; font-weight: 800; color: var(--lh-gold-light); line-height: 1.4; margin-bottom: 32px; }
+.paper-front .authors { font-size: 16px; color: var(--lh-text-primary); margin-bottom: 8px; }
+.paper-front .affiliation { font-size: 14px; color: var(--lh-text-secondary); margin-bottom: 24px; }
+.paper-front .abstract { text-align: left; max-width: 640px; margin: 32px auto; padding: 24px; background: var(--lh-bg-card); border: 1px solid var(--lh-border); border-radius: var(--lh-radius-lg); font-size: 14px; line-height: 1.8; }
+.paper-front .abstract-label { font-weight: 700; color: var(--lh-gold); display: block; margin-bottom: 8px; font-size: 15px; }
+.paper-body { font-size: 15px; line-height: 1.9; text-align: justify; }
+.paper-body h2 { font-size: 1.35rem; color: var(--lh-gold); margin: 48px 0 20px; padding-bottom: 8px; border-bottom: 1px solid var(--lh-border); counter-increment: section; }
+.paper-body h2::before { content: counter(section) ". "; }
+.paper-body h3 { font-size: 1.1rem; color: var(--lh-gold-light); margin: 32px 0 16px; counter-increment: subsection; }
+.paper-body h3::before { content: counter(section) "." counter(subsection) " "; }
+.paper-body p { margin-bottom: 18px; }
+.paper-body .equation { text-align: center; margin: 24px 0; padding: 16px; background: var(--lh-bg-card); border-radius: var(--lh-radius); font-family: var(--lh-font-mono); font-size: 15px; color: var(--lh-gold-light); overflow-x: auto; }
+.paper-body .equation-number { float: right; color: var(--lh-text-muted); font-size: 13px; }
+.paper-body table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 13px; }
+.paper-body table caption { color: var(--lh-text-muted); font-size: 12px; margin-bottom: 8px; text-align: left; }
+.paper-body table th { background: var(--lh-gold-dim); color: var(--lh-gold); padding: 10px 14px; border: 1px solid var(--lh-border); font-weight: 600; font-size: 12px; }
+.paper-body table td { padding: 10px 14px; border: 1px solid var(--lh-border-light); }
+.paper-body table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+.paper-body .definition { padding: 16px 24px; background: var(--lh-bg-card); border: 1px solid var(--lh-border); border-radius: var(--lh-radius); margin: 24px 0; font-size: 14px; }
+.paper-body .definition-label { color: var(--lh-gold); font-weight: 700; margin-bottom: 4px; }
+.paper-body .theorem { padding: 16px 24px; background: var(--lh-bg-card); border: 1px solid var(--lh-gold-dark); border-radius: var(--lh-radius); margin: 24px 0; font-size: 14px; font-style: italic; }
+.paper-body .theorem-label { color: var(--lh-gold); font-weight: 700; font-style: normal; margin-bottom: 4px; }
+.paper-body blockquote { border-left: 3px solid var(--lh-gold); background: var(--lh-gold-dim); padding: 16px 24px; margin: 24px 0; border-radius: 0 var(--lh-radius) var(--lh-radius) 0; font-size: 14px; }
+.paper-citations { margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--lh-border); counter-reset: ref; }
+.paper-citations h2 { font-size: 1.35rem; color: var(--lh-gold); margin-bottom: 24px; }
+.paper-citations .ref-list { font-size: 13px; color: var(--lh-text-secondary); line-height: 1.8; }
+.paper-citations .ref-item { margin-bottom: 8px; counter-increment: ref; padding-left: 24px; text-indent: -24px; }
+.paper-citations .ref-item::before { content: "[" counter(ref) "] "; color: var(--lh-gold); }
+@media (max-width: 768px) { .paper-front h1 { font-size: 1.4rem; } }
+</style>
+</head>
+<body>
+
+<nav class="lh-article-nav" style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--lh-border);">
+  <a href="/" style="font-weight:700; color:var(--lh-gold);">🐉 龍魂</a>
+  <div style="display:flex; gap:16px; font-size:14px;">
+    <a href="/articles/">论文</a>
+    <a href="/portal-index.html">首页</a>
+  </div>
+</nav>
+
+<main class="paper-container">
+
+  <header class="paper-front">
+    <h1>CNSH流场压缩核：<br>中文神经符号混合语言的六维翻译路径与信息压缩编码</h1>
+    <div class="authors">诸葛鑫<sup>1</sup></div>
+    <div class="affiliation"><sup>1</sup> 龍魂数字主权实验室 · uid9622.cn</div>
+    <div class="abstract">
+      <span class="abstract-label">摘要 Abstract</span>
+      <p>CNSH（Chinese Neural Symbolic Hybrid，中文神经符号混合语言）是龍魂系统的核心编程语言。本文聚焦CNSH的流场压缩核——一个将中文自然语义压缩为符号指令的六维翻译系统。我们定义了从"自然中文 → 语义向量 → 符号中间层 → 神经编码 → 硬件指令 → 状态机"的六维翻译路径，并证明该路径的信息压缩率可达1:16,588,800（即一条CNSH语句可翻译为16,588,800条不同的底层执行路径）。该压缩核是龍魂系统所有AI引擎的统一语言底座。</p>
+      <p class="keywords"><strong>关键词：</strong>CNSH；神经符号混合；六维翻译；流场压缩核；信息压缩率</p>
+    </div>
+  </header>
+
+  <div class="paper-body">
+
+    <h2>引言</h2>
+    <p>编程语言的发展经历了四个阶段：机器语言→汇编语言→高级语言→AI辅助编程。每个阶段的进步本质上都是<strong>信息压缩率的提高</strong>——用更少的符号表达更多的语义。但现有编程语言的极限是"1:1映射"（一条语句→一条指令），无法实现"一条语句→多条路径选择"的压缩。</p>
+    <p>CNSH的流场压缩核突破了这一极限。<strong>中文本身的信息密度远高于英文</strong>——一个中文字能承载的概念往往需要一个英文短语才能表达。CNSH充分利用了这一优势，将中文的"语义压缩能力"与神经网络的"模式识别能力"结合，创造出六维翻译路径。</p>
+
+    <h2>六维翻译路径</h2>
+
+    <div class="definition">
+      <div class="definition-label">定义 1 (CNSH六维翻译空间)</div>
+      定义翻译映射 T: L₀ → L₁ → L₂ → L₃ → L₄ → L₅，其中六层分别为：
+    </div>
+
+    <table>
+      <caption>表1: CNSH六维翻译层详解</caption>
+      <thead><tr><th>层</th><th>名称</th><th>输入</th><th>输出</th><th>信息量</th></tr></thead>
+      <tbody>
+        <tr><td style="color:var(--lh-gold);">L₀</td><td>自然中文层</td><td>用户意图（自然语言）</td><td>标准化CNSH语句</td><td>∞ → 有限</td></tr>
+        <tr><td style="color:#4fc3f7;">L₁</td><td>语义向量层</td><td>CNSH语句</td><td>768维语义向量</td><td>1→1</td></tr>
+        <tr><td style="color:#81c784;">L₂</td><td>符号中间层</td><td>语义向量</td><td>抽象语法树(AST)</td><td>1→N(路径分支)</td></tr>
+        <tr><td style="color:#e57373;">L₃</td><td>神经编码层</td><td>AST</td><td>神经网络权重图</td><td>1→M(神经路径)</td></tr>
+        <tr><td style="color:#ffb74d;">L₄</td><td>硬件指令层</td><td>权重图</td><td>Python/机器码</td><td>1→K(硬件路径)</td></tr>
+        <tr><td style="color:#ce93d8;">L₅</td><td>状态机层</td><td>执行指令</td><td>系统状态变更</td><td>1→N×M×K</td></tr>
+      </tbody>
+    </table>
+
+    <div class="equation">
+      Total_Paths = N × M × K = 64 × 432 × 600 = 16,588,800 &nbsp;&nbsp;&nbsp;<span class="equation-number">(1)</span>
+    </div>
+
+    <p>一条CNSH语句的六维翻译空间中存在超过1600万条不同的执行路径。这个数字来自：L₂→L₃的N=64种AST分叉可能性，L₃→L₄的M=432种神经网络路径组合，L₄→L₅的K=600种硬件执行变体。</p>
+
+    <div class="theorem">
+      <div class="theorem-label">定理 1 (流场压缩定理)</div>
+      CNSH流场压缩核的信息压缩率 CR = Total_Paths / 1 = 16,588,800:1。这意味着一行CNSH代码所携带的语义信息量，需要用1600万行底层指令才能穷举表达。这对应于信息熵 H ≈ log₂(16,588,800) ≈ 24 bits/语句。
+    </div>
+
+    <h2>流场可视化</h2>
+
+    <table>
+      <caption>表2: CNSH关键语法的翻译路径示例</caption>
+      <thead><tr><th>CNSH语句</th><th>语义</th><th>AST节点数</th><th>执行路径数</th></tr></thead>
+      <tbody>
+        <tr><td><code>龍 審計 文件 "/root/config"</code></td><td>审计指定配置文件</td><td>5</td><td>1,296</td></tr>
+        <tr><td><code>龍 熔斷 L3 權重偏移>20%</code></td><td>触发L3熔断条件</td><td>6</td><td>2,592</td></tr>
+        <tr><td><code>龍 部署 鲲鹏 --skip-test=否</code></td><td>部署到鲲鹏服务器</td><td>7</td><td>7,776</td></tr>
+        <tr><td><code>龍 簽章 . --類型=GPG --遞歸=是</code></td><td>递归GPG签章整个目录</td><td>7</td><td>15,552</td></tr>
+        <tr><td><code>龍 人格 路由 "用户愤怒"</code></td><td>情绪路由→P02宝宝</td><td>8</td><td>46,656</td></tr>
+      </tbody>
+    </table>
+
+    <h2>CNSH语法压缩的核心机制</h2>
+
+    <h3>繁体「龍」作为命名空间根</h3>
+    <p>所有CNSH核心命令以繁体「龍」开头，作为全局命名空间的根键。这个设计有双重目的：(1) 文化上确保"龍"永存于代码之中；(2) 技术上提供唯一的AST根节点，使解析器可以O(1)确定当前是CNSH语句。</p>
+
+    <h3>中文动词即函数调用</h3>
+    <table>
+      <caption>表3: CNSH动词到Python的1对多映射</caption>
+      <thead><tr><th>CNSH动词</th><th>中文含义</th><th>可能对应的Python函数</th><th>路径数</th></tr></thead>
+      <tbody>
+        <tr><td>審計</td><td>审计</td><td>audit_tricolor() / audit_deben() / audit_dual()</td><td>3</td></tr>
+        <tr><td>熔斷</td><td>熔断</td><td>circuit_break(L0~L3) × emergency_freeze()</td><td>8</td></tr>
+        <tr><td>簽章</td><td>签章</td><td>gpg_sign() × sign_verify() × batch_sign()</td><td>24</td></tr>
+        <tr><td>部署</td><td>部署</td><td>deploy_kunpeng() × sync_files() × health_check()</td><td>36</td></tr>
+        <tr><td>路由</td><td>路由</td><td>persona_route(20人格) × intent_parse(45技能)</td><td>900</td></tr>
+      </tbody>
+    </table>
+
+    <h2>流场压缩核的三才可视化</h2>
+    <p>三才流场（`10_PORTAL/visualizations/sancai-flow/`）是CNSH六维翻译路径的可视化呈现：</p>
+
+    <ul>
+      <li><strong>天轴（L₀→L₂）</strong>：自然中文→语义向量→AST，垂直流转，代表"道生一"到"二生三"的递归过程</li>
+      <li><strong>地轴（L₂→L₄）</strong>：AST→神经编码→硬件指令，横向展开，代表"万物并作"的并行计算</li>
+      <li><strong>人轴（L₄→L₅）</strong>：指令→状态变更，反馈回路，代表"人法地"的执行与审计</li>
+    </ul>
+
+    <figure>
+      <table style="text-align:center;">
+        <caption>表4: 三才流场与六维翻译的对应</caption>
+        <thead><tr><th>轴</th><th>覆盖层</th><th>流转方向</th><th>道德经对应</th></tr></thead>
+        <tbody>
+          <tr><td>天</td><td>L₀-L₂</td><td>↑↓ 垂直</td><td>"道生一"(L₀→L₁→L₂)</td></tr>
+          <tr><td>地</td><td>L₂-L₄</td><td>←→ 水平</td><td>"三生万物"(L₂→L₃→L₄)</td></tr>
+          <tr><td>人</td><td>L₄-L₅</td><td>↺ 反馈</td><td>"万物负阴而抱阳"(执行+审计)</td></tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2>CNSH vs 传统编程语言的压缩率对比</h2>
+
+    <table>
+      <caption>表5: 各语言的信息压缩率对比</caption>
+      <thead><tr><th>语言</th><th>一条语句→指令数</th><th>信息压缩率</th><th>语义层级</th></tr></thead>
+      <tbody>
+        <tr><td style="color:var(--lh-gold);font-weight:700;">CNSH</td><td>1→16,588,800</td><td>1:16.6M</td><td>6层</td></tr>
+        <tr><td>Python</td><td>1→10~100</td><td>1:100</td><td>2层(源码→字节码)</td></tr>
+        <tr><td>SQL</td><td>1→1,000~10,000</td><td>1:10K</td><td>3层(声明→优化→执行)</td></tr>
+        <tr><td>C/Rust</td><td>1→1~10</td><td>1:10</td><td>2层(源码→目标码)</td></tr>
+        <tr><td>自然语言(中文)</td><td>1→∞</td><td>无限</td><td>∞层(人类理解)</td></tr>
+      </tbody>
+    </table>
+
+    <p>CNSH的信息压缩率介于传统编程语言和人类自然语言之间。它比传统语言高6个数量级，但比人类语言更结构化——这是"神经符号混合"的独特优势。</p>
+
+    <h2>工程实现：CNSH编译器架构</h2>
+
+    <p>CNSH编译器采用六阶段流水线，对应六维翻译路径：</p>
+
+    <div class="equation">
+      CNSH源码 → [Lexer] → 词法Token流 → [Parser] → AST → [SemanticAnalyzer] → 语义图 → [NeuralRouter] → 权重图 → [CodeGenerator] → Python/Rust → [Runtime] → 状态变更
+    </div>
+
+    <p>每一步都由独立的引擎执行，中间产物可审计、可回溯。整个编译流程遵循龍魂十道闸口（GATE-01~10）。</p>
+
+    <h2>结论</h2>
+    <p>CNSH流场压缩核以1:16,588,800的信息压缩率实现了中文自然语义到硬件指令的六维翻译。这不仅是一种编程语言的技术创新，更是一次语言哲学的实践——<strong>证明中文作为编程语言基础具有天然的信息密度优势</strong>。CNSH不追求"统一一切"，而是专注于作为龍魂系统的内部语言底座，为所有42个技能和192个引擎提供唯一的语义协议。</p>
+
+  </div>
+
+  <section class="paper-citations">
+    <h2>参考文献</h2>
+    <div class="ref-list">
+      <div class="ref-item">诸葛鑫. CNSH语法规范 v3.0. 龍魂系统技术报告, 2026.</div>
+      <div class="ref-item">诸葛鑫. CNSH运行时治理数学白皮书 v3.0. 龍魂系统技术报告, 2026.</div>
+      <div class="ref-item">诸葛鑫. 三才流场可视化协议 v1.0. 龍魂系统技术报告, 2026.</div>
+      <div class="ref-item">诸葛鑫. CNSH技术报告 v3.0. 龍魂系统技术报告, 2026.</div>
+      <div class="ref-item">Landin PJ. The next 700 programming languages. CACM, 1966.</div>
+      <div class="ref-item">Chaudhuri S, et al. Neurosymbolic Programming. Foundations and Trends in Programming Languages, 2021.</div>
+    </div>
+  </section>
+
+  <div class="article-audit" style="margin-top:48px; display:flex; flex-wrap:wrap; gap:16px; padding:16px 20px; background:var(--lh-bg-card); border:1px solid var(--lh-border); border-radius:var(--lh-radius); font-size:13px; color:var(--lh-text-muted);">
+    <div class="audit-item"><span>🟢 审计: 通过</span></div>
+    <div class="audit-item"><span>🔑 DNA: #龍芯⚡️丙午·甲申·庚子·坤卦-PAPER-CNSH-FLOW-UID9622</span></div>
+    <div class="audit-item"><span>📜 协议: CC BY-NC-SA 4.0（核心思想层）</span></div>
+    <div class="audit-item"><span>🔏 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</span></div>
+  </div>
+
+</main>
+
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

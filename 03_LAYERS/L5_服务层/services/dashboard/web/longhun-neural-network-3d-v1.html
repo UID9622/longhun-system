@@ -1,0 +1,694 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-09dfb6cd -->
+<!-- #龍芯⚡️2026-07-05-LONGHUN-NEURAL-NETWORK-3D-v1.0 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 龍魂神经网络路由 · 不动点透明 3D · UID9622</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🧠%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#050508;--panel:rgba(8,8,14,0.92);--border:rgba(167,139,250,0.25);
+  --cyan:#00d4ff;--gold:#FFD700;--red:#FF1744;--green:#00C853;--yellow:#FFD600;--purple:#a78bfa;
+  --metal:#C0C0C0;--wood:#2E8B57;--water:#1E90FF;--fire:#DC143C;--earth:#8B4513;
+  --text:#e4e4e7;--dim:#94a3b8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;}
+#canvas-container{position:fixed;inset:0;z-index:1}
+#bg-nebula{position:fixed;inset:0;z-index:0;background:
+  radial-gradient(circle at 25% 25%,rgba(0,212,255,.08),transparent 40%),
+  radial-gradient(circle at 75% 25%,rgba(255,215,0,.08),transparent 40%),
+  radial-gradient(circle at 50% 75%,rgba(167,139,250,.08),transparent 40%);animation:drift 20s ease-in-out infinite alternate}
+@keyframes drift{from{transform:scale(1) rotate(0deg)}to{transform:scale(1.05) rotate(2deg)}}
+
+/* HUD */
+#hud{position:fixed;top:12px;left:12px;right:12px;z-index:10;display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;pointer-events:none}
+.hud-panel{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:10px 14px;backdrop-filter:blur(8px);pointer-events:auto}
+#title{font-size:16px;font-weight:800;color:var(--gold);text-shadow:0 0 12px rgba(255,215,0,.35);letter-spacing:.05em}
+#subtitle{font-size:11px;color:var(--purple);margin-top:2px}
+#dna-line{font-size:9px;color:#d4a574;font-family:monospace;margin-top:3px;word-break:break-all;max-width:420px}
+#stats{font-size:11px;color:var(--dim)}
+#stats b{color:var(--cyan)}
+#search{background:rgba(18,18,26,.9);border:1px solid rgba(167,139,250,.35);border-radius:8px;padding:6px 10px;color:var(--text);font-size:12px;outline:none;width:160px}
+#search::placeholder{color:#64748b}
+#legend{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--dim)}
+.legend-dot{width:9px;height:9px;border-radius:50%;box-shadow:0 0 6px currentColor}
+.legend-ring{width:14px;height:14px;border-radius:50%;border:2px solid currentColor;box-shadow:0 0 8px currentColor}
+
+/* Detail panel */
+#detail{position:fixed;top:12px;right:-360px;bottom:12px;width:330px;background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:16px;z-index:20;overflow-y:auto;backdrop-filter:blur(12px);transition:right .35s ease}
+#detail.open{right:12px}
+#detail h2{font-size:15px;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+#detail .tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;background:rgba(255,215,0,.12);color:var(--gold);border:1px solid rgba(255,215,0,.25);margin-bottom:8px;margin-right:4px}
+#detail .field{margin-bottom:10px}
+#detail .field-label{font-size:10px;color:#64748b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+#detail .field-value{font-size:12px;color:var(--text);line-height:1.5}
+#detail .formula{background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.2);border-radius:8px;padding:8px;font-family:monospace;font-size:10px;color:#a5f3fc;margin-top:4px}
+#detail .close{position:absolute;top:10px;right:10px;background:none;border:none;color:var(--dim);font-size:18px;cursor:pointer}
+#detail .close:hover{color:#fff}
+#detail table{width:100%;border-collapse:collapse;font-size:11px;margin-top:6px}
+#detail th,#detail td{text-align:left;padding:4px 6px;border-bottom:1px solid rgba(255,255,255,.06)}
+#detail th{color:var(--purple)}
+
+/* Formula overlay */
+#formula-panel{position:fixed;top:80px;left:12px;width:280px;background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:12px;z-index:12;backdrop-filter:blur(10px);max-height:calc(100vh - 140px);overflow-y:auto}
+#formula-panel h3{font-size:13px;color:var(--cyan);margin-bottom:8px;border-bottom:1px solid var(--border);padding-bottom:6px}
+#formula-panel .formula-group{margin-bottom:12px}
+#formula-panel .formula-title{font-size:11px;color:var(--gold);margin-bottom:4px}
+#formula-panel .formula-body{font-family:monospace;font-size:10px;color:#cbd5e1;background:rgba(255,255,255,.04);padding:6px;border-radius:6px;line-height:1.5}
+#formula-panel .formula-note{font-size:9px;color:var(--dim);margin-top:3px}
+
+/* Tooltip */
+#tooltip{position:fixed;z-index:30;background:rgba(5,5,8,.96);border:1px solid rgba(255,215,0,.3);border-radius:8px;padding:8px 12px;font-size:12px;color:var(--text);pointer-events:none;opacity:0;transition:opacity .15s;max-width:260px;box-shadow:0 0 20px rgba(255,215,0,.12)}
+#tooltip .tt-title{color:var(--gold);font-weight:700;margin-bottom:3px}
+#tooltip .tt-meta{font-size:10px;color:var(--dim)}
+
+/* Controls */
+#floating-controls{position:fixed;bottom:12px;right:12px;z-index:16;display:flex;gap:8px;flex-wrap:wrap}
+#floating-controls button{background:var(--panel);border:1px solid rgba(255,215,0,.25);border-radius:10px;color:var(--text);padding:8px 12px;font-size:12px;cursor:pointer;transition:.2s}
+#floating-controls button:hover{border-color:var(--gold);color:var(--gold)}
+#help{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px 16px;z-index:15;display:none;gap:10px 16px;flex-wrap:wrap;font-size:11px;color:var(--dim)}
+#help.open{display:flex}
+#help kbd{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:3px;padding:1px 5px;color:#e2e8f0;font-family:monospace}
+#root-card{position:fixed;bottom:10px;left:12px;z-index:10;font-size:8px;color:#475569;max-width:500px;line-height:1.4}
+
+/* Loader */
+#loader{position:fixed;inset:0;background:var(--bg);z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;transition:opacity .8s}
+#loader.hidden{opacity:0;pointer-events:none}
+#loader .logo{font-size:56px;animation:pulse 2s infinite}
+#loader .motto{font-size:20px;font-weight:700;color:transparent;background:linear-gradient(135deg,var(--gold),var(--red),var(--purple));-webkit-background-clip:text;background-clip:text;letter-spacing:.1em}
+#loader .sub{font-size:12px;color:#64748b;letter-spacing:.06em}
+@keyframes pulse{0%,100%{opacity:.6}50%{opacity:1}}
+</style>
+
+<script src="../lh-utils.js"></script>
+</head>
+<body>
+<div id="loader">
+  <div class="logo">🧠</div>
+  <div class="motto">龍魂神经网络路由</div>
+  <div class="sub">不动点透明 · 三色神机 · 五色石 · 七彩跑马灯</div>
+</div>
+
+<div id="canvas-container"></div>
+<div id="bg-nebula"></div>
+
+<div id="hud">
+  <div class="hud-panel">
+    <div id="title">🧠 龍魂神经网络路由 · 不动点透明 3D</div>
+    <div id="subtitle">所有系统节点 · 路由关系 · 参数计算可视化</div>
+    <div id="dna-line">#龍芯⚡️2026-07-05-LONGHUN-NEURAL-NETWORK-3D-v1.0</div>
+  </div>
+  <div class="hud-panel" id="stats">
+    节点 <b id="node-count">-</b> · 连接 <b id="edge-count">-</b> · 健康 <b id="health-rate">-</b>
+  </div>
+  <div class="hud-panel">
+    <input id="search" type="text" placeholder="搜索节点 / 端口 / DNA…" autocomplete="off">
+  </div>
+  <div class="hud-panel" id="legend">
+    <div class="legend-item"><span class="legend-dot" style="background:var(--green);color:var(--green)"></span>健康</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--yellow);color:var(--yellow)"></span>待启</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--red);color:var(--red)"></span>异常</div>
+    <div class="legend-item"><span class="legend-ring" style="color:var(--cyan)"></span>七彩跑马灯</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--gold);color:var(--gold)"></span>五色石</div>
+  </div>
+</div>
+
+<div id="formula-panel">
+  <h3>⚙️ 参数计算公式</h3>
+  <div class="formula-group">
+    <div class="formula-title">数字根</div>
+    <div class="formula-body">dr(n) = 1 + ((n - 1) mod 9)<br>dr(0) = 0</div>
+    <div class="formula-note">端口、版本、时间戳均先归一化为数字根</div>
+  </div>
+  <div class="formula-group">
+    <div class="formula-title">三才评分</div>
+    <div class="formula-body">S = w天·T + w地·D + w人·R<br>w天 + w地 + w人 = 1</div>
+    <div class="formula-note">默认 w天=0.3, w地=0.3, w人=0.4</div>
+  </div>
+  <div class="formula-group">
+    <div class="formula-title">健康度</div>
+    <div class="formula-body">H = 健康节点 / 总节点 × 100%</div>
+    <div class="formula-note">实时反映核心服务可用状态</div>
+  </div>
+  <div class="formula-group">
+    <div class="formula-title">五行相生</div>
+    <div class="formula-body">金→水→木→火→土→金</div>
+  </div>
+  <div class="formula-group">
+    <div class="formula-title">五行相克</div>
+    <div class="formula-body">金克木 · 木克土 · 土克水<br>水克火 · 火克金</div>
+  </div>
+</div>
+
+<div id="tooltip">
+  <div class="tt-title"></div>
+  <div class="tt-meta"></div>
+</div>
+
+<div id="detail">
+  <button class="close">×</button>
+  <h2 id="detail-title">节点详情</h2>
+  <div id="detail-content"></div>
+</div>
+
+<div id="help">
+  <span><kbd>左键拖拽</kbd> 旋转</span>
+  <span><kbd>滚轮</kbd> 缩放</span>
+  <span><kbd>右键</kbd> 平移</span>
+  <span><kbd>点击节点</kbd> 详情</span>
+  <span><kbd>F</kbd> 自动旋转</span>
+  <span><kbd>R</kbd> 复位</span>
+  <span><kbd>H</kbd> 帮助</span>
+</div>
+
+<div id="floating-controls">
+  <button onclick="refreshNetwork()">⟳ 刷新</button>
+  <button onclick="toggleAutoRotate()" id="btn-rotate">⏵ 旋转</button>
+  <button onclick="resetView()">↺ 复位</button>
+  <button onclick="toggleFullscreen()">⛶ 全屏</button>
+  <button onclick="toggleFormula()">∑ 公式</button>
+  <button onclick="toggleHelp()">? 帮助</button>
+</div>
+
+<div id="root-card">
+  ROOT_CARD | 系统: UID9622 龍魂系统 | 模块: 神经网络路由 3D 可视化 | DNA: #龍芯⚡️2026-07-05-LONGHUN-NEURAL-NETWORK-3D-v1.0 | CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z | GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+</div>
+
+<script src="./本地库/three/three.min.js"></script>
+<script src="./本地库/three/OrbitControls.js"></script>
+<script>
+
+const NODES = [
+  // 北辰不动点 · 系统唯一核心
+  {id:'north-star',name:'北辰不动点',port:null,category:'core',status:'healthy',wuxing:'earth',tian:1.0,di:1.0,ren:1.0,dr:1,formula:'f(x) = x · 不动点恒等 · 宪法层通过',description:'系统唯一不动点，所有节点围绕其旋转。象征 UID9622 主权核心、三才算法宪法层 f(x)=x 的通过状态，以及龍魂体系的不动点透明原则。',pid:null,dna:'#龍芯⚡️2026-07-04-SANCAI-PROTOCOL-UID9622-v1.0'},
+
+  // 核心服务层
+  {id:'op-console',name:'龍魂操作台',port:9622,category:'core',status:'healthy',wuxing:'earth',tian:0.92,di:0.88,ren:0.96,dr:9,formula:'S = 0.3×0.92 + 0.3×0.88 + 0.4×0.96 = 0.924',description:'龍魂系统统一入口与总控台，承载所有子系统的调度与展示。',pid:71591,dna:'#龍芯⚡️2026-06-22-LONGHUN-OPCONSOLE-v1.0',ipa:'IPA-010-OPCONSOLE'},
+  {id:'brain-stem',name:'龍魂脑干',port:9625,category:'core',status:'healthy',wuxing:'water',tian:0.90,di:0.85,ren:0.88,dr:4,formula:'S = 0.3×0.90 + 0.3×0.85 + 0.4×0.88 = 0.877',description:'核心协调与决策中枢，连接天地人三层。',pid:70279,dna:'#龍芯⚡️2026-06-22-LONGHUN-BRAINSTEM-v1.0'},
+  {id:'digital-id',name:'数字身份入口',port:8444,category:'core',status:'healthy',wuxing:'metal',tian:0.88,di:0.90,ren:0.82,dr:1,formula:'S = 0.3×0.88 + 0.3×0.90 + 0.4×0.82 = 0.862',description:'国家数字身份认证入口，主权级身份校验。',pid:70282,dna:'#龍芯⚡️2026-06-22-LONGHUN-DIGITALID-v1.0'},
+  {id:'persona-api',name:'人格 API',port:9001,category:'core',status:'healthy',wuxing:'wood',tian:0.85,di:0.80,ren:0.90,dr:1,formula:'S = 0.3×0.85 + 0.3×0.80 + 0.4×0.90 = 0.855',description:'五大人格实体的统一 API 路由与调度。',pid:null,dna:'#龍芯⚡️2026-06-22-LONGHUN-PERSONA-API-v1.0'},
+  {id:'phase3',name:'Phase3 后端',port:8001,category:'core',status:'error',wuxing:'earth',tian:0.70,di:0.60,ren:0.50,dr:1,formula:'S = 0.3×0.70 + 0.3×0.60 + 0.4×0.50 = 0.590',description:'龍魂第三阶段业务后端，当前未运行。',pid:49225,dna:'#龍芯⚡️2026-06-22-LONGHUN-PHASE3-v1.0'},
+  {id:'baby-guard',name:'宝宝守护',port:8002,category:'core',status:'healthy',wuxing:'fire',tian:0.80,di:0.85,ren:0.92,dr:1,formula:'S = 0.3×0.80 + 0.3×0.85 + 0.4×0.92 = 0.863',description:'系统守护与人格代理的稳定运行保障。',pid:null,dna:'#龍芯⚡️2026-06-22-LONGHUN-BABYGUARD-v1.0'},
+  {id:'gua-audit',name:'卦象审计',port:9623,category:'core',status:'healthy',wuxing:'earth',tian:0.95,di:0.90,ren:0.85,dr:3,formula:'S = 0.3×0.95 + 0.3×0.90 + 0.4×0.85 = 0.895',description:'三才卦象实时审计与决策评分。',pid:71604,dna:'#龍芯⚡️2026-06-22-LONGHUN-GUAAUDIT-v1.0'},
+  {id:'heart-voice',name:'龍心之语',port:9624,category:'core',status:'healthy',wuxing:'fire',tian:0.82,di:0.78,ren:0.88,dr:4,formula:'S = 0.3×0.82 + 0.3×0.78 + 0.4×0.88 = 0.838',description:'情感化交互与语音合成服务。',pid:1121,dna:'#龍芯⚡️2026-06-22-LONGHUN-HEARTVOICE-v1.0'},
+  {id:'knowledge-graph',name:'知识图谱',port:8088,category:'core',status:'healthy',wuxing:'wood',tian:0.88,di:0.82,ren:0.90,dr:7,formula:'S = 0.3×0.88 + 0.3×0.82 + 0.4×0.90 = 0.870',description:'龍魂知识体系与实体关系图谱服务。',pid:1142,dna:'#龍芯⚡️2026-06-22-LONGHUN-KG-v1.0'},
+  {id:'ability-site',name:'能力官网',port:8844,category:'core',status:'healthy',wuxing:'metal',tian:0.80,di:0.85,ren:0.82,dr:7,formula:'S = 0.3×0.80 + 0.3×0.85 + 0.4×0.82 = 0.823',description:'对外能力展示与官方门户。',pid:1135,dna:'#龍芯⚡️2026-06-22-LONGHUN-ABILITY-SITE-v1.0'},
+  {id:'experience-portal',name:'体验门户',port:8445,category:'core',status:'healthy',wuxing:'water',tian:0.78,di:0.80,ren:0.85,dr:5,formula:'S = 0.3×0.78 + 0.3×0.80 + 0.4×0.85 = 0.814',description:'用户体验入口与演示环境。',pid:1122,dna:'#龍芯⚡️2026-06-22-LONGHUN-EXPERIENCE-v1.0'},
+
+  // 外部接口层
+  {id:'ollama',name:'Ollama 本地模型',port:11434,category:'external',status:'healthy',wuxing:'wood',tian:0.75,di:0.85,ren:0.80,dr:5,formula:'S = 0.3×0.75 + 0.3×0.85 + 0.4×0.80 = 0.800',description:'本地大模型推理服务，数据不出境。',pid:null,dna:'#龍芯⚡️2026-06-22-LONGHUN-OLLAMA-v1.0'},
+  {id:'deepseek-bridge',name:'DeepSeek Bridge (M266)',port:8788,category:'external',status:'healthy',wuxing:'water',tian:0.70,di:0.80,ren:0.85,dr:4,formula:'S = 0.3×0.70 + 0.3×0.80 + 0.4×0.85 = 0.790',description:'DeepSeek 跨域桥接，外部输入隔离审查。',pid:null,dna:'#龍芯⚡️2026-06-22-LONGHUN-DEEPSEEKBRIDGE-v1.0'},
+  {id:'cnsh-gateway',name:'CNSH 外接/外调 API 网关',port:9626,category:'placeholder',status:'standby',wuxing:'metal',tian:0.50,di:0.50,ren:0.40,dr:7,formula:'S = 0.3×0.50 + 0.3×0.50 + 0.4×0.40 = 0.460',description:'CNSH 对外 API 网关占位，待开发。',pid:null,dna:'#龍芯⚡️2026-06-22-LONGHUN-CNSHGW-v0.1'},
+
+  // 守护进程层
+  {id:'d-autostart',name:'uid9622 统一自启',port:null,category:'daemon',status:'standby',wuxing:'earth',tian:0.70,di:0.80,ren:0.75,dr:1,formula:'S = 0.3×0.70 + 0.3×0.80 + 0.4×0.75 = 0.750',description:'开机自启动任务统一调度。',pid:null,dna:'#龍芯⚡️2026-06-22-LONGHUN-AUTOSTART-v1.0'},
+  {id:'d-memory',name:'记忆启动守护',port:null,category:'daemon',status:'healthy',wuxing:'water',tian:0.90,di:0.85,ren:0.88,dr:1,formula:'S = 0.3×0.90 + 0.3×0.85 + 0.4×0.88 = 0.877',description:'多平台记忆归集与启动加载。',pid:1111,dna:'#龍芯⚡️2026-06-22-LONGHUN-MEMORY-DAEMON-v1.0'},
+  {id:'d-index',name:'全局索引',port:null,category:'daemon',status:'standby',wuxing:'metal',tian:0.75,di:0.80,ren:0.70,dr:7,formula:'S = 0.3×0.75 + 0.3×0.80 + 0.4×0.70 = 0.745',description:'文件、技能、资产全局索引构建。',pid:null,dna:'#龍芯⚡️2026-06-22-LONGHUN-INDEX-v1.0'},
+  {id:'d-cnsh-redline',name:'CNSH 红线',port:null,category:'daemon',status:'healthy',wuxing:'fire',tian:0.92,di:0.88,ren:0.85,dr:5,formula:'S = 0.3×0.92 + 0.3×0.88 + 0.4×0.85 = 0.884',description:'CNSH 语言规范与行为红线守护。',pid:1123,dna:'#龍芯⚡️2026-06-22-LONGHUN-CNSH-REDLINE-v1.0'},
+  {id:'d-ability-guard',name:'能力守护',port:null,category:'daemon',status:'healthy',wuxing:'metal',tian:0.80,di:0.82,ren:0.78,dr:6,formula:'S = 0.3×0.80 + 0.3×0.82 + 0.4×0.78 = 0.798',description:'能力模块健康检查与自动恢复。',pid:1116,dna:'#龍芯⚡️2026-06-22-LONGHUN-ABILITY-GUARD-v1.0'},
+  {id:'d-harvester',name:'收割机',port:null,category:'daemon',status:'standby',wuxing:'wood',tian:0.65,di:0.70,ren:0.60,dr:7,formula:'S = 0.3×0.65 + 0.3×0.70 + 0.4×0.60 = 0.645',description:'代码与资产收割审计。',pid:null,dna:'#龍芯⚡️2026-06-22-LONGHUN-HARVESTER-v1.0'},
+  {id:'d-daily-review',name:'每日复盘',port:null,category:'daemon',status:'standby',wuxing:'earth',tian:0.70,di:0.75,ren:0.72,dr:5,formula:'S = 0.3×0.70 + 0.3×0.75 + 0.4×0.72 = 0.723',description:'每日自动化审计复盘。',pid:null,dna:'#龍芯⚡️2026-06-22-LONGHUN-DAILYREVIEW-v1.0'},
+  {id:'d-auto-eval',name:'自动化评估',port:null,category:'daemon',status:'standby',wuxing:'water',tian:0.68,di:0.72,ren:0.70,dr:4,formula:'S = 0.3×0.68 + 0.3×0.72 + 0.4×0.70 = 0.700',description:'系统健康六维度自动评估。',pid:null,dna:'#龍芯⚡️2026-06-22-LONGHUN-AUTOEVAL-v1.0'},
+  {id:'d-entry-clean',name:'入口清理',port:null,category:'daemon',status:'standby',wuxing:'metal',tian:0.65,di:0.70,ren:0.68,dr:3,formula:'S = 0.3×0.65 + 0.3×0.70 + 0.4×0.68 = 0.677',description:'入口一致性协议自动清理。',pid:null,dna:'#龍芯⚡️2026-06-22-LONGHUN-ENTRYCLEAN-v1.0'},
+  {id:'d-tianguan',name:'天官判卷',port:null,category:'daemon',status:'standby',wuxing:'fire',tian:0.72,di:0.68,ren:0.75,dr:4,formula:'S = 0.3×0.72 + 0.3×0.68 + 0.4×0.75 = 0.720',description:'自动化评审与权重判决。',pid:null,dna:'#龍芯⚡️2026-06-22-LONGHUN-TIANGUAN-v1.0'},
+  {id:'d-notion-mirror',name:'Notion 瀏覽器鏡像',port:null,category:'daemon',status:'standby',wuxing:'water',tian:0.60,di:0.65,ren:0.70,dr:5,formula:'S = 0.3×0.60 + 0.3×0.65 + 0.4×0.70 = 0.655',description:'Notion 公开空间本地镜像同步。',pid:null,dna:'#龍芯⚡️2026-06-22-LONGHUN-NOTIONMIRROR-v1.0'}
+];
+
+const EDGES = [
+  // 北辰不动点连接
+  {source:'north-star',target:'op-console',type:'data',label:'不动点锚定'},
+  {source:'north-star',target:'brain-stem',type:'data',label:'不动点锚定'},
+  {source:'north-star',target:'digital-id',type:'data',label:'不动点锚定'},
+  {source:'north-star',target:'gua-audit',type:'data',label:'不动点锚定'},
+
+  // 核心层互联
+  {source:'op-console',target:'brain-stem',type:'data',label:'主控同步'},
+  {source:'op-console',target:'digital-id',type:'data',label:'身份校验'},
+  {source:'op-console',target:'persona-api',type:'data',label:'人格调度'},
+  {source:'op-console',target:'gua-audit',type:'data',label:'审计上报'},
+  {source:'brain-stem',target:'digital-id',type:'data',label:'根身份同步'},
+  {source:'brain-stem',target:'knowledge-graph',type:'data',label:'知识注入'},
+  {source:'persona-api',target:'heart-voice',type:'data',label:'语音输出'},
+  {source:'persona-api',target:'baby-guard',type:'data',label:'守护调用'},
+  {source:'baby-guard',target:'phase3',type:'data',label:'后端托管'},
+  {source:'gua-audit',target:'knowledge-graph',type:'data',label:'审计入图'},
+  {source:'knowledge-graph',target:'experience-portal',type:'data',label:'知识展示'},
+  {source:'ability-site',target:'experience-portal',type:'data',label:'能力引流'},
+  {source:'op-console',target:'ability-site',type:'data',label:'官网同步'},
+  {source:'op-console',target:'experience-portal',type:'data',label:'门户同步'},
+
+  // 外部接口
+  {source:'ollama',target:'op-console',type:'external',label:'本地推理'},
+  {source:'deepseek-bridge',target:'op-console',type:'external',label:'跨域输入'},
+  {source:'op-console',target:'cnsh-gateway',type:'data',label:'API 网关'},
+  {source:'ollama',target:'deepseek-bridge',type:'external',label:'模型互补'},
+
+  // 守护关系
+  {source:'d-memory',target:'op-console',type:'guard',label:'记忆守护'},
+  {source:'d-memory',target:'brain-stem',type:'guard',label:'记忆守护'},
+  {source:'d-cnsh-redline',target:'op-console',type:'guard',label:'红线守护'},
+  {source:'d-cnsh-redline',target:'cnsh-gateway',type:'guard',label:'红线守护'},
+  {source:'d-ability-guard',target:'ability-site',type:'guard',label:'能力守护'},
+  {source:'d-ability-guard',target:'experience-portal',type:'guard',label:'能力守护'},
+  {source:'d-harvester',target:'knowledge-graph',type:'guard',label:'收割审计'},
+  {source:'d-daily-review',target:'gua-audit',type:'guard',label:'复盘触发'},
+  {source:'d-auto-eval',target:'op-console',type:'guard',label:'评估触发'},
+  {source:'d-entry-clean',target:'op-console',type:'guard',label:'入口清理'},
+  {source:'d-tianguan',target:'gua-audit',type:'guard',label:'判卷触发'},
+  {source:'d-autostart',target:'op-console',type:'guard',label:'开机自启'},
+  {source:'d-autostart',target:'brain-stem',type:'guard',label:'开机自启'},
+  {source:'d-index',target:'knowledge-graph',type:'guard',label:'索引更新'},
+  {source:'d-notion-mirror',target:'ability-site',type:'guard',label:'镜像同步'}
+];
+
+const WUXING = {
+  metal:{name:'金',color:0xC0C0C0,icon:'⚔️'},
+  wood:{name:'木',color:0x2E8B57,icon:'🌿'},
+  water:{name:'水',color:0x1E90FF,icon:'💧'},
+  fire:{name:'火',color:0xDC143C,icon:'🔥'},
+  earth:{name:'土',color:0x8B4513,icon:'⛰️'}
+};
+const STATUS = {
+  healthy:{name:'健康',color:0x00C853,glow:0x00ff64},
+  standby:{name:'待启',color:0xFFD600,glow:0xffd600},
+  error:{name:'异常',color:0xFF1744,glow:0xff1744}
+};
+const CATEGORY = {
+  core:{name:'核心服务',y:20,radius:35},
+  external:{name:'外部接口',y:-25,radius:70},
+  placeholder:{name:'占位待开发',y:-45,radius:85},
+  daemon:{name:'守护进程',y:55,radius:60}
+};
+const RAINBOW = [0xFF0000,0xFF7F00,0xFFFF00,0x00FF00,0x0000FF,0x4B0082,0x9400D3];
+
+let scene,camera,renderer,controls,raycaster,mouse;
+let nodeMeshes=[],edgeMeshes=[],labelSprites=[],rings=[],stones=[];
+let selectedNode=null,hoveredNode=null,autoRotate=false;
+let time=0;
+
+function init(){
+  // 自动分配 IPA 路由编号
+  NODES.forEach(n=>{
+    if(n.id==='north-star') n.ipa='IPA-000-NORTHSTAR';
+    else if(n.category==='core') n.ipa='IPA-010-'+n.id.replace(/-/g,'').toUpperCase();
+    else if(n.category==='daemon') n.ipa='IPA-020-'+n.id.replace(/-/g,'').toUpperCase();
+    else if(n.category==='external') n.ipa='IPA-030-'+n.id.replace(/-/g,'').toUpperCase();
+    else n.ipa='IPA-040-'+n.id.replace(/-/g,'').toUpperCase();
+  });
+
+  const container=document.getElementById('canvas-container');
+  scene=new THREE.Scene();
+  scene.background=new THREE.Color(0x050508);
+  scene.fog=new THREE.FogExp2(0x050508,0.004);
+
+  camera=new THREE.PerspectiveCamera(55,window.innerWidth/window.innerHeight,0.1,2000);
+  camera.position.set(0,40,220);
+
+  renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
+  renderer.setSize(window.innerWidth,window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  container.appendChild(renderer.domElement);
+
+  controls=new THREE.OrbitControls(camera,renderer.domElement);
+  controls.enableDamping=true;
+  controls.dampingFactor=0.05;
+  controls.minDistance=40;
+  controls.maxDistance=400;
+  controls.autoRotate=false;
+  controls.autoRotateSpeed=0.5;
+
+  raycaster=new THREE.Raycaster();
+  mouse=new THREE.Vector2();
+
+  setupLights();
+  createNetwork();
+  updateStats();
+
+  window.addEventListener('resize',onWindowResize);
+  renderer.domElement.addEventListener('mousemove',onMouseMove);
+  renderer.domElement.addEventListener('click',onMouseClick);
+  document.addEventListener('keydown',onKeyDown);
+  document.getElementById('search').addEventListener('input',onSearch);
+  document.querySelector('#detail .close').addEventListener('click',closeDetail);
+
+  setTimeout(()=>{document.getElementById('loader').classList.add('hidden');},800);
+  animate();
+}
+
+function setupLights(){
+  const ambient=new THREE.AmbientLight(0xffffff,0.4);
+  scene.add(ambient);
+  const dir=new THREE.DirectionalLight(0xffffff,0.6);
+  dir.position.set(50,100,50);
+  scene.add(dir);
+  const point=new THREE.PointLight(0x00d4ff,0.8,200);
+  point.position.set(0,0,0);
+  scene.add(point);
+}
+
+function createNetwork(){
+  // layout nodes
+  const groups={};
+  for(const cat in CATEGORY) groups[cat]=[];
+  NODES.forEach(n=>{
+    if(n.id==='north-star'){
+      n.x=0; n.y=0; n.z=0;
+      createNodeObject(n);
+    }else{
+      groups[n.category].push(n);
+    }
+  });
+
+  for(const cat in groups){
+    const cfg=CATEGORY[cat];
+    const count=groups[cat].length;
+    groups[cat].forEach((n,i)=>{
+      const angle=(i/count)*Math.PI*2 + (cat==='daemon'?0.5:0);
+      const r=cfg.radius;
+      n.x=Math.cos(angle)*r;
+      n.z=Math.sin(angle)*r;
+      n.y=cfg.y + Math.sin(angle*3)*5;
+      createNodeObject(n);
+    });
+  }
+
+  EDGES.forEach(e=>createEdgeObject(e));
+}
+
+function createNodeObject(node){
+  const group=new THREE.Group();
+  group.position.set(node.x,node.y,node.z);
+  group.userData=node;
+
+  // core sphere
+  const geo=new THREE.SphereGeometry(getNodeSize(node),32,32);
+  const mat=new THREE.MeshPhysicalMaterial({
+    color:STATUS[node.status].color,
+    metalness:0.6,
+    roughness:0.2,
+    transparent:true,
+    opacity:0.9,
+    emissive:STATUS[node.status].color,
+    emissiveIntensity:0.25
+  });
+  const sphere=new THREE.Mesh(geo,mat);
+  group.add(sphere);
+
+  // glow shell
+  const glowGeo=new THREE.SphereGeometry(getNodeSize(node)*1.4,32,32);
+  const glowMat=new THREE.MeshBasicMaterial({
+    color:STATUS[node.status].glow,
+    transparent:true,
+    opacity:0.12,
+    side:THREE.BackSide
+  });
+  const glow=new THREE.Mesh(glowGeo,glowMat);
+  glow.name='glow';
+  group.add(glow);
+
+  // rainbow跑马灯 ring
+  const ringGeo=new THREE.TorusGeometry(getNodeSize(node)*1.7,0.12,8,64);
+  const ringMat=new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:0.8});
+  const ring=new THREE.Mesh(ringGeo,ringMat);
+  ring.rotation.x=Math.PI/2;
+  ring.userData={phase:Math.random()*Math.PI*2,speed:0.5+Math.random()*0.5};
+  group.add(ring);
+  rings.push({mesh:ring,node:node});
+
+  // 五色石
+  const stoneGeo=new THREE.IcosahedronGeometry(0.6,0);
+  const stoneMat=new THREE.MeshBasicMaterial({color:WUXING[node.wuxing].color,transparent:true,opacity:0.9});
+  const stone=new THREE.Mesh(stoneGeo,stoneMat);
+  stone.position.set(0,-getNodeSize(node)*1.6,0);
+  stone.name='stone';
+  group.add(stone);
+  stones.push({mesh:stone,node:node});
+
+  // label
+  const label=createLabel(node.name,node.port?`:${node.port}`:'',STATUS[node.status].color);
+  label.position.set(0,getNodeSize(node)*2.4,0);
+  group.add(label);
+  labelSprites.push(label);
+
+  scene.add(group);
+  nodeMeshes.push(group);
+}
+
+function getNodeSize(node){
+  if(node.id==='north-star') return 4.5;
+  if(node.category==='core') return 2.4;
+  if(node.category==='daemon') return 1.6;
+  if(node.category==='external') return 2.0;
+  return 1.8;
+}
+
+function createEdgeObject(edge){
+  const s=NODES.find(n=>n.id===edge.source);
+  const t=NODES.find(n=>n.id===edge.target);
+  if(!s||!t) return;
+
+  const curve=new THREE.QuadraticBezierCurve3(
+    new THREE.Vector3(s.x,s.y,s.z),
+    new THREE.Vector3((s.x+t.x)*0.5,(s.y+t.y)*0.5+8,(s.z+t.z)*0.5),
+    new THREE.Vector3(t.x,t.y,t.z)
+  );
+  const points=curve.getPoints(50);
+  const geo=new THREE.BufferGeometry().setFromPoints(points);
+
+  let color=0x00d4ff;
+  if(edge.type==='guard') color=0xFFD700;
+  if(edge.type==='external') color=0xa78bfa;
+
+  const mat=new THREE.LineBasicMaterial({color:color,transparent:true,opacity:0.35});
+  const line=new THREE.Line(geo,mat);
+
+  // flowing particle
+  const pGeo=new THREE.SphereGeometry(0.25,8,8);
+  const pMat=new THREE.MeshBasicMaterial({color:color,transparent:true,opacity:0.9});
+  const particle=new THREE.Mesh(pGeo,pMat);
+  particle.userData={curve:curve,t:Math.random(),speed:0.002+Math.random()*0.002};
+  scene.add(particle);
+
+  edgeMeshes.push({line:line,particle:particle,type:edge.type,label:edge.label});
+  scene.add(line);
+}
+
+function createLabel(text,sub,color){
+  const canvas=document.createElement('canvas');
+  const ctx=canvas.getContext('2d');
+  canvas.width=256;canvas.height=64;
+  ctx.fillStyle='rgba(0,0,0,0)';
+  ctx.fillRect(0,0,256,64);
+  ctx.font='bold 18px "PingFang SC","Microsoft YaHei",sans-serif';
+  ctx.textAlign='center';
+  ctx.fillStyle='#'+new THREE.Color(color).getHexString();
+  ctx.shadowColor='#'+new THREE.Color(color).getHexString();
+  ctx.shadowBlur=8;
+  ctx.fillText(text,128,26);
+  ctx.font='12px monospace';
+  ctx.fillStyle='#94a3b8';
+  ctx.shadowBlur=0;
+  ctx.fillText(sub,128,46);
+  const tex=new THREE.CanvasTexture(canvas);
+  const mat=new THREE.SpriteMaterial({map:tex,transparent:true,opacity:0.95});
+  const sprite=new THREE.Sprite(mat);
+  sprite.scale.set(16,4,1);
+  return sprite;
+}
+
+function updateStats(){
+  const total=NODES.length;
+  const healthy=NODES.filter(n=>n.status==='healthy').length;
+  document.getElementById('node-count').textContent=total;
+  document.getElementById('edge-count').textContent=EDGES.length;
+  document.getElementById('health-rate').textContent=(healthy/total*100).toFixed(1)+'%';
+}
+
+function animate(){
+  requestAnimationFrame(animate);
+  time+=0.01;
+
+  // rainbow ring animation
+  rings.forEach((r,i)=>{
+    r.mesh.rotation.z+=0.01*r.mesh.userData.speed;
+    const hue=(time*r.mesh.userData.speed+r.mesh.userData.phase)%(Math.PI*2);
+    const colorIndex=Math.floor((hue/(Math.PI*2))*RAINBOW.length)%RAINBOW.length;
+    r.mesh.material.color.setHex(RAINBOW[colorIndex]);
+  });
+
+  // stones rotate
+  stones.forEach(s=>{
+    s.mesh.rotation.y+=0.02;
+    s.mesh.rotation.x+=0.01;
+  });
+
+  // edge particles flow
+  edgeMeshes.forEach(e=>{
+    e.particle.userData.t+=e.particle.userData.speed;
+    if(e.particle.userData.t>1) e.particle.userData.t=0;
+    const pos=e.particle.userData.curve.getPoint(e.particle.userData.t);
+    e.particle.position.copy(pos);
+  });
+
+  // pulse glow
+  nodeMeshes.forEach(g=>{
+    const glow=g.getObjectByName('glow');
+    if(glow){
+      const base=0.1+Math.sin(time*2+g.position.x)*0.04;
+      glow.material.opacity=base;
+      const scale=1.3+Math.sin(time*2+g.position.x)*0.1;
+      glow.scale.setScalar(scale);
+    }
+  });
+
+  controls.update();
+  renderer.render(scene,camera);
+}
+
+function onWindowResize(){
+  camera.aspect=window.innerWidth/window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth,window.innerHeight);
+}
+
+function onMouseMove(event){
+  mouse.x=(event.clientX/window.innerWidth)*2-1;
+  mouse.y=-(event.clientY/window.innerHeight)*2+1;
+  raycaster.setFromCamera(mouse,camera);
+  const intersects=raycaster.intersectObjects(nodeMeshes,true);
+  const tt=document.getElementById('tooltip');
+  if(intersects.length>0){
+    const obj=intersects[0].object.parent;
+    if(obj&&obj.userData&&obj.userData.id){
+      hoveredNode=obj;
+      document.body.style.cursor='pointer';
+      tt.style.opacity=1;
+      tt.style.left=event.clientX+12+'px';
+      tt.style.top=event.clientY+12+'px';
+      const n=obj.userData;
+      tt.querySelector('.tt-title').textContent=`${WUXING[n.wuxing].icon} ${n.name}`;
+      tt.querySelector('.tt-meta').innerHTML=escHtml(`端口: ${n.port||'—'} · 状态: ${STATUS[n.status].name} · 五行: ${WUXING[n.wuxing].name}<br>三才: ${(n.tian*0.3+n.di*0.3+n.ren*0.4).toFixed(3)}`);
+    }
+  }else{
+    hoveredNode=null;
+    document.body.style.cursor='default';
+    tt.style.opacity=0;
+  }
+}
+
+function onMouseClick(event){
+  if(hoveredNode) showDetail(hoveredNode.userData);
+}
+
+function showDetail(node){
+  selectedNode=node;
+  const panel=document.getElementById('detail');
+  const content=document.getElementById('detail-content');
+  panel.classList.add('open');
+  document.getElementById('detail-title').textContent=`${WUXING[node.wuxing].icon} ${node.name}`;
+
+  const sancai=(node.tian*0.3+node.di*0.3+node.ren*0.4).toFixed(3);
+  const portLinks=node.port?`<a href="http://localhost:${node.port}" target="_blank" style="color:#00d4ff">http://localhost:${node.port}</a>`:'—';
+
+  const upstream=EDGES.filter(e=>e.target===node.id).map(e=>{
+    const s=NODES.find(n=>n.id===e.source);
+    return `<div class="edge-row"><b>${e.type==='guard'?'🛡️':'→'}</b> ${s?s.name:e.source} <span style="color:#64748b">${e.label}</span></div>`;
+  }).join('');
+  const downstream=EDGES.filter(e=>e.source===node.id).map(e=>{
+    const t=NODES.find(n=>n.id===e.target);
+    return `<div class="edge-row"><b>${e.type==='guard'?'🛡️':'→'}</b> ${t?t.name:e.target} <span style="color:#64748b">${e.label}</span></div>`;
+  }).join('');
+
+  content.innerHTML=escHtml(`)
+    <span class="tag">${CATEGORY[node.category].name}</span>
+    <span class="tag" style="background:${'#'+new THREE.Color(STATUS[node.status].color).getHexString()}20;color:${'#'+new THREE.Color(STATUS[node.status].color).getHexString()};border-color:${'#'+new THREE.Color(STATUS[node.status].color).getHexString()}40">${STATUS[node.status].name}</span>
+    <span class="tag" style="background:${'#'+new THREE.Color(WUXING[node.wuxing].color).getHexString()}20;color:${'#'+new THREE.Color(WUXING[node.wuxing].color).getHexString()};border-color:${'#'+new THREE.Color(WUXING[node.wuxing].color).getHexString()}40">${WUXING[node.wuxing].icon} 五行·${WUXING[node.wuxing].name}</span>
+    <div class="field"><div class="field-label">描述</div><div class="field-value">${node.description}</div></div>
+    <div class="field"><div class="field-label">端口 / 访问地址</div><div class="field-value">${portLinks}</div></div>
+    <div class="field"><div class="field-label">PID</div><div class="field-value">${node.pid||'—'}</div></div>
+    <div class="field"><div class="field-label">IPA 路由编号</div><div class="field-value" style="font-family:monospace;color:#a78bfa">${node.ipa||'—'}</div></div>
+    <div class="field"><div class="field-label">DNA</div><div class="field-value dna">${node.dna}</div></div>
+    <div class="field"><div class="field-label">三才指数</div>
+      <table><tr><th>维度</th><th>权重</th><th>值</th></tr>
+      <tr><td>天</td><td>0.3</td><td>${node.tian}</td></tr>
+      <tr><td>地</td><td>0.3</td><td>${node.di}</td></tr>
+      <tr><td>人</td><td>0.4</td><td>${node.ren}</td></tr>
+      <tr><td><b>综合</b></td><td>1.0</td><td><b style="color:#00d4ff">${sancai}</b></td></tr></table>
+    </div>
+    <div class="field"><div class="field-label">数字根</div><div class="field-value">dr(${node.port||node.id.length}) = ${node.dr}</div></div>
+    <div class="field"><div class="field-label">参数公式</div><div class="formula">${node.formula}</div></div>
+    <div class="field"><div class="field-label">上游连接</div><div class="field-value">${upstream||'<span style="color:#64748b">无</span>'}</div></div>
+    <div class="field"><div class="field-label">下游连接</div><div class="field-value">${downstream||'<span style="color:#64748b">无</span>'}</div></div>
+  `;
+}
+
+function closeDetail(){
+  document.getElementById('detail').classList.remove('open');
+  selectedNode=null;
+}
+
+function onSearch(e){
+  const q=e.target.value.toLowerCase();
+  nodeMeshes.forEach(g=>{
+    const n=g.userData;
+    const match=n.name.toLowerCase().includes(q)||(n.port&&n.port.toString().includes(q))||n.dna.toLowerCase().includes(q);
+    g.traverse(c=>{if(c.material) c.material.opacity=match||!q?1:0.15;});
+  });
+}
+
+function onKeyDown(e){
+  if(e.key==='f'||e.key==='F') toggleAutoRotate();
+  if(e.key==='r'||e.key==='R') resetView();
+  if(e.key==='h'||e.key==='H') toggleHelp();
+}
+
+function toggleAutoRotate(){
+  autoRotate=!autoRotate;
+  controls.autoRotate=autoRotate;
+  document.getElementById('btn-rotate').textContent=autoRotate?'⏸ 暂停':'⏵ 旋转';
+}
+
+function resetView(){
+  camera.position.set(0,30,180);
+  controls.target.set(0,0,0);
+  controls.update();
+}
+
+function toggleFullscreen(){
+  if(!document.fullscreenElement) document.documentElement.requestFullscreen();
+  else document.exitFullscreen();
+}
+
+function toggleHelp(){
+  document.getElementById('help').classList.toggle('open');
+}
+
+function toggleFormula(){
+  const p=document.getElementById('formula-panel');
+  p.style.display=p.style.display==='none'?'block':'none';
+}
+
+function refreshNetwork(){
+  // 模拟实时状态刷新：随机扰动三才指数并更新健康度
+  NODES.forEach(n=>{
+    if(n.id==='north-star') return;
+    const delta=(Math.random()-0.5)*0.04;
+    n.tian=Math.max(0,Math.min(1,n.tian+delta));
+    n.di=Math.max(0,Math.min(1,n.di+delta));
+    n.ren=Math.max(0,Math.min(1,n.ren+delta));
+    n.formula=`S = 0.3×${n.tian.toFixed(2)} + 0.3×${n.di.toFixed(2)} + 0.4×${n.ren.toFixed(2)} = ${(n.tian*0.3+n.di*0.3+n.ren*0.4).toFixed(3)}`;
+  });
+  if(selectedNode) showDetail(selectedNode);
+  updateStats();
+}
+
+init();
+</script>
+</body>
+</html>

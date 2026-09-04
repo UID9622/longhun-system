@@ -1,0 +1,17 @@
+{
+  "code": "TEST-001",
+  "name": "测试角色",
+  "role": "主角",
+  "dna": "#龍芯⚡️2026-08-19-CHAR-TEST-001-DE6794A4-UID9622",
+  "anchors": {
+    "face": "圆脸",
+    "height": "170cm",
+    "build": "匀称",
+    "age": "20",
+    "mark": "无",
+    "costume": "白衣"
+  },
+  "persona": "",
+  "seed": "999",
+  "created": "2026-08-19T12:29:29.825578"
+}

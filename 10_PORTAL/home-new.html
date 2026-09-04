@@ -1,0 +1,746 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-ce518524 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="龍魂系统 - 为人民服务的中国自主AI系统。数字主权守护者·三才算法引擎·20人格矩阵。">
+<meta name="keywords" content="龍魂,AI,人工智能,数字主权,中國自研,诸葛鑫,UID9622,CNSH,洛书,三才算法">
+<meta property="og:title" content="龍魂系统 · 为人民服务的AI">
+<meta property="og:description" content="数字主权守护者·中国自主知识产权·三才算法引擎">
+<meta property="og:url" content="https://uid9622.cn">
+<meta property="og:type" content="website">
+<title>龍魂系统 · 为人民服务的AI</title>
+<style>
+:root {
+  --bg: #0a0a14;
+  --bg2: #111121;
+  --gold: #d4a574;
+  --gold-light: #edd5b8;
+  --gold-dark: #b8854a;
+  --text: #e8dcc8;
+  --text-dim: #a09080;
+  --red: #c0392b;
+  --green: #27ae60;
+  --border: rgba(212,165,116,.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+a{color:var(--gold);text-decoration:none;transition:color .2s}
+a:hover{color:var(--gold-light)}
+
+/* ── Navbar ── */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:9999;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
+.navbar.scrolled{background:rgba(10,10,20,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);box-shadow:0 1px 20px rgba(0,0,0,.3)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:800;color:var(--gold);letter-spacing:2px}
+.nav-logo span{font-size:12px;color:var(--text-dim);letter-spacing:1px;font-weight:400}
+.nav-links{display:flex;gap:28px;align-items:center;list-style:none}
+.nav-links a{font-size:14px;color:var(--text-dim);position:relative;padding:4px 0}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after{width:100%}
+.nav-links a.active{color:var(--gold)}
+.nav-chat-btn{display:flex;align-items:center;gap:6px;padding:8px 18px;border-radius:20px;border:1px solid var(--gold);background:transparent;color:var(--gold);font-size:13px;cursor:pointer;transition:all .3s}
+.nav-chat-btn:hover{background:rgba(212,165,116,.1);box-shadow:0 0 16px rgba(212,165,116,.15)}
+.nav-chat-btn .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:statusPulse 2s infinite}
+@keyframes statusPulse{0%,100%{opacity:1}50%{opacity:.4}}
+.nav-toggle{display:none;flex-direction:column;gap:4px;cursor:pointer;z-index:10000}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--gold);transition:all .3s}
+.nav-menu.open .nav-toggle span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.nav-menu.open .nav-toggle span:nth-child(2){opacity:0}
+.nav-menu.open .nav-toggle span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+@media(max-width:768px){
+  .nav-links{position:fixed;inset:0;flex-direction:column;justify-content:center;background:rgba(10,10,20,.98);backdrop-filter:blur(20px);gap:32px;opacity:0;pointer-events:none;transition:opacity .3s}
+  .nav-menu.open .nav-links{opacity:1;pointer-events:all}
+  .nav-links a{font-size:20px}
+  .nav-toggle{display:flex}
+}
+
+/* ── Hero ── */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 24px 80px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(212,165,116,.06),transparent),radial-gradient(ellipse 60% 80% at 80% 80%,rgba(212,165,116,.04),transparent),linear-gradient(180deg,var(--bg),var(--bg2))}
+.hero-bg::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a574' fill-opacity='.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:.5;pointer-events:none}
+.hero-content{position:relative;z-index:1;max-width:720px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;border:1px solid rgba(212,165,116,.2);background:rgba(212,165,116,.06);font-size:12px;color:var(--gold);margin-bottom:28px;letter-spacing:1px}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:statusPulse 2s infinite}
+.hero h1{font-size:clamp(36px,7vw,64px);font-weight:900;line-height:1.15;margin-bottom:16px;background:linear-gradient(135deg,var(--gold-light) 0%,var(--gold) 40%,var(--gold-dark) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:clamp(16px,2.5vw,20px);color:var(--text-dim);margin-bottom:36px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.7}
+.hero-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:24px;border:none;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);font-size:15px;font-weight:600;cursor:pointer;transition:all .3s;text-decoration:none}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(212,165,116,.35);color:var(--bg)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:24px;border:1px solid var(--gold);background:transparent;color:var(--gold);font-size:15px;cursor:pointer;transition:all .3s;text-decoration:none}
+.btn-outline:hover{background:rgba(212,165,116,.08);box-shadow:0 4px 16px rgba(212,165,116,.15)}
+.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);animation:bounce 2s infinite;opacity:.4;cursor:pointer}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+.hero-scroll svg{width:20px;height:20px;stroke:var(--gold)}
+
+/* ── Sections ── */
+section{padding:80px 24px}
+.section-label{text-align:center;font-size:12px;color:var(--gold);text-transform:uppercase;letter-spacing:3px;margin-bottom:12px}
+.section-title{text-align:center;font-size:clamp(24px,4vw,36px);font-weight:700;margin-bottom:12px;color:var(--gold-light)}
+.section-desc{text-align:center;color:var(--text-dim);max-width:560px;margin:0 auto 48px;font-size:15px;line-height:1.7}
+.container{max-width:1100px;margin:0 auto}
+
+/* ── Stats ── */
+.stats{position:relative;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat-item{padding:16px}
+.stat-number{font-size:clamp(28px,5vw,42px);font-weight:800;color:var(--gold);display:block;line-height:1.2}
+.stat-label{font-size:13px;color:var(--text-dim);margin-top:6px}
+@media(max-width:640px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ── Features ── */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.feature-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:28px;transition:all .3s;position:relative;overflow:hidden}
+.feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .3s}
+.feature-card:hover::before{opacity:1}
+.feature-card:hover{border-color:rgba(212,165,116,.25);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.3)}
+.feature-icon{font-size:28px;margin-bottom:14px;display:block}
+.feature-card h3{font-size:17px;color:var(--gold-light);margin-bottom:8px}
+.feature-card p{font-size:13px;color:var(--text-dim);line-height:1.65}
+
+/* ── Services ── */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.service-card{display:flex;align-items:flex-start;gap:14px;padding:20px;border-radius:12px;border:1px solid var(--border);background:var(--bg2);transition:all .3s;text-decoration:none;color:var(--text)}
+.service-card:hover{border-color:rgba(212,165,116,.3);transform:translateY(-1px);box-shadow:0 4px 20px rgba(0,0,0,.25)}
+.service-icon{font-size:22px;flex-shrink:0;margin-top:2px}
+.service-card h4{font-size:15px;color:var(--gold-light);margin-bottom:4px}
+.service-card p{font-size:12px;color:var(--text-dim);line-height:1.5}
+.service-tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;margin-top:6px;background:rgba(212,165,116,.1);color:var(--gold)}
+
+/* ── Chat Section ── */
+.chat-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.chat-section-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.chat-section-text h2{font-size:clamp(22px,3.5vw,32px);color:var(--gold-light);margin-bottom:16px}
+.chat-section-text p{color:var(--text-dim);font-size:15px;line-height:1.7;margin-bottom:24px}
+.chat-section-preview{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:24px;position:relative}
+.chat-section-preview .chat-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.chat-section-preview .chat-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--bg);font-weight:700}
+.chat-section-preview .chat-msg{font-size:13px;color:var(--text-dim);padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.03);margin-bottom:8px;max-width:85%}
+.chat-section-preview .chat-msg.right{background:rgba(212,165,116,.1);color:var(--text);margin-left:auto}
+.chat-section-preview .chat-input-demo{display:flex;align-items:center;gap:8px;margin-top:16px;padding:8px 12px;border-radius:20px;border:1px solid var(--border);background:rgba(255,255,255,.02)}
+.chat-section-preview .chat-input-demo span{flex:1;color:rgba(255,255,255,.2);font-size:12px}
+.chat-section-preview .chat-input-demo .fake-send{width:28px;height:28px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--bg)}
+@media(max-width:768px){.chat-section-inner{grid-template-columns:1fr;gap:32px}}
+
+/* ── DNA Banner ── */
+.dna-banner{text-align:center;padding:40px 24px}
+.dna-banner .dna-line{font-family:"SF Mono","Fira Code",monospace;font-size:12px;color:var(--text-dim);word-break:break-all;max-width:700px;margin:0 auto;line-height:1.8}
+.dna-banner .gpg{font-size:11px;color:rgba(255,255,255,.2);margin-top:8px}
+
+/* ── Contact ── */
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.contact-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:28px;text-align:center;transition:all .3s}
+.contact-card:hover{border-color:rgba(212,165,116,.25);transform:translateY(-2px)}
+.contact-icon{font-size:32px;margin-bottom:12px}
+.contact-card h4{font-size:15px;color:var(--gold-light);margin-bottom:6px}
+.contact-card p,.contact-card a{font-size:13px;color:var(--text-dim)}
+@media(max-width:640px){.contact-grid{grid-template-columns:1fr}}
+
+/* ── Footer ── */
+.footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border)}
+.footer p{font-size:12px;color:rgba(255,255,255,.2);line-height:2}
+.footer .separator{margin:0 8px;opacity:.3}
+
+/* ── Animations ── */
+.reveal{opacity:0;transform:translateY(24px);transition:all .6s ease}
+.reveal.revealed{opacity:1;transform:translateY(0)}
+
+/* ── Toast ── */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);padding:12px 24px;border-radius:10px;background:var(--bg2);border:1px solid var(--border);color:var(--text);font-size:13px;z-index:99999;opacity:0;pointer-events:none;transition:all .3s}
+.toast.show{opacity:1;pointer-events:all}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <a href="#" class="nav-logo">龍魂<span>· UID9622</span></a>
+  <div class="nav-menu" id="navMenu">
+    <ul class="nav-links">
+      <li><a href="/" class="nav-link" style="color:var(--gold);font-weight:600;">🧩 积木总控台</a></li>
+      <li><a href="#features" class="nav-link">能力</a></li>
+      <li><a href="#services" class="nav-link">服务</a></li>
+      <li><a href="/video-studio/" class="nav-link">🎬 视频工坊</a></li>
+      <li><a href="/pathfinder-lab/" class="nav-link">🧭 路径规划</a></li>
+      <li><a href="/activation-lab/" class="nav-link">🎫 激活经济舱</a></li>
+      <li><a href="/dashboard/" class="nav-link">🖥 运行监控</a></li>
+      <li><a href="https://app.notion.com/p/3ab7125a9c9f8185beb0f22f9f0eeec7" class="nav-link" target="_blank">📋 引擎注册表</a></li>
+      <li><a href="/knowledge/" class="nav-link">📚 记忆库</a></li>
+      <li><a href="#chat-section" class="nav-link">AI对话</a></li>
+      <li><a href="#contact" class="nav-link">联系</a></li>
+    </ul>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px">
+    <button class="nav-chat-btn" onclick="document.getElementById('cwBubble')?.click()">
+      <span class="dot"></span> AI对话
+    </button>
+    <div class="nav-toggle" id="navToggle">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span> v2.0 · 龍魂人民版</div>
+    <h1>龍魂系统</h1>
+    <p>中国自主AI引擎 · 19年退伍军人打造<br>为人民服务，不为资本黑箱服务。<br>数字主权，握在老百姓自己手里。</p>
+    <div class="hero-buttons">
+      <a href="/" class="btn-primary" style="background:linear-gradient(135deg,#f0c860,#d4a843);">
+        🧩 积木总控台
+      </a>
+      <a href="#chat-section" class="btn-outline">了解更多</a>
+    </div>
+  </div>
+  <a href="#stats" class="hero-scroll">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </a>
+</section>
+
+<!-- Stats -->
+<section class="stats" id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item"><span class="stat-number" data-target="20">20</span><span class="stat-label">AI人格</span></div>
+      <div class="stat-item"><span class="stat-number" data-target="192">192</span><span class="stat-label">执行引擎</span></div>
+      <div class="stat-item"><span class="stat-number" data-target="45555">45,555</span><span class="stat-label">训练数据条</span></div>
+      <div class="stat-item"><span class="stat-number" data-target="273">273</span><span class="stat-label">知识卡片</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section id="features">
+  <div class="container">
+    <div class="section-label">核心能力</div>
+    <div class="section-title">为什么选择龍魂</div>
+    <div class="section-desc">不是又一个AI助手。是扎根中国土壤、服务普通人的数字主权引擎。</div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <span class="feature-icon">🔐</span>
+        <h3>数字主权守护</h3>
+        <p>数据不出境、不上传平台。你的数据你做主——端侧加密、本地优先、云上只存密文。</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">🧠</span>
+        <h3>20人格矩阵</h3>
+        <p>16核心人格+安全团队+3子系统。从战略推演到情感陪伴，从代码审计到创意爆发——各司其职。</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">🏛️</span>
+        <h3>中国哲学底座</h3>
+        <p>太极·洛书369·六十四卦·五行八卦为底座。不是套皮——是原生可计算化的中华哲学引擎。</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">🛡️</span>
+        <h3>五层安全防线</h3>
+        <p>沙箱隔离·哈希脱敏·四级熔断·十道闸口·三色审计。从代码到部署，每一层都有安全守卫。</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">🌐</span>
+        <h3>CNSH编程语言</h3>
+        <p>中文神经符号混合语言（CNSH）。用中文写AI逻辑——不为兼容放弃文化根脉。</p>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">📡</span>
+        <h3>全生命周期追溯</h3>
+        <p>每条产出都有DNA追溯码（干支四柱+卦名+哈希）。谁做的、什么时候、改了什么——全程可查。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+  <div class="container">
+    <div class="section-label">服务入口</div>
+    <div class="section-title">龍魂服务矩阵</div>
+    <div class="section-desc">从知识到安全，从审计到创作——龍魂体系的完整服务入口。</div>
+    <div class="services-grid">
+      <a href="https://uid9622.cn/knowledge" class="service-card" target="_blank">
+        <span class="service-icon">📚</span>
+        <div>
+          <h4>知识中枢</h4>
+          <p>273张知识卡片·18分类·语义检索</p>
+          <span class="service-tag">热门</span>
+        </div>
+      </a>
+      <a href="https://uid9622.cn/browser-historian" class="service-card" target="_blank">
+        <span class="service-icon">🌐</span>
+        <div>
+          <h4>浏览器史官</h4>
+          <p>浏览记录本地索引·隐私优先</p>
+        </div>
+      </a>
+      <a href="https://uid9622.cn/hunter" class="service-card" target="_blank">
+        <span class="service-icon">🎯</span>
+        <div>
+          <h4>猎手排行榜</h4>
+          <p>算法猎手·漏洞挖掘·安全审计</p>
+        </div>
+      </a>
+      <a href="https://uid9622.cn/five-harms-expose" class="service-card" target="_blank">
+        <span class="service-icon">⚖️</span>
+        <div>
+          <h4>五害曝光台</h4>
+          <p>反诈·反霸·反黑·反假·反套</p>
+        </div>
+      </a>
+      <a href="https://uid9622.cn/national-soul" class="service-card" target="_blank">
+        <span class="service-icon">🏮</span>
+        <div>
+          <h4>民族魂</h4>
+          <p>文化传承·历史记忆·精神家园</p>
+        </div>
+      </a>
+      <a href="https://uid9622.cn/cnsh-ruyi" class="service-card" target="_blank">
+        <span class="service-icon">如意</span>
+        <div>
+          <h4>CNSH如意</h4>
+          <p>中文AI编程·神经符号混合</p>
+          <span class="service-tag">新</span>
+        </div>
+      </a>
+      <a href="https://uid9622.cn/memory-eternity" class="service-card" target="_blank">
+        <span class="service-icon">💎</span>
+        <div>
+          <h4>永恒记忆</h4>
+          <p>数字遗产·人生档案·不可篡改</p>
+        </div>
+      </a>
+      <a href="https://uid9622.cn/soft-culture" class="service-card" target="_blank">
+        <span class="service-icon">📖</span>
+        <div>
+          <h4>软文化</h4>
+          <p>AI时代的人文思考·文化评论</p>
+        </div>
+      </a>
+      <a href="https://uid9622.cn/warp-lab" class="service-card" target="_blank">
+        <span class="service-icon">🚀</span>
+        <div>
+          <h4>曲速引擎推演舱</h4>
+          <p>Alcubierre度量·3D曲速泡可视化</p>
+          <span class="service-tag">新</span>
+        </div>
+      </a>
+      <a href="https://uid9622.cn/pathfinder-lab" class="service-card" target="_blank">
+        <span class="service-icon">🧭</span>
+        <div>
+          <h4>路径规划推演舱</h4>
+          <p>八卦阵·A*·蚁群·D* Lite·三六九不动点</p>
+          <span class="service-tag">新</span>
+        </div>
+      </a>
+      <a href="https://uid9622.cn/activation-lab" class="service-card" target="_blank">
+        <span class="service-icon">🎫</span>
+        <div>
+          <h4>激活经济舱</h4>
+          <p>一元起步·实名支付·MFA绑定·主权激活</p>
+          <span class="service-tag">新</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- AI Chat Section -->
+<section class="chat-section" id="chat-section">
+  <div class="container">
+    <div class="chat-section-inner">
+      <div class="chat-section-text reveal">
+        <div class="section-label" style="text-align:left">AI 对话</div>
+        <h2>和龍魂直接对话</h2>
+        <p>点击右下角悬浮气泡，或点击下方按钮打开AI对话框。<br>龍魂AI基于19年积累的知识体系和自主训练模型，回答关于龍魂系统、技术问题、知识查询等各类问题。</p>
+        <button class="btn-primary" onclick="document.getElementById('cwBubble')?.click()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+          打开AI对话框
+        </button>
+        <p style="font-size:11px;color:rgba(255,255,255,.15);margin-top:12px">对话不会上传云端 · 本地浏览器存储 · 隐私优先</p>
+      </div>
+      <div class="chat-section-preview reveal">
+        <div class="chat-header">
+          <div class="chat-avatar">龍</div>
+          <div style="font-size:13px;color:var(--gold-light);font-weight:600">龍魂 AI</div>
+        </div>
+        <div class="chat-msg">你好！我是龍魂AI助手 👋<br>有什么可以帮你的？</div>
+        <div class="chat-msg right">龍魂系统是什么？</div>
+        <div class="chat-msg">龍魂系统是由退伍军人诸葛鑫（UID9622）创建的中国自主AI体系，基于三才算法和洛书369哲学底座，包含20个人格矩阵和192个执行引擎...<br><br><span style="font-size:10px;color:rgba(255,255,255,.2)">#龍芯⚡️CHAT-a3b7f0e2</span></div>
+        <div class="chat-msg right">它的核心原则是什么？</div>
+        <div class="chat-msg"><span class="dot-flash" style="display:inline-block;animation:dotBounce 1.4s infinite">.</span><span class="dot-flash" style="display:inline-block;animation:dotBounce 1.4s infinite;animation-delay:.2s">.</span><span class="dot-flash" style="display:inline-block;animation:dotBounce 1.4s infinite;animation-delay:.4s">.</span></div>
+        <div class="chat-input-demo">
+          <span>随时提问...</span>
+          <div class="fake-send">➤</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DNA Banner -->
+<section class="dna-banner">
+  <div class="container">
+    <div style="margin-bottom:12px;font-size:11px;color:var(--gold)">DNA · 全生命周期追溯</div>
+    <div class="dna-line">#龍芯⚡️丙午·乙未·丁丑·☰乾-UID9622-OFFICIAL-v2.0-a3b7f0e2</div>
+    <div class="gpg">GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">联系</div>
+    <div class="section-title">联系我们</div>
+    <div class="section-desc">龍魂是战友关系——不是客服。直接说，不绕。</div>
+    <div class="contact-grid">
+      <div class="contact-card reveal">
+        <div class="contact-icon">📧</div>
+        <h4>邮箱</h4>
+        <a href="mailto:uid9622@uid9622.cn">uid9622@uid9622.cn</a>
+      </div>
+      <div class="contact-card reveal">
+        <div class="contact-icon">🔗</div>
+        <h4>GitHub</h4>
+        <a href="https://github.com/uid9622" target="_blank">github.com/uid9622</a>
+      </div>
+      <div class="contact-card reveal">
+        <div class="contact-icon">📝</div>
+        <h4>CSDN</h4>
+        <a href="https://blog.csdn.net/uid9622" target="_blank">blog.csdn.net/uid9622</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>龍魂系统 © 2026 诸葛鑫（UID9622）<span class="separator">|</span>
+  协议: CC BY-NC-SA 4.0<span class="separator">|</span>
+  为人民服务<span class="separator">|</span>
+  <a href="https://uid9622.cn">uid9622.cn</a></p>
+  <p style="margin-top:6px">中国自主知识产权 · 不删只冻结 · 全生命周期DNA追溯</p>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- AI Chat Widget -->
+<script src="/chat-widget.js"></script>
+
+<script>
+// Navbar scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Mobile nav
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+navToggle.addEventListener('click', () => navMenu.classList.toggle('open'));
+document.querySelectorAll('.nav-link').forEach(l => {
+  l.addEventListener('click', () => navMenu.classList.remove('open'));
+});
+
+// Active nav link
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+  });
+  document.querySelectorAll('.nav-link').forEach(l => {
+    l.classList.toggle('active', l.getAttribute('href') === `#${current}`);
+  });
+});
+
+// Stats counter animation
+const statNumbers = document.querySelectorAll('.stat-number');
+const statsSection = document.querySelector('.stats');
+let animated = false;
+
+function animateStats() {
+  statNumbers.forEach(num => {
+    const target = parseInt(num.getAttribute('data-target'), 10);
+    const suffix = num.textContent.includes(',') ? num.textContent.replace(/^[0-9,]+/, '').trim() : '';
+    const start = performance.now();
+    const dur = 2000;
+    function tick(ts) {
+      const p = Math.min((ts - start) / dur, 1);
+      const ease = 1 - Math.pow(1 - p, 4);
+      const val = Math.floor(ease * target);
+      num.textContent = suffix ? val.toLocaleString() + suffix : val;
+      if (p < 1) requestAnimationFrame(tick);
+      else num.textContent = suffix ? target.toLocaleString() + suffix : target;
+    }
+    requestAnimationFrame(tick);
+  });
+}
+
+const statsObs = new IntersectionObserver(e => {
+  if (e[0].isIntersecting && !animated) { animated = true; animateStats(); }
+}, { threshold: .5 });
+if (statsSection) statsObs.observe(statsSection);
+
+// Reveal animations
+const revealObs = new IntersectionObserver(e => {
+  e.forEach(el => { if (el.isIntersecting) el.target.classList.add('revealed'); });
+}, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+</script>
+
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

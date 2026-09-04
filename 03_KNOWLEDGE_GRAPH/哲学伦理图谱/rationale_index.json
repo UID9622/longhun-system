@@ -1,0 +1,75 @@
+{
+  "rationale_nodes": [
+    {
+      "id": "data_sovereignty_in_user",
+      "label": "数据主权在用户",
+      "type": "principle",
+      "dna": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "file": "03_KNOWLEDGE_GRAPH/哲学伦理图谱/data_sovereignty_in_user.md"
+    },
+    {
+      "id": "no_human_rights_violation",
+      "label": "不得侵犯人权",
+      "type": "principle",
+      "dna": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "file": "03_KNOWLEDGE_GRAPH/哲学伦理图谱/no_human_rights_violation.md"
+    },
+    {
+      "id": "three_color_audit",
+      "label": "三色审计·三次阈值",
+      "type": "principle",
+      "dna": "#龍芯⚡️2026-04-22-LONGHUN-IMMUTABLE-PHILOSOPHY-v1.0",
+      "file": "03_KNOWLEDGE_GRAPH/哲学伦理图谱/three_color_audit.md"
+    },
+    {
+      "id": "sancai_order",
+      "label": "三才排序·忠孝义铁律",
+      "type": "doctrine",
+      "dna": "#UID9622⚡️2026-06-16-KNOWLEDGE-MATRIX-MASTER-v2.0",
+      "file": "03_KNOWLEDGE_GRAPH/哲学伦理图谱/sancai_order.md"
+    },
+    {
+      "id": "fixed_point",
+      "label": "洛书九宫→不动点→主权锚定",
+      "type": "derivation",
+      "dna": "#龍芯⚡️2026-04-22-LONGHUN-IMMUTABLE-PHILOSOPHY-v1.0",
+      "file": "03_KNOWLEDGE_GRAPH/哲学伦理图谱/fixed_point.md"
+    },
+    {
+      "id": "dragon_vein_trace",
+      "label": "龍脉留痕·留痕即主权",
+      "type": "belief",
+      "dna": "#龍芯⚡️2026-04-22-LONGHUN-IMMUTABLE-PHILOSOPHY-v1.0",
+      "file": "03_KNOWLEDGE_GRAPH/哲学伦理图谱/dragon_vein_trace.md"
+    },
+    {
+      "id": "local_first",
+      "label": "数据绝对本地化·干净终端",
+      "type": "doctrine",
+      "dna": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "file": "03_KNOWLEDGE_GRAPH/哲学伦理图谱/local_first.md"
+    },
+    {
+      "id": "china_sovereignty",
+      "label": "中国主权不可侵犯",
+      "type": "principle",
+      "dna": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "file": "03_KNOWLEDGE_GRAPH/哲学伦理图谱/china_sovereignty.md"
+    },
+    {
+      "id": "cnsh_open_declaration",
+      "label": "CNSH四条铁律·开放与主权",
+      "type": "doctrine",
+      "dna": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "file": "03_KNOWLEDGE_GRAPH/哲学伦理图谱/cnsh_open_declaration.md"
+    },
+    {
+      "id": "yijing_world_model",
+      "label": "易经世界模型·可计算宇宙",
+      "type": "source",
+      "dna": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "file": "03_KNOWLEDGE_GRAPH/哲学伦理图谱/yijing_world_model.md"
+    }
+  ],
+  "count": 10
+}

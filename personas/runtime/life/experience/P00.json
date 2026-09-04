@@ -1,0 +1,14 @@
+{
+  "persona": "P00",
+  "items": [
+    {
+      "id": "E-20260813-001",
+      "at": "2026-08-13T17:27:17",
+      "kind": "process",
+      "lesson": "意图解析是入口闸, 先对齐真实命令集再分发",
+      "improve": "意图→命令映射前先查COMMAND_INDEX防假路由",
+      "applied": false,
+      "source_task": "核心锚学习回路接入"
+    }
+  ]
+}

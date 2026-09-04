@@ -1,0 +1,15 @@
+[Unit]
+Description=AELUS WORLD Φ 值动态模拟服务 (WebSocket :8901)
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /opt/longhun-system/services/phi_server.py --mode random_walk
+Restart=always
+RestartSec=3
+User=root
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,363 @@
+# 🐉 龍魂·云浏览器 全平台配置 v2.0
+# DNA: #龍芯⚡️丙午·乙巳·癸酉·癸亥·䷵归妹-☰乾-PLATFORMS-ALL-v2.0-BUILD
+# 创建者: 诸葛鑫（UID9622）
+# License: MulanPSL v2
+# 平台数: 39 · 6 大类 · 自然语言指令调度
+
+platforms:
+  # ================= 一、内容创作与分发 =================
+  csdn:
+    name: CSDN
+    url: https://blog.csdn.net
+    login_required: true
+    actions: [publish_article, edit_article, manage_column]
+    description: 技术博客发布
+    aliases: [博客, 技术博客, csdn博客]
+    category: content
+
+  zhihu:
+    name: 知乎
+    url: https://www.zhihu.com
+    login_required: true
+    actions: [publish_answer, publish_article, publish_idea]
+    description: 知识问答社区
+    aliases: [知乎, 问答]
+    category: content
+
+  wechat_mp:
+    name: 微信公众号
+    url: https://mp.weixin.qq.com
+    login_required: true
+    actions: [mass_send, publish, manage_material, view_analytics]
+    description: 微信内容平台
+    aliases: [公众号, 微信公众, 微信公号]
+    category: content
+
+  weibo:
+    name: 微博
+    url: https://weibo.com
+    login_required: true
+    actions: [post, repost, comment, hot_search, topic]
+    description: 社交媒体
+    aliases: [微博, 热搜]
+    category: social
+
+  douyin:
+    name: 抖音
+    url: https://www.douyin.com
+    login_required: true
+    actions: [publish_video, manage, comment]
+    description: 短视频平台
+    aliases: [抖音, 短视频]
+    category: content
+
+  bilibili:
+    name: B站
+    url: https://www.bilibili.com
+    login_required: true
+    actions: [publish_video, publish_dynamic, comment]
+    description: 视频社区
+    aliases: [b站, 哔哩哔哩]
+    category: content
+
+  toutiao:
+    name: 头条号
+    url: https://mp.toutiao.com
+    login_required: true
+    actions: [publish_article, publish_video, manage]
+    description: 内容分发平台
+    aliases: [头条号, 头条, 今日头条]
+    category: content
+
+  xiaohongshu:
+    name: 小红书
+    url: https://www.xiaohongshu.com
+    login_required: true
+    actions: [publish_note, manage, interact]
+    description: 生活方式社区
+    aliases: [小红书, 种草]
+    category: social
+
+  juejin:
+    name: 掘金
+    url: https://juejin.cn
+    login_required: true
+    actions: [publish_article, edit]
+    description: 技术社区
+    aliases: [掘金]
+    category: content
+
+  cnblogs:
+    name: 博客园
+    url: https://www.cnblogs.com
+    login_required: true
+    actions: [publish_article, edit]
+    description: 技术博客
+    aliases: [博客园]
+    category: content
+
+  # ================= 二、代码与开源 =================
+  github:
+    name: GitHub
+    url: https://github.com
+    login_required: true
+    actions: [create_pr, create_issue, create_release, manage_repo]
+    description: 代码托管
+    aliases: [github, 代码托管]
+    category: code
+
+  gitee:
+    name: Gitee
+    url: https://gitee.com
+    login_required: true
+    actions: [create_pr, create_issue, manage_repo]
+    description: 国内代码托管
+    aliases: [码云, gitee]
+    category: code
+
+  gitlab:
+    name: GitLab
+    url: https://gitlab.com
+    login_required: true
+    actions: [create_mr, trigger_ci, manage]
+    description: DevOps平台
+    aliases: [gitlab]
+    category: code
+
+  oschina:
+    name: 开源中国
+    url: https://www.oschina.net
+    login_required: true
+    actions: [publish_project, publish_article]
+    description: 开源社区
+    aliases: [开源中国, oschina]
+    category: code
+
+  coding:
+    name: Coding
+    url: https://coding.net
+    login_required: true
+    actions: [trigger_pipeline, manage]
+    description: 云端开发平台
+    aliases: [coding]
+    category: code
+
+  gitcode:
+    name: GitCode
+    url: https://gitcode.com
+    login_required: true
+    actions: [sync, manage]
+    description: 代码托管平台
+    aliases: [gitcode]
+    category: code
+
+  # ================= 三、云平台与 AI =================
+  huawei_cloud:
+    name: 华为云
+    url: https://console.huaweicloud.com
+    login_required: true
+    actions: [manage_server, monitor, view_billing]
+    description: 华为云平台
+    aliases: [华为云, 华为]
+    category: cloud
+
+  aliyun:
+    name: 阿里云
+    url: https://home.console.aliyun.com
+    login_required: true
+    actions: [manage_server, monitor, view_billing, open_sms_service]
+    description: 阿里云平台
+    aliases: [阿里云, 阿里]
+    category: cloud
+
+  tencent_cloud:
+    name: 腾讯云
+    url: https://console.cloud.tencent.com
+    login_required: true
+    actions: [manage_server, monitor, view_billing]
+    description: 腾讯云平台
+    aliases: [腾讯云, 腾讯]
+    category: cloud
+
+  deepseek:
+    name: DeepSeek
+    url: https://platform.deepseek.com
+    login_required: true
+    actions: [view_usage, manage, view_api_keys]
+    description: AI 平台
+    aliases: [deepseek, 深度求索]
+    category: ai
+
+  kimi:
+    name: Kimi
+    url: https://kimi.moonshot.cn
+    login_required: true
+    actions: [chat, manage]
+    description: AI 助手
+    aliases: [kimi, 月之暗面]
+    category: ai
+
+  openai:
+    name: OpenAI
+    url: https://platform.openai.com
+    login_required: true
+    actions: [view_usage, manage, view_billing]
+    description: AI 平台
+    aliases: [openai, gpt]
+    category: ai
+
+  # ================= 四、知识管理与协作 =================
+  notion:
+    name: Notion
+    url: https://www.notion.so
+    login_required: true
+    actions: [sync_database, create_page, edit_page, query]
+    description: 知识管理
+    aliases: [notion, 知识库]
+    category: knowledge
+
+  feishu:
+    name: 飞书
+    url: https://www.feishu.cn
+    login_required: true
+    actions: [send_message, create_doc, manage]
+    description: 企业协作
+    aliases: [飞书, lark]
+    category: collaboration
+
+  dingtalk:
+    name: 钉钉
+    url: https://www.dingtalk.com
+    login_required: true
+    actions: [send_message, manage]
+    description: 企业协作
+    aliases: [钉钉]
+    category: collaboration
+
+  wecom:
+    name: 企业微信
+    url: https://work.weixin.qq.com
+    login_required: true
+    actions: [send_message, manage]
+    description: 企业通信
+    aliases: [企业微信]
+    category: collaboration
+
+  slack:
+    name: Slack
+    url: https://slack.com
+    login_required: true
+    actions: [send_message, manage_channel]
+    description: 团队协作
+    aliases: [slack]
+    category: collaboration
+
+  discord:
+    name: Discord
+    url: https://discord.com
+    login_required: true
+    actions: [send_message, manage_channel]
+    description: 社区平台
+    aliases: [discord]
+    category: social
+
+  # ================= 五、社区与社交 =================
+  wechat:
+    name: 微信
+    url: https://weixin.qq.com
+    login_required: true
+    actions: [manage_group]
+    description: 即时通讯
+    aliases: [微信]
+    category: social
+
+  qq:
+    name: QQ
+    url: https://im.qq.com
+    login_required: true
+    actions: [manage_group, qzone]
+    description: 即时通讯
+    aliases: [qq]
+    category: social
+
+  jike:
+    name: 即刻
+    url: https://www.okjike.com
+    login_required: true
+    actions: [post_dynamic, interact]
+    description: 社交社区
+    aliases: [即刻]
+    category: social
+
+  douban:
+    name: 豆瓣
+    url: https://www.douban.com
+    login_required: true
+    actions: [post_broadcast, manage_group]
+    description: 文化社区
+    aliases: [豆瓣]
+    category: social
+
+  # ================= 六、工具服务 =================
+  baidu:
+    name: 百度
+    url: https://www.baidu.com
+    login_required: false
+    actions: [search]
+    description: 通用搜索
+    aliases: [百度, 搜索, baidu]
+    category: tool
+
+  email:
+    name: 邮箱
+    url: https://mail.163.com
+    login_required: true
+    actions: [send, receive, manage]
+    description: 邮件服务
+    aliases: [邮件, 邮箱, email]
+    category: tool
+
+  sms:
+    name: 短信服务
+    url: https://dysms.console.aliyun.com
+    login_required: true
+    actions: [send_bulk, manage, view_quota]
+    description: 短信服务（阿里云）
+    aliases: [短信, 短信服务, sms]
+    category: tool
+
+  calendar:
+    name: 日历
+    url: https://calendar.qq.com
+    login_required: true
+    actions: [add_event, manage, remind]
+    description: 日程管理
+    aliases: [日历, 日程]
+    category: tool
+
+  meeting:
+    name: 腾讯会议
+    url: https://meeting.tencent.com
+    login_required: true
+    actions: [schedule, manage]
+    description: 会议服务
+    aliases: [会议, 视频会议, 腾讯会议]
+    category: tool
+
+  cloud_drive:
+    name: 网盘
+    url: https://pan.baidu.com
+    login_required: true
+    actions: [upload, sync, manage, share]
+    description: 云存储
+    aliases: [网盘, 云盘]
+    category: tool
+
+  payment:
+    name: 支付
+    url: https://pay.weixin.qq.com
+    login_required: true
+    actions: [check_balance, view_history]
+    description: 支付服务
+    aliases: [支付, 付款, 收款]
+    category: tool

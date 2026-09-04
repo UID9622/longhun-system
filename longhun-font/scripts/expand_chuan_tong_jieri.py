@@ -1,6 +1,9 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-65626514
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-FRAGMENT-CHUAN_TONG_JIERI-v1.0
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂字体 · 传统节日图标片段生成器
 生成 15 个传统节日图标，起始于 PUA 码位 U+E432。
 """

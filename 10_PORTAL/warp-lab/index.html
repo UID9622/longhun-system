@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<!--
+  DNA: #龍芯⚡️丙午·乙未·甲戌·午时·䷀乾-WARP-LAB-v1.0-7a3f2e1d
+  创建者: 诸葛鑫（UID9622）
+  协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）
+  ───────────────────────────────────────────
+  曲速引擎推演舱 · Warp Field Lab
+  基于 Alcubierre 度量 + Three.js 3D 可视化
+  龍魂体系 × 前沿物理概念交互
+  嵌入: https://uid9622.cn/warp-lab/
+  开源: https://github.com/uid9622/warp-field-lab
+  ───────────────────────────────────────────
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=2.0,user-scalable=yes">
+<title>曲速引擎推演舱 · Warp Field Lab | 龍魂系统</title>
+<meta name="description" content="Alcubierre曲速引擎3D交互推演——基于广义相对论场方程的曲速泡可视化。探索前沿物理概念，从负能量密度到翘曲度张量，龍魂体系科学教育工具。">
+<meta name="keywords" content="曲速引擎,Alcubierre,Warp Drive,曲速泡,负能量,前沿物理,3D可视化,Three.js,龍魂,科学教育">
+<meta name="author" content="诸葛鑫（UID9622）">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://uid9622.cn/warp-lab/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="曲速引擎推演舱 · Warp Field Lab">
+<meta property="og:description" content="Alcubierre曲速引擎3D交互推演——曲速泡可视化·物理概念交互探索">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://uid9622.cn/warp-lab/">
+<meta property="og:site_name" content="龍魂系统">
+<meta property="og:locale" content="zh_CN">
+<!-- <meta property="og:image" content="https://uid9622.cn/warp-lab/preview.png"> -->
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="曲速引擎推演舱 · Warp Field Lab">
+<meta name="twitter:description" content="Alcubierre曲速引擎3D交互推演——龍魂体系科学教育工具">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"曲速引擎推演舱 · Warp Field Lab",
+  "description":"Alcubierre曲速引擎3D交互推演工具",
+  "url":"https://uid9622.cn/warp-lab/",
+  "applicationCategory":"EducationalApplication",
+  "author":{"@type":"Person","name":"诸葛鑫（UID9622）","url":"https://uid9622.cn"},
+  "license":"https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "operatingSystem":"Web"
+}
+</script>
+
+<!-- Performance -->
+<link rel="preload" href="vendor/fonts/orbitron.css" as="style">
+<link rel="preload" href="vendor/katex/katex.min.css" as="style">
+<link rel="preload" href="vendor/warp-bundle.js" as="script">
+<link rel="preconnect" href="https://uid9622.cn">
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href="vendor/fonts/orbitron.css">
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<style>
+:root {
+  --bg: #050510;
+  --bg2: #0a0a20;
+  --gold: #d4a574;
+  --gold-light: #edd5b8;
+  --gold-dark: #b8854a;
+  --accent: #4a9eff;
+  --text: #e8dcc8;
+  --text-dim: #a09080;
+  --border: rgba(212,165,116,.12);
+  --danger: #c0392b;
+  --green: #27ae60;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+  min-height:100vh;
+}
+a{color:var(--gold);text-decoration:none;transition:color .2s}
+a:hover{color:var(--gold-light)}
+
+/* ── Loading Screen ── */
+#loading-screen {
+  position:fixed;inset:0;z-index:10000;
+  background:var(--bg);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  transition:opacity .6s ease,visibility .6s ease;
+}
+#loading-screen.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.loading-warp-ring {
+  width:60px;height:60px;
+  border:2px solid rgba(212,165,116,.2);
+  border-top-color:var(--gold);
+  border-radius:50%;
+  animation:warpSpin 1.2s linear infinite;
+  margin-bottom:20px;
+}
+.loading-warp-inner {
+  width:36px;height:36px;
+  border:2px solid rgba(74,158,255,.2);
+  border-bottom-color:var(--accent);
+  border-radius:50%;
+  position:absolute;
+  animation:warpSpin .8s linear reverse infinite;
+}
+.loading-text {
+  font-family:"Orbitron",monospace;
+  font-size:13px;
+  color:var(--gold);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  animation:warpPulse 2s ease-in-out infinite;
+}
+.loading-progress{width:180px;height:2px;background:var(--border);border-radius:1px;margin-top:16px;overflow:hidden}
+.loading-progress-bar{width:0;height:100%;background:linear-gradient(90deg,var(--gold),var(--accent));transition:width .3s}
+.loading-sub{font-size:11px;color:var(--text-dim);margin-top:8px}
+@keyframes warpSpin{to{transform:rotate(360deg)}}
+@keyframes warpPulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* ── Top Bar ── */
+.top-bar {
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:0 20px;height:50px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(5,5,16,.88);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.top-bar-left{display:flex;align-items:center;gap:10px}
+.top-bar-logo{
+  font-size:16px;font-weight:800;color:var(--gold);
+  letter-spacing:2px;font-family:"Orbitron",monospace;
+}
+.top-bar-logo span{font-size:10px;color:var(--text-dim);letter-spacing:1px;font-weight:400;margin-left:6px}
+.top-bar-actions{display:flex;align-items:center;gap:12px}
+.top-bar-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 14px;border-radius:16px;
+  border:1px solid var(--border);background:transparent;
+  color:var(--text-dim);font-size:12px;cursor:pointer;
+  transition:all .25s;white-space:nowrap;
+}
+.top-bar-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(212,165,116,.06)}
+.top-bar-btn .icon{width:14px;height:14px}
+
+/* ── GitHub Corner ── */
+.github-corner{position:fixed;top:0;right:0;z-index:101}
+.github-corner svg{fill:var(--gold);color:var(--bg);width:64px;height:64px}
+.github-corner .octo-arm{transform-origin:130px 106px}
+.github-corner:hover .octo-arm{animation:octoWave .5s ease-in-out}
+@keyframes octoWave{0%,100%{transform:rotate(0)}50%{transform:rotate(6deg)}}
+
+/* ── Main Canvas ── */
+#warp-canvas {
+  position:fixed;inset:0;z-index:1;
+}
+
+/* ── Content Overlay ── */
+.content-overlay {
+  position:relative;z-index:10;
+  pointer-events:none;
+  min-height:100vh;
+}
+.content-overlay > *{pointer-events:auto}
+
+/* ── Hero ── */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:120px 20px 80px;
+  background:radial-gradient(ellipse 70% 50% at 50% 30%,rgba(74,158,255,.06),transparent);
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 16px;border-radius:20px;
+  border:1px solid rgba(74,158,255,.2);
+  background:rgba(74,158,255,.06);
+  font-size:12px;color:var(--accent);
+  letter-spacing:2px;margin-bottom:24px;
+}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:warpPulse 2s infinite}
+.hero h1{
+  font-family:"Orbitron",monospace;
+  font-size:clamp(28px,6vw,52px);font-weight:900;
+  background:linear-gradient(135deg,var(--accent) 0%,var(--gold-light) 50%,var(--accent) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:12px;line-height:1.2;
+}
+.hero h2{
+  font-size:clamp(14px,2vw,18px);color:var(--text-dim);
+  font-weight:400;margin-bottom:32px;
+}
+.hero-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 24px;border-radius:24px;
+  font-size:14px;cursor:pointer;transition:all .3s;
+  text-decoration:none;border:none;
+}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#2a6ecc);color:#fff;font-weight:600}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(74,158,255,.35)}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);font-weight:600}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(212,165,116,.35)}
+.btn-outline{border:1px solid var(--border);color:var(--text-dim)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);background:rgba(212,165,116,.06)}
+
+/* ── Sections ── */
+.section{padding:64px 20px;position:relative}
+.container{max-width:900px;margin:0 auto}
+.section-label{
+  font-size:11px;color:var(--accent);
+  text-transform:uppercase;letter-spacing:3px;
+  margin-bottom:8px;
+}
+.section-title{
+  font-family:"Orbitron",monospace;
+  font-size:clamp(20px,3vw,28px);font-weight:700;
+  color:var(--gold-light);margin-bottom:36px;
+}
+
+/* ── Node Cards ── */
+.nodes-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(360px,100%),1fr));
+  gap:16px;
+}
+.node-card{
+  background:rgba(10,10,32,.7);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:20px 24px;
+  cursor:pointer;
+  transition:all .3s;
+  position:relative;overflow:hidden;
+}
+.node-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at top left,rgba(74,158,255,.08),transparent 70%);
+  opacity:0;transition:opacity .3s;
+}
+.node-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.node-card:hover::before{opacity:1}
+.node-card.active{
+  border-color:var(--accent);
+  box-shadow:0 0 24px rgba(74,158,255,.15);
+}
+.node-card-num{
+  position:absolute;top:12px;right:16px;
+  font-family:"Orbitron",monospace;font-size:28px;
+  font-weight:900;color:rgba(74,158,255,.1);
+}
+.node-card-title{
+  font-family:"Orbitron",monospace;
+  font-size:15px;font-weight:700;
+  color:var(--accent);margin-bottom:6px;
+}
+.node-card-sub{
+  font-size:12px;color:var(--text-dim);
+  margin-bottom:10px;line-height:1.5;
+}
+.node-card-formula{
+  font-size:11px;color:var(--gold);
+  font-family:monospace;
+  background:rgba(212,165,116,.06);
+  padding:6px 10px;border-radius:6px;
+  margin-top:8px;
+  max-height:0;overflow:hidden;
+  transition:all .3s;
+}
+.node-card:hover .node-card-formula,
+.node-card.active .node-card-formula{max-height:100px}
+
+/* ── Info Panel ── */
+.info-panel{
+  background:rgba(10,10,32,.85);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:24px;
+  margin-top:24px;
+  transition:all .3s;
+}
+.info-panel h3{
+  font-family:"Orbitron",monospace;
+  font-size:16px;color:var(--accent);
+  margin-bottom:12px;
+}
+.info-panel p{
+  font-size:13px;color:var(--text-dim);
+  line-height:1.7;
+}
+.info-panel .katex-display{margin:8px 0;overflow-x:auto}
+
+/* ── LongHun Map ── */
+.dragon-map{
+  margin-top:36px;
+  background:rgba(10,10,32,.7);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:24px;
+}
+.dragon-map h3{
+  font-family:"Orbitron",monospace;
+  font-size:15px;color:var(--gold-light);
+  margin-bottom:16px;display:flex;align-items:center;gap:8px;
+}
+.dragon-map-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:12px;
+}
+.dragon-item{
+  padding:12px 16px;
+  background:rgba(212,165,116,.04);
+  border:1px solid var(--border);
+  border-radius:8px;
+  font-size:12px;
+}
+.dragon-item .label{color:var(--text-dim);margin-bottom:4px}
+.dragon-item .value{color:var(--gold);font-weight:600}
+
+/* ── Footer ── */
+.footer{
+  text-align:center;padding:40px 20px;
+  border-top:1px solid var(--border);
+  position:relative;z-index:10;
+}
+.footer p{font-size:11px;color:rgba(255,255,255,.15);line-height:1.8}
+.footer .separator{margin:0 8px;opacity:.3}
+.footer a{color:var(--text-dim);font-size:11px}
+.footer a:hover{color:var(--gold)}
+.dna-line{
+  font-family:monospace;font-size:10px;
+  color:rgba(212,165,116,.3);
+  margin-top:12px;user-select:all;
+}
+
+/* ── Toast ── */
+.toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);
+  padding:10px 24px;border-radius:20px;
+  background:rgba(10,10,32,.95);border:1px solid var(--border);
+  color:var(--gold);font-size:13px;
+  opacity:0;transition:all .3s;z-index:1000;
+  pointer-events:none;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ── Back to Home ── */
+.back-home{
+  position:fixed;bottom:24px;left:24px;z-index:99;
+  display:flex;align-items:center;gap:6px;
+  padding:8px 16px;border-radius:20px;
+  background:rgba(10,10,32,.85);border:1px solid var(--border);
+  color:var(--text-dim);font-size:12px;text-decoration:none;
+  transition:all .3s;backdrop-filter:blur(8px);
+}
+.back-home:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ── Responsive ── */
+@media(max-width:640px){
+  .top-bar-logo span{display:none}
+  .github-corner svg{width:48px;height:48px}
+  .hero{padding:100px 16px 60px}
+  .nodes-grid{grid-template-columns:1fr}
+  .section{padding:48px 16px}
+  .footer{padding:32px 16px}
+}
+@media(max-width:380px){
+  .hero h1{font-size:24px}
+  .btn{padding:8px 18px;font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── Loading Screen ── -->
+<div id="loading-screen">
+  <div style="position:relative;display:flex;align-items:center;justify-content:center">
+    <div class="loading-warp-ring"></div>
+    <div class="loading-warp-inner"></div>
+  </div>
+  <div class="loading-text">Warp Field Booting</div>
+  <div class="loading-progress"><div class="loading-progress-bar" id="loading-bar"></div></div>
+  <div class="loading-sub" id="loading-status">初始化时空度量...</div>
+</div>
+
+<!-- ── GitHub Corner ── -->
+<a href="https://github.com/uid9622/warp-field-lab" target="_blank" class="github-corner" aria-label="View source on GitHub">
+  <svg viewBox="0 0 250 250" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+    <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px;" class="octo-arm"/>
+    <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor"/>
+  </svg>
+</a>
+
+<!-- ── Top Bar ── -->
+<header class="top-bar">
+  <div class="top-bar-left">
+    <a href="https://uid9622.cn" class="top-bar-logo">龍魂<span>× Warp Lab</span></a>
+  </div>
+  <div class="top-bar-actions">
+    <button class="top-bar-btn" onclick="resetCamera()" title="重置视角">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M1 4v6h6M23 20v-6h-6"/>
+        <path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15"/>
+      </svg>
+      重置
+    </button>
+    <button class="top-bar-btn" onclick="toggleAutoRotate()" id="btn-rotate" title="自动旋转">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+      </svg>
+      旋转
+    </button>
+    <a href="https://github.com/uid9622/warp-field-lab" class="top-bar-btn" target="_blank">
+      <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+      </svg>
+      GitHub
+    </a>
+  </div>
+</header>
+
+<!-- ── 3D Canvas ── -->
+<div id="warp-canvas"></div>
+
+<!-- ── Content ── -->
+<div class="content-overlay">
+
+<!-- Hero -->
+<section class="hero">
+  <div>
+    <div class="hero-badge"><span class="dot"></span>前沿物理概念交互</div>
+    <h1>WARP FIELD LAB</h1>
+    <h2>曲速引擎推演舱 · Alcubierre 度量可视化</h2>
+    <div class="hero-buttons">
+      <a href="#explore" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        探索推演
+      </a>
+      <a href="https://github.com/uid9622/warp-field-lab" target="_blank" class="btn btn-outline">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        开源代码
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Explore Nodes -->
+<section class="section" id="explore">
+  <div class="container">
+    <div class="section-label">CONCEPT NODES</div>
+    <div class="section-title">8 个概念节点 · 点击探索</div>
+    <div class="nodes-grid" id="nodes-grid">
+      <div class="node-card" data-node="0">
+        <div class="node-card-num">01</div>
+        <div class="node-card-title">ALCUBIERRE METRIC</div>
+        <div class="node-card-sub">阿库别瑞度规——广义相对论场方程的一个特殊解，描述了能够实现超光速旅行的时空几何。</div>
+        <div class="node-card-formula" id="fm-0"></div>
+      </div>
+      <div class="node-card" data-node="1">
+        <div class="node-card-num">02</div>
+        <div class="node-card-title">WARP BUBBLE</div>
+        <div class="node-card-sub">曲速泡——飞船被包裹在平坦时空气泡中，前方压缩时空，后方膨胀时空，实现超光速。</div>
+        <div class="node-card-formula" id="fm-1"></div>
+      </div>
+      <div class="node-card" data-node="2">
+        <div class="node-card-num">03</div>
+        <div class="node-card-title">NEGATIVE ENERGY</div>
+        <div class="node-card-sub">负能量密度——曲速引擎的必要条件，需要奇异物质来维持翘曲泡的稳定性。</div>
+        <div class="node-card-formula" id="fm-2"></div>
+      </div>
+      <div class="node-card" data-node="3">
+        <div class="node-card-num">04</div>
+        <div class="node-card-title">SHIFT VECTOR</div>
+        <div class="node-card-sub">位移矢量——描述时空如何被"推"着移动的核心几何量，决定翘曲的方向和速度。</div>
+        <div class="node-card-formula" id="fm-3"></div>
+      </div>
+      <div class="node-card" data-node="4">
+        <div class="node-card-num">05</div>
+        <div class="node-card-title">ENERGY CONDITIONS</div>
+        <div class="node-card-sub">能量条件——经典广义相对论对奇异物质的约束，曲速引擎违反弱能量条件。</div>
+        <div class="node-card-formula" id="fm-4"></div>
+      </div>
+      <div class="node-card" data-node="5">
+        <div class="node-card-num">06</div>
+        <div class="node-card-title">HORIZON PROBLEM</div>
+        <div class="node-card-sub">视界问题——曲速泡前方的观察者无法向泡内发送信号，飞船无法控制启停。</div>
+        <div class="node-card-formula" id="fm-5"></div>
+      </div>
+      <div class="node-card" data-node="6">
+        <div class="node-card-num">07</div>
+        <div class="node-card-title">QUANTUM EFFECTS</div>
+        <div class="node-card-sub">量子效应——霍金辐射类比：曲速泡视界处可能产生量子粒子，影响稳定性。</div>
+        <div class="node-card-formula" id="fm-6"></div>
+      </div>
+      <div class="node-card" data-node="7">
+        <div class="node-card-num">08</div>
+        <div class="node-card-title">EXPERIMENTAL</div>
+        <div class="node-card-sub">实验探索——当前在微纳尺度上的类曲速度量实验室验证，Casimir效应与负能量。</div>
+        <div class="node-card-formula" id="fm-7"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Detail Panel -->
+<section class="section" id="detail">
+  <div class="container">
+    <div class="info-panel" id="info-panel">
+      <h3>选择一个概念节点以查看详情</h3>
+      <p>点击上方卡片或右侧 3D 场景中的节点，查看物理公式和龍魂审计映射。</p>
+    </div>
+
+    <!-- LongHun Map -->
+    <div class="dragon-map">
+      <h3>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7-5.5-4h7z"/>
+        </svg>
+        龍魂审计映射 · LongHun Audit Map
+      </h3>
+      <div class="dragon-map-grid" id="dragon-map"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>曲速引擎推演舱 · Warp Field Lab <span class="separator">|</span>
+    © 2026 诸葛鑫（UID9622）<span class="separator">|</span>
+    协议: CC BY-NC-SA 4.0</p>
+  <p style="margin-top:4px">龍魂体系·科学教育工具 <span class="separator">|</span>
+    <a href="https://uid9622.cn">uid9622.cn</a>
+    <span class="separator">|</span>
+    <a href="https://github.com/uid9622/warp-field-lab" target="_blank">github.com/uid9622/warp-field-lab</a>
+  </p>
+  <div class="dna-line">DNA: #龍芯⚡️丙午·乙未·甲戌·午时·☰乾-WARP-LAB-v1.0-7a3f2e1d</div>
+  <p style="font-size:9px;color:rgba(255,255,255,.08);margin-top:8px">
+    Alcubierre Metric 可视化基于 Miguel Alcubierre (1994) 原作 · 仅供科学教育目的 · 不代表实际物理可行
+  </p>
+</footer>
+
+</div><!-- /content-overlay -->
+
+<!-- Back to Home -->
+<a href="https://uid9622.cn" class="back-home">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+  返回首页
+</a>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- ── KaTeX ── -->
+<script src="vendor/katex/katex.min.js"></script>
+
+<!-- ── 3D Engine ── -->
+<script src="vendor/warp-bundle.js" defer></script>
+
+<script>
+// ── Loading ──
+(function(){
+  const status = document.getElementById('loading-status');
+  const bar = document.getElementById('loading-bar');
+  const steps = [
+    [20, '初始化时空度量...'],
+    [45, '计算Christoffel联络...'],
+    [65, '展开曲速泡几何...'],
+    [80, '加载龍魂审计引擎...'],
+    [100, '曲速引擎就绪 ✓']
+  ];
+  let i = 0;
+  function tick(){
+    if(i<steps.length){
+      bar.style.width = steps[i][0]+'%';
+      status.textContent = steps[i][1];
+      i++;
+      if(i<steps.length) setTimeout(tick, 600+i*200);
+    }
+  }
+  tick();
+
+  window.addEventListener('load', function(){
+    bar.style.width = '100%';
+    status.textContent = '曲速引擎就绪 ✓';
+    setTimeout(function(){
+      document.getElementById('loading-screen').classList.add('hidden');
+      // 延迟移除 DOM
+      setTimeout(function(){
+        var ls = document.getElementById('loading-screen');
+        if(ls && ls.parentNode) ls.parentNode.removeChild(ls);
+      }, 700);
+    }, 400);
+  });
+})();
+
+// ── Toast ──
+function showToast(msg, dur){
+  dur = dur || 2000;
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, dur);
+}
+
+// ── Node Data ──
+const NODES = [
+  { title:'Alcubierre Metric', formula:'ds^2 = -dt^2 + (dx - v_s f(r_s) dt)^2 + dy^2 + dz^2',
+    detail:'阿库别瑞度规（1994）。<br><br><b>核心思想</b>：时空本身可以超光速膨胀/收缩，而局域物体仍服从狭义相对论（在平直时空内速度 &lt; c）。飞船被包裹在曲速泡中，泡外的时空被"推"着移动。<br><br><b>龍魂映射</b>：如同数字主权的"翘曲保护层"——外部环境如何变动，核心数据始终在平直时空内安全运行。' },
+  { title:'Warp Bubble', formula:'r_s(t) = \\sqrt{(x-x_s(t))^2 + y^2 + z^2}',
+    detail:'曲速泡的半径函数。<br><br><b>结构</b>：泡壁由奇异物质构成，厚度极薄。泡内时空完全平直（飞船感受不到加速度）。泡外时空被剧烈扭曲。<br><br><b>龍魂映射</b>：四层安全防线即"泡壁"——外部攻击入泡壁即被扭曲消耗，核心数据（泡内）不受影响。' },
+  { title:'Negative Energy', formula:'\\rho = \\frac{T^{\\mu\\nu} u_\\mu u_\\nu}{\\text{vol}} < 0',
+    detail:'负能量密度——曲速引擎维持翘曲泡的必要条件。<br><br><b>来源</b>：Casimir效应（量子真空涨落的可测量负能量）、奇异物质（hypothetical）。目前仅在微纳尺度验证。<br><br><b>龍魂映射</b>：如同"信任积分"——正面贡献（正能量）+ 滥用消耗（负能量），维持系统稳定需要净正能流。' },
+  { title:'Shift Vector', formula:'N^i = -v_s(t) f(r_s) \\hat{x}^i',
+    detail:'位移矢量 N^i 描述时空的"推动"方向与速度。<br><br><b>函数 f(r)</b>：翘曲形状函数，从泡中心=1 平滑过渡到远距离=0。常见的 f(r) = tanh(σ(r+R))-tanh(σ(r-R)) / 2tanh(σR)。<br><br><b>龍魂映射</b>：位移矢量即"路由决策"——数据流的方向和速度由调度引擎控制，如同 N^i 决定时空流向。' },
+  { title:'Energy Conditions', formula:'T_{\\mu\\nu} k^\\mu k^\\nu \\geq 0 \\quad \\text{(WEC)}',
+    detail:'弱能量条件（WEC）：任何观测者测得的能量密度 &ge; 0。曲速引擎需要违反 WEC。<br><br><b>其他条件</b>：强能量条件(SEC)、主能量条件(DEC)、零能量条件(NEC)。量子场论在微观尺度允许短暂违反。<br><br><b>龍魂映射</b>：能量条件即"安全审计规则"——违反即触发熔断（如同违反能量条件意味着奇异物质存在）。' },
+  { title:'Horizon Problem', formula:'\\frac{dx}{dt} = v_s f(r_s) + c',
+    detail:'视界问题：曲速泡的超光速移动导致泡前出现类视界。<br><br><b>后果</b>：泡前沿的信号无法追上泡壁→飞船无法从内部控制启停→需要预先编程或外部信号。<br><br><b>龍魂映射</b>：如同"熔断后的恢复难题"——系统锁死后，外部指令无法传递到核心，需要预置的自愈逻辑（如同预编程的启停序列）。' },
+  { title:'Quantum Effects', formula:'T_H \\approx \\frac{\\hbar c^3}{8\\pi GM k_B}',
+    detail:'霍金温度类比。曲速泡的类视界可能导致量子粒子对的产生（类似霍金辐射）。<br><br><b>影响</b>：量子效应对泡稳定性的影响尚未完全理解，可能是曲速引擎物理可行性的关键障碍。<br><br><b>龍魂映射</b>：量子效应即"系统熵增"——长期运行不可避免的熵增需要持续的"防注入清洗"来抵消。' },
+  { title:'Experimental Frontier', formula:'E_{\\text{Casimir}} = -\\frac{\\pi^2 \\hbar c}{240 a^4}',
+    detail:'Casimir效应是最接近可测量负能量的实验现象（两块平行导电板之间的吸引力）。<br><br><b>进展</b>：2021年Harold White团队在微纳尺度测量类曲速度量的能量分布。距宏观曲速引擎仍有极大差距。<br><br><b>龍魂映射</b>：Casimir效应即"最小可行验证"——任何理论都需要最小的实验锚点。如同龍魂的369不动点——一切推演必须锚定在可验证的数字底座上。' }
+];
+
+// ── LongHun Mapping ──
+const DRAGON_MAP = [
+  { label:'七因子协议', value:'外化内不化 —— 泡外扭曲、泡内平直' },
+  { label:'全生命周期DNA追溯', value:'几何历史可追溯 —— 时空每一点的度规变化有记录' },
+  { label:'三才审计引擎', value:'能量条件检验 —— 天(拓扑约束)·地(局部度规)·人(观测者)' },
+  { label:'洛书369锚点', value:'Casimir效应的确定性 —— 可测量·可验证·不可否认' },
+  { label:'数字主权', value:'曲速泡保护层 —— 外部环境不影响内部信息完整性' },
+  { label:'四层防线', value:'泡壁分层 —— 奇异物质壁(网络)→翘曲场(恶意)→平直核心(金库+签名)' },
+];
+
+// ── Render formulas ──
+document.addEventListener('DOMContentLoaded', function(){
+  NODES.forEach(function(n, i){
+    var el = document.getElementById('fm-'+i);
+    if(el && katex){
+      try { katex.render(n.formula, el, {throwOnError:false,displayMode:true}); }
+      catch(e){ el.textContent = n.formula; }
+    }
+  });
+
+  // ── Render Dragon Map ──
+  var dm = document.getElementById('dragon-map');
+  DRAGON_MAP.forEach(function(d){
+    var div = document.createElement('div');
+    div.className = 'dragon-item';
+    div.innerHTML = '<div class="label">'+d.label+'</div><div class="value">'+d.value+'</div>';
+    if(dm) dm.appendChild(div);
+  });
+});
+
+// ── Node Click ──
+var activeNode = -1;
+
+document.getElementById('nodes-grid').addEventListener('click', function(e){
+  var card = e.target.closest('.node-card');
+  if(!card) return;
+  var idx = parseInt(card.dataset.node, 10);
+  if(idx === activeNode){
+    card.classList.remove('active');activeNode=-1;
+    document.getElementById('info-panel').innerHTML = '<h3>选择一个概念节点以查看详情</h3><p>点击上方卡片或 3D 场景中的节点，查看物理公式和龍魂审计映射。</p>';
+    return;
+  }
+  if(activeNode>=0) document.querySelector('.node-card[data-node="'+activeNode+'"]')?.classList.remove('active');
+  card.classList.add('active');activeNode=idx;
+  var n = NODES[idx];
+  document.getElementById('info-panel').innerHTML =
+    '<h3>'+String(idx+1).padStart(2,'0')+'. '+n.title+'</h3>'+
+    '<div class="katex-display" id="panel-formula"></div>'+
+    '<p>'+n.detail+'</p>';
+  if(katex){
+    try{katex.render(n.formula, document.getElementById('panel-formula'),{throwOnError:false,displayMode:true});}
+    catch(e){document.getElementById('panel-formula').textContent = n.formula;}
+  }
+
+  card.scrollIntoView({behavior:'smooth',block:'nearest'});
+  document.getElementById('detail').scrollIntoView({behavior:'smooth'});
+
+  showToast('已选择: '+n.title);
+});
+
+// ── Camera Controls ──
+var autoRotate = true;
+function toggleAutoRotate(){
+  autoRotate = !autoRotate;
+  var btn = document.getElementById('btn-rotate');
+  if(autoRotate){
+    btn.innerHTML = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 旋转';
+  } else {
+    btn.innerHTML = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="6" x2="12" y2="12"/><line x1="12" y1="16" x2="12" y2="16"/></svg> 暂停';
+  }
+  // 通知 warp-bundle 引擎
+  if(window.setAutoRotate) window.setAutoRotate(autoRotate);
+}
+
+function resetCamera(){
+  if(window.resetWarpCamera) window.resetWarpCamera();
+  showToast('视角已重置');
+}
+
+// ── Intersection Observer (lazy render) ──
+var rendered = false;
+var canvasReady = false;
+
+// warp-bundle.js 加载完成后设置标志
+window.onWarpReady = function(){
+  canvasReady = true;
+};
+
+// ── Keyboard shortcuts ──
+document.addEventListener('keydown', function(e){
+  switch(e.key.toLowerCase()){
+    case 'r': resetCamera(); break;
+    case ' ': e.preventDefault(); toggleAutoRotate(); break;
+    case '1': case '2': case '3': case '4': case '5': case '6': case '7': case '8':
+      var idx = parseInt(e.key, 10) - 1;
+      var card = document.querySelector('.node-card[data-node="'+idx+'"]');
+      if(card) card.click();
+      break;
+  }
+});
+</script>
+
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

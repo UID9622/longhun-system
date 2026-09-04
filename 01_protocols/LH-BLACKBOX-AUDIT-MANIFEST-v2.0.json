@@ -1,0 +1,16 @@
+{
+  "project": "longhun_blackbox_audit",
+  "version": "2.0",
+  "files": [
+    "LH-PROMPT-BLACKBOX-AUDIT-v2.0.md",
+    "LH-BLACKBOX-PITFALLS-v1.0.md"
+  ],
+  "dna": "#龍芯⚡️2026-07-30-黑箱审计-v2.0",
+  "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "pitfalls": {
+    "fatal": ["K-01", "K-02", "K-10"],
+    "high": ["K-03", "K-04", "K-05", "K-06"],
+    "medium": ["K-07"],
+    "low": ["K-08", "K-09"]
+  }
+}

@@ -1,0 +1,18 @@
+[Unit]
+Description=龍魂·思维管线 API :9630
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/longhun/longhun-system
+ExecStart=/var/www/longhun/longhun-system/venv/bin/python3 bin/lh_think_pipeline.py --port 9630 --serve
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/longhun/think-pipeline.log
+StandardError=append:/var/log/longhun/think-pipeline-error.log
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

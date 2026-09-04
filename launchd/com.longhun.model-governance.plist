@@ -1,0 +1,33 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-82dd2bd6 -->
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.longhun.model-governance</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/zuimeidedeyihan/longhun-system/bin/lh_model_governance.py</string>
+        <string>--pipeline</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/zuimeidedeyihan/longhun-system</string>
+    <key>StartCalendarInterval</key>
+    <array>
+        <!-- 每天凌晨2:30 跑完整闭环（知识提取+训练检查+退役检查+红蓝对抗） -->
+        <dict>
+            <key>Hour</key><integer>2</integer>
+            <key>Minute</key><integer>30</integer>
+        </dict>
+    </array>
+    <key>StandardOutPath</key>
+    <string>/Users/zuimeidedeyihan/longhun-system/logs/model_governance.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/zuimeidedeyihan/longhun-system/logs/model_governance.err.log</string>
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>

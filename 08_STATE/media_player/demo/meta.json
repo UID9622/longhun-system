@@ -1,0 +1,13 @@
+{
+  "video": "/tmp/lh_media_test/demo.mp4",
+  "dna": "#龍芯⚡️丙午·丙申·辛酉·酉时·䷕贲-MEDIA-PLAYER-META-V1.1-P0-fc4a058b",
+  "asr": {
+    "provider": "whisper-cli",
+    "text": "",
+    "segments": [],
+    "video": "/tmp/lh_media_test/demo.mp4",
+    "generated_at": "2026-08-15T18:00:12.739514"
+  },
+  "ocr_count": 0,
+  "html": "/Users/zuimeidedeyihan/longhun-system/08_STATE/media_player/demo.html"
+}

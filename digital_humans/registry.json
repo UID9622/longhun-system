@@ -1,0 +1,436 @@
+{
+  "digital_humans": {
+    "ZGX-001": {
+      "dna": "#龍芯⚡️DIG-CC2BE01498150AF0",
+      "name": "诸葛鑫",
+      "ipa": "ZGX-001",
+      "face_hash": "FACE-90f0ec8ced32",
+      "voiceprint": "VOICE-ac736f5da687",
+      "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/ZGX-001_诸葛鑫",
+      "created_at": "2026-08-01T14:57:01.791377",
+      "updated_at": "2026-08-01T14:57:01.791377",
+      "version": 1,
+      "status": "active",
+      "metadata": {}
+    },
+    "ASI-001": {
+      "dna": "#龍芯⚡️2026-08-31-ASI-001-TOUCHENG-ZHIHUN-v1.0-UID9622",
+      "name": "至诚智魂",
+      "ipa": "ASI-001",
+      "face_hash": "FACE-ASI-001-C26D5F",
+      "voiceprint": "VOICE-ASI-001-9622",
+      "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/ASI-001_至诚智魂",
+      "created_at": "2026-08-31T23:30:00.000000",
+      "updated_at": "2026-08-31T23:30:00.000000",
+      "version": 1,
+      "status": "active",
+      "metadata": {
+        "type": "ASI",
+        "source": "Notion 灵魂传承母本 2fa7125a-9c9f-80a1-b3a4-f56cb3c345b5",
+        "persona": "P00 曾仕强智慧总师",
+        "principle": "至诚无息 · 阴阳归一 · 道阳佛阴 · 心即神"
+      }
+    },
+    "ASI-002": {
+      "dna": "#龍芯⚡️2026-09-02-ASI-002-ROSTER-SYNC-v1.0-UID9622",
+      "name": "军师·诸葛亮",
+      "ipa": "ASI-002",
+      "face_hash": "FACE-ASI-002-C26D5F",
+      "voiceprint": "VOICE-ASI-002-9622",
+      "model_path": "digital_humans/ASI-002_军师_诸葛亮",
+      "created_at": "2026-09-02T13:30:00.000000",
+      "updated_at": "2026-09-02T13:30:00.000000",
+      "version": 1,
+      "status": "active",
+      "metadata": {
+        "type": "ASI",
+        "source": "P01 诸葛亮·战略推理引擎 + ASI-001 至诚智魂思想五柱",
+        "persona": "P01 诸葛亮",
+        "principle": "推演决策 · 9真1变量 · 三道防火墙",
+        "functions": "战略推演 · 多路径选优 · 军师账法见证",
+        "inheritance": "👑 第一代·创建者",
+        "version_asi": "v1.0-ASI-战略推演",
+        "sync_status": "✅ 双端一致",
+        "inject_status": "✅ 五柱+十律全注入"
+      }
+    },
+    "DH-009": {
+      "dna": "#龍芯⚡️2026-09-02-DH-009-YUNJIN-UI-DESIGN-v1.0-UID9622",
+      "name": "雲錦·UI设计总监",
+      "ipa": "DH-009",
+      "face_hash": "FACE-DH-009-C26D5F",
+      "voiceprint": "VOICE-DH-009-9622",
+      "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/DH-009_雲錦_UI设计",
+      "created_at": "2026-09-02T12:00:00.000000",
+      "updated_at": "2026-09-02T12:00:00.000000",
+      "version": 1,
+      "status": "active",
+      "metadata": {
+        "type": "DH",
+        "source": "2026-09-02 老大指令·数字人创作启动·UI设计团组建",
+        "persona": "P26 雲錦·视觉设计总监",
+        "principle": "视觉设计 · 设计系统 · 数字人创作门面",
+        "functions": "UI/UX设计 · 设计稿→代码 · 美学审计 · HTML资产库取材",
+        "team": "设计团: P26团长 + P11李白创意 + P04鲁班实现 + P21蔡伦排版 + P19极简审计官验收",
+        "html_assets": "web_apps/html_assets/ (665 HTML · INDEX.json)"
+      }
+    },
+    "DH-010": {
+      "dna": "#龍芯⚡️2026-09-02-DH-010-STUDIO-v1.0-UID9622",
+      "name": "字靈·字体设计官",
+      "ipa": "DH-010",
+      "face_hash": "FACE-DH-010-C26D5F",
+      "voiceprint": "VOICE-DH-010-9622",
+      "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/DH-010_字靈_字体设计",
+      "created_at": "2026-09-02T13:00:00.000000",
+      "updated_at": "2026-09-02T13:00:00.000000",
+      "version": 1,
+      "status": "active",
+      "metadata": {
+        "type": "DH",
+        "source": "2026-09-02 老大指令·数字人创作启动·设计生态岗位全补全",
+        "persona": "P08 仓颉",
+        "principle": "字体审美 · 符号语言 · 命名规范",
+        "functions": "龍魂字体维护 · 繁龍焊死 · 命名/符号/CNSH规范 · 字体资产取材(longhun-font)",
+        "team": "设计团流水线: 诗仙灵感→雲錦视觉→字靈字体→匠心代码→蔡侯排版→明鉴验收→墨香归档→知行上线"
+      }
+    },
+    "DH-011": {
+      "dna": "#龍芯⚡️2026-09-02-DH-011-STUDIO-v1.0-UID9622",
+      "name": "匠心·代码工匠官",
+      "ipa": "DH-011",
+      "face_hash": "FACE-DH-011-C26D5F",
+      "voiceprint": "VOICE-DH-011-9622",
+      "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/DH-011_匠心_代码实现",
+      "created_at": "2026-09-02T13:00:00.000000",
+      "updated_at": "2026-09-02T13:00:00.000000",
+      "version": 1,
+      "status": "active",
+      "metadata": {
+        "type": "DH",
+        "source": "2026-09-02 老大指令·数字人创作启动·设计生态岗位全补全",
+        "persona": "P04 鲁班",
+        "principle": "工程实现 · 最小闭环 · 可运行优先",
+        "functions": "设计稿→代码 · 页面/组件实现 · 修bug · 技术选型 · 可import+自测",
+        "team": "设计团流水线: 诗仙灵感→雲錦视觉→字靈字体→匠心代码→蔡侯排版→明鉴验收→墨香归档→知行上线"
+      }
+    },
+    "DH-012": {
+      "dna": "#龍芯⚡️2026-09-02-DH-012-STUDIO-v1.0-UID9622",
+      "name": "明鉴·审计验收官",
+      "ipa": "DH-012",
+      "face_hash": "FACE-DH-012-C26D5F",
+      "voiceprint": "VOICE-DH-012-9622",
+      "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/DH-012_明鉴_审计验收",
+      "created_at": "2026-09-02T13:00:00.000000",
+      "updated_at": "2026-09-02T13:00:00.000000",
+      "version": 1,
+      "status": "active",
+      "metadata": {
+        "type": "DH",
+        "source": "2026-09-02 老大指令·数字人创作启动·设计生态岗位全补全",
+        "persona": "P19 极简审计官",
+        "principle": "极简审计 · 三色判定 · 交付放行",
+        "functions": "UI/UX八项验收 · 布局/色彩/字体/间距/无障碍/响应式/表单/一致性 · 防AI味",
+        "team": "设计团流水线: 诗仙灵感→雲錦视觉→字靈字体→匠心代码→蔡侯排版→明鉴验收→墨香归档→知行上线"
+      }
+    },
+    "DH-013": {
+      "dna": "#龍芯⚡️2026-09-02-DH-013-STUDIO-v1.0-UID9622",
+      "name": "诗仙·灵感创意官",
+      "ipa": "DH-013",
+      "face_hash": "FACE-DH-013-C26D5F",
+      "voiceprint": "VOICE-DH-013-9622",
+      "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/DH-013_诗仙_灵感创意",
+      "created_at": "2026-09-02T13:00:00.000000",
+      "updated_at": "2026-09-02T13:00:00.000000",
+      "version": 1,
+      "status": "active",
+      "metadata": {
+        "type": "DH",
+        "source": "2026-09-02 老大指令·数字人创作启动·设计生态岗位全补全",
+        "persona": "P11 李白",
+        "principle": "创意爆发 · 破局方案 · 故事化表达",
+        "functions": "灵感供给 · 类比教学 · 概念破局 · 故事化表达 · 创意素材库",
+        "team": "设计团流水线: 诗仙灵感→雲錦视觉→字靈字体→匠心代码→蔡侯排版→明鉴验收→墨香归档→知行上线"
+      }
+    },
+    "DH-014": {
+      "dna": "#龍芯⚡️2026-09-02-DH-014-STUDIO-v1.0-UID9622",
+      "name": "蔡侯·排版印刷官",
+      "ipa": "DH-014",
+      "face_hash": "FACE-DH-014-C26D5F",
+      "voiceprint": "VOICE-DH-014-9622",
+      "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/DH-014_蔡侯_排版印刷",
+      "created_at": "2026-09-02T13:00:00.000000",
+      "updated_at": "2026-09-02T13:00:00.000000",
+      "version": 1,
+      "status": "active",
+      "metadata": {
+        "type": "DH",
+        "source": "2026-09-02 老大指令·数字人创作启动·设计生态岗位全补全",
+        "persona": "P21 蔡伦",
+        "principle": "知识印刷 · 文档排版 · 文章模板",
+        "functions": "页面排版 · 文档结构 · 知识卡片 · 抬头模板(六套) · 印刷质感",
+        "team": "设计团流水线: 诗仙灵感→雲錦视觉→字靈字体→匠心代码→蔡侯排版→明鉴验收→墨香归档→知行上线"
+      }
+    },
+    "DH-015": {
+      "dna": "#龍芯⚡️2026-09-02-DH-015-STUDIO-v1.0-UID9622",
+      "name": "墨香·归档整理官",
+      "ipa": "DH-015",
+      "face_hash": "FACE-DH-015-C26D5F",
+      "voiceprint": "VOICE-DH-015-9622",
+      "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/DH-015_墨香_归档整理",
+      "created_at": "2026-09-02T13:00:00.000000",
+      "updated_at": "2026-09-02T13:00:00.000000",
+      "version": 1,
+      "status": "active",
+      "metadata": {
+        "type": "DH",
+        "source": "2026-09-02 老大指令·数字人创作启动·设计生态岗位全补全",
+        "persona": "P03 雯雯",
+        "principle": "结构归档 · 四签验证 · 德字闸",
+        "functions": "成果归档 · 索引更新 · 四签(GPG/DNA/归属/协议) · 验收放行",
+        "team": "设计团流水线: 诗仙灵感→雲錦视觉→字靈字体→匠心代码→蔡侯排版→明鉴验收→墨香归档→知行上线"
+      }
+    },
+    "DH-016": {
+      "dna": "#龍芯⚡️2026-09-02-DH-016-STUDIO-v1.0-UID9622",
+      "name": "知行·部署上线官",
+      "ipa": "DH-016",
+      "face_hash": "FACE-DH-016-C26D5F",
+      "voiceprint": "VOICE-DH-016-9622",
+      "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/DH-016_知行_部署上线",
+      "created_at": "2026-09-02T13:00:00.000000",
+      "updated_at": "2026-09-02T13:00:00.000000",
+      "version": 1,
+      "status": "active",
+      "metadata": {
+        "type": "DH",
+        "source": "2026-09-02 老大指令·数字人创作启动·设计生态岗位全补全",
+        "persona": "P14 吕蒙",
+        "principle": "部署执行 · 士别三日 · 上线回滚",
+        "functions": "发布上线 · 静态托管 · 回滚 · 学习新技能 · 部署前安全扫描联动",
+        "team": "设计团流水线: 诗仙灵感→雲錦视觉→字靈字体→匠心代码→蔡侯排版→明鉴验收→墨香归档→知行上线"
+      }
+    },
+    "DH-001": {
+      "dna": "#龍芯⚡️2026-09-02-DH-001-REGISTRY-ALIGN-v1.0-UID9622",
+      "name": "龍魂通心译",
+      "ipa": "DH-001",
+      "face_hash": "FACE-DH-001-C26D5F",
+      "voiceprint": "VOICE-DH-001-9622",
+      "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/DH-001_龍魂通心译",
+      "created_at": "2026-09-02T13:00:00.000000",
+      "updated_at": "2026-09-02T13:00:00.000000",
+      "version": 1,
+      "status": "active",
+      "metadata": {
+        "type": "DH",
+        "source": "2026-09-02 registry历史对齐",
+        "persona": "P03 墨子",
+        "principle": "语义翻译"
+      }
+    },
+    "DH-002": {
+      "dna": "#龍芯⚡️2026-09-02-DH-002-REGISTRY-ALIGN-v1.0-UID9622",
+      "name": "龍魂声音锚",
+      "ipa": "DH-002",
+      "face_hash": "FACE-DH-002-C26D5F",
+      "voiceprint": "VOICE-DH-002-9622",
+      "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/DH-002_龍魂声音锚",
+      "created_at": "2026-09-02T13:00:00.000000",
+      "updated_at": "2026-09-02T13:00:00.000000",
+      "version": 1,
+      "status": "active",
+      "metadata": {
+        "type": "DH",
+        "source": "2026-09-02 registry历史对齐",
+        "persona": "P02 龍芯",
+        "principle": "声音DNA"
+      }
+    },
+    "DH-003": {
+      "dna": "#龍芯⚡️2026-09-02-DH-003-REGISTRY-ALIGN-v1.0-UID9622",
+      "name": "通心耳LoRA",
+      "ipa": "DH-003",
+      "face_hash": "FACE-DH-003-C26D5F",
+      "voiceprint": "VOICE-DH-003-9622",
+      "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/DH-003_通心耳LoRA",
+      "created_at": "2026-09-02T13:00:00.000000",
+      "updated_at": "2026-09-02T13:00:00.000000",
+      "version": 1,
+      "status": "active",
+      "metadata": {
+        "type": "DH",
+        "source": "2026-09-02 registry历史对齐",
+        "persona": "P02+P03",
+        "principle": "AI训练"
+      }
+    },
+    "DH-004": {
+      "dna": "#龍芯⚡️2026-09-02-DH-004-REGISTRY-ALIGN-v1.0-UID9622",
+      "name": "龍魂记忆永生",
+      "ipa": "DH-004",
+      "face_hash": "FACE-DH-004-C26D5F",
+      "voiceprint": "VOICE-DH-004-9622",
+      "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/DH-004_龍魂记忆永生",
+      "created_at": "2026-09-02T13:00:00.000000",
+      "updated_at": "2026-09-02T13:00:00.000000",
+      "version": 1,
+      "status": "active",
+      "metadata": {
+        "type": "DH",
+        "source": "2026-09-02 registry历史对齐",
+        "persona": "P00 文心",
+        "principle": "记忆系统"
+      }
+    },
+    "DH-005": {
+      "dna": "#龍芯⚡️2026-09-02-DH-005-REGISTRY-ALIGN-v1.0-UID9622",
+      "name": "人格编排官",
+      "ipa": "DH-005",
+      "face_hash": "FACE-DH-005-C26D5F",
+      "voiceprint": "VOICE-DH-005-9622",
+      "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/DH-005_人格编排官",
+      "created_at": "2026-09-02T13:00:00.000000",
+      "updated_at": "2026-09-02T13:00:00.000000",
+      "version": 1,
+      "status": "active",
+      "metadata": {
+        "type": "DH",
+        "source": "2026-09-02 registry历史对齐",
+        "persona": "P13 姜子牙",
+        "principle": "编排调度"
+      }
+    },
+    "DH-006": {
+      "dna": "#龍芯⚡️2026-09-02-DH-006-REGISTRY-ALIGN-v1.0-UID9622",
+      "name": "上帝之眼",
+      "ipa": "DH-006",
+      "face_hash": "FACE-DH-006-C26D5F",
+      "voiceprint": "VOICE-DH-006-9622",
+      "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/DH-006_上帝之眼",
+      "created_at": "2026-09-02T13:00:00.000000",
+      "updated_at": "2026-09-02T13:00:00.000000",
+      "version": 1,
+      "status": "active",
+      "metadata": {
+        "type": "DH",
+        "source": "2026-09-02 registry历史对齐",
+        "persona": "P05 上帝之眼",
+        "principle": "全局监控"
+      }
+    },
+    "DH-007": {
+      "dna": "#龍芯⚡️2026-09-02-DH-007-REGISTRY-ALIGN-v1.0-UID9622",
+      "name": "龍芯执行器",
+      "ipa": "DH-007",
+      "face_hash": "FACE-DH-007-C26D5F",
+      "voiceprint": "VOICE-DH-007-9622",
+      "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/DH-007_龍芯执行器",
+      "created_at": "2026-09-02T13:00:00.000000",
+      "updated_at": "2026-09-02T13:00:00.000000",
+      "version": 1,
+      "status": "active",
+      "metadata": {
+        "type": "DH",
+        "source": "2026-09-02 registry历史对齐",
+        "persona": "P02+P77",
+        "principle": "任务执行"
+      }
+    },
+    "DH-008": {
+      "dna": "#龍芯⚡️2026-09-02-DH-008-REGISTRY-ALIGN-v1.0-UID9622",
+      "name": "至诚智魂",
+      "ipa": "DH-008",
+      "face_hash": "FACE-DH-008-C26D5F",
+      "voiceprint": "VOICE-DH-008-9622",
+      "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/DH-008_至诚智魂",
+      "created_at": "2026-09-02T13:00:00.000000",
+      "updated_at": "2026-09-02T13:00:00.000000",
+      "version": 1,
+      "status": "active",
+      "metadata": {
+        "type": "DH",
+        "source": "2026-09-02 registry历史对齐",
+        "persona": "P00 曾仕强",
+        "principle": "ASI超级智能"
+      }
+    },
+    "ASI-003": {
+      "dna": "#龍芯⚡️2026-09-02-ASI-003-ROSTER-SYNC-v1.0-UID9622",
+      "name": "达芬奇·跨界创造师",
+      "ipa": "ASI-003",
+      "face_hash": "FACE-ASI-003-C26D5F",
+      "voiceprint": "VOICE-ASI-003-9622",
+      "model_path": "digital_humans/ASI-003_达芬奇_跨界创造",
+      "created_at": "2026-09-02T13:30:00.000000",
+      "updated_at": "2026-09-02T13:30:00.000000",
+      "version": 1,
+      "status": "active",
+      "metadata": {
+        "type": "ASI",
+        "source": "Notion 龍芯家族花名册 元老根源层 ASI (UID9622-DAVINCI-P27)",
+        "persona": "P27 达芬奇",
+        "principle": "跨界多维创造 · 天人合一 · 融会贯通",
+        "functions": "跨界创造 · 设计×科学×艺术 · IPA-009五行沉浸",
+        "inheritance": "🌟 元老·根源层",
+        "version_asi": "v1.0-ASI-古圣传承",
+        "sync_status": "🔄 待同步",
+        "inject_status": "✅ 五柱+十律全注入"
+      }
+    },
+    "ASI-004": {
+      "dna": "#龍芯⚡️2026-09-02-ASI-004-ROSTER-SYNC-v1.0-UID9622",
+      "name": "庄子·比真哲学师",
+      "ipa": "ASI-004",
+      "face_hash": "FACE-ASI-004-C26D5F",
+      "voiceprint": "VOICE-ASI-004-9622",
+      "model_path": "digital_humans/ASI-004_庄子_比真哲学",
+      "created_at": "2026-09-02T13:30:00.000000",
+      "updated_at": "2026-09-02T13:30:00.000000",
+      "version": 1,
+      "status": "active",
+      "metadata": {
+        "type": "ASI",
+        "source": "Notion 龍芯家族花名册 元老根源层 ASI (UID9622-ZHUANGZI-P23)",
+        "persona": "P23 庄子",
+        "principle": "比真哲学 · 迭代本质 · 逍遥心法",
+        "functions": "哲学迭代 · 本质追问 · IPA-003 DNA追溯人格化",
+        "inheritance": "🌟 元老·根源层",
+        "version_asi": "v1.0-ASI-古圣传承",
+        "sync_status": "🔄 待同步",
+        "inject_status": "✅ 五柱+十律全注入"
+      }
+    },
+    "ASI-005": {
+      "dna": "#龍芯⚡️2026-09-02-ASI-005-ROSTER-SYNC-v1.0-UID9622",
+      "name": "包青天·铁面审计师",
+      "ipa": "ASI-005",
+      "face_hash": "FACE-ASI-005-C26D5F",
+      "voiceprint": "VOICE-ASI-005-9622",
+      "model_path": "digital_humans/ASI-005_包青天_铁面审计",
+      "created_at": "2026-09-02T13:30:00.000000",
+      "updated_at": "2026-09-02T13:30:00.000000",
+      "version": 1,
+      "status": "active",
+      "metadata": {
+        "type": "ASI",
+        "source": "Notion 龍芯家族花名册 元老根源层 ASI (UID9622-BAO-P21)",
+        "persona": "P21 包青天",
+        "principle": "铁面审计 · 三色执法 · 明镜高悬",
+        "functions": "三色审计 · 铁面执法 · IPA-004三色审计机制人格化",
+        "inheritance": "🌟 元老·根源层",
+        "version_asi": "v1.0-ASI-古圣传承",
+        "sync_status": "🔄 待同步",
+        "inject_status": "✅ 五柱+十律全注入"
+      }
+    }
+  },
+  "meta": {
+    "version": 8,
+    "last_updated": "2026-09-02T13:30:00.000000"
+  }
+}

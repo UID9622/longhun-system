@@ -1,4 +1,5 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ============================================================
 # 龍魂 CodeBuddy 扩展一键安装脚本
 # 
@@ -7,6 +8,7 @@
 #   bash install-all.sh --local          # 从本地 dist/ 安装
 #
 # DNA: #龍芯⚡️丙午·辛未·ONE-CLICK-INSTALL-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # ============================================================
 

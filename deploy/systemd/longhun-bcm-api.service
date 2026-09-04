@@ -1,0 +1,38 @@
+# DNA: #龍芯⚡️丁未·戊申·戊午·巳时·䷀乾-BCM-SYSTEMD-SERVICE-v1.0
+# 创建者: 诸葛鑫（UID9622）
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# 龍魂·行為密碼學API守護進程 — 鲲鹏119.13.90.27
+
+[Unit]
+Description=龍魂·行為密碼學七因子指紋API v2.0
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/longhun
+ExecStart=/usr/bin/python3 /opt/longhun/04_ENGINES/behavioral_crypto/api_server.py
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+RestartSec=5
+StartLimitIntervalSec=0
+
+# 安全加固
+NoNewPrivileges=yes
+ProtectSystem=full
+ProtectHome=yes
+PrivateTmp=yes
+ReadWritePaths=/opt/longhun/logs /opt/longhun/audit
+
+# 日志
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=longhun-bcm-api
+
+# 环境
+Environment=PYTHONUNBUFFERED=1
+Environment=LONGHUN_ENV=production
+
+[Install]
+WantedBy=multi-user.target

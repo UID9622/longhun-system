@@ -1,0 +1,256 @@
+
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "龍魂语义安全闸规则模板 Schema v1.1",
+  "description": "所有语义安全闸规则必须遵循此模板。细节不到位、字段缺失、DNA格式错误或审计链不全的规则将被拒绝。",
+  "dna": "#龍芯⚡️丙午·丙申·癸酉·乙卯·临-LONGHUN-GUARD-RULE-TEMPLATE-SCHEMA-v∞-A54A36EA",
+  "version": "1.1.0",
+  "type": "object",
+  "required": ["dna", "version", "description", "updated_at", "categories", "actions", "agent_chain", "rules"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "JSON Schema URI"
+    },
+    "dna": {
+      "type": "string",
+      "pattern": "^#龍芯⚡\\uFE0F?[A-Za-z0-9\\u4e00-\\u9fa5·☰_\\.\\-]+-v∞-[A-Za-z0-9]{8}$",
+      "description": "规则库 DNA 追溯码，v∞ 干支卦格式"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "规则库版本，遵循 SemVer"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 20,
+      "description": "规则库用途说明，不少于20字"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "创建时间 ISO 8601"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "更新时间 ISO 8601"
+    },
+    "author": {
+      "type": "string",
+      "description": "规则库作者"
+    },
+    "confirm_code": {
+      "type": "string",
+      "pattern": "^#CONFIRM.*$",
+      "description": "L0 一次性确认码"
+    },
+    "location": {
+      "type": "string",
+      "enum": ["shared", "skill", "backup", "draft"],
+      "description": "规则库部署位置"
+    },
+    "categories": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "required": ["name", "description", "default_severity", "default_action"],
+        "properties": {
+          "name": { "type": "string", "minLength": 2 },
+          "description": { "type": "string", "minLength": 10 },
+          "default_severity": {
+            "type": "string",
+            "enum": ["🟢", "🟡", "🔴"]
+          },
+          "default_action": { "type": "string", "minLength": 1 },
+          "color": { "type": "string" },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "actions": {
+      "type": "object",
+      "description": "动作注册表",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "required": ["name", "description", "target_engine"],
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "target_engine": { "type": "string" },
+          "payload_template": { "type": "object" }
+        }
+      }
+    },
+    "agent_chain": {
+      "type": "array",
+      "description": "Agent 十闸审计链 GATE-01~GATE-10",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": ["gate", "name", "status", "reviewer", "reviewed_at"],
+        "properties": {
+          "gate": {
+            "type": "string",
+            "pattern": "^GATE-[0-9]{2}$"
+          },
+          "name": { "type": "string" },
+          "status": {
+            "type": "string",
+            "enum": ["draft", "pending", "approved", "rejected", "deprecated"]
+          },
+          "reviewer": { "type": "string" },
+          "reviewed_at": { "type": "string" },
+          "comment": { "type": "string" }
+        }
+      }
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "category",
+          "name",
+          "description",
+          "patterns",
+          "severity",
+          "action",
+          "priority",
+          "enabled",
+          "version"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9_]*$",
+            "description": "规则 ID：大写字母、数字、下划线，首字符大写字母"
+          },
+          "category": {
+            "type": "string",
+            "description": "必须对应 categories 中的 key"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 2,
+            "description": "规则中文名称"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 20,
+            "description": "规则详细说明，不少于20字"
+          },
+          "patterns": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "description": "正则表达式"
+            }
+          },
+          "negative_patterns": {
+            "type": "array",
+            "description": "反例正则，命中则排除",
+            "items": { "type": "string" }
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["🟢", "🟡", "🔴"]
+          },
+          "action": {
+            "type": "string",
+            "description": "必须对应 actions 中的 key 或 category 默认值"
+          },
+          "priority": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "优先级，数字越大越优先"
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "是否启用"
+          },
+          "version": {
+            "type": "string",
+            "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "author": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object",
+            "properties": {
+              "source": { "type": "string" },
+              "evidence_examples": {
+                "type": "array",
+                "items": { "type": "string" },
+                "minItems": 1
+              },
+              "counter_examples": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "references": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "tags": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "notes": { "type": "string" }
+            }
+          },
+          "provenance_requirements": {
+            "type": "object",
+            "properties": {
+              "require_ip": { "type": "boolean" },
+              "require_device_fingerprint": { "type": "boolean" },
+              "require_user_agent": { "type": "boolean" },
+              "require_session_id": { "type": "boolean" },
+              "require_hostname": { "type": "boolean" }
+            }
+          },
+          "output_template": {
+            "type": "object",
+            "properties": {
+              "target_engine": { "type": "string" },
+              "payload_schema": { "type": "object" }
+            }
+          },
+          "audit": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": ["draft", "pending", "approved", "rejected", "deprecated"]
+              },
+              "reviewer": { "type": "string" },
+              "reviewed_at": { "type": "string", "format": "date-time" },
+              "comments": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

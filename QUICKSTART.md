@@ -1,4 +1,6 @@
-<!-- DNA: #龍芯⚡️2026-07-13-QUICKSTART-v1.0 -->
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+<!-- DNA: #龍芯⚡️丙午·乙未·戊子·戊午·䷙大畜-QUICKSTART-v1.0 -->
 
 # 🐉 龍魂系统 · 快速入门
 
@@ -27,7 +29,7 @@ git clone https://github.com/UID9622/longhun-system.git
 cd longhun-system
 
 # 一键安装
-bash install.sh
+bash bin/install.sh
 ```
 
 安装脚本会自动：
@@ -53,7 +55,7 @@ lh start
 
 ```bash
 # 三色审计自检
-python3 bin/longhun-self-heal.py --quick
+python3 bin/lh_self_heal.py --quick
 
 # MCP Server 测试（让 AI 调用 CNSH 工具）
 python3 integrations/mcp/cnsh_syntax_mcp_server.py --test

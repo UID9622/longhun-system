@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 龍魂AI Hub · 透明审计多模型平台</title>
+<!-- DNA: #龍芯⚡️丙午·丙申·己酉·庚午·䷐随-AI-HUB-PORTAL-v1.0 -->
+<!-- 创建者: 诸葛鑫（UID9622）| 协议: CC BY-NC-SA 4.0 -->
+<meta name="description" content="龍魂AI Hub — 透明可审计的多模型AI平台，支持ChatGPT/Claude/Kimi/DeepSeek/混元，每次对话全链路审计·实时计费·DNA追溯">
+<style>
+:root {
+  --bg: #0a0e14; --bg2: #121820; --bg3: #1a2332; --bg4: #243044;
+  --text: #e8edf5; --text2: #8899b4; --text3: #5a6a82;
+  --gold: #f0c040; --gold2: #c9a030; --gold-glow: rgba(240,192,64,0.12);
+  --blue: #4a8af4; --blue2: #2a5a9a;
+  --green: #3dd68c; --red: #f05454; --orange: #f0a040;
+  --border: #2a3a4a; --radius: 12px; --radius-sm: 8px;
+  --font: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { height: 100%; overflow: hidden; }
+
+body {
+  font-family: var(--font); background: var(--bg); color: var(--text);
+  display: flex; flex-direction: column;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--text3); border-radius: 10px; }
+
+/* ─── 导航栏 ─── */
+.navbar {
+  height: 52px; min-height: 52px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 20px; background: rgba(10,14,20,0.92);
+  backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+  z-index: 100; flex-shrink: 0;
+}
+.nav-left { display: flex; align-items: center; gap: 10px; }
+.nav-logo { font-size: 1.4rem; font-weight: 700; color: var(--gold); }
+.nav-dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+.nav-title { font-size: 0.85rem; color: var(--text2); }
+.nav-tabs { display: flex; gap: 4px; }
+.nav-tab {
+  padding: 6px 14px; border-radius: 8px; cursor: pointer; font-size: 0.82rem;
+  color: var(--text2); transition: all 0.2s; border: none; background: transparent;
+  white-space: nowrap;
+}
+.nav-tab:hover { color: var(--text); background: var(--bg3); }
+.nav-tab.active { color: var(--gold); background: var(--bg4); font-weight: 600; }
+.nav-right { display: flex; gap: 8px; align-items: center; }
+.nav-status { font-size: 0.75rem; color: var(--text3); display: flex; align-items: center; gap: 6px; }
+.nav-status .cost { color: var(--orange); }
+
+/* ─── 主体 ─── */
+.main { display: flex; flex: 1; overflow: hidden; }
+
+/* ─── Tab内容区 ─── */
+.tab-content { display: none; flex-direction: column; flex: 1; overflow: hidden; }
+.tab-content.active { display: flex; }
+
+/* ═══════════ 对话Tab ═══════════ */
+.chat-layout { display: flex; flex: 1; overflow: hidden; }
+.chat-main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+
+/* 消息区 */
+.chat-messages {
+  flex: 1; overflow-y: auto; padding: 20px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.msg { display: flex; gap: 12px; max-width: 85%; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.msg.user { align-self: flex-end; flex-direction: row-reverse; }
+.msg-avatar {
+  width: 36px; height: 36px; border-radius: 50%; display: flex;
+  align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;
+}
+.msg.user .msg-avatar { background: var(--bg3); border: 1px solid var(--gold2); }
+.msg.assistant .msg-avatar { background: var(--bg3); border: 1px solid var(--blue2); }
+.msg-body { flex: 1; min-width: 0; }
+.msg-content { 
+  padding: 12px 16px; border-radius: var(--radius-sm); line-height: 1.7; 
+  font-size: 0.92rem; word-break: break-word; white-space: pre-wrap;
+}
+.msg.user .msg-content { background: var(--bg4); border: 1px solid var(--border); }
+.msg.assistant .msg-content { background: var(--bg3); border: 1px solid var(--border); }
+.msg-meta {
+  display: flex; gap: 12px; margin-top: 6px; font-size: 0.7rem; color: var(--text3);
+  flex-wrap: wrap; align-items: center;
+}
+.msg-meta span { display: inline-flex; align-items: center; gap: 4px; }
+.msg-meta .dna-link { color: var(--gold2); cursor: pointer; text-decoration: underline; }
+.msg-meta .dna-link:hover { color: var(--gold); }
+.msg-cost { color: var(--orange); }
+.msg-latency { color: var(--blue); }
+.msg-sovereignty { padding: 1px 6px; border-radius: 10px; font-size: 0.65rem; }
+.sovereignty-domestic { background: rgba(61,214,140,0.15); color: var(--green); }
+.sovereignty-overseas { background: rgba(240,84,84,0.15); color: var(--red); }
+.sovereignty-local { background: rgba(74,138,244,0.15); color: var(--blue); }
+
+/* 输入区 */
+.chat-input-area {
+  padding: 16px 20px; border-top: 1px solid var(--border); background: var(--bg2);
+  flex-shrink: 0;
+}
+.chat-toolbar { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; align-items: center; }
+.model-select {
+  padding: 5px 10px; border-radius: 6px; border: 1px solid var(--border);
+  background: var(--bg3); color: var(--text); font-size: 0.8rem; cursor: pointer;
+}
+.model-select option { background: var(--bg3); }
+.model-badge {
+  display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px;
+  border-radius: 14px; font-size: 0.7rem; border: 1px solid;
+}
+.model-badge.available { border-color: var(--green); color: var(--green); background: rgba(61,214,140,0.08); }
+.model-badge.unavailable { border-color: var(--text3); color: var(--text3); opacity: 0.6; }
+.chat-input-row { display: flex; gap: 10px; align-items: flex-end; }
+.chat-input {
+  flex: 1; padding: 12px 16px; border-radius: var(--radius-sm); resize: none;
+  border: 1px solid var(--border); background: var(--bg3); color: var(--text);
+  font-size: 0.9rem; font-family: var(--font); min-height: 48px; max-height: 160px;
+  outline: none; transition: border-color 0.2s;
+}
+.chat-input:focus { border-color: var(--gold2); }
+.btn {
+  padding: 10px 20px; border-radius: var(--radius-sm); border: none; cursor: pointer;
+  font-size: 0.85rem; font-weight: 600; transition: all 0.2s; display: inline-flex;
+  align-items: center; gap: 6px;
+}
+.btn-primary { background: var(--gold); color: #1a1a1a; }
+.btn-primary:hover { background: #ffd866; }
+.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn-ghost {
+  background: transparent; border: 1px solid var(--border); color: var(--text2);
+}
+.btn-ghost:hover { border-color: var(--gold2); color: var(--gold); }
+.btn-sm { padding: 5px 12px; font-size: 0.75rem; }
+
+/* 透明面板 */
+.transparency-panel {
+  width: 340px; min-width: 280px; border-left: 1px solid var(--border);
+  background: var(--bg2); overflow-y: auto; padding: 20px; flex-shrink: 0;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.panel-title { font-size: 0.85rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; }
+.panel-card {
+  background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 14px; font-size: 0.78rem;
+}
+.panel-card h4 { font-size: 0.75rem; color: var(--text2); margin-bottom: 8px; letter-spacing: 0.5px; }
+.stat-row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 0.75rem; }
+.stat-row .label { color: var(--text3); }
+.stat-row .value { color: var(--text); font-weight: 600; }
+.stat-row .value.green { color: var(--green); }
+.stat-row .value.gold { color: var(--gold); }
+.stat-row .value.red { color: var(--red); }
+.cost-breakdown { margin-top: 8px; }
+.cost-bar {
+  height: 6px; border-radius: 3px; background: var(--border); margin-top: 4px;
+  overflow: hidden; display: flex;
+}
+.cost-bar-fill { height: 100%; border-radius: 3px; transition: width 0.5s; }
+.cost-bar-fill.input { background: var(--blue); }
+.cost-bar-fill.output { background: var(--gold); }
+
+.progress-ring { position: relative; width: 80px; height: 80px; margin: 8px auto; }
+.progress-ring svg { transform: rotate(-90deg); }
+.progress-ring .bg { fill: none; stroke: var(--border); stroke-width: 6; }
+.progress-ring .fg { fill: none; stroke: var(--green); stroke-width: 6; stroke-linecap: round; transition: stroke-dashoffset 0.6s; }
+.progress-ring .text { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 700; }
+
+/* ═══════════ 对比Tab ═══════════ */
+.compare-layout { display: flex; flex: 1; overflow: hidden; flex-direction: column; }
+.compare-header { padding: 16px 20px; border-bottom: 1px solid var(--border); }
+.compare-input-row { display: flex; gap: 10px; max-width: 800px; }
+.compare-input {
+  flex: 1; padding: 10px 14px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border); background: var(--bg3); color: var(--text);
+  font-size: 0.9rem; outline: none;
+}
+.compare-columns { flex: 1; display: flex; overflow: hidden; }
+.compare-col {
+  flex: 1; border-right: 1px solid var(--border); display: flex;
+  flex-direction: column; overflow: hidden;
+}
+.compare-col:last-child { border-right: none; }
+.compare-col-header {
+  padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 700;
+  font-size: 0.85rem; display: flex; align-items: center; gap: 8px;
+}
+.compare-col-body {
+  flex: 1; padding: 16px; overflow-y: auto; font-size: 0.85rem; line-height: 1.7;
+  white-space: pre-wrap; word-break: break-word;
+}
+.compare-col-footer {
+  padding: 8px 16px; border-top: 1px solid var(--border); font-size: 0.7rem;
+  color: var(--text3); display: flex; gap: 12px;
+}
+
+/* ═══════════ 审计Tab ═══════════ */
+.audit-layout { display: flex; flex: 1; overflow-y: auto; padding: 20px; gap: 20px; flex-wrap: wrap; align-content: flex-start; }
+.audit-stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; width: 100%; }
+.stat-card {
+  background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 18px; display: flex; flex-direction: column; gap: 6px;
+}
+.stat-card .number { font-size: 2rem; font-weight: 700; color: var(--gold); }
+.stat-card .label { font-size: 0.75rem; color: var(--text3); }
+.stat-card .trend { font-size: 0.7rem; }
+.trend-up { color: var(--green); }
+.trend-down { color: var(--red); }
+.audit-charts { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.audit-chart {
+  background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 16px;
+}
+.audit-chart h3 { font-size: 0.85rem; color: var(--text2); margin-bottom: 12px; }
+.chart-bar-group { display: flex; flex-direction: column; gap: 8px; }
+.chart-bar-row { display: flex; align-items: center; gap: 10px; font-size: 0.78rem; }
+.chart-bar-row .name { width: 80px; text-align: right; color: var(--text2); flex-shrink: 0; }
+.chart-bar-track { flex: 1; height: 20px; background: var(--bg); border-radius: 4px; overflow: hidden; }
+.chart-bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 8px; font-size: 0.7rem; font-weight: 600; color: #fff; }
+.chart-bar-fill.g { background: linear-gradient(90deg, var(--gold2), var(--gold)); color: var(--bg); }
+.chart-bar-fill.b { background: linear-gradient(90deg, var(--blue2), var(--blue)); }
+
+/* ═══════════ 历史Tab ═══════════ */
+.history-layout { display: flex; flex: 1; overflow: hidden; flex-direction: column; padding: 16px; }
+.history-search { display: flex; gap: 10px; margin-bottom: 16px; }
+.history-search input {
+  flex: 1; padding: 10px 14px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border); background: var(--bg3); color: var(--text);
+  font-size: 0.88rem; outline: none;
+}
+.history-list { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+.history-item {
+  background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 14px; cursor: pointer; transition: all 0.15s;
+}
+.history-item:hover { border-color: var(--gold2); }
+.history-item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.history-item-time { font-size: 0.72rem; color: var(--text3); }
+.history-item-model { font-size: 0.72rem; padding: 2px 8px; border-radius: 10px; background: var(--bg4); color: var(--text2); }
+.history-item-preview { font-size: 0.82rem; color: var(--text2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.history-item-footer { display: flex; gap: 12px; margin-top: 6px; font-size: 0.7rem; color: var(--text3); }
+.empty-state {
+  text-align: center; padding: 60px 20px; color: var(--text3);
+}
+.empty-state .icon { font-size: 3rem; margin-bottom: 12px; }
+.empty-state p { margin: 4px 0; }
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .transparency-panel { display: none; }
+  .compare-columns { flex-direction: column; }
+  .compare-col { border-right: none; border-bottom: 1px solid var(--border); }
+  .audit-charts { grid-template-columns: 1fr; }
+  .chat-layout { flex-direction: column; }
+  .nav-tab { padding: 6px 8px; font-size: 0.75rem; }
+}
+@media (max-width: 480px) {
+  .nav-tab:nth-child(5) { display: none; }
+  .msg { max-width: 95%; }
+  .chat-toolbar { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+<!-- ═══════════ 导航栏 ═══════════ -->
+<nav class="navbar">
+  <div class="nav-left">
+    <span class="nav-logo">🐉</span>
+    <span class="nav-dot"></span>
+    <span class="nav-title">龍魂AI Hub</span>
+  </div>
+  <div class="nav-tabs" id="navTabs">
+    <button class="nav-tab active" data-tab="chat">💬 对话</button>
+    <button class="nav-tab" data-tab="compare">🔄 对比</button>
+    <button class="nav-tab" data-tab="audit">📊 审计</button>
+    <button class="nav-tab" data-tab="history">📜 历史</button>
+    <button class="nav-tab" data-tab="about">ℹ️ 关于</button>
+  </div>
+  <div class="nav-right">
+    <span class="nav-status" id="navStatus">
+      <span id="statusDot" style="width:7px;height:7px;border-radius:50%;background:var(--green)"></span>
+      <span id="statusText">就绪</span>
+      <span class="cost" id="navCost" style="display:none"></span>
+    </span>
+  </div>
+</nav>
+
+<!-- ═══════════ 主体 ═══════════ -->
+<div class="main">
+
+<!-- ─── 💬 对话Tab ─── -->
+<div class="tab-content active" id="tab-chat">
+  <div class="chat-layout">
+    <div class="chat-main">
+      <div class="chat-messages" id="chatMessages">
+        <div class="empty-state">
+          <div class="icon">🐉</div>
+          <p style="color:var(--gold);font-weight:600">龍魂AI Hub · 透明审计多模型平台</p>
+          <p>支持 ChatGPT · Claude · Kimi · DeepSeek · 混元</p>
+          <p style="font-size:0.75rem;color:var(--text3)">每次对话全链路审计 · 实时计费 · DNA追溯 · 数据主权标识</p>
+          <p style="font-size:0.7rem;color:var(--text3);margin-top:8px">← 右侧透明面板实时展示每次调用的完整审计信息</p>
+        </div>
+      </div>
+      <div class="chat-input-area">
+        <div class="chat-toolbar">
+          <select class="model-select" id="modelSelect">
+            <option value="auto">🧠 智能路由（自动选择最优模型）</option>
+            <option value="deepseek">🇨🇳 DeepSeek Chat（境内·推荐）</option>
+            <option value="kimi">🇨🇳 Kimi Moonshot（境内）</option>
+            <option value="claude">🌍 Claude 3.5 Sonnet（境外）</option>
+            <option value="openai">🌍 GPT-4o Mini（境外）</option>
+          </select>
+          <span id="modelBadges"></span>
+        </div>
+        <div class="chat-input-row">
+          <textarea class="chat-input" id="chatInput" rows="2" placeholder="输入消息... (Shift+Enter 换行, Enter 发送)" onkeydown="handleKeyDown(event)"></textarea>
+          <button class="btn btn-primary" id="sendBtn" onclick="sendMessage()">▶ 发送</button>
+          <button class="btn btn-ghost btn-sm" onclick="clearChat()">清空</button>
+        </div>
+      </div>
+    </div>
+    <!-- 透明审计面板 -->
+    <div class="transparency-panel" id="transPanel">
+      <div class="panel-title">🔍 透明审计面板</div>
+      <div class="panel-card">
+        <h4>📊 本次会话</h4>
+        <div class="stat-row"><span class="label">消息数</span><span class="value" id="tpMsgs">0</span></div>
+        <div class="stat-row"><span class="label">总Token</span><span class="value" id="tpTokens">0</span></div>
+        <div class="stat-row"><span class="label">累计费用</span><span class="value gold" id="tpCost">$0.0000</span></div>
+        <div class="stat-row"><span class="label">平均延迟</span><span class="value" id="tpLatency">0ms</span></div>
+      </div>
+      <div class="panel-card">
+        <h4>🎯 最近调用</h4>
+        <div id="tpLastCall" style="font-size:0.72rem;color:var(--text3)">尚未调用</div>
+      </div>
+      <div class="panel-card">
+        <h4>🏳️ 数据主权分布</h4>
+        <div class="stat-row"><span class="label">🇨🇳 境内处理</span><span class="value green" id="tpDomestic">0%</span></div>
+        <div class="stat-row"><span class="label">🌍 境外处理</span><span class="value red" id="tpOverseas">0%</span></div>
+        <div class="cost-bar" style="margin-top:8px">
+          <div class="cost-bar-fill input" id="tpBarDomestic" style="width:0%"></div>
+          <div class="cost-bar-fill output" id="tpBarOverseas" style="width:0%;background:var(--red)"></div>
+        </div>
+      </div>
+      <div class="panel-card">
+        <h4>🛡️ 即时操作</h4>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <button class="btn btn-ghost btn-sm" onclick="exportSession()">📥 导出会话</button>
+          <button class="btn btn-ghost btn-sm" onclick="switchTab('audit')">📊 完整报表</button>
+          <button class="btn btn-ghost btn-sm" onclick="switchTab('history')">📜 历史记录</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 🔄 对比Tab ─── -->
+<div class="tab-content" id="tab-compare">
+  <div class="compare-layout">
+    <div class="compare-header">
+      <div class="compare-input-row">
+        <input class="compare-input" id="compareInput" placeholder="输入问题，对比多个模型的回答...">
+        <button class="btn btn-primary" onclick="runCompare()">⚡ 对比</button>
+        <button class="btn btn-ghost btn-sm" onclick="clearCompare()">清空</button>
+      </div>
+    </div>
+    <div class="compare-columns" id="compareColumns">
+      <div class="compare-col">
+        <div class="compare-col-header">🇨🇳 DeepSeek <span style="font-weight:400;font-size:0.7rem;color:var(--text3)">境内·推荐</span></div>
+        <div class="compare-col-body" id="compDeepSeek" style="color:var(--text3)">等待输入问题...</div>
+        <div class="compare-col-footer" id="compDeepSeekMeta"></div>
+      </div>
+      <div class="compare-col">
+        <div class="compare-col-header">🇨🇳 Kimi <span style="font-weight:400;font-size:0.7rem;color:var(--text3)">境内</span></div>
+        <div class="compare-col-body" id="compKimi" style="color:var(--text3)">等待输入问题...</div>
+        <div class="compare-col-footer" id="compKimiMeta"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 📊 审计Tab ─── -->
+<div class="tab-content" id="tab-audit">
+  <div class="audit-layout">
+    <div style="width:100%;display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <h2 style="font-size:1.2rem">📊 透明审计仪表盘</h2>
+      <div style="display:flex;gap:8px">
+        <select id="auditPeriod" onchange="loadAudit()" style="padding:6px 10px;border-radius:6px;border:1px solid var(--border);background:var(--bg3);color:var(--text);font-size:0.8rem">
+          <option value="1">最近1天</option>
+          <option value="7" selected>最近7天</option>
+          <option value="30">最近30天</option>
+          <option value="90">最近90天</option>
+        </select>
+        <button class="btn btn-ghost btn-sm" onclick="loadAudit()">🔄 刷新</button>
+      </div>
+    </div>
+    <div class="audit-stats" id="auditStats">
+      <div class="stat-card"><div class="number">--</div><div class="label">总请求数</div></div>
+      <div class="stat-card"><div class="number">--</div><div class="label">总Token</div></div>
+      <div class="stat-card"><div class="number">--</div><div class="label">累计费用(USD)</div></div>
+      <div class="stat-card"><div class="number">--</div><div class="label">平均延迟</div></div>
+      <div class="stat-card"><div class="number">--</div><div class="label">成功率</div></div>
+      <div class="stat-card"><div class="number">--</div><div class="label">今日请求</div></div>
+    </div>
+    <div class="audit-charts">
+      <div class="audit-chart"><h3>📈 按模型分布</h3><div class="chart-bar-group" id="chartByModel"></div></div>
+      <div class="audit-chart"><h3>📅 每日趋势</h3><div class="chart-bar-group" id="chartByDay"></div></div>
+    </div>
+    <div class="audit-chart" style="width:100%;margin-top:4px">
+      <h3>💡 智能建议</h3>
+      <div id="auditRecs" style="font-size:0.82rem;color:var(--text2)">加载中...</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 📜 历史Tab ─── -->
+<div class="tab-content" id="tab-history">
+  <div class="history-layout">
+    <div class="history-search">
+      <input id="historySearch" placeholder="搜索对话内容/模型/DNA码..." oninput="loadHistory()">
+      <button class="btn btn-ghost btn-sm" onclick="loadHistory()">🔍 搜索</button>
+    </div>
+    <div class="history-list" id="historyList">
+      <div class="empty-state"><div class="icon">📜</div><p>加载中...</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── ℹ️ 关于Tab ─── -->
+<div class="tab-content" id="tab-about">
+  <div class="audit-layout" style="max-width:800px;margin:0 auto">
+    <div class="panel-card" style="width:100%">
+      <h2 style="font-size:1.3rem;margin-bottom:16px;color:var(--gold)">🐉 龍魂AI Hub · 透明审计多模型平台</h2>
+      <p style="line-height:1.8;margin-bottom:12px;color:var(--text2)">
+        龍魂AI Hub 是业界首个<b style="color:var(--gold)">全链路透明审计</b>的多模型AI平台。与 ChatGPT/Claude/Kimi/DeepSeek 等主流AI服务不同，我们坚持：
+      </p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0">
+        <div style="background:var(--bg4);border-radius:8px;padding:12px">
+          <div style="font-weight:700;color:var(--green);margin-bottom:4px">🔍 全链路可审计</div>
+          <div style="font-size:0.78rem;color:var(--text2)">每次对话实时记录：模型/延迟/Token/费用/DNA追溯码，不可篡改</div>
+        </div>
+        <div style="background:var(--bg4);border-radius:8px;padding:12px">
+          <div style="font-weight:700;color:var(--green);margin-bottom:4px">💰 费用全透明</div>
+          <div style="font-size:0.78rem;color:var(--text2)">精确到每次调用的输入/输出Token和对应费用，不黑箱计费</div>
+        </div>
+        <div style="background:var(--bg4);border-radius:8px;padding:12px">
+          <div style="font-weight:700;color:var(--green);margin-bottom:4px">🏳️ 数据主权标识</div>
+          <div style="font-size:0.78rem;color:var(--text2)">明确标注数据处理地点（境内/境外/本地），优先推荐境内模型</div>
+        </div>
+        <div style="background:var(--bg4);border-radius:8px;padding:12px">
+          <div style="font-weight:700;color:var(--green);margin-bottom:4px">🧬 DNA追溯体系</div>
+          <div style="font-size:0.78rem;color:var(--text2)">每次对话生成唯一DNA码，支持全生命周期溯源验证</div>
+        </div>
+        <div style="background:var(--bg4);border-radius:8px;padding:12px">
+          <div style="font-weight:700;color:var(--green);margin-bottom:4px">🔄 多模型对比</div>
+          <div style="font-size:0.78rem;color:var(--text2)">同一问题同时调用多个模型，直观对比回答质量与成本</div>
+        </div>
+        <div style="background:var(--bg4);border-radius:8px;padding:12px">
+          <div style="font-weight:700;color:var(--green);margin-bottom:4px">📊 审计报告导出</div>
+          <div style="font-size:0.78rem;color:var(--text2)">一键生成完整审计报告，包含成功率/延迟/费用/主权分析</div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--border);padding-top:16px;margin-top:16px">
+        <h3 style="font-size:0.9rem;color:var(--gold);margin-bottom:8px">📋 支持的模型</h3>
+        <table style="width:100%;font-size:0.8rem;border-collapse:collapse">
+          <tr style="border-bottom:1px solid var(--border);color:var(--text2)"><th style="text-align:left;padding:6px">模型</th><th style="text-align:left;padding:6px">供应商</th><th style="text-align:left;padding:6px">类型</th><th style="text-align:left;padding:6px">数据主权</th><th style="text-align:right;padding:6px">输入价格</th><th style="text-align:right;padding:6px">输出价格</th></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px">DeepSeek Chat</td><td>深度求索</td><td>云端</td><td style="color:var(--green)">🇨🇳 境内</td><td style="text-align:right">$0.14/M</td><td style="text-align:right">$0.28/M</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px">Kimi Moonshot</td><td>月之暗面</td><td>云端</td><td style="color:var(--green)">🇨🇳 境内</td><td style="text-align:right">¥0.60/M</td><td style="text-align:right">¥0.60/M</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px">Claude 3.5 Sonnet</td><td>Anthropic</td><td>云端</td><td style="color:var(--red)">🇺🇸 境外</td><td style="text-align:right">$3.00/M</td><td style="text-align:right">$15.00/M</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px">GPT-4o Mini</td><td>OpenAI</td><td>云端</td><td style="color:var(--red)">🇺🇸 境外</td><td style="text-align:right">$0.15/M</td><td style="text-align:right">$0.60/M</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px">混元 Lite</td><td>腾讯云</td><td>云端</td><td style="color:var(--green)">🇨🇳 境内</td><td style="text-align:right">¥0.004/M</td><td style="text-align:right">¥0.012/M</td></tr>
+          <tr><td style="padding:6px">龍魂本地</td><td>Ollama/MLX</td><td>本地</td><td style="color:var(--blue)">🏠 本地</td><td style="text-align:right">免费</td><td style="text-align:right">免费</td></tr>
+        </table>
+      </div>
+      <div style="border-top:1px solid var(--border);padding-top:12px;margin-top:12px;font-size:0.7rem;color:var(--text3);text-align:center">
+        DNA: #龍芯⚡️丙午·丙申·己酉·庚午·䷐随-AI-HUB-PORTAL-v1.0 | 创建者: 诸葛鑫（UID9622）| 协议: CC BY-NC-SA 4.0
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main -->
+
+<script>
+// ═══════════════════════════════════════════════════════
+// 龍魂AI Hub · 客户端引擎 v1.0
+// ═══════════════════════════════════════════════════════
+
+const API = '/api/ai-hub';
+const SESSION_ID = 'hub_' + Date.now().toString(36);
+const chatMessages = document.getElementById('chatMessages');
+const chatInput = document.getElementById('chatInput');
+const modelSelect = document.getElementById('modelSelect');
+let isSending = false;
+
+// ─── Tab切换 ───
+document.querySelectorAll('.nav-tab').forEach(tab => {
+  tab.addEventListener('click', () => switchTab(tab.dataset.tab));
+});
+
+function switchTab(name) {
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`[data-tab="${name}"]`)?.classList.add('active');
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  document.getElementById('tab-' + name)?.classList.add('active');
+  
+  if (name === 'audit') loadAudit();
+  if (name === 'history') loadHistory();
+  if (name === 'chat') chatInput?.focus();
+}
+
+// ─── 模型状态检查 ───
+async function checkModels() {
+  try {
+    const r = await fetch(API + '/models');
+    const d = await r.json();
+    const badges = document.getElementById('modelBadges');
+    if (!badges) return;
+    let html = '';
+    d.models.forEach(m => {
+      const cls = m.available ? 'available' : 'unavailable';
+      html += `<span class="model-badge ${cls}">${m.available ? '✓' : '✗'} ${m.name.split(' ')[0]}</span>`;
+    });
+    badges.innerHTML = html;
+    document.getElementById('navCost').style.display = 'inline';
+  } catch(e) {}
+}
+checkModels();
+
+// ─── 发送消息 ───
+async function sendMessage() {
+  const text = chatInput.value.trim();
+  if (!text || isSending) return;
+  
+  isSending = true;
+  chatInput.value = '';
+  document.getElementById('sendBtn').disabled = true;
+  document.getElementById('sendBtn').textContent = '...';
+  
+  // 添加用户消息
+  appendMessage('user', text);
+  
+  // 添加AI占位
+  const aiId = 'ai_' + Date.now();
+  appendMessage('assistant', '⏳ 思考中...', aiId);
+  
+  // 清空空状态
+  const empty = chatMessages.querySelector('.empty-state');
+  if (empty) empty.remove();
+  
+  const t0 = performance.now();
+  
+  try {
+    const provider = modelSelect.value === 'auto' ? null : modelSelect.value;
+    const r = await fetch(API + '/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: text,
+        session_id: SESSION_ID,
+        provider: provider,
+        temperature: 0.7,
+      })
+    });
+    
+    const d = await r.json();
+    const latency = Math.round(performance.now() - t0);
+    
+    if (!r.ok) throw new Error(d.detail || '请求失败');
+    
+    // 更新AI消息
+    const aiEl = document.getElementById(aiId);
+    if (aiEl) {
+      aiEl.querySelector('.msg-content').textContent = d.content;
+      
+      // 审计meta
+      const meta = aiEl.querySelector('.msg-meta');
+      const sovereignty = d.transparency?.sovereignty || '';
+      const sovClass = sovereignty.includes('境内') ? 'sovereignty-domestic' : sovereignty.includes('本地') ? 'sovereignty-local' : 'sovereignty-overseas';
+      
+      meta.innerHTML = `
+        <span style="color:var(--text2)">🤖 ${d.model || d.provider}</span>
+        <span class="msg-latency">⚡ ${latency}ms</span>
+        <span>📊 ${d.transparency?.tokens?.total || 0} tokens</span>
+        <span class="msg-cost">💰 $${(d.transparency?.cost_usd || 0).toFixed(6)}</span>
+        <span class="msg-sovereignty ${sovClass}">${sovereignty}</span>
+        <span class="dna-link" title="${d.dna}" onclick="copyDNA('${d.dna}')">🧬 ${d.dna.slice(-16)}</span>
+      `;
+    }
+    
+    // 更新透明面板
+    updateTransparency(d, latency);
+    
+    // 更新状态
+    document.getElementById('statusText').textContent = `${d.provider} · ${latency}ms`;
+    
+  } catch(e) {
+    const aiEl = document.getElementById(aiId);
+    if (aiEl) {
+      aiEl.querySelector('.msg-content').textContent = '❌ 调用失败: ' + e.message;
+      aiEl.querySelector('.msg-content').style.color = 'var(--red)';
+    }
+    document.getElementById('statusText').textContent = '错误';
+    document.getElementById('statusDot').style.background = 'var(--red)';
+    setTimeout(() => { document.getElementById('statusDot').style.background = 'var(--green)'; }, 3000);
+  }
+  
+  isSending = false;
+  document.getElementById('sendBtn').disabled = false;
+  document.getElementById('sendBtn').textContent = '▶ 发送';
+  chatInput.focus();
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function appendMessage(role, content, id) {
+  const div = document.createElement('div');
+  div.className = `msg ${role}`;
+  if (id) div.id = id;
+  
+  const avatar = role === 'user' ? '👤' : '🐉';
+  div.innerHTML = `
+    <div class="msg-avatar">${avatar}</div>
+    <div class="msg-body">
+      <div class="msg-content">${escapeHtml(content)}</div>
+      <div class="msg-meta">
+        <span>${role === 'user' ? '你' : 'AI'}</span>
+        <span>${new Date().toLocaleTimeString()}</span>
+      </div>
+    </div>
+  `;
+  chatMessages.appendChild(div);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function updateTransparency(data, latency) {
+  const tp = document.getElementById('tpLastCall');
+  if (!tp) return;
+  
+  const sov = data.transparency?.sovereignty || '?';
+  tp.innerHTML = `
+    <div style="margin-bottom:4px"><b>模型:</b> ${data.model || '?'} (${data.provider})</div>
+    <div style="margin-bottom:4px"><b>延迟:</b> ${latency}ms</div>
+    <div style="margin-bottom:4px"><b>Token:</b> 入${data.transparency?.tokens?.input || 0} / 出${data.transparency?.tokens?.output || 0}</div>
+    <div style="margin-bottom:4px"><b>费用:</b> $${(data.transparency?.cost_usd || 0).toFixed(6)}</div>
+    <div style="margin-bottom:4px"><b>主权:</b> ${sov}</div>
+    <div style="font-size:0.65rem;word-break:break-all;color:var(--gold2)">DNA: ${data.dna}</div>
+  `;
+  
+  // 累加统计
+  updateSessionStats(data);
+}
+
+let sessionStats = { msgs: 0, tokens: 0, cost: 0, latencies: [], domestic: 0, overseas: 0 };
+
+function updateSessionStats(data) {
+  sessionStats.msgs++;
+  sessionStats.tokens += data.transparency?.tokens?.total || 0;
+  sessionStats.cost += data.transparency?.cost_usd || 0;
+  const sov = data.transparency?.sovereignty || '';
+  if (sov.includes('境内') || sov.includes('本地')) sessionStats.domestic++;
+  else if (sov.includes('境外')) sessionStats.overseas++;
+  
+  const avgLat = sessionStats.latencies.length > 0 
+    ? Math.round(sessionStats.latencies.reduce((a,b)=>a+b,0) / sessionStats.latencies.length) : 0;
+  
+  document.getElementById('tpMsgs').textContent = sessionStats.msgs;
+  document.getElementById('tpTokens').textContent = sessionStats.tokens.toLocaleString();
+  document.getElementById('tpCost').textContent = '$' + sessionStats.cost.toFixed(6);
+  
+  const total = sessionStats.domestic + sessionStats.overseas || 1;
+  const domPct = Math.round(sessionStats.domestic / total * 100);
+  const ovsPct = Math.round(sessionStats.overseas / total * 100);
+  document.getElementById('tpDomestic').textContent = domPct + '%';
+  document.getElementById('tpOverseas').textContent = ovsPct + '%';
+  document.getElementById('tpBarDomestic').style.width = domPct + '%';
+  document.getElementById('tpBarOverseas').style.width = ovsPct + '%';
+  
+  document.getElementById('navCost').textContent = '$' + sessionStats.cost.toFixed(4);
+}
+
+// ─── 多模型对比 ───
+async function runCompare() {
+  const text = document.getElementById('compareInput').value.trim();
+  if (!text) return;
+  
+  ['compDeepSeek', 'compKimi'].forEach(id => {
+    document.getElementById(id).textContent = '⏳ 请求中...';
+    document.getElementById(id).style.color = 'var(--text3)';
+  });
+  
+  try {
+    const r = await fetch(API + '/compare', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text, providers: ['deepseek', 'kimi'] }),
+    });
+    const d = await r.json();
+    
+    d.results.forEach(res => {
+      const bodyId = res.provider === 'deepseek' ? 'compDeepSeek' : 'compKimi';
+      const metaId = res.provider === 'deepseek' ? 'compDeepSeekMeta' : 'compKimiMeta';
+      
+      if (res.status === 'success') {
+        document.getElementById(bodyId).textContent = res.content;
+        document.getElementById(bodyId).style.color = 'var(--text)';
+        document.getElementById(metaId).innerHTML = `
+          <span>⚡ ${res.latency_ms}ms</span>
+          <span>📊 ${res.tokens.total} tokens</span>
+          <span style="color:var(--orange)">💰 $${res.cost_usd.toFixed(6)}</span>
+          <span>${res.sovereignty}</span>
+        `;
+      } else {
+        document.getElementById(bodyId).textContent = '❌ ' + (res.error || '调用失败');
+        document.getElementById(bodyId).style.color = 'var(--red)';
+        document.getElementById(metaId).innerHTML = `<span style="color:var(--red)">失败</span>`;
+      }
+    });
+  } catch(e) {
+    ['compDeepSeek', 'compKimi'].forEach(id => {
+      document.getElementById(id).textContent = '❌ 请求失败: ' + e.message;
+      document.getElementById(id).style.color = 'var(--red)';
+    });
+  }
+}
+
+function clearCompare() {
+  ['compDeepSeek', 'compKimi'].forEach(id => {
+    document.getElementById(id).textContent = '等待输入问题...';
+    document.getElementById(id).style.color = 'var(--text3)';
+  });
+  ['compDeepSeekMeta', 'compKimiMeta'].forEach(id => document.getElementById(id).innerHTML = '');
+  document.getElementById('compareInput').value = '';
+}
+
+// ─── 审计仪表盘 ───
+async function loadAudit() {
+  const days = document.getElementById('auditPeriod')?.value || 7;
+  try {
+    const r = await fetch(API + '/audit-report?days=' + days);
+    const d = await r.json();
+    const s = d.summary;
+    
+    // 数字卡片
+    const cards = document.getElementById('auditStats').children;
+    cards[0].querySelector('.number').textContent = s.total_requests.toLocaleString();
+    cards[1].querySelector('.number').textContent = (s.total_tokens || 0).toLocaleString();
+    cards[2].querySelector('.number').textContent = '$' + (s.total_cost_usd || 0).toFixed(4);
+    cards[3].querySelector('.number').textContent = Math.round(d.quality?.avg_latency_ms || 0) + 'ms';
+    cards[4].querySelector('.number').textContent = (d.quality?.success_rate || 100) + '%';
+    cards[5].querySelector('.number').textContent = (s.today_requests || 0).toLocaleString();
+    
+    // 趋势
+    cards[4].querySelector('.trend').innerHTML = d.quality?.success_rate >= 95 
+      ? '<span class="trend-up">▲ 健康</span>' 
+      : '<span class="trend-down">▼ 需关注</span>';
+    
+    // 模型分布图
+    const maxModel = Math.max(1, ...(s.by_model || []).map(m => m.c));
+    document.getElementById('chartByModel').innerHTML = (s.by_model || []).map(m => `
+      <div class="chart-bar-row">
+        <span class="name">${m.model_provider}</span>
+        <div class="chart-bar-track"><div class="chart-bar-fill g" style="width:${(m.c/maxModel*100).toFixed(0)}%">${m.c}</div></div>
+      </div>
+    `).join('') || '<span style="color:var(--text3)">暂无数据</span>';
+    
+    // 每日趋势
+    const maxDay = Math.max(1, ...(s.by_day || []).map(d => d.c));
+    document.getElementById('chartByDay').innerHTML = (s.by_day || []).slice(-14).map(d => `
+      <div class="chart-bar-row">
+        <span class="name">${(d.day || '').slice(5)}</span>
+        <div class="chart-bar-track"><div class="chart-bar-fill b" style="width:${(d.c/maxDay*100).toFixed(0)}%">${d.c}</div></div>
+      </div>
+    `).join('') || '<span style="color:var(--text3)">暂无数据</span>';
+    
+    // 建议
+    document.getElementById('auditRecs').innerHTML = (d.recommendations || []).map(r => `<div style="margin:4px 0">${r}</div>`).join('');
+    
+  } catch(e) {
+    console.error('审计加载失败:', e);
+    document.getElementById('auditRecs').textContent = '⚠️ 审计API未连接，请确认服务运行中';
+  }
+}
+
+// ─── 历史记录 ───
+async function loadHistory() {
+  const q = document.getElementById('historySearch')?.value || '';
+  try {
+    const r = await fetch(API + '/history?limit=50');
+    const d = await r.json();
+    
+    let items = d.history || [];
+    if (q) {
+      items = items.filter(i => JSON.stringify(i).toLowerCase().includes(q.toLowerCase()));
+    }
+    
+    const list = document.getElementById('historyList');
+    if (items.length === 0) {
+      list.innerHTML = '<div class="empty-state"><div class="icon">📭</div><p>暂无对话记录</p></div>';
+      return;
+    }
+    
+    list.innerHTML = items.map(i => {
+      const msgs = i.messages || [];
+      const lastMsg = msgs.length > 0 ? msgs[msgs.length - 1].content : '';
+      const sovereign = i.sovereignty || '';
+      const sovClass = sovereign.includes('境内') ? 'sovereignty-domestic' : 'sovereignty-overseas';
+      
+      return `
+        <div class="history-item" onclick="viewHistoryDetail('${i.request_id}')">
+          <div class="history-item-header">
+            <span class="history-item-time">${(i.created_at || '').replace('T', ' ').slice(0,19)}</span>
+            <span class="history-item-model">🤖 ${i.model_provider}</span>
+          </div>
+          <div class="history-item-preview">${escapeHtml(lastMsg.slice(0, 100))}</div>
+          <div class="history-item-footer">
+            <span>📊 ${i.total_tokens || 0} tokens</span>
+            <span style="color:var(--orange)">💰 $${(i.estimated_cost_usd || 0).toFixed(6)}</span>
+            <span>⚡ ${Math.round(i.latency_ms || 0)}ms</span>
+            <span class="msg-sovereignty ${sovClass}">${sovereign}</span>
+            <span style="color:var(--gold2)">🧬 ${(i.dna || '').slice(-12)}</span>
+          </div>
+        </div>
+      `;
+    }).join('');
+  } catch(e) {
+    document.getElementById('historyList').innerHTML = '<div class="empty-state"><div class="icon">⚠️</div><p>加载失败，请确认API可用</p></div>';
+  }
+}
+
+function viewHistoryDetail(requestId) {
+  switchTab('chat');
+  // 可以实现加载该对话的完整上下文
+}
+
+// ─── 导出会话 ───
+function exportSession() {
+  const messages = [];
+  chatMessages.querySelectorAll('.msg').forEach(m => {
+    const role = m.classList.contains('user') ? 'user' : 'assistant';
+    const content = m.querySelector('.msg-content')?.textContent || '';
+    const meta = m.querySelector('.msg-meta')?.textContent || '';
+    messages.push({ role, content, meta });
+  });
+  
+  const report = {
+    session_id: SESSION_ID,
+    exported_at: new Date().toISOString(),
+    dna: '#龍芯⚡️' + Date.now().toString(36).toUpperCase() + '-EXPORT',
+    stats: sessionStats,
+    messages: messages,
+  };
+  
+  const blob = new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `ai-hub-session-${SESSION_ID}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function copyDNA(dna) {
+  navigator.clipboard.writeText(dna).then(() => {
+    document.getElementById('statusText').textContent = 'DNA已复制 ✓';
+    setTimeout(() => { document.getElementById('statusText').textContent = '就绪'; }, 2000);
+  });
+}
+
+function clearChat() {
+  chatMessages.innerHTML = `
+    <div class="empty-state">
+      <div class="icon">🐉</div>
+      <p style="color:var(--gold);font-weight:600">龍魂AI Hub · 透明审计多模型平台</p>
+      <p>支持 ChatGPT · Claude · Kimi · DeepSeek · 混元</p>
+      <p style="font-size:0.75rem;color:var(--text3)">每次对话全链路审计 · 实时计费 · DNA追溯</p>
+    </div>`;
+  sessionStats = { msgs: 0, tokens: 0, cost: 0, latencies: [], domestic: 0, overseas: 0 };
+  document.getElementById('tpMsgs').textContent = '0';
+  document.getElementById('tpTokens').textContent = '0';
+  document.getElementById('tpCost').textContent = '$0.0000';
+  document.getElementById('tpLastCall').innerHTML = '<span style="color:var(--text3)">尚未调用</span>';
+  document.getElementById('navCost').textContent = '';
+}
+
+function handleKeyDown(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+}
+
+function escapeHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+// ─── 初始化 ───
+chatInput?.focus();
+loadAudit();
+</script>
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

@@ -1,13 +1,16 @@
-# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-COVERAGE-REPORT-FILE1-v1.0
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-acba88aa
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-COVERAGE-REPORT-v1.0
 """Generate a Markdown coverage report for the LonghunFont glyph library."""
 
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 import json
 import re
 import sys
 from collections import Counter, defaultdict
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Tuple, Any
+from typing import Dict, List, Tuple
 
 
 # ---------------------------------------------------------------------------
@@ -15,7 +18,7 @@ from typing import Dict, List, Tuple, Any
 # ---------------------------------------------------------------------------
 SCRIPT_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = SCRIPT_DIR.parent
-DEFAULT_GLYPH_LIBRARY = PROJECT_ROOT / "glyphs" / "龍魂字元库_v0019_龍纹书法版.json"
+GLYPH_LIBRARY_PATH = PROJECT_ROOT / "glyphs" / "龍魂字元库_v0013_稳定版.json"
 PUA_TABLE_PATH = PROJECT_ROOT / "docs" / "PUA编码表.md"
 REPORT_OUTPUT_PATH = PROJECT_ROOT / "docs" / "字体覆盖报告.md"
 
@@ -148,7 +151,7 @@ def load_glyph_library(path: Path) -> Tuple[Dict, List[Tuple[str, Dict]]]:
     return data, glyphs
 
 
-def get_glyph_codepoint(info: Dict[str, Any]) -> int:
+def get_glyph_codepoint(info: Dict) -> int:
     raw = info.get("unicode", info.get("Unicode", ""))
     return parse_codepoint(raw)
 
@@ -156,7 +159,7 @@ def get_glyph_codepoint(info: Dict[str, Any]) -> int:
 # ---------------------------------------------------------------------------
 # Analysis
 # ---------------------------------------------------------------------------
-def analyze(glyphs: List[Tuple[str, Dict]]) -> Dict[str, Any]:
+def analyze(glyphs: List[Tuple[str, Dict]]) -> Dict:
     total = len(glyphs)
     codepoints = []
     pua_by_structure: Counter = Counter()
@@ -273,7 +276,7 @@ def render_table(headers: List[str], rows: List[List[str]]) -> str:
     return "\n".join([header_line, sep] + row_lines)
 
 
-def generate_report(data: Dict[str, Any], glyphs: List[Tuple[str, Dict]], stats: Dict[str, Any], pua_sections: List[Tuple[str, int, int]]) -> str:
+def generate_report(data: Dict, glyphs: List[Tuple[str, Dict]], stats: Dict, pua_sections: List[Tuple[str, int, int]]) -> str:
     library_dna = data.get("DNA追溯码", "未记录")
     total = stats["total"]
     chinese = stats["chinese_count"]
@@ -413,12 +416,11 @@ def generate_report(data: Dict[str, Any], glyphs: List[Tuple[str, Dict]], stats:
 # Main
 # ---------------------------------------------------------------------------
 def main() -> int:
-    glyph_library_path = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_GLYPH_LIBRARY
-    if not glyph_library_path.exists():
-        print(f"错误：字元库不存在: {glyph_library_path}", file=sys.stderr)
+    if not GLYPH_LIBRARY_PATH.exists():
+        print(f"错误：字元库不存在: {GLYPH_LIBRARY_PATH}", file=sys.stderr)
         return 1
 
-    data, glyphs = load_glyph_library(glyph_library_path)
+    data, glyphs = load_glyph_library(GLYPH_LIBRARY_PATH)
     stats = analyze(glyphs)
     pua_sections = parse_pua_table_sections(PUA_TABLE_PATH)
 

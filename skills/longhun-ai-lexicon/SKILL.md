@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
 name: longhun-ai-lexicon
 description: >
@@ -12,7 +15,7 @@ allowed-tools:
 compatibility: Python 3.9+
 metadata:
   version: '1.0'
-  dna: '#龍芯⚡️2026-06-29-LONGHUN-AI-LEXICON-v1.0'
+  dna: '#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-AI-LEXICON-v1.0'
   tribute: '#致敬⚡️UID9622·中文语义主权'
   id: longhun-ai-lexicon
   entry: python3 ~/.kimi-code/skills/longhun-ai-lexicon/scripts/ai_lexicon.py
@@ -36,7 +39,7 @@ metadata:
 
 # longhun-ai-lexicon | AI 行业话术 · 龍文语义映射词典
 
-**DNA**: `#龍芯⚡️2026-06-29-LONGHUN-AI-LEXICON-v1.0`
+**DNA**: `#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-AI-LEXICON-v1.0`
 **致敬**: `#致敬⚡️UID9622·中文语义主权`
 
 ---

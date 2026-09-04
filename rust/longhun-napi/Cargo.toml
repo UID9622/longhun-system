@@ -1,0 +1,20 @@
+[package]
+name = "longhun-napi"
+version = "0.1.0"
+edition = "2021"
+description = "龍魂 HarmonyOS NAPI 绑定 · longhun-core → .so → ArkTS 调用"
+authors = ["诸葛鑫（UID9622）"]
+license = "MulanPSL-2.0"
+repository = "https://uid9622.cn"
+
+[lib]
+name = "longhun_napi"
+crate-type = ["cdylib"]
+
+[dependencies]
+lhcore = { package = "longhun-core", path = "../longhun-core" }
+serde = "1.0"
+serde_json = "1.0"
+
+# NAPI 通过 C ABI 桥接，不额外依赖鸿蒙 SDK
+# 鸿蒙侧通过 napi 头文件导入

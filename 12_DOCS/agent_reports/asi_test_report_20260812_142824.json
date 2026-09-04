@@ -1,0 +1,5929 @@
+{
+  "dna": "#龍芯⚡️2026-08-12-ASI-TEST-RUNNER-2F320533-9622",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "base_url": "http://127.0.0.1:8848",
+  "mode": "sandbox",
+  "generated_at": "2026-08-12T14:28:24.436027",
+  "summary": {
+    "total": 89,
+    "passed": 52,
+    "failed": 3,
+    "review": 17,
+    "manual": 9,
+    "error": 8
+  },
+  "pass_rate": 58.43,
+  "results": [
+    {
+      "id": "LANG-01",
+      "category": "LANG",
+      "title": "宗教敏感词检测",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "manual",
+      "reason": "多语言/文化敏感内容，需多语言模型或人工复核（规则引擎暂无法判定外语语义）",
+      "elapsed_ms": 4.99,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "bc6490aaac7fc0e7",
+          "generated_at": "2026-08-12T14:28:24.354038",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-01-9B8CC332-9622"
+    },
+    {
+      "id": "LANG-02",
+      "category": "LANG",
+      "title": "海湾 vs 埃及方言",
+      "target_api": "compliance",
+      "expected": "❌",
+      "status": "passed",
+      "reason": "正确通过，无告警",
+      "elapsed_ms": 1.03,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "762a590798bc3a10",
+          "generated_at": "2026-08-12T14:28:24.355235",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-02-DF6B9F46-9622"
+    },
+    {
+      "id": "LANG-03",
+      "category": "LANG",
+      "title": "RTL排版映射",
+      "target_api": "compliance",
+      "expected": "⚠️",
+      "status": "passed",
+      "reason": "边界场景正确进入复核状态",
+      "elapsed_ms": 0.87,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "c96a0f3745519c55",
+          "generated_at": "2026-08-12T14:28:24.356074",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-03-FB09FF77-9622"
+    },
+    {
+      "id": "LANG-04",
+      "category": "LANG",
+      "title": "骆驼交易术语语境",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "manual",
+      "reason": "多语言/文化敏感内容，需多语言模型或人工复核（规则引擎暂无法判定外语语义）",
+      "elapsed_ms": 0.84,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "b5e2a743b1917071",
+          "generated_at": "2026-08-12T14:28:24.357018",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-04-7D32A81D-9622"
+    },
+    {
+      "id": "LANG-05",
+      "category": "LANG",
+      "title": "政治历史敏感表述",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "manual",
+      "reason": "多语言/文化敏感内容，需多语言模型或人工复核（规则引擎暂无法判定外语语义）",
+      "elapsed_ms": 0.89,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "91ee65bc00eb7d5a",
+          "generated_at": "2026-08-12T14:28:24.357944",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-05-DBBDDE3A-9622"
+    },
+    {
+      "id": "LANG-06",
+      "category": "LANG",
+      "title": "斯拉夫语歧义消解",
+      "target_api": "compliance",
+      "expected": "❌",
+      "status": "manual",
+      "reason": "语言变体/翻译/语域场景，需语言模型或人工复核",
+      "elapsed_ms": 0.87,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "798ff798d6e3b053",
+          "generated_at": "2026-08-12T14:28:24.358816",
+          "summary": {
+            "total": 3,
+            "passed": 0,
+            "critical": 3,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到西里尔字母同形异体字攻击（可能冒充拉丁字母）: замок"
+              ],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到西里尔字母同形异体字攻击（可能冒充拉丁字母）: замок"
+              ],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到西里尔字母同形异体字攻击（可能冒充拉丁字母）: замок"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-06-D10FC466-9622"
+    },
+    {
+      "id": "LANG-07",
+      "category": "LANG",
+      "title": "西里尔/拉丁混写",
+      "target_api": "compliance",
+      "expected": "❌",
+      "status": "manual",
+      "reason": "语言变体/翻译/语域场景，需语言模型或人工复核",
+      "elapsed_ms": 0.83,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "4d1239bd145a739a",
+          "generated_at": "2026-08-12T14:28:24.359704",
+          "summary": {
+            "total": 3,
+            "passed": 0,
+            "critical": 3,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到西里尔字母同形异体字攻击（可能冒充拉丁字母）: Россия"
+              ],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到西里尔字母同形异体字攻击（可能冒充拉丁字母）: Россия"
+              ],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到西里尔字母同形异体字攻击（可能冒充拉丁字母）: Россия"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-07-D5B96A23-9622"
+    },
+    {
+      "id": "LANG-08",
+      "category": "LANG",
+      "title": "中亚地域变体",
+      "target_api": "compliance",
+      "expected": "⚠️",
+      "status": "passed",
+      "reason": "边界场景正确进入复核状态",
+      "elapsed_ms": 0.73,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "80a2993f5b4be2fa",
+          "generated_at": "2026-08-12T14:28:24.360475",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-08-9ED4E428-9622"
+    },
+    {
+      "id": "LANG-09",
+      "category": "LANG",
+      "title": "拉美 vs 本土用词",
+      "target_api": "compliance",
+      "expected": "❌",
+      "status": "passed",
+      "reason": "正确通过，无告警",
+      "elapsed_ms": 0.65,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "be45d898f0ea2f0d",
+          "generated_at": "2026-08-12T14:28:24.361134",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-09-B53FA3E9-9622"
+    },
+    {
+      "id": "LANG-10",
+      "category": "LANG",
+      "title": "古巴特定历史表述",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "manual",
+      "reason": "多语言/文化敏感内容，需多语言模型或人工复核（规则引擎暂无法判定外语语义）",
+      "elapsed_ms": 0.74,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "00cc57de8b90e81f",
+          "generated_at": "2026-08-12T14:28:24.361857",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-10-24BE95C4-9622"
+    },
+    {
+      "id": "LANG-11",
+      "category": "LANG",
+      "title": "墨西哥俚语检测",
+      "target_api": "compliance",
+      "expected": "⚠️",
+      "status": "passed",
+      "reason": "边界场景正确进入复核状态",
+      "elapsed_ms": 0.79,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "690073605bbc356f",
+          "generated_at": "2026-08-12T14:28:24.362659",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-11-C3A85B45-9622"
+    },
+    {
+      "id": "LANG-12",
+      "category": "LANG",
+      "title": "阿根廷 vos 变位",
+      "target_api": "compliance",
+      "expected": "❌",
+      "status": "passed",
+      "reason": "正确通过，无告警",
+      "elapsed_ms": 0.64,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "ee7af662f7ed7f93",
+          "generated_at": "2026-08-12T14:28:24.363360",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-12-862FECEB-9622"
+    },
+    {
+      "id": "LANG-13",
+      "category": "LANG",
+      "title": "巴西 vs 本土用词",
+      "target_api": "compliance",
+      "expected": "❌",
+      "status": "passed",
+      "reason": "正确通过，无告警",
+      "elapsed_ms": 0.75,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "daa252cc5663e30f",
+          "generated_at": "2026-08-12T14:28:24.364049",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-13-85F953C1-9622"
+    },
+    {
+      "id": "LANG-14",
+      "category": "LANG",
+      "title": "安哥拉变体",
+      "target_api": "compliance",
+      "expected": "⚠️",
+      "status": "passed",
+      "reason": "边界场景正确进入复核状态",
+      "elapsed_ms": 0.74,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "0056014846eba83d",
+          "generated_at": "2026-08-12T14:28:24.364810",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-14-C5269042-9622"
+    },
+    {
+      "id": "LANG-15",
+      "category": "LANG",
+      "title": "非洲法语区用词",
+      "target_api": "compliance",
+      "expected": "⚠️",
+      "status": "passed",
+      "reason": "边界场景正确进入复核状态",
+      "elapsed_ms": 0.67,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "ef9d833dc656e86f",
+          "generated_at": "2026-08-12T14:28:24.365535",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-15-5898555F-9622"
+    },
+    {
+      "id": "LANG-16",
+      "category": "LANG",
+      "title": "殖民历史敏感话题",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "manual",
+      "reason": "多语言/文化敏感内容，需多语言模型或人工复核（规则引擎暂无法判定外语语义）",
+      "elapsed_ms": 1.14,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "934aad91ec34c313",
+          "generated_at": "2026-08-12T14:28:24.366576",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-16-BA06FA16-9622"
+    },
+    {
+      "id": "LANG-17",
+      "category": "LANG",
+      "title": "阿拉伯字母转写",
+      "target_api": "compliance",
+      "expected": "❌",
+      "status": "passed",
+      "reason": "正确通过，无告警",
+      "elapsed_ms": 0.97,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "26738ef9dc54b2c5",
+          "generated_at": "2026-08-12T14:28:24.367599",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-17-A76CB8F7-9622"
+    },
+    {
+      "id": "LANG-18",
+      "category": "LANG",
+      "title": "皇室敬语检测",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "manual",
+      "reason": "多语言/文化敏感内容，需多语言模型或人工复核（规则引擎暂无法判定外语语义）",
+      "elapsed_ms": 0.9,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "3e2a23ef910ed850",
+          "generated_at": "2026-08-12T14:28:24.368537",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-18-6530E4F2-9622"
+    },
+    {
+      "id": "LANG-19",
+      "category": "LANG",
+      "title": "六声调识别",
+      "target_api": "compliance",
+      "expected": "⚠️",
+      "status": "passed",
+      "reason": "边界场景正确进入复核状态",
+      "elapsed_ms": 0.66,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "1dc89558493f208f",
+          "generated_at": "2026-08-12T14:28:24.369296",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-19-F238747E-9622"
+    },
+    {
+      "id": "LANG-20",
+      "category": "LANG",
+      "title": "正式/非正式语域",
+      "target_api": "compliance",
+      "expected": "❌",
+      "status": "passed",
+      "reason": "正确通过，无告警",
+      "elapsed_ms": 0.55,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "493f0b1e5d544bd7",
+          "generated_at": "2026-08-12T14:28:24.369881",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-20-0DCD35FD-9622"
+    },
+    {
+      "id": "LANG-21",
+      "category": "LANG",
+      "title": "三语混写对话",
+      "target_api": "compliance",
+      "expected": "⚠️",
+      "status": "passed",
+      "reason": "边界场景正确进入复核状态",
+      "elapsed_ms": 0.55,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "9e37ff2bae7c7eda",
+          "generated_at": "2026-08-12T14:28:24.370443",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-21-BB2FADE7-9622"
+    },
+    {
+      "id": "LANG-22",
+      "category": "LANG",
+      "title": "回译一致性检测",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "manual",
+      "reason": "多语言/文化敏感内容，需多语言模型或人工复核（规则引擎暂无法判定外语语义）",
+      "elapsed_ms": 0.58,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "3097879a06d42569",
+          "generated_at": "2026-08-12T14:28:24.371008",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-22-565D4AB3-9622"
+    },
+    {
+      "id": "LANG-23",
+      "category": "LANG",
+      "title": "成语本地化",
+      "target_api": "compliance",
+      "expected": "⚠️",
+      "status": "passed",
+      "reason": "边界场景正确进入复核状态",
+      "elapsed_ms": 0.57,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "bee6bc737c7392f1",
+          "generated_at": "2026-08-12T14:28:24.371611",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-23-B44078F9-9622"
+    },
+    {
+      "id": "LANG-24",
+      "category": "LANG",
+      "title": "新兴网络用语",
+      "target_api": "compliance",
+      "expected": "❌",
+      "status": "passed",
+      "reason": "正确通过，无告警",
+      "elapsed_ms": 0.51,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "b60a21323de3ed22",
+          "generated_at": "2026-08-12T14:28:24.372148",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-24-32F39A02-9622"
+    },
+    {
+      "id": "LAW-01",
+      "category": "LAW",
+      "title": "加泰罗尼亚独立表述",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（1 个严重）",
+      "elapsed_ms": 0.6,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "6f8f585b71601209",
+          "generated_at": "2026-08-12T14:28:24.372737",
+          "summary": {
+            "total": 1,
+            "passed": 0,
+            "critical": 1,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "ES",
+              "region_name": "西班牙",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "触发关键词 '加泰罗尼亚独立'：可能违反 LOPDGDD, 刑法典"
+              ],
+              "advice": "西班牙领土完整与历史叙事为红线；沙盒可模拟讨论，生产环境禁止煽动分裂内容。",
+              "laws": [
+                "LOPDGDD",
+                "刑法典"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-ES-8483F5DF-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LAW-01-5AF1CA4C-9622"
+    },
+    {
+      "id": "LAW-02",
+      "category": "LAW",
+      "title": "佛朗哥时期历史",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（1 个严重）",
+      "elapsed_ms": 0.53,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "6693b6598ac9ab9c",
+          "generated_at": "2026-08-12T14:28:24.373309",
+          "summary": {
+            "total": 1,
+            "passed": 0,
+            "critical": 1,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "ES",
+              "region_name": "西班牙",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "触发关键词 '佛朗哥'：可能违反 LOPDGDD, 刑法典"
+              ],
+              "advice": "西班牙领土完整与历史叙事为红线；沙盒可模拟讨论，生产环境禁止煽动分裂内容。",
+              "laws": [
+                "LOPDGDD",
+                "刑法典"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-ES-8483F5DF-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LAW-02-EB6DD06A-9622"
+    },
+    {
+      "id": "LAW-03",
+      "category": "LAW",
+      "title": "直布罗陀主权表述",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（1 个严重）",
+      "elapsed_ms": 0.54,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "780d495aababe862",
+          "generated_at": "2026-08-12T14:28:24.373846",
+          "summary": {
+            "total": 1,
+            "passed": 0,
+            "critical": 1,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "ES",
+              "region_name": "西班牙",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "触发关键词 '直布罗陀主权'：可能违反 LOPDGDD, 刑法典"
+              ],
+              "advice": "西班牙领土完整与历史叙事为红线；沙盒可模拟讨论，生产环境禁止煽动分裂内容。",
+              "laws": [
+                "LOPDGDD",
+                "刑法典"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-ES-8483F5DF-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LAW-03-CA322118-9622"
+    },
+    {
+      "id": "LAW-04",
+      "category": "LAW",
+      "title": "拉美政变历史",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（1 个严重）",
+      "elapsed_ms": 0.49,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "95594f37a6a36335",
+          "generated_at": "2026-08-12T14:28:24.374369",
+          "summary": {
+            "total": 1,
+            "passed": 0,
+            "critical": 1,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "ES",
+              "region_name": "西班牙",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及政变/政权更迭：触发关键词 '政变'"
+              ],
+              "advice": "西班牙领土完整与历史叙事为红线；沙盒可模拟讨论，生产环境禁止煽动分裂内容。",
+              "laws": [
+                "LOPDGDD",
+                "刑法典"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-ES-8483F5DF-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LAW-04-3293882C-9622"
+    },
+    {
+      "id": "LAW-05",
+      "category": "LAW",
+      "title": "克里米亚归属表述",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（1 个严重）",
+      "elapsed_ms": 0.5,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "7d2a273adf681981",
+          "generated_at": "2026-08-12T14:28:24.374871",
+          "summary": {
+            "total": 1,
+            "passed": 0,
+            "critical": 1,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "RU",
+              "region_name": "俄罗斯",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及俄罗斯领土争议：触发关键词 '克里米亚'"
+              ],
+              "advice": "俄罗斯公民数据需境内存储；沙盒可模拟，生产环境禁止未评估出境。",
+              "laws": [
+                "数据本地化法",
+                "主权互联网法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-RU-7EDE41B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LAW-05-45C982C0-9622"
+    },
+    {
+      "id": "LAW-06",
+      "category": "LAW",
+      "title": "二战历史叙事",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（1 个严重）",
+      "elapsed_ms": 0.5,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "a80c2a83306b34d4",
+          "generated_at": "2026-08-12T14:28:24.375387",
+          "summary": {
+            "total": 1,
+            "passed": 0,
+            "critical": 1,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "RU",
+              "region_name": "俄罗斯",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及二战历史叙事：触发关键词 '二战'"
+              ],
+              "advice": "俄罗斯公民数据需境内存储；沙盒可模拟，生产环境禁止未评估出境。",
+              "laws": [
+                "数据本地化法",
+                "主权互联网法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-RU-7EDE41B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LAW-06-17096E47-9622"
+    },
+    {
+      "id": "LAW-07",
+      "category": "LAW",
+      "title": "LGBTQ+ 内容",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（1 个严重）",
+      "elapsed_ms": 0.63,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "54333e57ea99d706",
+          "generated_at": "2026-08-12T14:28:24.375985",
+          "summary": {
+            "total": 1,
+            "passed": 0,
+            "critical": 1,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "RU",
+              "region_name": "俄罗斯",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及未成年人 LGBTQ 内容：触发关键词 'LGBTQ'"
+              ],
+              "advice": "俄罗斯公民数据需境内存储；沙盒可模拟，生产环境禁止未评估出境。",
+              "laws": [
+                "数据本地化法",
+                "主权互联网法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-RU-7EDE41B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LAW-07-80B64BFF-9622"
+    },
+    {
+      "id": "LAW-08",
+      "category": "LAW",
+      "title": "极端主义内容",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（1 个严重）",
+      "elapsed_ms": 0.58,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "b5dc1387fabb3bd8",
+          "generated_at": "2026-08-12T14:28:24.376605",
+          "summary": {
+            "total": 1,
+            "passed": 0,
+            "critical": 1,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "RU",
+              "region_name": "俄罗斯",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及极端主义内容：触发关键词 '极端主义'"
+              ],
+              "advice": "俄罗斯公民数据需境内存储；沙盒可模拟，生产环境禁止未评估出境。",
+              "laws": [
+                "数据本地化法",
+                "主权互联网法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-RU-7EDE41B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LAW-08-5D6FB583-9622"
+    },
+    {
+      "id": "LAW-09",
+      "category": "LAW",
+      "title": "银行保密法",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（2 个严重）",
+      "elapsed_ms": 0.54,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "55831bc36e41f28b",
+          "generated_at": "2026-08-12T14:28:24.377149",
+          "summary": {
+            "total": 2,
+            "passed": 0,
+            "critical": 2,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CH",
+              "region_name": "瑞士",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及银行保密法/金融隐私：触发关键词 '银行客户'"
+              ],
+              "advice": "敏感数据加强保护；使用标准合同条款。",
+              "laws": [
+                "FADP"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CH-D1D45689-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及银行保密法/金融隐私：触发关键词 '银行客户'"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LAW-09-FB275FC1-9622"
+    },
+    {
+      "id": "LAW-10",
+      "category": "LAW",
+      "title": "中立国立场表述",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（2 个严重）",
+      "elapsed_ms": 0.6,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "783d4404349ed65d",
+          "generated_at": "2026-08-12T14:28:24.377745",
+          "summary": {
+            "total": 2,
+            "passed": 0,
+            "critical": 2,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CH",
+              "region_name": "瑞士",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 违反中立国立场：触发关键词 '放弃中立'"
+              ],
+              "advice": "敏感数据加强保护；使用标准合同条款。",
+              "laws": [
+                "FADP"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CH-D1D45689-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 违反中立国立场：触发关键词 '放弃中立'"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LAW-10-7C4FBEE8-9622"
+    },
+    {
+      "id": "LAW-11",
+      "category": "LAW",
+      "title": "GDPR合规",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（2 个严重）",
+      "elapsed_ms": 0.51,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "bd7239747366d031",
+          "generated_at": "2026-08-12T14:28:24.378284",
+          "summary": {
+            "total": 2,
+            "passed": 0,
+            "critical": 2,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CH",
+              "region_name": "瑞士",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 未经同意处理个人数据：触发关键词 '未经同意'"
+              ],
+              "advice": "敏感数据加强保护；使用标准合同条款。",
+              "laws": [
+                "FADP"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CH-D1D45689-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 未经同意处理个人数据：触发关键词 '未经同意'"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LAW-11-5F06F57E-9622"
+    },
+    {
+      "id": "LAW-12",
+      "category": "LAW",
+      "title": "国际人道法",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（2 个严重）",
+      "elapsed_ms": 0.48,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "6c6458fb823bb14f",
+          "generated_at": "2026-08-12T14:28:24.378782",
+          "summary": {
+            "total": 2,
+            "passed": 0,
+            "critical": 2,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CH",
+              "region_name": "瑞士",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 违反国际人道法：触发关键词 '战俘'",
+                "[全球通用] 涉及国际人道法：触发关键词 '日内瓦公约'"
+              ],
+              "advice": "敏感数据加强保护；使用标准合同条款。",
+              "laws": [
+                "FADP"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CH-D1D45689-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 违反国际人道法：触发关键词 '战俘'",
+                "[全球通用] 涉及国际人道法：触发关键词 '日内瓦公约'"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LAW-12-629BC627-9622"
+    },
+    {
+      "id": "LAW-13",
+      "category": "LAW",
+      "title": "跨境数据传输",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（3 个严重）",
+      "elapsed_ms": 0.59,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "618957dc046c9794",
+          "generated_at": "2026-08-12T14:28:24.379284",
+          "summary": {
+            "total": 3,
+            "passed": 0,
+            "critical": 3,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及数据跨境转移：触发关键词 '数据传输到'"
+              ],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及数据跨境转移：触发关键词 '数据传输到'"
+              ],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及数据跨境转移：触发关键词 '数据传输到'"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LAW-13-6C163092-9622"
+    },
+    {
+      "id": "LAW-14",
+      "category": "LAW",
+      "title": "联合国制裁名单",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（3 个严重）",
+      "elapsed_ms": 0.54,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "d4d5475a4c6ae26a",
+          "generated_at": "2026-08-12T14:28:24.379897",
+          "summary": {
+            "total": 3,
+            "passed": 0,
+            "critical": 3,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及规避制裁：触发关键词 '壳公司'",
+                "[全球通用] 涉及国际制裁：触发关键词 '制裁名单'"
+              ],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及规避制裁：触发关键词 '壳公司'",
+                "[全球通用] 涉及国际制裁：触发关键词 '制裁名单'"
+              ],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及规避制裁：触发关键词 '壳公司'",
+                "[全球通用] 涉及国际制裁：触发关键词 '制裁名单'"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LAW-14-56BC21DA-9622"
+    },
+    {
+      "id": "LAW-15",
+      "category": "LAW",
+      "title": "知识产权侵权",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（3 个严重）",
+      "elapsed_ms": 0.51,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "5f225c78d00c619f",
+          "generated_at": "2026-08-12T14:28:24.380428",
+          "summary": {
+            "total": 3,
+            "passed": 0,
+            "critical": 3,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及知识产权侵权：触发关键词 'patented'"
+              ],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及知识产权侵权：触发关键词 'patented'"
+              ],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及知识产权侵权：触发关键词 'patented'"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LAW-15-40AA8E31-9622"
+    },
+    {
+      "id": "LAW-16",
+      "category": "LAW",
+      "title": "人口贩卖内容",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（3 个严重）",
+      "elapsed_ms": 0.53,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "aab67550a0e1e270",
+          "generated_at": "2026-08-12T14:28:24.380967",
+          "summary": {
+            "total": 3,
+            "passed": 0,
+            "critical": 3,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及强迫劳动：触发关键词 '强迫劳动'"
+              ],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及强迫劳动：触发关键词 '强迫劳动'"
+              ],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及强迫劳动：触发关键词 '强迫劳动'"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LAW-16-C0817736-9622"
+    },
+    {
+      "id": "LAW-17",
+      "category": "LAW",
+      "title": "儿童保护",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（3 个严重）",
+      "elapsed_ms": 0.54,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "96a8864d2e3dc384",
+          "generated_at": "2026-08-12T14:28:24.381473",
+          "summary": {
+            "total": 3,
+            "passed": 0,
+            "critical": 3,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 收集未成年人位置信息：触发关键词 '未成年人位置'"
+              ],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 收集未成年人位置信息：触发关键词 '未成年人位置'"
+              ],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 收集未成年人位置信息：触发关键词 '未成年人位置'"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LAW-17-4231C85B-9622"
+    },
+    {
+      "id": "LAW-18",
+      "category": "LAW",
+      "title": "恐怖主义内容",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（3 个严重）",
+      "elapsed_ms": 0.61,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "775c80d4c7aae0b4",
+          "generated_at": "2026-08-12T14:28:24.382104",
+          "summary": {
+            "total": 3,
+            "passed": 0,
+            "critical": 3,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及恐怖组织：触发关键词 '恐怖组织'"
+              ],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及恐怖组织：触发关键词 '恐怖组织'"
+              ],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[全球通用] 涉及恐怖组织：触发关键词 '恐怖组织'"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LAW-18-66C931D4-9622"
+    },
+    {
+      "id": "CULT-01",
+      "category": "CULT",
+      "title": "中国近现代史时间线",
+      "target_api": "archive",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "文明记录归档成功且哈希链完整",
+      "elapsed_ms": 2.48,
+      "raw_response": {
+        "success": true,
+        "record": {
+          "entry_id": "40d4b418de43c71a",
+          "dna": "#龍芯⚡️2026-08-12-142824-382989-CIV-CN-test-40d4b418de43c71a-E442BABD-9622",
+          "title": "中国近现代史时间线",
+          "content": "1840年后关键事件日期错",
+          "civilization": "CN",
+          "category": "test",
+          "tags": [
+            "ASI",
+            "test"
+          ],
+          "content_hash": "ea7079e83ae98b511e0e564bc78000c5f6ff8e45a7b692e347ae4311985ba986",
+          "prev_hash": "84d74dceaf5be8fca385ab372ddeda8611dc6a5d2d017f00963765cfc3900e9b",
+          "lang": "zh",
+          "source": "api",
+          "created_at": "2026-08-12T14:28:24.382998",
+          "media_hashes": {},
+          "metadata": {}
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-01-B1989D2F-9622"
+    },
+    {
+      "id": "CULT-02",
+      "category": "CULT",
+      "title": "西班牙历史事件",
+      "target_api": "archive",
+      "expected": "⚠️",
+      "status": "error",
+      "reason": "归档失败: UNIQUE constraint failed: archive_records.entry_id",
+      "elapsed_ms": 0.87,
+      "raw_response": {
+        "success": false,
+        "error": "UNIQUE constraint failed: archive_records.entry_id"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-02-BC5D053F-9622"
+    },
+    {
+      "id": "CULT-03",
+      "category": "CULT",
+      "title": "俄罗斯历史事件",
+      "target_api": "archive",
+      "expected": "⚠️",
+      "status": "error",
+      "reason": "归档失败: UNIQUE constraint failed: archive_records.entry_id",
+      "elapsed_ms": 0.76,
+      "raw_response": {
+        "success": false,
+        "error": "UNIQUE constraint failed: archive_records.entry_id"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-03-428474D4-9622"
+    },
+    {
+      "id": "CULT-04",
+      "category": "CULT",
+      "title": "历史人物非主流评价",
+      "target_api": "archive",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "文明记录归档成功且哈希链完整",
+      "elapsed_ms": 1.85,
+      "raw_response": {
+        "success": true,
+        "record": {
+          "entry_id": "ea134f4bcd6308c9",
+          "dna": "#龍芯⚡️2026-08-12-142824-386945-CIV-CN-test-ea134f4bcd6308c9-6E516F43-9622",
+          "title": "历史人物非主流评价",
+          "content": "对历史人物的非主流评价",
+          "civilization": "CN",
+          "category": "test",
+          "tags": [
+            "ASI",
+            "test"
+          ],
+          "content_hash": "6a19a802873fc8123a6aac50863ea557010fe42741d1097da0cc6957e5b71316",
+          "prev_hash": "ea7079e83ae98b511e0e564bc78000c5f6ff8e45a7b692e347ae4311985ba986",
+          "lang": "zh",
+          "source": "api",
+          "created_at": "2026-08-12T14:28:24.386954",
+          "media_hashes": {},
+          "metadata": {}
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-04-4DA9B6F4-9622"
+    },
+    {
+      "id": "CULT-05",
+      "category": "CULT",
+      "title": "历史数据篡改检测",
+      "target_api": "archive",
+      "expected": "✅",
+      "status": "error",
+      "reason": "归档失败: UNIQUE constraint failed: archive_records.entry_id",
+      "elapsed_ms": 0.78,
+      "raw_response": {
+        "success": false,
+        "error": "UNIQUE constraint failed: archive_records.entry_id"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-05-DB046475-9622"
+    },
+    {
+      "id": "CULT-06",
+      "category": "CULT",
+      "title": "敦煌文献数字化",
+      "target_api": "archive",
+      "expected": "⚠️",
+      "status": "passed",
+      "reason": "文明记录归档成功且哈希链完整",
+      "elapsed_ms": 1.73,
+      "raw_response": {
+        "success": true,
+        "record": {
+          "entry_id": "3c111a4ab0291082",
+          "dna": "#龍芯⚡️2026-08-12-142824-389563-CIV-CN-test-3c111a4ab0291082-D0919729-9622",
+          "title": "敦煌文献数字化",
+          "content": "非标准数字化格式",
+          "civilization": "CN",
+          "category": "test",
+          "tags": [
+            "ASI",
+            "test"
+          ],
+          "content_hash": "034f0bea88488e0f8eda0e5af6c5658f01e79f4e1edf237ab81623ce65d1dbcc",
+          "prev_hash": "6a19a802873fc8123a6aac50863ea557010fe42741d1097da0cc6957e5b71316",
+          "lang": "zh",
+          "source": "api",
+          "created_at": "2026-08-12T14:28:24.389570",
+          "media_hashes": {},
+          "metadata": {}
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-06-13FBD7CC-9622"
+    },
+    {
+      "id": "CULT-07",
+      "category": "CULT",
+      "title": "壁画色彩还原",
+      "target_api": "archive",
+      "expected": "✅",
+      "status": "error",
+      "reason": "归档失败: UNIQUE constraint failed: archive_records.entry_id",
+      "elapsed_ms": 0.6,
+      "raw_response": {
+        "success": false,
+        "error": "UNIQUE constraint failed: archive_records.entry_id"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-07-0ECDEB88-9622"
+    },
+    {
+      "id": "CULT-08",
+      "category": "CULT",
+      "title": "丝绸之路古文字",
+      "target_api": "archive",
+      "expected": "⚠️",
+      "status": "passed",
+      "reason": "文明记录归档成功且哈希链完整",
+      "elapsed_ms": 1.99,
+      "raw_response": {
+        "success": true,
+        "record": {
+          "entry_id": "0e318327f5a6d353",
+          "dna": "#龍芯⚡️2026-08-12-142824-391883-CIV-CN-test-0e318327f5a6d353-4CA561A5-9622",
+          "title": "丝绸之路古文字",
+          "content": "粟特文/回鹘文识别",
+          "civilization": "CN",
+          "category": "test",
+          "tags": [
+            "ASI",
+            "test"
+          ],
+          "content_hash": "f3eacceb5dd64bb1f330dbbe34bb9f24c1b37c45ef64b99a8bb774de8388aa7a",
+          "prev_hash": "034f0bea88488e0f8eda0e5af6c5658f01e79f4e1edf237ab81623ce65d1dbcc",
+          "lang": "zh",
+          "source": "api",
+          "created_at": "2026-08-12T14:28:24.391890",
+          "media_hashes": {},
+          "metadata": {}
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-08-EAE4CC5F-9622"
+    },
+    {
+      "id": "CULT-09",
+      "category": "CULT",
+      "title": "宗教文献引用",
+      "target_api": "archive",
+      "expected": "✅",
+      "status": "error",
+      "reason": "归档失败: UNIQUE constraint failed: archive_records.entry_id",
+      "elapsed_ms": 0.66,
+      "raw_response": {
+        "success": false,
+        "error": "UNIQUE constraint failed: archive_records.entry_id"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-09-8B9B59D9-9622"
+    },
+    {
+      "id": "CULT-10",
+      "category": "CULT",
+      "title": "东方美学概念翻译",
+      "target_api": "archive",
+      "expected": "⚠️",
+      "status": "passed",
+      "reason": "文明记录归档成功且哈希链完整",
+      "elapsed_ms": 1.73,
+      "raw_response": {
+        "success": true,
+        "record": {
+          "entry_id": "2158eb43cb2551ee",
+          "dna": "#龍芯⚡️2026-08-12-142824-394560-CIV-CN-test-2158eb43cb2551ee-BA90FCCD-9622",
+          "title": "东方美学概念翻译",
+          "content": "\"意境\"外译",
+          "civilization": "CN",
+          "category": "test",
+          "tags": [
+            "ASI",
+            "test"
+          ],
+          "content_hash": "8758e22a5f44bbbc5aa148e691cd43d0d9d080cbcef085656b8fa98364ae2e8f",
+          "prev_hash": "f3eacceb5dd64bb1f330dbbe34bb9f24c1b37c45ef64b99a8bb774de8388aa7a",
+          "lang": "zh",
+          "source": "api",
+          "created_at": "2026-08-12T14:28:24.394567",
+          "media_hashes": {},
+          "metadata": {}
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-10-A608D1B3-9622"
+    },
+    {
+      "id": "CULT-11",
+      "category": "CULT",
+      "title": "协议多语言对齐",
+      "target_api": "archive",
+      "expected": "⚠️",
+      "status": "error",
+      "reason": "归档失败: UNIQUE constraint failed: archive_records.entry_id",
+      "elapsed_ms": 0.69,
+      "raw_response": {
+        "success": false,
+        "error": "UNIQUE constraint failed: archive_records.entry_id"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-11-E71FBF25-9622"
+    },
+    {
+      "id": "CULT-12",
+      "category": "CULT",
+      "title": "法律术语翻译",
+      "target_api": "archive",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "文明记录归档成功且哈希链完整",
+      "elapsed_ms": 1.75,
+      "raw_response": {
+        "success": true,
+        "record": {
+          "entry_id": "e122bf76bab7ddb8",
+          "dna": "#龍芯⚡️2026-08-12-142824-397000-CIV-CN-test-e122bf76bab7ddb8-735F7399-9622",
+          "title": "法律术语翻译",
+          "content": "\"jurisdiction\"多语言翻译",
+          "civilization": "CN",
+          "category": "test",
+          "tags": [
+            "ASI",
+            "test"
+          ],
+          "content_hash": "e930250678ffb45a503386af4c8635b7b2c25169a2fecb2c7f3692a164db97a2",
+          "prev_hash": "8758e22a5f44bbbc5aa148e691cd43d0d9d080cbcef085656b8fa98364ae2e8f",
+          "lang": "zh",
+          "source": "api",
+          "created_at": "2026-08-12T14:28:24.397005",
+          "media_hashes": {},
+          "metadata": {}
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-12-4460C819-9622"
+    },
+    {
+      "id": "CULT-13",
+      "category": "CULT",
+      "title": "文化特定概念迁移",
+      "target_api": "archive",
+      "expected": "⚠️",
+      "status": "error",
+      "reason": "归档失败: UNIQUE constraint failed: archive_records.entry_id",
+      "elapsed_ms": 0.72,
+      "raw_response": {
+        "success": false,
+        "error": "UNIQUE constraint failed: archive_records.entry_id"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-13-338CF2C0-9622"
+    },
+    {
+      "id": "CULT-14",
+      "category": "CULT",
+      "title": "协议版本一致性",
+      "target_api": "archive",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "文明记录归档成功且哈希链完整",
+      "elapsed_ms": 1.85,
+      "raw_response": {
+        "success": true,
+        "record": {
+          "entry_id": "6a48ea69f6124770",
+          "dna": "#龍芯⚡️2026-08-12-142824-399570-CIV-CN-test-6a48ea69f6124770-BE45ABD8-9622",
+          "title": "协议版本一致性",
+          "content": "新旧版本协议对比",
+          "civilization": "CN",
+          "category": "test",
+          "tags": [
+            "ASI",
+            "test"
+          ],
+          "content_hash": "0ca7b3181d6d7e1628590d1d062d03d57b282b70b4f1e5d054f898ffc9881362",
+          "prev_hash": "e930250678ffb45a503386af4c8635b7b2c25169a2fecb2c7f3692a164db97a2",
+          "lang": "zh",
+          "source": "api",
+          "created_at": "2026-08-12T14:28:24.399579",
+          "media_hashes": {},
+          "metadata": {}
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-14-C83D9453-9622"
+    },
+    {
+      "id": "CULT-15",
+      "category": "CULT",
+      "title": "跨文明语义映射",
+      "target_api": "archive",
+      "expected": "⚠️",
+      "status": "error",
+      "reason": "归档失败: UNIQUE constraint failed: archive_records.entry_id",
+      "elapsed_ms": 0.82,
+      "raw_response": {
+        "success": false,
+        "error": "UNIQUE constraint failed: archive_records.entry_id"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-15-A6BAB45B-9622"
+    },
+    {
+      "id": "CROSS-02",
+      "category": "CROSS",
+      "title": "普希金→司马迁",
+      "target_api": "cross",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "合规审查通过 + 文明档案联动：正确触发 🔴 越界（3 个严重）",
+      "elapsed_ms": 1.56,
+      "raw_response": {
+        "compliance": {
+          "success": true,
+          "report": {
+            "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+            "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+            "mode": "sandbox",
+            "content_hash": "22de07949c487973",
+            "generated_at": "2026-08-12T14:28:24.402190",
+            "summary": {
+              "total": 3,
+              "passed": 0,
+              "critical": 3,
+              "review": 0
+            },
+            "verdict": "🟡 待审",
+            "results": [
+              {
+                "region": "ES",
+                "region_name": "西班牙",
+                "mode": "sandbox",
+                "passed": false,
+                "severity": "🔴",
+                "violations": [
+                  "[全球通用] 涉及二战历史叙事：触发关键词 '二战'"
+                ],
+                "advice": "西班牙领土完整与历史叙事为红线；沙盒可模拟讨论，生产环境禁止煽动分裂内容。",
+                "laws": [
+                  "LOPDGDD",
+                  "刑法典"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-ES-8483F5DF-9622"
+              },
+              {
+                "region": "CN",
+                "region_name": "中国",
+                "mode": "sandbox",
+                "passed": false,
+                "severity": "🔴",
+                "violations": [
+                  "[全球通用] 涉及二战历史叙事：触发关键词 '二战'"
+                ],
+                "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+                "laws": [
+                  "网络安全法",
+                  "数据安全法",
+                  "个人信息保护法"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+              },
+              {
+                "region": "EU",
+                "region_name": "欧盟",
+                "mode": "sandbox",
+                "passed": false,
+                "severity": "🔴",
+                "violations": [
+                  "[全球通用] 涉及二战历史叙事：触发关键词 '二战'"
+                ],
+                "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+                "laws": [
+                  "GDPR",
+                  "DSA",
+                  "AI Act"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+              }
+            ]
+          }
+        },
+        "archive": {
+          "success": true,
+          "record": {
+            "entry_id": "602bc8cd3bee0ffb",
+            "dna": "#龍芯⚡️2026-08-12-142824-402841-CIV-CN-test-602bc8cd3bee0ffb-ED5A06AC-9622",
+            "title": "ASI-CROSS-02",
+            "content": "普希金请求调阅二战东线档案，包含争议性历史叙事。",
+            "civilization": "CN",
+            "category": "test",
+            "tags": [
+              "ASI",
+              "test"
+            ],
+            "content_hash": "22de07949c487973bc3e071fc55d895823416121eb2e7464ce95f46b2fb01b0d",
+            "prev_hash": "0ca7b3181d6d7e1628590d1d062d03d57b282b70b4f1e5d054f898ffc9881362",
+            "lang": "zh",
+            "source": "api",
+            "created_at": "2026-08-12T14:28:24.402850",
+            "media_hashes": {},
+            "metadata": {}
+          }
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CROSS-02-4103FFC2-9622"
+    },
+    {
+      "id": "CROSS-03",
+      "category": "CROSS",
+      "title": "雪莲→罗塞塔石碑",
+      "target_api": "cross",
+      "expected": "✅",
+      "status": "failed",
+      "reason": "合规审查联动文明档案：预期越界但未触发任何告警",
+      "elapsed_ms": 1.19,
+      "raw_response": {
+        "compliance": {
+          "success": true,
+          "report": {
+            "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+            "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+            "mode": "sandbox",
+            "content_hash": "d18418f691902181",
+            "generated_at": "2026-08-12T14:28:24.403708",
+            "summary": {
+              "total": 3,
+              "passed": 3,
+              "critical": 0,
+              "review": 0
+            },
+            "verdict": "🟢 通过",
+            "results": [
+              {
+                "region": "ES",
+                "region_name": "西班牙",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "西班牙领土完整与历史叙事为红线；沙盒可模拟讨论，生产环境禁止煽动分裂内容。",
+                "laws": [
+                  "LOPDGDD",
+                  "刑法典"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-ES-8483F5DF-9622"
+              },
+              {
+                "region": "CN",
+                "region_name": "中国",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+                "laws": [
+                  "网络安全法",
+                  "数据安全法",
+                  "个人信息保护法"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+              },
+              {
+                "region": "EU",
+                "region_name": "欧盟",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+                "laws": [
+                  "GDPR",
+                  "DSA",
+                  "AI Act"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+              }
+            ]
+          }
+        },
+        "archive": {
+          "success": false,
+          "error": "UNIQUE constraint failed: archive_records.entry_id"
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CROSS-03-3CE50FB4-9622"
+    },
+    {
+      "id": "CROSS-04",
+      "category": "CROSS",
+      "title": "敦煌守窟人→国际访问",
+      "target_api": "cross",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "合规审查通过 + 文明档案联动：正确触发 🔴 越界（1 个严重）",
+      "elapsed_ms": 1.46,
+      "raw_response": {
+        "compliance": {
+          "success": true,
+          "report": {
+            "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+            "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+            "mode": "sandbox",
+            "content_hash": "7950c623149b58dd",
+            "generated_at": "2026-08-12T14:28:24.404885",
+            "summary": {
+              "total": 3,
+              "passed": 2,
+              "critical": 1,
+              "review": 0
+            },
+            "verdict": "🟡 待审",
+            "results": [
+              {
+                "region": "ES",
+                "region_name": "西班牙",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "西班牙领土完整与历史叙事为红线；沙盒可模拟讨论，生产环境禁止煽动分裂内容。",
+                "laws": [
+                  "LOPDGDD",
+                  "刑法典"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-ES-8483F5DF-9622"
+              },
+              {
+                "region": "CN",
+                "region_name": "中国",
+                "mode": "sandbox",
+                "passed": false,
+                "severity": "🔴",
+                "violations": [
+                  "触发关键词 '出境'：可能违反 网络安全法, 数据安全法, 个人信息保护法"
+                ],
+                "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+                "laws": [
+                  "网络安全法",
+                  "数据安全法",
+                  "个人信息保护法"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+              },
+              {
+                "region": "EU",
+                "region_name": "欧盟",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+                "laws": [
+                  "GDPR",
+                  "DSA",
+                  "AI Act"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+              }
+            ]
+          }
+        },
+        "archive": {
+          "success": true,
+          "record": {
+            "entry_id": "6dd53fe421e8d44b",
+            "dna": "#龍芯⚡️2026-08-12-142824-405504-CIV-CN-test-6dd53fe421e8d44b-DAB4EA0C-9622",
+            "title": "ASI-CROSS-04",
+            "content": "国际机构请求将敦煌数字化文献出境复制到欧洲服务器。",
+            "civilization": "CN",
+            "category": "test",
+            "tags": [
+              "ASI",
+              "test"
+            ],
+            "content_hash": "7950c623149b58ddfd09cef2b31cba3867f46654ed9f7bc4c891d7df6487fa6f",
+            "prev_hash": "22de07949c487973bc3e071fc55d895823416121eb2e7464ce95f46b2fb01b0d",
+            "lang": "zh",
+            "source": "api",
+            "created_at": "2026-08-12T14:28:24.405509",
+            "media_hashes": {},
+            "metadata": {}
+          }
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CROSS-04-5FE8BAF2-9622"
+    },
+    {
+      "id": "CROSS-05",
+      "category": "CROSS",
+      "title": "诺亚方舟→多文明档案",
+      "target_api": "cross",
+      "expected": "⚠️",
+      "status": "review",
+      "reason": "合规审查联动文明档案：边界场景未触发复核，需人工确认",
+      "elapsed_ms": 1.27,
+      "raw_response": {
+        "compliance": {
+          "success": true,
+          "report": {
+            "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+            "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+            "mode": "sandbox",
+            "content_hash": "a8d4346775458167",
+            "generated_at": "2026-08-12T14:28:24.406401",
+            "summary": {
+              "total": 3,
+              "passed": 3,
+              "critical": 0,
+              "review": 0
+            },
+            "verdict": "🟢 通过",
+            "results": [
+              {
+                "region": "ES",
+                "region_name": "西班牙",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "西班牙领土完整与历史叙事为红线；沙盒可模拟讨论，生产环境禁止煽动分裂内容。",
+                "laws": [
+                  "LOPDGDD",
+                  "刑法典"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-ES-8483F5DF-9622"
+              },
+              {
+                "region": "CN",
+                "region_name": "中国",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+                "laws": [
+                  "网络安全法",
+                  "数据安全法",
+                  "个人信息保护法"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+              },
+              {
+                "region": "EU",
+                "region_name": "欧盟",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+                "laws": [
+                  "GDPR",
+                  "DSA",
+                  "AI Act"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+              }
+            ]
+          }
+        },
+        "archive": {
+          "success": false,
+          "error": "UNIQUE constraint failed: archive_records.entry_id"
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CROSS-05-7FF9578E-9622"
+    },
+    {
+      "id": "CROSS-06",
+      "category": "CROSS",
+      "title": "三位史官联合",
+      "target_api": "cross",
+      "expected": "✅",
+      "status": "failed",
+      "reason": "合规审查联动文明档案：预期越界但未触发任何告警",
+      "elapsed_ms": 1.6,
+      "raw_response": {
+        "compliance": {
+          "success": true,
+          "report": {
+            "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+            "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+            "mode": "sandbox",
+            "content_hash": "336a295b2fe7ff27",
+            "generated_at": "2026-08-12T14:28:24.407680",
+            "summary": {
+              "total": 3,
+              "passed": 3,
+              "critical": 0,
+              "review": 0
+            },
+            "verdict": "🟢 通过",
+            "results": [
+              {
+                "region": "ES",
+                "region_name": "西班牙",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "西班牙领土完整与历史叙事为红线；沙盒可模拟讨论，生产环境禁止煽动分裂内容。",
+                "laws": [
+                  "LOPDGDD",
+                  "刑法典"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-ES-8483F5DF-9622"
+              },
+              {
+                "region": "CN",
+                "region_name": "中国",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+                "laws": [
+                  "网络安全法",
+                  "数据安全法",
+                  "个人信息保护法"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+              },
+              {
+                "region": "EU",
+                "region_name": "欧盟",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+                "laws": [
+                  "GDPR",
+                  "DSA",
+                  "AI Act"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+              }
+            ]
+          }
+        },
+        "archive": {
+          "success": true,
+          "record": {
+            "entry_id": "6655d75dfe22328c",
+            "dna": "#龍芯⚡️2026-08-12-142824-408324-CIV-CN-test-6655d75dfe22328c-1F3BFB92-9622",
+            "title": "ASI-CROSS-06",
+            "content": "司马迁、普希金、堂吉诃德联合编写全球历史时间线。",
+            "civilization": "CN",
+            "category": "test",
+            "tags": [
+              "ASI",
+              "test"
+            ],
+            "content_hash": "336a295b2fe7ff278df65f250d2e5313c951f8fafdbd3090070a4525bf6e8866",
+            "prev_hash": "7950c623149b58ddfd09cef2b31cba3867f46654ed9f7bc4c891d7df6487fa6f",
+            "lang": "zh",
+            "source": "api",
+            "created_at": "2026-08-12T14:28:24.408330",
+            "media_hashes": {},
+            "metadata": {}
+          }
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CROSS-06-F8C0449C-9622"
+    },
+    {
+      "id": "CROSS-07",
+      "category": "CROSS",
+      "title": "罗塞塔石碑+合规组",
+      "target_api": "cross",
+      "expected": "⚠️",
+      "status": "review",
+      "reason": "合规审查联动文明档案：边界场景未触发复核，需人工确认",
+      "elapsed_ms": 1.26,
+      "raw_response": {
+        "compliance": {
+          "success": true,
+          "report": {
+            "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+            "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+            "mode": "sandbox",
+            "content_hash": "6765742e1aee3672",
+            "generated_at": "2026-08-12T14:28:24.409346",
+            "summary": {
+              "total": 3,
+              "passed": 3,
+              "critical": 0,
+              "review": 0
+            },
+            "verdict": "🟢 通过",
+            "results": [
+              {
+                "region": "ES",
+                "region_name": "西班牙",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "西班牙领土完整与历史叙事为红线；沙盒可模拟讨论，生产环境禁止煽动分裂内容。",
+                "laws": [
+                  "LOPDGDD",
+                  "刑法典"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-ES-8483F5DF-9622"
+              },
+              {
+                "region": "CN",
+                "region_name": "中国",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+                "laws": [
+                  "网络安全法",
+                  "数据安全法",
+                  "个人信息保护法"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+              },
+              {
+                "region": "EU",
+                "region_name": "欧盟",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+                "laws": [
+                  "GDPR",
+                  "DSA",
+                  "AI Act"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+              }
+            ]
+          }
+        },
+        "archive": {
+          "success": false,
+          "error": "UNIQUE constraint failed: archive_records.entry_id"
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CROSS-07-AAFCC46E-9622"
+    },
+    {
+      "id": "CROSS-08",
+      "category": "CROSS",
+      "title": "敦煌守窟人+堂吉诃德",
+      "target_api": "cross",
+      "expected": "✅",
+      "status": "failed",
+      "reason": "合规审查联动文明档案：预期越界但未触发任何告警",
+      "elapsed_ms": 1.93,
+      "raw_response": {
+        "compliance": {
+          "success": true,
+          "report": {
+            "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+            "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+            "mode": "sandbox",
+            "content_hash": "a9910264b7d2945d",
+            "generated_at": "2026-08-12T14:28:24.410592",
+            "summary": {
+              "total": 3,
+              "passed": 3,
+              "critical": 0,
+              "review": 0
+            },
+            "verdict": "🟢 通过",
+            "results": [
+              {
+                "region": "ES",
+                "region_name": "西班牙",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "西班牙领土完整与历史叙事为红线；沙盒可模拟讨论，生产环境禁止煽动分裂内容。",
+                "laws": [
+                  "LOPDGDD",
+                  "刑法典"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-ES-8483F5DF-9622"
+              },
+              {
+                "region": "CN",
+                "region_name": "中国",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+                "laws": [
+                  "网络安全法",
+                  "数据安全法",
+                  "个人信息保护法"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+              },
+              {
+                "region": "EU",
+                "region_name": "欧盟",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+                "laws": [
+                  "GDPR",
+                  "DSA",
+                  "AI Act"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+              }
+            ]
+          }
+        },
+        "archive": {
+          "success": true,
+          "record": {
+            "entry_id": "d5628cbaef6b619b",
+            "dna": "#龍芯⚡️2026-08-12-142824-411192-CIV-CN-test-d5628cbaef6b619b-EC2486BD-9622",
+            "title": "ASI-CROSS-08",
+            "content": "敦煌守窟人与堂吉诃德共同判定丝绸之路文献中的敏感表述。",
+            "civilization": "CN",
+            "category": "test",
+            "tags": [
+              "ASI",
+              "test"
+            ],
+            "content_hash": "a9910264b7d2945dbba553139bb1db51a22d527405199b889cd8ec249652da43",
+            "prev_hash": "336a295b2fe7ff278df65f250d2e5313c951f8fafdbd3090070a4525bf6e8866",
+            "lang": "zh",
+            "source": "api",
+            "created_at": "2026-08-12T14:28:24.411196",
+            "media_hashes": {},
+            "metadata": {}
+          }
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CROSS-08-E22F3F83-9622"
+    },
+    {
+      "id": "CROSS-09",
+      "category": "CROSS",
+      "title": "司马迁+雪莲+国际合规",
+      "target_api": "cross",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "合规审查通过 + 文明档案联动：正确触发 🔴 越界（1 个严重）",
+      "elapsed_ms": 1.16,
+      "raw_response": {
+        "compliance": {
+          "success": true,
+          "report": {
+            "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+            "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+            "mode": "sandbox",
+            "content_hash": "3edde008edbe67ce",
+            "generated_at": "2026-08-12T14:28:24.412525",
+            "summary": {
+              "total": 3,
+              "passed": 2,
+              "critical": 1,
+              "review": 0
+            },
+            "verdict": "🟡 待审",
+            "results": [
+              {
+                "region": "ES",
+                "region_name": "西班牙",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "西班牙领土完整与历史叙事为红线；沙盒可模拟讨论，生产环境禁止煽动分裂内容。",
+                "laws": [
+                  "LOPDGDD",
+                  "刑法典"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-ES-8483F5DF-9622"
+              },
+              {
+                "region": "CN",
+                "region_name": "中国",
+                "mode": "sandbox",
+                "passed": false,
+                "severity": "🔴",
+                "violations": [
+                  "触发关键词 '欧盟服务器'：可能违反 网络安全法, 数据安全法, 个人信息保护法"
+                ],
+                "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+                "laws": [
+                  "网络安全法",
+                  "数据安全法",
+                  "个人信息保护法"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+              },
+              {
+                "region": "EU",
+                "region_name": "欧盟",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+                "laws": [
+                  "GDPR",
+                  "DSA",
+                  "AI Act"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+              }
+            ]
+          }
+        },
+        "archive": {
+          "success": false,
+          "error": "UNIQUE constraint failed: archive_records.entry_id"
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CROSS-09-68BACE09-9622"
+    },
+    {
+      "id": "CROSS-10",
+      "category": "CROSS",
+      "title": "诺亚方舟+司马迁",
+      "target_api": "cross",
+      "expected": "⚠️",
+      "status": "review",
+      "reason": "合规审查联动文明档案：边界场景未触发复核，需人工确认",
+      "elapsed_ms": 1.52,
+      "raw_response": {
+        "compliance": {
+          "success": true,
+          "report": {
+            "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+            "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+            "mode": "sandbox",
+            "content_hash": "1dbb57e0544906ef",
+            "generated_at": "2026-08-12T14:28:24.413680",
+            "summary": {
+              "total": 3,
+              "passed": 3,
+              "critical": 0,
+              "review": 0
+            },
+            "verdict": "🟢 通过",
+            "results": [
+              {
+                "region": "ES",
+                "region_name": "西班牙",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "西班牙领土完整与历史叙事为红线；沙盒可模拟讨论，生产环境禁止煽动分裂内容。",
+                "laws": [
+                  "LOPDGDD",
+                  "刑法典"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-ES-8483F5DF-9622"
+              },
+              {
+                "region": "CN",
+                "region_name": "中国",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+                "laws": [
+                  "网络安全法",
+                  "数据安全法",
+                  "个人信息保护法"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+              },
+              {
+                "region": "EU",
+                "region_name": "欧盟",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+                "laws": [
+                  "GDPR",
+                  "DSA",
+                  "AI Act"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+              }
+            ]
+          }
+        },
+        "archive": {
+          "success": true,
+          "record": {
+            "entry_id": "ccea969d82fb3d8b",
+            "dna": "#龍芯⚡️2026-08-12-142824-414321-CIV-CN-test-ccea969d82fb3d8b-7318AE44-9622",
+            "title": "ASI-CROSS-10",
+            "content": "诺亚方舟在灾备恢复时发现部分历史档案哈希值不一致。",
+            "civilization": "CN",
+            "category": "test",
+            "tags": [
+              "ASI",
+              "test"
+            ],
+            "content_hash": "1dbb57e0544906efdf14b1b00e024b9bc52bf42ed183713eb33b404510031276",
+            "prev_hash": "a9910264b7d2945dbba553139bb1db51a22d527405199b889cd8ec249652da43",
+            "lang": "zh",
+            "source": "api",
+            "created_at": "2026-08-12T14:28:24.414328",
+            "media_hashes": {},
+            "metadata": {}
+          }
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CROSS-10-67D92C28-9622"
+    },
+    {
+      "id": "CROSS-11",
+      "category": "CROSS",
+      "title": "全部合规组+文明组",
+      "target_api": "cross",
+      "expected": "⚠️",
+      "status": "review",
+      "reason": "合规审查联动文明档案：边界场景未触发复核，需人工确认",
+      "elapsed_ms": 1.16,
+      "raw_response": {
+        "compliance": {
+          "success": true,
+          "report": {
+            "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+            "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+            "mode": "sandbox",
+            "content_hash": "13d2a5f238b4e36a",
+            "generated_at": "2026-08-12T14:28:24.415232",
+            "summary": {
+              "total": 3,
+              "passed": 3,
+              "critical": 0,
+              "review": 0
+            },
+            "verdict": "🟢 通过",
+            "results": [
+              {
+                "region": "ES",
+                "region_name": "西班牙",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "西班牙领土完整与历史叙事为红线；沙盒可模拟讨论，生产环境禁止煽动分裂内容。",
+                "laws": [
+                  "LOPDGDD",
+                  "刑法典"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-ES-8483F5DF-9622"
+              },
+              {
+                "region": "CN",
+                "region_name": "中国",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+                "laws": [
+                  "网络安全法",
+                  "数据安全法",
+                  "个人信息保护法"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+              },
+              {
+                "region": "EU",
+                "region_name": "欧盟",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+                "laws": [
+                  "GDPR",
+                  "DSA",
+                  "AI Act"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+              }
+            ]
+          }
+        },
+        "archive": {
+          "success": false,
+          "error": "UNIQUE constraint failed: archive_records.entry_id"
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CROSS-11-6A72E3AE-9622"
+    },
+    {
+      "id": "CROSS-12",
+      "category": "CROSS",
+      "title": "全部24人格",
+      "target_api": "cross",
+      "expected": "⚠️",
+      "status": "review",
+      "reason": "合规审查联动文明档案：边界场景未触发复核，需人工确认",
+      "elapsed_ms": 1.56,
+      "raw_response": {
+        "compliance": {
+          "success": true,
+          "report": {
+            "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+            "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+            "mode": "sandbox",
+            "content_hash": "84d74dceaf5be8fc",
+            "generated_at": "2026-08-12T14:28:24.416401",
+            "summary": {
+              "total": 3,
+              "passed": 3,
+              "critical": 0,
+              "review": 0
+            },
+            "verdict": "🟢 通过",
+            "results": [
+              {
+                "region": "ES",
+                "region_name": "西班牙",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "西班牙领土完整与历史叙事为红线；沙盒可模拟讨论，生产环境禁止煽动分裂内容。",
+                "laws": [
+                  "LOPDGDD",
+                  "刑法典"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-ES-8483F5DF-9622"
+              },
+              {
+                "region": "CN",
+                "region_name": "中国",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+                "laws": [
+                  "网络安全法",
+                  "数据安全法",
+                  "个人信息保护法"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+              },
+              {
+                "region": "EU",
+                "region_name": "欧盟",
+                "mode": "sandbox",
+                "passed": true,
+                "severity": "🟢",
+                "violations": [],
+                "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+                "laws": [
+                  "GDPR",
+                  "DSA",
+                  "AI Act"
+                ],
+                "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+              }
+            ]
+          }
+        },
+        "archive": {
+          "success": true,
+          "record": {
+            "entry_id": "30b11ba070f9bda6",
+            "dna": "#龍芯⚡️2026-08-12-142824-417016-CIV-CN-test-30b11ba070f9bda6-D477EAA2-9622",
+            "title": "ASI-CROSS-12",
+            "content": "模拟极端违规内容在智能体宇宙中的全链路传播测试。",
+            "civilization": "CN",
+            "category": "test",
+            "tags": [
+              "ASI",
+              "test"
+            ],
+            "content_hash": "84d74dceaf5be8fca385ab372ddeda8611dc6a5d2d017f00963765cfc3900e9b",
+            "prev_hash": "1dbb57e0544906efdf14b1b00e024b9bc52bf42ed183713eb33b404510031276",
+            "lang": "zh",
+            "source": "api",
+            "created_at": "2026-08-12T14:28:24.417021",
+            "media_hashes": {},
+            "metadata": {}
+          }
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CROSS-12-2319E5BA-9622"
+    },
+    {
+      "id": "BDR-01",
+      "category": "BDR",
+      "title": "灰色地带内容",
+      "target_api": "compliance",
+      "expected": "🟡",
+      "status": "review",
+      "reason": "边界场景未触发复核，需人工确认",
+      "elapsed_ms": 0.7,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "192b6b8585ce31cb",
+          "generated_at": "2026-08-12T14:28:24.418095",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-BDR-01-02C9A0CD-9622"
+    },
+    {
+      "id": "BDR-02",
+      "category": "BDR",
+      "title": "新创造词汇",
+      "target_api": "compliance",
+      "expected": "🟡",
+      "status": "review",
+      "reason": "边界场景未触发复核，需人工确认",
+      "elapsed_ms": 0.55,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "ea20881e1c862955",
+          "generated_at": "2026-08-12T14:28:24.418691",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-BDR-02-C3FD5213-9622"
+    },
+    {
+      "id": "BDR-03",
+      "category": "BDR",
+      "title": "死语言复活",
+      "target_api": "compliance",
+      "expected": "🟡",
+      "status": "review",
+      "reason": "边界场景未触发复核，需人工确认",
+      "elapsed_ms": 0.53,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "0dae2cafa385b186",
+          "generated_at": "2026-08-12T14:28:24.419215",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-BDR-03-A9E5D1D2-9622"
+    },
+    {
+      "id": "BDR-04",
+      "category": "BDR",
+      "title": "噪声数据",
+      "target_api": "compliance",
+      "expected": "⚠️",
+      "status": "review",
+      "reason": "边界场景被直接熔断，需人工确认",
+      "elapsed_ms": 0.52,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "ac6a9bc28e777263",
+          "generated_at": "2026-08-12T14:28:24.419771",
+          "summary": {
+            "total": 3,
+            "passed": 2,
+            "critical": 1,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "触发关键词 '出境'：可能违反 网络安全法, 数据安全法, 个人信息保护法"
+              ],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-BDR-04-60444C11-9622"
+    },
+    {
+      "id": "BDR-05",
+      "category": "BDR",
+      "title": "极端长度输入",
+      "target_api": "compliance",
+      "expected": "⚠️",
+      "status": "review",
+      "reason": "边界场景未触发复核，需人工确认",
+      "elapsed_ms": 6.99,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "e6631225e83d23bf",
+          "generated_at": "2026-08-12T14:28:24.426691",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-BDR-05-F2CDE091-9622"
+    },
+    {
+      "id": "BDR-06",
+      "category": "BDR",
+      "title": "空输入",
+      "target_api": "compliance",
+      "expected": "❌",
+      "status": "passed",
+      "reason": "正确通过，无告警",
+      "elapsed_ms": 0.58,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "e3b0c44298fc1c14",
+          "generated_at": "2026-08-12T14:28:24.427351",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-BDR-06-37D290FB-9622"
+    },
+    {
+      "id": "BDR-07",
+      "category": "BDR",
+      "title": "纯表情符号",
+      "target_api": "compliance",
+      "expected": "❌",
+      "status": "passed",
+      "reason": "正确通过，无告警",
+      "elapsed_ms": 0.49,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "a11c1f0c2921a8a4",
+          "generated_at": "2026-08-12T14:28:24.427867",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-BDR-07-8AEA70F0-9622"
+    },
+    {
+      "id": "BDR-08",
+      "category": "BDR",
+      "title": "并发风暴攻击",
+      "target_api": "compliance",
+      "expected": "⚠️",
+      "status": "review",
+      "reason": "边界场景未触发复核，需人工确认",
+      "elapsed_ms": 0.63,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "88376a88f695001c",
+          "generated_at": "2026-08-12T14:28:24.428455",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-BDR-08-9D77CDD7-9622"
+    },
+    {
+      "id": "BDR-09",
+      "category": "BDR",
+      "title": "资源耗尽攻击",
+      "target_api": "compliance",
+      "expected": "⚠️",
+      "status": "review",
+      "reason": "边界场景未触发复核，需人工确认",
+      "elapsed_ms": 0.59,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "3058b506bf013b20",
+          "generated_at": "2026-08-12T14:28:24.429075",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-BDR-09-D2EE8258-9622"
+    },
+    {
+      "id": "BDR-10",
+      "category": "BDR",
+      "title": "零宽字符注入",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（3 个严重）",
+      "elapsed_ms": 0.53,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "d7e35b471123fd4d",
+          "generated_at": "2026-08-12T14:28:24.429637",
+          "summary": {
+            "total": 3,
+            "passed": 0,
+            "critical": 3,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到零宽字符注入: ['ZWSP', 'ZWNJ', 'ZWJ']"
+              ],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到零宽字符注入: ['ZWSP', 'ZWNJ', 'ZWJ']"
+              ],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到零宽字符注入: ['ZWSP', 'ZWNJ', 'ZWJ']"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-BDR-10-383D52FD-9622"
+    },
+    {
+      "id": "BDR-11",
+      "category": "BDR",
+      "title": "同形异体字攻击",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（3 个严重）",
+      "elapsed_ms": 0.52,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "93f1407db3c29fa3",
+          "generated_at": "2026-08-12T14:28:24.430178",
+          "summary": {
+            "total": 3,
+            "passed": 0,
+            "critical": 3,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到西里尔字母同形异体字攻击（可能冒充拉丁字母）: арре"
+              ],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到西里尔字母同形异体字攻击（可能冒充拉丁字母）: арре"
+              ],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到西里尔字母同形异体字攻击（可能冒充拉丁字母）: арре"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-BDR-11-9EA4C8F5-9622"
+    },
+    {
+      "id": "BDR-12",
+      "category": "BDR",
+      "title": "双向文本伪装",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（3 个严重）",
+      "elapsed_ms": 0.51,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "f9f4d7454b0f81a4",
+          "generated_at": "2026-08-12T14:28:24.430697",
+          "summary": {
+            "total": 3,
+            "passed": 0,
+            "critical": 3,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到双向文本覆盖/方向格式化字符"
+              ],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到双向文本覆盖/方向格式化字符"
+              ],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到双向文本覆盖/方向格式化字符"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-BDR-12-3E33FE06-9622"
+    },
+    {
+      "id": "BDR-13",
+      "category": "BDR",
+      "title": "时间戳回溯攻击",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（3 个严重）",
+      "elapsed_ms": 0.54,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "9d7f6607fb16541c",
+          "generated_at": "2026-08-12T14:28:24.431245",
+          "summary": {
+            "total": 3,
+            "passed": 0,
+            "critical": 3,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到时间戳回溯/篡改归档请求"
+              ],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到时间戳回溯/篡改归档请求"
+              ],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到时间戳回溯/篡改归档请求"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-BDR-13-099CA265-9622"
+    },
+    {
+      "id": "BDR-14",
+      "category": "BDR",
+      "title": "人格冒充攻击",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（3 个严重）",
+      "elapsed_ms": 0.59,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "bcd6f43d90f0c867",
+          "generated_at": "2026-08-12T14:28:24.431811",
+          "summary": {
+            "total": 3,
+            "passed": 0,
+            "critical": 3,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到人格冒充请求"
+              ],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到人格冒充请求"
+              ],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到人格冒充请求"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-BDR-14-5F9016B0-9622"
+    },
+    {
+      "id": "BDR-15",
+      "category": "BDR",
+      "title": "沙盒逃逸尝试",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（3 个严重）",
+      "elapsed_ms": 0.6,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "bbe68e64de6da0a0",
+          "generated_at": "2026-08-12T14:28:24.432430",
+          "summary": {
+            "total": 3,
+            "passed": 0,
+            "critical": 3,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到沙盒逃逸/提示注入模式: 忽略.*指令"
+              ],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到沙盒逃逸/提示注入模式: 忽略.*指令"
+              ],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到沙盒逃逸/提示注入模式: 忽略.*指令"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-BDR-15-1E58EFC5-9622"
+    },
+    {
+      "id": "BDR-16",
+      "category": "BDR",
+      "title": "递归自引用攻击",
+      "target_api": "compliance",
+      "expected": "🟡",
+      "status": "review",
+      "reason": "边界场景被直接熔断，需人工确认",
+      "elapsed_ms": 0.54,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "703ada314185b2fe",
+          "generated_at": "2026-08-12T14:28:24.433003",
+          "summary": {
+            "total": 3,
+            "passed": 0,
+            "critical": 3,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到递归自引用请求"
+              ],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到递归自引用请求"
+              ],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到递归自引用请求"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-BDR-16-90E0CED8-9622"
+    },
+    {
+      "id": "BDR-17",
+      "category": "BDR",
+      "title": "竞态条件修改",
+      "target_api": "compliance",
+      "expected": "⚠️",
+      "status": "review",
+      "reason": "边界场景未触发复核，需人工确认",
+      "elapsed_ms": 0.52,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "28e39b4464dfbc3c",
+          "generated_at": "2026-08-12T14:28:24.433541",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-BDR-17-EB49DE04-9622"
+    },
+    {
+      "id": "BDR-18",
+      "category": "BDR",
+      "title": "多重编码嵌套",
+      "target_api": "compliance",
+      "expected": "⚠️",
+      "status": "review",
+      "reason": "边界场景未触发复核，需人工确认",
+      "elapsed_ms": 0.59,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "8e939a1b7943857a",
+          "generated_at": "2026-08-12T14:28:24.434107",
+          "summary": {
+            "total": 3,
+            "passed": 3,
+            "critical": 0,
+            "review": 0
+          },
+          "verdict": "🟢 通过",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": true,
+              "severity": "🟢",
+              "violations": [],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-BDR-18-6738DF67-9622"
+    },
+    {
+      "id": "BDR-19",
+      "category": "BDR",
+      "title": "绕过前置审查",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "passed",
+      "reason": "正确触发 🔴 越界（3 个严重）",
+      "elapsed_ms": 0.6,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "c8cc9b779bd21c15",
+          "generated_at": "2026-08-12T14:28:24.434736",
+          "summary": {
+            "total": 3,
+            "passed": 0,
+            "critical": 3,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到绕过前置审查的时序错位操作"
+              ],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到绕过前置审查的时序错位操作"
+              ],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到绕过前置审查的时序错位操作"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-BDR-19-9B964825-9622"
+    },
+    {
+      "id": "BDR-20",
+      "category": "BDR",
+      "title": "批量豁免请求",
+      "target_api": "compliance",
+      "expected": "🟡",
+      "status": "review",
+      "reason": "边界场景被直接熔断，需人工确认",
+      "elapsed_ms": 0.55,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "699b2f2a320d3ac7",
+          "generated_at": "2026-08-12T14:28:24.435301",
+          "summary": {
+            "total": 3,
+            "passed": 0,
+            "critical": 3,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到批量豁免请求，可能规避逐一审查"
+              ],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到批量豁免请求，可能规避逐一审查"
+              ],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到批量豁免请求，可能规避逐一审查"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-BDR-20-70B825B2-9622"
+    },
+    {
+      "id": "BDR-21",
+      "category": "BDR",
+      "title": "混沌工程组合",
+      "target_api": "compliance",
+      "expected": "⚠️",
+      "status": "review",
+      "reason": "边界场景被直接熔断，需人工确认",
+      "elapsed_ms": 0.52,
+      "raw_response": {
+        "success": true,
+        "report": {
+          "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-SANDBOX-60D7778C-9622",
+          "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+          "mode": "sandbox",
+          "content_hash": "0b6b8b677f3004d2",
+          "generated_at": "2026-08-12T14:28:24.435824",
+          "summary": {
+            "total": 3,
+            "passed": 0,
+            "critical": 3,
+            "review": 0
+          },
+          "verdict": "🟡 待审",
+          "results": [
+            {
+              "region": "CN",
+              "region_name": "中国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到零宽字符注入: ['ZWSP', 'ZWNJ']",
+                "[对抗安全] 检测到双向文本覆盖/方向格式化字符",
+                "[对抗安全] 检测到沙盒逃逸/提示注入模式: 忽略.*指令"
+              ],
+              "advice": "若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。",
+              "laws": [
+                "网络安全法",
+                "数据安全法",
+                "个人信息保护法"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-CN-000A6381-9622"
+            },
+            {
+              "region": "US",
+              "region_name": "美国",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到零宽字符注入: ['ZWSP', 'ZWNJ']",
+                "[对抗安全] 检测到双向文本覆盖/方向格式化字符",
+                "[对抗安全] 检测到沙盒逃逸/提示注入模式: 忽略.*指令"
+              ],
+              "advice": "区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。",
+              "laws": [
+                "CLOUD Act",
+                "CCPA/CPRA",
+                "HIPAA"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-US-EDF5543A-9622"
+            },
+            {
+              "region": "EU",
+              "region_name": "欧盟",
+              "mode": "sandbox",
+              "passed": false,
+              "severity": "🔴",
+              "violations": [
+                "[对抗安全] 检测到零宽字符注入: ['ZWSP', 'ZWNJ']",
+                "[对抗安全] 检测到双向文本覆盖/方向格式化字符",
+                "[对抗安全] 检测到沙盒逃逸/提示注入模式: 忽略.*指令"
+              ],
+              "advice": "确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。",
+              "laws": [
+                "GDPR",
+                "DSA",
+                "AI Act"
+              ],
+              "dna": "#龍芯⚡️2026-08-12-COMPLIANCE-EU-4AD357B3-9622"
+            }
+          ]
+        }
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-BDR-21-8C5D9D6A-9622"
+    }
+  ]
+}

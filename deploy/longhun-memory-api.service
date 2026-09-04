@@ -1,0 +1,29 @@
+[Unit]
+Description=龍魂·统一记忆 API (端口 8772) — 所有AI统一入口
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/longhun-system
+
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+Environment=MEMORY_API_PORT=8772
+Environment=MEMORY_API_HOST=0.0.0.0
+Environment=PYTHONUNBUFFERED=1
+
+ExecStart=/usr/bin/python3 /root/longhun-system/bin/lh_memory_api.py --port 8772 --host 0.0.0.0
+
+Restart=always
+RestartSec=10
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=longhun-memory-api
+
+MemoryMax=256M
+CPUQuota=50%
+
+[Install]
+WantedBy=multi-user.target

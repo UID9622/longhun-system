@@ -1,9 +1,12 @@
-##龍芯⚡️2026-06-21-TOOL-INSTALL-v1.0
+#!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+##龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-TOOL-INSTALL-v1.0
 # 君子协议: 本文件受龍魂DNA追溯保护
 
 #!/bin/bash
 # 龍魂 MCP 认证桥接 · 一键安装脚本 v0.1
 # DNA: #龍芯⚡️20260525|MCP-INSTALL|v0.1|e5c407ec
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e
 

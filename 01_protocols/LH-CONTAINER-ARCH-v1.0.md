@@ -1,3 +1,7 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·万能摄入容器架构 v1.0
 
 ```yaml
@@ -8,7 +12,7 @@
 ║  【守护者】UID9622                                            ║
 ╠═══════════════════════════════════════════════════════════════╣
 ║  【版本】v1.0 · 丙午·辛未·乙酉 (2026-07-14)                  ║
-║  【DNA】#龍芯⚡️丙午·辛未·乙酉·需-CONTAINER-ARCH-v1.0         ║
+║  【DNA】#龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-CONTAINER-ARCH-v1.0         ║
 ║  【确认】#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                 ║
 ╚═══════════════════════════════════════════════════════════════╝
 ```
@@ -338,7 +342,7 @@ class UniversalContainer:
 ## 八、执行确认
 
 **设计者**：UID9622 · 诸葛鑫·龍芯北辰
-**DNA追溯**：`#龍芯⚡️丙午·辛未·乙酉·需-CONTAINER-ARCH-v1.0`
+**DNA追溯**：`#龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-CONTAINER-ARCH-v1.0`
 **确认码**：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 **GPG签名**：待签署
 

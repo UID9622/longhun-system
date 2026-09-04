@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · LU 记忆批量导入器
@@ -11,7 +15,7 @@
   - cnsh:     ~/.cnsh/logs/audit.log
   - generic:  任意 .txt / .jsonl / .md 文件
 
-DNA:#龍芯⚡️2026-06-30-LONGHUN-LU-IMPORTER-FILE1-v1.0
+DNA:#龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGHUN-LU-IMPORTER-FILE1-v1.0
 """
 
 import argparse
@@ -204,7 +208,7 @@ def main() -> int:
     engine.close()
 
     print(f"\n🐉 导入完成：行数 {total['total_lines']} / 压缩 {total['compressed']} / 失败 {total['failed']}")
-    print("DNA: #龍芯⚡️2026-06-30-LONGHUN-LU-IMPORTER-v1.0")
+    print("DNA: #龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGHUN-LU-IMPORTER-v1.0")
     return 0
 
 

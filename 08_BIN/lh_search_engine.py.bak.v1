@@ -1,0 +1,645 @@
+#!/usr/bin/env python3
+"""
+🐉 龍魂 · 多源搜索引擎 v1.0
+DNA: #龍芯⚡️丙午·乙未·癸酉·戌时·☰乾-SEARCH-ENGINE-v1.0-2B7F3A1C
+创建者: 诸葛鑫 (UID9622)
+协议: CC BY-NC-SA 4.0
+
+统一的对外搜索入口。支持多搜索后端、结果缓存、内容深度提取。
+纯 stdlib，零外部依赖。
+
+搜索后端:
+  - Bing (主力·中英文搜索·国内可通·HTML稳定解析)
+  - Baidu (中文后备·注意: 百度依赖JS渲染，纯HTML解析结果不稳定)
+  - 本地缓存 (SQLite·24h TTL)
+
+模式:
+  - serve: HTTP API (:9631)
+  - search: 命令行单次查询
+  - crawl: 批量爬取+建索引
+
+用法:
+  # 命令行搜索
+  python3 bin/lh_search_engine.py search "中国传统文化"
+
+  # 启动搜索 API 服务
+  python3 bin/lh_search_engine.py serve
+
+  # 带深度提取的搜索
+  python3 bin/lh_search_engine.py search "Python async" --deep 3
+
+  # 查看缓存状态
+  python3 bin/lh_search_engine.py cache-status
+"""
+
+import argparse
+import hashlib
+import html.parser
+import json
+import os
+import re
+import sqlite3
+import sys
+import time
+import urllib.parse
+import urllib.request
+from datetime import datetime, timezone, timedelta
+from http.server import HTTPServer, BaseHTTPRequestHandler
+from pathlib import Path
+from typing import Optional
+
+# ── 常量 ──────────────────────────────────────────────
+
+DNA = "#龍芯⚡️丙午·乙未·癸酉·戌时·☰乾-SEARCH-ENGINE-v1.0-2B7F3A1C"
+VERSION = "1.0"
+DEFAULT_PORT = 9631
+DEFAULT_CACHE_DIR = Path.home() / "longhun-system" / "data" / "search_cache"
+DEFAULT_DB = DEFAULT_CACHE_DIR / "search_index.db"
+DEFAULT_RESULTS = 10
+MAX_RESULTS = 25
+CACHE_TTL_HOURS = 24
+REQUEST_TIMEOUT = 12
+USER_AGENT = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Longhun/2.0 SearchEngine/1.0"
+)
+
+CST = timezone(timedelta(hours=8))
+
+
+# ── 日志 ──────────────────────────────────────────────
+
+def _log(msg: str, level: str = "INFO"):
+    ts = datetime.now(CST).strftime("%H:%M:%S")
+    tag = {"OK": "✅", "ERROR": "🔴", "WARN": "🟡", "INFO": "📋"}.get(level, "📋")
+    print(f"[{ts}] {tag} {msg}", file=sys.stderr)
+
+
+# ── SQLite 缓存 ─────────────────────────────────────────
+
+def _init_db(db_path: Path) -> sqlite3.Connection:
+    db_path.parent.mkdir(parents=True, exist_ok=True)
+    conn = sqlite3.connect(str(db_path))
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS search_cache (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            query_hash TEXT NOT NULL,
+            query_text TEXT NOT NULL,
+            backend TEXT NOT NULL,
+            results_json TEXT NOT NULL,
+            cached_at TEXT NOT NULL,
+            UNIQUE(query_hash, backend)
+        )
+    """)
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS crawl_log (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            url TEXT NOT NULL,
+            title TEXT,
+            extracted_at TEXT NOT NULL,
+            word_count INTEGER,
+            dna TEXT
+        )
+    """)
+    conn.commit()
+    return conn
+
+
+def _cache_key(query: str, backend: str) -> str:
+    return hashlib.sha256(f"{query.strip().lower()}:{backend}".encode()).hexdigest()[:16]
+
+
+def _cache_get(conn: sqlite3.Connection, query: str, backend: str) -> Optional[list]:
+    key = _cache_key(query, backend)
+    row = conn.execute(
+        "SELECT results_json, cached_at FROM search_cache WHERE query_hash=? AND backend=?",
+        (key, backend)
+    ).fetchone()
+    if not row:
+        return None
+    results_json, cached_at = row
+    cached_dt = datetime.fromisoformat(cached_at)
+    if datetime.now(CST) - cached_dt > timedelta(hours=CACHE_TTL_HOURS):
+        return None  # 过期
+    return json.loads(results_json)
+
+
+def _cache_set(conn: sqlite3.Connection, query: str, backend: str, results: list):
+    key = _cache_key(query, backend)
+    conn.execute(
+        "INSERT OR REPLACE INTO search_cache (query_hash, query_text, backend, results_json, cached_at) "
+        "VALUES (?, ?, ?, ?, ?)",
+        (key, query, backend, json.dumps(results, ensure_ascii=False), datetime.now(CST).isoformat())
+    )
+    conn.commit()
+
+
+def _cache_status(conn: sqlite3.Connection) -> dict:
+    total = conn.execute("SELECT COUNT(*) FROM search_cache").fetchone()[0]
+    recent = conn.execute(
+        "SELECT COUNT(*) FROM search_cache WHERE cached_at > ?",
+        (datetime.now(CST).isoformat(),)
+    ).fetchone()[0]
+    crawl_total = conn.execute("SELECT COUNT(*) FROM crawl_log").fetchone()[0]
+    return {"total_cached": total, "recent_24h": recent, "crawl_pages": crawl_total}
+
+
+# ── HTML 解析器 ─────────────────────────────────────────
+
+class _BingParser(html.parser.HTMLParser):
+    """解析 Bing 搜索结果页"""
+
+    def __init__(self):
+        super().__init__()
+        self.results = []
+        self._current = {}
+        self._in_result = False
+        self._in_title = False
+        self._in_snippet = False
+        self._in_url = False
+        self._text_buf = []
+
+    def handle_starttag(self, tag, attrs):
+        attrs_d = dict(attrs)
+        cls = attrs_d.get("class", "")
+
+        if tag == "li" and "b_algo" in cls:
+            self._in_result = True
+            self._current = {"title": "", "url": "", "snippet": "", "source": "bing"}
+        if self._in_result and tag == "h2":
+            self._in_title = True
+            self._text_buf = []
+        if self._in_result and tag == "a" and self._in_title:
+            href = attrs_d.get("href", "")
+            if href.startswith("http"):
+                self._current["url"] = href
+        if self._in_result and tag == "p" and not self._in_title:
+            self._in_snippet = True
+            self._text_buf = []
+
+    def handle_endtag(self, tag):
+        if self._in_snippet and tag == "p":
+            self._in_snippet = False
+            self._current["snippet"] = "".join(self._text_buf).strip()
+        if self._in_title and tag == "h2":
+            self._in_title = False
+            self._current["title"] = "".join(self._text_buf).strip()
+        if tag == "li" and self._in_result:
+            self._in_result = False
+            if self._current.get("title") and self._current.get("url"):
+                self.results.append(self._current)
+            self._current = {}
+
+    def handle_data(self, data):
+        if self._in_title or self._in_snippet:
+            self._text_buf.append(data)
+
+
+class _BaiduParser(html.parser.HTMLParser):
+    """解析百度搜索结果页"""
+
+    def __init__(self):
+        super().__init__()
+        self.results = []
+        self._current = {}
+        self._in_result = False
+        self._in_title = False
+        self._in_abstract = False
+        self._text_buf = []
+        self._href = ""
+
+    def handle_starttag(self, tag, attrs):
+        attrs_d = dict(attrs)
+        cls = attrs_d.get("class", "")
+
+        if tag == "div" and ("result" in cls or "c-container" in cls):
+            self._in_result = True
+            self._current = {"title": "", "url": "", "snippet": "", "source": "baidu"}
+        if self._in_result and tag == "h3":
+            self._in_title = True
+            self._text_buf = []
+        if self._in_title and tag == "a":
+            self._href = attrs_d.get("href", "")
+        if self._in_result and "c-abstract" in cls:
+            self._in_abstract = True
+            self._text_buf = []
+
+    def handle_endtag(self, tag):
+        if self._in_title and tag == "h3":
+            self._in_title = False
+            self._current["title"] = "".join(self._text_buf).strip()
+            if self._href:
+                self._current["url"] = self._href
+        if self._in_abstract and (tag == "div" or tag == "span"):
+            self._in_abstract = False
+            text = "".join(self._text_buf).strip()
+            if text:
+                self._current["snippet"] = text
+        if tag == "div" and self._in_result:
+            self._in_result = False
+            if self._current.get("title") and self._current.get("url"):
+                self.results.append(self._current)
+            self._current = {}
+
+    def handle_data(self, data):
+        if self._in_title or self._in_abstract:
+            self._text_buf.append(data)
+
+
+# ── 搜索后端 ───────────────────────────────────────────
+
+def _http_get(url: str, timeout: int = REQUEST_TIMEOUT) -> Optional[str]:
+    """带重试的 HTTP GET"""
+    for attempt in range(2):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                raw = resp.read()
+                # 尝试解码
+                charset = "utf-8"
+                content_type = resp.headers.get("Content-Type", "")
+                if "charset=" in content_type:
+                    charset = content_type.split("charset=")[-1].split(";")[0].strip()
+                for enc in [charset, "utf-8", "gbk", "gb2312", "latin-1"]:
+                    try:
+                        return raw.decode(enc)
+                    except (UnicodeDecodeError, LookupError):
+                        continue
+                return raw.decode("utf-8", errors="replace")
+        except Exception as e:
+            if attempt == 0:
+                time.sleep(1)
+            else:
+                _log(f"HTTP GET 失败: {url[:80]} — {e}", "WARN")
+    return None
+
+
+def search_bing(query: str, n: int = DEFAULT_RESULTS) -> list:
+    """通过 Bing 搜索"""
+    url = f"https://www.bing.com/search?q={urllib.parse.quote(query)}&count={min(n, MAX_RESULTS)}"
+    html_text = _http_get(url)
+    if not html_text:
+        return []
+
+    parser = _BingParser()
+    try:
+        parser.feed(html_text)
+    except Exception:
+        pass
+
+    # 去重·限制数量
+    seen = set()
+    unique = []
+    for r in parser.results:
+        if r["url"] not in seen:
+            seen.add(r["url"])
+            r["rank"] = len(unique) + 1
+            unique.append(r)
+            if len(unique) >= n:
+                break
+
+    return unique
+
+
+def search_baidu(query: str, n: int = DEFAULT_RESULTS) -> list:
+    """通过百度搜索（中文后备）"""
+    url = f"https://www.baidu.com/s?wd={urllib.parse.quote(query)}&rn={min(n, MAX_RESULTS)}"
+    html_text = _http_get(url)
+    if not html_text:
+        return []
+
+    parser = _BaiduParser()
+    try:
+        parser.feed(html_text)
+    except Exception:
+        pass
+
+    seen = set()
+    unique = []
+    for r in parser.results:
+        if r["url"] not in seen:
+            seen.add(r["url"])
+            r["rank"] = len(unique) + 1
+            unique.append(r)
+            if len(unique) >= n:
+                break
+
+    return unique
+
+
+# ── 页面深度提取 ────────────────────────────────────────
+
+def extract_page(url: str, timeout: int = 15) -> Optional[dict]:
+    """提取网页正文内容"""
+    html_text = _http_get(url, timeout=timeout)
+    if not html_text:
+        return None
+
+    # 简易正文提取：去标签 + 找最长文本块
+    # 第一步：移除 script/style
+    cleaned = re.sub(r'<(script|style|noscript)[^>]*>.*?</\1>', '', html_text, flags=re.DOTALL | re.IGNORECASE)
+    # 第二步：提取所有文本块
+    blocks = re.findall(r'>([^<]{50,})<', cleaned)
+    if not blocks:
+        blocks = re.findall(r'>([^<]{20,})<', cleaned)
+
+    combined = "\n".join(blocks[:20])  # 最多取前20个文本块
+    # 提取标题
+    title_m = re.search(r'<title[^>]*>(.*?)</title>', html_text, re.IGNORECASE)
+    title = title_m.group(1).strip() if title_m else ""
+
+    return {
+        "url": url,
+        "title": title,
+        "word_count": len(combined),
+        "content_preview": combined[:2000],
+        "extracted_at": datetime.now(CST).isoformat(),
+    }
+
+
+# ── 核心搜索函数 ────────────────────────────────────────
+
+def search(
+    query: str,
+    n: int = DEFAULT_RESULTS,
+    deep: int = 0,
+    backend: str = "auto",
+    use_cache: bool = True,
+    db_path: Path = DEFAULT_DB,
+) -> dict:
+    """
+    统一搜索入口
+
+    Args:
+        query: 搜索关键词
+        n: 返回结果数
+        deep: 深度提取页面数 (0=不提取, 默认)
+        backend: 搜索后端 (auto/bing/baidu)
+        use_cache: 是否使用缓存
+        db_path: 缓存数据库路径
+
+    Returns:
+        {
+            "query": str,
+            "backend": str,
+            "results": [...],
+            "deep_extracts": [...],
+            "cached": bool,
+            "dna": str,
+            "searched_at": str,
+        }
+    """
+    conn = _init_db(db_path)
+
+    # 自动选择后端
+    used_backend = backend
+    if backend == "auto":
+        # 默认 Bing（国内可通·HTML解析稳定）。百度作备选但需手动指定。
+        used_backend = "bing"
+
+    # 尝试缓存
+    if use_cache:
+        cached = _cache_get(conn, query, used_backend)
+        if cached:
+            conn.close()
+            return {
+                "query": query,
+                "backend": used_backend,
+                "results": cached[:n],
+                "deep_extracts": [],
+                "cached": True,
+                "dna": DNA,
+                "searched_at": datetime.now(CST).isoformat(),
+            }
+
+    # 执行搜索
+    if used_backend == "bing":
+        results = search_bing(query, n)
+        # Bing 无结果时回退百度
+        if not results:
+            _log("Bing 无结果，回退百度", "WARN")
+            results = search_baidu(query, n)
+            used_backend = "baidu" if results else "bing"
+    elif used_backend == "baidu":
+        results = search_baidu(query, n)
+        if not results:
+            _log("百度无结果，回退 Bing", "WARN")
+            results = search_bing(query, n)
+            used_backend = "bing" if results else "baidu"
+    else:
+        results = []
+
+    # 缓存
+    _cache_set(conn, query, used_backend, results)
+
+    # 深度提取
+    deep_extracts = []
+    if deep > 0 and results:
+        _log(f"深度提取前 {min(deep, len(results))} 个页面...", "INFO")
+        for i, r in enumerate(results[:deep]):
+            content = extract_page(r["url"])
+            if content:
+                deep_extracts.append(content)
+                conn.execute(
+                    "INSERT INTO crawl_log (url, title, extracted_at, word_count, dna) VALUES (?,?,?,?,?)",
+                    (content["url"], content["title"], content["extracted_at"], content["word_count"], DNA)
+                )
+                time.sleep(0.5)  # 礼貌间隔
+
+    conn.commit()
+    conn.close()
+
+    return {
+        "query": query,
+        "backend": used_backend,
+        "results": results,
+        "deep_extracts": deep_extracts,
+        "cached": False,
+        "dna": DNA,
+        "searched_at": datetime.now(CST).isoformat(),
+    }
+
+
+# ── 格式化输出 ──────────────────────────────────────────
+
+def format_terminal(result: dict) -> str:
+    """格式化终端输出"""
+    lines = []
+    lines.append(f"\n{'='*60}")
+    lines.append(f"  🐉 龍魂搜索 · {result['query']}")
+    lines.append(f"  后端: {result['backend']} | 缓存: {'是' if result['cached'] else '否'}")
+    lines.append(f"  DNA:  {result['dna']}")
+    lines.append(f"{'='*60}\n")
+
+    for r in result["results"]:
+        lines.append(f"  {r['rank']}. {r['title']}")
+        lines.append(f"     {r['url']}")
+        if r.get("snippet"):
+            lines.append(f"     {r['snippet'][:120]}")
+        lines.append("")
+
+    if result.get("deep_extracts"):
+        lines.append(f"{'─'*60}")
+        lines.append(f"  📄 深度提取 ({len(result['deep_extracts'])} 页)")
+        lines.append(f"{'─'*60}")
+        for ext in result["deep_extracts"]:
+            lines.append(f"  标题: {ext['title']}")
+            lines.append(f"  字数: {ext['word_count']} | URL: {ext['url'][:80]}")
+            lines.append(f"  预览: {ext['content_preview'][:200]}")
+            lines.append("")
+
+    if not result["results"]:
+        lines.append("  ⚠️ 没有搜到结果。试试换个关键词或检查网络。")
+
+    return "\n".join(lines)
+
+
+def format_json(result: dict) -> str:
+    """格式化 JSON 输出"""
+    return json.dumps(result, ensure_ascii=False, indent=2)
+
+
+# ── HTTP API 服务 ───────────────────────────────────────
+
+class SearchAPIHandler(BaseHTTPRequestHandler):
+    """搜索 API 请求处理器"""
+
+    db_path = DEFAULT_DB
+
+    def log_message(self, format, *args):
+        """静默日志"""
+        pass
+
+    def _send_json(self, data: dict, status: int = 200):
+        body = json.dumps(data, ensure_ascii=False).encode("utf-8")
+        self.send_response(status)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def do_GET(self):
+        # 修复 latin-1 编码的中文 URL（从原始字节还原 UTF-8）
+        path = self.path
+        try:
+            path = path.encode("latin-1").decode("utf-8")
+        except (UnicodeDecodeError, UnicodeEncodeError):
+            pass  # 已是UTF-8或纯ASCII
+        parsed = urllib.parse.urlparse(path)
+        params = urllib.parse.parse_qs(parsed.query)
+
+        if parsed.path == "/search":
+            query = params.get("q", [None])[0]
+            if not query:
+                self._send_json({"error": "缺少 q 参数"}, 400)
+                return
+
+            n = int(params.get("n", [str(DEFAULT_RESULTS)])[0])
+            deep = int(params.get("deep", ["0"])[0])
+            backend = params.get("backend", ["auto"])[0]
+
+            result = search(query, n=n, deep=deep, backend=backend, db_path=self.db_path)
+            self._send_json(result)
+
+        elif parsed.path == "/cache-status":
+            conn = _init_db(self.db_path)
+            status = _cache_status(conn)
+            conn.close()
+            status["dna"] = DNA
+            self._send_json(status)
+
+        elif parsed.path == "/health":
+            self._send_json({"status": "ok", "version": VERSION, "dna": DNA})
+
+        else:
+            self._send_json({
+                "service": "龍魂搜索引擎",
+                "version": VERSION,
+                "dna": DNA,
+                "endpoints": {
+                    "/search?q=关键词&n=10&deep=0&backend=auto": "搜索",
+                    "/cache-status": "缓存状态",
+                    "/health": "健康检查",
+                }
+            })
+
+
+# ── CLI ─────────────────────────────────────────────────
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="🐉 龍魂 · 多源搜索引擎",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=f"""
+示例:
+  %(prog)s search "中国传统文化"           # 基础搜索
+  %(prog)s search "Python async" --deep 3  # 搜+深度提取前3页
+  %(prog)s search "AI安全" --backend bing   # 指定后端
+  %(prog)s search "龙魂" --json            # JSON 输出
+  %(prog)s serve                           # 启动 HTTP API
+  %(prog)s cache-status                    # 查看缓存
+        """,
+    )
+    sub = parser.add_subparsers(dest="cmd", help="子命令")
+
+    # search 子命令
+    p_search = sub.add_parser("search", help="执行搜索")
+    p_search.add_argument("query", help="搜索关键词")
+    p_search.add_argument("--n", type=int, default=DEFAULT_RESULTS, help=f"返回结果数 (默认 {DEFAULT_RESULTS})")
+    p_search.add_argument("--deep", type=int, default=0, help="深度提取页面数")
+    p_search.add_argument("--backend", choices=["auto", "bing", "baidu"], default="auto", help="搜索后端")
+    p_search.add_argument("--no-cache", action="store_true", help="跳过缓存")
+    p_search.add_argument("--json", action="store_true", help="JSON 格式输出")
+
+    # serve 子命令
+    p_serve = sub.add_parser("serve", help="启动 HTTP API 服务")
+    p_serve.add_argument("--port", type=int, default=DEFAULT_PORT, help=f"端口 (默认 {DEFAULT_PORT})")
+
+    # cache-status 子命令
+    sub.add_parser("cache-status", help="查看缓存状态")
+
+    args = parser.parse_args()
+
+    print(f"\n{DNA}\n")
+
+    if args.cmd == "search":
+        result = search(
+            args.query, n=args.n, deep=args.deep,
+            backend=args.backend, use_cache=not args.no_cache,
+        )
+        if args.json:
+            print(format_json(result))
+        else:
+            print(format_terminal(result))
+
+    elif args.cmd == "serve":
+        conn = _init_db(DEFAULT_DB)
+        total = conn.execute("SELECT COUNT(*) FROM search_cache").fetchone()[0]
+        conn.close()
+        _log(f"搜索 API 启动 → http://127.0.0.1:{args.port}/search?q=关键词", "OK")
+        _log(f"缓存条目: {total}", "INFO")
+        _log(f"DNA: {DNA}", "INFO")
+
+        SearchAPIHandler.db_path = DEFAULT_DB
+        server = HTTPServer(("127.0.0.1", args.port), SearchAPIHandler)
+        try:
+            server.serve_forever()
+        except KeyboardInterrupt:
+            _log("搜索 API 已停止", "OK")
+            server.shutdown()
+
+    elif args.cmd == "cache-status":
+        conn = _init_db(DEFAULT_DB)
+        status = _cache_status(conn)
+        conn.close()
+        print(format_json({"cache_status": status, "dna": DNA}))
+
+    else:
+        parser.print_help()
+        print("\n  💡 试试: python3 bin/lh_search_engine.py search \"你的问题\"")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,899 @@
+<!--
+  DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-FLOW-FIELD-MAPPING-v1.0
+  创建者: 诸葛鑫（UID9622）
+  协议: CC BY-NC-SA 4.0
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  三色: 🟢 流场映射层统一入口·已过审计
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂 · 流场映射层 · Flow Field Mapping · UID9622</title>
+<style>
+  :root {
+    --gold: #d6a84f;
+    --cyan: #62e6ff;
+    --red: #ff5a6a;
+    --green: #6dff9a;
+    --water: #5ab8ff;
+    --wood: #6bd98a;
+    --fire: #ff7a6e;
+    --metal: #e8d8a0;
+    --earth: #d68a3c;
+    --text: #f3f4f6;
+    --muted: #9ca3af;
+    --panel: rgba(10,14,22,0.88);
+    --panel2: rgba(18,24,38,0.92);
+    --border: rgba(214,168,79,0.22);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background:
+      radial-gradient(circle at 20% 10%, rgba(90,184,255,0.08), transparent 40%),
+      radial-gradient(circle at 80% 30%, rgba(214,168,79,0.10), transparent 35%),
+      radial-gradient(circle at 50% 70%, rgba(255,122,110,0.06), transparent 45%),
+      linear-gradient(135deg, #030406, #090b12 60%, #030406);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* ── 粒子背景 ── */
+  #bg-canvas {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  }
+
+  /* ── 主容器 ── */
+  .container {
+    position: relative; z-index: 1;
+    max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  }
+
+  /* ── 顶部导航 ── */
+  .top-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 0; border-bottom: 1px solid rgba(214,168,79,0.15);
+    margin-bottom: 0;
+  }
+  .top-bar .brand {
+    font-size: 18px; font-weight: 800; letter-spacing: 0.06em;
+    color: var(--gold); text-decoration: none;
+  }
+  .top-bar .brand span { color: var(--water); }
+  .top-bar .badge {
+    font-size: 11px; padding: 4px 12px; border-radius: 20px;
+    border: 1px solid rgba(109,255,154,0.3);
+    color: var(--green); letter-spacing: .05em;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    text-align: center; padding: 60px 0 48px;
+  }
+  .hero h1 {
+    font-size: 42px; font-weight: 900; letter-spacing: 0.08em;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--water) 50%, var(--fire) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero .subtitle {
+    margin-top: 16px; font-size: 16px; color: var(--muted);
+    max-width: 680px; margin-left: auto; margin-right: auto;
+  }
+  .hero .concept-line {
+    display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+    margin-top: 24px;
+  }
+  .hero .concept-tag {
+    font-size: 12px; padding: 5px 14px; border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+    color: var(--muted);
+  }
+
+  /* ── 声明横幅 ── */
+  .declare-banner {
+    display: flex; align-items: center; gap: 14px;
+    padding: 16px 22px;
+    background: rgba(214,168,79,0.06);
+    border: 1px solid rgba(214,168,79,0.18);
+    border-radius: 16px; margin-bottom: 48px;
+    backdrop-filter: blur(8px);
+  }
+  .declare-banner .icon-pulse {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--green); flex-shrink: 0;
+    box-shadow: 0 0 12px rgba(109,255,154,0.5);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+  .declare-banner .text { font-size: 13px; color: #b0c4de; line-height: 1.7; }
+  .declare-banner .text strong { color: var(--gold); }
+
+  /* ── 映射表 ── */
+  .mapping-section {
+    margin-bottom: 56px;
+  }
+  .mapping-section h2 {
+    font-size: 24px; color: var(--gold); letter-spacing: 0.05em;
+    margin-bottom: 20px; padding-bottom: 10px;
+    border-bottom: 1px solid rgba(214,168,79,0.15);
+  }
+  .mapping-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+  }
+  .mapping-card {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 14px; padding: 18px;
+    backdrop-filter: blur(8px);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .mapping-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 24px rgba(214,168,79,0.12);
+  }
+  .mapping-card .icon { font-size: 28px; margin-bottom: 8px; }
+  .mapping-card .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+  .mapping-card .value { font-size: 15px; font-weight: 700; color: var(--text); margin-top: 4px; }
+  .mapping-card .arrow { font-size: 13px; color: var(--gold); margin: 6px 0; }
+  .mapping-card .desc { font-size: 12px; color: var(--muted); }
+
+  /* ── 流场卡片网格 ── */
+  .gallery-section {
+    margin-bottom: 56px;
+  }
+  .gallery-section h2 {
+    font-size: 24px; color: var(--gold); letter-spacing: 0.05em;
+    margin-bottom: 24px; padding-bottom: 10px;
+    border-bottom: 1px solid rgba(214,168,79,0.15);
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 18px;
+  }
+  .gallery-card {
+    background: var(--panel2);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform .25s, box-shadow .25s, border-color .25s;
+    text-decoration: none; color: inherit;
+    display: flex; flex-direction: column;
+  }
+  .gallery-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 36px rgba(214,168,79,0.16);
+    border-color: rgba(214,168,79,0.45);
+  }
+  .gallery-card .preview {
+    height: 140px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 36px;
+    position: relative; overflow: hidden;
+  }
+  .gallery-card .preview.live-particles {
+    background: radial-gradient(circle at 50% 50%, rgba(98,230,255,0.15), transparent 60%),
+                linear-gradient(135deg, #03081a, #0a1228);
+  }
+  .gallery-card .preview.static-nodes {
+    background: radial-gradient(circle at 50% 50%, rgba(214,168,79,0.10), transparent 60%),
+                linear-gradient(135deg, #08080f, #0f1320);
+  }
+  .gallery-card .preview.vortex {
+    background: radial-gradient(circle at 50% 50%, rgba(255,122,110,0.12), transparent 60%),
+                linear-gradient(135deg, #0a0608, #140e16);
+  }
+  .gallery-card .preview .emoji-icon { position: relative; z-index: 1; filter: drop-shadow(0 0 12px rgba(214,168,79,0.3)); }
+  .gallery-card .body {
+    padding: 18px 20px 20px; flex: 1;
+    display: flex; flex-direction: column;
+  }
+  .gallery-card .body .tag-row {
+    display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap;
+  }
+  .gallery-card .body .tag {
+    font-size: 10px; padding: 2px 10px; border-radius: 12px;
+    letter-spacing: .03em;
+  }
+  .tag.green  { background: rgba(109,255,154,0.12); color: var(--green); }
+  .tag.yellow { background: rgba(214,168,79,0.12);  color: var(--gold); }
+  .tag.red    { background: rgba(255,90,106,0.12);  color: var(--red); }
+  .tag.cyan   { background: rgba(98,230,255,0.12);  color: var(--cyan); }
+  .tag.gold   { background: rgba(214,168,79,0.12);  color: var(--gold); }
+  .gallery-card .body h3 {
+    font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 6px;
+  }
+  .gallery-card .body .desc {
+    font-size: 12px; color: var(--muted); line-height: 1.6;
+    flex: 1;
+  }
+
+  /* ── 底部 ── */
+  .footer {
+    text-align: center; padding: 40px 0;
+    border-top: 1px solid rgba(214,168,79,0.12);
+    margin-top: 24px;
+  }
+  .footer .sig {
+    font-size: 12px; color: var(--muted); letter-spacing: .04em;
+  }
+  .footer .sig span { color: var(--gold); }
+
+  /* ── 响应式 ── */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 28px; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .mapping-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ── 不是雷达声明区 ── */
+  .not-radar {
+    margin-bottom: 48px;
+    padding: 24px 28px;
+    background: rgba(98,230,255,0.04);
+    border: 1px solid rgba(98,230,255,0.14);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+  }
+  .not-radar h3 {
+    font-size: 16px; color: var(--cyan); margin-bottom: 12px;
+    letter-spacing: .04em;
+  }
+  .not-radar .diff-table {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 8px 24px; font-size: 13px;
+  }
+  .not-radar .diff-table .col-header {
+    font-weight: 700; color: var(--gold); padding-bottom: 4px;
+    border-bottom: 1px solid rgba(214,168,79,0.15);
+  }
+  .not-radar .diff-table div {
+    color: #b0c4de; line-height: 1.6;
+  }
+  @media (max-width: 640px) {
+    .not-radar .diff-table { grid-template-columns: 1fr 1fr; font-size: 11px; gap: 4px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 粒子背景 -->
+<canvas id="bg-canvas"></canvas>
+
+<div class="container">
+
+  <!-- 顶部导航 -->
+  <div class="top-bar">
+    <a class="brand" href="/">🐉 龍<span>魂</span> · 流场映射层</a>
+    <span class="badge">🟢 已上线 · Flow Field Mapping v1.0</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>流场映射层</h1>
+    <p class="subtitle">
+      流体力学 × 信息层映射 — 被动观测信息流动的速度场、密度场、涡量场，反演出异常高密度区域。
+      <strong style="color:var(--cyan)">不发射·不主动探测·不是雷达。</strong>
+    </p>
+    <div class="concept-line">
+      <span class="concept-tag">🌊 速度场</span>
+      <span class="concept-tag">🌀 涡旋检测</span>
+      <span class="concept-tag">📊 压力梯度</span>
+      <span class="concept-tag">🔍 攻击溯源</span>
+      <span class="concept-tag">📍 369不动点</span>
+      <span class="concept-tag">🔥 热力图反演</span>
+    </div>
+  </div>
+
+  <!-- 执行声明 -->
+  <div class="declare-banner">
+    <div class="icon-pulse"></div>
+    <div class="text">
+      <strong>🏷️ 输出类型：</strong>工程落地包（静态HTML可视化 + 流量行为分析映射层）<br>
+      <strong>可执行性：</strong>✅ 所有页面可直接通过浏览器访问 · 无需编译<br>
+      <strong>依赖环境：</strong>现代浏览器（Chrome/Firefox/Safari/Edge）· Canvas + WebGL 支持<br>
+      <strong>三色审计：</strong>🟢 绿色（已通过结构审计·GATE-01~10·路径正确）<br>
+      <strong>DNA签名：</strong>#龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-FLOW-FIELD-MAPPING-v1.0
+    </div>
+  </div>
+
+  <!-- 不是雷达 -->
+  <div class="not-radar">
+    <h3>⚠️ 这不是雷达 — 物理机制声明</h3>
+    <div class="diff-table">
+      <div class="col-header">🔴 雷达（主动探测）</div>
+      <div class="col-header">🟢 流场（被动观测）</div>
+      <div>发射电磁波·接收回波</div>
+      <div>观测速度矢量分布·不发射</div>
+      <div>计算目标位置/速度</div>
+      <div>反演涡旋/压力/密度场</div>
+      <div>"敌机在哪"</div>
+      <div>"气流怎么被扰动的"</div>
+      <div>单点定位</div>
+      <div>路径溯源+系统脆弱点</div>
+    </div>
+  </div>
+
+  <!-- 物理→信息层映射 -->
+  <div class="mapping-section">
+    <h2>📐 物理层 → 信息层 映射</h2>
+    <div class="mapping-grid">
+      <div class="mapping-card">
+        <div class="icon">💧</div>
+        <div class="label">物理层</div>
+        <div class="value">流体粒子</div>
+        <div class="arrow">↓ 映射 ↓</div>
+        <div class="desc">数据包 / 请求 / 舆论节点</div>
+      </div>
+      <div class="mapping-card">
+        <div class="icon">➡️</div>
+        <div class="label">物理层</div>
+        <div class="value">速度矢量</div>
+        <div class="arrow">↓ 映射 ↓</div>
+        <div class="desc">信息传播方向与速率</div>
+      </div>
+      <div class="mapping-card">
+        <div class="icon">🌀</div>
+        <div class="label">物理层</div>
+        <div class="value">涡旋 / 湍流</div>
+        <div class="arrow">↓ 映射 ↓</div>
+        <div class="desc">异常聚集·攻击波次·情绪共振</div>
+      </div>
+      <div class="mapping-card">
+        <div class="icon">📊</div>
+        <div class="label">物理层</div>
+        <div class="value">压力梯度</div>
+        <div class="arrow">↓ 映射 ↓</div>
+        <div class="desc">系统负载 / 威胁密度</div>
+      </div>
+      <div class="mapping-card">
+        <div class="icon">🔗</div>
+        <div class="label">物理层</div>
+        <div class="value">流线图</div>
+        <div class="arrow">↓ 映射 ↓</div>
+        <div class="desc">攻击路径溯源</div>
+      </div>
+      <div class="mapping-card">
+        <div class="icon">🔥</div>
+        <div class="label">物理层</div>
+        <div class="value">热力图</div>
+        <div class="arrow">↓ 映射 ↓</div>
+        <div class="desc">异常/攻击高密度区域反演</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 流场可视化入口 -->
+  <div class="gallery-section">
+    <h2>🎯 流场可视化入口</h2>
+    <div class="gallery-grid">
+
+      <!-- 总控台 -->
+      <a class="gallery-card" href="longhun-master-control.html" target="_blank">
+        <div class="preview static-nodes">
+          <span class="emoji-icon">🎛️</span>
+        </div>
+        <div class="body">
+          <div class="tag-row">
+            <span class="tag green">🟢 总控</span>
+            <span class="tag gold">P04·P13</span>
+          </div>
+          <h3>流场总控台 v2.0</h3>
+          <p class="desc">三栏布局：模块列表 + 实时流场预览 + 状态监控。集中调度所有流场子页面，一屏掌控全局。</p>
+        </div>
+      </a>
+
+      <!-- 不动点透视图 -->
+      <a class="gallery-card" href="longhun-flow-field-v9.html" target="_blank">
+        <div class="preview static-nodes">
+          <span class="emoji-icon">📍</span>
+        </div>
+        <div class="body">
+          <div class="tag-row">
+            <span class="tag green">🟢 SVG流线</span>
+            <span class="tag gold">P06·369</span>
+          </div>
+          <h3>不动点透视图 v9</h3>
+          <p class="desc">SVG流线+彩色节点·五色（金木水火土）流场·369不动点为心·可缩放拖拽·全景透视。</p>
+        </div>
+      </a>
+
+      <!-- 统一流场 -->
+      <a class="gallery-card" href="longhun-unified-v9.html" target="_blank">
+        <div class="preview vortex">
+          <span class="emoji-icon">🌌</span>
+        </div>
+        <div class="body">
+          <div class="tag-row">
+            <span class="tag green">🟢 Canvas</span>
+            <span class="tag cyan">KaTeX</span>
+          </div>
+          <h3>统一流场 v9 · 洛书涡流×三才轨道</h3>
+          <p class="desc">双层Canvas渲染：背景星场 + 粒子流场。洛书涡流与三才轨道融合，KaTeX公式实时叠加。</p>
+        </div>
+      </a>
+
+      <!-- 三才流场 v8.1 -->
+      <a class="gallery-card" href="sancai-flow-v8.1.html" target="_blank">
+        <div class="preview live-particles">
+          <span class="emoji-icon">⚡</span>
+        </div>
+        <div class="body">
+          <div class="tag-row">
+            <span class="tag green">🟢 活体仪表盘</span>
+            <span class="tag gold">忠孝义</span>
+          </div>
+          <h3>三才流场 v8.1 · 忠孝义·智能活体仪表盘</h3>
+          <p class="desc">Canvas粒子系统·忠孝义排序铁律·HUD仪表盘·健康分数·歪路面板·声音反馈·实时交互。</p>
+        </div>
+      </a>
+
+      <!-- p5.js 交互式粒子流场 -->
+      <a class="gallery-card" href="三才流場 · San Cai Flow Field · UID9622.html" target="_blank">
+        <div class="preview live-particles">
+          <span class="emoji-icon">🎨</span>
+        </div>
+        <div class="body">
+          <div class="tag-row">
+            <span class="tag green">🟢 p5.js</span>
+            <span class="tag cyan">交互式</span>
+          </div>
+          <h3>三才流场 · San Cai Flow Field · p5.js</h3>
+          <p class="desc">p5.js粒子流场·侧边栏参数实时可调·三才颜色编码(天·地·人)·流线跟随·Perlin噪声场。</p>
+        </div>
+      </a>
+
+      <!-- 洛书涡流 v2.0 -->
+      <a class="gallery-card" href="longhun-luoshu-vortex-v2-4003beb2.html" target="_blank">
+        <div class="preview vortex">
+          <span class="emoji-icon">🧮</span>
+        </div>
+        <div class="body">
+          <div class="tag-row">
+            <span class="tag green">🟢 数学模型</span>
+            <span class="tag gold">S2·369</span>
+          </div>
+          <h3>洛书涡流 v2.0 · 数学模型</h3>
+          <p class="desc">p5.js+KaTeX·洛书九宫数学模型涡流可视化·369共鸣频率·涡旋公式标注·参数可调控制面板。</p>
+        </div>
+      </a>
+
+      <!-- 元世界入口 -->
+      <a class="gallery-card" href="龍魂流场20260426l.html" target="_blank">
+        <div class="preview static-nodes">
+          <span class="emoji-icon">🚪</span>
+        </div>
+        <div class="body">
+          <div class="tag-row">
+            <span class="tag green">🟢 入口页</span>
+            <span class="tag cyan">导航</span>
+          </div>
+          <h3>流场 · 元世界入口</h3>
+          <p class="desc">五色流场入口页面·封顶印·导航卡片矩阵·各子流场一键跳转·初访者引导。</p>
+        </div>
+      </a>
+
+      <!-- 河图洛书地面图 -->
+      <a class="gallery-card" href="河图洛书地面图.html" target="_blank">
+        <div class="preview static-nodes">
+          <span class="emoji-icon">🗺️</span>
+        </div>
+        <div class="body">
+          <div class="tag-row">
+            <span class="tag green">🟢 导航地图</span>
+            <span class="tag gold">九宫</span>
+          </div>
+          <h3>洛书九宫 · 龍魂页面地图</h3>
+          <p class="desc">基于洛书九宫的流场导航地图·九宫格布局·各模块入口·拓扑关系可视化。</p>
+        </div>
+      </a>
+
+      <!-- 流场实时监控 -->
+      <a class="gallery-card" href="flow-monitor.html" target="_blank">
+        <div class="preview" style="background:linear-gradient(135deg,rgba(64,120,192,0.2),rgba(212,168,67,0.1));">
+          <span class="emoji-icon">🌊</span>
+        </div>
+        <div class="body">
+          <div class="tag-row">
+            <span class="tag green">🟢 实时监控</span>
+            <span class="tag gold">WebSocket</span>
+          </div>
+          <h3>流场实时可视化监控</h3>
+          <p class="desc">Canvas实时渲染·粒子运动·涡量热力图·压力叠加·异常脉冲标记·WebSocket动态推送。</p>
+        </div>
+      </a>
+
+      <!-- 流场API控制台 -->
+      <a class="gallery-card" href="/flow-engine/" target="_blank">
+        <div class="preview" style="background:linear-gradient(135deg,rgba(46,160,67,0.15),rgba(31,111,235,0.1));">
+          <span class="emoji-icon">🎛️</span>
+        </div>
+        <div class="body">
+          <div class="tag-row">
+            <span class="tag green">🟢 API控制台</span>
+            <span class="tag gold">实时注入</span>
+          </div>
+          <h3>流场引擎 · API控制台</h3>
+          <p class="desc">FastAPI后端·数据注入(力/源/涡旋)·状态查询·异常列表·历史回放·端口8776。</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ROOT_CARD -->
+  <div class="declare-banner" style="border-color: rgba(214,168,79,0.25); margin-bottom: 24px;">
+    <div class="text">
+      <strong>📋 ROOT_CARD ｜ 数学根审计</strong><br>
+      Root: dr=9 · Wuxing: 金 · TriColor: 🟢 · Action: deploy · 
+      DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-FLOW-FIELD-MAPPING-v1.0<br>
+      GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F · 
+      CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer">
+    <p class="sig">
+      🐉 龍魂系统 · <span>流场映射层 v1.0</span> · 诸葛鑫（UID9622）·
+      CC BY-NC-SA 4.0 · 鲲鹏 119.13.90.27
+    </p>
+  </div>
+
+</div>
+
+<script>
+// ── 背景粒子流场 ──
+(function() {
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H;
+  const particles = [];
+  const N = 80;
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  class Particle {
+    constructor() {
+      this.reset();
+    }
+    reset() {
+      this.x = Math.random() * W;
+      this.y = Math.random() * H;
+      this.vx = (Math.random() - 0.5) * 0.4;
+      this.vy = (Math.random() - 0.5) * 0.4;
+      this.life = Math.random() * 300 + 100;
+      this.maxLife = this.life;
+      this.size = Math.random() * 1.5 + 0.5;
+      this.hue = Math.random() < 0.5 ? 214 : 43; // cyan/gold bias
+    }
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      this.life--;
+      if (this.life <= 0 || this.x < -20 || this.x > W + 20 || this.y < -20 || this.y > H + 20) {
+        this.reset();
+      }
+      // Gentle Perlin-like drift
+      this.vx += (Math.random() - 0.5) * 0.02;
+      this.vy += (Math.random() - 0.5) * 0.02;
+      const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
+      if (speed > 0.6) {
+        this.vx *= 0.95;
+        this.vy *= 0.95;
+      }
+    }
+    draw(ctx) {
+      const alpha = this.life / this.maxLife * 0.4;
+      if (this.hue === 214) {
+        ctx.fillStyle = `rgba(98,230,255,${alpha})`;
+      } else {
+        ctx.fillStyle = `rgba(214,168,79,${alpha})`;
+      }
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  for (let i = 0; i < N; i++) particles.push(new Particle());
+
+  function drawLines(ctx, particles, threshold) {
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < threshold) {
+          const alpha = (1 - dist / threshold) * 0.08;
+          ctx.strokeStyle = `rgba(98,230,255,${alpha})`;
+          ctx.lineWidth = 0.5;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, W, H);
+    drawLines(ctx, particles, 140);
+    for (const p of particles) {
+      p.update();
+      p.draw(ctx);
+    }
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+</script>
+
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

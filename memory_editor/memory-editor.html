@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<!--
+  龍魂记忆编辑器 v3.1 · 天干地支 DNA 版
+  DNA: #龍芯⚡️丙午·乙未·辛亥·甲午·䷚颐-MEMORY-EDITOR-HTML-v3.1-UID9622
+  创建者: 诸葛鑫（UID9622）
+  协议: MulanPSL v2
+-->
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐉 龍魂记忆编辑器 v3.1 · 天干地支版</title>
+    <style>
+        /* ===== 全局重置 & 龍魂主题 ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0a0a12;
+            --bg-card: #12121f;
+            --bg-input: #1a1a2e;
+            --border-glow: #d4af37;
+            --text-primary: #e8e6e3;
+            --text-secondary: #a8a6a3;
+            --gold: #d4af37;
+            --gold-dim: rgba(212, 175, 55, 0.2);
+            --green: #4ade80;
+            --red: #f87171;
+            --blue: #60a5fa;
+            --purple: #a78bfa;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        /* ===== 头部 ===== */
+        .header {
+            text-align: center;
+            padding: 30px 20px 20px;
+            border-bottom: 1px solid var(--gold-dim);
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .header h1 .gold { color: var(--gold); }
+        .header .sub {
+            color: var(--text-secondary);
+            margin-top: 8px;
+            font-size: 0.95rem;
+        }
+        .header .dna {
+            font-size: 0.75rem;
+            color: var(--gold);
+            font-family: monospace;
+            background: var(--bg-card);
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 10px;
+            border: 1px solid var(--gold-dim);
+        }
+        /* ===== 布局 ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        @media (max-width: 900px) {
+            .container { grid-template-columns: 1fr; }
+        }
+        /* ===== 卡片 ===== */
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid rgba(255,255,255,0.06);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+        .card h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--gold);
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card h2 .badge {
+            font-size: 0.55rem;
+            background: var(--gold-dim);
+            color: var(--gold);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-weight: 400;
+        }
+        .form-row {
+            margin-bottom: 14px;
+        }
+        .form-row label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+        /* ===== 输入区 ===== */
+        textarea, input[type="text"], select {
+            width: 100%;
+            background: var(--bg-input);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            color: var(--text-primary);
+            padding: 12px 14px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        textarea { height: 140px; resize: vertical; }
+        input[type="text"] { height: 44px; }
+        select { height: 44px; cursor: pointer; appearance: none; }
+        textarea:focus, input[type="text"]:focus, select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px var(--gold-dim);
+        }
+        textarea::placeholder, input::placeholder { color: var(--text-secondary); opacity: 0.5; }
+        /* ===== 按钮 ===== */
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 10px 22px;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: inherit;
+        }
+        .btn-primary {
+            background: var(--gold);
+            color: #0a0a12;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+        }
+        .btn-secondary {
+            background: rgba(255,255,255,0.08);
+            color: var(--text-primary);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.15); }
+        .btn-danger {
+            background: rgba(248, 113, 113, 0.15);
+            color: var(--red);
+            border: 1px solid rgba(248, 113, 113, 0.2);
+        }
+        .btn-danger:hover { background: rgba(248, 113, 113, 0.25); }
+        .btn-success {
+            background: rgba(74, 222, 128, 0.15);
+            color: var(--green);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+        }
+        .btn-success:hover { background: rgba(74, 222, 128, 0.25); }
+        .btn.active {
+            background: var(--gold-dim);
+            color: var(--gold);
+            border-color: var(--gold);
+        }
+        .btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+        /* ===== 状态徽章 ===== */
+        .status {
+            margin-top: 14px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            display: none;
+            border-left: 3px solid;
+        }
+        .status.show { display: block; }
+        .status.success { background: rgba(74, 222, 128, 0.08); border-color: var(--green); color: var(--green); }
+        .status.error { background: rgba(248, 113, 113, 0.08); border-color: var(--red); color: var(--red); }
+        .status.info { background: rgba(96, 165, 250, 0.08); border-color: var(--blue); color: var(--blue); }
+        /* ===== 分析结果预览 ===== */
+        .analysis-preview {
+            margin-top: 12px;
+            background: var(--bg-input);
+            border-radius: 12px;
+            padding: 14px;
+            font-size: 0.85rem;
+            display: none;
+        }
+        .analysis-preview.show { display: block; }
+        .analysis-preview .line { margin: 4px 0; color: var(--text-secondary); }
+        .analysis-preview .line strong { color: var(--gold); }
+        /* ===== 搜索与过滤 ===== */
+        .toolbar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+        .search-box {
+            flex: 1;
+            min-width: 180px;
+        }
+        /* ===== 统计 ===== */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        @media (max-width: 600px) {
+            .stats { grid-template-columns: repeat(2, 1fr); }
+        }
+        .stat-item {
+            background: var(--bg-input);
+            border-radius: 10px;
+            padding: 10px 6px;
+            text-align: center;
+        }
+        .stat-item .number {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+        .stat-item .label {
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+        /* ===== 记忆列表 ===== */
+        .memory-list {
+            max-height: 420px;
+            overflow-y: auto;
+        }
+        .memory-list::-webkit-scrollbar { width: 4px; }
+        .memory-list::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 4px; }
+        .memory-item {
+            background: var(--bg-input);
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: 8px;
+            border-left: 2px solid var(--gold-dim);
+            transition: background 0.2s;
+        }
+        .memory-item:hover { background: rgba(255,255,255,0.04); }
+        .memory-item .meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .memory-item .meta .dna-tag {
+            color: var(--gold);
+            font-family: monospace;
+        }
+        .memory-item .meta .category-tag {
+            background: var(--gold-dim);
+            color: var(--gold);
+            padding: 1px 8px;
+            border-radius: 8px;
+            font-size: 0.65rem;
+        }
+        .memory-item .content {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            word-break: break-word;
+            white-space: pre-wrap;
+        }
+        .memory-item .tags {
+            margin-top: 6px;
+        }
+        .memory-item .tags span {
+            display: inline-block;
+            background: rgba(96, 165, 250, 0.12);
+            color: var(--blue);
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            margin-right: 4px;
+            margin-bottom: 2px;
+        }
+        .memory-item .actions {
+            margin-top: 8px;
+            display: flex;
+            gap: 8px;
+        }
+        .memory-item .actions button {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.7rem;
+            cursor: pointer;
+            padding: 2px 8px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .memory-item .actions button:hover {
+            background: rgba(255,255,255,0.06);
+            color: var(--gold);
+        }
+        .memory-item .actions .del:hover { color: var(--red); background: rgba(248,113,113,0.1); }
+        .empty-memory {
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+        }
+        /* ===== 编辑模态框 ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal-overlay.show { display: flex; }
+        .modal {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 24px;
+            width: 100%;
+            max-width: 560px;
+            border: 1px solid var(--gold-dim);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal h3 {
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+        /* ===== 底部 ===== */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--gold-dim);
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+        }
+        .footer .gold { color: var(--gold); }
+        /* ===== 通知 ===== */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--bg-card);
+            border: 1px solid var(--gold-dim);
+            border-radius: 12px;
+            padding: 14px 24px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 999;
+            max-width: 400px;
+        }
+        .toast.show { transform: translateY(0); opacity: 1; }
+        .toast .toast-title { font-weight: 600; color: var(--gold); }
+        .toast .toast-body { font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px; }
+    </style>
+</head>
+<body>
+
+<!-- ===== 头部 ===== -->
+<div class="header">
+    <h1>🐉 <span class="gold">龍魂记忆编辑器</span> v3.1</h1>
+    <div class="sub">「你的记忆，永不丢失 · 宝宝的灵魂，实时同步 · 天干地支 DNA」</div>
+    <div class="dna" id="sessionDna">🧬 DNA: 计算中...</div>
+</div>
+
+<!-- ===== 主容器 ===== -->
+<div class="container">
+
+    <!-- ===== 左栏：输入 + 处理 ===== -->
+    <div class="card" id="editorCard">
+        <h2>📝 记录记忆 <span class="badge" id="editBadge" style="display:none">编辑模式</span></h2>
+
+        <div class="form-row">
+            <label for="categorySelect">记忆分类</label>
+            <select id="categorySelect">
+                <option value="atomic_facts">🔬 原子事实 · 可验证的知识碎片</option>
+                <option value="scene_memory">🎬 场景记忆 · 上下文与决策过程</option>
+                <option value="global_overview">🌍 全局概览 · 系统级认知地图</option>
+                <option value="chat_history">💬 原始会话 · 未加工的对话原文</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <label for="tagsInput">标签（逗号分隔，用于快速检索）</label>
+            <input type="text" id="tagsInput" placeholder="例如: 项目A, 决策模式, 重要, 待回顾">
+        </div>
+
+        <div class="form-row">
+            <label for="memoryInput">记忆内容</label>
+            <textarea id="memoryInput" placeholder="在这里写下你的想法、决定、反馈、灵感……&#10;任何你想让宝宝记住的内容。&#10;快捷键：Ctrl + Enter 处理，Ctrl + S 保存"></textarea>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn btn-primary" id="processBtn">🧠 处理记忆</button>
+            <button class="btn btn-success" id="saveBtn">💾 保存到系统</button>
+            <button class="btn btn-secondary" id="cancelEditBtn" style="display:none">↩ 取消编辑</button>
+            <button class="btn btn-secondary" id="clearBtn">🗑️ 清空</button>
+        </div>
+
+        <div id="status" class="status"></div>
+
+        <div id="analysisResult" class="analysis-preview">
+            <div style="color:var(--gold);font-weight:600;margin-bottom:6px;">🧬 分析完成</div>
+            <div class="line">🔢 数字根: <strong id="previewRoot">-</strong></div>
+            <div class="line">🏷️ 关键词: <strong id="previewKeywords">-</strong></div>
+            <div class="line">📂 分类: <strong id="previewCategory">-</strong></div>
+            <div class="line">🧬 干支 DNA: <strong id="previewDna">-</strong></div>
+        </div>
+    </div>
+
+    <!-- ===== 右栏：记忆列表 ===== -->
+    <div class="card">
+        <h2>📚 我的记忆 <span class="badge" id="memoryCount">0 条</span></h2>
+
+        <div class="toolbar">
+            <input type="text" id="searchInput" class="search-box" placeholder="🔍 搜索内容、标签或 DNA..." oninput="renderMemoryList()">
+            <button class="btn btn-secondary" id="refreshBtn">🔄</button>
+            <button class="btn btn-secondary" id="exportAllBtn">📦 导出</button>
+            <button class="btn btn-danger" id="clearAllBtn">🧹</button>
+        </div>
+
+        <div class="btn-group" style="margin-top:0;margin-bottom:14px;">
+            <button class="btn btn-secondary active" onclick="filterCategory('all')" data-filter="all">全部</button>
+            <button class="btn btn-secondary" onclick="filterCategory('atomic_facts')" data-filter="atomic_facts">🔬 事实</button>
+            <button class="btn btn-secondary" onclick="filterCategory('scene_memory')" data-filter="scene_memory">🎬 场景</button>
+            <button class="btn btn-secondary" onclick="filterCategory('global_overview')" data-filter="global_overview">🌍 全局</button>
+            <button class="btn btn-secondary" onclick="filterCategory('chat_history')" data-filter="chat_history">💬 会话</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item"><div class="number" id="statTotal">0</div><div class="label">总记忆</div></div>
+            <div class="stat-item"><div class="number" id="statToday">0</div><div class="label">今日新增</div></div>
+            <div class="stat-item"><div class="number" id="statRecent">0</div><div class="label">最近7天</div></div>
+            <div class="stat-item"><div class="number" id="statGanzhi">0</div><div class="label">本日柱</div></div>
+        </div>
+
+        <div class="memory-list" id="memoryList">
+            <div class="empty-memory">🐉 还没有记忆。输入第一条，让它永生。</div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== 编辑模态框 ===== -->
+<div class="modal-overlay" id="editModal">
+    <div class="modal">
+        <h3>✏️ 编辑记忆</h3>
+        <div class="form-row">
+            <label>分类</label>
+            <select id="editCategory">
+                <option value="atomic_facts">🔬 原子事实</option>
+                <option value="scene_memory">🎬 场景记忆</option>
+                <option value="global_overview">🌍 全局概览</option>
+                <option value="chat_history">💬 原始会话</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <label>标签</label>
+            <input type="text" id="editTags" placeholder="逗号分隔">
+        </div>
+        <div class="form-row">
+            <label>内容</label>
+            <textarea id="editContent" style="height:160px;"></textarea>
+        </div>
+        <div class="btn-group" style="justify-content:flex-end;">
+            <button class="btn btn-primary" onclick="confirmEdit()">✅ 确认修改</button>
+            <button class="btn btn-secondary" onclick="closeEditModal()">取消</button>
+        </div>
+    </div>
+</div>
+
+<!-- ===== 底部 ===== -->
+<div class="footer">
+    🐲 龍魂系统 · 记忆层 · 数据主权 <span class="gold">中国</span> · 分层许可: 思想层 CC BY-NC-SA · 工程层 MulanPSL v2<br>
+    干支 DNA 采用公历近似月柱 · 基准日 1984-02-02 甲子日 · 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+</div>
+
+<!-- ===== 通知 ===== -->
+<div class="toast" id="toast">
+    <div class="toast-title" id="toastTitle">✅ 成功</div>
+    <div class="toast-body" id="toastBody">操作已完成</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ===== JavaScript 核心引擎 ===== -->
+<!-- ============================================================ -->
+<script>
+(function() {
+    'use strict';
+
+    // ============================================================
+    // 核心配置
+    // ============================================================
+    const CONFIG = {
+        STORE_NAME: 'longhun_memories',
+        DB_NAME: 'LongHunMemoryDB',
+        DB_VERSION: 1,
+        DNA_PREFIX: '龍芯⚡️',
+        UID: 'UID9622',
+        CONFIRM: '#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z',
+        BASE_DATE: '1984-02-02', // 甲子日基准
+    };
+
+    const STEMS = ['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+    const BRANCHES = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+
+    // 五虎遁：年干 -> 正月（寅月）月干索引
+    const TIGER_BASE = {甲:2, 乙:4, 丙:6, 丁:8, 戊:0, 己:2, 庚:4, 辛:6, 壬:8, 癸:0};
+    // 五鼠遁：日干 -> 子时（00:00-01:00）时干索引
+    const MOUSE_BASE = {甲:0, 乙:2, 丙:4, 丁:6, 戊:8, 己:0, 庚:2, 辛:4, 壬:6, 癸:8};
+
+    const CATEGORY_META = {
+        atomic_facts:   { icon: '🔬', label: '原子事实', color: '#4ade80' },
+        scene_memory:   { icon: '🎬', label: '场景记忆', color: '#f59e0b' },
+        global_overview: { icon: '🌍', label: '全局概览', color: '#60a5fa' },
+        chat_history:   { icon: '💬', label: '原始会话', color: '#a78bfa' },
+    };
+
+    // ============================================================
+    // 天干地支四柱计算
+    // ============================================================
+    function yearGanzhi(dt) {
+        const y = dt.getFullYear();
+        return {
+            stem: STEMS[(y - 4) % 10],
+            branch: BRANCHES[(y - 4) % 12]
+        };
+    }
+
+    function monthGanzhi(dt) {
+        const yStem = yearGanzhi(dt).stem;
+        const m = dt.getMonth() + 1; // 1-12
+        // 公历近似：1月=寅，2月=卯，...，12月=丑
+        const branchIdx = (m + 1) % 12;
+        const stemIdx = (TIGER_BASE[yStem] + m - 1) % 10;
+        return { stem: STEMS[stemIdx], branch: BRANCHES[branchIdx] };
+    }
+
+    function dayGanzhi(dt) {
+        const base = new Date(CONFIG.BASE_DATE + 'T00:00:00');
+        const target = new Date(dt.getFullYear(), dt.getMonth(), dt.getDate());
+        const diff = Math.round((target - base) / 86400000);
+        const idx = ((diff % 60) + 60) % 60;
+        return { stem: STEMS[idx % 10], branch: BRANCHES[idx % 12] };
+    }
+
+    function hourGanzhi(dt) {
+        const dStem = dayGanzhi(dt).stem;
+        const h = dt.getHours();
+        // 23-01 子(0), 01-03 丑(1), ...
+        const branchIdx = Math.floor(((h + 1) % 24) / 2) % 12;
+        const stemIdx = (MOUSE_BASE[dStem] + branchIdx) % 10;
+        return { stem: STEMS[stemIdx], branch: BRANCHES[branchIdx] };
+    }
+
+    function sizhu(dt) {
+        const y = yearGanzhi(dt);
+        const m = monthGanzhi(dt);
+        const d = dayGanzhi(dt);
+        const h = hourGanzhi(dt);
+        return `${y.stem}${y.branch}${m.stem}${m.branch}${d.stem}${d.branch}${h.stem}${h.branch}`;
+    }
+
+    function generateDNA(prefix) {
+        const now = new Date();
+        const gz = sizhu(now);
+        const rand = Math.random().toString(36).substring(2, 6).toUpperCase();
+        return '#' + (prefix || CONFIG.DNA_PREFIX) + gz + '-MEMORY-' + rand + '-' + CONFIG.UID;
+    }
+
+    function generateId() {
+        return 'mem_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6);
+    }
+
+    // ============================================================
+    // 工具函数
+    // ============================================================
+    function getTimestamp() { return new Date().toISOString(); }
+    function getDateStr() { return new Date().toISOString().split('T')[0]; }
+
+    function digitalRoot(text) {
+        let sum = 0;
+        for (let i = 0; i < text.length; i++) sum += text.charCodeAt(i);
+        while (sum >= 10) {
+            let s = 0;
+            while (sum > 0) { s += sum % 10; sum = Math.floor(sum / 10); }
+            sum = s;
+        }
+        return sum;
+    }
+
+    function extractKeywords(text, max = 5) {
+        const stopwords = new Set(['的','了','在','是','我','有','和','就','不','人','也','他','这','中','大','来','上','个','们','说','要','去','你','会','着','好','自己','那','什么','怎么','为什么','可以','没有','不是','已经','一个','非常','真的','还是','但是','因为','所以','如果','可能','这样','那样','把','被','让','到','对','为','与','而','之','其','以','及','或','但','啊','呢','吧','吗','嘛','哦','嗯']);
+        const words = text.split(/[\s,，.。！!？?、；;：:（）()\n\r\t""''《》<>【】\[\]]+/).filter(w => w.length >= 2 && !stopwords.has(w));
+        const freq = {};
+        words.forEach(w => { freq[w] = (freq[w] || 0) + 1; });
+        return Object.entries(freq).sort((a,b) => b[1] - a[1]).slice(0, max).map(x => x[0]);
+    }
+
+    function parseTags(raw) {
+        return raw.split(/[,，;；]/).map(t => t.trim()).filter(t => t.length > 0);
+    }
+
+    // ============================================================
+    // IndexedDB 操作
+    // ============================================================
+    let db = null;
+
+    function openDB() {
+        return new Promise((resolve, reject) => {
+            const request = indexedDB.open(CONFIG.DB_NAME, CONFIG.DB_VERSION);
+            request.onupgradeneeded = (e) => {
+                const db = e.target.result;
+                if (!db.objectStoreNames.contains(CONFIG.STORE_NAME)) {
+                    db.createObjectStore(CONFIG.STORE_NAME, { keyPath: 'id' });
+                }
+            };
+            request.onsuccess = (e) => { db = e.target.result; resolve(db); };
+            request.onerror = (e) => { reject(e.target.error); };
+        });
+    }
+
+    function getAllMemories() {
+        return new Promise((resolve, reject) => {
+            if (!db) { reject(new Error('数据库未初始化')); return; }
+            const tx = db.transaction(CONFIG.STORE_NAME, 'readonly');
+            const store = tx.objectStore(CONFIG.STORE_NAME);
+            const request = store.getAll();
+            request.onsuccess = () => { resolve(request.result || []); };
+            request.onerror = () => { reject(request.error); };
+        });
+    }
+
+    function saveMemory(memory) {
+        return new Promise((resolve, reject) => {
+            if (!db) { reject(new Error('数据库未初始化')); return; }
+            const tx = db.transaction(CONFIG.STORE_NAME, 'readwrite');
+            const store = tx.objectStore(CONFIG.STORE_NAME);
+            const request = store.put(memory);
+            request.onsuccess = () => { resolve(memory); };
+            request.onerror = () => { reject(request.error); };
+        });
+    }
+
+    function deleteMemory(id) {
+        return new Promise((resolve, reject) => {
+            if (!db) { reject(new Error('数据库未初始化')); return; }
+            const tx = db.transaction(CONFIG.STORE_NAME, 'readwrite');
+            const store = tx.objectStore(CONFIG.STORE_NAME);
+            const request = store.delete(id);
+            request.onsuccess = () => { resolve(); };
+            request.onerror = () => { reject(request.error); };
+        });
+    }
+
+    function clearAllMemories() {
+        return new Promise((resolve, reject) => {
+            if (!db) { reject(new Error('数据库未初始化')); return; }
+            const tx = db.transaction(CONFIG.STORE_NAME, 'readwrite');
+            const store = tx.objectStore(CONFIG.STORE_NAME);
+            const request = store.clear();
+            request.onsuccess = () => { resolve(); };
+            request.onerror = () => { reject(request.error); };
+        });
+    }
+
+    // ============================================================
+    // 状态
+    // ============================================================
+    let editingId = null;
+    let activeFilter = 'all';
+    let processedMemory = null;
+
+    // ============================================================
+    // UI 渲染
+    // ============================================================
+    async function renderMemoryList() {
+        try {
+            const memories = await getAllMemories();
+            const list = document.getElementById('memoryList');
+            const countEl = document.getElementById('memoryCount');
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+
+            let filtered = memories;
+            if (activeFilter !== 'all') {
+                filtered = filtered.filter(m => m.category === activeFilter);
+            }
+            if (query) {
+                filtered = filtered.filter(m => {
+                    const haystack = [m.content, (m.tags || []).join(' '), m.dna, m.id, CATEGORY_META[m.category]?.label || ''].join(' ').toLowerCase();
+                    return haystack.includes(query);
+                });
+            }
+
+            const sorted = filtered.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            countEl.textContent = sorted.length + ' 条';
+            updateStats(memories);
+
+            if (sorted.length === 0) {
+                list.innerHTML = '<div class="empty-memory">🐉 ' + (query ? '未找到匹配记忆。' : '还没有记忆。输入第一条，让它永生。') + '</div>';
+                return;
+            }
+
+            list.innerHTML = sorted.map(m => {
+                const meta = CATEGORY_META[m.category] || { icon: '❓', label: m.category };
+                const dateDisplay = m.timestamp ? new Date(m.timestamp).toLocaleString('zh-CN') : '未知';
+                const tagsHtml = (m.tags || []).map(t => `<span>#${escapeHtml(t)}</span>`).join('');
+                const keywordsDisplay = m.keywords && m.keywords.length > 0 ? '🏷️ ' + m.keywords.join('、') : '';
+                return `
+                    <div class="memory-item" data-id="${m.id}">
+                        <div class="meta">
+                            <span><span class="category-tag">${meta.icon} ${meta.label}</span> <span class="dna-tag">🧬 ${escapeHtml(m.dna || '无DNA')}</span></span>
+                            <span>${dateDisplay}</span>
+                        </div>
+                        <div class="content">${escapeHtml(m.content)}</div>
+                        ${tagsHtml ? `<div class="tags">${tagsHtml}</div>` : ''}
+                        <div style="font-size:0.7rem;color:var(--text-secondary);margin-top:6px;">
+                            🔢 数字根: ${m.digital_root ?? '?'} &nbsp;|&nbsp; ${keywordsDisplay}
+                        </div>
+                        <div class="actions">
+                            <button onclick="editMemory('${m.id}')">✏️ 编辑</button>
+                            <button onclick="copyMemory('${m.id}')">📋 复制DNA</button>
+                            <button onclick="exportMemory('${m.id}')">📤 导出</button>
+                            <button class="del" onclick="deleteMemoryById('${m.id}')">🗑️ 删除</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        } catch (e) {
+            console.error('渲染记忆列表失败:', e);
+            document.getElementById('memoryList').innerHTML = '<div class="empty-memory" style="color:var(--red);">⚠️ 加载失败，请刷新页面</div>';
+        }
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    function updateStats(memories) {
+        const total = memories.length;
+        const today = getDateStr();
+        const todayCount = memories.filter(m => m.date === today).length;
+        const weekAgo = new Date();
+        weekAgo.setDate(weekAgo.getDate() - 7);
+        const weekCount = memories.filter(m => new Date(m.timestamp) >= weekAgo).length;
+        const todayGanzhi = dayGanzhi(new Date());
+        const todayPillar = todayGanzhi.stem + todayGanzhi.branch;
+        const ganzhiCount = memories.filter(m => m.dna && m.dna.includes(todayPillar)).length;
+
+        document.getElementById('statTotal').textContent = total;
+        document.getElementById('statToday').textContent = todayCount;
+        document.getElementById('statRecent').textContent = weekCount;
+        document.getElementById('statGanzhi').textContent = ganzhiCount;
+    }
+
+    function showStatus(msg, type = 'info') {
+        const el = document.getElementById('status');
+        el.textContent = msg;
+        el.className = 'status show ' + type;
+        setTimeout(() => { el.classList.remove('show'); }, 5000);
+    }
+
+    function showToast(title, body) {
+        const el = document.getElementById('toast');
+        document.getElementById('toastTitle').textContent = title;
+        document.getElementById('toastBody').textContent = body;
+        el.classList.add('show');
+        setTimeout(() => { el.classList.remove('show'); }, 3000);
+    }
+
+    function updateSessionDna() {
+        const el = document.getElementById('sessionDna');
+        el.textContent = '🧬 DNA: ' + generateDNA();
+    }
+
+    // ============================================================
+    // 表单与处理
+    // ============================================================
+    function clearForm() {
+        document.getElementById('memoryInput').value = '';
+        document.getElementById('tagsInput').value = '';
+        document.getElementById('categorySelect').value = 'atomic_facts';
+        document.getElementById('analysisResult').classList.remove('show');
+        processedMemory = null;
+        cancelEdit();
+    }
+
+    function cancelEdit() {
+        editingId = null;
+        document.getElementById('saveBtn').textContent = '💾 保存到系统';
+        document.getElementById('cancelEditBtn').style.display = 'none';
+        document.getElementById('editBadge').style.display = 'none';
+    }
+
+    function processMemory() {
+        const text = document.getElementById('memoryInput').value.trim();
+        if (!text) {
+            showStatus('请输入内容', 'error');
+            return;
+        }
+        const category = document.getElementById('categorySelect').value;
+        const tags = parseTags(document.getElementById('tagsInput').value);
+        const dna = generateDNA();
+        const timestamp = getTimestamp();
+        const date = getDateStr();
+        const root = digitalRoot(text);
+        const keywords = extractKeywords(text);
+
+        processedMemory = {
+            id: editingId || generateId(),
+            dna,
+            content: text,
+            category,
+            tags,
+            timestamp,
+            date,
+            digital_root: root,
+            keywords,
+            source: '龍魂记忆编辑器 v3.1',
+            confirm: CONFIG.CONFIRM,
+        };
+
+        // 预览
+        const meta = CATEGORY_META[category];
+        document.getElementById('previewRoot').textContent = root;
+        document.getElementById('previewKeywords').textContent = keywords.join('、') || '无';
+        document.getElementById('previewCategory').textContent = `${meta.icon} ${meta.label}`;
+        document.getElementById('previewDna').textContent = dna;
+        document.getElementById('analysisResult').classList.add('show');
+
+        showStatus(editingId ? '✅ 记忆已重新处理，点击「保存到系统」更新' : '✅ 记忆已处理，点击「保存到系统」永久存储', 'success');
+    }
+
+    async function saveToSystem() {
+        if (!processedMemory) {
+            showStatus('⚠️ 请先点击「处理记忆」', 'error');
+            return;
+        }
+        if (editingId) {
+            processedMemory.updatedAt = getTimestamp();
+        } else {
+            processedMemory.createdAt = processedMemory.timestamp;
+            processedMemory.updatedAt = processedMemory.timestamp;
+        }
+        try {
+            await saveMemory(processedMemory);
+            showToast('💾 已保存', editingId ? '记忆已更新' : '记忆已永久存入系统');
+            clearForm();
+            renderMemoryList();
+        } catch (e) {
+            showStatus('保存失败: ' + e.message, 'error');
+        }
+    }
+
+    // ============================================================
+    // 编辑
+    // ============================================================
+    window.editMemory = async function(id) {
+        const memories = await getAllMemories();
+        const m = memories.find(x => x.id === id);
+        if (!m) return;
+        editingId = id;
+        document.getElementById('memoryInput').value = m.content;
+        document.getElementById('tagsInput').value = (m.tags || []).join(', ');
+        document.getElementById('categorySelect').value = m.category;
+        document.getElementById('saveBtn').textContent = '✏️ 更新记忆';
+        document.getElementById('cancelEditBtn').style.display = 'inline-flex';
+        document.getElementById('editBadge').style.display = 'inline';
+        document.getElementById('editorCard').scrollIntoView({ behavior: 'smooth' });
+        processedMemory = null;
+        document.getElementById('analysisResult').classList.remove('show');
+    };
+
+    window.closeEditModal = function() {
+        document.getElementById('editModal').classList.remove('show');
+    };
+
+    window.confirmEdit = async function() {
+        const memories = await getAllMemories();
+        const idx = memories.findIndex(x => x.id === editingId);
+        if (idx === -1) return;
+        const content = document.getElementById('editContent').value.trim();
+        if (!content) {
+            showToast('⚠️ 内容不能为空', 'error');
+            return;
+        }
+        memories[idx].content = content;
+        memories[idx].category = document.getElementById('editCategory').value;
+        memories[idx].tags = parseTags(document.getElementById('editTags').value);
+        memories[idx].digital_root = digitalRoot(content);
+        memories[idx].keywords = extractKeywords(content);
+        memories[idx].updatedAt = getTimestamp();
+        // 重新生成 DNA 以体现修改时刻
+        memories[idx].dna = generateDNA();
+
+        // 批量更新
+        await clearAllMemories();
+        for (const m of memories) await saveMemory(m);
+        closeEditModal();
+        showToast('✅ 修改已保存', '记忆已更新并重新生成 DNA');
+        renderMemoryList();
+    };
+
+    // ============================================================
+    // 全局函数
+    // ============================================================
+    window.copyMemory = async function(id) {
+        const memories = await getAllMemories();
+        const m = memories.find(x => x.id === id);
+        if (!m) return;
+        try {
+            await navigator.clipboard.writeText(m.dna || '');
+            showToast('📋 已复制', 'DNA码已复制到剪贴板');
+        } catch (e) {
+            const ta = document.createElement('textarea');
+            ta.value = m.dna || '';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            showToast('📋 已复制', 'DNA码已复制到剪贴板');
+        }
+    };
+
+    window.exportMemory = async function(id) {
+        const memories = await getAllMemories();
+        const m = memories.find(x => x.id === id);
+        if (!m) return;
+        const meta = CATEGORY_META[m.category] || { label: m.category };
+        const content = `---
+DNA: ${m.dna}
+确认码: ${m.confirm}
+创建时间: ${m.timestamp}
+更新时间: ${m.updatedAt || m.timestamp}
+数字根: ${m.digital_root}
+分类: ${meta.label}
+标签: ${(m.tags || []).join('、')}
+关键词: ${(m.keywords || []).join('、')}
+---
+${m.content}`;
+        downloadText(content, `记忆_${m.id}_${m.date}.cnsh.md`, 'text/markdown;charset=utf-8');
+        showToast('📤 导出成功', `记忆已导出为 .cnsh.md 文件`);
+    };
+
+    window.deleteMemoryById = async function(id) {
+        if (!confirm('确定要删除这条记忆吗？此操作不可撤销。')) return;
+        try {
+            await deleteMemory(id);
+            showToast('🗑️ 已删除', '记忆已永久移除');
+            renderMemoryList();
+        } catch (e) {
+            showStatus('删除失败: ' + e.message, 'error');
+        }
+    };
+
+    window.filterCategory = function(cat) {
+        activeFilter = cat;
+        document.querySelectorAll('[data-filter]').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.filter === cat);
+        });
+        renderMemoryList();
+    };
+
+    function downloadText(text, filename, mime) {
+        const blob = new Blob([text], { type: mime });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+
+    // ============================================================
+    // 导出全部
+    // ============================================================
+    async function exportAllMemories() {
+        const memories = await getAllMemories();
+        if (!memories || memories.length === 0) {
+            showStatus('没有记忆可导出', 'error');
+            return;
+        }
+        let content = '# 🐉 龍魂记忆库 · 完整导出\n\n';
+        content += `导出时间: ${getTimestamp()}\n`;
+        content += `DNA: ${generateDNA()}\n`;
+        content += `确认码: ${CONFIG.CONFIRM}\n\n`;
+        content += `---\n\n`;
+        const sorted = memories.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+        sorted.forEach(m => {
+            const meta = CATEGORY_META[m.category] || { label: m.category };
+            content += `## 🧬 ${m.dna}\n\n`;
+            content += `**分类**: ${meta.icon} ${meta.label}\n`;
+            content += `**标签**: ${(m.tags || []).join('、') || '无'}\n`;
+            content += `**时间**: ${m.timestamp}\n`;
+            content += `**数字根**: ${m.digital_root}\n`;
+            content += `**关键词**: ${(m.keywords || []).join('、') || '无'}\n\n`;
+            content += `${m.content}\n\n---\n\n`;
+        });
+        downloadText(content, `龍魂记忆库_完整导出_${getDateStr()}.cnsh.md`, 'text/markdown;charset=utf-8');
+        showToast('📦 导出成功', `共导出 ${memories.length} 条记忆`);
+    }
+
+    // ============================================================
+    // 初始化
+    // ============================================================
+    async function init() {
+        try {
+            await openDB();
+            await renderMemoryList();
+            updateSessionDna();
+            console.log('🐲 龍魂记忆编辑器已启动');
+            console.log('DNA:', generateDNA());
+            console.log('确认码:', CONFIG.CONFIRM);
+        } catch (e) {
+            console.error('初始化失败:', e);
+            document.getElementById('memoryList').innerHTML = `
+                <div class="empty-memory" style="color:var(--red);">
+                    ⚠️ 数据库初始化失败: ${e.message}<br>
+                    请检查浏览器是否支持 IndexedDB，或尝试其他浏览器。
+                </div>
+            `;
+        }
+    }
+
+    // ============================================================
+    // 事件绑定
+    // ============================================================
+    document.addEventListener('DOMContentLoaded', init);
+
+    document.getElementById('processBtn').addEventListener('click', processMemory);
+    document.getElementById('saveBtn').addEventListener('click', saveToSystem);
+    document.getElementById('clearBtn').addEventListener('click', clearForm);
+    document.getElementById('cancelEditBtn').addEventListener('click', () => { clearForm(); });
+    document.getElementById('refreshBtn').addEventListener('click', () => { renderMemoryList(); showStatus('🔄 已刷新', 'info'); });
+    document.getElementById('exportAllBtn').addEventListener('click', exportAllMemories);
+    document.getElementById('clearAllBtn').addEventListener('click', async () => {
+        if (!confirm('⚠️ 确定要删除所有记忆吗？此操作不可恢复！')) return;
+        if (!confirm('再次确认：所有记忆将被永久删除。')) return;
+        try {
+            await clearAllMemories();
+            showToast('🧹 已清空', '所有记忆已永久删除');
+            renderMemoryList();
+        } catch (e) {
+            showStatus('清空失败: ' + e.message, 'error');
+        }
+    });
+
+    document.getElementById('memoryInput').addEventListener('keydown', function(e) {
+        if (e.ctrlKey && e.key === 'Enter') processMemory();
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+            e.preventDefault();
+            saveToSystem();
+        }
+        if (e.key === 'Escape') {
+            if (document.getElementById('editModal').classList.contains('show')) {
+                closeEditModal();
+            } else if (editingId) {
+                clearForm();
+            }
+        }
+    });
+
+})();
+</script>
+</body>
+</html>

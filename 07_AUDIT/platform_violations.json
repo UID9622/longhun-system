@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "dna": "#龍芯⚡️丙午·丙申·己酉·卯时·䷐随-PLATFORM-VIOLATIONS-DB-v1.0-UID9622",
+  "created": "2026-08-03T06:33:03+08:00",
+  "description": "平台规则违宪库 · 收集各平台用户协议中与华夏法则冲突的条款",
+  "violation_categories": {
+    "power_abuse": "权力滥用 · 单方封号/单方解释权/申诉形同虚设",
+    "privacy": "隐私侵犯 · 过度收集/跨境传输/超范围使用",
+    "consent": "同意失真 · 默认勾选/一揽子授权/沉默即同意",
+    "clause_abuse": "条款滥用 · 格式条款加重用户责任/免除自身义务",
+    "algorithm": "算法黑箱 · 技术中立免责/拒绝公开算法逻辑",
+    "pricing": "价格不公 · 杀熟/差异化定价/价格歧视",
+    "permission": "权限越界 · 强制索取非必要权限"
+  },
+  "platforms": [],
+  "statistics": {
+    "total_audited": 0,
+    "total_violations": 0,
+    "by_severity": {"CRITICAL": 0, "HIGH": 0, "MEDIUM": 0, "LOW": 0},
+    "by_category": {}
+  },
+  "last_updated": null
+}

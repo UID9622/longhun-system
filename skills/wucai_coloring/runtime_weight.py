@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂代码即时权重引擎 v1.0
 
@@ -8,7 +11,7 @@
 - 输出跑马灯/LED 色带，让人一眼感知状态
 - 所有判定留痕、可追溯到本源
 
-DNA: #龍芯⚡️2026-06-23-WUCAI-RUNTIME-WEIGHT-v1.0
+DNA: #龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-WUCAI-RUNTIME-WEIGHT-v1.0
 """
 from __future__ import annotations
 

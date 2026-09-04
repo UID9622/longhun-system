@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷇比-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+#!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
-# DNA追溯码:#龍芯⚡️2026-06-23-LONGHUN-FONT-GLYPH-GENERATOR-CALLIGRAPHY-v2.0
+# DNA追溯码:#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-FONT-GLYPH-GENERATOR-CALLIGRAPHY-v2.0
 # 用途: 生成 LonghunFont 书法风格占位骨架 v2.0（曲线笔意 +  brush tips）
 
 """
@@ -22,7 +27,7 @@ from pathlib import Path
 from datetime import datetime
 
 
-DNA = "#龍芯⚡️2026-06-23-LONGHUN-FONT-GLYPH-GENERATOR-CALLIGRAPHY-v2.0"
+DNA = "#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-FONT-GLYPH-GENERATOR-CALLIGRAPHY-v2.0"
 
 CORE_CHARS = (
     "一二三四五六七八九十"

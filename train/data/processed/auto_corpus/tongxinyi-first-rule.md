@@ -1,8 +1,11 @@
-<!-- #龍芯⚡️20260624010825169-AUTO-DNA-7AD7F5DE 自动注入·分层治理自愈引擎 · 来源可查 -->
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+<!-- #龍芯⚡️丙午·甲午·己巳·乙丑·䷮困-AUTO-DNA-7AD7F5DE 自动注入·分层治理自愈引擎 · 来源可查 -->
 # 龍魂通心译铁律：先翻译，再执行
 
 > 本文档为龍魂系统 L0 宪法级规则。  
-> 规则 DNA：`#龍芯⚡️2026-06-23-LONGHUN-TONGXINYI-FIRST-RULE-WELDED-L0`
+> 规则 DNA：`#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-TONGXINYI-FIRST-RULE-WELDED-L0`
 
 ---
 
@@ -59,5 +62,5 @@ L0 原话保留 → L1 情绪净化 → L2 意图骨架 → L3 SAST → L4 三�
 ---
 
 > 焊死时间：2026-06-23  
-> 焊死 DNA：`#龍芯⚡️2026-06-23-LONGHUN-TONGXINYI-FIRST-RULE-WELDED-L0`  
+> 焊死 DNA：`#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-TONGXINYI-FIRST-RULE-WELDED-L0`  
 > 来源链：[CSDN 博文《龍魂前置翻译技能·通心译×CNSH-DOC 主干 v1.0》](https://blog.csdn.net/UID9622/article/details/161756881?sharetype=blogdetail&sharerId=161756881&sharerefer=PC&sharesource=UID9622&spm=1011.2480.3001.8118)

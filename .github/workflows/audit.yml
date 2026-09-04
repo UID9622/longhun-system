@@ -1,0 +1,69 @@
+# 🐉 掀黑箱审计 · GitHub Actions
+# 自动检测 PR 中的技术主权风险
+# 部署时间: 2026-08-01T00:08:30.453550
+# DNA: #龍芯⚡️丙午·乙未·丁未·庚子·䷋否-GitHubActions-UID9622
+
+name: 掀黑箱审计
+
+on:
+  pull_request:
+    branches: [ main, master, develop ]
+  push:
+    branches: [ main, master ]
+  # 手动触发
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 安装依赖
+        run: |
+          pip install --upgrade pip
+          pip install psutil
+
+      - name: 运行掀黑箱审计
+        run: |
+          python3 bin/lh_ci_audit.py \
+            --target . \
+            --fail-level critical \
+            --scope changed
+        env:
+          CI_AUDIT_WHITELIST: "uid9622.cn,longhun888.com,119.13.90.27,longhun-system,龍魂,DragonSoul,github.com,gitee.com,gitcode.com,notion.so,feishu.cn,larksuite.com,api.openai.com,api.anthropic.com,api.deepseek.com,cryptography.hazmat,cryptography.fernet,paramiko,pynacl"
+          CI_AUDIT_SCOPE: changed
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+
+      - name: 上传审计报告（可选）
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-report
+          path: reports/
+          retention-days: 7
+
+      - name: PR 评论（失败时）
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.payload.pull_request?.number;
+            if (!prNumber) return;
+            const message = `## 🐉 掀黑箱审计失败\n\n检测到技术主权风险，请查看 CI 日志中的详细发现。\n\n⚠️ PR 被自动阻断，请修复后重新提交。\n\n_Powered by 龍魂系统 · 掀黑箱引擎_`;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              body: message
+            });

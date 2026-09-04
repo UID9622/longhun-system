@@ -1,0 +1,380 @@
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
+# 龍魂·公开前脱敏扫描报告 2026-08-20 16:28:00
+扫描范围: 15_LABS/kimi-deliverables 12_DOCS/knowledge-matrix-src articles papers 01_protocols web_apps 08_BIN research/riemann_desktop
+扫描文件: 8932
+
+## 🔴 密钥/Token（命中 13）
+- 08_BIN/browser_profile/user_data/Default/Code Cache/js/5de03e686b691991_0
+- 08_BIN/browser_profile/user_data/Default/Code Cache/js/aa1c3eb98730fcf9_0
+- 08_BIN/browser_profile/user_data/Default/Code Cache/js/ac600512c6106ddf_0
+- 08_BIN/browser_profile/user_data/WasmTtsEngine/20260806.1/bindings_main.wasm
+- 08_BIN/browser_profile/user_data/ZxcvbnData/3/ranked_dicts
+- 08_BIN/browser_profile/user_data/component_crx_cache/269b53acf425802431432dd578284e91a80d505b6a0d06b16e1917bbb7dfec99
+- 08_BIN/lh_notion_upload_banks.py
+- 08_BIN/lh_notion_upload_banks_v2.py
+- 08_BIN/story_factory/third_party/ComfyUI/comfy/text_encoders/t5_tokenizer/tokenizer.json
+- articles/behavioral_crypto_csdn.md
+- articles/behavioral_crypto_csdn.md.glyph-backup
+- articles/行为密码学csdn.md
+- articles/行为密码学csdn.md.glyph-backup
+
+## 🔴 凭证文件（命中 14）
+- 08_BIN/story_factory/third_party/ComfyUI/comfy/sd1_tokenizer/special_tokens_map.json
+- 08_BIN/story_factory/third_party/ComfyUI/comfy/sd1_tokenizer/tokenizer_config.json
+- 08_BIN/story_factory/third_party/ComfyUI/comfy/text_encoders/byt5_tokenizer/added_tokens.json
+- 08_BIN/story_factory/third_party/ComfyUI/comfy/text_encoders/byt5_tokenizer/special_tokens_map.json
+- 08_BIN/story_factory/third_party/ComfyUI/comfy/text_encoders/byt5_tokenizer/tokenizer_config.json
+- 08_BIN/story_factory/third_party/ComfyUI/comfy/text_encoders/hydit_clip_tokenizer/special_tokens_map.json
+- 08_BIN/story_factory/third_party/ComfyUI/comfy/text_encoders/hydit_clip_tokenizer/tokenizer_config.json
+- 08_BIN/story_factory/third_party/ComfyUI/comfy/text_encoders/llama_tokenizer/tokenizer.json
+- 08_BIN/story_factory/third_party/ComfyUI/comfy/text_encoders/llama_tokenizer/tokenizer_config.json
+- 08_BIN/story_factory/third_party/ComfyUI/comfy/text_encoders/qwen25_tokenizer/tokenizer_config.json
+- 08_BIN/story_factory/third_party/ComfyUI/comfy/text_encoders/qwen35_tokenizer/tokenizer_config.json
+- 08_BIN/story_factory/third_party/ComfyUI/comfy/text_encoders/t5_tokenizer/special_tokens_map.json
+- 08_BIN/story_factory/third_party/ComfyUI/comfy/text_encoders/t5_tokenizer/tokenizer.json
+- 08_BIN/story_factory/third_party/ComfyUI/comfy/text_encoders/t5_tokenizer/tokenizer_config.json
+
+## 🟡 PII(手机/身份证/邮箱)（命中 811）
+- 01_protocols/ANTENNA-8GATE/training_data/training_data.jsonl
+- 01_protocols/DNA_CLEAN_REPORT_20260814.md
+- 01_protocols/DNA_CLEAN_REPORT_20260814.md.glyph-backup
+- 01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md
+- 01_protocols/LH-CDNA-v1.2-需求文档.md
+- 01_protocols/LH-CDNA-v1.2-需求文档.md.glyph-backup
+- 01_protocols/LH-CORE-DNA-FIX-v1.0.md
+- 01_protocols/LH-CORE-DNA-FIX-v1.0.md.glyph-backup
+- 01_protocols/LH-CREATOR-PROTECTION-v1.0.chain.jsonl
+- 01_protocols/LH-DEPLOYMENT-CONFIG-v1.0.md
+- 01_protocols/LH-OPEN-AUDIT-WHITEPAPER-v2.0.md
+- 01_protocols/LH-OPEN-AUDIT-WHITEPAPER-v2.0.md.glyph-backup
+- 01_protocols/LH-PRIVACY-DNA-IDENTITY-v1.0.md
+- 01_protocols/LH-PRIVACY-DNA-MECHANISM-v5.0.md
+- 01_protocols/LH-PRIVACY-DNA-MECHANISM-v5.0.md.glyph-backup
+- 01_protocols/LH-REGISTER-MAIL-MATH-v1.0.md
+- 01_protocols/P0_永恒级/LH-WEBSITE-ETERNAL-PROTOCOL-v1.0.md
+- 01_protocols/P0_永恒级/LH-WEBSITE-ETERNAL-PROTOCOL-v1.0.md.glyph-backup
+- 01_protocols/P2_系统级/LH-INTERNAL-AUDIT-COMM-MATRIX-v1.0.md
+- 01_protocols/archive/historical_chinese/CNSH代码变量隔离系统.md
+- 01_protocols/archive/historical_chinese/CNSH代码变量隔离系统.md.glyph-backup
+- 01_protocols/archive/historical_chinese/DNA分层安全设计_v4_0.md
+- 01_protocols/archive/historical_chinese/DNA分层安全设计_v4_0.md.glyph-backup
+- 01_protocols/archive/historical_chinese/Service_DNA_接入规范_v0_2.md
+- 01_protocols/archive/historical_chinese/Service_DNA_接入规范_v0_2.md.glyph-backup
+- 01_protocols/archive/historical_chinese/全球文化主权与维权宪法_v2_0.md
+- 01_protocols/archive/historical_chinese/全球文化主权与维权宪法_v2_0.md.glyph-backup
+- 01_protocols/archive/historical_chinese/动态AI协议入口.md
+- 01_protocols/archive/historical_chinese/动态AI协议入口.md.glyph-backup
+- 01_protocols/archive/historical_chinese/北辰协议·原文存档_L0-012_.md
+- 01_protocols/archive/historical_chinese/北辰协议·原文存档_L0-012_.md.glyph-backup
+- 01_protocols/archive/historical_chinese/統一DNA變量對照表_v1_0_已封存_.md
+- 01_protocols/archive/historical_chinese/統一DNA變量對照表_v1_0_已封存_.md.glyph-backup
+- 01_protocols/archive/historical_chinese/龍魂系统宪法_v1_0.md
+- 01_protocols/archive/historical_chinese/龙魂数字主权体系_学术论文_v2.0.md
+- 01_protocols/archive/historical_chinese/龙魂数字主权体系_学术论文_v2.0.md.glyph-backup
+- 01_protocols/archive/historical_chinese/龙魂数据安全架构.md
+- 01_protocols/archive/historical_chinese/龙魂数据安全架构.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/00_总纲与身份/README_5.md
+- 01_protocols/desktop-knowledge-matrix/00_总纲与身份/README_5.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/01_主权与协议/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md
+- 01_protocols/desktop-knowledge-matrix/01_主权与协议/LH-CREATOR-PROTECTION-v1.0.chain.jsonl
+- 01_protocols/desktop-knowledge-matrix/01_主权与协议/✅ [已合并到 v2 0 主干] 📋 CNSH编码标准规范 龙芯体系技术主权 6c81adffbdf54169b19390b6fda36b1d.md
+- 01_protocols/desktop-knowledge-matrix/01_主权与协议/🐉 龙魂数字主权体系 v2 0 技术白皮书.md
+- 01_protocols/desktop-knowledge-matrix/01_主权与协议/🐉 龙魂数字主权体系 v2 0 技术白皮书·主控文档.md
+- 01_protocols/desktop-knowledge-matrix/01_主权与协议/📘 龍芯家族花名册·设备主人主权铁律 v1 0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9 142168c7f03942e696e8c499d2914e47.md
+- 01_protocols/desktop-knowledge-matrix/01_主权与协议/🔐 CNSH加密主权启动总纲 木兰协议·DNA身份·本地存储·不可破解.md
+- 01_protocols/desktop-knowledge-matrix/03_三才流场与人格路由/五大后台人格激活指令 2f97125a9c9f807a8ed0c3d1ebb86126.md
+- 01_protocols/desktop-knowledge-matrix/03_三才流场与人格路由/🔀 AI自动路由系统 老大说话AI自动分配 4566044476014326803e907f7a926ab2.md
+- 01_protocols/desktop-knowledge-matrix/04_三色审计与决策/tri_color_audit_engine.md
+- 01_protocols/desktop-knowledge-matrix/04_三色审计与决策/致Notion官方｜功能建议+三色审计方案 v1 0 e6b087fb572340b38de071cc5c58ccf8.md
+- 01_protocols/desktop-knowledge-matrix/04_三色审计与决策/🛡️ 4 三色审计+熔断机制 2eec6206a65541619267de764faa4142.md
+- 01_protocols/desktop-knowledge-matrix/06_道德经锚层/H武器推演 太极2 1-PURIFIER 全球最小闭环系统.md
+- 01_protocols/desktop-knowledge-matrix/06_道德经锚层/H武器推演 太极2 1-PURIFIER 全球最小闭环系统.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/06_道德经锚层/PAPER-20260621-002_main_tex___龙魂权重算法_太极易经数学大师联动系统_IEEE_v2_0.md
+- 01_protocols/desktop-knowledge-matrix/06_道德经锚层/main tex — 龙魂权重算法·太极易经数学大师联动系统 IEEE v2 0 3197125a9c9f8088b13ad769afb8974c.md
+- 01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/CNSH-AI行为标准-接入铁律.md
+- 01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/CNSH-AI行为标准-接入铁律.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/CNSH-GitHub-README.md
+- 01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/CNSH-GitHub-README.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/CNSH-PROTOCOL.md
+- 01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/CNSH_v3.0中文编程规范_激活文档.md
+- 01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/CNSH_v3.0中文编程规范_激活文档.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/CNSH开源项目README-完整版.md
+- 01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/LU系统·一通百通｜自动化底层流水线 v1 0｜8模块+Hot Cold能力区+CNSH接入+4数据 a043d43f036f46a5b84676c77e039713.md
+- 01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/🌌 CNSH × 龍魂系统·中文原生透明语义治理操作系统 v4 0·全透明治理架构术语总表合并版·主 222ba601d0484463afb3424c8eb5e16a.md
+- 01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/🌌 CNSH × 龍魂系统·中文原生透明语义治理操作系统 v4 0·全透明治理架构术语总表合并版·主 222ba601d0484463afb3424c8eb5e16a.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/🐉 龍魂系统 · CNSH Framework 公开展示台｜UID9622 · 技术为人民服务 3287125a9c9f816d92daf518168f1a76.md
+- 01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/📄 CNSH GitHub README.md
+- 01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/📄 CNSH GitHub README.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/🔐 龙魂·智能身份认证系统 v1 0｜多维行为画像+自适应参数调优（CNSH完整实现） 6c1025697a9e40bc92e52d414500108c.md
+- 01_protocols/desktop-knowledge-matrix/09_核心链路/UID9622-API文档中心.md
+- 01_protocols/desktop-knowledge-matrix/09_核心链路/UID9622-API文档中心.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/09_核心链路/🔐 Lucky保险库 密码·API·凭证·密鑰 全在这里.md
+- 01_protocols/desktop-knowledge-matrix/10_安全域/🌌 龍魂元世界入口×L5时间轴×加密知识库｜找感觉版·每次升级折叠存档 a584070f1f9b45649d8add9c39109442.md
+- 01_protocols/desktop-knowledge-matrix/11_大本营加工厂架构/DEPLOYMENT_READY_CHECKLIST_2026-06-10.md
+- 01_protocols/desktop-knowledge-matrix/11_大本营加工厂架构/PRODUCTION_DEPLOYMENT_GUIDE.md
+- 01_protocols/desktop-knowledge-matrix/11_大本营加工厂架构/PRODUCTION_DEPLOYMENT_PREPARATION_REPORT_2026-06-10.md
+- 01_protocols/desktop-knowledge-matrix/12_学术论文与CSDN草稿/PAPER-20260621-006_中国人工智能治理白皮书.md
+- 01_protocols/desktop-knowledge-matrix/12_学术论文与CSDN草稿/PAPER-20260621-017___Longhun_Deliberative_Alignment__A_Cultural-Ancho.md
+- ... 共 811 个
+
+## 🔴 家人/私域关键词（命中 384）
+- 01_protocols/LH-AI-IDENTITY-INTEROP-PROTOCOL-v3.0.md
+- 01_protocols/LH-ARCHIVE-AUDIT-v1.0.md
+- 01_protocols/LH-ARCHIVE-AUDIT-v1.0.md.glyph-backup
+- 01_protocols/LH-BEHAVIOR-BOUNDARY-PROTOCOL-v1.0.md
+- 01_protocols/LH-BLACKBOX-PITFALLS-v1.0.md
+- 01_protocols/LH-BLACKBOX-PITFALLS-v1.0.md.glyph-backup
+- 01_protocols/LH-CDNA-v1.2-需求文档.md
+- 01_protocols/LH-CDNA-v1.2-需求文档.md.glyph-backup
+- 01_protocols/LH-CODEBUDDY-ALIGNMENT-v2.0.md
+- 01_protocols/LH-CODEBUDDY-ALIGNMENT-v2.0.md.glyph-backup
+- 01_protocols/LH-CONTAINER-ARCH-v1.0.md
+- 01_protocols/LH-CORE-DNA-FIX-v1.0.md
+- 01_protocols/LH-CORE-DNA-FIX-v1.0.md.glyph-backup
+- 01_protocols/LH-DATA-PRIVACY-v2.0.md
+- 01_protocols/LH-DATA-PRIVACY-v2.1.md
+- 01_protocols/LH-DNA-BIND-ANTIDISTILL-v1.0.md
+- 01_protocols/LH-FUSION-OS-GENERAL-INSTRUCTION-v3.0.md
+- 01_protocols/LH-FUSION-OS-GENERAL-INSTRUCTION-v3.0.md.glyph-backup
+- 01_protocols/LH-GUANLAN-BROWSER-AI-INTEGRATION-README.md
+- 01_protocols/LH-GUANLAN-BROWSER-AI-INTEGRATION-v1.0.md
+- 01_protocols/LH-GUANLAN-BROWSER-MATH-v1.0.md
+- 01_protocols/LH-LEARN-INTEGRATE-MANUAL-v1.0.md
+- 01_protocols/LH-LEARN-INTEGRATE-MANUAL-v1.0.md.glyph-backup
+- 01_protocols/LH-LOYALTY-IRON-LAW-v1.0.md
+- 01_protocols/LH-LOYALTY-IRON-LAW-v1.0.md.glyph-backup
+- 01_protocols/LH-MATH-FOUNDATIONS-v2.0.md
+- 01_protocols/LH-ORIGINALITY-DECLARATION-PROTOCOL-v1.0.md
+- 01_protocols/LH-ORIGINALITY-DECLARATION-PROTOCOL-v1.0.md.glyph-backup
+- 01_protocols/LH-P0-WELD-BASE-v1.0.md
+- 01_protocols/LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.0.md
+- 01_protocols/LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.0.md.glyph-backup
+- 01_protocols/LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md
+- 01_protocols/LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md.glyph-backup
+- 01_protocols/LH-PRIVACY-DNA-IDENTITY-v1.0.md
+- 01_protocols/LH-PRIVACY-DNA-MECHANISM-v5.0.md
+- 01_protocols/LH-PRIVACY-DNA-MECHANISM-v5.0.md.glyph-backup
+- 01_protocols/LH-PROMPT-BLACKBOX-AUDIT-v2.0.md
+- 01_protocols/LH-PROMPT-BLACKBOX-AUDIT-v2.0.md.glyph-backup
+- 01_protocols/LH-PROTOCOL-HIERARCHY-v1.0.md
+- 01_protocols/LH-SOVEREIGN-LLM-ARCH-v1.0.md
+- 01_protocols/LH-SOVEREIGN-LLM-ARCH-v1.0.md.glyph-backup
+- 01_protocols/LH-SOVEREIGNTY-BENCHMARK-v1.0.md
+- 01_protocols/LH-TERM-PLAIN-PROTOCOL-v1.1.md
+- 01_protocols/LH-TERM-PLAIN-PROTOCOL-v1.1.md.glyph-backup
+- 01_protocols/LH-XIAOYI-DISPATCH-HUB-v5.0-P0-P4.md
+- 01_protocols/SENSORY-EDUCATION-DIGNITY-v1.0.md
+- 01_protocols/SENSORY-EDUCATION-DIGNITY-v1.0.md.glyph-backup
+- 01_protocols/THESIS-ROOT-GOVERNANCE/02-CHAPTER-01.md
+- 01_protocols/THESIS-ROOT-GOVERNANCE/07-CHAPTER-06.md
+- 01_protocols/THESIS-ROOT-GOVERNANCE/08-CHAPTER-07.md
+- 01_protocols/THESIS-ROOT-GOVERNANCE/11-CHAPTER-10.md
+- 01_protocols/THESIS-ROOT-GOVERNANCE/13-CHAPTER-12.md
+- 01_protocols/THESIS-ROOT-GOVERNANCE/FULL-THESIS.md
+- 01_protocols/archive/CNSH_v3.0_COMPLETE_CHARTER.html
+- 01_protocols/archive/CNSH_v3.0_COMPLETE_CHARTER.html.glyph-backup
+- 01_protocols/archive/historical_chinese/Service_DNA_接入规范_v0_2.md
+- 01_protocols/archive/historical_chinese/Service_DNA_接入规范_v0_2.md.glyph-backup
+- 01_protocols/archive/historical_chinese/封闭空间三生三世数学建模协议_v1.0.md
+- 01_protocols/archive/historical_chinese/老大初心宣言·灵魂档案归集_v1_0.md
+- 01_protocols/archive/historical_chinese/老大初心宣言·灵魂档案归集_v1_0.md.glyph-backup
+- 01_protocols/archive/historical_chinese/评论水军显化与反操纵协议_v1.0.md
+- 01_protocols/archive/historical_chinese/龙魂数字主权体系_学术论文_v2.0.md
+- 01_protocols/archive/historical_chinese/龙魂数字主权体系_学术论文_v2.0.md.glyph-backup
+- 01_protocols/audit_protocol_v2.0/02_审计触发矩阵.md
+- 01_protocols/audit_protocol_v2.0/02_审计触发矩阵.md.glyph-backup
+- 01_protocols/audit_protocol_v2.0/03_16人格审计职责.md
+- 01_protocols/audit_protocol_v2.0/03_16人格审计职责.md.glyph-backup
+- 01_protocols/audit_protocol_v2.0/07_主权申诉流程.md
+- 01_protocols/audit_protocol_v2.0/08_v4.1训练数据注入.md
+- 01_protocols/desktop-knowledge-matrix/01_主权与协议/LH-CONTAINER-ARCH-v1.0.md
+- 01_protocols/desktop-knowledge-matrix/01_主权与协议/LH-DATA-PRIVACY-v2.0.md
+- 01_protocols/desktop-knowledge-matrix/01_主权与协议/LH-DATA-PRIVACY-v2.1.md
+- 01_protocols/desktop-knowledge-matrix/01_主权与协议/LH-PROTOCOL-HIERARCHY-v1.0.md
+- 01_protocols/desktop-knowledge-matrix/01_主权与协议/LH-SENSORY-EDUCATION-DIGNITY-v1.0.md
+- 01_protocols/desktop-knowledge-matrix/01_主权与协议/LH-SENSORY-EDUCATION-DIGNITY-v1.0.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/01_主权与协议/LH-SOVEREIGN-LLM-ARCH-v1.0.md
+- 01_protocols/desktop-knowledge-matrix/01_主权与协议/LH-SOVEREIGN-LLM-ARCH-v1.0.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/01_主权与协议/SENSORY-EDUCATION-DIGNITY-v1.0.md
+- 01_protocols/desktop-knowledge-matrix/01_主权与协议/SENSORY-EDUCATION-DIGNITY-v1.0.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/01_主权与协议/⚖️ 龍魂天道系统 v1 3｜天下无欺·真相受理+网络户口本+观察者日志+指令中心+主权修复 16422f7261e94a57b1539d8c003ab12c.md
+- ... 共 384 个
+
+## 🟡 本地绝对路径（命中 515）
+- 01_protocols/LH-ARCHIVE-AUDIT-v1.0.md
+- 01_protocols/LH-ARCHIVE-AUDIT-v1.0.md.glyph-backup
+- 01_protocols/LH-AUDIT-BACKLOG-CLASSIFIER-v1.0.md
+- 01_protocols/LH-CONTROL-GATE-HANDBOOK-v1.0.md
+- 01_protocols/M261-prequel-covenant-v1.0/GPG_SIGN_INSTRUCTIONS.md
+- 01_protocols/P0_根目录注册表.md
+- 01_protocols/P0_根目录注册表.md.glyph-backup
+- 01_protocols/archive/historical_chinese/龍魂八卦决策调度协议_v1.0.md
+- 01_protocols/archive/historical_chinese/龍魂八卦决策调度协议_v1.0.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/00_总纲与身份/KFPP_ACTIVATION_PROCLAMATION.md
+- 01_protocols/desktop-knowledge-matrix/00_总纲与身份/README_6.md
+- 01_protocols/desktop-knowledge-matrix/01_主权与协议/LH-BAGUA-DECISION-SCHEDULING-v1.0.md
+- 01_protocols/desktop-knowledge-matrix/03_三才流场与人格路由/PERSONA_INTEGRATION_PLAN.md
+- 01_protocols/desktop-knowledge-matrix/03_三才流场与人格路由/PERSONA_INTEGRATION_PLAN_1.md
+- 01_protocols/desktop-knowledge-matrix/03_三才流场与人格路由/decision_engine py.md
+- 01_protocols/desktop-knowledge-matrix/03_三才流场与人格路由/五大后台人格激活指令 2f97125a9c9f807a8ed0c3d1ebb86126.md
+- 01_protocols/desktop-knowledge-matrix/03_三才流场与人格路由/龍魂系统_五维人格矩阵_Mac终端配置_v1.0.md
+- 01_protocols/desktop-knowledge-matrix/04_三色审计与决策/plan_dna_crypto_audit.md
+- 01_protocols/desktop-knowledge-matrix/04_三色审计与决策/shield_self_audit.py
+- 01_protocols/desktop-knowledge-matrix/04_三色审计与决策/tri_color_audit_engine.md
+- 01_protocols/desktop-knowledge-matrix/04_三色审计与决策/龍魂·国密DNA加密合规审计系统_v3.0.md
+- 01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/CNSH_INTEGRATED_EXECUTION_REPORT.md
+- 01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/CNSH_全球治理协议_完整版_v1 0 md.md
+- 01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/CNSH_龙魂底线协议_双轨治理_v1 0 md.md
+- 01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/CNSH全球法律知识库 md.md
+- 01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/fuse_protocol_engine.md
+- 01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/🛠️ CNSH工具集本地网页模板 DNA验证+工具解锁系统 16399c8440fa4d1aad5cad3aa8cb5ffe.md
+- 01_protocols/desktop-knowledge-matrix/11_大本营加工厂架构/PRODUCTION_DEPLOYMENT_GUIDE.md
+- 01_protocols/desktop-knowledge-matrix/11_大本营加工厂架构/STAGING_DEPLOYMENT_EXECUTION_REPORT_2026-06-10.md
+- 01_protocols/desktop-knowledge-matrix/11_大本营加工厂架构/STAGING_DEPLOYMENT_PREPARATION_REPORT_2026-06-10.md
+- 01_protocols/desktop-knowledge-matrix/11_大本营加工厂架构/XPAY_DEPLOYMENT_COMPLETE.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_1.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_1.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_10.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_12.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_14.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_14.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_19.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_19.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_21.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_22.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_24.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_24.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_26.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_27.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_28.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_30.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_30.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_33.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_38.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_40.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_40.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_42.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_43.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_43.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_44.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_45.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_45.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_48.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_49.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_49.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_50.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_53.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_53.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_54.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_54.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_55.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_55.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_59.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_59.md.glyph-backup
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/SKILL_8.md
+- 01_protocols/desktop-knowledge-matrix/13_技能库与对外接口/skills_asset_scan.md
+- 01_protocols/desktop-knowledge-matrix/14_执行记录与系统报告/BENCHMARK_COMPLETE_FINAL_REPORT.md
+- 01_protocols/desktop-knowledge-matrix/14_执行记录与系统报告/BRAIN-NOTION-SYNC-v1.1-PHASE1-IMPLEMENTATION.md
+- 01_protocols/desktop-knowledge-matrix/14_执行记录与系统报告/COMPLETE_EXECUTION_SUMMARY.md
+- 01_protocols/desktop-knowledge-matrix/14_执行记录与系统报告/CSDN问答回答_UID9622.md
+- 01_protocols/desktop-knowledge-matrix/14_执行记录与系统报告/FORMULA_CHAIN_OPTIMIZATION_COMPLETE_v2.0.md
+- 01_protocols/desktop-knowledge-matrix/14_执行记录与系统报告/FORMULA_SYSTEM_OPTIMIZATION_SUMMARY.md
+- 01_protocols/desktop-knowledge-matrix/14_执行记录与系统报告/INDEX-2026-07-04.md
+- 01_protocols/desktop-knowledge-matrix/14_执行记录与系统报告/L0-伦理 md.md
+- ... 共 515 个
+
+## 🔴 零宽字符（命中 2416）
+- 01_protocols/ANTENNA-8GATE/LH-ANTENNA-8GATE-v1.0.md
+- 01_protocols/ANTENNA-8GATE/README.md
+- 01_protocols/ANTENNA-8GATE/RETROSPECTIVE.md
+- 01_protocols/ANTENNA-8GATE/connector/longhun_bridge.py
+- 01_protocols/ANTENNA-8GATE/core/antenna_mesh.py
+- 01_protocols/ANTENNA-8GATE/core/antenna_mesh_v2.py
+- 01_protocols/ANTENNA-8GATE/core/bagua_router.py
+- 01_protocols/ANTENNA-8GATE/core/energy_saver.py
+- 01_protocols/ANTENNA-8GATE/core/semantic_encoder.py
+- 01_protocols/ANTENNA-8GATE/install.sh
+- 01_protocols/ANTENNA-8GATE/scheduler/wuxing_scheduler.py
+- 01_protocols/ANTENNA-8GATE/scheduler/wuxing_scheduler_v2.py
+- 01_protocols/ANTENNA-8GATE/tests/bench_v1v2_slim.py
+- 01_protocols/ANTENNA-8GATE/tests/benchmark_quick.py
+- 01_protocols/ANTENNA-8GATE/tests/benchmark_real_inference.py
+- 01_protocols/ANTENNA-8GATE/tests/benchmark_report.json
+- 01_protocols/ANTENNA-8GATE/tests/benchmark_v1v2.py
+- 01_protocols/ANTENNA-8GATE/tests/test_integration.py
+- 01_protocols/ANTENNA-8GATE/training_data/gen_training_data.py
+- 01_protocols/ATTRIBUTION.md
+- 01_protocols/AUDIT-SHEET-TEMPLATE-v1.0.md
+- 01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md
+- 01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md.glyph-backup
+- 01_protocols/CNSH-BRAIN-PERSONA-LANDING-v1.0.md
+- 01_protocols/CNSH-BRAIN-PERSONA-LANDING-v1.0.md.glyph-backup
+- 01_protocols/CNSH-MATH-SKELETON-v1.0.md
+- 01_protocols/CNSH-SYNTAX-PANORAMA-v3.0.md
+- 01_protocols/CNSH-TONGXINYI-ALIGN-v2.0.md
+- 01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md
+- 01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md.glyph-backup
+- 01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md
+- 01_protocols/CNSH_GLOBAL_PROTOCOL_v3.0.md
+- 01_protocols/CNSH_GLOBAL_PROTOCOL_v3.0.md.glyph-backup
+- 01_protocols/DATA-PERMISSIONS-MATRIX-v1.0.md
+- 01_protocols/DIGITAL-BATTLEFIELD-IRON-RULE-v1.0.md
+- 01_protocols/DIGITAL-MILITARY-CODE-v1.0.md
+- 01_protocols/DIGITAL-MILITARY-CODE-v1.0.md.glyph-backup
+- 01_protocols/DNA_CLEAN_REPORT_20260814.md
+- 01_protocols/DNA_CLEAN_REPORT_20260814.md.glyph-backup
+- 01_protocols/DNA_REGISTRY_PROTOCOL_200.md
+- 01_protocols/DNA_REGISTRY_PROTOCOL_200.md.glyph-backup
+- 01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md
+- 01_protocols/IPA-ROUTE-REGISTRY.local.md
+- 01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md
+- 01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md.glyph-backup
+- 01_protocols/LH-ACTIVATION-ECONOMY-v1.0.md
+- 01_protocols/LH-ACTIVATION-PAYMENT-v1.0.md
+- 01_protocols/LH-ADAPTIVE-EVOLUTION-SPEC-v1.0.md
+- 01_protocols/LH-ADAPTIVE-EVOLUTION-SPEC-v1.0.md.glyph-backup
+- 01_protocols/LH-AI-ACCESS-MANDATE-v1.0.md
+- 01_protocols/LH-AI-ACCESS-MANDATE-v1.0.md.glyph-backup
+- 01_protocols/LH-AI-ETHICS-ENABLEMENT-v1.1.md
+- 01_protocols/LH-AI-ETHICS-ENABLEMENT-v1.1.md.glyph-backup
+- 01_protocols/LH-AI-ONBOARDING-v1.0.md
+- 01_protocols/LH-AI-ONBOARDING-v1.0.md.glyph-backup
+- 01_protocols/LH-AI-SHAME-PILLAR-v3.0.md
+- 01_protocols/LH-ANT-COLONY-VISUAL-v1.0.md
+- 01_protocols/LH-ANTI-FISHING-GREED-v1.0.md
+- 01_protocols/LH-ANTI-FRAUD-QUICK-GUIDE-v1.0.md
+- 01_protocols/LH-API-NAMING-MATH-v1.0.md
+- 01_protocols/LH-API-NAMING-TAIJI-ANT-v1.0.md
+- 01_protocols/LH-ARCHIVE-AUDIT-v1.0.md
+- 01_protocols/LH-ARCHIVE-AUDIT-v1.0.md.glyph-backup
+- 01_protocols/LH-ARTIFACT-CREATION-SOP-v1.0.md
+- 01_protocols/LH-ASI-CEILING-PROTOCOL-v1.0.md
+- 01_protocols/LH-ASSET-CENTER-v1.1.md
+- 01_protocols/LH-AUDIT-AUTO-LEARNER-v1.0-REPAIR.md
+- 01_protocols/LH-AUDIT-BATTLE-HUB-v1.0.md
+- 01_protocols/LH-AUDIT-SHEET-60ITEM-v1.0.md
+- 01_protocols/LH-AUTO-ADAPTER-PROTOCOL-v1.0.md
+- 01_protocols/LH-AUTO-LEARNER-SPEC-v1.0.md
+- 01_protocols/LH-AUTOFLOW-EXEC-PROTOCOL-v1.0.md
+- 01_protocols/LH-BAGUA-MATH-MODEL-v1.0.md
+- 01_protocols/LH-BASE-MODEL-LIST-v1.0.md
+- 01_protocols/LH-BASE-MODEL-LIST-v1.0.md.glyph-backup
+- 01_protocols/LH-BEHAVIOR-BOUNDARY-PROTOCOL-v1.0.md
+- 01_protocols/LH-BEHAVIOR-CRYPTOGRAPHY-ANTI-FRAUD-v1.0.md
+- 01_protocols/LH-BLACKBOX-AUDIT-MANIFEST-v2.0.json
+- 01_protocols/LH-BLACKBOX-PITFALLS-v1.0.md
+- 01_protocols/LH-BLACKBOX-PITFALLS-v1.0.md.glyph-backup
+- ... 共 2416 个
+
+> 处置：🔴 命中移入 _QUARANTINE（隔离不删除）；🟡 脱敏后可公开；报告经老大抽检前禁止 push
+> 公开首页 / Home: https://uid9622.notion.site
+> DNA: #龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-PRE-PUBLIC-SANITIZE-SCAN-v1.0
+---
+## ✅ 处置记录（2026-08-20 16:35）
+1. **🔴 Token 硬编码脱敏**：`08_BIN/lh_notion_upload_banks.py` + `_v2.py` 的 `TOKEN = "ntn_..."`（50位）已改为 `os.environ.get("NOTION_TOKEN", "")`，语法验证通过。
+2. **🔴 未审资产隔离**：73 个家人词命中文件已移入 `_QUARANTINE/`（隔离不删除·保留相对路径·含知识矩阵源资产与Kimi交付物）。
+3. **🔴 browser_profile**：`08_BIN/browser_profile/`（浏览器运行时数据）已在 .gitignore，未被 git 跟踪，AKIA 命中为运行时数据误报。
+4. **🟡 articles PRIVATE KEY**：确认为 `SECRET_PATTERNS` 伪代码正则示例（教学用途），非真实私钥，可公开。
+5. **🟢 新增 gitignore**：`12_DOCS/notion_full_export/`（Notion 全量导出 153M 含凭证，禁止入公开仓）。
+6. **⏳ 待老大决策：零宽字符 2416 个文件**（08_BIN 1220 / 01_protocols 634 / articles 261 / 12_DOCS 166 / papers 74 / 15_LABS 41 / web_apps 13 / research 7）——G0 同源问题大规模存在，建议分批清洗（移除零宽字符不改变可见内容）后再谈公开，本轮未动核心文件。
+7. **🔴 git 历史**：本地 orphan_main 分支从未 push 至远端（remote 无此分支），token 硬编码仅存在于本地历史，首次 push 前建议重建历史或先确认远端状态。

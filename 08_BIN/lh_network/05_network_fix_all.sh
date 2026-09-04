@@ -1,0 +1,111 @@
+#!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# DNA: #龍芯⚡️丙午·乙未·乙巳·壬午·䷃蒙-网络限流应对-一键修复-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 创建者: 诸葛鑫（UID9622）
+# 协议: CC BY-NC-SA 4.0
+# 龍魂网络限流应对方案 · 一键修复
+# 检测限流→自动选择最优路径
+
+echo "========================================"
+echo "  龍魂网络限流一键修复"
+echo "========================================"
+
+# 配置
+HK_IP="YOUR_HK_SERVER_IP"           # ⚠️ 华为云香港IP待配置
+HK_KEY="~/.ssh/huawei_hk.pem"
+HK_USER="root"
+KUNPENG_IP="119.13.90.27"           # 鲲鹏服务器
+KUNPENG_KEY="~/.ssh/longhun_kunpeng_ed25519"
+KUNPENG_USER="root"
+
+# 颜色
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+# 测试函数
+test_speed() {
+    local url=$1
+    local proxy=$2
+    local start=$(date +%s.%N)
+    
+    if [ -n "$proxy" ]; then
+        curl -o /dev/null -s --max-time 10 --socks5 $proxy $url
+    else
+        curl -o /dev/null -s --max-time 10 $url
+    fi
+    
+    local end=$(date +%s.%N)
+    echo $(echo "$end - $start" | bc -l)
+}
+
+# 1. 检测直连状态
+echo "[龍魂] 检测网络状态..."
+github_direct=$(test_speed "https://github.com")
+hf_direct=$(test_speed "https://huggingface.co")
+
+echo "  GitHub直连: ${github_direct}s"
+echo "  HuggingFace直连: ${hf_direct}s"
+
+# 2. 检测代理状态
+if [ -f ~/.longhun_proxy ]; then
+    source ~/.longhun_proxy
+    github_proxy=$(test_speed "https://github.com" "127.0.0.1:1080")
+    echo "  GitHub代理: ${github_proxy}s"
+else
+    echo "  ${YELLOW}代理未配置${NC}"
+fi
+
+# 3. 诊断+修复
+echo ""
+echo "[龍魂] 诊断结果:"
+
+if [ -z "$github_direct" ] || [ "$(echo "$github_direct > 5" | bc -l)" -eq 1 ]; then
+    echo "  ${RED}❌ GitHub限流/断连${NC}"
+    
+    if [ -n "$HK_IP" ] && [ "$HK_IP" != "YOUR_HK_SERVER_IP" ]; then
+        echo "  ${YELLOW}→ 启动香港代理...${NC}"
+        bash ~/longhun-system/bin/lh_network/01_hk_proxy_setup.sh
+        echo "  ${GREEN}✅ 代理已启动${NC}"
+    else
+        echo "  ${RED}❌ 未配置香港服务器IP，请修改脚本${NC}"
+    fi
+else
+    echo "  ${GREEN}✅ GitHub正常${NC}"
+fi
+
+if [ -z "$hf_direct" ] || [ "$(echo "$hf_direct > 5" | bc -l)" -eq 1 ]; then
+    echo "  ${RED}❌ HuggingFace限流/断连${NC}"
+    echo "  ${YELLOW}→ 切换国内镜像...${NC}"
+    export HF_ENDPOINT="https://hf-mirror.com"
+    echo "  ${GREEN}✅ 已切换hf-mirror.com${NC}"
+else
+    echo "  ${GREEN}✅ HuggingFace正常${NC}"
+fi
+
+# 4. 鲲鹏状态
+echo ""
+if [ -n "$KUNPENG_IP" ] && [ "$KUNPENG_IP" != "YOUR_KUNPENG_IP" ]; then
+    if ssh -i $KUNPENG_KEY -o ConnectTimeout=3 $KUNPENG_USER@$KUNPENG_IP "echo OK" 2>/dev/null; then
+        echo "  ${GREEN}✅ 鲲鹏服务器在线${NC}"
+    else
+        echo "  ${YELLOW}⚠️ 鲲鹏服务器未连接${NC}"
+    fi
+else
+    echo "  ${YELLOW}⚠️ 未配置鲲鹏服务器IP${NC}"
+fi
+
+echo ""
+echo "========================================"
+echo "  修复完成"
+echo "========================================"
+echo ""
+echo "当前网络策略:"
+[ -n "$ALL_PROXY" ] && echo "  🌐 代理: $ALL_PROXY" || echo "  🌐 代理: 未启用"
+echo "  📦 HF镜像: ${HF_ENDPOINT:-直连}"
+echo "  🖥️  本地模型: ollama run longhun-v4.0 (完全离线)"
+echo ""
+echo "限流时自动走代理，正常时自动直连。"
+echo "龍魂v4.0推理完全本地，不受网络影响。"

@@ -1,0 +1,464 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-b4edc55e -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 龍魂 · 流场拓扑图</title>
+<meta name="description" content="龍魂系统流场拓扑图 · 全系统引擎/人格/服务实时状态可视化面板 · 龙魂·诸葛鑫 UID9622">
+<meta name="keywords" content="龍魂系统,流场拓扑,引擎状态,人格矩阵,服务监控,UID9622,诸葛鑫">
+<meta name="author" content="诸葛鑫 | UID9622 · 龍芯北辰">
+<style>
+:root{
+  --bg:#0a0a0f; --panel:#12121c; --card:#1c1c2a;
+  --gold:#c9a84c; --gold-dim:#8f7a3e; --green:#4caf50; --red:#f44336; --yellow:#ff9800;
+  --text:#e8e6df; --muted:#8b8a84; --border:#2a2a3d;
+  --cyan:#4dd0e1; --purple:#b388ff; --blue:#64b5f6; --orange:#ffa726;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans SC",sans-serif;line-height:1.5}
+a{color:var(--gold);text-decoration:none}
+header{position:sticky;top:0;z-index:10;background:rgba(10,10,15,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+header h1{margin:0;font-size:18px;display:flex;align-items:center;gap:10px}
+header .status{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--muted)}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--red);box-shadow:0 0 8px var(--red)}
+.dot.on{background:var(--green);box-shadow:0 0 8px var(--green)}
+.wrap{max-width:1500px;margin:0 auto;padding:20px}
+.toolbar{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
+button{border:1px solid var(--gold);background:transparent;color:var(--gold);padding:8px 14px;border-radius:8px;cursor:pointer;font-size:13px;transition:.15s;display:inline-flex;align-items:center;gap:6px}
+button:hover{background:rgba(201,168,76,.15)}
+button.primary{background:var(--gold);color:#111;border-color:var(--gold)}
+button.primary:hover{background:var(--gold-dim)}
+button:disabled{opacity:.5;cursor:not-allowed}
+input[type=text]{background:#0d0d14;border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px;font-size:13px;width:220px}
+input[type=text]:focus{outline:none;border-color:var(--gold)}
+select{background:#0d0d14;border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px;font-size:13px}
+select:focus{outline:none;border-color:var(--gold)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:16px}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center}
+.stat .num{font-size:26px;font-weight:700;margin-bottom:4px}
+.stat .label{font-size:12px;color:var(--muted)}
+.stat.on .num{color:var(--green)} .stat.off .num{color:var(--red)} .stat.gold .num{color:var(--gold)} .stat.cyan .num{color:var(--cyan)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:18px}
+.card h2{margin:0 0 14px;font-size:16px;color:var(--gold);display:flex;align-items:center;gap:8px}
+.layout{display:grid;grid-template-columns:1fr 380px;gap:18px}
+@media(max-width:1100px){.layout{grid-template-columns:1fr}}
+.canvas-wrap{background:radial-gradient(ellipse at 50% 30%, #161625 0%, #0d0d14 70%);border:1px solid var(--border);border-radius:12px;overflow:auto;max-height:900px}
+#flow-canvas{width:100%;min-width:1100px;display:block}
+.layer-label{font-size:12px;letter-spacing:2px;fill:var(--muted);text-anchor:start}
+.node{cursor:pointer}
+.node circle{transition:.2s}
+.node:hover circle{stroke-width:3.5;filter:drop-shadow(0 0 8px rgba(201,168,76,.6))}
+.node text.name{fill:var(--text);font-size:11px;text-anchor:middle;pointer-events:none;font-weight:600}
+.node text.type{fill:var(--muted);font-size:9px;text-anchor:middle;pointer-events:none}
+.node .up-dot{fill:var(--green);stroke:#0d0d14;stroke-width:1.5}
+.node .down-dot{fill:var(--red);stroke:#0d0d14;stroke-width:1.5}
+.edge{stroke:#3a3a52;stroke-width:1.5;fill:none}
+.edge.live{stroke:rgba(201,168,76,.5)}
+.particle{pointer-events:none}
+.detail-panel{position:sticky;top:80px;align-self:start}
+.detail{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px}
+.detail h3{margin:0 0 10px;font-size:16px;display:flex;align-items:center;gap:8px}
+.detail .meta{font-size:12px;color:var(--muted);margin-bottom:12px}
+.detail .block{margin-bottom:14px}
+.detail .bh{font-size:11px;color:var(--gold);letter-spacing:1px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.detail .formula{background:#0d0d14;border:1px solid var(--border);border-radius:8px;padding:10px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:#b8c4a8;line-height:1.6;white-space:pre-wrap;word-break:break-all}
+.detail .desc{font-size:13px;color:var(--text)}
+.detail .trigger{font-size:13px;color:var(--cyan)}
+.detail .log{height:200px;overflow:auto;background:#0d0d14;border:1px solid var(--border);border-radius:8px;padding:10px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;color:#b8c4a8;line-height:1.6}
+.detail .log .line{white-space:pre-wrap;word-break:break-all}
+.badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;background:#222;color:var(--muted)}
+.badge.on{background:rgba(76,175,80,.18);color:var(--green)}
+.badge.off{background:rgba(244,67,54,.18);color:var(--red)}
+.empty{color:var(--muted);text-align:center;padding:30px;font-size:13px}
+.terms{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.term{background:#16161f;border:1px solid var(--border);border-radius:10px;padding:12px}
+.term .t{font-weight:600;color:var(--gold);font-size:13px;margin-bottom:4px}
+.term .d{font-size:12px;color:var(--muted);line-height:1.6}
+.hint{font-size:12px;color:var(--muted);margin-top:8px}
+.code{display:inline-block;background:#0d0d14;padding:2px 6px;border-radius:4px;border:1px solid var(--border);font-family:monospace}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:10px}
+.legend .item{display:flex;align-items:center;gap:6px}
+.legend .sw{width:12px;height:12px;border-radius:3px}
+.toast{position:fixed;bottom:18px;right:18px;background:var(--panel);border:1px solid var(--border);padding:12px 16px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.4);font-size:13px;max-width:320px;z-index:100;transition:.2s}
+.toast.ok{border-color:var(--green)} .toast.err{border-color:var(--red)}
+@keyframes dashflow{to{stroke-dashoffset:-40}}
+@keyframes pulse{0%,100%{opacity:.15}50%{opacity:.6}}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+</style>
+</head>
+<body>
+<header>
+  <h1>🐉 龍魂 · 流场拓扑图 <span style="font-size:12px;color:var(--muted)">v2.0 · 融合升级（注入+透明度+扰动）</span></h1>
+  <div class="status">
+    <span id="api-text">API 未连接</span>
+    <div id="api-dot" class="dot"></div>
+    <span id="gen-time"></span>
+  </div>
+</header>
+<div class="wrap">
+  <div class="toolbar">
+    <button class="primary" onclick="refreshAll()">🔄 刷新流场</button>
+    <button onclick="location.href='portal-index.html'">← 返回门户</button>
+    <input type="text" id="search" placeholder="🔍 搜索节点 / 触发词 / 端口…" oninput="applySearch(this.value)">
+    <select id="layer-filter" onchange="applyLayer(this.value)">
+      <option value="">全部层级</option>
+    </select>
+    <select id="inject-node">
+      <option value="">选择注入节点…</option>
+    </select>
+    <select id="inject-event">
+      <option value="audit">审计扰动</option>
+      <option value="health">压力注入</option>
+      <option value="resource">力量扰动</option>
+      <option value="trip">熔断冲击波</option>
+      <option value="anomaly">涡旋异常</option>
+      <option value="info">涟漪信息</option>
+    </select>
+    <button onclick="doInject()" title="v2.0 事件注入">⚡ 注入</button>
+    <span class="hint" style="margin-left:auto">点击任意节点 → 右侧查看公式/备注/日志 · 自动刷新 5s</span>
+  </div>
+
+  <div class="stats">
+    <div class="stat gold"><div class="num" id="st-total">0</div><div class="label">节点总数</div></div>
+    <div class="stat on"><div class="num" id="st-up">0</div><div class="label">在线节点</div></div>
+    <div class="stat off"><div class="num" id="st-down">0</div><div class="label">离线节点</div></div>
+    <div class="stat cyan"><div class="num" id="st-edge">0</div><div class="label">协作链路</div></div>
+    <div class="stat gold"><div class="num" id="st-layer">0</div><div class="label">分层</div></div>
+    <div class="stat cyan"><div class="num" id="st-events">0</div><div class="label">注入事件</div></div>
+    <div class="stat gold"><div class="num" id="st-pert">0</div><div class="label">扰动节点</div></div>
+  </div>
+
+  <div class="layout">
+    <div class="card" style="padding:0;overflow:hidden">
+      <div style="padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+        <h2 style="margin:0">🗺️ 执行流场（L0 边界 → L5 外部集成）</h2>
+        <div class="legend" style="margin:0">
+          <span class="item"><span class="sw" style="background:var(--gold)"></span>网关/调度</span>
+          <span class="item"><span class="sw" style="background:var(--cyan)"></span>服务/技能</span>
+          <span class="item"><span class="sw" style="background:var(--red)"></span>闸门</span>
+          <span class="item"><span class="sw" style="background:var(--purple)"></span>人格</span>
+          <span class="item"><span class="sw" style="background:var(--blue)"></span>存储</span>
+          <span class="item"><span class="sw" style="background:var(--orange)"></span>审计</span>
+          <span class="item"><span class="sw" style="background:#78909c"></span>外部</span>
+          <span class="item"><span class="sw" style="background:var(--green);border-radius:50%"></span>在线</span>
+          <span class="item"><span class="sw" style="background:var(--red);border-radius:50%"></span>离线</span>
+        </div>
+      </div>
+      <div class="canvas-wrap" id="canvas-wrap">
+        <svg id="flow-canvas" viewBox="0 0 1450 1000"></svg>
+      </div>
+    </div>
+
+    <div class="detail-panel">
+      <div class="detail" id="detail">
+        <div class="empty">点击左侧任意节点<br>查看 算法公式 · 详细备注 · 触发条件 · 实时日志</div>
+      </div>
+      <div class="detail" style="margin-top:14px">
+        <h3>⚡ 事件注入流 <span class="badge" id="ev-count">0</span></h3>
+        <div class="log" id="event-log" style="height:150px"><div class="empty">暂无注入事件</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>📖 专业术语表（流场架构）</h2>
+    <div class="terms" id="terms"></div>
+  </div>
+</div>
+
+<script>
+const API='http://127.0.0.1:8972';
+const TYPE_COLOR={网关:['#c9a84c','网关'],服务:['#4dd0e1','服务'],闸门:['#f44336','闸门'],人格:['#b388ff','人格'],存储:['#64b5f6','存储'],审计:['#ffa726','审计'],外部:['#78909c','外部'],技能:['#4dd0e1','技能'],调度:['#c9a84c','调度'],安全:['#ff7043','安全']};
+const LAYERS=['L0边界接入','L1路由调度','L2技能服务','L3数据持久','L4审计治理','L5外部集成'];
+const TERMS=[
+  {t:'令牌桶限流',d:'控制请求速率的算法：按固定速率向桶内注入令牌，桶满溢出，取请求需消耗令牌。突发容量=桶大小，持续速率=注入速率。'},
+  {t:'P0 协议检查',d:'龍魂焊死级入口校验：请求必须携带 DNA 头（X-Dragon-DNA），缺失 → 400 拒绝并写耻辱墙。P0=最高优先级不可绕过。'},
+  {t:'DNA 注入',d:'每个请求/产出自动附加追溯码 #龍芯⚡️干支四柱-模块-动作-哈希，实现全链路可溯源。'},
+  {t:'三色审计',d:'🟢通过 / 🟡待核 / 🔴红线。评分 score=Σwᵢ·checkᵢ，≥0.8 绿、0.5~0.8 黄、<0.5 红。'},
+  {t:'数字根闸 GATE-01',d:'dr(n)=1+((n-1) mod 9)。请求 ID 数字根与会话数字根一致才放行，P06 独立复算。'},
+  {t:'身份认证闸 GATE-02',d:'七因子核验：设备指纹→行为DNA→GPG签章→DNA追溯→数字根确认。R1-R5 分级授权。'},
+  {t:'伦理防火墙 GATE-03',d:'L0 四红线扫描（涉童/伪造DNA/背叛人民/越权）。命中 → ∞级熔断全系统冻结。'},
+  {t:'mDNS 发现',d:'多播 DNS：局域网内自动发现服务实例，无需手动配置 IP，协作中枢用此发现对端。'},
+  {t:'SSE / WebSocket',d:'服务端推送：SSE 单向文本流（AI 流式回复），WebSocket 双向长连接（实时双向通信）。'},
+  {t:'TLS 终止',d:'HTTPS 解密在边缘网关完成，后端内部走明文 HTTP，降低后端开销。证书 Let's Encrypt 自动续期。'},
+  {t:'WAF / DDoS 防护',d:'Web 应用防火墙清洗 SQL 注入/XSS/CC 攻击；DDoS 防护流量整形丢弃异常洪水。'},
+  {t:'P99 延迟',d:'99% 请求响应时间不超过该值，衡量长尾性能。目标 <500ms，告警 >1s。'},
+  {t:'哈希链',d:'审计 hₙ=SM3(hₙ₋₁‖eventₙ)：每条含前条哈希，任何篡改破坏整链，防篡改可验证。'},
+  {t:'分层熔断',d:'L0/∞永久冻结 · L1需人工+GPG · L2禁该人格 · L3数字根复算自动恢复。未受影响层继续运行。'},
+  {t:'CORS 放行',d:'跨域资源共享：允许门户（:8088）调用本地 API（:8972）。仅本地回环，不对外开放。'},
+  {t:'KeepAlive 常驻',d:'launchd 配置：进程异常退出自动重启，保证 API 即开即用。服务控制台/流场引擎均常驻。'},
+];
+let allNodes=[],allEdges=[],particles=[],animId=null,selectedId=null;
+
+async function api(path,opts={}){
+  const res=await fetch(API+path,opts).catch(e=>{throw new Error('API 未启动：'+e.message)});
+  if(!res.ok) throw new Error('HTTP '+res.status);
+  return res.json();
+}
+function setApi(ok){document.getElementById('api-dot').className='dot '+(ok?'on':'');document.getElementById('api-text').textContent=ok?'API 已连接':'API 未连接';}
+function toast(msg,type='ok'){const t=document.createElement('div');t.className='toast '+(type==='err'?'err':'ok');t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),3500);}
+function esc(s){return String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+const NODE_POS={
+  'nginx':[430,90],'waf':[720,90],'ssl':[1010,90],
+  'gate-dr':[240,240],'wenxin':[400,240],'router':[520,240],'gate-id':[800,240],'persona-orch':[1080,240],'gate-eth':[1220,240],
+  'search':[200,400],'skill-bus':[460,400],'api-gw':[720,400],'collab':[980,400],'chat-bridge':[1240,400],'memory-api':[200,500],'svc-ctl':[700,500],
+  'store-mem':[480,560],'store-know':[760,560],'store-config':[1040,560],
+  'tricolor':[480,700],'historian':[760,700],'shame-wall':[1040,700],
+  'harmony':[430,840],'ollama':[720,840],'kunpeng':[1010,840],
+};
+const LAYER_Y={'L0边界接入':90,'L1路由调度':240,'L2技能服务':400,'L3数据持久':560,'L4审计治理':700,'L5外部集成':840};
+function nodePos(id){return NODE_POS[id]||[700,400];}
+
+function applySearch(q){
+  q=q.trim().toLowerCase();
+  document.querySelectorAll('#flow-canvas .node').forEach(n=>{
+    const t=(n.dataset.text||'').toLowerCase();
+    n.style.display=(!q||t.includes(q))?'':'none';
+  });
+}
+function applyLayer(v){
+  document.querySelectorAll('#flow-canvas .node').forEach(n=>{
+    n.style.display=(!v||n.dataset.layer===v)?'':'none';
+  });
+}
+
+function render(){
+  const svg=document.getElementById('flow-canvas');
+  const NS='http://www.w3.org/2000/svg';
+  svg.innerHTML='';
+  particles=[];
+  const W=1450,H=1000;
+  const defs=document.createElementNS(NS,'defs');
+  defs.innerHTML=`<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#1a1a28" stroke-width="1"/></pattern><filter id="glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>`;
+  svg.appendChild(defs);
+  const bg=document.createElementNS(NS,'rect');
+  bg.setAttribute('x',0);bg.setAttribute('y',0);bg.setAttribute('width',W);bg.setAttribute('height',H);bg.setAttribute('fill','url(#grid)');
+  svg.appendChild(bg);
+  LAYERS.forEach((l)=>{
+    const y=LAYER_Y[l]-55;
+    const rect=document.createElementNS(NS,'rect');
+    rect.setAttribute('x',20);rect.setAttribute('y',y);rect.setAttribute('width',W-40);rect.setAttribute('height',120);
+    rect.setAttribute('fill','rgba(28,28,42,.35)');rect.setAttribute('rx',12);
+    rect.setAttribute('stroke','rgba(201,168,76,.15)');rect.setAttribute('stroke-dasharray','4 4');
+    svg.appendChild(rect);
+    const lbl=document.createElementNS(NS,'text');
+    lbl.setAttribute('x',40);lbl.setAttribute('y',y+18);lbl.setAttribute('class','layer-label');
+    lbl.textContent=l;
+    svg.appendChild(lbl);
+  });
+  // 边
+  const edgeGroup=document.createElementNS(NS,'g');
+  svg.appendChild(edgeGroup);
+  allEdges.forEach((e,i)=>{
+    const [x1,y1]=nodePos(e.from),[x2,y2]=nodePos(e.to);
+    const midY=(y1+y2)/2;
+    const path=document.createElementNS(NS,'path');
+    path.setAttribute('d',`M ${x1} ${y1+28} C ${x1} ${midY}, ${x2} ${midY}, ${x2} ${y2-28}`);
+    const live=e.type&&(String(e.type).includes('审计')||String(e.type).includes('调用')||String(e.type).includes('同步')||e.weight>=0.95);
+    path.setAttribute('class','edge'+(live?' live':''));
+    path.setAttribute('data-edge',i);
+    if(live){path.setAttribute('stroke-dasharray','6 4');path.style.animation='dashflow 2.5s linear infinite';}
+    path.setAttribute('opacity',live?0.8:0.45);
+    const title=document.createElementNS(NS,'title');
+    title.textContent=`${e.from} → ${e.to} · ${e.type||'协同'}`;
+    path.appendChild(title);
+    edgeGroup.appendChild(path);
+    particles.push({path:i,d:path.getTotalLength(),live});
+  });
+  // 边标签
+  const KEY_TYPES=['/api/*','/collab/*','/chat/*','模型调用','远程同步','审计上报','流式返回'];
+  allEdges.forEach((e,i)=>{
+    if(!KEY_TYPES.includes(e.type)) return;
+    const [x1,y1]=nodePos(e.from),[x2,y2]=nodePos(e.to);
+    const lbl=document.createElementNS(NS,'text');
+    lbl.setAttribute('x',(x1+x2)/2+8);lbl.setAttribute('y',(y1+y2)/2-8);
+    lbl.setAttribute('fill','rgba(201,168,76,.7)');lbl.setAttribute('font-size',9);lbl.setAttribute('text-anchor','middle');
+    lbl.textContent=e.type;
+    svg.appendChild(lbl);
+  });
+  // 节点
+  allNodes.forEach(nd=>{
+    const [x,y]=nodePos(nd.id);
+    const color=(TYPE_COLOR[nd.type]||['#888888',''])[0];
+    const g=document.createElementNS(NS,'g');
+    g.setAttribute('class','node');
+    g.setAttribute('data-layer',nd.layer);
+    g.dataset.text=`${nd.name} ${nd.id} ${nd.type} ${nd.trigger||''} ${nd.desc||''} ${nd.port||''}`;
+    g.setAttribute('transform',`translate(${x},${y})`);
+    const halo=document.createElementNS(NS,'circle');
+    halo.setAttribute('r',32);halo.setAttribute('fill','none');halo.setAttribute('stroke',nd.up?color:'#555');
+    halo.setAttribute('stroke-width',nd.up?2:1);halo.setAttribute('opacity',nd.up?0.4:0.15);
+    halo.style.animation='pulse '+(2+(nd.id.length%3))+'s ease-in-out infinite';
+    g.appendChild(halo);
+    const c=document.createElementNS(NS,'circle');
+    c.setAttribute('r',24);c.setAttribute('fill',nd.up?color:'#2a2a3d');
+    c.setAttribute('stroke',nd.up?'#ffffff':'#555');c.setAttribute('opacity',nd.up?0.95:0.6);
+    if(nd.up)c.style.filter='url(#glow)';
+    g.appendChild(c);
+    // v2.0 扰动/透明度可视化
+    const pert=nd.perturbation||{hits:0,heat:0,pressure:0,vortex:0};
+    const tr=nd.transparency;
+    if(pert.hits>0){
+      const ring=document.createElementNS(NS,'circle');
+      const r=24+Math.min(10,pert.hits*3);
+      ring.setAttribute('r',r);ring.setAttribute('fill','none');
+      ring.setAttribute('stroke',pert.vortex>0?'var(--red)':'var(--orange)');
+      ring.setAttribute('stroke-width',1.5);ring.setAttribute('opacity',0.6+pert.heat*0.4);
+      ring.style.animation='pulse 1.2s ease-in-out infinite';
+      g.appendChild(ring);
+    }
+    if(tr!==undefined&&tr<1.0){
+      c.setAttribute('opacity',Math.max(0.35,0.95*tr));
+      const tBadge=document.createElementNS(NS,'text');
+      tBadge.setAttribute('x',24);tBadge.setAttribute('y',-10);
+      tBadge.setAttribute('fill',tr<0.5?'var(--red)':'var(--yellow)');
+      tBadge.setAttribute('font-size',9);tBadge.setAttribute('text-anchor','middle');
+      tBadge.textContent='透:'+tr.toFixed(2);
+      g.appendChild(tBadge);
+    }
+    const dot=document.createElementNS(NS,'circle');
+    dot.setAttribute('cx',16);dot.setAttribute('cy',-16);dot.setAttribute('r',5);
+    dot.setAttribute('class',nd.up?'up-dot':'down-dot');
+    g.appendChild(dot);
+    if(nd.port>0){
+      const pt=document.createElementNS(NS,'text');
+      pt.setAttribute('x',-20);pt.setAttribute('y',30);
+      pt.setAttribute('fill',nd.up?'#4dd0e1':'#666');pt.setAttribute('font-size',9);pt.setAttribute('text-anchor','middle');
+      pt.textContent=':'+nd.port;
+      g.appendChild(pt);
+    }
+    const t=document.createElementNS(NS,'text');
+    t.setAttribute('class','name');t.setAttribute('x',0);t.setAttribute('y',52);
+    t.textContent=nd.name;
+    g.appendChild(t);
+    const t2=document.createElementNS(NS,'text');
+    t2.setAttribute('class','type');t2.setAttribute('x',0);t2.setAttribute('y',66);
+    t2.textContent=nd.type+(nd.up?' ●':' ○');
+    t2.setAttribute('fill',nd.up?color:'#666');
+    g.appendChild(t2);
+    g.addEventListener('click',()=>selectNode(nd.id));
+    svg.appendChild(g);
+  });
+}
+
+async function selectNode(id){
+  selectedId=id;
+  try{
+    const nd=await api('/node?id='+encodeURIComponent(id)+'&n=80');
+    const logs=nd.logs||[];
+    let html=`<h3><span class="dot ${nd.up?'on':''}" style="width:9px;height:9px"></span> ${esc(nd.name)} <span class="badge ${nd.up?'on':'off'}">${nd.up?'在线':'离线'}</span></h3>`;
+    html+=`<div class="meta">[${esc(nd.id)}] · ${esc(nd.layer)} · ${esc(nd.type)}${nd.port?` · 端口 :${nd.port}`:''} · ${esc((nd.status&&nd.status.detail)||'')}</div>`;
+    html+=`<div class="block"><div class="bh">🧮 算法公式</div><div class="formula">${esc(nd.formula)}</div></div>`;
+    if(nd.extra) html+=`<div class="block"><div class="bh">➕ 附加公式</div><div class="formula">${esc(nd.extra)}</div></div>`;
+    html+=`<div class="block"><div class="bh">📝 详细备注</div><div class="desc">${esc(nd.desc)}</div></div>`;
+    html+=`<div class="block"><div class="bh">⚡ 触发条件</div><div class="trigger">${esc(nd.trigger)}</div></div>`;
+    const pert=nd.perturbation||{};
+    if(pert.hits!==undefined){
+      html+=`<div class="block"><div class="bh">🔆 v2.0 扰动指标</div><div class="formula">热力 ${pert.heat||0} · 压力 ${pert.pressure||0} · 涡旋 ${pert.vortex||0} · 命中 ${pert.hits||0} 次</div></div>`;
+    }
+    if(nd.transparency!==undefined){
+      const tcol=nd.transparency<0.5?'var(--red)':(nd.transparency<1?'var(--yellow)':'var(--green)');
+      html+=`<div class="block"><div class="bh">👁 透明度审计</div><div class="desc" style="color:${tcol}">${nd.transparency.toFixed(3)} / 1.000（负面注入按风险衰减）</div></div>`;
+    }
+    html+=`<div class="block"><div class="bh">📜 实时日志</div><div class="log">${logs.length?logs.map(l=>`<div class="line">[${esc(l.source)}] ${esc(l.line)}</div>`).join(''):'<div class="empty">该节点无日志源</div>'}</div></div>`;
+    document.getElementById('detail').innerHTML=html;
+  }catch(e){toast('节点详情加载失败：'+e.message,'err');}
+}
+
+// 粒子动画：沿边流动
+function animateParticles(){
+  cancelAnimationFrame(animId);
+  const svg=document.getElementById('flow-canvas');
+  const NS='http://www.w3.org/2000/svg';
+  if(!svg.querySelector('g')) return;
+  const paths=svg.querySelectorAll('.edge');
+  particles.forEach((p,i)=>{
+    if(!paths[p.path]) return;
+    const t=(performance.now()/1000*(0.25+(i%3)*0.1)+(i*0.13))%1;
+    let el=svg.querySelector('#p'+i);
+    if(!el){
+      el=document.createElementNS(NS,'circle');
+      el.setAttribute('id','p'+i);el.setAttribute('r',2.5);el.setAttribute('class','particle'+(p.live?'':' red'));
+      el.style.opacity=p.live?0.9:0.3;
+      svg.appendChild(el);
+    }
+    try{
+      const pt=paths[p.path].getPointAtLength(t*p.d);
+      el.setAttribute('cx',pt.x);el.setAttribute('cy',pt.y);
+    }catch(e){}
+  });
+  animId=requestAnimationFrame(animateParticles);
+}
+
+function renderTerms(){
+  document.getElementById('terms').innerHTML=TERMS.map(t=>`<div class="term"><div class="t">${esc(t.t)}</div><div class="d">${esc(t.d)}</div></div>`).join('');
+}
+
+async function doInject(){
+  const node=document.getElementById('inject-node').value;
+  if(!node){toast('请先选择注入节点','err');return;}
+  const event=document.getElementById('inject-event').value;
+  try{
+    let tok='';
+    try{const t=await api('/token');tok=t.token||'';}catch(e){}
+    const r=await api('/inject',{method:'POST',headers:{'Content-Type':'application/json','X-LH-Token':tok},body:JSON.stringify({source:node,event:event,intensity:0.8})});
+    toast(`⚡ ${r.injection.label} → ${node}（${r.injection.tricolor}）`);
+    refreshEvents();refreshAll();
+  }catch(e){toast('注入失败：'+e.message,'err');}
+}
+
+async function refreshEvents(){
+  try{
+    const r=await api('/events?n=12');
+    const evs=r.events||[];
+    document.getElementById('ev-count').textContent=r.count||0;
+    const el=document.getElementById('event-log');
+    if(!evs.length){el.innerHTML='<div class="empty">暂无注入事件</div>';return;}
+    el.innerHTML=evs.map(e=>`<div class="line" style="color:${e.tricolor==='🔴'?'var(--red)':e.tricolor==='🟡'?'var(--yellow)':'var(--green)'}">[${esc(e.time.slice(11,19))}] ${esc(e.effect)} · ${esc(e.label)} → ${esc(e.source)} (${e.intensity})</div>`).join('');
+  }catch(e){}
+}
+
+async function refreshAll(){
+  try{
+    const data=await api('/topology');
+    allNodes=data.nodes||[];allEdges=data.edges||[];
+    const injectSel=document.getElementById('inject-node');
+    if(injectSel.options.length<=1){
+      allNodes.forEach(n=>{const o=document.createElement('option');o.value=n.id;o.textContent=n.name;injectSel.appendChild(o);});
+    }
+    const pertCount=allNodes.filter(n=>(n.perturbation||{}).hits>0).length;
+    document.getElementById('st-pert').textContent=pertCount;
+    // 统计
+    const up=allNodes.filter(n=>n.up).length;
+    document.getElementById('st-total').textContent=allNodes.length;
+    document.getElementById('st-up').textContent=up;
+    document.getElementById('st-down').textContent=allNodes.length-up;
+    document.getElementById('st-edge').textContent=allEdges.length;
+    const layerSet=new Set(allNodes.map(n=>n.layer));
+    document.getElementById('st-layer').textContent=layerSet.size;
+    document.getElementById('gen-time').textContent='生成于 '+new Date(data.generated).toLocaleTimeString('zh-CN',{hour12:false});
+    // 层筛选
+    const sel=document.getElementById('layer-filter');
+    const cur=sel.value;
+    const opts=['<option value="">全部层级</option>'].concat([...layerSet].map(l=>`<option>${l}</option>`)).join('');
+    if(sel.innerHTML!==opts){sel.innerHTML=opts;sel.value=cur;}
+    render();
+    if(selectedId) selectNode(selectedId);
+    setApi(true);
+  }catch(e){
+    setApi(false);
+    document.getElementById('st-total').textContent='—';
+    document.getElementById('detail').innerHTML=`<div class="empty">API 连接失败<br>${esc(e.message)}<br><br>启动命令：<br><span class="code">python3 08_BIN/lh_flow_field.py api</span></div>`;
+  }
+}
+
+renderTerms();
+refreshAll();
+refreshEvents();
+setInterval(refreshAll,5000);
+setInterval(refreshEvents,3000);
+</script>
+</body>
+</html>

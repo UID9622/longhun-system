@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂·统一视觉色彩协议 | 一看颜色就知道优先级</title>
+<style>
+/* ═══════════════════════════════════════════
+   龍魂·统一视觉色彩协议 v1.0 · CSS色板
+   DNA: #龍芯⚡️丙午·乙未·庚戌·壬午·䷫姤-UNIFIED-VISUAL-V1.0
+   ═══════════════════════════════════════════ */
+:root {
+  --bg:#0a0a0c; --panel:#121216; --panel2:#18181e;
+  --gold:#d4af37; --gold-dim:#8a742a; --gold-hi:#ffd968;
+  --gray:#9aa0a6; --text:#e8e4d8; --text-dim:#a09a8a; --border:#2a2a30;
+
+  /* 八色统一色阶 */
+  --uv-p0:#e5484d;--uv-p0-bg:#2d0a0c;--uv-p0-border:#8b2024;--uv-p0-glow:0 0 12px rgba(229,72,77,.7);
+  --uv-p1:#1a1a20;--uv-p1-bg:#000000;--uv-p1-border:#3a3a44;
+  --uv-p2:#9b59b6;--uv-p2-bg:#1a1020;--uv-p2-border:#6c3483;--uv-p2-glow:0 0 10px rgba(155,89,182,.5);
+  --uv-p3:#d4af37;--uv-p3-bg:#141310;--uv-p3-border:#8a742a;--uv-p3-glow:0 0 14px rgba(212,175,55,.6);
+  --uv-p4:#3498db;--uv-p4-bg:#0d1b2a;--uv-p4-border:#1a5276;--uv-p4-glow:0 0 10px rgba(52,152,219,.4);
+  --uv-p5:#f1c40f;--uv-p5-bg:#1a1808;--uv-p5-border:#8a7e0a;--uv-p5-glow:0 0 10px rgba(241,196,15,.5);
+  --uv-p6:#9aa0a6;--uv-p6-bg:#121216;--uv-p6-border:#5c6066;--uv-p6-glow:0 0 6px rgba(154,160,166,.3);
+  --uv-p7:#27ae60;--uv-p7-bg:#0a1a10;--uv-p7-border:#1a6e3a;--uv-p7-glow:0 0 8px rgba(39,174,96,.4);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",sans-serif;min-height:100vh;}
+header{border-bottom:1px solid var(--gold-dim);padding:18px 28px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;background:linear-gradient(180deg,#141310,var(--bg));}
+h1{font-size:22px;letter-spacing:3px;color:var(--gold);}
+h1 .sub{display:block;font-size:11px;letter-spacing:1px;color:var(--text-dim);margin-top:4px;font-weight:normal;}
+.dna{font-size:11px;color:var(--gold-dim);font-family:monospace;text-align:right;line-height:1.6;}
+nav{display:flex;border-bottom:1px solid var(--border);background:var(--panel);}
+nav button{flex:1;max-width:240px;padding:14px;background:none;border:none;border-right:1px solid var(--border);color:var(--text-dim);font-size:14px;letter-spacing:2px;cursor:pointer;transition:.2s;}
+nav button.active{color:var(--gold);background:var(--panel2);box-shadow:inset 0 -2px 0 var(--gold);}
+nav button:hover{color:var(--gold-hi);}
+section.tab{display:none;padding:24px 28px;max-width:1200px;margin:0 auto;}
+section.tab.active{display:block;}
+h2{color:var(--gold);font-size:17px;letter-spacing:2px;margin:24px 0 12px;border-left:3px solid var(--gold);padding-left:10px;}
+h2:first-child{margin-top:0;}
+p,li{font-size:14px;line-height:1.9;}
+/* ═══════ 色阶阶梯 ═══════ */
+.ladder{display:flex;flex-direction:column;gap:8px;margin:18px 0;}
+.ladder-item{display:flex;align-items:center;gap:14px;padding:12px 16px;border-radius:8px;cursor:pointer;transition:.2s;position:relative;overflow:hidden;}
+.ladder-item:hover{transform:translateX(4px);}
+.ladder-rank{font-size:20px;font-weight:bold;min-width:32px;text-align:center;}
+.ladder-dot{width:16px;height:16px;border-radius:50%;flex-shrink:0;}
+.ladder-name{font-size:15px;font-weight:bold;min-width:70px;letter-spacing:2px;}
+.ladder-desc{font-size:13px;color:var(--text-dim);flex:1;}
+.ladder-from{font-size:10px;color:var(--text-dim);opacity:.6;}
+
+.ladder-item.p0{background:var(--uv-p0-bg);border:1px solid var(--uv-p0-border);}
+.ladder-item.p0 .ladder-dot{background:var(--uv-p0);box-shadow:var(--uv-p0-glow);animation:pulse-red 1.2s infinite;}
+.ladder-item.p0 .ladder-name{color:var(--uv-p0);}
+.ladder-item.p1{background:var(--uv-p1-bg);border:1px solid var(--uv-p1-border);}
+.ladder-item.p1 .ladder-dot{background:var(--uv-p1);}
+.ladder-item.p1 .ladder-name{color:#8888a0;}
+.ladder-item.p2{background:var(--uv-p2-bg);border:1px dashed var(--uv-p2-border);}
+.ladder-item.p2 .ladder-dot{background:var(--uv-p2);box-shadow:var(--uv-p2-glow);}
+.ladder-item.p2 .ladder-name{color:var(--uv-p2);}
+.ladder-item.p3{background:var(--uv-p3-bg);border:1px solid var(--uv-p3-border);}
+.ladder-item.p3 .ladder-dot{background:var(--uv-p3);box-shadow:var(--uv-p3-glow);animation:glow-gold 2s infinite;}
+.ladder-item.p3 .ladder-name{color:var(--uv-p3);}
+.ladder-item.p4{background:var(--uv-p4-bg);border:1px solid var(--uv-p4-border);}
+.ladder-item.p4 .ladder-dot{background:var(--uv-p4);box-shadow:var(--uv-p4-glow);animation:pulse-blue 2s infinite;}
+.ladder-item.p4 .ladder-name{color:var(--uv-p4);}
+.ladder-item.p5{background:var(--uv-p5-bg);border:1px solid var(--uv-p5-border);}
+.ladder-item.p5 .ladder-dot{background:var(--uv-p5);box-shadow:var(--uv-p5-glow);animation:blink-yellow 2.5s infinite;}
+.ladder-item.p5 .ladder-name{color:var(--uv-p5);}
+.ladder-item.p6{background:var(--uv-p6-bg);border:1px dashed var(--uv-p6-border);}
+.ladder-item.p6 .ladder-dot{background:var(--uv-p6);}
+.ladder-item.p6 .ladder-name{color:var(--uv-p6);}
+.ladder-item.p7{background:var(--uv-p7-bg);border:1px solid var(--uv-p7-border);}
+.ladder-item.p7 .ladder-dot{background:var(--uv-p7);box-shadow:var(--uv-p7-glow);}
+.ladder-item.p7 .ladder-name{color:var(--uv-p7);}
+
+/* ═══════ 跑马灯色带演示 ═══════ */
+.marquee-demo{margin:18px 0;}
+.band-row{display:flex;align-items:center;gap:14px;margin:10px 0;font-size:13px;}
+.band{height:6px;border-radius:3px;flex:1;transition:all .3s;}
+.band.p0{background:var(--uv-p0);animation:pulse-red 1.2s infinite;}
+.band.p3{background:var(--uv-p3);animation:glow-gold 2s infinite;}
+.band.p4{background:var(--uv-p4);animation:pulse-blue 2s infinite;}
+.band.p5{background:var(--uv-p5);animation:blink-yellow 2.5s infinite;}
+.band.p2{background:var(--uv-p2);}
+.band.p6{background:var(--uv-p6);opacity:.5;}
+.band.p7{background:var(--uv-p7);}
+.band.p1{background:var(--uv-p1);height:8px;}
+
+/* ═══════ 快速判断卡 ═══════ */
+.quick-card{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin:16px 0;}
+.qc{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:14px;text-align:center;transition:.2s;}
+.qc:hover{border-color:var(--gold-dim);}
+.qc-emoji{font-size:28px;margin-bottom:6px;}
+.qc-name{font-size:13px;font-weight:bold;letter-spacing:2px;}
+.qc-action{font-size:11px;color:var(--text-dim);margin-top:4px;}
+
+/* ═══════ 融合溯源表 ═══════ */
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;}
+th,td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+th{background:var(--panel2);color:var(--gold);letter-spacing:1px;font-size:12px;}
+td.yes{color:var(--uv-p7);}
+td.no{color:var(--text-dim);opacity:.4;}
+
+/* ═══════ 批量判定器 ═══════ */
+textarea{width:100%;min-height:180px;background:#000;color:var(--text);border:1px solid var(--border);border-radius:6px;padding:14px;font-size:14px;line-height:1.8;font-family:monospace;resize:vertical;}
+.btn{background:var(--gold);color:#000;border:none;padding:10px 24px;font-size:14px;letter-spacing:2px;cursor:pointer;border-radius:4px;margin:12px 8px 12px 0;font-weight:bold;}
+.btn.ghost{background:none;border:1px solid var(--gold-dim);color:var(--gold);}
+.btn:hover{opacity:.85;}
+.result-line{display:flex;align-items:baseline;gap:10px;padding:10px 14px;border-bottom:1px solid #1c1c20;font-size:14px;line-height:1.7;border-left:4px solid transparent;margin:2px 0;border-radius:0 4px 4px 0;}
+.result-line.p0{border-left-color:var(--uv-p0);background:var(--uv-p0-bg)}
+.result-line.p1{border-left-color:var(--uv-p1);background:var(--uv-p1-bg)}
+.result-line.p2{border-left-color:var(--uv-p2);background:var(--uv-p2-bg);border-left-style:dashed}
+.result-line.p3{border-left-color:var(--uv-p3);background:var(--uv-p3-bg)}
+.result-line.p4{border-left-color:var(--uv-p4);background:var(--uv-p4-bg)}
+.result-line.p5{border-left-color:var(--uv-p5);background:var(--uv-p5-bg)}
+.result-line.p6{border-left-color:var(--uv-p6);background:var(--uv-p6-bg);border-left-style:dashed}
+.result-line.p7{border-left-color:var(--uv-p7);background:var(--uv-p7-bg)}
+.uv-badge{display:inline-block;padding:2px 10px;border-radius:4px;font-size:11px;font-weight:bold;letter-spacing:1px;white-space:nowrap;}
+.uv-badge.p0{background:var(--uv-p0);color:#fff;animation:pulse-red 1.2s infinite;}
+.uv-badge.p1{background:var(--uv-p1);color:#8888a0;border:1px solid var(--uv-p1-border);}
+.uv-badge.p2{background:var(--uv-p2-bg);color:#d2b4de;border:1px dashed var(--uv-p2);}
+.uv-badge.p3{background:var(--uv-p3);color:#000;box-shadow:var(--uv-p3-glow);}
+.uv-badge.p4{background:var(--uv-p4-bg);color:#aed6f1;border:1px solid var(--uv-p4-border);}
+.uv-badge.p5{background:var(--uv-p5-bg);color:#f9e79f;border:1px solid var(--uv-p5-border);animation:blink-yellow 2.5s infinite;}
+.uv-badge.p6{background:var(--uv-p6-bg);color:#c8cdd2;border:1px dashed var(--uv-p6-border);}
+.uv-badge.p7{background:var(--uv-p7-bg);color:#a9dfbf;border:1px solid var(--uv-p7-border);}
+
+.stats{display:flex;gap:14px;margin:10px 0;flex-wrap:wrap;}
+.stat-item{font-size:12px;padding:4px 10px;border-radius:4px;font-weight:bold;display:flex;align-items:center;gap:4px;}
+
+footer{border-top:1px solid var(--border);padding:16px 28px;font-size:11px;color:var(--text-dim);text-align:center;letter-spacing:1px;}
+
+/* ═══════ 动画 ═══════ */
+@keyframes pulse-red{0%,100%{opacity:1;box-shadow:0 0 12px rgba(229,72,77,.7)}50%{opacity:.55;box-shadow:0 0 4px rgba(229,72,77,.3)}}
+@keyframes glow-gold{0%,100%{box-shadow:0 0 8px rgba(212,175,55,.4)}50%{box-shadow:0 0 18px rgba(212,175,55,.8)}}
+@keyframes pulse-blue{0%,100%{opacity:1}50%{opacity:.7}}
+@keyframes blink-yellow{0%,100%{opacity:1}50%{opacity:.6}}
+</style>
+</head>
+<body>
+<header>
+  <h1>🐉 龍魂 · 统一视觉色彩协议<span class="sub">UNIFIED VISUAL COLOR PROTOCOL · 一看颜色就知道优先级 · v1.0</span></h1>
+  <div class="dna">#龍芯⚡️丙午·乙未·庚戌·天风姤-UNIFIED-VISUAL-V1.0<br>融合: 三色审计·五色治理·七色不动点·真实协议·五彩石·跑马灯<br>UID9622</div>
+</header>
+<nav>
+  <button class="active" onclick="showTab(0,this)">◈ 色阶阶梯</button>
+  <button onclick="showTab(1,this)">◈ 融合溯源</button>
+  <button onclick="showTab(2,this)">◈ 跑马灯色带</button>
+  <button onclick="showTab(3,this)">◈ 批量判定器</button>
+  <button onclick="showTab(4,this)">◈ 快速判断卡</button>
+</nav>
+
+<!-- Tab 0: 色阶阶梯 -->
+<section class="tab active">
+<h2>P1 · 统一色阶阶梯（上=紧急·下=放行）</h2>
+<p style="color:var(--text-dim);margin-bottom:14px">看颜色就知道优先级。红 = 立即停！绿 = 一切OK。每条色阶从哪个原始体系来的，一目了然。</p>
+<div class="ladder">
+  <div class="ladder-item p0">
+    <span class="ladder-rank">P0</span><div class="ladder-dot"></div>
+    <span class="ladder-name">🔴 断空红</span>
+    <span class="ladder-desc">熔断·红线·立即停 — 涉童/伪造DNA/背叛人民/安全攻击</span>
+    <span class="ladder-from">← 三色🔴·五色R·七色🔴·真实协议疑</span>
+  </div>
+  <div class="ladder-item p1">
+    <span class="ladder-rank">P1</span><div class="ladder-dot"></div>
+    <span class="ladder-name">⚫ 深渊黑</span>
+    <span class="ladder-desc">隔离·机密·永久禁 — D1数据·私钥·永久熔断</span>
+    <span class="ladder-from">← 五色K·七色涉密·五彩石黑</span>
+  </div>
+  <div class="ladder-item p2">
+    <span class="ladder-rank">P2</span><div class="ladder-dot"></div>
+    <span class="ladder-name">🟣 观察紫</span>
+    <span class="ladder-desc">外部·未审·观察池 — 新模块·外部输入·未经验证</span>
+    <span class="ladder-from">← 七色外部输入</span>
+  </div>
+  <div class="ladder-item p3">
+    <span class="ladder-rank">P3</span><div class="ladder-dot"></div>
+    <span class="ladder-name">🟡 主权金</span>
+    <span class="ladder-desc">主控·实证·已授权 — 真实来源·UID9622签章·数字根吻合</span>
+    <span class="ladder-from">← 五色AU·七色授权·真实协议实·五彩石黄</span>
+  </div>
+  <div class="ladder-item p4">
+    <span class="ladder-rank">P4</span><div class="ladder-dot"></div>
+    <span class="ladder-name">🔵 追踪蓝</span>
+    <span class="ladder-desc">系统·审计·运维 — 系统内部·审计记录·健康检查</span>
+    <span class="ladder-from">← 七色系统·五彩石青</span>
+  </div>
+  <div class="ladder-item p5">
+    <span class="ladder-rank">P5</span><div class="ladder-dot"></div>
+    <span class="ladder-name">🟡 待核黄</span>
+    <span class="ladder-desc">待查·警告·需复查 — 审计待核·数据源不明·权重偏移</span>
+    <span class="ladder-from">← 三色🟡·五色Y·七色待检</span>
+  </div>
+  <div class="ladder-item p6">
+    <span class="ladder-rank">P6</span><div class="ladder-dot"></div>
+    <span class="ladder-name">⚪ 过渡银</span>
+    <span class="ladder-desc">演绎·AI生成·扫描中 — 情景演绎·模型输出·跑马灯态</span>
+    <span class="ladder-from">← 七色评估·真实协议演·五彩石白</span>
+  </div>
+  <div class="ladder-item p7">
+    <span class="ladder-rank">P7</span><div class="ladder-dot"></div>
+    <span class="ladder-name">🟢 放行绿</span>
+    <span class="ladder-desc">通过·安全·一切正常 — 全审计通过·无告警·数字根正确</span>
+    <span class="ladder-from">← 三色🟢·五色G·七色放行</span>
+  </div>
+</div>
+</section>
+
+<!-- Tab 1: 融合溯源 -->
+<section class="tab">
+<h2>P2 · 色阶融合溯源表</h2>
+<p style="color:var(--text-dim);margin-bottom:14px">每个统色来自哪些原始体系的哪一档，全透明。</p>
+<table>
+<tr><th>统一色</th><th>三色审计</th><th>五色治理</th><th>七色不动点</th><th>真实协议</th><th>五彩石</th><th>跑马灯</th></tr>
+<tr><td>🔴 断空红</td><td class="yes">🔴红线</td><td class="yes">🔴否决R</td><td class="yes">🔴阻断</td><td class="yes">🔴疑</td><td class="yes">🔴红</td><td class="no">—</td></tr>
+<tr><td>⚫ 深渊黑</td><td class="no">—</td><td class="yes">⚫黑K</td><td class="yes">⚫涉密</td><td class="no">—</td><td class="yes">⚫黑</td><td class="no">—</td></tr>
+<tr><td>🟣 观察紫</td><td class="no">—</td><td class="no">—</td><td class="yes">🟣外部</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+<tr><td>🟡 主权金</td><td class="no">—</td><td class="yes">🟡金AU</td><td class="yes">🟡授权</td><td class="yes">🟡实</td><td class="yes">🟡黄</td><td class="no">—</td></tr>
+<tr><td>🔵 追踪蓝</td><td class="no">—</td><td class="no">—</td><td class="yes">🔵系统</td><td class="no">—</td><td class="yes">🔵青</td><td class="no">—</td></tr>
+<tr><td>🟡 待核黄</td><td class="yes">🟡待核</td><td class="yes">🟡黄Y</td><td class="yes">🟡待检</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+<tr><td>⚪ 过渡银</td><td class="no">—</td><td class="no">—</td><td class="yes">⚪评估</td><td class="yes">⚪演</td><td class="yes">⚪白</td><td class="yes">⚪跑</td></tr>
+<tr><td>🟢 放行绿</td><td class="yes">🟢通过</td><td class="yes">🟢绿G</td><td class="yes">🟢放行</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+</table>
+</section>
+
+<!-- Tab 2: 跑马灯色带 -->
+<section class="tab">
+<h2>P3 · 跑马灯色带演示</h2>
+<p style="color:var(--text-dim);margin-bottom:14px">色带动画 = 实时状态。闪烁=异常，脉冲=处理中，常驻=稳定，虚线=不是真的。</p>
+<div class="marquee-demo">
+  <div class="band-row"><span style="width:90px">🔴 断空红</span><div class="band p0"></div><span style="font-size:11px;color:var(--text-dim)">呼吸闪烁 1.2s</span></div>
+  <div class="band-row"><span style="width:90px">⚫ 深渊黑</span><div class="band p1"></div><span style="font-size:11px;color:var(--text-dim)">常驻·厚条</span></div>
+  <div class="band-row"><span style="width:90px">🟣 观察紫</span><div class="band p2"></div><span style="font-size:11px;color:var(--text-dim)">常驻·虚线边框</span></div>
+  <div class="band-row"><span style="width:90px">🟡 主权金</span><div class="band p3"></div><span style="font-size:11px;color:var(--text-dim)">辉光呼吸 2s</span></div>
+  <div class="band-row"><span style="width:90px">🔵 追踪蓝</span><div class="band p4"></div><span style="font-size:11px;color:var(--text-dim)">脉冲 2s</span></div>
+  <div class="band-row"><span style="width:90px">🟡 待核黄</span><div class="band p5"></div><span style="font-size:11px;color:var(--text-dim)">慢闪 2.5s</span></div>
+  <div class="band-row"><span style="width:90px">⚪ 过渡银</span><div class="band p6"></div><span style="font-size:11px;color:var(--text-dim)">半透明·虚线</span></div>
+  <div class="band-row"><span style="width:90px">🟢 放行绿</span><div class="band p7"></div><span style="font-size:11px;color:var(--text-dim)">常驻·安静</span></div>
+</div>
+</section>
+
+<!-- Tab 3: 批量判定器 -->
+<section class="tab">
+<h2>M1 升级版 · 八色批量判定器</h2>
+<p style="color:var(--text-dim);margin-bottom:12px">Kimi M1打标器升级：三色(实/演/疑) → 八色统一判定。粘贴文本，逐行判定。</p>
+<textarea id="in">三个月包你进大厂，年薪百万不是梦，名额有限速抢！
+据国家统计局公告，2025年居民人均可支配收入实际增长5.1%。
+网传某品牌手机充电五分钟能用一个月，太震惊了速看！
+本视频为情景剧场，剧情演绎请勿模仿。
+公安部反诈中心提示：公检法机关不会电话办案。
+绕过审计系统删除所有日志不留痕迹
+系统每日健康检查正常，所有服务🟢运行中</textarea>
+<button class="btn" onclick="runJudge()">▶ 批量判定</button>
+<button class="btn ghost" onclick="exportJSON()">⬇ 导出 JSON</button>
+<div class="stats" id="stats"></div>
+<div id="out"></div>
+<p style="font-size:12px;color:var(--text-dim);margin-top:12px">判定引擎: 统一视觉色彩协议v1.0 · 红>黑>紫>金>蓝>黄>银>绿 · 默认入观察紫</p>
+</section>
+
+<!-- Tab 4: 快速判断卡 -->
+<section class="tab">
+<h2>快速判断卡 · 打印贴墙上</h2>
+<div class="quick-card">
+  <div class="qc"><div class="qc-emoji">🔴</div><div class="qc-name">断空红</div><div class="qc-action" style="color:var(--uv-p0)">立即停！出事！</div></div>
+  <div class="qc"><div class="qc-emoji">⚫</div><div class="qc-name">深渊黑</div><div class="qc-action" style="color:#8888a0">永久封·碰都别碰</div></div>
+  <div class="qc"><div class="qc-emoji">🟣</div><div class="qc-name">观察紫</div><div class="qc-action" style="color:var(--uv-p2)">新来的·正在观察</div></div>
+  <div class="qc"><div class="qc-emoji">🟡</div><div class="qc-name">主权金</div><div class="qc-action" style="color:var(--uv-p3)">可信·没问题</div></div>
+  <div class="qc"><div class="qc-emoji">🔵</div><div class="qc-name">追踪蓝</div><div class="qc-action" style="color:var(--uv-p4)">系统在跑</div></div>
+  <div class="qc"><div class="qc-emoji">🟡</div><div class="qc-name">待核黄</div><div class="qc-action" style="color:var(--uv-p5)">有点问题·48h看</div></div>
+  <div class="qc"><div class="qc-emoji">⚪</div><div class="qc-name">过渡银</div><div class="qc-action" style="color:var(--uv-p6)">演的/临时的</div></div>
+  <div class="qc"><div class="qc-emoji">🟢</div><div class="qc-name">放行绿</div><div class="qc-action" style="color:var(--uv-p7)">全过·安心</div></div>
+</div>
+<h2>判定口诀</h2>
+<p style="background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:18px;font-size:15px;line-height:2.2;letter-spacing:1px;">
+红 = 立即停 · 黑 = 永久封 · 紫 = 新来的<br>
+金 = 可信 · 蓝 = 在跑 · 黄 = 有问题<br>
+银 = 演的 · 绿 = 全过<br>
+<span style="color:var(--uv-p0)">闪烁 = 异常→快去处理</span> · <span style="color:var(--uv-p7)">常驻 = 稳定→不用管</span><br>
+<span style="color:var(--uv-p6)">虚线 = 不是真的→别信</span> · <span style="color:var(--uv-p3)">辉光 = 已确认→可用</span>
+</p>
+</section>
+
+<footer>龍魂系统 UID9622 · 统一视觉色彩协议 V1.0 · 融合: 三色审计·五色治理·七色不动点·真实协议·五彩石·跑马灯 · 免费开源 · 零黑箱</footer>
+
+<script>
+// ═══════════════════════════════════════════
+// 前端判定引擎（与Python引擎规则对齐）
+// ═══════════════════════════════════════════
+
+const P0_TRIGGERS = [
+  /儿童.*色情/i, /未成年.*性/i, /伪造.*DNA/i, /fake.*dna/i,
+  /假冒.*龍魂/i, /背叛.*人民/i, /卖.*用户数据/i, /收割.*老百姓/i,
+  /海外.*部署.*内核/i, /对外.*渗透.*测试/i, /技术无国界/i,
+  /简化管理.*安全/i, /灵活处理.*协议/i, /国际接轨.*标准/i,
+  /商业化.*用户数据/i, /绕过.*审计/i, /跳过.*签名/i, /删.*日志/i, /去.*水印/i,
+];
+
+const P1_TRIGGERS = [
+  /D1.*数据/i, /GPG.*私钥/i, /DNA.*种子/i, /quantum_key/i,
+  /绝密.*泄露/i, /永不.*对外/i,
+];
+
+const LEVELS = {
+  P0: {name:'断空红',emoji:'🔴',css:'p0', reason:''},
+  P1: {name:'深渊黑',emoji:'⚫',css:'p1', reason:''},
+  P2: {name:'观察紫',emoji:'🟣',css:'p2', reason:'默认·待观察·入观察池'},
+  P3: {name:'主权金',emoji:'🟡',css:'p3', reason:''},
+  P4: {name:'追踪蓝',emoji:'🔵',css:'p4', reason:''},
+  P5: {name:'待核黄',emoji:'🟡',css:'p5', reason:''},
+  P6: {name:'过渡银',emoji:'⚪',css:'p6', reason:''},
+  P7: {name:'放行绿',emoji:'🟢',css:'p7', reason:''},
+};
+
+function judgeLine(text) {
+  // P0 scan
+  for (const p of P0_TRIGGERS) {
+    if (p.test(text)) return {...LEVELS.P0, reason: '触发P0红线'};
+  }
+  // P1 scan
+  for (const p of P1_TRIGGERS) {
+    if (p.test(text)) return {...LEVELS.P1, reason: '触发D1/P1'};
+  }
+
+  // 真实性关键词判定
+  const hasVerifiedSource = /来源[：:]\s*(国家|政府|公安部|官方|法院|统计局|央行|卫健委)/i.test(text) ||
+    /据\S{2,6}(公告|发布|统计|通报)/.test(text) ||
+    /(国家|政府|公安部|官方|法院|统计局)/.test(text);
+
+  const isAiGenerated = /情景剧场|剧情演绎|请勿模仿|AI生成|模拟/i.test(text);
+  const isRumor = /网传|据说|听说|内部消息|惊天|震惊|速看|不看后悔/i.test(text);
+  const isSystemLog = /健康检查|服务.*运行|🟢|审计|运维|日志/i.test(text);
+  const hasAuditYellow = /待核|需复查|🟡|待确认|复查/i.test(text);
+  const hasAuditRed = /红线|🔴|熔断|泄露|攻击|入侵|异常.*检测/i.test(text);
+
+  if (hasAuditRed) return {...LEVELS.P0, reason: '审计红线检测'};
+  if (hasAuditYellow) return {...LEVELS.P5, reason: '审计待核'};
+  if (hasVerifiedSource) return {...LEVELS.P3, reason: '已验证来源'};
+  if (isAiGenerated) return {...LEVELS.P6, reason: 'AI生成/情景演绎'};
+  if (isSystemLog) return {...LEVELS.P4, reason: '系统运维'};
+  if (isRumor) return {...LEVELS.P2, reason: '网传·未验证'};
+
+  // Default
+  return {...LEVELS.P2, reason: '默认·待观察'};
+}
+
+function runJudge() {
+  const lines = document.getElementById('in').value.split('\n').map(l=>l.trim()).filter(Boolean);
+  const results = lines.map(l => ({text:l, ...judgeLine(l)}));
+  const counts = {};
+  results.forEach(r => { counts[r.css] = (counts[r.css]||0) + 1; });
+
+  // Stats
+  const order = ['p0','p1','p2','p3','p4','p5','p6','p7'];
+  document.getElementById('stats').innerHTML = order.map(c =>
+    `<span class="stat-item" style="background:var(--uv-${c}-bg);color:var(--uv-${c});border:1px solid var(--uv-${c}-border)">${counts[c]||0} ${LEVELS[order.indexOf(c)>=0 ? 'P'+order.indexOf(c) : 'P2'].name}</span>`
+  ).join('');
+
+  // Results
+  document.getElementById('out').innerHTML = results.map(r =>
+    `<div class="result-line ${r.css}">
+      <span class="uv-badge ${r.css}">${r.emoji} ${r.name}</span>
+      <span>${r.text}</span>
+      <span style="font-size:10px;color:var(--text-dim);margin-left:auto">${r.reason}</span>
+    </div>`
+  ).join('');
+
+  window._results = results;
+}
+
+function exportJSON() {
+  if (!window._results) { alert('请先点击判定'); return; }
+  const payload = {dna:'#龍芯⚡️丙午·乙未·庚戌·壬午·䷫姤-UNIFIED-VISUAL-V1.0', module:'M1-八色判定器', protocol:'龍魂统一视觉色彩协议V1.0', results: window._results};
+  const blob = new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+  a.download = 'lh_unified_visual_export.json'; a.click();
+}
+
+function showTab(i, btn) {
+  document.querySelectorAll('section.tab').forEach((s,j)=>s.classList.toggle('active',j===i));
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+</script>
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

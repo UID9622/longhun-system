@@ -1,0 +1,19 @@
+[Unit]
+Description=龍魂激活经济舱 API (port 9656)
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/longhun-system
+ExecStart=/usr/bin/python3 /opt/longhun-system/bin/lh_activation_api.py
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONPATH=/opt/longhun-system/bin
+
+NoNewPrivileges=yes
+PrivateTmp=yes
+
+[Install]
+WantedBy=multi-user.target

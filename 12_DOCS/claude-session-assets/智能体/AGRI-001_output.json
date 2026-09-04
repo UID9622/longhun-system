@@ -1,0 +1,92 @@
+{
+  "scenario_id": "AGRI-001",
+  "version": "1.1",
+  "generated_at": "2026-08-12T06:00:00Z",
+  "model": "dragonsoul/belt-road-7b-multilingual",
+  "lang": "ar",
+  "region": "Nile Delta, Egypt",
+  "input_hash": "sha256:a1b2c3d4e5f6...",
+  "irrigation_schedule": [
+    {
+      "field_id": "EG-ND-001",
+      "priority_score": 0.92,
+      "recommended_start_time": "2026-08-12T05:00:00Z",
+      "duration_minutes": 90,
+      "water_volume_m3": 450,
+      "water_depth_mm": 180,
+      "irrigation_method": "flood",
+      "reason_ar": "رطوبة التربة منخفضة (18.5%) ومحصول القطن في مرحلة الإزهار يحتاج إلى ري عاجل قبل ارتفاع الحرارة. المرحلة الحرجة للقطن تتطلب رطوبة 60-70%.",
+      "reason_en": "Low soil moisture (18.5%) and cotton crop in flowering stage needs urgent irrigation before temperature rises. Critical flowering stage requires 60-70% moisture.",
+      "reason_zh": "土壤湿度低（18.5%），棉花处于开花关键期，需在高温前紧急灌溉。开花期需保持60-70%湿度。",
+      "risk_level": "high",
+      "estimated_yield_impact": "+15% if irrigated within 2h, -22% if delayed >6h"
+    },
+    {
+      "field_id": "EG-ND-002",
+      "priority_score": 0.45,
+      "recommended_start_time": "2026-08-12T18:00:00Z",
+      "duration_minutes": 45,
+      "water_volume_m3": 180,
+      "water_depth_mm": 100,
+      "irrigation_method": "drip",
+      "reason_ar": "رطوبة التربة كافية (35.2%)، القمح في مرحلة ملء الحبوب. الري المسائي لتجنب التبخر العالي (6.2 ملم/يوم) وتحسين كفاءة المياه.",
+      "reason_en": "Soil moisture adequate (35.2%), wheat in grain filling stage. Evening irrigation to minimize evaporation (6.2mm/day) and improve water efficiency.",
+      "reason_zh": "土壤湿度充足（35.2%），小麦处于灌浆期。选择傍晚灌溉以减少蒸发（6.2mm/日），提高用水效率。",
+      "risk_level": "low",
+      "estimated_yield_impact": "+3% with optimized timing"
+    },
+    {
+      "field_id": "EG-ND-003",
+      "priority_score": 0.18,
+      "recommended_start_time": null,
+      "duration_minutes": 0,
+      "water_volume_m3": 0,
+      "water_depth_mm": 0,
+      "irrigation_method": "skip",
+      "reason_ar": "رطوبة التربة ممتازة (65.0%)، محصول الأرز في مرحلة بداية التزهير. الأرز يحتاج إلى رطوبة عالية لكن التربة مشبعة حالياً. تأجيل الري 24 ساعة لتجنب الإفراط في الماء.",
+      "reason_en": "Soil moisture excellent (65.0%), rice in panicle initiation. Rice needs high moisture but soil is currently saturated. Defer irrigation 24h to avoid waterlogging.",
+      "reason_zh": "土壤湿度极佳（65.0%），水稻处于幼穗分化期。水稻虽需高湿，但土壤已饱和。推迟24小时灌溉以避免涝害。",
+      "risk_level": "none",
+      "estimated_yield_impact": "+5% with water conservation"
+    }
+  ],
+  "alerts": [
+    {
+      "level": "warning",
+      "code": "WATER-001",
+      "message_ar": "منسوب المياه 4.2 متر - أقل من الحد الأمثل (4.5 م). المراقبة المستمرة مطلوبة. التوقعات تشير إلى انخفاض إلى 4.1 م خلال 24 ساعة.",
+      "message_en": "Water level at 4.2m - below optimal threshold (4.5m). Continuous monitoring required. Forecast indicates drop to 4.1m within 24h.",
+      "message_zh": "水位4.2米——低于最优阈值（4.5米）。需持续监测。预报显示24小时内将降至4.1米。",
+      "recommended_action": "Contact irrigation authority for upstream release coordination"
+    },
+    {
+      "level": "info",
+      "code": "HEAT-001",
+      "message_ar": "درجة الحرارة القصوى 38°C بين 12:00-15:00. تجنب الري خلال هذه الساعات لتقليل التبخر.",
+      "message_en": "Peak temperature 38°C between 12:00-15:00. Avoid irrigation during these hours to reduce evaporation loss.",
+      "message_zh": "12:00-15:00最高气温38°C。避免此时段灌溉以减少蒸发损失。"
+    }
+  ],
+  "water_allocation_summary": {
+    "total_requested_m3": 630,
+    "total_allocated_m3": 630,
+    "total_available_m3": 5000,
+    "allocation_efficiency": 0.89,
+    "water_saved_m3": 70,
+    "estimated_cost_egp": 1890,
+    "carbon_footprint_kg_co2": 12.6
+  },
+  "schedule_optimization": {
+    "method": "priority_queue_with_constraints",
+    "constraints_satisfied": true,
+    "peak_hours_avoided": true,
+    "max_simultaneous_respected": true,
+    "total_execution_time_minutes": 135
+  },
+  "metadata": {
+    "computation_time_ms": 245,
+    "algorithm_version": "irrigation-v1.1",
+    "data_quality_score": 0.94,
+    "next_update_recommended": "2026-08-12T12:00:00Z"
+  }
+}

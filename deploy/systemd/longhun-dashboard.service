@@ -1,0 +1,19 @@
+[Unit]
+Description=龍魂 Dashboard 官网服务 (port 9627)
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/longhun-system
+ExecStart=/usr/bin/python3 /opt/longhun-system/bin/lh_dashboard_server.py 9627
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+# 安全加固
+NoNewPrivileges=yes
+PrivateTmp=yes
+
+[Install]
+WantedBy=multi-user.target

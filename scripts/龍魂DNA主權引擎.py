@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂 · DNA 主權與貢獻繼承規則引擎
-DNA:#龍芯⚡️2026-06-30-LONGHUN-DNA-SOVEREIGNTY-ENGINE-FILE1-v1.0
+DNA:#龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGHUN-DNA-SOVEREIGNTY-ENGINE-FILE1-v1.0
 
 把「一世一双人」「DNA 不可轉讓」「可繼承不可覆蓋」「貢獻不可變現」「歷史 append-only」
 五條鐵律落實為可執行的 Python API 與命令行工具。

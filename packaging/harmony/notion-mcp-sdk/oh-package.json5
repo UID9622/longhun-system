@@ -1,0 +1,9 @@
+{
+  "name": "notion-mcp-sdk",
+  "version": "1.0.0",
+  "description": "龍魂 · 鸿蒙 Notion 数据镜像只读客户端 SDK（8768 · MCP JSON-RPC）· 零三方依赖",
+  "main": "index.ets",
+  "author": "诸葛鑫 | UID9622 · 龍芯北辰",
+  "license": "MulanPSL v2",
+  "dependencies": {}
+}

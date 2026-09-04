@@ -1,5 +1,6 @@
-<!--#龍芯⚡️2026-06-21-DOC-ATTRIBUTION-v1.0 -->
-<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
+<!--#龍芯⚡️丙午·乙未·庚戌·壬午·䷕贲-DOC-ATTRIBUTION-v1.1-LAYERED -->
+<!-- 分层许可: 本文档属核心思想层 CC BY-NC-SA 4.0 · 工程代码 MulanPSL v2 -->
+<!-- 详见 01_protocols/LH-LAYERED-LICENSE-v1.0.md -->
 
 # ATTRIBUTION — 引用 / 复用 / 二创
 
@@ -29,7 +30,7 @@
 
 ---
 
-DNA: #龍芯⚡️2026-05-03-ATTRIBUTION-REPO
+DNA: #龍芯⚡️丙午·壬辰·丁丑·丙午·䷨损-ATTRIBUTION-REPO
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F

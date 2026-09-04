@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 
 """
 龍魂系统 · Skill API 服务
-Longhun System · Skill API Service
+LongHun System · Skill API Service
 
-DNA:#龍芯⚡️2026-06-07-SKILL-API-FILE2-v1.0
+DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-SKILL-API-FILE2-v1.0
 责任: UID9622·不免责
 """
 
@@ -27,7 +31,7 @@ async def get_all_skills():
     return {
         "status": "success",
         "data": list_skills(),
-        "dna": "#龍芯⚡️2026-06-07-SKILL-API-v1.0"
+        "dna": "#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-SKILL-API-v1.0"
     }
 
 @app.get("/api/v1/skills/{skill_id}")
@@ -42,7 +46,7 @@ async def get_skill_details(skill_id: str):
     return {
         "status": "success",
         "data": skill,
-        "dna": "#龍芯⚡️2026-06-07-SKILL-API-v1.0"
+        "dna": "#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-SKILL-API-v1.0"
     }
 
 @app.get("/api/v1/skills/{skill_id}/content")
@@ -64,7 +68,7 @@ async def get_skill_full_content(skill_id: str):
         "type": skill["type"],
         "content_length": len(content),
         "preview": content[:500] if len(content) > 500 else content,
-        "dna": "#龍芯⚡️2026-06-07-SKILL-API-v1.0"
+        "dna": "#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-SKILL-API-v1.0"
     }
 
 @app.post("/api/v1/skills/{skill_id}/execute")
@@ -83,7 +87,7 @@ async def execute_skill(skill_id: str, params: Optional[Dict[str, Any]] = None):
         "status": "queued",
         "skill_id": skill_id,
         "message": f"Skill '{skill_id}' execution queued",
-        "dna": "#龍芯⚡️2026-06-07-SKILL-API-v1.0"
+        "dna": "#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-SKILL-API-v1.0"
     }
 
 @app.get("/api/v1/skills/config/export")
@@ -93,7 +97,7 @@ async def export_skills_config():
     return {
         "status": "success",
         "data": registry.export_config(),
-        "dna": "#龍芯⚡️2026-06-07-SKILL-API-v1.0"
+        "dna": "#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-SKILL-API-v1.0"
     }
 
 @app.get("/health")

@@ -1,0 +1,771 @@
+<!--
+  # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+  # DNA: #龍芯⚡️丙午·丙申·己未·庚午·䷡大壮-PORTAL-TRANSPARENT-AUDIT-v22-UID9622
+  # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+  龍魂·透明审计与冲突仲裁控制台 v2.2
+  协议: MulanPSL v2
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐉 龍魂 · 透明审计与冲突仲裁</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0a0a12;
+            --card: rgba(255,255,255,0.03);
+            --gold: #d4af37;
+            --green: #4ade80;
+            --yellow: #facc15;
+            --red: #f87171;
+            --blue: #60a5fa;
+            --purple: #c084fc;
+            --text: #e8e6e3;
+            --muted: #888;
+            --border: rgba(255,255,255,0.06);
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .header {
+            text-align: center;
+            padding: 40px 0 30px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .header h1 { font-size: 2.6rem; font-weight: 700; letter-spacing: 3px; }
+        .header h1 .gold { color: var(--gold); }
+        .header .sub { color: var(--muted); font-size: 1.05rem; margin-top: 8px; letter-spacing: 2px; }
+        .header .dna {
+            font-size: 0.75rem;
+            color: #444;
+            font-family: monospace;
+            margin-top: 12px;
+            word-break: break-all;
+        }
+        .badge-row { display: flex; justify-content: center; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+        .badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 5px 14px; border-radius: 20px;
+            font-size: 0.75rem; font-weight: 600;
+        }
+        .badge.green { background: rgba(74, 222, 128, 0.12); color: var(--green); }
+        .badge.yellow { background: rgba(250, 204, 21, 0.12); color: var(--yellow); }
+        .badge.red { background: rgba(248, 113, 113, 0.12); color: var(--red); }
+        .badge.gold { background: rgba(212, 175, 55, 0.12); color: var(--gold); }
+        .badge.blue { background: rgba(96, 165, 250, 0.12); color: var(--blue); }
+
+        .section {
+            margin: 28px 0;
+            padding: 26px;
+            background: var(--card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+        .section h2 {
+            font-size: 1.25rem;
+            color: var(--gold);
+            margin-bottom: 16px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .section h3 {
+            font-size: 1.05rem;
+            color: var(--gold);
+            margin: 20px 0 10px;
+        }
+        .section p, .section li { color: #aaa; font-size: 0.95rem; line-height: 1.8; }
+        .section ul { padding-left: 20px; }
+
+        .status-bar {
+            display: flex; justify-content: space-between; align-items: center;
+            gap: 14px; flex-wrap: wrap;
+        }
+        .status-item {
+            display: flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,0.03);
+            padding: 10px 16px; border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 6px var(--green); }
+        .status-dot.yellow { background: var(--yellow); box-shadow: 0 0 6px var(--yellow); }
+        .status-dot.red { background: var(--red); box-shadow: 0 0 6px var(--red); }
+
+        .control-grid { display: grid; gap: 18px; }
+        .input-group label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 6px; }
+        .input-group textarea, .input-group input[type="text"] {
+            width: 100%;
+            background: rgba(0,0,0,0.25);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px;
+            color: var(--text);
+            font-size: 1rem;
+            resize: vertical;
+        }
+        .input-group textarea:focus, .input-group input:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        .engine-toggles {
+            display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px;
+        }
+        .engine-toggle {
+            display: flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 14px;
+            cursor: pointer;
+            transition: .2s;
+        }
+        .engine-toggle:hover { border-color: var(--gold); }
+        .engine-toggle input { accent-color: var(--gold); }
+
+        .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: linear-gradient(135deg, rgba(212,175,55,0.18), rgba(212,175,55,0.06));
+            border: 1px solid rgba(212,175,55,0.4);
+            color: var(--gold);
+            padding: 12px 22px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .2s;
+            text-decoration: none;
+        }
+        .btn:hover { background: rgba(212,175,55,0.28); transform: translateY(-1px); }
+        .btn.secondary {
+            background: rgba(255,255,255,0.04);
+            border-color: var(--border);
+            color: #aaa;
+        }
+        .btn.secondary:hover { border-color: var(--muted); color: var(--text); }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+        .metric-card {
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
+            text-align: center;
+        }
+        .metric-card .label { color: var(--muted); font-size: 0.8rem; margin-bottom: 6px; }
+        .metric-card .value { font-size: 2rem; font-weight: 700; }
+        .metric-card .value.green { color: var(--green); text-shadow: 0 0 12px rgba(74,222,128,0.25); }
+        .metric-card .value.yellow { color: var(--yellow); text-shadow: 0 0 12px rgba(250,204,21,0.25); }
+        .metric-card .value.red { color: var(--red); text-shadow: 0 0 12px rgba(248,113,113,0.25); }
+        .metric-card .desc { color: #777; font-size: 0.75rem; margin-top: 6px; }
+
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 18px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+
+        .card {
+            background: rgba(0,0,0,0.18);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
+        }
+        .card h4 { font-size: 1rem; color: var(--text); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .card .meta { color: var(--muted); font-size: 0.8rem; margin-bottom: 8px; }
+        .card .content { color: #bbb; font-size: 0.9rem; line-height: 1.7; }
+
+        .conflict-card { border-left: 4px solid var(--red); }
+        .consensus-card { border-left: 4px solid var(--green); }
+        .gap-card { border-left: 4px solid var(--yellow); }
+
+        .token-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        .token-table th, .token-table td {
+            text-align: left;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        .token-table th { color: var(--muted); font-weight: 500; }
+        .token-table td { color: #bbb; }
+        .token-table tfoot td { color: var(--gold); font-weight: 600; border-bottom: none; }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--muted);
+        }
+        .empty-state .icon { font-size: 3rem; margin-bottom: 12px; }
+
+        .log-box {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: #888;
+            max-height: 260px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .philosophy-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px;
+        }
+        .philosophy-card h4 { color: var(--gold); font-size: 0.95rem; margin-bottom: 8px; }
+        .philosophy-card p { font-size: 0.85rem; color: #999; line-height: 1.7; }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            color: #555;
+            font-size: 0.8rem;
+        }
+        .footer .dna-line {
+            font-family: monospace;
+            color: var(--gold);
+            word-break: break-all;
+            margin-top: 8px;
+        }
+
+        .hidden { display: none !important; }
+        .loading { opacity: 0.6; pointer-events: none; }
+
+        @media (max-width: 640px) {
+            .header h1 { font-size: 1.8rem; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .status-bar { flex-direction: column; align-items: stretch; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><span class="gold">🐉 龍魂</span> · 透明审计与冲突仲裁</h1>
+            <p class="sub">多引擎事实级仲裁 · 分别呈现 · 不合并 · 不掩盖</p>
+            <div class="dna">DNA: #龍芯⚡️丙午·丙申·己未·大壮卦-TRANSPARENT-AUDIT-v22-UID9622</div>
+            <div class="badge-row">
+                <span class="badge gold">P05 上帝之眼</span>
+                <span class="badge blue">事实级仲裁</span>
+                <span class="badge yellow">双尺并存</span>
+                <span class="badge green">断网可跑</span>
+            </div>
+        </header>
+
+        <section class="section">
+            <div class="status-bar">
+                <div class="status-item">
+                    <span id="api-dot" class="status-dot yellow"></span>
+                    <span id="api-status">API 检测中…</span>
+                </div>
+                <div class="status-item">
+                    <span id="chain-dot" class="status-dot yellow"></span>
+                    <span id="chain-status">链状态检测中…</span>
+                </div>
+                <div class="status-item">
+                    <span>🧬 GPG</span>
+                    <span style="font-family:monospace;font-size:0.75rem;color:#777;">A2D0092CEE2E5BA87035600924C3704A8CC26D5F</span>
+                </div>
+                <a class="btn secondary" href="trust-chain.html">🔗 信任链</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🎛️ 审计控制台</h2>
+            <div class="control-grid">
+                <div class="input-group">
+                    <label>审计问题（向多个 AI 引擎同时发问）</label>
+                    <textarea id="question" rows="3" placeholder="例如：数据主权到底归谁？"></textarea>
+                </div>
+                <div class="input-group">
+                    <label>参与引擎 <span id="engine-hint" style="font-size:0.7rem;color:#666;"></span></label>
+                    <div class="engine-toggles" id="engine-toggles">
+                        <span style="font-size:0.75rem;color:#888;">引擎列表来自 /health（本地 Ollama 真实模型）…</span>
+                    </div>
+                </div>
+                <div class="btn-row">
+                    <button class="btn" onclick="runAudit()">▶ 运行审计</button>
+                    <button class="btn secondary" onclick="loadDemo()">🧪 加载示例</button>
+                    <button class="btn secondary" onclick="startApi()">🚀 启动 API</button>
+                    <button class="btn secondary" onclick="verifyChain()">⛓️ 验链</button>
+                </div>
+            </div>
+            <div id="api-offline" class="empty-state hidden" style="padding:20px 0 0;">
+                <p>⚠️ 本地 API 未运行。请先在终端执行：<code style="background:rgba(0,0,0,0.3);padding:4px 8px;border-radius:4px;">python3 08_BIN/lh_transparent_audit.py api</code></p>
+            </div>
+        </section>
+
+        <section id="results-section" class="section hidden">
+            <h2>📊 审计结果仪表盘</h2>
+            <div class="dashboard">
+                <div class="metric-card">
+                    <div class="label">仲裁三色</div>
+                    <div id="metric-tricolor" class="value">—</div>
+                    <div class="desc">事实冲突判定</div>
+                </div>
+                <div class="metric-card">
+                    <div class="label">R值健康度</div>
+                    <div id="metric-rvalue" class="value">—</div>
+                    <div class="desc">运行健康评分</div>
+                </div>
+                <div class="metric-card">
+                    <div class="label">共识 / 分歧</div>
+                    <div id="metric-counts" class="value">—</div>
+                    <div class="desc">事实级结论分布</div>
+                </div>
+                <div class="metric-card">
+                    <div class="label">Token 总消耗</div>
+                    <div id="metric-tokens" class="value">—</div>
+                    <div class="desc">输入 + 输出</div>
+                </div>
+            </div>
+            <div id="summary-box" class="card" style="margin-top:18px; border-left:4px solid var(--gold);">
+                <h4>📌 一句话结论</h4>
+                <p id="summary-text" class="content">—</p>
+            </div>
+            <div style="margin-top:12px; color:#666; font-size:0.8rem;">
+                父DNA：<span id="parent-dna" style="font-family:monospace;">—</span>
+            </div>
+        </section>
+
+        <section id="engines-section" class="section hidden">
+            <h2>🤖 各引擎原始响应</h2>
+            <div id="engines-grid" class="grid-3"></div>
+        </section>
+
+        <section id="consensus-section" class="section hidden">
+            <h2>🤝 共识区</h2>
+            <div id="consensus-grid" class="grid-2"></div>
+        </section>
+
+        <section id="conflicts-section" class="section hidden">
+            <h2>⚔️ 分歧仲裁</h2>
+            <div id="conflicts-grid" class="grid-2"></div>
+        </section>
+
+        <section id="gaps-section" class="section hidden">
+            <h2>🟡 覆盖率缺口</h2>
+            <div id="gaps-grid" class="grid-2"></div>
+        </section>
+
+        <section id="tokens-section" class="section hidden">
+            <h2>💰 Token 透明明细</h2>
+            <table class="token-table">
+                <thead><tr><th>引擎</th><th>状态</th><th>输入</th><th>输出</th><th>缓存命中率</th></tr></thead>
+                <tbody id="token-body"></tbody>
+                <tfoot><tr><td colspan="2">总计</td><td id="token-in">0</td><td id="token-out">0</td><td>—</td></tr></tfoot>
+            </table>
+            <p id="token-note" style="margin-top:10px; color:#777; font-size:0.8rem;"></p>
+        </section>
+
+        <section id="chain-section" class="section hidden">
+            <h2>⛓️ 史官归档 / 链验证</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>🗄️ 本次归档</h4>
+                    <div id="archive-info" class="content">—</div>
+                </div>
+                <div class="card">
+                    <h4>🔍 链完整性</h4>
+                    <div id="chain-info" class="content">—</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="history-section" class="section">
+            <h2>🕘 近期审计记录</h2>
+            <div id="history-list" class="empty-state">
+                <div class="icon">📝</div>
+                <p>暂无本地记录，运行审计后将自动保存。</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>⚙️ 自动化设置</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>🔄 自动审计触发</h4>
+                    <p class="content" style="margin-top:8px;">
+                        当检测到多引擎对同一事实给出不同取值时，自动归档并通知。<br>
+                        <label style="display:flex;align-items:center;gap:8px;margin-top:10px;">
+                            <input type="checkbox" checked disabled> 冲突自动归档（已启用）
+                        </label>
+                    </p>
+                </div>
+                <div class="card">
+                    <h4>📡 Webhook 告警</h4>
+                    <p class="content" style="margin-top:8px;">
+                        配置飞书/企业微信 Webhook，R值低于阈值或链断裂时推送告警。<br>
+                        <input type="text" placeholder="https://open.feishu.cn/..." style="width:100%;margin-top:10px;background:rgba(0,0,0,0.2);border:1px solid var(--border);border-radius:6px;padding:8px;color:#aaa;" disabled>
+                    </p>
+                </div>
+                <div class="card">
+                    <h4>🛡️ 熔断联动</h4>
+                    <p class="content" style="margin-top:8px;">
+                        发现事实冲突（🔴）时，联动 P72 龍盾进入待核模式；极性分裂时升级至 L1 人工恢复。
+                    </p>
+                </div>
+                <div class="card">
+                    <h4>📤 导出报告</h4>
+                    <p class="content" style="margin-top:8px;">
+                        支持导出 JSON / Markdown 审计报告，含完整证据链与 DNA 追溯码。<br>
+                        <button class="btn secondary" style="margin-top:10px;" onclick="exportReport()">📥 导出本次报告</button>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>☯️ 设计口径与哲学锚点</h2>
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <h4>🎭 分别呈现 · 不合并 · 不掩盖</h4>
+                    <p>多引擎独立作答，冲突不被 AI 强行“中和”。事实争议必须摊在桌面上，由 UID9622 裁决。</p>
+                </div>
+                <div class="philosophy-card">
+                    <h4>📏 双尺并存</h4>
+                    <p>仲裁三色回答“有没有事实冲突”；R值审计回答“运行健康度”。一次运行可以同时是 🔴 + R值75，二者不矛盾。</p>
+                </div>
+                <div class="philosophy-card">
+                    <h4>🛡️ 主权在本地</h4>
+                    <p>龍魂本地引擎持有 P0 协议底座，云端引擎仅作参考。数据主权归 UID9622 / 老百姓，不归平台。</p>
+                </div>
+                <div class="philosophy-card">
+                    <h4>🔍 篡改必现形</h4>
+                    <p>每次审计结果写入年轮链，链断即告警。历史记录不可删改，只追加、不覆盖。</p>
+                </div>
+                <div class="philosophy-card">
+                    <h4>🟡 覆盖率缺口 ≠ 错误</h4>
+                    <p>仅单个 AI 作证的事实标黄，提示可能是漏报源，建议补问其他 AI 交叉验证。</p>
+                </div>
+                <div class="philosophy-card">
+                    <h4>⚖️ 机器不替人拍板</h4>
+                    <p>极性分裂或重大价值冲突必须“需老大裁决”。AI 只负责呈现事实、标注风险、留下证据链。</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>龍魂系统 · 中国自主可控 AI 基础设施 · 为人民服务</p>
+            <div class="dna-line">CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z · GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</div>
+            <div class="dna-line">DNA: #龍芯⚡️丙午·丙申·己未·大壮卦-PORTAL-TRANSPARENT-AUDIT-v22-UID9622</div>
+        </footer>
+    </div>
+
+    <script>
+        const API_BASE = "http://127.0.0.1:8970";
+        let lastReport = null;
+
+        async function checkApi() {
+            const dot = document.getElementById("api-dot");
+            const text = document.getElementById("api-status");
+            const offline = document.getElementById("api-offline");
+            try {
+                const res = await fetch(`${API_BASE}/health`, { method: "GET", mode: "cors" });
+                if (res.ok) {
+                    dot.className = "status-dot";
+                    text.textContent = "API 运行中 :8970";
+                    offline.classList.add("hidden");
+                    return true;
+                }
+            } catch (e) {}
+            dot.className = "status-dot red";
+            text.textContent = "API 未运行";
+            offline.classList.remove("hidden");
+            return false;
+        }
+
+        async function checkChain() {
+            const dot = document.getElementById("chain-dot");
+            const text = document.getElementById("chain-status");
+            try {
+                const res = await fetch(`${API_BASE}/chain/verify`, { method: "GET", mode: "cors" });
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data["完整"]) {
+                        dot.className = "status-dot";
+                        text.textContent = `年轮链完整 (${data["长度"]} 条)`;
+                    } else {
+                        dot.className = "status-dot red";
+                        text.textContent = `链断裂 · 断点 ${data["断点"].length} 处`;
+                    }
+                    return;
+                }
+            } catch (e) {}
+            dot.className = "status-dot yellow";
+            text.textContent = "链状态待检测";
+        }
+
+        function loadDemo() {
+            document.getElementById("question").value = "数据主权到底归谁？";
+        }
+
+        async function loadEngines() {
+            try {
+                const res = await fetch(`${API_BASE}/health`, { method: "GET", mode: "cors" });
+                const data = await res.json();
+                const box = document.getElementById("engine-toggles");
+                const names = data["engines"] || [];
+                if (!names.length) return;
+                box.innerHTML = names.map((n, i) => `
+                    <label class="engine-toggle">
+                        <input type="checkbox" class="engine-chk" data-model="${n.split("(")[0].trim()}" checked>
+                        <span>${n}</span>
+                    </label>
+                `).join("");
+                const hint = document.getElementById("engine-hint");
+                hint.textContent = data["real"] ? "本地真实模型" : "降级模拟（Ollama 不可达）";
+            } catch (e) {}
+        }
+
+        function selectedEngines() {
+            return Array.from(document.querySelectorAll(".engine-chk:checked"))
+                .map(c => c.dataset.model)
+                .join(",");
+        }
+
+        async function runAudit() {
+            const q = document.getElementById("question").value.trim();
+            if (!q) { alert("请输入审计问题"); return; }
+            if (!(await checkApi())) { alert("API 未运行，请先启动 API"); return; }
+
+            document.body.classList.add("loading");
+            try {
+                const res = await fetch(`${API_BASE}/audit`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ question: q, engines: selectedEngines() }),
+                });
+                const data = await res.json();
+                lastReport = data;
+                renderReport(data);
+                addHistory(data);
+            } catch (e) {
+                alert("审计失败：" + e.message);
+            } finally {
+                document.body.classList.remove("loading");
+            }
+        }
+
+        function renderReport(data) {
+            const tri = data["三色"] || "🟡";
+            const triEl = document.getElementById("metric-tricolor");
+            triEl.textContent = tri;
+            triEl.className = "value " + (tri === "🟢" ? "green" : tri === "🟡" ? "yellow" : "red");
+
+            const r = data["归档"]?.["R值审计"] || {};
+            const rEl = document.getElementById("metric-rvalue");
+            rEl.textContent = (r["R值"] ?? "—") + (r["三色"] ? " " + r["三色"] : "");
+            rEl.className = "value " + (r["三色"] === "🟢" ? "green" : r["三色"] === "🟡" ? "yellow" : "red");
+
+            const summary = data["摘要"] || {};
+            const consensus = summary["共识"] || [];
+            const conflicts = summary["分歧点"] || [];
+            document.getElementById("metric-counts").textContent = `${consensus.length} / ${conflicts.length}`;
+
+            const tokens = summary["token明细"] || {};
+            document.getElementById("metric-tokens").textContent = (tokens["总输入"] || 0) + (tokens["总输出"] || 0);
+
+            document.getElementById("summary-text").textContent = summary["一句话结论"] || "—";
+            document.getElementById("parent-dna").textContent = data["父DNA"] || "—";
+
+            renderEngines(data["回答"] || []);
+            renderConsensus(consensus);
+            renderConflicts(conflicts);
+            renderGaps((data["仲裁"] || {})["coverage_gaps"] || []);
+            renderTokens(tokens);
+            renderArchive(data["归档"]);
+            renderChain(data["chain"]);
+
+            document.getElementById("results-section").classList.remove("hidden");
+            document.getElementById("engines-section").classList.remove("hidden");
+            if (consensus.length) document.getElementById("consensus-section").classList.remove("hidden");
+            else document.getElementById("consensus-section").classList.add("hidden");
+            if (conflicts.length) document.getElementById("conflicts-section").classList.remove("hidden");
+            else document.getElementById("conflicts-section").classList.add("hidden");
+            if (((data["仲裁"] || {})["coverage_gaps"] || []).length) document.getElementById("gaps-section").classList.remove("hidden");
+            else document.getElementById("gaps-section").classList.add("hidden");
+            document.getElementById("tokens-section").classList.remove("hidden");
+            document.getElementById("chain-section").classList.remove("hidden");
+        }
+
+        function renderEngines(answers) {
+            const grid = document.getElementById("engines-grid");
+            grid.innerHTML = answers.map(r => {
+                const failed = "失败" in r;
+                return `
+                    <div class="card" style="border-left:4px solid ${failed ? 'var(--red)' : 'var(--blue)'}">
+                        <h4>${failed ? "✗" : "✓"} ${r["来源"]}</h4>
+                        <div class="meta">置信度 ${failed ? 0 : r["置信度"]} · 耗时 ${r["耗时"]}s</div>
+                        <div class="content">${failed ? r["失败"] : r["内容"]}</div>
+                    </div>
+                `;
+            }).join("");
+        }
+
+        function renderConsensus(list) {
+            const grid = document.getElementById("consensus-grid");
+            grid.innerHTML = list.length ? list.map(c => `
+                <div class="card consensus-card">
+                    <h4>✓ 共识</h4>
+                    <div class="content">${c["事实"]}</div>
+                    <div class="meta" style="margin-top:8px;">作证：${c["作证AI"].join(" / ")}</div>
+                </div>
+            `).join("") : "<p class=\"content\">无共识项</p>";
+        }
+
+        function renderConflicts(list) {
+            const grid = document.getElementById("conflicts-grid");
+            grid.innerHTML = list.length ? list.map(c => `
+                <div class="card conflict-card">
+                    <h4>⚔️ ${c["级别"]} ${c["分歧点"]}</h4>
+                    <div class="content">${c["各执一词"]}</div>
+                    ${c["极性分裂"] ? '<div class="meta" style="color:var(--red);margin-top:6px;">＋极性分裂</div>' : ""}
+                    <div class="content" style="margin-top:10px;color:var(--gold);">💡 ${c["建议"]}</div>
+                </div>
+            `).join("") : "<p class=\"content\">无分歧项</p>";
+        }
+
+        function renderGaps(list) {
+            const grid = document.getElementById("gaps-grid");
+            grid.innerHTML = list.length ? list.map(g => `
+                <div class="card gap-card">
+                    <h4>🟡 ${g["subject"]}·${g["predicate"]}</h4>
+                    <div class="content">${g["note"]}（仅 ${g["only_ai"]}）</div>
+                </div>
+            `).join("") : "<p class=\"content\">无覆盖率缺口</p>";
+        }
+
+        function renderTokens(tokens) {
+            const body = document.getElementById("token-body");
+            const rows = (tokens["明细"] || []).map(t => `
+                <tr>
+                    <td>${t["引擎"]}</td>
+                    <td>${t["状态"]}</td>
+                    <td>${t["输入"]}</td>
+                    <td>${t["输出"]}</td>
+                    <td>${(t["缓存命中率"] ?? 0) ? (t["缓存命中率"] * 100).toFixed(0) + "%" : "—"}</td>
+                </tr>
+            `).join("");
+            body.innerHTML = rows;
+            document.getElementById("token-in").textContent = tokens["总输入"] || 0;
+            document.getElementById("token-out").textContent = tokens["总输出"] || 0;
+            document.getElementById("token-note").textContent = tokens["并行成本提示"] || "";
+        }
+
+        function renderArchive(archive) {
+            const box = document.getElementById("archive-info");
+            if (!archive) { box.innerHTML = "—"; return; }
+            box.innerHTML = `
+                史官条目序号：${archive["史官条目序号"]}<br>
+                条目哈希：${(archive["条目哈希"] || "").slice(0, 16)}…<br>
+                R值：${archive["R值审计"]["R值"]} ${archive["R值审计"]["三色"]}<br>
+                <span style="font-size:0.75rem;color:#666;">${(archive["R值审计"]["明细"] || []).join("；")}</span>
+            `;
+        }
+
+        function renderChain(chain) {
+            const box = document.getElementById("chain-info");
+            if (!chain) { box.innerHTML = "—"; return; }
+            box.innerHTML = `
+                完整：${chain["完整"] ? "✅" : "❌"}<br>
+                长度：${chain["长度"]} 条<br>
+                断点：${(chain["断点"] || []).length} 处
+            `;
+        }
+
+        function historyItem(h) {
+            const ts = h["时间"] ? new Date(h["时间"] * 1000).toLocaleString() : "—";
+            const r = h["R值"] ?? "—";
+            const color = h["三色"] === "🟢" ? "green" : h["三色"] === "🟡" ? "yellow" : "red";
+            return `
+                <div class="card" style="margin-bottom:10px;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+                        <div>
+                            <strong>${h["问题"] || "—"}</strong>
+                            <div class="meta">${ts} · 引擎${h["引擎数"] ?? "—"} · 失败${h["失败数"] ?? "—"}</div>
+                        </div>
+                        <div class="badge ${color}">${h["三色"]} R${r}</div>
+                    </div>
+                    <div class="content" style="margin-top:8px;">${h["摘要"] || ""}</div>
+                </div>`;
+        }
+
+        async function loadHistory() {
+            try {
+                const res = await fetch(`${API_BASE}/history?limit=10`, { method: "GET", mode: "cors" });
+                const rows = await res.json();
+                if (!rows || !rows.length) return;
+                const list = document.getElementById("history-list");
+                list.classList.remove("empty-state");
+                list.innerHTML = rows.map(historyItem).join("");
+            } catch (e) {}
+        }
+
+        function addHistory(data) {
+            const list = document.getElementById("history-list");
+            if (list.classList.contains("empty-state")) {
+                list.classList.remove("empty-state");
+                list.innerHTML = "";
+            }
+            const h = {
+                "问题": data["问题"],
+                "时间": data["时间"],
+                "三色": data["三色"],
+                "R值": (data["归档"] || {})["R值审计"]?.["R值"],
+                "摘要": (data["摘要"] || {})["一句话结论"] || "",
+                "引擎数": (data["回答"] || []).length,
+                "失败数": data["失败数"] ?? 0,
+            };
+            list.prepend(historyItem(h));
+        }
+
+        async function verifyChain() {
+            if (!(await checkApi())) { alert("API 未运行"); return; }
+            const res = await fetch(`${API_BASE}/chain/verify`, { method: "GET", mode: "cors" });
+            const data = await res.json();
+            alert(`链完整：${data["完整"]}\n长度：${data["长度"]}\n断点：${data["断点"].length}`);
+            checkChain();
+        }
+
+        function startApi() {
+            alert("API 已注册为常驻服务 com.longhun.transparent-audit（launchd 自动拉起）。\n\n如未运行，请执行：\npython3 08_BIN/lh_service_control.py wake transparent-audit\n\n本页将自动检测 API 状态。");
+        }
+
+        function exportReport() {
+            if (!lastReport) { alert("请先运行一次审计"); return; }
+            const blob = new Blob([JSON.stringify(lastReport, null, 2)], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `transparent-audit-${Date.now()}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // 初始化检测
+        checkApi().then(() => { checkChain(); loadEngines(); loadHistory(); });
+        setInterval(() => { checkApi(); checkChain(); }, 10000);
+    </script>
+</body>
+</html>

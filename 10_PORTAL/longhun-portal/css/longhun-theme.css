@@ -1,0 +1,515 @@
+/* 🐉 龍魂设计系统 v1.0 — Dark Gold 美学
+   DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-DESIGN-SYSTEM-V1.0-UID9622
+   CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+   ANCHOR: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼♀️❤️♾️-DEVICE-BIND-SOUL */
+
+:root {
+  /* ── 色彩体系 ── */
+  --bg-deep: #0a0a12;
+  --bg-card: #12121e;
+  --bg-elevated: #1a1a2e;
+  --bg-hover: #222240;
+  --gold-primary: #c9a84c;
+  --gold-light: #e8d48b;
+  --gold-dark: #8b7534;
+  --gold-glow: rgba(201, 168, 76, 0.15);
+  --text-primary: #f0ede8;
+  --text-secondary: #a09a90;
+  --text-muted: #6b6560;
+  --green-safe: #4ade80;
+  --yellow-review: #facc15;
+  --red-block: #ef4444;
+  --border-subtle: rgba(201, 168, 76, 0.12);
+  --border-glow: rgba(201, 168, 76, 0.3);
+
+  /* ── 字体 ── */
+  --font-title: 'LonghunFont', 'Noto Serif SC', 'Source Han Serif SC', serif;
+  --font-body: 'Inter', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Source Code Pro', 'Consolas', monospace;
+
+  /* ── 尺寸 ── */
+  --max-width: 1200px;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 20px;
+  --header-h: 72px;
+
+  /* ── 动效 ── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 800ms;
+}
+
+/* ── 字体加载 ── */
+@font-face {
+  font-family: 'LonghunFont';
+  src: url('./downloads/fonts/LonghunFont-Regular.woff2') format('woff2'),
+       url('./downloads/fonts/LonghunFont-Regular.otf') format('opentype'),
+       url('./downloads/fonts/LonghunFont-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ── 背景粒子层 ── */
+#particle-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(201, 168, 76, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 50%, rgba(201, 168, 76, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 0%, rgba(201, 168, 76, 0.02) 0%, transparent 40%);
+}
+
+/* ── 导航栏 ── */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  z-index: 100;
+  background: rgba(10, 10, 18, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+header nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  color: var(--gold-primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 2px;
+}
+.logo .dragon {
+  font-size: 1.8rem;
+}
+.nav-links {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: all var(--duration-fast) var(--ease-out);
+  position: relative;
+}
+.nav-links a:hover {
+  color: var(--gold-light);
+  background: var(--gold-glow);
+}
+.nav-links a.active {
+  color: var(--gold-primary);
+  background: rgba(201, 168, 76, 0.1);
+}
+
+/* ── 移动端菜单 ── */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px;
+}
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: var(--header-h);
+    left: 0; right: 0;
+    background: rgba(10, 10, 18, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 16px;
+    gap: 4px;
+    transform: translateY(-120%);
+    transition: transform var(--duration-normal) var(--ease-out);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .nav-links.open { transform: translateY(0); }
+  .mobile-toggle { display: block; }
+}
+
+/* ── 英雄区域 ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 120px 24px 80px;
+  position: relative;
+  z-index: 1;
+}
+.hero h1 {
+  font-family: var(--font-title);
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 400;
+  letter-spacing: 6px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.hero h1 .gold { color: var(--gold-primary); }
+.hero h1 .white { color: var(--text-primary); }
+.hero .subtitle {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 16px auto 40px;
+  line-height: 1.8;
+  letter-spacing: 1px;
+}
+.hero .dna-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  padding: 6px 16px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 100px;
+  margin-bottom: 32px;
+  background: rgba(201, 168, 76, 0.03);
+}
+
+/* ── 按钮 ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold-primary));
+  color: var(--bg-deep);
+  box-shadow: 0 4px 20px var(--gold-glow);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(201, 168, 76, 0.25);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--gold-primary);
+  border: 1px solid var(--gold-primary);
+}
+.btn-outline:hover {
+  background: var(--gold-glow);
+  transform: translateY(-2px);
+}
+.btn-danger {
+  background: var(--red-block);
+  color: white;
+}
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ── 模块区 ── */
+section {
+  padding: 80px 24px;
+  position: relative;
+  z-index: 1;
+}
+.section-title {
+  font-family: var(--font-title);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 400;
+  color: var(--gold-primary);
+  text-align: center;
+  margin-bottom: 12px;
+  letter-spacing: 3px;
+}
+.section-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 60px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── 卡片网格 ── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 32px;
+  transition: all var(--duration-normal) var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-out);
+}
+.card:hover::before { opacity: 1; }
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-glow);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+}
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  display: block;
+}
+.card h3 {
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+.card p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.card .card-meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* ── 三色审计标签 ── */
+.tricolor-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.tricolor-green {
+  background: rgba(74, 222, 128, 0.1);
+  color: var(--green-safe);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+}
+.tricolor-yellow {
+  background: rgba(250, 204, 21, 0.1);
+  color: var(--yellow-review);
+  border: 1px solid rgba(250, 204, 21, 0.2);
+}
+.tricolor-red {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--red-block);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* ── 底部 ── */
+footer {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-subtle);
+  padding: 60px 24px 40px;
+  position: relative;
+  z-index: 1;
+}
+.footer-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+}
+.footer-col h4 {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  color: var(--gold-light);
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+.footer-col a {
+  display: block;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  padding: 4px 0;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+.footer-col a:hover { color: var(--gold-primary); }
+.footer-dna {
+  max-width: var(--max-width);
+  margin: 32px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  line-height: 2;
+}
+
+/* ── 通用工具 ── */
+.max-w { max-width: var(--max-width); margin-left: auto; margin-right: auto; }
+.text-center { text-align: center; }
+.gap-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.mt-16 { margin-top: 16px; }
+.mt-32 { margin-top: 32px; }
+.mt-60 { margin-top: 60px; }
+
+/* ── 民族魂数字碑 ── */
+.vow-wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.vow-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+.vow-card:hover {
+  border-color: var(--border-glow);
+  transform: translateY(-2px);
+}
+.vow-card .vow-text {
+  font-style: italic;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+.vow-card .vow-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ── 表单 ── */
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 0 3px var(--gold-glow);
+}
+textarea.form-input {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* ── 下载列表 ── */
+.download-list {
+  display: grid;
+  gap: 12px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.download-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+.download-item:hover { border-color: var(--border-glow); }
+.download-info { display: flex; align-items: center; gap: 12px; }
+.download-info .file-icon { font-size: 1.5rem; }
+.download-info .file-name { font-size: 0.9rem; color: var(--text-primary); }
+.download-info .file-size { font-size: 0.75rem; color: var(--text-muted); }
+
+/* ── 分隔线 ── */
+.divider {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-glow), transparent);
+}
+
+/* ── 加载动画 ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-in {
+  animation: fadeInUp var(--duration-slow) var(--ease-out) forwards;
+  opacity: 0;
+}
+.animate-in:nth-child(1) { animation-delay: 0.1s; }
+.animate-in:nth-child(2) { animation-delay: 0.2s; }
+.animate-in:nth-child(3) { animation-delay: 0.3s; }
+.animate-in:nth-child(4) { animation-delay: 0.4s; }

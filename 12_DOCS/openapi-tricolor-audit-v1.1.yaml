@@ -1,0 +1,416 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# DNA: #龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-TRICOLOR-OPENAPI-v1.1-UID9622
+openapi: "3.1.0"
+info:
+  title: "三色审计 · 开放接口契约（Tricolor Audit Open API）"
+  version: "1.1.0"
+  description: |
+    龍魂系统 · 三色审计参考标准 v1.1 工程落地版 · 机器可读接口规范
+    配套文档：《三色审计参考标准提案 v1.1（工程落地版）》
+
+    ## 身份
+    - 创建者: 诸葛鑫（UID9622）
+    - GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+    - 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+
+    ## 设计铁律
+    - 唯一硬约定: HTTPS + JSON + UTF-8
+    - 机器判断只认 status_code（GREEN/YELLOW/RED），emoji与中文为展示层
+    - 每次判定必返 dna 与 evidence_hash，接入方必须落库
+    - 只传判定必需的最小数据，不传原始内容
+
+    ## 许可
+    思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2（本规范及SDK允许商业使用）
+  contact:
+    name: "诸葛鑫（UID9622）"
+  license:
+    name: "MulanPSL v2"
+    url: "https://license.coscl.org.cn/MulanPSL2"
+
+servers:
+  - url: "https://uid9622.cn/api/tricolor"
+    description: "鲲鹏生产环境"
+  - url: "http://localhost:9622/tricolor"
+    description: "本地引擎（内网嵌入形态）"
+
+tags:
+  - name: Evaluate
+    description: 三色判定
+  - name: Rules
+    description: 规则集
+  - name: Evidence
+    description: 证据链
+  - name: Report
+    description: 审计报告
+  - name: Webhook
+    description: 事件回调
+  - name: Conformance
+    description: 一致性自测
+  - name: Meta
+    description: 版本与元信息
+
+paths:
+  /v1/tricolor/evaluate:
+    post:
+      tags: [Evaluate]
+      summary: 提交行为，获取三色判定
+      description: scores六维为建议项；缺省时引擎按 action_type+context 自动评估
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EvaluateRequest"
+      responses:
+        "200":
+          description: 三色判定结果
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Verdict"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/RateLimited"
+        "503":
+          $ref: "#/components/responses/EngineFused"
+
+  /v1/tricolor/evaluate/batch:
+    post:
+      tags: [Evaluate]
+      summary: 批量判定（≤100条/次）
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [items]
+              properties:
+                items:
+                  type: array
+                  maxItems: 100
+                  items:
+                    $ref: "#/components/schemas/EvaluateRequest"
+      responses:
+        "200":
+          description: 批量判定结果（与请求同序）
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Verdict"
+                  summary:
+                    type: object
+                    properties:
+                      green: {type: integer}
+                      yellow: {type: integer}
+                      red: {type: integer}
+
+  /v1/tricolor/rules:
+    get:
+      tags: [Rules]
+      summary: 拉取当前判定规则集与版本
+      responses:
+        "200":
+          description: 规则集
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  rules_version: {type: string}
+                  rules:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        rule_id: {type: string}
+                        dimension: {type: string}
+                        description: {type: string}
+                        threshold: {type: number}
+                        severity: {type: string, enum: [GREEN, YELLOW, RED]}
+
+  /v1/tricolor/evidence/{dna}:
+    get:
+      tags: [Evidence]
+      summary: 按DNA码调取完整证据链（需GPG签章）
+      security:
+        - BearerAuth: []
+        - GPGAuth: []
+      parameters:
+        - name: dna
+          in: path
+          required: true
+          schema: {type: string}
+          description: DNA追溯码（URL编码）
+      responses:
+        "200":
+          description: 证据链
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EvidenceChain"
+        "403":
+          description: TC-4030 无证据链调取权限
+
+  /v1/tricolor/report:
+    get:
+      tags: [Report]
+      summary: 生成日/周/月审计报告（需GPG签章）
+      security:
+        - BearerAuth: []
+        - GPGAuth: []
+      parameters:
+        - name: period
+          in: query
+          required: true
+          schema: {type: string, enum: [daily, weekly, monthly]}
+        - name: format
+          in: query
+          schema: {type: string, enum: [json, pdf], default: json}
+      responses:
+        "200":
+          description: 审计报告（JSON供机器互认，PDF供监管调阅）
+
+  /v1/tricolor/webhook:
+    post:
+      tags: [Webhook]
+      summary: 注册事件回调
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [url, events, secret]
+              properties:
+                url: {type: string, format: uri, description: "HTTPS only"}
+                events:
+                  type: array
+                  items:
+                    type: string
+                    enum: [tricolor.review_pending, tricolor.blocked, tricolor.review_resolved, tricolor.rules_updated]
+                secret: {type: string, description: "HMAC-SHA256 验签密钥"}
+      responses:
+        "201":
+          description: 注册成功
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  webhook_id: {type: string}
+    delete:
+      tags: [Webhook]
+      summary: 注销事件回调
+      responses:
+        "204":
+          description: 注销成功
+
+  /v1/tricolor/conformance:
+    post:
+      tags: [Conformance]
+      summary: 一致性自测（接入认证L2用）
+      description: 在线跑一致性用例；离线开源版同步发布
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                endpoint: {type: string, format: uri, description: "被测接入方实现地址"}
+                suite: {type: string, enum: [full, quick], default: full}
+      responses:
+        "200":
+          description: 自测结果
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pass_rate: {type: number}
+                  verdict: {type: string, enum: [L2_PASS, L2_FAIL]}
+                  cases:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        case_id: {type: string}
+                        category: {type: string, enum: [verdict_consistency, threshold_boundary, cap_logic, dna_format, error_handling]}
+                        passed: {type: boolean}
+
+  /v1/tricolor/version:
+    get:
+      tags: [Meta]
+      summary: 规则引擎与契约版本（公开）
+      security: []
+      responses:
+        "200":
+          description: 版本信息
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  contract_version: {type: string, example: "openapi-tricolor/1.1"}
+                  engine_version: {type: string, example: "tricolor-core/1.1.0"}
+                  rules_version: {type: string}
+                  deprecation: {type: string, nullable: true}
+
+components:
+  schemas:
+    Scores:
+      type: object
+      description: 六维得分（0-100），缺省时引擎自动评估
+      properties:
+        humanWelfare: {type: number, minimum: 0, maximum: 100}
+        fairness: {type: number, minimum: 0, maximum: 100}
+        controllability: {type: number, minimum: 0, maximum: 100}
+        transparency: {type: number, minimum: 0, maximum: 100}
+        traceability: {type: number, minimum: 0, maximum: 100}
+        privacy: {type: number, minimum: 0, maximum: 100}
+
+    EvaluateRequest:
+      type: object
+      required: [action_id, actor, action_type]
+      properties:
+        action_id: {type: string, description: "接入方侧唯一ID，重复返回TC-4002"}
+        actor: {type: string, description: "触发者（模块/服务名）"}
+        action_type: {type: string, description: "行为类型（query/data_export/permission_change/...）"}
+        description: {type: string}
+        scores:
+          $ref: "#/components/schemas/Scores"
+        context:
+          type: object
+          properties:
+            involves_personal_data: {type: boolean}
+            cross_border: {type: boolean}
+            user_consent: {type: boolean}
+        locale: {type: string, default: "zh-CN"}
+
+    Verdict:
+      type: object
+      required: [action_id, r_score, status_code, dna, evidence_hash]
+      properties:
+        action_id: {type: string}
+        r_score: {type: integer, minimum: 0, maximum: 95, description: "上限封顶95，留5分给突变"}
+        status: {type: string, enum: ["安全", "审查", "阻断"]}
+        status_code: {type: string, enum: [GREEN, YELLOW, RED], description: "机器判断只认此字段"}
+        emoji: {type: string, enum: ["🟢", "🟡", "🔴"]}
+        disposition: {type: string}
+        triggered_rules: {type: array, items: {type: string}}
+        dna: {type: string, description: "干支DNA锚链，接入方必须落库"}
+        evidence_hash: {type: string, description: "SM3优先，SHA-256兜底"}
+        engine_version: {type: string}
+        contract_version: {type: string}
+        timestamp: {type: string, format: date-time}
+        i18n:
+          type: object
+          properties:
+            en:
+              type: object
+              properties:
+                status: {type: string, enum: [PASS, REVIEW, BLOCK]}
+                disposition: {type: string}
+
+    EvidenceChain:
+      type: object
+      properties:
+        dna: {type: string}
+        chain:
+          type: object
+          properties:
+            trigger: {type: string}
+            triggered_at: {type: string, description: "干支纪时"}
+            rule_ids: {type: array, items: {type: string}}
+            r_score: {type: integer}
+            disposition: {type: string, enum: ["🟢", "🟡", "🔴"]}
+            review:
+              type: object
+              properties:
+                required: {type: boolean}
+                confirmations_needed: {type: integer}
+                confirmations_done: {type: integer}
+        integrity:
+          type: object
+          properties:
+            hash: {type: string}
+            sealed: {type: boolean}
+
+    AuditRecord:
+      type: object
+      description: JSONL审计日志单行结构，追加写禁改写（P0：不删除只冻结）
+      properties:
+        dna: {type: string}
+        action_id: {type: string}
+        actor: {type: string}
+        action_type: {type: string}
+        r_score: {type: integer}
+        status_code: {type: string, enum: [GREEN, YELLOW, RED]}
+        triggered_rules: {type: array, items: {type: string}}
+        evidence_hash: {type: string}
+        timestamp: {type: string, format: date-time}
+        traceparent: {type: string, description: "W3C Trace Context 透传"}
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          description: "TC-4xxx接入错 / TC-401x认证 / TC-403x越权 / TC-429x限流 / TC-500x引擎 / TC-503x熔断"
+        message: {type: string}
+        dna: {type: string, description: "错误亦挂DNA，可追责可复现"}
+
+  responses:
+    BadRequest:
+      description: 接入方请求错误
+      content:
+        application/json:
+          schema: {$ref: "#/components/schemas/Error"}
+          example: {code: "TC-4001", message: "scores缺维"}
+    Unauthorized:
+      description: 认证失败
+      content:
+        application/json:
+          schema: {$ref: "#/components/schemas/Error"}
+          example: {code: "TC-4010", message: "Token失效"}
+    RateLimited:
+      description: 超出配额
+      content:
+        application/json:
+          schema: {$ref: "#/components/schemas/Error"}
+          example: {code: "TC-4290", message: "超出配额"}
+    EngineFused:
+      description: 引擎自身🔴自检未过，拒绝服务
+      content:
+        application/json:
+          schema: {$ref: "#/components/schemas/Error"}
+          example: {code: "TC-5030", message: "引擎自检未过"}
+
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: "常规判定调用"
+    GPGAuth:
+      type: apiKey
+      in: header
+      name: X-GPG-Signature
+      description: "GPG签名认证（证据链调取/报告导出）"
+    HMACAuth:
+      type: apiKey
+      in: header
+      name: X-LH-Signature
+      description: "HMAC-SHA256 请求体签名（Webhook验签）"
+
+security:
+  - BearerAuth: []

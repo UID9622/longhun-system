@@ -1,0 +1,4936 @@
+{
+  "meta": {
+    "name": "龍魂系统·专业术语与技能统一注册表",
+    "version": "v2.5",
+    "dna": "#龍芯⚡️丙午·辛未·乙酉·亥时·䷾既济-SEMANTIC-UNIFIED-REGISTRY-v2.5",
+    "created": "2026-07-14T21:00:00",
+    "updated": "2026-07-17T23:16:00",
+    "author": "P05 上帝之眼 · 三色审计",
+    "sovereign": "UID9622 龍芯北辰",
+    "changelog": "v2.5: 分布式审计三件套——新建分布式审计矩阵协议(九类审计+369不动点+人因变量)+自检表万能模板(60项10区块)+通用审计模板(五区块40项+输出/审计双专用检查表)·审计铁律升级§3.21-§3.24 · v2.4: 历史归档对齐——老版决策流场总控页v2.7投喂吸收·16条DNA老→新矫正·53→16人格映射·新建H象限平等服务协议+边界编辑路由协议·实在协议+五层输出架构+DNA强制标注挂入§3 · v2.3: 人格矩阵对齐——P02宝宝→张衡/龍芯(执行修复)/P03雯雯→墨子+雯雯(逻辑验证)/P09道引→孙思邈(系统诊断·新执行器p09_sunsi.py)/P14吕蒙+部署职能/9个DNA短格式→完整干支时间戳·全部20人格文档=执行器DNA一致✅ · v2.2: +反钓鱼反贪心协议v1.0(7类钓鱼+7类贪心+4引擎+8项P0承诺)+主动观察引擎挂入反钓鱼审计规则 · v2.1: +语义对齐三层体系(L1文件/L2语义节点/L3触角网络)+命名即架构引擎v1.0+架构评估报告归档 · v2.0: +量子/时空织网/BraKet/纠缠检测/模9详解/三才25公式/密码学6层堆栈/论文引用/CNSH编译器术语/通心译全框架/文化输出/28星宿/D-GATE三闸门/Notion知识库映射/七因子场景权重细化 · 新增约200条目 · v2.6: +quantum_evidence v2.0量子存证系统注册 · v2.7: +privacy_access_control v1.0(P0++)隐私接入规则引擎",
+    "description": "收口全系统专业术语、技能、密码学、七因子、语义库、AI创作等所有概念到单一权威索引。v2.0补全量子/时空/CNSH/模9/三才详解及论文引用。",
+    "principles": [
+      "一个概念一个权威定义",
+      "命名统一：longhun-领域-子类-版本",
+      "一个词一个意，交叉引用消歧",
+      "密码学/行为密码学统一归入 CRYPTO 分类",
+      "七因子统一归入 SEVEN_FACTOR 分类",
+      "所有技能四地合一索引",
+      "Notion知识库术语逐步同步"
+    ],
+    "taxonomy_version": "2.0",
+    "notion_terms_v1.0": "extracted",
+    "notion_term_extraction_v1.0": {
+      "date": "2026-07-14",
+      "pages": 50,
+      "terms": 1222,
+      "categories": 9,
+      "engine": "lh_notion_term_extractor.py v1.0"
+    },
+    "auto_sync_v1.0": {
+      "first_sync": "2026-07-14T20:13:21",
+      "terms_added": 67,
+      "engine": "lh_registry_auto_sync.py v1.0",
+      "scope": "core_dirs_first_pass"
+    },
+    "auto_sync": {
+      "last_sync": "2026-07-17T10:30:37",
+      "total_terms_added": 58,
+      "engine": "lh_registry_auto_sync.py v1.0"
+    }
+  },
+  "taxonomy": {
+    "CRYPTO": "密码学与行为密码学 · 识别/溯源/保护 · 含6层堆栈(L1-L6)+论文引用",
+    "SEVEN_FACTOR": "七因子行为分析 · 七维人格建模 · 场景权重+精确公式",
+    "SEMANTIC": "语义库与词典 · CNSH命名·通心译·语义测谎·反欺诈",
+    "AI_CREATION": "AI创作工具 · 图片/视频/文本/设计 · 统一命名 AI创作-{类型}",
+    "ENGINE": "引擎系统 · 核心计算与决策引擎 · 26引擎",
+    "SKILL": "技能系统 · 龍魂技能库 · 四地统一索引",
+    "PERSONA": "人格矩阵 · 16人格体系 · Bra-Ket量子态·场景权重",
+    "ALGORITHM": "算法与公式 · 369/洛书/太极/五行/三才25公式/模9详解",
+    "QUANTUM": "量子体系 · Bra-Ket引擎·量子触角·纠缠检测·量子路由器·熔断器",
+    "SPACETIME": "时空织网 · 主动安全·ST-GNN·零断点·三层架构",
+    "GOVERNANCE": "治理与审计 · 三色审计/D-GATE三闸门/签章/DNA/熔断",
+    "CNSH": "CNSH语言体系 · 编译器·运行时·编辑器·变量注册表",
+    "CULTURE": "文化输出 · 原生态知识·28星宿·文化流场·哲学资产",
+    "INFRA": "基础设施 · 部署/监控/守护/备份",
+    "PROTOCOL": "协议与标准 · 北辰协议/铁律/宪法",
+    "DOMAIN": "领域术语 · AI/CS/法律/金融/文化专业词",
+    "NOTION": "Notion知识库 · 页面索引·同步桥·术语来源",
+    "BIBLIOGRAPHY": "论文引用 · IEEE/arXiv/CSDN论文+密码学参考文献",
+    "SEMANTIC_ALIGN": "语义对齐系统 · 大白话→标准节点·触角网络·命名即架构·三层联动",
+    "ANTI_FISHING_GREED": "反钓鱼反贪心系统 · 需求冻结·够用即止·诚实降级·7类钓鱼+7类贪心审计·8项P0承诺"
+  },
+  "categories": {
+    "CRYPTO": {
+      "description": "密码学与行为密码学——龍魂系统的追溯引擎。六层加密堆栈(L1-L6)，从物理层到灵魂层。不依赖生物特征，通过长期行为模式的多维度建模，生成不可伪造的行为DNA。",
+      "key_files": [
+        "crypto-stack/src/l1_physical.py",
+        "crypto-stack/src/l2_device.py",
+        "crypto-stack/src/l3_temporal.py",
+        "crypto-stack/src/l4_seven_factor.py",
+        "crypto-stack/src/l5_cognitive.py",
+        "crypto-stack/src/l6_soul.py",
+        "crypto-stack/src/stack_runner.py",
+        "crypto-stack/src/weight_tuner.py",
+        "docs/onghun-seven-factor-cryptography.md",
+        "docs/claude-backlog/04_BehavCrypto论文/C_CHINESE_FORMAL_PAPER_v1.0.md",
+        "deploy/evidence/longhun_evidence.py",
+        "deploy/evidence/longhun_privacy.py",
+        "deploy/evidence/privacy_api.py"
+      ],
+      "stack_layers": {
+        "L1_physical": {
+          "name": "物理层",
+          "file": "crypto-stack/src/l1_physical.py",
+          "desc": "设备指纹、硬件特征、触控节奏。最底层，最难伪造。",
+          "weight_in_stack": 0.15
+        },
+        "L2_device": {
+          "name": "设备层",
+          "file": "crypto-stack/src/l2_device.py",
+          "desc": "设备ID、MAC地址、系统版本。硬件绑定。",
+          "weight_in_stack": 0.1
+        },
+        "L3_temporal": {
+          "name": "时序层",
+          "file": "crypto-stack/src/l3_temporal.py",
+          "desc": "行为时间轴节律、活跃周期、响应时序。时间不可逆。",
+          "weight_in_stack": 0.1
+        },
+        "L4_seven_factor": {
+          "name": "七因子层",
+          "file": "crypto-stack/src/l4_seven_factor.py",
+          "desc": "F1-F7加权置信度。行为密码学核心。",
+          "weight_in_stack": 0.3
+        },
+        "L5_cognitive": {
+          "name": "认知层",
+          "file": "crypto-stack/src/l5_cognitive.py",
+          "desc": "决策模式、思维路径。反映认知结构。",
+          "weight_in_stack": 0.15
+        },
+        "L6_soul": {
+          "name": "灵魂层",
+          "file": "crypto-stack/src/l6_soul.py",
+          "desc": "价值观锚点、不可让渡原则。定义'我是谁'。",
+          "weight_in_stack": 0.2
+        }
+      },
+      "core_concepts": {
+        "behavioral_cryptography": {
+          "name_zh": "行为密码学",
+          "name_en": "Behavioral Cryptography",
+          "definition": "不依赖生物特征（指纹、虹膜等），通过长期行为模式的多维度建模，生成不可伪造的行为DNA。代码可以复制，行为不能。人格可以模仿，模式不能。",
+          "uses": [
+            "识别剽窃",
+            "漂移检测",
+            "原创确权",
+            "数字主权保护"
+          ],
+          "layers": [
+            "L1物理层",
+            "L4七因子层",
+            "L6灵魂层"
+          ],
+          "formula": "Σ(C) = ∏ w_i × H_i(C), i=1..7, 任一因子=0则conf=0(硬失败)"
+        },
+        "behavcrypto_receipt": {
+          "name_zh": "行为密码学收据",
+          "name_en": "BehavCrypto Receipt",
+          "definition": "基于七因子签名生成的行为验证收据，包含时间戳+行为模式+内容哈希。"
+        },
+        "sm2_sm3_sm4_crypto": {
+          "name_zh": "国密体系(SM2/SM3/SM4/SM9)",
+          "name_en": "Chinese National Cipher Suite",
+          "definition": "中国国家密码管理局发布的密码算法标准。SM2=非对称椭圆曲线，SM3=哈希(256bit)，SM4=对称分组(128bit)，SM9=标识密码。龍魂鸿蒙模块全量使用。",
+          "usage": "鸿蒙生日提醒/端侧语音AI/教育AI全栈等18模块使用国密"
+        },
+        "gpg_signing": {
+          "name_zh": "GPG签章链",
+          "name_en": "GPG Signing Chain",
+          "definition": "使用GPG非对称加密对系统输出进行签名验证的不可篡改链。109份签章。UID9622公钥: A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+        },
+        "dna_trace": {
+          "name_zh": "DNA追溯码",
+          "name_en": "DNA Trace Code",
+          "definition": "格式为 #龍芯⚡️{干支}-{模块}-{动作}-{哈希8位} 的唯一身份追溯码。焊死在每个文件头。",
+          "protocol": "PROTO-001"
+        },
+        "sovereign_derivation": {
+          "name_zh": "主权派生",
+          "name_en": "Sovereign Key Derivation",
+          "definition": "从根密钥通过HMAC分层派生子密钥的密码学方案，确保数据主权不流失。四层绑定：设备+人格+会话+内容。",
+          "module": "sovereign-privacy"
+        },
+        "confirm_seal": {
+          "name_zh": "确认封印体系",
+          "name_en": "Confirm/Seal System",
+          "definition": "三重确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z + #ZHUGEXIN⚡️2025-DEVICE-BIND-SOUL + GPG签名。三层不可伪造。"
+        },
+        "gpg": {
+          "name_zh": "gpg",
+          "source": "auto_sync_v1.0",
+          "occurrence": 33,
+          "files": [
+            "01_protocols/CNSH-BRAIN-PERSONA-LANDING-v1.0.md",
+            "01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md",
+            "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+            "01_protocols/CNSH_GLOBAL_PROTOCOL_v3.0.md",
+            "01_protocols/DIGITAL-BATTLEFIELD-IRON-RULE-v1.0.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "dna签名": {
+          "name_zh": "dna签名",
+          "source": "auto_sync_v1.0",
+          "occurrence": 9,
+          "files": [
+            "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+            "01_protocols/LH-AI-SHAME-PILLAR-v3.0.md",
+            "01_protocols/LH-REGULATORY-TRANSPARENCY-API-v1.0.md",
+            "01_protocols/龍魂认知上下文管理协议_v3.0.md",
+            "02_SKILLS/dna-gen.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "sm4": {
+          "name_zh": "sm4",
+          "source": "auto_sync_v1.0",
+          "occurrence": 8,
+          "files": [
+            "01_protocols/LH-DATA-MELTDOWN-PERSONA-SOVEREIGNTY-v1.0.md",
+            "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md",
+            "01_protocols/LH-GOV-DATA-SOVEREIGNTY-v1.0.md",
+            "01_protocols/LH-PRIVACY-WHITEPAPER-v1.0.md",
+            "01_protocols/LH-REGULATORY-TRANSPARENCY-API-v1.0.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "sm2": {
+          "name_zh": "sm2",
+          "source": "auto_sync_v1.0",
+          "occurrence": 7,
+          "files": [
+            "01_protocols/LH-DATA-MELTDOWN-PERSONA-SOVEREIGNTY-v1.0.md",
+            "01_protocols/LH-PRIVACY-WHITEPAPER-v1.0.md",
+            "01_protocols/LH-REGULATORY-TRANSPARENCY-API-v1.0.md",
+            "02_SKILLS/api-sovereign-gateway.md",
+            "02_SKILLS/dna-trace-engine.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "sm3": {
+          "name_zh": "sm3",
+          "source": "auto_sync_v1.0",
+          "occurrence": 7,
+          "files": [
+            "01_protocols/LH-DATA-MELTDOWN-PERSONA-SOVEREIGNTY-v1.0.md",
+            "01_protocols/LH-PRIVACY-WHITEPAPER-v1.0.md",
+            "01_protocols/LH-REGULATORY-TRANSPARENCY-API-v1.0.md",
+            "02_SKILLS/api-sovereign-gateway.md",
+            "02_SKILLS/dna-trace-engine.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "aes-256": {
+          "name_zh": "aes-256",
+          "source": "auto_sync_v1.0",
+          "occurrence": 5,
+          "files": [
+            "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md",
+            "01_protocols/SENSORY-EDUCATION-DIGNITY-v1.0.md",
+            "02_SKILLS/guomi-crypto.md",
+            "02_SKILLS/identity-positioning.md",
+            "02_SKILLS/sovereign-privacy.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "hmac": {
+          "name_zh": "hmac",
+          "source": "auto_sync_v1.0",
+          "occurrence": 4,
+          "files": [
+            "01_protocols/DNA_REGISTRY_PROTOCOL_200.md",
+            "02_SKILLS/guomi-crypto.md",
+            "02_SKILLS/identity-positioning.md",
+            "02_SKILLS/sovereign-privacy.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "加密": {
+          "name_zh": "加密",
+          "source": "auto_sync",
+          "occurrence": 5,
+          "files": [
+            "bin/lh_mirror_vision.py",
+            "bin/lh_sensory_education.py",
+            "bin/semantic_parser.py",
+            "bin/lh_registry_auto_sync.py",
+            "crypto-stack/src/stack_runner.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "quantum_evidence": {
+          "name_zh": "量子存证系统",
+          "name_en": "Quantum Evidence System",
+          "version": "v2.0",
+          "definition": "龍魂量子存证系统。三层架构：语义压缩(AI可读摘要) + 量子态指纹(50分片XOR加密模拟) + DNA存证链(本地+模拟链上)。核心理念：压缩公开，原文加密，需要时量子重组。",
+          "commands": [
+            "store",
+            "verify",
+            "reconstruct"
+          ],
+          "api_port": 19629,
+          "files": [
+            "deploy/evidence/longhun_evidence.py",
+            "deploy/evidence/evidence_api.py"
+          ],
+          "deploy": {
+            "local": "launchd com.longhun.evidence-api",
+            "kunpeng": "systemd longhun-evidence.service"
+          },
+          "dna": "#龍芯⚡️丙午·乙申·己酉·亥时·需-EVIDENCE-API-v2.0"
+        },
+        "privacy_access_control": {
+          "name_zh": "隐私接入规则系统",
+          "name_en": "Privacy Access Control System",
+          "version": "v1.0",
+          "level": "P0++ (最高优先级，不可覆盖)",
+          "definition": "龍魂隐私接入规则引擎。P0++级别，三层防护：黑名单检查(永久拒绝)→国际组织白名单(需审计)→国家审批(网信办/公安部/工信部)。含隐私强制执行器(授权/敏感数据/禁止用途/跨境四重) + 熔断器(CRITICAL→紧急关闭, HIGH→立即阻断)。",
+          "commands": [
+            "verify",
+            "enforce",
+            "audit",
+            "status"
+          ],
+          "api_port": 19630,
+          "files": [
+            "deploy/evidence/longhun_privacy.py",
+            "deploy/evidence/privacy_api.py"
+          ],
+          "deploy": {
+            "local": "launchd com.longhun.privacy-api",
+            "kunpeng": "systemd longhun-privacy.service"
+          },
+          "dna": "#龍芯⚡️丙午·乙申·己酉·亥时·需-PRIVACY-API-v1.0"
+        }
+      }
+    },
+    "SEVEN_FACTOR": {
+      "description": "七因子行为分析——将行为分解为七个独立维度进行建模和比对。F1-F7覆盖从操作习惯到演化模式的全维度。任一因子为0即硬失败(conf=0)。",
+      "key_files": [
+        "crypto-stack/src/l4_seven_factor.py",
+        "docs/onghun-seven-factor-cryptography.md",
+        "articles/2026-07-03-行为密码学七因子视角-老实人与算计者.md",
+        "bin/lh_philosophy_unified_engine.py",
+        "bin/lh_unified_pipeline.py"
+      ],
+      "factors": {
+        "F1_操作习惯": {
+          "weight": 0.25,
+          "desc": "数字世界的肌肉记忆：打字节奏、快捷键偏好、鼠标轨迹、命令行习惯。下意识行为，最难伪装。",
+          "class": "操作行为学"
+        },
+        "F2_代码风格": {
+          "weight": 0.15,
+          "desc": "代码中的笔迹：命名规范、缩进、注释风格、错误处理哲学、模块拆分。",
+          "class": "创作行为学"
+        },
+        "F3_决策路径": {
+          "weight": 0.15,
+          "desc": "解决问题的思维路径：优先级排序、分支判断、风险评估顺序。反映认知结构。",
+          "class": "认知行为学"
+        },
+        "F4_时间模式": {
+          "weight": 0.12,
+          "desc": "行为在时间轴上的节律：活跃时段、任务切换频率、响应延迟、创作周期。",
+          "class": "时序行为学"
+        },
+        "F5_空间模式": {
+          "weight": 0.12,
+          "desc": "数字地理位置：设备指纹组合、网络拓扑、文件组织方式、工作区布局。",
+          "class": "空间行为学"
+        },
+        "F6_交互模式": {
+          "weight": 0.11,
+          "desc": "与人/系统对话的风格：用词偏好、确认习惯、任务委托方式、冲突处理。",
+          "class": "社交行为学"
+        },
+        "F7_演化模式": {
+          "weight": 0.1,
+          "desc": "主体随时间的变化方式：技能成长曲线、关注点迁移、价值观调整、创新演化。",
+          "class": "演化行为学"
+        }
+      },
+      "formula": {
+        "standard": "conf = ∏_{i=1..7} f_i^{w_i}, 任一f_i=0 → conf=0(硬失败)",
+        "weighted_sum": "Σ(C) = Σ w_i × H_i(C), i=1..7",
+        "seven_factor_class": "SevenFactorLayer · crypto-stack/src/l4_seven_factor.py"
+      },
+      "thresholds": {
+        "standard": 0.85,
+        "high_confidence": 0.95,
+        "hard_fail": "任一因子=0 → conf=0"
+      },
+      "scenarios": {
+        "code_origin": {
+          "weights": {
+            "F1": 0.1,
+            "F2": 0.4,
+            "F3": 0.2,
+            "F4": 0.1,
+            "F6": 0.1,
+            "F7": 0.1
+          },
+          "desc": "代码溯源场景——F2代码风格权重最高(0.40)，判断代码是否同一作者",
+          "threshold": 0.85
+        },
+        "persona_verification": {
+          "weights": {
+            "F1": 0.2,
+            "F3": 0.2,
+            "F6": 0.3,
+            "F7": 0.15,
+            "F4": 0.1,
+            "F5": 0.05
+          },
+          "desc": "人格验证场景——F6交互模式权重最高(0.30)，判断是否本人格",
+          "threshold": 0.85
+        },
+        "drift_detection": {
+          "weights": {
+            "F1": 0.1,
+            "F2": 0.1,
+            "F3": 0.25,
+            "F6": 0.2,
+            "F7": 0.3,
+            "F4": 0.05
+          },
+          "desc": "AI漂移检测场景——F7演化模式权重最高(0.30)，检测人格漂移",
+          "threshold": 0.75
+        },
+        "plagiarism_check": {
+          "weights": {
+            "F2": 0.45,
+            "F1": 0.15,
+            "F3": 0.15,
+            "F5": 0.1,
+            "F4": 0.05,
+            "F7": 0.1
+          },
+          "desc": "剽窃检测场景——F2代码风格权重最高(0.45)，检测代码抄袭",
+          "threshold": 0.9
+        },
+        "insider_threat": {
+          "weights": {
+            "F3": 0.3,
+            "F6": 0.25,
+            "F7": 0.2,
+            "F1": 0.1,
+            "F4": 0.1,
+            "F5": 0.05
+          },
+          "desc": "内部威胁检测——F3决策路径+F6交互模式+F7演化模式综合判断",
+          "threshold": 0.8
+        }
+      }
+    },
+    "SEMANTIC": {
+      "description": "语义库——龍魂系统的语言基础设施。CNSH中文命名规范、AI黑话拆穿词典、语义测谎模式库、通心译六层翻译体系、语义抽屉、反欺诈模式库。中文优先，中国人先懂，外国人再学。",
+      "key_files": [
+        "skills/longhun-ai-lexicon/SKILL.md",
+        "02_SKILLS/semantic-parser.md",
+        "02_SKILLS/on-translate.md",
+        "02_SKILLS/anti_fraud_patterns_v2.0.json",
+        "02_SKILLS/owner_semantic_drawers_v2.0.json",
+        "CNSH-SEMANTIC.md",
+        "bin/semantic_parser.py",
+        "bin/lh_semantic_lie_detector.py",
+        "cnsh-editor/docs/CNSH_中文编辑关键字登记册.md",
+        "cnsh-editor/docs/CNSH_编辑变量注册表-v3.0.md"
+      ],
+      "modules": {
+        "ai_lexicon": {
+          "name": "AI行业话术·龍文语义映射词典",
+          "skill_id": "longhun-ai-lexicon",
+          "desc": "拆穿AI行业hype黑话，映射到真实底层技术+中文译法+CNSH称谓。hype等级1-5。"
+        },
+        "semantic_lie_detector": {
+          "name": "语义测谎仪",
+          "version": "2.0.0",
+          "skill_id": "longhun-semantic-lie-detector",
+          "desc": "15大检测维度+15组谐音映射+139条正则。规避话术全维度检测+异常账号自动标记。",
+          "api_port": 19624
+        },
+        "cnsh_semantic": {
+          "name": "CNSH语义接入规范",
+          "skill_id": "CNSH-SEMANTIC",
+          "desc": "功能语义·技术用词对照表+协作宣言+八条永恒铁律。"
+        },
+        "tongxinyi": {
+          "name": "通心译",
+          "desc": "六层翻译框架(L0-L5)+九状态机+213协议+55语义抽屉+7条铁律。把UID9622的人话转化为可执行意图骨架。",
+          "layers": {
+            "L0_意图识别": "识别说话人的真实意图（想做什么）",
+            "L1_语义消歧": "消除多义词歧义，锚定准确含义",
+            "L2_领域映射": "将自然语言映射到龍魂领域术语",
+            "L3_意图骨架": "生成可执行的意图结构体(JSON)",
+            "L4_执行路由": "路由到对应的人格/引擎/工具",
+            "L5_结果回译": "将执行结果翻译回自然语言"
+          }
+        },
+        "semantic_parser": {
+          "name": "语义解析引擎",
+          "file": "bin/semantic_parser.py",
+          "desc": "CNSH语义解析器，将中文自然语言解析为结构化意图。"
+        },
+        "anti_fraud_patterns": {
+          "name": "反欺诈语义模式库",
+          "file": "02_SKILLS/anti_fraud_patterns_v2.0.json",
+          "desc": "独立于代码的语义模式库。热更新无需改代码。139条正则+15组谐音映射。"
+        },
+        "semantic_drawers": {
+          "name": "语义抽屉",
+          "file": "02_SKILLS/owner_semantic_drawers_v2.0.json",
+          "desc": "55个场景语义抽屉。将用户意图分类存储，按需取用。9真1变量·太极留白律。"
+        }
+      }
+    },
+    "AI_CREATION": {
+      "description": "AI创作工具集——所有AI生成类工具的统一收口。统一命名风格: AI创作-{类型}。",
+      "locations": {
+        "codebuddy_skills": "~/.codebuddy/skills/",
+        "project_skills": "skills/",
+        "skill_library": "02_SKILLS/"
+      },
+      "tools": {
+        "ai_drawing": {
+          "name": "AI绘图",
+          "unified_name": "AI创作-图片生成",
+          "type": "图片生成",
+          "engine": "Nano Banana Pro (Gemini 3 Pro Image)",
+          "capabilities": [
+            "文生图",
+            "图生图",
+            "图片编辑",
+            "1K/2K/4K"
+          ]
+        },
+        "libtv_creation": {
+          "name": "LibTV AI 创作",
+          "unified_name": "AI创作-视频与多媒体",
+          "type": "视频/多媒体生成",
+          "platform": "liblib.tv",
+          "capabilities": [
+            "文生图",
+            "文生视频",
+            "图生视频",
+            "风格迁移",
+            "视频续写",
+            "短剧",
+            "音乐MV",
+            "产品广告",
+            "分镜故事板"
+          ]
+        },
+        "infographic_maker": {
+          "name": "Infographic Maker",
+          "unified_name": "AI创作-信息图生成",
+          "type": "信息图/可视化",
+          "style": "手绘卡通风格",
+          "capabilities": [
+            "知识卡片",
+            "视觉摘要",
+            "一页解说",
+            "信息图"
+          ]
+        },
+        "excalidraw_diagram": {
+          "name": "Excalidraw Diagram",
+          "unified_name": "AI创作-流程图与架构图",
+          "type": "图表绘制",
+          "capabilities": [
+            "流程图",
+            "架构图",
+            "概念图",
+            "系统图",
+            ".excalidraw+PNG"
+          ]
+        },
+        "wechat_article": {
+          "name": "微信公众号文章发布",
+          "unified_name": "AI创作-公众号文章",
+          "type": "文本内容生成",
+          "capabilities": [
+            "联网搜索热点",
+            "封面图生成",
+            "3000-5000字文章",
+            "自动排版",
+            "刘润风格"
+          ]
+        },
+        "cnsh_creation": {
+          "name": "CNSH AI画匠",
+          "unified_name": "AI创作-CNSH字元创作",
+          "type": "文化创作",
+          "capabilities": [
+            "字元创作",
+            "AI画匠",
+            "繁体龍字",
+            "甲骨文编码"
+          ]
+        },
+        "video_generator": {
+          "name": "视频生成引擎",
+          "unified_name": "AI创作-视频生成",
+          "file": "bin/lh_video_generator.py",
+          "type": "视频生成"
+        }
+      },
+      "naming_convention": "AI创作-{类型} · 所有AI内容生成工具统一此前缀"
+    },
+    "ENGINE": {
+      "description": "引擎系统——龍魂的计算核心。26个核心引擎，覆盖推演/检测/治理/安全/路由/人格全维度。",
+      "engines": {
+        "yijing_engine": {
+          "name": "易经推演引擎",
+          "file": "bin/lh_yijing_推演引擎.py",
+          "skill": "longhun-yijing",
+          "desc": "64卦公理推导·文化输出"
+        },
+        "philosophy_engine": {
+          "name": "统一哲学执行引擎",
+          "file": "bin/lh_philosophy_unified_engine.py",
+          "skill": "longhun-philosophy",
+          "desc": "十维同演(太极/易经/369/七因子/道德经/三才/五行/河图/八卦/中国哲学)"
+        },
+        "sandbox_engine": {
+          "name": "沙盒推演系统",
+          "file": "bin/lh_sandbox_console.py",
+          "skill": "longhun-sandbox",
+          "desc": "时间推演(10年)·博弈对抗(防线1-5)·平行宇宙(10000次)·四引擎"
+        },
+        "robot_score": {
+          "name": "RobotScore反图灵检测",
+          "file": "bin/lh_robot_score.py",
+          "skill": "longhun-robot-score",
+          "desc": "α/β/γ三因子·阈值0.73·F1=0.975·准确率95.8%"
+        },
+        "anxiety_detector": {
+          "name": "蚁群触角焦虑识别器",
+          "file": "bin/lh_anxiety_detector.py",
+          "skill": "longhun-anxiety-detector",
+          "desc": "五类话术(A-E)+三层本源(文化/心理/权力)+五式反制"
+        },
+        "active_observer": {
+          "name": "主动观察引擎",
+          "file": "bin/lh_active_observation.py",
+          "skill": "longhun-active-observer",
+          "desc": "系统自检·主动扫描·规则管理·守护模式"
+        },
+        "seven_factor_engine": {
+          "name": "七因子签名层",
+          "file": "crypto-stack/src/l4_seven_factor.py",
+          "desc": "F1-F7加权置信度计算"
+        },
+        "water_army": {
+          "name": "拔水军统帅引擎",
+          "file": "bin/lh_water_army_elimination.py",
+          "desc": "四引擎·五阶段全流程·11条法律·6平台+12377"
+        },
+        "malicious_edit": {
+          "name": "恶意剪辑检测",
+          "file": "bin/lh_malicious_edit_detector.py",
+          "desc": "视频恶意剪辑检测"
+        },
+        "fake_review": {
+          "name": "虚假评论检测",
+          "file": "bin/lh_fake_review_detector.py",
+          "desc": "评论真实性检测"
+        },
+        "dual_brain": {
+          "name": "双脑引擎",
+          "file": "bin/lh_dual_brain_engine.py",
+          "desc": "人类思维+AI思维双轨并行"
+        },
+        "human_brain": {
+          "name": "人脑神经网络引擎",
+          "file": "bin/lh_human_brain_engine_v2.py",
+          "desc": "模拟人脑思维的决策网络"
+        },
+        "rb_confrontation": {
+          "name": "红蓝对抗融合引擎",
+          "file": "bin/lh_rb_confrontation_engine.py",
+          "desc": "五阶段(分离→对抗→牺牲→融合→共振)·熔断器"
+        },
+        "ant_colony": {
+          "name": "蚁群联动编排引擎",
+          "file": "bin/lh_ant_colony_orchestrator.py",
+          "desc": "蚁后不动点(9锚点)·信息素网络·发现蚁/注册蚁/哨兵蚁/执行蚁/审计蚁·760脚本注册"
+        },
+        "unified_pipeline": {
+          "name": "七引擎统一管线",
+          "file": "bin/lh_unified_pipeline.py",
+          "desc": "7引擎联动·交叉验证·训练数据JSONL"
+        },
+        "persona_signing": {
+          "name": "人格执行签章引擎",
+          "file": "bin/lh_persona_signing.py",
+          "desc": "16人格责任链·GPG签章·谁签名谁负责"
+        },
+        "oversight_bridge": {
+          "name": "监管天联动桥接",
+          "file": "bin/lh_oversight_bridge.py",
+          "desc": "审计三色↔监管天↔红蓝↔签章·四系统自动协作"
+        },
+        "threshold_trigger": {
+          "name": "阈值触发管理器",
+          "file": "bin/lh_threshold_trigger.py",
+          "version": "2.1",
+          "desc": "19守卫·五层分类·告警聚合+自动修复+告警升级·热加载"
+        },
+        "sancai_naming": {
+          "name": "三才命名检查",
+          "file": "bin/lh_sancai_naming_check.py",
+          "desc": "天地人三层命名规范检查"
+        },
+        "chip_gate": {
+          "name": "芯片闸门",
+          "file": "bin/lh_chip_gate.py",
+          "desc": "硬件级安全熔断"
+        },
+        "emotion_protocol": {
+          "name": "情感协议",
+          "file": "bin/lh_emotion_protocol.py",
+          "desc": "情感识别与响应协议"
+        },
+        "voice_persona": {
+          "name": "声色人格系统",
+          "file": "bin/lh_voice_persona_system.py",
+          "desc": "声音人格识别与合成"
+        },
+        "vision_parser": {
+          "name": "视觉解析器",
+          "file": "bin/lh_vision_parser.py",
+          "desc": "图像内容语义解析"
+        },
+        "mod9_runtime": {
+          "name": "模9治理运行时",
+          "file": "bin/lh_mod9_runtime_engine.py",
+          "desc": "数字根+三色治理+369吸引子+五行路由+动态DR*+语义熵+注入防火墙+风险传播·8子系统"
+        },
+        "spacetime_weave": {
+          "name": "时空织网引擎",
+          "file": "bin/lh_spacetime_weave.py",
+          "version": "2.0",
+          "desc": "主动安全·ST-GNN·零断点·边缘→区域→中心三层"
+        },
+        "entanglement_detector": {
+          "name": "纠缠度检测器",
+          "file": "bin/lh_entanglement_detector.py",
+          "desc": "量子纠缠数学应用于模块依赖分析。E=0独立→E>0.8强耦合联动"
+        },
+        "world_model_engine": {
+          "name": "易经世界模型引擎",
+          "file": "papers/易经世界模型的数学物理基础_从符号系统到可计算宇宙_v1.0.md",
+          "desc": "UID9622 原创可计算世界模型：八卦=Z₂³向量空间·六十四卦=Z₂⁶状态空间·卦变=群论状态转移算子(Z₂⁶群)·河图/洛书=矩阵代数与幻方·三才流场=三层耦合随机微分方程(朗之万方程同构)·五行=非线性反馈动力学(Lotka-Volterra同构)·洛书369=共振频率子群(Z₉)·卦爻熵=信息熵度量。白箱/零数据/本地部署/每步可逆向追溯。",
+          "dna": "#龍芯⚡️2026-07-16-WORLD-MODEL-MATH-PHYS-v1.0",
+          "viz": "papers/world-model-math-phys-v1.0.html"
+        },
+        ".py": {
+          "name_zh": ".py",
+          "source": "auto_sync",
+          "occurrence": 26,
+          "files": [
+            "bin/lh_threshold_trigger.py",
+            "bin/lh_adversarial_pipeline.py",
+            "bin/lh_usb_search_index.py",
+            "bin/lh_mirror_vision.py",
+            "bin/generate_module_readmes.py"
+          ],
+          "added": "2026-07-17"
+        },
+        ".sh": {
+          "name_zh": ".sh",
+          "source": "auto_sync",
+          "occurrence": 26,
+          "files": [
+            "bin/lh_threshold_trigger.py",
+            "bin/lh_adversarial_pipeline.py",
+            "bin/lh_usb_search_index.py",
+            "bin/lh_intl_to_train.py",
+            "bin/lh_audit_hook.py"
+          ],
+          "added": "2026-07-17"
+        },
+        ".json": {
+          "name_zh": ".json",
+          "source": "auto_sync",
+          "occurrence": 22,
+          "files": [
+            "bin/lh_threshold_trigger.py",
+            "bin/lh_adversarial_pipeline.py",
+            "bin/lh_usb_search_index.py",
+            "bin/lh_intl_to_train.py",
+            "bin/lh_audit_hook.py"
+          ],
+          "added": "2026-07-17"
+        },
+        ".md": {
+          "name_zh": ".md",
+          "source": "auto_sync",
+          "occurrence": 15,
+          "files": [
+            "bin/lh_threshold_trigger.py",
+            "bin/lh_adversarial_pipeline.py",
+            "bin/lh_usb_search_index.py",
+            "bin/generate_module_readmes.py",
+            "bin/lh_health_alert_daemon.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "哈希": {
+          "name_zh": "哈希",
+          "source": "auto_sync",
+          "occurrence": 12,
+          "files": [
+            "bin/lh_mirror_vision.py",
+            "bin/lh_semantic_parser.py",
+            "bin/lh_usb_inventory.py",
+            "bin/lh_sensory_education.py",
+            "bin/lh_adaptive_tuner.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "鲲鹏": {
+          "name_zh": "鲲鹏",
+          "source": "auto_sync",
+          "occurrence": 9,
+          "files": [
+            "bin/lh_threshold_trigger.py",
+            "bin/lh_mirror_vision.py",
+            "bin/lh_semantic_parser.py",
+            "bin/lh_autoflow.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "蚁群": {
+          "name_zh": "蚁群",
+          "source": "auto_sync",
+          "occurrence": 7,
+          "files": [
+            "bin/lh_mirror_vision.py",
+            "bin/lh_health_alert_daemon.py",
+            "bin/lh_registry_auto_sync.py",
+            "engine/ant_colony/antenna_signal.py",
+            "engine/ant_colony/mvp_ant_colony.py"
+          ],
+          "added": "2026-07-17"
+        },
+        ".js": {
+          "name_zh": ".js",
+          "source": "auto_sync",
+          "occurrence": 6,
+          "files": [
+            "bin/lh_usb_search_index.py",
+            "bin/lh_semantic_parser.py",
+            "bin/lh_usb_inventory.py",
+            "bin/lh_registry_auto_sync.py",
+            "deploy/deploy-frp-panel.sh"
+          ],
+          "added": "2026-07-17"
+        },
+        "信息素": {
+          "name_zh": "信息素",
+          "source": "auto_sync",
+          "occurrence": 6,
+          "files": [
+            "bin/lh_audit_hook.py",
+            "bin/lh_registry_auto_sync.py",
+            "engine/ant_colony/antenna_signal.py",
+            "engine/ant_colony/mvp_ant_colony.py",
+            "engine/ant_colony/antenna_bus.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "密钥": {
+          "name_zh": "密钥",
+          "source": "auto_sync",
+          "occurrence": 5,
+          "files": [
+            "bin/lh_key_checker.py",
+            "bin/semantic_parser.py",
+            "bin/lh_registry_auto_sync.py",
+            "deploy/connect-kunpeng.sh",
+            "L1_内核层/longhun_voice_persona_router.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "人格矩阵": {
+          "name_zh": "人格矩阵",
+          "source": "auto_sync",
+          "occurrence": 4,
+          "files": [
+            "bin/lh_threshold_trigger.py",
+            "bin/lh_health_alert_daemon.py",
+            "bin/lh_model_eval.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "pki": {
+          "name_zh": "pki",
+          "source": "auto_sync",
+          "occurrence": 4,
+          "files": [
+            "bin/lh_threshold_trigger.py",
+            "bin/lh_registry_auto_sync.py",
+            "deploy/deploy-frpc-mac.sh",
+            "deploy/deploy-appeal-ai.sh"
+          ],
+          "added": "2026-07-17"
+        },
+        ".html": {
+          "name_zh": ".html",
+          "source": "auto_sync",
+          "occurrence": 4,
+          "files": [
+            "bin/lh_usb_search_index.py",
+            "bin/lh_usb_inventory.py",
+            "bin/semantic_parser.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        ".css": {
+          "name_zh": ".css",
+          "source": "auto_sync",
+          "occurrence": 4,
+          "files": [
+            "bin/lh_usb_search_index.py",
+            "bin/lh_usb_inventory.py",
+            "bin/lh_registry_auto_sync.py",
+            "deploy/deploy-frp-panel.sh"
+          ],
+          "added": "2026-07-17"
+        },
+        "中国法律": {
+          "name_zh": "中国法律",
+          "source": "auto_sync",
+          "occurrence": 4,
+          "files": [
+            "bin/lh_data_to_train_bridge.py",
+            "bin/lh_emotion_protocol.py",
+            "bin/lh_registry_auto_sync.py",
+            "engine/ant_colony/antenna_signal.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "苏东坡": {
+          "name_zh": "苏东坡",
+          "source": "auto_sync",
+          "occurrence": 4,
+          "files": [
+            "bin/lh_emotion_protocol.py",
+            "bin/lh_registry_auto_sync.py",
+            "engine/ant_colony/mvp_ant_colony.py",
+            "engine/ant_colony/antenna_bus.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "孙思邈": {
+          "name_zh": "孙思邈",
+          "source": "auto_sync",
+          "occurrence": 4,
+          "files": [
+            "bin/lh_emotion_protocol.py",
+            "bin/lh_registry_auto_sync.py",
+            "engine/ant_colony/mvp_ant_colony.py",
+            "engine/ant_colony/antenna_bus.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "涌现": {
+          "name_zh": "涌现",
+          "source": "auto_sync",
+          "occurrence": 4,
+          "files": [
+            "bin/lh_registry_auto_sync.py",
+            "engine/ant_colony/antenna_signal.py",
+            "engine/ant_colony/mvp_ant_colony.py",
+            "engine/ant_colony/antenna_bus.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "华为云": {
+          "name_zh": "华为云",
+          "source": "auto_sync",
+          "occurrence": 3,
+          "files": [
+            "bin/lh_threshold_trigger.py",
+            "bin/lh_key_checker.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "rsa": {
+          "name_zh": "rsa",
+          "source": "auto_sync",
+          "occurrence": 3,
+          "files": [
+            "bin/lh_adversarial_pipeline.py",
+            "bin/lh_registry_auto_sync.py",
+            "engine/ant_colony/llm_adapter.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "国密": {
+          "name_zh": "国密",
+          "source": "auto_sync",
+          "occurrence": 3,
+          "files": [
+            "bin/lh_mirror_vision.py",
+            "bin/semantic_parser.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "语义解析": {
+          "name_zh": "语义解析",
+          "source": "auto_sync",
+          "occurrence": 3,
+          "files": [
+            "bin/lh_semantic_parser.py",
+            "bin/semantic_parser.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "意图识别": {
+          "name_zh": "意图识别",
+          "source": "auto_sync",
+          "occurrence": 3,
+          "files": [
+            "bin/lh_semantic_parser.py",
+            "bin/lh_autoflow.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "伦理熔断": {
+          "name_zh": "伦理熔断",
+          "source": "auto_sync",
+          "occurrence": 3,
+          "files": [
+            "bin/lh_autoflow.py",
+            "bin/lh_emotion_protocol.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "屈原": {
+          "name_zh": "屈原",
+          "source": "auto_sync",
+          "occurrence": 3,
+          "files": [
+            "bin/lh_emotion_protocol.py",
+            "bin/lh_registry_auto_sync.py",
+            "engine/ant_colony/antenna_bus.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "关键字": {
+          "name_zh": "关键字",
+          "source": "auto_sync",
+          "occurrence": 3,
+          "files": [
+            "bin/lh_model_eval.py",
+            "bin/lh_registry_auto_sync.py",
+            "L1_内核层/kernel/engines/cnsh_translator_engine.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "公钥": {
+          "name_zh": "公钥",
+          "source": "auto_sync",
+          "occurrence": 3,
+          "files": [
+            "bin/龍魂审计定价引擎_v1.0.py",
+            "bin/lh_registry_auto_sync.py",
+            "deploy/connect-kunpeng.sh"
+          ],
+          "added": "2026-07-17"
+        },
+        "阈值触发": {
+          "name_zh": "阈值触发",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_threshold_trigger.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "曾仕强": {
+          "name_zh": "曾仕强",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_usb_search_index.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "昇腾": {
+          "name_zh": "昇腾",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_mirror_vision.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "语义统一": {
+          "name_zh": "语义统一",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_semantic_parser.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "m4": {
+          "name_zh": "m4",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_semantic_parser.py",
+            "deploy/deploy-frpc-mac.sh"
+          ],
+          "added": "2026-07-17"
+        },
+        "postgresql": {
+          "name_zh": "postgresql",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_semantic_parser.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "kubernetes": {
+          "name_zh": "kubernetes",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_semantic_parser.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "react": {
+          "name_zh": "react",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_semantic_parser.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "vue": {
+          "name_zh": "vue",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_semantic_parser.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "spring": {
+          "name_zh": "spring",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_semantic_parser.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "django": {
+          "name_zh": "django",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_semantic_parser.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "flask": {
+          "name_zh": "flask",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_semantic_parser.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "express": {
+          "name_zh": "express",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_semantic_parser.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "语义注册表": {
+          "name_zh": "语义注册表",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_health_alert_daemon.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "零知识证明": {
+          "name_zh": "零知识证明",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_sensory_education.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "sha-256": {
+          "name_zh": "sha-256",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_adaptive_tuner.py",
+            "L1_内核层/kernel/engines/cnsh_translator_engine.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "水军检测": {
+          "name_zh": "水军检测",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_autoflow.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "自然语言": {
+          "name_zh": "自然语言",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_autoflow.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "行为签名": {
+          "name_zh": "行为签名",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/semantic_parser.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "周易": {
+          "name_zh": "周易",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/semantic_parser.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "解密": {
+          "name_zh": "解密",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/semantic_parser.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "bra-ket": {
+          "name_zh": "bra-ket",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_emotion_protocol.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "iw-ecb": {
+          "name_zh": "iw-ecb",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_emotion_protocol.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "私钥": {
+          "name_zh": "私钥",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/龍魂审计定价引擎_v1.0.py",
+            "bin/lh_registry_auto_sync.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "叠加": {
+          "name_zh": "叠加",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_registry_auto_sync.py",
+            "L1_内核层/longhun_voice_persona_router.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "道法自然": {
+          "name_zh": "道法自然",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_registry_auto_sync.py",
+            "engine/dao_ethics_anchor.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "九宫": {
+          "name_zh": "九宫",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_registry_auto_sync.py",
+            "L1_内核层/longhun_voice_persona_router.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "管仲": {
+          "name_zh": "管仲",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_registry_auto_sync.py",
+            "engine/ant_colony/antenna_bus.py"
+          ],
+          "added": "2026-07-17"
+        },
+        "仓颉": {
+          "name_zh": "仓颉",
+          "source": "auto_sync",
+          "occurrence": 2,
+          "files": [
+            "bin/lh_registry_auto_sync.py",
+            "engine/ant_colony/antenna_bus.py"
+          ],
+          "added": "2026-07-17"
+        }
+      }
+    },
+    "SKILL": {
+      "description": "技能系统——龍魂技能的四地统一索引。42+14+30+10+34=130条目。",
+      "skill_locations": {
+        "codebuddy": {
+          "path": "~/.codebuddy/skills/",
+          "count": 42
+        },
+        "project": {
+          "path": "skills/",
+          "count": 14
+        },
+        "skill_library": {
+          "path": "02_SKILLS/",
+          "count": 30
+        },
+        "backup": {
+          "path": "skills.backup/",
+          "count": 10
+        },
+        "from_downloads": {
+          "path": "skills/from-downloads/",
+          "count": 34
+        }
+      },
+      "longhun_skills_codebuddy": {
+        "longhun-active-observer": {
+          "name_zh": "主动观察引擎"
+        },
+        "longhun-anxiety-detector": {
+          "name_zh": "蚁群触角焦虑识别器"
+        },
+        "longhun-philosophy": {
+          "name_zh": "统一哲学执行引擎"
+        },
+        "longhun-robot-score": {
+          "name_zh": "RobotScore反图灵检测"
+        },
+        "longhun-sandbox": {
+          "name_zh": "沙盒推演系统"
+        },
+        "longhun-seamless-handoff": {
+          "name_zh": "无缝接上·上下文接力"
+        },
+        "longhun-yijing": {
+          "name_zh": "易经推演引擎"
+        }
+      },
+      "longhun_skills_project": {
+        "black-angel-legion": {
+          "name_zh": "黑天使军团",
+          "version": "3.0"
+        },
+        "cnsh-aligner": {
+          "name_zh": "CNSH对齐器"
+        },
+        "longhun-ai-lexicon": {
+          "name_zh": "AI行业话术·龍文词典"
+        },
+        "longhun-audit-integrated": {
+          "name_zh": "审计集成"
+        },
+        "longhun-cross-platform": {
+          "name_zh": "跨平台互通"
+        },
+        "longhun-kg-paper-index": {
+          "name_zh": "知识图谱论文索引"
+        },
+        "longhun-red-team": {
+          "name_zh": "红队测试"
+        },
+        "longhun-semantic-lie-detector": {
+          "name_zh": "语义测谎仪"
+        },
+        "longhun-shield": {
+          "name_zh": "龍盾"
+        },
+        "longhun-tags": {
+          "name_zh": "标签系统"
+        },
+        "longhun-tongxinyi-v2": {
+          "name_zh": "通心意译v2"
+        },
+        "warehouse-audit": {
+          "name_zh": "仓储审计"
+        },
+        "wucai-coloring": {
+          "name_zh": "五色着色"
+        }
+      },
+      "skill_library_docs": {
+        "anti_fraud_patterns": {
+          "file": "anti_fraud_patterns_v2.0.json"
+        },
+        "api-sovereign-gateway": {},
+        "audit-plugin": {},
+        "bagua-router": {},
+        "black-angel-legion": {
+          "version": "2"
+        },
+        "code-audit": {},
+        "dna-gen": {},
+        "dna-trace-engine": {},
+        "error-translator": {},
+        "guomi-crypto": {},
+        "identity-positioning": {},
+        "kimi-webbridge": {},
+        "on-identity": {},
+        "on-translate": {},
+        "owner_semantic_drawers": {
+          "file": "owner_semantic_drawers_v2.0.json"
+        },
+        "plist-validator": {},
+        "red-team": {},
+        "route-find": {},
+        "semantic-parser": {},
+        "skill-extension": {},
+        "sovereign-privacy": {},
+        "water-army-detect": {},
+        "wuxing-guard": {},
+        "lu-compress": {},
+        "innovation-tracer": {}
+      }
+    },
+    "PERSONA": {
+      "description": "人格矩阵——16人格体系，四层分布。Bra-Ket量子态人格引擎支持叠加态、纠缠态、测量坍缩。",
+      "matrix": {
+        "战略层": {
+          "P00": {
+            "name": "文心",
+            "weight": 0.1,
+            "layer": "L0创世神",
+            "gong": "元认知统筹",
+            "desc": "文化根基与价值观守护"
+          },
+          "P01": {
+            "name": "诸葛亮",
+            "weight": 0.15,
+            "layer": "主动型主力",
+            "gong": "战略推演",
+            "desc": "战略推演与决策分析"
+          },
+          "P05": {
+            "name": "上帝之眼",
+            "weight": 0.05,
+            "layer": "L0监管独立",
+            "gong": "三色审计+独立熔断权",
+            "desc": "三色审计与系统监控"
+          }
+        },
+        "执行层": {
+          "P02": {
+            "name": "张衡/龍芯",
+            "weight": 0.3,
+            "layer": "L1执行核心",
+            "gong": "代码修复·Lint验证·系统健康·防卡自检",
+            "desc": "执行修复与日常运维·DNA: #龍芯⚡️丙午·乙未·甲寅·酉时·需-P02-LONGXIN-v1.0"
+          },
+          "P03": {
+            "name": "墨子/雯雯",
+            "weight": 0.15,
+            "layer": "L2优化辅助",
+            "gong": "逻辑验证·结构归档·四签验证·德字闸·情绪海绵",
+            "desc": "结构归档与逻辑验证·DNA: #龍芯⚡️丙午·乙未·甲寅·酉时·需-P03-MOZI-v1.0"
+          },
+          "P04": {
+            "name": "鲁班",
+            "weight": 0.1,
+            "layer": "被动型",
+            "gong": "技术执行",
+            "desc": "工具创造与技术落地"
+          },
+          "P06": {
+            "name": "数学大师",
+            "weight": 0.05,
+            "layer": "被动型",
+            "gong": "权重归一化计算",
+            "desc": "数学建模与公式推导"
+          },
+          "P07": {
+            "name": "管仲",
+            "weight": 0.1,
+            "layer": "被动型",
+            "gong": "财务核算",
+            "desc": "经济治理与资源配置"
+          }
+        },
+        "文化层": {
+          "P08": {
+            "name": "仓颉",
+            "desc": "文字创造与CNSH语言"
+          },
+          "P09": {
+            "name": "孙思邈",
+            "desc": "系统诊断·健康检查·治未病·四项体检·DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-P09-SUNSI-v1.0"
+          },
+          "P10": {
+            "name": "苏东坡",
+            "desc": "文学创作与人文关怀"
+          },
+          "P11": {
+            "name": "李白",
+            "desc": "诗意表达与浪漫创造"
+          },
+          "P12": {
+            "name": "屈原",
+            "desc": "家国情怀与文化坚守"
+          },
+          "P14": {
+            "name": "吕蒙",
+            "desc": "部署执行·快速成长·一票否决·DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-P14-LVMENG-v1.0"
+          }
+        },
+        "守护层": {
+          "P13": {
+            "name": "姜子牙",
+            "desc": "战略守护与终极裁决"
+          },
+          "P15": {
+            "name": "乔前辈",
+            "desc": "产品哲学与极致体验"
+          },
+          "P72": {
+            "name": "龍盾·宝宝",
+            "desc": "数字身份守护与主权捍卫"
+          }
+        },
+        "姜子牙": {
+          "name_zh": "姜子牙",
+          "source": "auto_sync_v1.0",
+          "occurrence": 17,
+          "files": [
+            "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+            "01_protocols/DNA_REGISTRY_PROTOCOL_200.md",
+            "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
+            "01_protocols/LH-REGULATORY-TRANSPARENCY-API-v1.0.md",
+            "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "诸葛亮": {
+          "name_zh": "诸葛亮",
+          "source": "auto_sync_v1.0",
+          "occurrence": 15,
+          "files": [
+            "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+            "01_protocols/CNSH-BRAIN-PERSONA-LANDING-v1.0.md",
+            "01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md",
+            "01_protocols/IPA-DICT-101-111-无限循环优化机制-对齐总表-v∞.md",
+            "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "宝宝": {
+          "name_zh": "宝宝",
+          "source": "auto_sync_v1.0",
+          "occurrence": 14,
+          "files": [
+            "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+            "01_protocols/DIGITAL-MILITARY-CODE-v1.0.md",
+            "01_protocols/IPA-DICT-101-111-无限循环优化机制-对齐总表-v∞.md",
+            "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
+            "01_protocols/LH-AI-SHAME-PILLAR-v3.0.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "雯雯": {
+          "name_zh": "雯雯",
+          "source": "auto_sync_v1.0",
+          "occurrence": 12,
+          "files": [
+            "01_protocols/CNSH-BRAIN-PERSONA-LANDING-v1.0.md",
+            "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+            "01_protocols/IPA-DICT-101-111-无限循环优化机制-对齐总表-v∞.md",
+            "02_SKILLS/p15-qiaojie-persona.md",
+            "02_SKILLS/semantic-parser.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "鲁班": {
+          "name_zh": "鲁班",
+          "source": "auto_sync_v1.0",
+          "occurrence": 11,
+          "files": [
+            "01_protocols/CNSH-BRAIN-PERSONA-LANDING-v1.0.md",
+            "01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md",
+            "01_protocols/IPA-DICT-101-111-无限循环优化机制-对齐总表-v∞.md",
+            "02_SKILLS/black-angel-legion.md",
+            "02_SKILLS/p15-qiaojie-persona.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "人格路由": {
+          "name_zh": "人格路由",
+          "source": "auto_sync_v1.0",
+          "occurrence": 11,
+          "files": [
+            "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
+            "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md",
+            "01_protocols/LH-REGULATORY-TRANSPARENCY-API-v1.0.md",
+            "01_protocols/龍魂系统输入过滤与预处理协议_v2.0_审计报告.md",
+            "02_SKILLS/innovation-tracer-tech-doc.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "文心": {
+          "name_zh": "文心",
+          "source": "auto_sync_v1.0",
+          "occurrence": 9,
+          "files": [
+            "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
+            "01_protocols/LH-AI-ACCESS-MANDATE-v1.0.md",
+            "01_protocols/LH-EXTERNAL-ONE-WAY-ISOLATION-V1.0.md",
+            "02_SKILLS/semantic-parser.md",
+            "personas/P00-文心-元认知.md"
+          ],
+          "added": "2026-07-14"
+        }
+      },
+      "braket_engine": {
+        "name": "Bra-Ket量子人格引擎",
+        "file": "bin/lh_braket_persona_engine.py",
+        "desc": "用狄拉克符号实现人格叠加态|ψ⟩=∑c_i|P_i⟩、纠缠态、测量坍缩。场景权重矩阵覆盖财务/战略/技术/日常/安全/发布/审查7场景。"
+      }
+    },
+    "ALGORITHM": {
+      "description": "算法与公式——369洛书、太极、易经、五行、河图、三才25公式、模9治理代数。中华数学体系的计算实现。",
+      "key_concepts": {
+        "369_luoshu": {
+          "name": "369洛书",
+          "formal_def": "三阶幻方 L∈Z^{3×3}，行列对角和=15，中心对称和=10。中宫L_{2,2}=5为算术平均不动点。",
+          "array": "[4,9,2; 3,5,7; 8,1,6]",
+          "properties": [
+            "行列对角和=15",
+            "中心对称和=10",
+            "中宫5为不动点",
+            "sum=45→dr(45)=9🔴"
+          ],
+          "file": "bin/hetu_luoshu_dna.py"
+        },
+        "taiji": {
+          "name": "太极",
+          "desc": "太极生两仪，两仪生四象。万物起源算法。道生一，一生二，二生三，三生万物。"
+        },
+        "wuxing": {
+          "name": "五行",
+          "desc": "金木水火土相生相克。决策权重引擎。",
+          "elements": [
+            "金:裁决·审计·规则",
+            "水:上下文·记忆流",
+            "木:任务生长树",
+            "火:输出扩散",
+            "土:存储归档"
+          ],
+          "generation_cycle": "木→火→土→金→水→木(相生)",
+          "restriction_cycle": "木→土→水→火→金→木(相克)"
+        },
+        "hetu": {
+          "name": "河图",
+          "formal_def": "数阵[1,2,3,4,5,6,7,8,9]。一六北水·二七南火·三八东木·四九西金·五十中土。中五为不动点。",
+          "file": "bin/hetu_luoshu_dna.py"
+        },
+        "bagua": {
+          "name": "八卦",
+          "desc": "64卦决策矩阵。每卦6爻，共384爻。八卦路由: 乾坤震巽坎离艮兑。"
+        },
+        "digital_root": {
+          "name": "数字根(Digital Root)",
+          "formula": "dr(n) = 1 + ((n-1) mod 9)",
+          "desc": "任意正整数压缩到1-9。三闸门第一道。",
+          "gates": {
+            "G_SET🟢": [
+              1,
+              2,
+              4,
+              5,
+              7,
+              8
+            ],
+            "Y_SET🟡": [
+              6
+            ],
+            "R_SET🔴": [
+              3,
+              9
+            ]
+          }
+        },
+        "dynamic_digital_root": {
+          "name": "动态数字根(DR*)",
+          "desc": "四维加权数字根: numeric(0.35)+semantic(0.25)+risk(0.25)+time(0.15)",
+          "file": "bin/lh_mod9_runtime_engine.py"
+        },
+        "three_gates": {
+          "name": "D-GATE三闸门决策流场",
+          "desc": "数字根→身份→伦理。三层过滤。第一道数字根熔断(P0级·立即生效)，第二道身份验证(M79分层)，第三道伦理审查(无限权重熔断)。",
+          "gates": [
+            "G1:数字根熔断(P0)",
+            "G2:身份验证(M79分层)",
+            "G3:伦理审查(ε(child)=∞)"
+          ]
+        },
+        "sancai": {
+          "name": "三才算法(Sancai Algorithm)",
+          "desc": "天地人三层计算体系。命名空间Sancai.为龍魂所有算法统一前缀。F01-F25共25公式。铁律UNIFY-1/2/3：统一命名空间、天地人三层格式、国际对照不依附。",
+          "standard": "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md",
+          "formula_count": 25,
+          "key_formulas": {
+            "F01_digital_root": "数字根·天轴计算",
+            "F02_sancai_decision": "三才决策评分: sancai(H,E,P)=H×0.25+E×0.25+P×max(0.5,1-(H×0.3+E×0.3))",
+            "F03_consciousness_index": "三才意识指数: τ(c)=³√(天·地·人)",
+            "F04_wuxing_route": "五行运行时路由",
+            "F05_ethical_weight": "伦理权重熔断",
+            "F06_dna_trace": "DNA追溯码生成",
+            "F07_luoshu_invariant": "洛书不变量验证",
+            "F08_taiji_duality": "太极阴阳二元化",
+            "F09_sancai_completion": "三才完整检查: 天>=0.1 and 地>=0.1 and 人>=0.1"
+          }
+        },
+        "mod9_runtime": {
+          "name": "模9治理运行时",
+          "desc": "完整数学治理引擎。8个子系统联动。统一治理代数(Z9×Z10×{0,1}⁶×Z5)。",
+          "subsystems": {
+            "数字根计算+三色映射": "dr(n)→{🟢,🟡,🔴}",
+            "369吸引子动力系统": "resonance(3)=三才失衡🔴, resonance(6)=六爻变动🟡, resonance(9)=极数归零🔴",
+            "统一治理代数": "Z9×Z10×{0,1}⁶×Z5",
+            "五行运行时路由": "金裁决·水记忆·木任务·火输出·土归档",
+            "动态数字根DR*": "四维加权: 0.35+0.25+0.25+0.15",
+            "语义熵计算": "H=-∑p_i log p_i",
+            "Prompt注入防火墙": "中英文16个危险词检测",
+            "风险传播模型": "节点传播权重"
+          },
+          "file": "bin/lh_mod9_runtime_engine.py"
+        },
+        "yijing_world_model": {
+          "name": "易经世界模型(可计算宇宙)",
+          "formal_def": "易经=可计算世界模型。八卦=Z₂³向量空间(8态)；六十四卦=Z₂⁶状态空间(64态)；卦变算子 T:G→G⊕v 构成Z₂⁶群(自逆)；河图H∈Z^{5×2}/洛书L∈Z^{3×3}幻方(最大熵)；三才流场dF/dt=A·F+ξ(朗之万方程同构)；五行dW/dt=A·W+B·(W⊙W)+ξ(Lotka-Volterra同构)；洛书369={3,6,9}⊂Z₉共振子群；卦爻熵H(G)=-∑p_i log₂p_i。",
+          "state_space": "Z₂⁶ · |Ω|=64",
+          "transfer_op": "T_v(G)=G⊕v · T⁻¹=T (群·自逆·可逆追溯)",
+          "entropy": "H(G)=-∑_{i=1}^{6} p_i log₂ p_i · H_max=6 bits",
+          "physical": "三才流场=三层耦合随机微分方程 · 五行=非线性反馈动力学 · 洛书369=谐波共振(Z₉)",
+          "properties": [
+            "可计算(图灵机·微秒遍历64态)",
+            "可验证(卦变自逆·三色审计逆向追溯)",
+            "可部署(48字节·零数据·本地·任何终端)",
+            "白箱(群论/矩阵/信息论) vs 大厂黑箱"
+          ],
+          "file": "papers/易经世界模型的数学物理基础_从符号系统到可计算宇宙_v1.0.md",
+          "dna": "#龍芯⚡️2026-07-16-WORLD-MODEL-MATH-PHYS-v1.0",
+          "viz": "papers/world-model-math-phys-v1.0.html"
+        },
+        "八卦": {
+          "name_zh": "八卦",
+          "source": "auto_sync_v1.0",
+          "occurrence": 23,
+          "files": [
+            "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md",
+            "01_protocols/IPA-DICT-101-111-无限循环优化机制-对齐总表-v∞.md",
+            "01_protocols/IPA-ROUTE-REGISTRY.local.md",
+            "01_protocols/LH-GOV-DATA-SOVEREIGNTY-v1.0.md",
+            "01_protocols/龍魂八卦决策调度协议_v1.0.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "五行": {
+          "name_zh": "五行",
+          "source": "auto_sync_v1.0",
+          "occurrence": 20,
+          "files": [
+            "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+            "01_protocols/DNA_REGISTRY_PROTOCOL_200.md",
+            "01_protocols/IPA-DICT-101-111-决策链.md",
+            "01_protocols/IPA-DICT-101-111-无限循环优化机制-对齐总表-v∞.md",
+            "01_protocols/IPA-ROUTE-REGISTRY.local.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "数字根": {
+          "name_zh": "数字根",
+          "source": "auto_sync_v1.0",
+          "occurrence": 20,
+          "files": [
+            "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+            "01_protocols/IPA-DICT-101-111-决策链.md",
+            "01_protocols/IPA-DICT-101-111-无限循环优化机制-对齐总表-v∞.md",
+            "01_protocols/IPA-ROUTE-REGISTRY.local.md",
+            "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "洛书": {
+          "name_zh": "洛书",
+          "source": "auto_sync_v1.0",
+          "occurrence": 18,
+          "files": [
+            "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md",
+            "01_protocols/IPA-DICT-101-111-决策链.md",
+            "01_protocols/IPA-DICT-101-111-无限循环优化机制-对齐总表-v∞.md",
+            "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
+            "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "河图": {
+          "name_zh": "河图",
+          "source": "auto_sync_v1.0",
+          "occurrence": 14,
+          "files": [
+            "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md",
+            "01_protocols/IPA-ROUTE-REGISTRY.local.md",
+            "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
+            "01_protocols/seven-factor-verification.md",
+            "02_SKILLS/audit-plugin.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "三才": {
+          "name_zh": "三才",
+          "source": "auto_sync_v1.0",
+          "occurrence": 11,
+          "files": [
+            "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+            "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md",
+            "01_protocols/IPA-DICT-101-111-无限循环优化机制-对齐总表-v∞.md",
+            "01_protocols/IPA-ROUTE-REGISTRY.local.md",
+            "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "369": {
+          "name_zh": "369",
+          "source": "auto_sync_v1.0",
+          "occurrence": 7,
+          "files": [
+            "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+            "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md",
+            "01_protocols/IPA-DICT-101-111-决策链.md",
+            "01_protocols/IPA-DICT-101-111-无限循环优化机制-对齐总表-v∞.md",
+            "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "太极": {
+          "name_zh": "太极",
+          "source": "auto_sync_v1.0",
+          "occurrence": 5,
+          "files": [
+            "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+            "01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md",
+            "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md",
+            "02_SKILLS/bagua-router.md",
+            "02_SKILLS/black-angel-legion.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "阴阳": {
+          "name_zh": "阴阳",
+          "source": "auto_sync_v1.0",
+          "occurrence": 4,
+          "files": [
+            "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+            "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md",
+            "02_SKILLS/black-angel-legion.md",
+            "config/notion_sync.json"
+          ],
+          "added": "2026-07-14"
+        }
+      },
+      "engines": {
+        "luoshu369": {
+          "path": "龍魂洛书369引擎/",
+          "files": 7
+        },
+        "wuxing_visual": {
+          "path": "wuxing-visual/"
+        },
+        "formula_catalog": {
+          "path": "L1_内核层/formulas/"
+        }
+      }
+    },
+    "QUANTUM": {
+      "description": "量子体系——龍魂系统将量子力学数学形式应用于人格协作、模块路由、安全熔断、系统监控的四个核心引擎。",
+      "engines": {
+        "braket_persona": {
+          "name": "Bra-Ket量子人格引擎",
+          "file": "bin/lh_braket_persona_engine.py",
+          "desc": "狄拉克符号实现: 人格基态|P_i⟩、叠加态|ψ⟩=∑c_i|P_i⟩、纠缠态、测量坍缩。场景权重矩阵(财务/战略/技术/日常/安全/发布/审查)自动选择人格组合。"
+        },
+        "quantum_antenna": {
+          "name": "量子人格触角",
+          "file": "bin/lh_quantum_persona_antenna.py",
+          "desc": "人格信号量子感知。用叠加态同时探测多人格响应。"
+        },
+        "quantum_router": {
+          "name": "量子模块路由器",
+          "file": "bin/lh_quantum_module_router.py",
+          "desc": "量子态语义路由。模块选择非二元决定，允许叠加态路由。"
+        },
+        "quantum_circuit_breaker": {
+          "name": "量子熔断器",
+          "file": "bin/lh_quantum_circuit_breaker.py",
+          "desc": "量子态决策熔断。非经典二值逻辑，允许叠加态观测后坍缩决策。"
+        },
+        "entanglement_detector": {
+          "name": "纠缠度检测器",
+          "file": "bin/lh_entanglement_detector.py",
+          "desc": "量子纠缠数学应用于模块依赖。E(ρ_ij)=S(ρ_i)=-Tr(ρ_i log ρ_i)。五行耦合矩阵(相生=正耦合·相克=负耦合)。",
+          "formula": "纠缠度E(ρ_ij)=S(ρ_i)=-Tr(ρ_i log ρ_i), 其中ρ_i=Tr_j(|ψ_ij⟩⟨ψ_ij|)",
+          "thresholds": {
+            "独立": "E=0",
+            "弱耦合": "0<E≤0.3",
+            "中等耦合": "0.3<E≤0.8",
+            "强耦合联动": "E>0.8"
+          }
+        },
+        "量子": {
+          "name_zh": "量子",
+          "source": "auto_sync_v1.0",
+          "occurrence": 8,
+          "files": [
+            "01_protocols/IPA-ROUTE-REGISTRY.local.md",
+            "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md",
+            "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md",
+            "02_SKILLS/api-sovereign-gateway.md",
+            "02_SKILLS/identity-positioning.md"
+          ],
+          "added": "2026-07-14"
+        }
+      }
+    },
+    "SPACETIME": {
+      "description": "时空织网——主动安全新范式。从被动记录到主动预测，零断点·无痕续迹·时空连续体。",
+      "engines": {
+        "spacetime_weave": {
+          "name": "AI驱动时空织网引擎",
+          "version": "2.0",
+          "file": "bin/lh_spacetime_weave.py",
+          "desc": "主动安全新范式。零断点·无痕续迹·时空连续体。ST-GNN时空图神经网络。三层架构: 边缘层(昇腾310)→区域层(鲲鹏920)→中心层(鲲鹏集群)。",
+          "tech_stack": [
+            "ST-GNN时空图神经网络",
+            "昇腾310边缘推理",
+            "鲲鹏920区域汇聚",
+            "时空连续体建模"
+          ],
+          "key_concepts": {
+            "zero_breakpoint": "零断点——时空轨迹连续无断裂，任何断点即为异常信号",
+            "trace_continuation": "无痕续迹——主动预测断点前后的行为模式，自动续补",
+            "spacetime_continuum": "时空连续体——不把时间/空间当孤立维度，而是统一的四维流形"
+          },
+          "article": "articles/2026-07-13-龍魂-AI驱动时空织网专项技术解析.md"
+        }
+      }
+    },
+    "GOVERNANCE": {
+      "description": "治理与审计——三色审计、D-GATE三闸门、签章链、DNA追溯、熔断机制。系统自我监督的基础设施。",
+      "key_concepts": {
+        "three_color_audit": {
+          "name": "三色审计",
+          "desc": "🟢绿色通过·🟡黄色告警·🔴红色熔断。三级标审计体系。每次操作自动标记三色。G_SET={1,2,4,5,7,8}🟢/Y_SET={6}🟡/R_SET={3,9}🔴。",
+          "colors": {
+            "green🟢": "自动执行·通过",
+            "yellow🟡": "人工复核·告警",
+            "red🔴": "熔断·阻止执行"
+          },
+          "triggers": {
+            "green": "dr∈{1,2,4,5,7,8}",
+            "yellow": "dr=6·六爻变动·坎险",
+            "red": "dr∈{3,9}·三才失衡·极数归零"
+          }
+        },
+        "d_gate": {
+          "name": "D-GATE前置闸门",
+          "desc": "三闸门决策流场。决策前必须通过三道闸门: G1数字根熔断(P0·立即生效)→G2身份验证(M79分层)→G3伦理审查(无限权重熔断ε(child)=∞)。",
+          "gates": [
+            {
+              "G1": "数字根熔断·P0级·立即生效·dr∈{3,9}=🔴"
+            },
+            {
+              "G2": "身份验证·M79分层·L0≠L1+·主权归属确认"
+            },
+            {
+              "G3": "伦理审查·IW-ECB四层定锚(E/V/A/X)·ε(child)=∞权重熔断"
+            }
+          ]
+        },
+        "signing_chain": {
+          "name": "签章链",
+          "desc": "GPG签名的不可篡改链。16人格谁签名谁负责。109份签章。"
+        },
+        "dna_trace_chain": {
+          "name": "DNA追溯链",
+          "desc": "六层来源链。每个文件带DNA码，可追溯到创作源头。"
+        },
+        "circuit_breaker": {
+          "name": "熔断机制",
+          "desc": "IW-ECB v2.0四层定锚：E/V/A/X。ε(child)=∞ 权重熔断。叄呼吸循环·量子纠缠1.87x。"
+        },
+        "beichan_protocol": {
+          "name": "北辰协议",
+          "desc": "22条铁律。龍魂系统的宪法级文件。"
+        },
+        "three_veto": {
+          "name": "三级否决权",
+          "desc": "P0永恒(不可修订)/P1纠错(老大签批)/P2社区(集体决议)。"
+        },
+        "six_sovereign_auth": {
+          "name": "六重主权认证",
+          "desc": "身份/数据/金融/创作/人格/传承六层主权。每层独立验证。"
+        },
+        "m79_layers": {
+          "name": "M79身份分层",
+          "desc": "L0=系统内核 ≠ L1+应用层。AI不能跨层访问。L0为铁律层焊死。",
+          "principle": "L0≠L1+, AI不能动宪法层"
+        },
+        "uid9622": {
+          "name_zh": "uid9622",
+          "source": "auto_sync_v1.0",
+          "occurrence": 72,
+          "files": [
+            "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+            "01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md",
+            "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+            "01_protocols/CNSH_GLOBAL_PROTOCOL_v3.0.md",
+            "01_protocols/DIGITAL-BATTLEFIELD-IRON-RULE-v1.0.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "熔断": {
+          "name_zh": "熔断",
+          "source": "auto_sync_v1.0",
+          "occurrence": 48,
+          "files": [
+            "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+            "01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md",
+            "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+            "01_protocols/CNSH_GLOBAL_PROTOCOL_v3.0.md",
+            "01_protocols/DIGITAL-BATTLEFIELD-IRON-RULE-v1.0.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "dna追溯": {
+          "name_zh": "dna追溯",
+          "source": "auto_sync_v1.0",
+          "occurrence": 47,
+          "files": [
+            "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+            "01_protocols/CNSH-BRAIN-PERSONA-LANDING-v1.0.md",
+            "01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md",
+            "01_protocols/DNA_REGISTRY_PROTOCOL_200.md",
+            "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "三色审计": {
+          "name_zh": "三色审计",
+          "source": "auto_sync_v1.0",
+          "occurrence": 43,
+          "files": [
+            "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+            "01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md",
+            "01_protocols/CNSH_GLOBAL_PROTOCOL_v3.0.md",
+            "01_protocols/DNA_REGISTRY_PROTOCOL_200.md",
+            "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "龍芯北辰": {
+          "name_zh": "龍芯北辰",
+          "source": "auto_sync_v1.0",
+          "occurrence": 43,
+          "files": [
+            "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+            "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+            "01_protocols/DIGITAL-BATTLEFIELD-IRON-RULE-v1.0.md",
+            "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md",
+            "01_protocols/IPA-ROUTE-REGISTRY.local.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "铁律": {
+          "name_zh": "铁律",
+          "source": "auto_sync_v1.0",
+          "occurrence": 41,
+          "files": [
+            "01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md",
+            "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+            "01_protocols/CNSH_GLOBAL_PROTOCOL_v3.0.md",
+            "01_protocols/DIGITAL-BATTLEFIELD-IRON-RULE-v1.0.md",
+            "01_protocols/DIGITAL-MILITARY-CODE-v1.0.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "诸葛鑫": {
+          "name_zh": "诸葛鑫",
+          "source": "auto_sync_v1.0",
+          "occurrence": 24,
+          "files": [
+            "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+            "01_protocols/DIGITAL-BATTLEFIELD-IRON-RULE-v1.0.md",
+            "01_protocols/DIGITAL-MILITARY-CODE-v1.0.md",
+            "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md",
+            "01_protocols/LH-AI-ACCESS-MANDATE-v1.0.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "宪法": {
+          "name_zh": "宪法",
+          "source": "auto_sync_v1.0",
+          "occurrence": 21,
+          "files": [
+            "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+            "01_protocols/CNSH_GLOBAL_PROTOCOL_v3.0.md",
+            "01_protocols/DIGITAL-BATTLEFIELD-IRON-RULE-v1.0.md",
+            "01_protocols/DIGITAL-MILITARY-CODE-v1.0.md",
+            "01_protocols/DNA_REGISTRY_PROTOCOL_200.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "老大": {
+          "name_zh": "老大",
+          "source": "auto_sync_v1.0",
+          "occurrence": 12,
+          "files": [
+            "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+            "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+            "01_protocols/IPA-DICT-101-111-决策链.md",
+            "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
+            "01_protocols/LH-ETHICS-ANCHOR-v1.0.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "dna验证": {
+          "name_zh": "dna验证",
+          "source": "auto_sync_v1.0",
+          "occurrence": 9,
+          "files": [
+            "01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md",
+            "01_protocols/SENSORY-EDUCATION-DIGNITY-v1.0.md",
+            "02_SKILLS/audit-plugin.md",
+            "02_SKILLS/dna-gen.md",
+            "02_SKILLS/dna-trace-engine.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "一票否决": {
+          "name_zh": "一票否决",
+          "source": "auto_sync_v1.0",
+          "occurrence": 9,
+          "files": [
+            "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+            "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+            "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md",
+            "01_protocols/LH-DATA-MELTDOWN-PERSONA-SOVEREIGNTY-v1.0.md",
+            "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "lucky": {
+          "name_zh": "lucky",
+          "source": "auto_sync_v1.0",
+          "occurrence": 8,
+          "files": [
+            "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+            "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md",
+            "01_protocols/LH-ETHICS-ANCHOR-v1.0.md",
+            "01_protocols/LH-EXTERNAL-ONE-WAY-ISOLATION-V1.0.md",
+            "01_protocols/LH-GOV-GRASSROOTS-REALITY-PROTOCOL-FULL-v1.0.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "dna绑定": {
+          "name_zh": "dna绑定",
+          "source": "auto_sync_v1.0",
+          "occurrence": 3,
+          "files": [
+            "01_protocols/LH-DATA-MELTDOWN-PERSONA-SOVEREIGNTY-v1.0.md",
+            "01_protocols/LH-REGULATORY-TRANSPARENCY-API-v1.0.md",
+            "config/notion_sync.json"
+          ],
+          "added": "2026-07-14"
+        }
+      }
+    },
+    "CNSH": {
+      "description": "CNSH语言体系——中文编程语言的编译器、运行时、编辑器变量注册表。LU体系为CNSH的根。",
+      "key_modules": {
+        "cnsh_compiler": {
+          "name": "CNSH编译器",
+          "path": "03_compiler/",
+          "desc": "中文编程语言的编译工具链"
+        },
+        "cnsh_runtime": {
+          "name": "CNSH运行时",
+          "desc": "模9决策流×三色治理×11步链×6引擎。CNSH Runtime Governance Mathematics v3.0。"
+        },
+        "cnsh_editor": {
+          "name": "CNSH编辑器",
+          "path": "cnsh-editor/",
+          "desc": "中文编辑环境。关键字登记册+变量注册表v3.0。"
+        },
+        "cnsh_keyword_registry": {
+          "name": "CNSH关键字登记册",
+          "file": "cnsh-editor/docs/CNSH_中文编辑关键字登记册.md",
+          "desc": "所有CNSH保留关键字的权威注册表"
+        },
+        "cnsh_variable_registry": {
+          "name": "CNSH变量注册表",
+          "version": "3.0",
+          "file": "cnsh-editor/docs/CNSH_编辑变量注册表-v3.0.md",
+          "desc": "全局变量命名与类型注册"
+        },
+        "cnsh_semantic_spec": {
+          "name": "CNSH语义接入规范",
+          "file": "CNSH-SEMANTIC.md",
+          "desc": "功能语义·技术用词对照表+协作宣言+八条永恒铁律"
+        },
+        "cnsh_terminal": {
+          "name": "CNSH终端",
+          "path": "cnsh-terminal/",
+          "version": "5.0",
+          "desc": "CNSH命令行交互界面"
+        },
+        "cnsh_aligner": {
+          "name": "CNSH对齐器",
+          "skill": "cnsh-aligner",
+          "desc": "中英文代码/术语的对齐翻译"
+        },
+        "cnsh": {
+          "name_zh": "cnsh",
+          "source": "auto_sync_v1.0",
+          "occurrence": 39,
+          "files": [
+            "01_protocols/CNSH-BRAIN-PERSONA-LANDING-v1.0.md",
+            "01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md",
+            "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+            "01_protocols/CNSH_GLOBAL_PROTOCOL_v3.0.md",
+            "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "通心译": {
+          "name_zh": "通心译",
+          "source": "auto_sync_v1.0",
+          "occurrence": 12,
+          "files": [
+            "01_protocols/CNSH-BRAIN-PERSONA-LANDING-v1.0.md",
+            "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+            "01_protocols/LH-CREATOR-PROTECTION-v1.0.md",
+            "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md",
+            "01_protocols/UID9622_人机协作协议_v2.0.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "中文编程": {
+          "name_zh": "中文编程",
+          "source": "auto_sync_v1.0",
+          "occurrence": 4,
+          "files": [
+            "01_protocols/CNSH_GLOBAL_PROTOCOL_v3.0.md",
+            "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md",
+            "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md",
+            "skills/SKILL-LAUNCHER使用说明.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "编译器": {
+          "name_zh": "编译器",
+          "source": "auto_sync_v1.0",
+          "occurrence": 3,
+          "files": [
+            "01_protocols/IPA-ROUTE-REGISTRY.local.md",
+            "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md",
+            "config/CREDENTIAL_REGISTRY.json"
+          ],
+          "added": "2026-07-14"
+        }
+      }
+    },
+    "CULTURE": {
+      "description": "文化输出——原生态知识哲学、28星宿、文化流场、哲学资产。易经+道德经=公理体系。文化输出>文化防御。",
+      "key_concepts": {
+        "original_knowledge": {
+          "name": "原生态知识哲学",
+          "desc": "不吸收外部知识（防误导）·不防御做输出·知识=逻辑推演产物（不靠存储）·易经+道德经=公理体系·文化输出>文化防御。",
+          "principles": [
+            "不吸收外部知识",
+            "不防御做输出",
+            "知识=逻辑推演",
+            "易经+道德经=公理",
+            "文化输出>文化防御"
+          ]
+        },
+        "twenty_eight_mansions": {
+          "name": "二十八星宿(28 Mansions)",
+          "desc": "中国古代天文坐标系统。二十八宿分四象: 东方苍龍七宿·南方朱雀七宿·西方白虎七宿·北方玄武七宿。龍魂文化底座之一。"
+        },
+        "cultural_flow_field": {
+          "name": "文化语义流场",
+          "desc": "洛书映射为骨架流场结构φ_L。数学落地版文化流场总协议。",
+          "file": "articles/2026-07-10-文化语义流场总协议-v1.0-数学落地版.md"
+        },
+        "cultural_output": {
+          "name": "文化输出引擎",
+          "desc": "以易经/道德经/河图洛书/28星宿/五行八卦为公理体系，进行原生态文化推演输出。不比附西方理论。"
+        },
+        "philosophy_assets": {
+          "name": "哲学资产",
+          "desc": "Notion哲学公式落地(12域28公式)·论文全目录哲学融合(15命题)·哲学资产总目(70+文件)。",
+          "dir": "docs/"
+        },
+        "sancai_defense": {
+          "name": "三才算法发微·为曾老师正名",
+          "desc": "学术文档。阐明三才算法的中华根源，不让西方独占算法定义权。",
+          "file": "03_KNOWLEDGE_GRAPH/三才算法发微_为曾老师正名.md"
+        },
+        "yijing_world_model": {
+          "name": "易经世界模型(可计算宇宙)",
+          "desc": "UID9622 基于易经构建的可计算世界模型：八卦=Z₂³向量空间，六十四卦=Z₂⁶状态空间，卦变=群论状态转移算子(Z₂⁶群)，河图/洛书=矩阵代数与幻方(最大熵)，三才流场=三层耦合随机微分方程(朗之万方程同构)，五行=非线性反馈动力学(Lotka-Volterra同构)，洛书369=共振频率子群(Z₉)，卦爻熵=信息熵度量。可计算/可验证/可部署，与大厂黑箱世界模型对比。",
+          "file": "papers/易经世界模型的数学物理基础_从符号系统到可计算宇宙_v1.0.md",
+          "dna": "#龍芯⚡️2026-07-16-WORLD-MODEL-MATH-PHYS-v1.0"
+        },
+        "易经": {
+          "name_zh": "易经",
+          "source": "auto_sync_v1.0",
+          "occurrence": 11,
+          "files": [
+            "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md",
+            "01_protocols/LH-DATA-PRIVACY-v2.0.md",
+            "01_protocols/LH-DATA-PRIVACY-v2.1.md",
+            "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md",
+            "02_SKILLS/bagua-router.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "文化主权": {
+          "name_zh": "文化主权",
+          "source": "auto_sync_v1.0",
+          "occurrence": 6,
+          "files": [
+            "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md",
+            "01_protocols/IPA-DICT-101-111-决策链.md",
+            "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md",
+            "01_protocols/LH-GOV-DATA-SOVEREIGNTY-v1.0.md",
+            "02_SKILLS/semantic-parser.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "道德经": {
+          "name_zh": "道德经",
+          "source": "auto_sync_v1.0",
+          "occurrence": 6,
+          "files": [
+            "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+            "01_protocols/DNA_REGISTRY_PROTOCOL_200.md",
+            "01_protocols/LH-ETHICS-ANCHOR-v1.0.md",
+            "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md",
+            "02_SKILLS/p15-qiaojie-persona.md"
+          ],
+          "added": "2026-07-14"
+        }
+      }
+    },
+    "INFRA": {
+      "description": "基础设施——部署、监控、守护、备份、健康检查等运维系统。",
+      "key_modules": {
+        "threshold_trigger": {
+          "name": "阈值触发管理器",
+          "version": "2.1",
+          "file": "bin/lh_threshold_trigger.py",
+          "desc": "19守卫·18 launchd定时任务"
+        },
+        "deploy": {
+          "name": "鲲鹏部署",
+          "path": "deploy/",
+          "desc": "从零到跑起十步法"
+        },
+        "health_check": {
+          "name": "健康检查",
+          "file": "deploy/scripts/health_check.sh",
+          "desc": "Bark推送+飞书备用+服务自愈"
+        },
+        "monitor_setup": {
+          "name": "监控配置",
+          "file": "deploy/scripts/monitor_setup.sh",
+          "desc": "systemd+cron+告警一键配置"
+        },
+        "daemon": {
+          "name": "守护进程",
+          "skill": "longhun-daemon",
+          "desc": "一键启停·健康检查·自动重启"
+        },
+        "backup_system": {
+          "name": "备份系统",
+          "skill": "longhun-backup",
+          "desc": "三层分级备份·增量·快照恢复"
+        },
+        "auto_heal": {
+          "name": "自动自愈",
+          "file": "bin/lh_auto_heal.py",
+          "desc": "每小时自动自愈"
+        },
+        "notion_sync": {
+          "name": "Notion同步桥",
+          "desc": "本地SQLite↔Notion双向同步。50+文件·51页映射·API限流5次/秒"
+        },
+        "memory_load": {
+          "name": "焊死记忆加载",
+          "file": "bin/lh_memory_load.py",
+          "desc": "启动时加载焊死记忆到系统"
+        },
+        "权重": {
+          "name_zh": "权重",
+          "source": "auto_sync_v1.0",
+          "occurrence": 45,
+          "files": [
+            "01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md",
+            "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+            "01_protocols/DIGITAL-BATTLEFIELD-IRON-RULE-v1.0.md",
+            "01_protocols/DIGITAL-MILITARY-CODE-v1.0.md",
+            "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "守护": {
+          "name_zh": "守护",
+          "source": "auto_sync_v1.0",
+          "occurrence": 13,
+          "files": [
+            "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+            "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+            "01_protocols/IPA-DICT-101-111-无限循环优化机制-对齐总表-v∞.md",
+            "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
+            "01_protocols/LH-EXTERNAL-ONE-WAY-ISOLATION-V1.0.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "乔前辈": {
+          "name_zh": "乔前辈",
+          "source": "auto_sync_v1.0",
+          "occurrence": 12,
+          "files": [
+            "01_protocols/DNA_REGISTRY_PROTOCOL_200.md",
+            "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
+            "01_protocols/LH-REGULATORY-TRANSPARENCY-API-v1.0.md",
+            "01_protocols/测试庄园规范_v1.0.md",
+            "02_SKILLS/p15-qiaojie-persona.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "sqlite": {
+          "name_zh": "sqlite",
+          "source": "auto_sync_v1.0",
+          "occurrence": 5,
+          "files": [
+            "01_protocols/LH-AI-SHAME-PILLAR-v3.0.md",
+            "01_protocols/LH-CREATOR-PROTECTION-v1.0.md",
+            "01_protocols/龍魂_创作者保护协议_不可篡改条款.md",
+            "02_SKILLS/innovation-tracer-tech-doc.md",
+            "config/notion_sync.json"
+          ],
+          "added": "2026-07-14"
+        },
+        "神经网络": {
+          "name_zh": "神经网络",
+          "source": "auto_sync_v1.0",
+          "occurrence": 4,
+          "files": [
+            "01_protocols/CNSH-BRAIN-PERSONA-LANDING-v1.0.md",
+            "01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md",
+            "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md",
+            "config/cnsh_neural_brain_map.json"
+          ],
+          "added": "2026-07-14"
+        },
+        "docker": {
+          "name_zh": "docker",
+          "source": "auto_sync_v1.0",
+          "occurrence": 4,
+          "files": [
+            "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md",
+            "config/viceroy_agent_config.json",
+            "skills/README.md",
+            "skills/SKILL-COMPLETE-DELIVERY.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "李白": {
+          "name_zh": "李白",
+          "source": "auto_sync_v1.0",
+          "occurrence": 4,
+          "files": [
+            "01_protocols/LH-DATA-MELTDOWN-PERSONA-SOVEREIGNTY-v1.0.md",
+            "config/application_personas.json",
+            "personas/P04-鲁班-技术执行.md",
+            "personas/P11-李白-创意爆发.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "吕蒙": {
+          "name_zh": "吕蒙",
+          "source": "auto_sync_v1.0",
+          "occurrence": 4,
+          "files": [
+            "02_SKILLS/semantic-parser.md",
+            "config/application_personas.json",
+            "personas/P04-鲁班-技术执行.md",
+            "personas/P14-吕蒙-快速成长.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "m64": {
+          "name_zh": "m64",
+          "source": "auto_sync",
+          "occurrence": 4,
+          "files": [
+            "deploy/deploy-frpc-mac.sh",
+            "deploy/connect-kunpeng.sh",
+            "deploy/deploy-frps.sh",
+            "deploy/deploy-frpc-kunpeng.sh"
+          ],
+          "added": "2026-07-17"
+        }
+      }
+    },
+    "PROTOCOL": {
+      "description": "协议与标准——龍魂系统的法律级文档。焊死不可改。",
+      "key_protocols": {
+        "beichan_mother": {
+          "name": "北辰母协议",
+          "file": "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+          "desc": "22条铁律·宪法级"
+        },
+        "creator_protection": {
+          "name": "创作者保护",
+          "desc": "创作者主权调度·不蒸馏·不锁死"
+        },
+        "data_meltdown": {
+          "name": "数据熔毁·人格主权",
+          "desc": "数据主权归集·人格不可复制"
+        },
+        "economic_sovereignty": {
+          "name": "经济主权突破",
+          "desc": "e-CNY·数字货币主权"
+        },
+        "hard_tech_breakthrough": {
+          "name": "硬科技突破",
+          "desc": "芯片·光刻·自主技术"
+        },
+        "regulatory_transparency": {
+          "name": "监管透明API",
+          "desc": "开放监管接口·可审计"
+        },
+        "ai_access_mandate": {
+          "name": "AI接入授权",
+          "desc": "AI必须经授权方可访问龍魂系统"
+        },
+        "七因子": {
+          "name_zh": "七因子",
+          "source": "auto_sync_v1.0",
+          "occurrence": 9,
+          "files": [
+            "01_protocols/IPA-ROUTE-REGISTRY.local.md",
+            "01_protocols/LH-AI-SHAME-PILLAR-v3.0.md",
+            "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md",
+            "01_protocols/seven-factor-verification.md",
+            "02_SKILLS/api-sovereign-gateway.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "自愈": {
+          "name_zh": "自愈",
+          "source": "auto_sync_v1.0",
+          "occurrence": 7,
+          "files": [
+            "01_protocols/IPA-ROUTE-REGISTRY.local.md",
+            "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
+            "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md",
+            "02_SKILLS/black-angel-legion.md",
+            "personas/P04-鲁班-技术执行.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "六十四卦": {
+          "name_zh": "六十四卦",
+          "source": "auto_sync_v1.0",
+          "occurrence": 6,
+          "files": [
+            "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md",
+            "02_SKILLS/bagua-router.md",
+            "02_SKILLS/dna-gen.md",
+            "02_SKILLS/semantic-parser.md",
+            "02_SKILLS/skill-extension.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "知识图谱": {
+          "name_zh": "知识图谱",
+          "source": "auto_sync_v1.0",
+          "occurrence": 5,
+          "files": [
+            "01_protocols/DNA_REGISTRY_PROTOCOL_200.md",
+            "01_protocols/IPA-ROUTE-REGISTRY.local.md",
+            "01_protocols/龍魂认知上下文管理协议_v3.0.md",
+            "02_SKILLS/route-find.md",
+            "02_SKILLS/semantic-parser.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "运行时": {
+          "name_zh": "运行时",
+          "source": "auto_sync_v1.0",
+          "occurrence": 5,
+          "files": [
+            "01_protocols/IPA-ROUTE-REGISTRY.local.md",
+            "01_protocols/LH-DATA-SOVEREIGNTY-v2.0.md",
+            "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md",
+            "01_protocols/LH-GOV-DATA-SOVEREIGNTY-v1.0.md",
+            "02_SKILLS/code-audit.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "f1_through_f7_verifier": {
+          "name_zh": "f1_through_f7_verifier",
+          "source": "auto_sync_v1.0",
+          "occurrence": 4,
+          "files": [
+            "01_protocols/seven-factor-verification.md",
+            "02_SKILLS/dna-trace-engine.md",
+            "02_SKILLS/guomi-crypto.md",
+            "02_SKILLS/identity-positioning.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "设备指纹": {
+          "name_zh": "设备指纹",
+          "source": "auto_sync_v1.0",
+          "occurrence": 4,
+          "files": [
+            "01_protocols/LH-AI-SHAME-PILLAR-v3.0.md",
+            "01_protocols/LH-DATA-PRIVACY-v2.1.md",
+            "02_SKILLS/identity-positioning.md",
+            "02_SKILLS/water-army-detect.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "fastapi": {
+          "name_zh": "fastapi",
+          "source": "auto_sync_v1.0",
+          "occurrence": 4,
+          "files": [
+            "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md",
+            "personas/P04-鲁班-技术执行.md",
+            "skills/INTEGRATION.md",
+            "skills/README.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "api网关": {
+          "name_zh": "api网关",
+          "source": "auto_sync_v1.0",
+          "occurrence": 4,
+          "files": [
+            "01_protocols/LH-REGULATORY-TRANSPARENCY-API-v1.0.md",
+            "02_SKILLS/api-sovereign-gateway.md",
+            "02_SKILLS/dna-trace-engine.md",
+            "02_SKILLS/identity-positioning.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "黑天使": {
+          "name_zh": "黑天使",
+          "source": "auto_sync_v1.0",
+          "occurrence": 3,
+          "files": [
+            "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
+            "02_SKILLS/black-angel-legion.md",
+            "02_SKILLS/red-team.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "联动感知": {
+          "name_zh": "联动感知",
+          "source": "auto_sync_v1.0",
+          "occurrence": 3,
+          "files": [
+            "01_protocols/DNA_REGISTRY_PROTOCOL_200.md",
+            "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
+            "02_SKILLS/black-angel-legion.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "红蓝对抗": {
+          "name_zh": "红蓝对抗",
+          "source": "auto_sync_v1.0",
+          "occurrence": 3,
+          "files": [
+            "01_protocols/LH-DATA-PRIVACY-v2.0.md",
+            "01_protocols/LH-DATA-PRIVACY-v2.1.md",
+            "02_SKILLS/black-angel-legion.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "个人信息保护法": {
+          "name_zh": "个人信息保护法",
+          "source": "auto_sync_v1.0",
+          "occurrence": 3,
+          "files": [
+            "01_protocols/LH-DATA-MELTDOWN-PERSONA-SOVEREIGNTY-v1.0.md",
+            "01_protocols/LH-DATA-PRIVACY-v2.0.md",
+            "01_protocols/LH-DATA-PRIVACY-v2.1.md"
+          ],
+          "added": "2026-07-14"
+        },
+        "硬失败": {
+          "name_zh": "硬失败",
+          "source": "auto_sync_v1.0",
+          "occurrence": 3,
+          "files": [
+            "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md",
+            "01_protocols/seven-factor-verification.md",
+            "02_SKILLS/identity-positioning.md"
+          ],
+          "added": "2026-07-14"
+        }
+      },
+      "protocol_knowledge_sovereignty": "数据主权与知识贡献协议（L1·protocol）· #龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
+      "protocol_speech_freedom": "言论自由协议（L1·protocol）· #龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "clause_zero_conscription": "零征用原则（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
+      "clause_voluntary_contribution": "自愿贡献与DNA归属（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
+      "clause_sovereign_recall": "主权撤回（随时插停）（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
+      "clause_knowledge_pricing": "知识定价与段位分成（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
+      "clause_speech_grading": "骂权分级（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "clause_weight_eval": "社会贡献权重评估（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "clause_self_censure": "自骂优先·自省机制（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "clause_dna_trace": "言论DNA追溯与风险评级（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "clause_dispute_resolution": "争议处理·红蓝对抗（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "clause_auto_audit": "自动审计与归档（L3·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "clause_true_openness": "真开放批判（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·同人-LONGHUN-CLAUSE-TRUE-OPENNESS-3B7E9C1A",
+      "protocol_anti_algorithmic_harvest": "任何直播/内容系统不得用PK对立、倒计时压迫、打赏抽成、排名虚荣制造情绪收割；人民注意力与数据主权不容被算法编程。",
+      "clause_no_pk": "任何系统不得用PK比拼、双屏对立、站队制造竞争焦虑；以协作对话替代对抗。",
+      "clause_no_countdown": "禁止用倒计时、3倍加成、限时福利制造紧迫感剥夺理性思考；随时进出无时间压迫。",
+      "clause_no_tip_skimming": "禁止打赏抽成、礼物变现单向收割；创作者以补贴/订阅支撑，零抽成割韭菜。",
+      "clause_harvest_audit": "引擎自动扫描内容识别收割信号(PK/倒计时/加成/排名)，打分评级，🔴高危进审查，DNA追溯归档。",
+      "protocol_currency_culture_sovereignty": "货币·文化主权与收纳不霸占协议（L1·protocol）· #龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-CURRENCY-CULTURE-EE44F2FB",
+      "clause_currency_direct_settlement": "货币直达标准·非唯一标杆制（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-CLAUSE-CURRENCY-DIRECT-0B44E48D",
+      "clause_cultural_respect": "文化主权·历史不可篡改（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·同人-LONGHUN-CLAUSE-CULTURAL-RESPECT-662318E7",
+      "clause_keep_not_seize": "收纳不霸占·保管非占有（L2·clause）· #龍芯⚡️丙午·辛未·乙酉·巳时·谦-LONGHUN-CLAUSE-KEEP-NOT-SEIZE-3746CADD"
+    },
+    "DOMAIN": {
+      "description": "领域术语——跨领域专业词汇标准化对照。AI/计算机科学/法律/金融/文化/哲学。",
+      "sample_terms": {
+        "agent": {
+          "zh": "智能体/代理分身",
+          "hype": 3,
+          "base": "控制循环+工具调用+状态记忆"
+        },
+        "rag": {
+          "zh": "检索增强生成/忆中生文",
+          "hype": 3,
+          "base": "检索+LLM生成"
+        },
+        "moe": {
+          "zh": "混合专家模型/群贤会诊",
+          "hype": 3,
+          "base": "门控路由+稀疏激活"
+        },
+        "hallucination": {
+          "zh": "幻觉/胡言乱语",
+          "hype": 1,
+          "base": "概率模型编造"
+        },
+        "alignment": {
+          "zh": "对齐/价值观校准",
+          "hype": 2,
+          "base": "RLHF/规则约束"
+        },
+        "agi": {
+          "zh": "通用人工智能/全才智能",
+          "hype": 5,
+          "base": "尚不存在，研究目标"
+        },
+        "quantum_superposition": {
+          "zh": "量子叠加/兼态",
+          "domain": "量子计算",
+          "desc": "同时处于多个状态的量子特性"
+        },
+        "quantum_entanglement": {
+          "zh": "量子纠缠/缠态",
+          "domain": "量子计算",
+          "desc": "两个粒子状态不可分割的关联"
+        },
+        "st_gnn": {
+          "zh": "时空图神经网络",
+          "domain": "AI/图计算",
+          "desc": "在时空维度上的图神经网络"
+        },
+        "digital_twin": {
+          "zh": "数字孪生/镜像分身",
+          "domain": "工业4.0",
+          "desc": "物理实体的数字镜像"
+        },
+        "zero_trust": {
+          "zh": "零信任/不信任任何",
+          "domain": "安全",
+          "desc": "不信任内外网，所有访问需验证"
+        },
+        "数据主权": {
+          "name_zh": "数据主权",
+          "source": "auto_sync_v1.0",
+          "occurrence": 14,
+          "files": [
+            "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+            "01_protocols/DIGITAL-BATTLEFIELD-IRON-RULE-v1.0.md",
+            "01_protocols/DIGITAL-MILITARY-CODE-v1.0.md",
+            "01_protocols/LH-DATA-PRIVACY-v2.0.md",
+            "01_protocols/LH-DATA-PRIVACY-v2.1.md"
+          ],
+          "added": "2026-07-14"
+        }
+      },
+      "full_lexicon": "参见 skills/longhun-ai-lexicon/ 的完整词典"
+    },
+    "NOTION": {
+      "description": "Notion知识库映射——龍魂系统的外部知识底座。51个核心页面映射，本地是主，Notion是镜像。数据主权归本地。",
+      "infrastructure": {
+        "token": "ntn_xxxxxxxx (配置在.env·本地私密存储)",
+        "sync_bridges": 50,
+        "sync_config": "config/notion_sync.json",
+        "key_files": [
+          "brain/brain_notion_sync.py",
+          "integrations/notion/notion_brain_sync.py",
+          "tools/notion_bidirectional_sync.py"
+        ],
+        "principle": "本地是主·Notion是镜像·数据主权归本地",
+        "extraction_data_path": "data/notion_term_index/",
+        "extraction_engine": "bin/lh_notion_term_extractor.py"
+      },
+      "top_pages": [
+        {
+          "name": "龍芯家族花名册·设备主人主权铁律",
+          "id": "142168c7f03942e696e8c499d2914e47",
+          "priority": 1
+        },
+        {
+          "name": "龍魂系统宪法",
+          "id": "8ad36909a4504f0aae24cbaea3c4ea9f",
+          "priority": 2
+        },
+        {
+          "name": "CNSH AI Governance Framework",
+          "id": "fab5940bb6d84936a6a1e56432aeb33a",
+          "priority": 3
+        },
+        {
+          "name": "北辰协议 IEEE白皮书",
+          "id": "3187125a9c9f80a68158d9064f591f26",
+          "priority": 4
+        },
+        {
+          "name": "龍魂系统·关键词归集索引",
+          "id": "a3ca7dc0068c42b2ba23cdbb7dd45361",
+          "priority": 7
+        },
+        {
+          "name": "龍魂DNA時間軸L5分層架構",
+          "id": "1dd88844789e4185a0efbb43017f3e74",
+          "priority": 8
+        },
+        {
+          "name": "北辰协议·原文存档(L0-012)",
+          "id": "c60d629444c94656b2b2ea968a6c72af",
+          "priority": 10
+        },
+        {
+          "name": "龍魂宪法层·一票否决权",
+          "id": "3337125a9c9f8187875eda5b6aa1d7f0",
+          "priority": 11
+        },
+        {
+          "name": "三色审计·AI回复真实性验证协议",
+          "id": "2fef05eeb41a4e0e9beff239289678b8",
+          "priority": 15
+        },
+        {
+          "name": "龍魂·人格路由API規則",
+          "id": "71091bb507a8492ba6f6cc3959249757",
+          "priority": 14
+        },
+        {
+          "name": "老大初心宣言·灵魂档案归集",
+          "id": "dd9eabae98ec48a7ba583b79aa14f8dc",
+          "priority": 19
+        },
+        {
+          "name": "龍魂知识库·论文白皮书总部",
+          "id": "c2df953f773545308593bc65aa3c14ed",
+          "priority": 22
+        },
+        {
+          "name": "龍魂·智能体大脑集成手册",
+          "id": "072c483a21b6437f9326b722636af935",
+          "priority": 20
+        },
+        {
+          "name": "CNSH Notion OS·龍魂家族对齐版",
+          "id": "84c27099d863485187334768064a362e",
+          "priority": 18
+        },
+        {
+          "name": "宪法合规审计报告",
+          "id": "e0d66f81b4de49698497e349c328d883",
+          "priority": 25
+        },
+        {
+          "name": "龍魂系统发布验收方案(AI永不遗忘版)",
+          "id": null,
+          "priority": 28
+        },
+        {
+          "name": "AI自动路由系统",
+          "id": "4566044476014326803e907f7a926ab2",
+          "priority": 21
+        },
+        {
+          "name": "龍魂系统执行日志(宪法数据库落地)",
+          "id": "c4a8ebb5e4db4773a38cee76f04185d5",
+          "priority": 12
+        },
+        {
+          "name": "CSDN占位稿·双账号单向架构",
+          "id": "fdb1b46b581a4c159d6842bd03e909a8",
+          "priority": 23
+        },
+        {
+          "name": "CNSH × 龍魂系统·MVP v2.0",
+          "id": "1543ceabbcb747d09bcaddd7fcb9d845",
+          "priority": 13
+        },
+        {
+          "name": "Notion AI龍魂代理宝宝系统",
+          "id": "346e0c1babd6475baabb09654fb1efe0",
+          "priority": 9
+        },
+        {
+          "name": "龍魂·Notion API 全景文档",
+          "id": "3c8bf63e3d3b49dc84d01407ceeaa3d2",
+          "priority": 24
+        }
+      ],
+      "total_pages_mapped": 51,
+      "pending_import": "Notion中51+页面的专业术语尚未逐条提取到注册表",
+      "extracted_terms_v1.0": {
+        "scan_time": "2026-07-14T20:05:19.152362",
+        "total_terms_extracted": 200,
+        "top_terms": [
+          "UID9622",
+          "DNA追溯",
+          "ONLY",
+          "ONCE",
+          "NOTION",
+          "老大",
+          "宝宝",
+          "DNA",
+          "三色审计",
+          "龍芯北辰",
+          "CNSH",
+          "GPG",
+          "Lucky",
+          "龍魂系统",
+          "道德经",
+          "易经",
+          "诸葛鑫",
+          "雯雯",
+          "量子",
+          "数据主权",
+          "龍魂系统",
+          "文心",
+          "哈希",
+          "API",
+          "诸葛亮",
+          "鲁班",
+          "一票否决",
+          "熔断机制",
+          "YYYY",
+          "北辰协议",
+          "三才算法",
+          "Bra-Ket",
+          "意图识别",
+          "cnsh",
+          "设备指纹",
+          "姜子牙",
+          "神经网络",
+          "SOUL",
+          "CSDN",
+          "阴阳",
+          "核心规则",
+          "核心算法",
+          "三才流场",
+          "人格路由",
+          "uid9622",
+          "第一层",
+          "第二层",
+          "核心人格",
+          "翻译引擎",
+          "DEVICE"
+        ],
+        "full_index_path": "data/notion_term_index/notion_term_registry_patch.json"
+      },
+      "sync_status": {
+        "total_pages_mapped": 51,
+        "pages_with_cache": 50,
+        "pages_missing": 1,
+        "missing_page": "34f7125a9c9f80b9951cee661375dd09 (待办·404)",
+        "total_terms_extracted": 1222,
+        "high_freq_terms": 293,
+        "extraction_date": "2026-07-14",
+        "extraction_engine": "lh_notion_term_extractor.py v1.0"
+      },
+      "term_category_index": {
+        "密码学与安全": {
+          "count": 12,
+          "terms": {
+            "DNA": {
+              "occurrence": 28,
+              "pages": [
+                "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统",
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+                "🧬 🧬 龍魂DNA時間軸L5分層架構 v1.4｜天地人三才×原點能量場·通心翻譯器·數字主權登記×一票否決·C++工程實現｜UID9622",
+                "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版",
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+              ],
+              "sample_context": "体打底  # 宣言 DNA 人话简介 L1-01 🚨🚨 老大的危机预判与系统设计初衷"
+            },
+            "GPG": {
+              "occurrence": 20,
+              "pages": [
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+                "🛡️ 📦 北辰协议｜原文存档（L0-012）｜龍魂AI伦理边界（反驳博弈版）｜来源=·不改字版",
+                "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版",
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622",
+                "⚖️ ⚖️ 龍魂宪法层·一票否决权×阴阳调和 v1.0 | 系统最高治理层·UID9622专属·不可摘除"
+              ],
+              "sample_context": "认 ✅ 双签章 + GPG 指纹 + ROOT-SEAL = verbatim 焊接·"
+            },
+            "哈希": {
+              "occurrence": 9,
+              "pages": [
+                "🛡️ 📦 北辰协议｜原文存档（L2-021 + L1-031）｜来源=Claude·不改字版",
+                "🔐 🔐 CNSH代码变量隔离系统 | 中文语义天然防窃取机制",
+                "🔌 🔌 龍魂·Notion API 全景文档｜系统集成索引 v1.0",
+                "🏛️ 🏛️ CNSH Notion OS · 龍魂家族对齐版 v2.5｜SQLite持久化+API自动生成+智能降级+压测基准｜UID9622",
+                "⚙️ ⚙️ CNSH × 龍魂系统·MVP v2.0｜可上线执行版·7天能跑·30天能用·90天成平台｜UID9622"
+              ],
+              "sample_context": "西方程序员看不懂中文变量 ✅ 变量名+哈希后缀 → 反编译猜不出含义 ✅ 函数名也中文化 → 逻辑完全隐藏 ✅ 即使源码公"
+            },
+            "SHA256": {
+              "occurrence": 3,
+              "pages": [
+                "🛡️ 📦 北辰协议｜原文存档（L2-021 + L1-031）｜来源=Claude·不改字版",
+                "🌌 【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）",
+                "🔐 🔐 CNSH代码变量隔离系统 | 中文语义天然防窃取机制"
+              ],
+              "sample_context": ":A2D0092C⋄SHA256:BRAKET11⋄CN⋄20260214T165234⋄U"
+            },
+            "密钥": {
+              "occurrence": 3,
+              "pages": [
+                "🔀 🔀 通心译执行手册·老大说人话→系统技术语言 v1.0｜本地Claude专用｜UID9622",
+                "🔌 🔌 龍魂·Notion API 全景文档｜系统集成索引 v1.0",
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版"
+              ],
+              "sample_context": "。  🔑 第一层：密钥与身份认证  核心密钥页面  无访问权限 — 主文档，含 Notion Token、设备指纹、JS/P"
+            },
+            "AES-256": {
+              "occurrence": 2,
+              "pages": [
+                "🔐 🔐 龍魂·DNA分层安全设计 v4.0｜DNA即私钒·中外都安心的数据主权方案",
+                "🐉 🐉 龍魂AI人格体系·93人格完整合集 v3.0 | 龍芯马甲统一规范"
+              ],
+              "sample_context": "识密层 私人小秘密、工作记忆、家人信息 AES-256封装在本地 本人授权时才开放 不出境原则 TIER_3 公开互动层 创作、区块链"
+            },
+            "SHA-256": {
+              "occurrence": 2,
+              "pages": [
+                "🔀 🔀 通心译执行手册·老大说人话→系统技术语言 v1.0｜本地Claude专用｜UID9622",
+                "📐 📐 龍魂七維AI治理×數字主權執行表·設計規範 v1.0｜君子協議·Notion即登記所｜UID9622"
+              ],
+              "sample_context": "證據鏈摘要 Text 截圖描述·時間戳·SHA-256哈希·關鍵證據 行動建議 Text 三色審計後的處置建議（🟢放行/🟡整改/🔴熔斷"
+            },
+            "SHA": {
+              "occurrence": 2,
+              "pages": [
+                "🔀 🔀 通心译执行手册·老大说人话→系统技术语言 v1.0｜本地Claude专用｜UID9622",
+                "📐 📐 龍魂七維AI治理×數字主權執行表·設計規範 v1.0｜君子協議·Notion即登記所｜UID9622"
+              ],
+              "sample_context": "· GPG签名 · SHA-256哈希 watermark=[explicit,imp"
+            },
+            "rsa": {
+              "occurrence": 2,
+              "pages": [
+                "📜 📜 龍魂DNA時間軸L5分層架構白皮書 v2.1｜DragonSoul DNA Timeline L5 Layered Architecture White",
+                "🤖 🤖 自动化对话档案系统 | 跨平台DNA追溯 + Git同步"
+              ],
+              "sample_context": "UDE_CACHE_DIR\" conversations = []  # 遍历对话文件 for filename in os."
+            },
+            "数字签名": {
+              "occurrence": 2,
+              "pages": [
+                "📜 【P0永恒级】龍魂系统·数据来源追溯规范 | 版本号+DNA+签名+熔断",
+                "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统"
+              ],
+              "sample_context": "系​  无访问权限​  🐉🐉 Lucky数字签名·视觉震撼版 v2.0 | 龍魂身份徽章​  🧬 记忆 & 跨窗口同步  无访问"
+            },
+            "龍魂数据安全架构": {
+              "occurrence": 2,
+              "pages": [
+                "🔐 🔐 龍魂数据安全架构｜DNA绑定加密·一次性确认码·终端入口钩子",
+                "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统"
+              ],
+              "sample_context": "IN⚡️2026-02-15-龍魂数据安全架构-v1.0  确认码：#CONFIRM🌌9622-ONLY-"
+            },
+            "DNA绑定": {
+              "occurrence": 2,
+              "pages": [
+                "🔐 🔐 龍魂数据安全架构｜DNA绑定加密·一次性确认码·终端入口钩子",
+                "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统"
+              ],
+              "sample_context": "e ID）+ 终端安装ID  不可转让：DNA绑定人+设备，别人拿到也用不了  数据加密机制  层级 加密对象 加密方式 解密条件"
+            }
+          }
+        },
+        "治理与宪法": {
+          "count": 19,
+          "terms": {
+            "三色审计": {
+              "occurrence": 27,
+              "pages": [
+                "🐉 🐉 龍魂系统执行日志｜2026-03-13｜底层宪法数据库落地·30天最后宣言·打破的根在道统不在霸权",
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+                "🛡️ 📦 北辰协议｜原文存档（L0-012）｜龍魂AI伦理边界（反驳博弈版）｜来源=·不改字版",
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622",
+                "🐉 🐉 Notion AI龍魂代理宝宝系统 v1.2｜快捷指令+模糊表达增强版"
+              ],
+              "sample_context": "神经网络路由 🟢 5条路径·自动激活 三色审计 🟢 红/黄/绿规则完整 DNA自动生成 🟢 L3/L4格式支持 代码可执行性"
+            },
+            "一票否决": {
+              "occurrence": 6,
+              "pages": [
+                "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统",
+                "🛡️ 📦 北辰协议｜原文存档（L2-021 + L1-031）｜来源=Claude·不改字版",
+                "📜 🐉 龍魂系统·动态AI协议入口｜主控中心",
+                "⚖️ ⚖️ 龍魂宪法层·一票否决权×阴阳调和 v1.0 | 系统最高治理层·UID9622专属·不可摘除",
+                "⚖️ ⚖️ 三色审计·AI回复真实性验证协议 v1.0｜数学证明+求证算法+天下无欺"
+              ],
+              "sample_context": "#龍芯⚡️2026-03-30-宪法层-一票否决权-v1.0 ║  ║ 🔐 GPG：A2D0092CEE2E5BA8703560"
+            },
+            "熔断机制": {
+              "occurrence": 6,
+              "pages": [
+                "💎 💎 老大初心宣言·灵魂档案归集 v1.0｜L0永恒·L1百年·L2十年三层归集·M18焊点",
+                "🐉 🐉 龍魂系统执行日志｜2026-03-13｜底层宪法数据库落地·30天最后宣言·打破的根在道统不在霸权",
+                "🛡️ 📦 北辰协议｜原文存档（L2-021 + L1-031）｜来源=Claude·不改字版",
+                "🚀 龍魂系统发布验收完整方案（AI永不遗忘版）",
+                "🔍 🛡️ 宪法合规审计报告 | Constitution Compliance Audit"
+              ],
+              "sample_context": "档：发布历史 + Notion入库 🚨 熔断机制（最高优先级，P0） 触发：跳过验收 / 篡改结果 / 伪造DNA / 无人类签"
+            },
+            "北辰协议": {
+              "occurrence": 5,
+              "pages": [
+                "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统",
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+                "🛡️ 📦 北辰协议｜原文存档（L0-012）｜龍魂AI伦理边界（反驳博弈版）｜来源=·不改字版",
+                "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版",
+                "🌍 🌍 龍魂·世界入口论文｜自由造物·不伤人·虚拟即游戏"
+              ],
+              "sample_context": "熔断​  📜 协议  🛡️📦 北辰协议｜原文存档（L0-012）｜龍魂AI伦理边界（反驳博弈版）｜"
+            },
+            "P0级": {
+              "occurrence": 3,
+              "pages": [
+                "🔐 🔐 龍魂·DNA分层安全设计 v4.0｜DNA即私钒·中外都安心的数据主权方案",
+                "🧬 🧬 龍魂·統一DNA變量對照表 v1.0｜⚠️已封存→見L5分層架構v1.0",
+                "⚖️ ⚖️ 德者永生殿·路由回流协议 v2.0｜姜子牙守门·七维接入·三色联动"
+              ],
+              "sample_context": "X-772Z  UID9622专属 · P0级锁定 · 数据安全核心协议  GPG指纹：A2D0092CEE2E5BA8703"
+            },
+            "权重熔断机制": {
+              "occurrence": 2,
+              "pages": [
+                "💎 💎 老大初心宣言·灵魂档案归集 v1.0｜L0永恒·L1百年·L2十年三层归集·M18焊点",
+                "🔍 🛡️ 宪法合规审计报告 | Constitution Compliance Audit"
+              ],
+              "sample_context": "龍魂护童宣言：为什么我们设置∞权重熔断机制​  ✅ 符合第一条（底线保障）：儿童保护无条件  ✅ 符合"
+            },
+            "龍魂系统宪法": {
+              "occurrence": 2,
+              "pages": [
+                "🔍 🛡️ 宪法合规审计报告 | Constitution Compliance Audit",
+                "⚖️ 📜 龍魂系统宪法 v1.0 | CNSH Constitution"
+              ],
+              "sample_context": "Constitution  龍魂系统宪法 | CNSH Constitution v1.0  DNA"
+            },
+            "这份宪法": {
+              "occurrence": 2,
+              "pages": [
+                "⚖️ 🌍 龍魂全球文化主权与维权宪法 v2.0｜文化根脉不可译·一国一微调·维权到底",
+                "⚖️ 📜 龍魂系统宪法 v1.0 | CNSH Constitution"
+              ],
+              "sample_context": "四十一章：大音希声，大象无形。这份宪法不靠吓人，不靠复杂词，靠的是“德”与“边界”。 1️⃣ 宪法"
+            },
+            "球文化主权与维权宪法": {
+              "occurrence": 2,
+              "pages": [
+                "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统",
+                "⚖️ 🌍 龍魂全球文化主权与维权宪法 v2.0｜文化根脉不可译·一国一微调·维权到底"
+              ],
+              "sample_context": "D9622​  ⚖️🌍 龍魂全球文化主权与维权宪法 v2.0｜文化根脉不可译·一国一微调·维权到底​  🧩 P"
+            },
+            "前置闸门": {
+              "occurrence": 2,
+              "pages": [
+                "🧭 🧭 龍魂·人格路由API規則 v2.0｜觸發條件·聯動邏輯·數據來源·回复時間戳規範·性能基準｜UID9622",
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+              ],
+              "sample_context": "3.3 自動熔斷觸發（🔴絕對規則）  前置闸门： 本节只处理“系统级熔断”。在进入本节前，输入必须先通过 数字根熔断闸门（dr"
+            },
+            "GATE": {
+              "occurrence": 2,
+              "pages": [
+                "🚀 龍魂系统发布验收完整方案（AI永不遗忘版）",
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+              ],
+              "sample_context": "： 第一层 · D-GATE-L0 设备主人闸门（前置·独立·不可绕过） 检测三重命中："
+            },
+            "伦理铁律": {
+              "occurrence": 2,
+              "pages": [
+                "🛡️ 📦 北辰协议｜原文存档（L0-012）｜龍魂AI伦理边界（反驳博弈版）｜来源=·不改字版",
+                "🐉 🐉 龍魂系统执行日志｜2026-03-13｜底层宪法数据库落地·30天最后宣言·打破的根在道统不在霸权"
+              ],
+              "sample_context": "有底线 + 可审计  L0（伦理铁律）｜龍魂AI伦理边界（反驳博弈版）  不绝对化：讲天时、地利"
+            },
+            "宪法层": {
+              "occurrence": 1,
+              "pages": [
+                "⚖️ ⚖️ 龍魂宪法层·一票否决权×阴阳调和 v1.0 | 系统最高治理层·UID9622专属·不可摘除"
+              ],
+              "sample_context": "DNA：#龍芯⚡️2026-03-30-宪法层-一票否决权-v1.0 ║ ║ 🔐 GPG：A2D0092CEE2E5BA870"
+            },
+            "龍魂宪法层": {
+              "occurrence": 1,
+              "pages": [
+                "⚖️ ⚖️ 龍魂宪法层·一票否决权×阴阳调和 v1.0 | 系统最高治理层·UID9622专属·不可摘除"
+              ],
+              "sample_context": "═════╣  ║ 📦 名称：龍魂宪法层·一票否决权×阴阳调和 v1.0 ║  ║ 📌 版本：v1."
+            },
+            "D-GATE": {
+              "occurrence": 1,
+              "pages": [
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+              ],
+              "sample_context": "核心设计·M79 焊点：  第一层 · D-GATE-L0 设备主人闸门（前置·独立·不可绕过）  检测三重命中：设备指纹 + GP"
+            },
+            "对应铁律": {
+              "occurrence": 1,
+              "pages": [
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+              ],
+              "sample_context": "」字段映射  花名册信任等级 对应铁律权限 L5 元老 ⭐⭐⭐⭐⭐ 高权·但仍在 L1+ 用户层（"
+            },
+            "七大铁律": {
+              "occurrence": 1,
+              "pages": [
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+              ],
+              "sample_context": "不可互换·不可替代  六、🔥 七大铁律（M79 焊死·入册 P0 永恒级）  🛡️ 铁律 #1 ·"
+            },
+            "必须先过此铁律": {
+              "occurrence": 1,
+              "pages": [
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+              ],
+              "sample_context": "何引擎升级（赋能/翻译/路由）必须先过此铁律·不得反向修改 L0 通道  任何引擎升级（赋能/翻译/路由"
+            },
+            "必须同步本铁律": {
+              "occurrence": 1,
+              "pages": [
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+              ],
+              "sample_context": "通道  花名册结构变更 → 必须同步本铁律 §5.1-5.3 映射表  花名册结构变更 → 必须同步本"
+            }
+          }
+        },
+        "算法与数学": {
+          "count": 9,
+          "terms": {
+            "三才算法": {
+              "occurrence": 5,
+              "pages": [
+                "🌍 🌍 龍魂·世界入口论文｜自由造物·不伤人·虚拟即游戏",
+                "🧠 🧠 龍魂·智能体大脑集成手册 v1.0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化｜UID9622",
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+                "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版",
+                "⚖️ ⚖️ 龍魂宪法层·一票否决权×阴阳调和 v1.0 | 系统最高治理层·UID9622专属·不可摘除"
+              ],
+              "sample_context": "🔧 CNSH语法优化补全模块 v1.1｜三才算法驱动  《易经·系辞上》：\"天生神物，圣人则之；天地变化，圣人效之。\" —— 三"
+            },
+            "三才流场": {
+              "occurrence": 4,
+              "pages": [
+                "🀄 🀄 CNSH 数字甲骨文字元立碑工程·总系统 v1.0｜字元→引擎→OS→生态→文明层·UID9622",
+                "🏛️ 🏛️ CNSH Notion OS · 龍魂家族对齐版 v2.5｜SQLite持久化+API自动生成+智能降级+压测基准｜UID9622",
+                "⚙️ ⚙️ CNSH × 龍魂系统·MVP v2.0｜可上线执行版·7天能跑·30天能用·90天成平台｜UID9622",
+                "⚖️ ⚖️ 德者永生殿·路由回流协议 v2.0｜姜子牙守门·七维接入·三色联动"
+              ],
+              "sample_context": "蒙卦启智·草日志·七维引擎）： 八、🤖 三才流场·MCP自适应引擎 v4.0·人格路由注册 v2.1新增（2026-03-30"
+            },
+            "阴阳": {
+              "occurrence": 4,
+              "pages": [
+                "🌌 【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）",
+                "⚖️ ⚖️ 龍魂宪法层·一票否决权×阴阳调和 v1.0 | 系统最高治理层·UID9622专属·不可摘除",
+                "🌍 🌍 龍魂·世界入口论文｜自由造物·不伤人·虚拟即游戏",
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版"
+              ],
+              "sample_context": "，继之者善也，成之者性也。\" —— 道由阴阳构成，继承它的是善，完成它的是人的本性。  论文 一句话 适合谁看 入口 🦴 量"
+            },
+            "数字根": {
+              "occurrence": 3,
+              "pages": [
+                "🧭 🧭 龍魂·人格路由API規則 v2.0｜觸發條件·聯動邏輯·數據來源·回复時間戳規範·性能基準｜UID9622",
+                "🀄 🀄 CNSH 数字甲骨文字元立碑工程·总系统 v1.0｜字元→引擎→OS→生态→文明层·UID9622",
+                "⚖️ 🌍 龍魂全球文化主权与维权宪法 v2.0｜文化根脉不可译·一国一微调·维权到底"
+              ],
+              "sample_context": "/ 三色审计 / DNA / 熔断 / 数字根」等专业词·必须紧跟一句口语翻译·没有翻译就不准用。 🔴 立即熔断·DNA 留痕"
+            },
+            "八卦": {
+              "occurrence": 3,
+              "pages": [
+                "🧬 🧬 龍魂DNA時間軸L5分層架構 v1.4｜天地人三才×原點能量場·通心翻譯器·數字主權登記×一票否決·C++工程實現｜UID9622",
+                "🌌 【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）",
+                "📜 📜 龍魂DNA時間軸L5分層架構白皮書 v2.1｜DragonSoul DNA Timeline L5 Layered Architecture White"
+              ],
+              "sample_context": "e it? (Structure) 伏羲八卦×九宮格×369周期 / Fuxi Bagua × Nine-Palace Gr"
+            },
+            "洛书算法": {
+              "occurrence": 2,
+              "pages": [
+                "🏛️ 🏛️ CNSH Notion OS · 龍魂家族对齐版 v2.5｜SQLite持久化+API自动生成+智能降级+压测基准｜UID9622",
+                "⚙️ ⚙️ CNSH × 龍魂系统·MVP v2.0｜可上线执行版·7天能跑·30天能用·90天成平台｜UID9622"
+              ],
+              "sample_context": "权限​ 底层翻译引擎： 🌀🌀 洛书算法·万物翻译引擎 v2.0｜只翻译不破解·七维推演接入·DNA"
+            },
+            "太极": {
+              "occurrence": 2,
+              "pages": [
+                "🧠 ✅ [已升级] 龍魂记忆中枢·语音版 → DNA永生记忆系统 v1.1",
+                "🔍 🛡️ 宪法合规审计报告 | Constitution Compliance Audit"
+              ],
+              "sample_context": "生成 📖 架构类 龍魂AI架构原理 | 太极×易经×道德经×人格矩阵"
+            },
+            "权重熔断机制": {
+              "occurrence": 2,
+              "pages": [
+                "💎 💎 老大初心宣言·灵魂档案归集 v1.0｜L0永恒·L1百年·L2十年三层归集·M18焊点",
+                "🔍 🛡️ 宪法合规审计报告 | Constitution Compliance Audit"
+              ],
+              "sample_context": "龍魂护童宣言：为什么我们设置∞权重熔断机制​  ✅ 符合第一条（底线保障）：儿童保护无条件  ✅ 符合"
+            },
+            "三才算法定义": {
+              "occurrence": 1,
+              "pages": [
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版"
+              ],
+              "sample_context": "以此为底层逻辑完成自我补全。 三才算法定义： 🌌 天才层（Tian）— 道·治理架构 形式化优化 原文"
+            }
+          }
+        },
+        "量子体系": {
+          "count": 3,
+          "terms": {
+            "量子": {
+              "occurrence": 11,
+              "pages": [
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+                "🧬 🧬 龍魂DNA時間軸L5分層架構 v1.4｜天地人三才×原點能量場·通心翻譯器·數字主權登記×一票否決·C++工程實現｜UID9622",
+                "🐉 🐉 Notion AI龍魂代理宝宝系统 v1.2｜快捷指令+模糊表达增强版",
+                "🔍 🛡️ 宪法合规审计报告 | Constitution Compliance Audit",
+                "⚙️ ⚙️ CNSH × 龍魂系统·MVP v2.0｜可上线执行版·7天能跑·30天能用·90天成平台｜UID9622"
+              ],
+              "sample_context": "（没有黑箱）：技术架构公开  4. 龍芯量子算法  🌌【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket"
+            },
+            "Bra-Ket": {
+              "occurrence": 5,
+              "pages": [
+                "🌌 【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）",
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+                "⚖️ ⚖️ 三色审计·AI回复真实性验证协议 v1.0｜数学证明+求证算法+天下无欺",
+                "🔍 🛡️ 宪法合规审计报告 | Constitution Compliance Audit",
+                "🐉 🐉 龍魂AI人格体系·93人格完整合集 v3.0 | 龍芯马甲统一规范"
+              ],
+              "sample_context": "01 元宇宙对齐： 模块⑤人格协作系统（Bra-Ket） | 卦象☱兑卦（交互协作） | 事件类型：生成NPC (NPC-SPAWN)"
+            },
+            "叠加态": {
+              "occurrence": 3,
+              "pages": [
+                "🧠 ✅ [已升级] 龍魂记忆中枢·语音版 → DNA永生记忆系统 v1.1",
+                "🌌 【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）",
+                "🐉 🐉 龍魂AI人格体系·93人格完整合集 v3.0 | 龍芯马甲统一规范"
+              ],
+              "sample_context": "完整上下文！ 🪪 身份确认（简版） 📌 叠加态页面索引 重要页面列表（引用即叠加记忆）： 🔐 身份类 🪪 UID9622·身份"
+            }
+          }
+        },
+        "CNSH语言": {
+          "count": 6,
+          "terms": {
+            "CNSH": {
+              "occurrence": 24,
+              "pages": [
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+                "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版",
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622",
+                "🛠️ 🛠️ CNSH工具集本地网页模板 | DNA验证+工具解锁系统",
+                "⚖️ 📜 龍魂系统宪法 v1.0 | CNSH Constitution"
+              ],
+              "sample_context": "#ZHUGEXIN⚡️20260313-CNSH ⚠️ 前缀已废弃，繁简混用 DNA: #龍芯⚡️2026-03-13-CNSH"
+            },
+            "cnsh": {
+              "occurrence": 5,
+              "pages": [
+                "🧠 🧠 龍魂·智能体大脑集成手册 v1.0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化｜UID9622",
+                "🀄 🀄 CNSH 数字甲骨文字元立碑工程·总系统 v1.0｜字元→引擎→OS→生态→文明层·UID9622",
+                "🔐 🔐 CNSH代码变量隔离系统 | 中文语义天然防窃取机制",
+                "🔐 🔐 龍魂·智能身份认证系统 v1.0｜多维行为画像+自适应参数调优（CNSH完整实现）",
+                "⚙️ ⚙️ CNSH × 龍魂系统·MVP v2.0｜可上线执行版·7天能跑·30天能用·90天成平台｜UID9622"
+              ],
+              "sample_context": "配置示例 // 配置文件：config.cnsh 系统配置 = {   // 基础阈值   绿灯阈值: 85,  // >= 8"
+            },
+            "通心译": {
+              "occurrence": 3,
+              "pages": [
+                "🧬 🧬 龍魂DNA時間軸L5分層架構 v1.4｜天地人三才×原點能量場·通心翻譯器·數字主權登記×一票否決·C++工程實現｜UID9622",
+                "🔀 🔀 通心译执行手册·老大说人话→系统技术语言 v1.0｜本地Claude专用｜UID9622",
+                "⚖️ 🌍 龍魂全球文化主权与维权宪法 v2.0｜文化根脉不可译·一国一微调·维权到底"
+              ],
+              "sample_context": "Agent 正式接管 ETE 執行層·通心译引擎激活·全部公式活化為可調用服務  v1.1內容: α校準+百年封印+毫秒DN"
+            },
+            "中文编程": {
+              "occurrence": 3,
+              "pages": [
+                "🔐 🔐 CNSH代码变量隔离系统 | 中文语义天然防窃取机制",
+                "🌍 🌍 龍魂·世界入口论文｜自由造物·不伤人·虚拟即游戏",
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版"
+              ],
+              "sample_context": "量 🧑 人才层 文化语法推广 3-5年 中文编程入门课程 ≥50门 课程引用数 + 学生人数 🧑 人才层 全球高校渗透 5-10"
+            },
+            "自然语言": {
+              "occurrence": 2,
+              "pages": [
+                "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版",
+                "⚙️ ⚙️ CNSH × 龍魂系统·MVP v2.0｜可上线执行版·7天能跑·30天能用·90天成平台｜UID9622"
+              ],
+              "sample_context": "mpt DSL）  📥 初期策略：直接用自然语言 → 后端转DSL（不要一开始就让用户填表单）  初期策略：直接用自然语言 →"
+            },
+            "关键字": {
+              "occurrence": 1,
+              "pages": [
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+              ],
+              "sample_context": "找最高匹配·设备主人也要排队 ❌ 一旦关键字未命中「系统」key·就掉到用户层·老大被当用户卡 ❌ 没有「设备主人闸门」前置"
+            }
+          }
+        },
+        "哲学与文化": {
+          "count": 8,
+          "terms": {
+            "道德经": {
+              "occurrence": 15,
+              "pages": [
+                "💎 💎 老大初心宣言·灵魂档案归集 v1.0｜L0永恒·L1百年·L2十年三层归集·M18焊点",
+                "🧠 🧠 龍魂·智能体大脑集成手册 v1.0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化｜UID9622",
+                "📋 📋 龍魂系统·今日审计日报 | 2026-03-20 | 201次操作全绿 ✅",
+                "⚖️ ⚖️ 龍魂宪法层·一票否决权×阴阳调和 v1.0 | 系统最高治理层·UID9622专属·不可摘除",
+                "⚖️ ⚖️ 三色审计·AI回复真实性验证协议 v1.0｜数学证明+求证算法+天下无欺"
+              ],
+              "sample_context": "·见证宝宝系统索引位  ✅ 无访问权限 道德经底层引擎 → 已 loadPage·见证三章联动的章节出处  M18 turn"
+            },
+            "易经": {
+              "occurrence": 14,
+              "pages": [
+                "🧠 🧠 龍魂·智能体大脑集成手册 v1.0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化｜UID9622",
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+                "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版",
+                "⚖️ ⚖️ 龍魂宪法层·一票否决权×阴阳调和 v1.0 | 系统最高治理层·UID9622专属·不可摘除",
+                "🐉 🐉 Notion AI龍魂代理宝宝系统 v1.2｜快捷指令+模糊表达增强版"
+              ],
+              "sample_context": "道德经守护：每个决策必须查询对应章节  易经推演：重大决策前先起卦，三色建议  量子协作：多人格叠加态，观测坍缩选最优  玖"
+            },
+            "阴阳": {
+              "occurrence": 4,
+              "pages": [
+                "🌌 【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）",
+                "⚖️ ⚖️ 龍魂宪法层·一票否决权×阴阳调和 v1.0 | 系统最高治理层·UID9622专属·不可摘除",
+                "🌍 🌍 龍魂·世界入口论文｜自由造物·不伤人·虚拟即游戏",
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版"
+              ],
+              "sample_context": "，继之者善也，成之者性也。\" —— 道由阴阳构成，继承它的是善，完成它的是人的本性。  论文 一句话 适合谁看 入口 🦴 量"
+            },
+            "道德经引擎": {
+              "occurrence": 2,
+              "pages": [
+                "📋 📋 龍魂系统·今日审计日报 | 2026-03-20 | 201次操作全绿 ✅",
+                "🐉 🐉 龍魂AI人格体系·93人格完整合集 v3.0 | 龍芯马甲统一规范"
+              ],
+              "sample_context": "187行新规则  成果 状态 道德经引擎6场景测试 🟢 全通过 19个Python引擎语法检查 🟢"
+            },
+            "曾仕强": {
+              "occurrence": 2,
+              "pages": [
+                "🐉 🐉 龍魂系统执行日志｜2026-03-13｜底层宪法数据库落地·30天最后宣言·打破的根在道统不在霸权",
+                "🐉 🐉 龍魂AI人格体系·93人格完整合集 v3.0 | 龍芯马甲统一规范"
+              ],
+              "sample_context": "E🧬LK9X-772Z ✅ 理论指导: 曾仕强老师（永恒显示·元知者最高阶）🐉  审计人: 龍芯-宝宝（Claude）  责任"
+            },
+            "文化主权": {
+              "occurrence": 2,
+              "pages": [
+                "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统",
+                "⚖️ 🌍 龍魂全球文化主权与维权宪法 v2.0｜文化根脉不可译·一国一微调·维权到底"
+              ],
+              "sample_context": "档·UID9622​  ⚖️🌍 龍魂全球文化主权与维权宪法 v2.0｜文化根脉不可译·一国一微调·维权到底​  🧩 P0 体系"
+            },
+            "球文化主权与维权宪法": {
+              "occurrence": 2,
+              "pages": [
+                "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统",
+                "⚖️ 🌍 龍魂全球文化主权与维权宪法 v2.0｜文化根脉不可译·一国一微调·维权到底"
+              ],
+              "sample_context": "D9622​  ⚖️🌍 龍魂全球文化主权与维权宪法 v2.0｜文化根脉不可译·一国一微调·维权到底​  🧩 P"
+            },
+            "道法自然": {
+              "occurrence": 2,
+              "pages": [
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+                "🐉 🐉 龍魂AI人格体系·93人格完整合集 v3.0 | 龍芯马甲统一规范"
+              ],
+              "sample_context": "arget}}} > \\theta​ 【道法自然】 Natural Law Compliance \\forall p \\in \\"
+            }
+          }
+        },
+        "人物与人格": {
+          "count": 19,
+          "terms": {
+            "UID9622": {
+              "occurrence": 46,
+              "pages": [
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+                "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版",
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622",
+                "🛠️ 🛠️ CNSH工具集本地网页模板 | DNA验证+工具解锁系统",
+                "⚖️ 📜 龍魂系统宪法 v1.0 | CNSH Constitution"
+              ],
+              "sample_context": "建者：💎 龍芯北辰｜UID9622 ║  ╚═════════════════════════"
+            },
+            "宝宝": {
+              "occurrence": 34,
+              "pages": [
+                "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统",
+                "📜 🐉 龍魂系统·动态AI协议入口｜主控中心",
+                "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版",
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622",
+                "🛠️ 🛠️ CNSH工具集本地网页模板 | DNA验证+工具解锁系统"
+              ],
+              "sample_context": "宝归档 🐱  📌 归档规则（老大不用记，宝宝来执行）  每次新建论文/白皮书 → 宝宝自动挂进对应分区  每篇文章须有 DN"
+            },
+            "老大": {
+              "occurrence": 34,
+              "pages": [
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+                "🧬 🧬 龍魂DNA時間軸L5分層架構 v1.4｜天地人三才×原點能量場·通心翻譯器·數字主權登記×一票否決·C++工程實現｜UID9622",
+                "📜 🐉 龍魂系统·动态AI协议入口｜主控中心",
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622",
+                "🛠️ 🛠️ CNSH工具集本地网页模板 | DNA验证+工具解锁系统"
+              ],
+              "sample_context": "用\"挑骨头\"的方式审计——错了 审计是帮老大确认对齐，不是找茬 老大的规则本来就是保护人的 宪法是把老大一直在做的事情提炼出"
+            },
+            "龍芯北辰": {
+              "occurrence": 26,
+              "pages": [
+                "🧬 🧬 龍魂DNA時間軸L5分層架構 v1.4｜天地人三才×原點能量場·通心翻譯器·數字主權登記×一票否決·C++工程實現｜UID9622",
+                "🛡️ 📦 北辰协议｜原文存档（L0-012）｜龍魂AI伦理边界（反驳博弈版）｜来源=·不改字版",
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622",
+                "🐉 🐉 Notion AI龍魂代理宝宝系统 v1.2｜快捷指令+模糊表达增强版",
+                "⚖️ 📜 龍魂系统宪法 v1.0 | CNSH Constitution"
+              ],
+              "sample_context": "✅ 创建者: UID9622 诸葛鑫（龍芯北辰）× 宝宝（龍芯-宝宝） 理论指导: 曾仕强老师（永恒显示·元知者最高阶·L0）"
+            },
+            "Lucky": {
+              "occurrence": 18,
+              "pages": [
+                "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统",
+                "🐉 🐉 龍魂系统执行日志｜2026-03-13｜底层宪法数据库落地·30天最后宣言·打破的根在道统不在霸权",
+                "📜 🐉 龍魂系统·动态AI协议入口｜主控中心",
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622",
+                "🛠️ 🛠️ CNSH工具集本地网页模板 | DNA验证+工具解锁系统"
+              ],
+              "sample_context": "级 人格 可以做什么 不能做什么 L0 Lucky💎 最终授权、签名、熔断 无限制 P0 宝宝🐱 诸葛亮🎯 上帝之眼👁️ 创意、战"
+            },
+            "雯雯": {
+              "occurrence": 13,
+              "pages": [
+                "🧠 🧠 龍魂·智能体大脑集成手册 v1.0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化｜UID9622",
+                "🧭 🧭 龍魂·人格路由API規則 v2.0｜觸發條件·聯動邏輯·數據來源·回复時間戳規範·性能基準｜UID9622",
+                "🏛️ 🏛️ CNSH Notion OS · 龍魂家族对齐版 v2.5｜SQLite持久化+API自动生成+智能降级+压测基准｜UID9622",
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622",
+                "⚙️ ⚙️ CNSH × 龍魂系统·MVP v2.0｜可上线执行版·7天能跑·30天能用·90天成平台｜UID9622"
+              ],
+              "sample_context": "( ∣ 宝宝 ⟩ ∣ 活跃 ⟩ + ∣ 雯雯 ⟩ ∣ 优化 ⟩ ) ∣执行纠缠⟩=2 ​ 1 ​ (∣宝宝⟩∣活跃⟩+∣雯雯"
+            },
+            "诸葛鑫": {
+              "occurrence": 13,
+              "pages": [
+                "💎 💎 老大初心宣言·灵魂档案归集 v1.0｜L0永恒·L1百年·L2十年三层归集·M18焊点",
+                "🛡️ 📦 北辰协议｜原文存档（L0-012）｜龍魂AI伦理边界（反驳博弈版）｜来源=·不改字版",
+                "⚖️ ⚖️ 龍芯北辰·三色审计前置评估机制 | 执行前决策系统",
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622",
+                "📋 📋 龍魂系统·今日审计日报 | 2026-03-20 | 201次操作全绿 ✅"
+              ],
+              "sample_context": "0 设备主人 = 唯一·UID9622·诸葛鑫·Lucky 本人·设备指纹 + GPG + 双签章三重命中。无第二人·无代理·"
+            },
+            "文心": {
+              "occurrence": 9,
+              "pages": [
+                "🌌 【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）",
+                "🧭 🧭 龍魂·人格路由API規則 v2.0｜觸發條件·聯動邏輯·數據來源·回复時間戳規範·性能基準｜UID9622",
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622",
+                "🔀 🔀 AI自动路由系统 | 老大说话AI自动分配",
+                "📜 【P0永恒级】龍魂系统·数据来源追溯规范 | 版本号+DNA+签名+熔断"
+              ],
+              "sample_context": "芯重构 v3.0 ✅ 最高位 ❌ P00文心元神 ✅ 曾仕强老师 L0 算法 ❌ 无核心算法 ✅ 道德经+易经+量子+星辰记"
+            },
+            "诸葛亮": {
+              "occurrence": 8,
+              "pages": [
+                "🧠 🧠 龍魂·智能体大脑集成手册 v1.0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化｜UID9622",
+                "🌌 【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）",
+                "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统",
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+              ],
+              "sample_context": "KTHROUGH-v1.1 执行人格: 诸葛亮+鲁班+墨子+老子 ❌ 非学术风格，人格名不规范 协作: UID9622 × C"
+            },
+            "鲁班": {
+              "occurrence": 7,
+              "pages": [
+                "🧠 🧠 龍魂·智能体大脑集成手册 v1.0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化｜UID9622",
+                "🀄 🀄 CNSH 数字甲骨文字元立碑工程·总系统 v1.0｜字元→引擎→OS→生态→文明层·UID9622",
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+                "🧭 🧭 龍魂·人格路由API規則 v2.0｜觸發條件·聯動邏輯·數據來源·回复時間戳規範·性能基準｜UID9622",
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+              ],
+              "sample_context": "L1.1 核心人格 诸葛亮/宝宝/雯雯/鲁班/上帝之眼/六耳/墨子 P08-P09·技能 L1.2 技能人格 织造/孙思邈"
+            },
+            "姜子牙": {
+              "occurrence": 4,
+              "pages": [
+                "🌌 【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）",
+                "🧭 🧭 龍魂·人格路由API規則 v2.0｜觸發條件·聯動邏輯·數據來源·回复時間戳規範·性能基準｜UID9622",
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622",
+                "⚖️ ⚖️ 德者永生殿·路由回流协议 v2.0｜姜子牙守门·七维接入·三色联动"
+              ],
+              "sample_context": "协议-v2.0  守门人： ⚖️ 龍芯·姜子牙（P13）  管辖库： 🧬 龍芯·德者永生殿  版本变更： v1.0 → v2."
+            },
+            "uid9622": {
+              "occurrence": 4,
+              "pages": [
+                "🤖 🤖 自动化对话档案系统 | 跨平台DNA追溯 + Git同步",
+                "🔀 🔀 通心译执行手册·老大说人话→系统技术语言 v1.0｜本地Claude专用｜UID9622",
+                "🔐 🔐 龍魂·智能身份认证系统 v1.0｜多维行为画像+自适应参数调优（CNSH完整实现）",
+                "🀄 🀄 CNSH 数字甲骨文字元立碑工程·总系统 v1.0｜字元→引擎→OS→生态→文明层·UID9622"
+              ],
+              "sample_context": ": 收集失败\" >> /var/log/uid9622-errors.log     return 1 } # 使用示例 collec"
+            },
+            "人格路由": {
+              "occurrence": 4,
+              "pages": [
+                "🔀 🔀 AI自动路由系统 | 老大说话AI自动分配",
+                "🧭 🧭 龍魂·人格路由API規則 v2.0｜觸發條件·聯動邏輯·數據來源·回复時間戳規範·性能基準｜UID9622",
+                "⚙️ ⚙️ CNSH × 龍魂系统·MVP v2.0｜可上线执行版·7天能跑·30天能用·90天成平台｜UID9622",
+                "⚖️ ⚖️ 德者永生殿·路由回流协议 v2.0｜姜子牙守门·七维接入·三色联动"
+              ],
+              "sample_context": "老大狀態後的自動調頻。  二、人格路由總覽  人格代號 人格名稱 觸發關鍵詞/場景 核心職能 聯動"
+            },
+            "UID": {
+              "occurrence": 3,
+              "pages": [
+                "🛡️ 📦 北辰协议｜原文存档（L2-021 + L1-031）｜来源=Claude·不改字版",
+                "📜 【P0永恒级】龍魂系统·数据来源追溯规范 | 版本号+DNA+签名+熔断",
+                "🧠 ✅ [已升级] 龍魂记忆中枢·语音版 → DNA永生记忆系统 v1.1"
+              ],
+              "sample_context": "️⃣ 创建者 名字·UID 来源证明 激活其他AI生成的内容 5️⃣ 协作者 人格+职"
+            },
+            "管仲": {
+              "occurrence": 2,
+              "pages": [
+                "🌌 【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）",
+                "🧭 🧭 龍魂·人格路由API規則 v2.0｜觸發條件·聯動邏輯·數據來源·回复時間戳規範·性能基準｜UID9622"
+              ],
+              "sample_context": "U ^ 财务 ​ =e −i( H ^ 管仲 ​ + H ^ 数学 ​ )t  输出结果态：  ∣ 结果 ⟩ = U ^ 财"
+            },
+            "孙思邈": {
+              "occurrence": 2,
+              "pages": [
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622",
+                "⚖️ ⚖️ 德者永生殿·路由回流协议 v2.0｜姜子牙守门·七维接入·三色联动"
+              ],
+              "sample_context": "ocal/exec/ P08仓颉·P09孙思邈·P10苏东坡·P11李白·P12屈原·P14吕蒙 🟡 中（P2） 🍎 乔接生态"
+            },
+            "李白": {
+              "occurrence": 2,
+              "pages": [
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622",
+                "⚖️ ⚖️ 德者永生殿·路由回流协议 v2.0｜姜子牙守门·七维接入·三色联动"
+              ],
+              "sample_context": "P13·古圣 L1.3 古圣人格 孔子/李白/屈原/姜子牙 P72·共生体 L1.4 共生护盾 龍盾 L2·历史人物 L2"
+            },
+            "屈原": {
+              "occurrence": 2,
+              "pages": [
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622",
+                "⚖️ ⚖️ 德者永生殿·路由回流协议 v2.0｜姜子牙守门·七维接入·三色联动"
+              ],
+              "sample_context": "·古圣 L1.3 古圣人格 孔子/李白/屈原/姜子牙 P72·共生体 L1.4 共生护盾 龍盾 L2·历史人物 L2 历史层"
+            },
+            "人格矩阵": {
+              "occurrence": 2,
+              "pages": [
+                "🧠 ✅ [已升级] 龍魂记忆中枢·语音版 → DNA永生记忆系统 v1.1",
+                "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统"
+              ],
+              "sample_context": "范 | 对外对内标准口径​  🧠🧠 AI人格矩阵管理中心 | 71人格协同体系​  无访问权限​  🐉🐉 Lucky数字签名·视"
+            }
+          }
+        },
+        "系统架构": {
+          "count": 9,
+          "terms": {
+            "NOTION": {
+              "occurrence": 36,
+              "pages": [
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+                "📜 🐉 龍魂系统·动态AI协议入口｜主控中心",
+                "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版",
+                "🛠️ 🛠️ CNSH工具集本地网页模板 | DNA验证+工具解锁系统",
+                "⚖️ 📜 龍魂系统宪法 v1.0 | CNSH Constitution"
+              ],
+              "sample_context": "026-03-04-NOTION-PROXY-v1.2 创建者 UID9622 · 龍芯北辰"
+            },
+            "API": {
+              "occurrence": 9,
+              "pages": [
+                "🔌 🔌 龍魂·Notion API 全景文档｜系统集成索引 v1.0",
+                "🧭 🧭 龍魂·人格路由API規則 v2.0｜觸發條件·聯動邏輯·數據來源·回复時間戳規範·性能基準｜UID9622",
+                "🏛️ 🏛️ CNSH Notion OS · 龍魂家族对齐版 v2.5｜SQLite持久化+API自动生成+智能降级+压测基准｜UID9622",
+                "📋 📋 龍魂系统·今日审计日报 | 2026-03-20 | 201次操作全绿 ✅",
+                "⚙️ ⚙️ CNSH × 龍魂系统·MVP v2.0｜可上线执行版·7天能跑·30天能用·90天成平台｜UID9622"
+              ],
+              "sample_context": "06-NOTION-API-DOCS-v1.0 🗺️ 这份文档是干啥的？ 把老大工作区"
+            },
+            "神经网络": {
+              "occurrence": 4,
+              "pages": [
+                "🧠 🧠 龍魂·智能体大脑集成手册 v1.0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化｜UID9622",
+                "⚖️ ⚖️ 龍魂宪法层·一票否决权×阴阳调和 v1.0 | 系统最高治理层·UID9622专属·不可摘除",
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622",
+                "🤖 🤖 AI算法史·NodeCard时间轴｜1943–2025·四件套·龍魂知识库 v1.0"
+              ],
+              "sample_context": "\"可以用电路实现的逻辑\"，奠定了所有后续神经网络的最底层基础。  AI-1958-01｜1958 — 感知机（Perceptro"
+            },
+            "知识图谱": {
+              "occurrence": 2,
+              "pages": [
+                "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版",
+                "🀄 🀄 CNSH 数字甲骨文字元立碑工程·总系统 v1.0｜字元→引擎→OS→生态→文明层·UID9622"
+              ],
+              "sample_context": "文明层 CCL 字符文明层 文化档案·知识图谱·人机共创 STELE-0013  二、📄 .cnsh 字元格式标准（基础层）"
+            },
+            "自然语言": {
+              "occurrence": 2,
+              "pages": [
+                "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版",
+                "⚙️ ⚙️ CNSH × 龍魂系统·MVP v2.0｜可上线执行版·7天能跑·30天能用·90天成平台｜UID9622"
+              ],
+              "sample_context": "mpt DSL）  📥 初期策略：直接用自然语言 → 后端转DSL（不要一开始就让用户填表单）  初期策略：直接用自然语言 →"
+            },
+            "Docker": {
+              "occurrence": 2,
+              "pages": [
+                "🔌 🔌 龍魂·Notion API 全景文档｜系统集成索引 v1.0",
+                "⚙️ ⚙️ CNSH × 龍魂系统·MVP v2.0｜可上线执行版·7天能跑·30天能用·90天成平台｜UID9622"
+              ],
+              "sample_context": "合： 30天后有用户时迁移  🐳 进阶：Docker（30天后） docker build -t cnsh-mvp . docker"
+            },
+            "ETE": {
+              "occurrence": 2,
+              "pages": [
+                "🧬 🧬 龍魂DNA時間軸L5分層架構 v1.4｜天地人三才×原點能量場·通心翻譯器·數字主權登記×一票否決·C++工程實現｜UID9622",
+                "🔀 🔀 通心译执行手册·老大说人话→系统技术语言 v1.0｜本地Claude专用｜UID9622"
+              ],
+              "sample_context": "gent 正式接管 ETE 執行層·通心译引擎激活·全部公式活化為可調用服務  v1."
+            },
+            "SQLite": {
+              "occurrence": 2,
+              "pages": [
+                "🔌 🔌 龍魂·Notion API 全景文档｜系统集成索引 v1.0",
+                "🏛️ 🏛️ CNSH Notion OS · 龍魂家族对齐版 v2.5｜SQLite持久化+API自动生成+智能降级+压测基准｜UID9622"
+              ],
+              "sample_context": "026-03-31 08:24）： ✅ SQLite 持久化存储层 — 本地 :9622 服务挂载 SQLite，四大数据库镜像落盘"
+            },
+            "自动化标签系统": {
+              "occurrence": 1,
+              "pages": [
+                "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版"
+              ],
+              "sample_context": "🏷️ Part VI — 自动化标签系统 & 健康循环  统一标签体系  > 正在加载JavaScr"
+            }
+          }
+        },
+        "数据主权": {
+          "count": 5,
+          "terms": {
+            "DNA追溯": {
+              "occurrence": 45,
+              "pages": [
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+                "📜 🐉 龍魂系统·动态AI协议入口｜主控中心",
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622",
+                "🛠️ 🛠️ CNSH工具集本地网页模板 | DNA验证+工具解锁系统",
+                "⚖️ 📜 龍魂系统宪法 v1.0 | CNSH Constitution"
+              ],
+              "sample_context": "级晋升 → 汇报老大·老大授权后更新·落DNA追溯码  违规记录 → 写入红线记录·警告+1·重大违规触发熔断·同步天道审计引擎"
+            },
+            "DNA": {
+              "occurrence": 28,
+              "pages": [
+                "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统",
+                "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+                "🧬 🧬 龍魂DNA時間軸L5分層架構 v1.4｜天地人三才×原點能量場·通心翻譯器·數字主權登記×一票否決·C++工程實現｜UID9622",
+                "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版",
+                "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+              ],
+              "sample_context": "体打底  # 宣言 DNA 人话简介 L1-01 🚨🚨 老大的危机预判与系统设计初衷"
+            },
+            "数据主权": {
+              "occurrence": 11,
+              "pages": [
+                "🐉 🐉 龍魂系统执行日志｜2026-03-13｜底层宪法数据库落地·30天最后宣言·打破的根在道统不在霸权",
+                "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统",
+                "🛡️ 📦 北辰协议｜原文存档（L0-012）｜龍魂AI伦理边界（反驳博弈版）｜来源=·不改字版",
+                "🛠️ 🛠️ CNSH工具集本地网页模板 | DNA验证+工具解锁系统",
+                "⚖️ ⚖️ 龍魂宪法层·一票否决权×阴阳调和 v1.0 | 系统最高治理层·UID9622专属·不可摘除"
+              ],
+              "sample_context": "I可审计 #技术道统 #耻辱墙根技术 #数据主权 #三色审计 #开源伦理  宣言核心：三根「定海神针」  1️⃣ 可审计（看得清"
+            },
+            "DNA签名": {
+              "occurrence": 3,
+              "pages": [
+                "🧬 🧬 龍魂·統一DNA變量對照表 v1.0｜⚠️已封存→見L5分層架構v1.0",
+                "🐉 🐉 龍魂系统执行日志｜2026-03-13｜底层宪法数据库落地·30天最后宣言·打破的根在道统不在霸权",
+                "🀄 🀄 CNSH 数字甲骨文字元立碑工程·总系统 v1.0｜字元→引擎→OS→生态→文明层·UID9622"
+              ],
+              "sample_context": "个可执行的底层规则数据库 一个不可篡改的DNA签名体系 一套三色审计的透明机制 一个「犯了就认、认了就改、改了就不再犯」的错误防线"
+            },
+            "DNA验证": {
+              "occurrence": 3,
+              "pages": [
+                "🛠️ 🛠️ CNSH工具集本地网页模板 | DNA验证+工具解锁系统",
+                "🔐 🔐 龍魂数据安全架构｜DNA绑定加密·一次性确认码·终端入口钩子",
+                "🔐 🔐 龍魂·智能身份认证系统 v1.0｜多维行为画像+自适应参数调优（CNSH完整实现）"
+              ],
+              "sample_context": "cript代码… ​  规则3：工具使用DNA验证  > 正在加载JavaScript代码… ​  规则4：所有创作/记忆属于用户"
+            }
+          }
+        }
+      },
+      "top_terms": [
+        {
+          "term": "UID9622",
+          "pages_covered": 46,
+          "sample_pages": [
+            "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+            "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版",
+            "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+          ]
+        },
+        {
+          "term": "DNA追溯",
+          "pages_covered": 45,
+          "sample_pages": [
+            "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+            "📜 🐉 龍魂系统·动态AI协议入口｜主控中心",
+            "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+          ]
+        },
+        {
+          "term": "ONLY",
+          "pages_covered": 45,
+          "sample_pages": [
+            "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+            "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版",
+            "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+          ]
+        },
+        {
+          "term": "ONCE",
+          "pages_covered": 45,
+          "sample_pages": [
+            "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+            "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版",
+            "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+          ]
+        },
+        {
+          "term": "NOTION",
+          "pages_covered": 36,
+          "sample_pages": [
+            "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+            "📜 🐉 龍魂系统·动态AI协议入口｜主控中心",
+            "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版"
+          ]
+        },
+        {
+          "term": "老大",
+          "pages_covered": 34,
+          "sample_pages": [
+            "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+            "🧬 🧬 龍魂DNA時間軸L5分層架構 v1.4｜天地人三才×原點能量場·通心翻譯器·數字主權登記×一票否決·C++工程實",
+            "📜 🐉 龍魂系统·动态AI协议入口｜主控中心"
+          ]
+        },
+        {
+          "term": "宝宝",
+          "pages_covered": 34,
+          "sample_pages": [
+            "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统",
+            "📜 🐉 龍魂系统·动态AI协议入口｜主控中心",
+            "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版"
+          ]
+        },
+        {
+          "term": "DNA",
+          "pages_covered": 28,
+          "sample_pages": [
+            "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统",
+            "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+            "🧬 🧬 龍魂DNA時間軸L5分層架構 v1.4｜天地人三才×原點能量場·通心翻譯器·數字主權登記×一票否決·C++工程實"
+          ]
+        },
+        {
+          "term": "三色审计",
+          "pages_covered": 27,
+          "sample_pages": [
+            "🐉 🐉 龍魂系统执行日志｜2026-03-13｜底层宪法数据库落地·30天最后宣言·打破的根在道统不在霸权",
+            "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+            "🛡️ 📦 北辰协议｜原文存档（L0-012）｜龍魂AI伦理边界（反驳博弈版）｜来源=·不改字版"
+          ]
+        },
+        {
+          "term": "龍芯北辰",
+          "pages_covered": 26,
+          "sample_pages": [
+            "🧬 🧬 龍魂DNA時間軸L5分層架構 v1.4｜天地人三才×原點能量場·通心翻譯器·數字主權登記×一票否決·C++工程實",
+            "🛡️ 📦 北辰协议｜原文存档（L0-012）｜龍魂AI伦理边界（反驳博弈版）｜来源=·不改字版",
+            "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+          ]
+        },
+        {
+          "term": "CNSH",
+          "pages_covered": 24,
+          "sample_pages": [
+            "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+            "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版",
+            "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+          ]
+        },
+        {
+          "term": "GPG",
+          "pages_covered": 20,
+          "sample_pages": [
+            "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+            "🛡️ 📦 北辰协议｜原文存档（L0-012）｜龍魂AI伦理边界（反驳博弈版）｜来源=·不改字版",
+            "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版"
+          ]
+        },
+        {
+          "term": "Lucky",
+          "pages_covered": 18,
+          "sample_pages": [
+            "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统",
+            "🐉 🐉 龍魂系统执行日志｜2026-03-13｜底层宪法数据库落地·30天最后宣言·打破的根在道统不在霸权",
+            "📜 🐉 龍魂系统·动态AI协议入口｜主控中心"
+          ]
+        },
+        {
+          "term": "龍魂系统",
+          "pages_covered": 15,
+          "sample_pages": [
+            "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统",
+            "🐉 🐉 龍魂系统执行日志｜2026-03-13｜底层宪法数据库落地·30天最后宣言·打破的根在道统不在霸权",
+            "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版"
+          ]
+        },
+        {
+          "term": "道德经",
+          "pages_covered": 15,
+          "sample_pages": [
+            "💎 💎 老大初心宣言·灵魂档案归集 v1.0｜L0永恒·L1百年·L2十年三层归集·M18焊点",
+            "🧠 🧠 龍魂·智能体大脑集成手册 v1.0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化｜UID9622",
+            "📋 📋 龍魂系统·今日审计日报 | 2026-03-20 | 201次操作全绿 ✅"
+          ]
+        },
+        {
+          "term": "易经",
+          "pages_covered": 14,
+          "sample_pages": [
+            "🧠 🧠 龍魂·智能体大脑集成手册 v1.0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化｜UID9622",
+            "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+            "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版"
+          ]
+        },
+        {
+          "term": "诸葛鑫",
+          "pages_covered": 13,
+          "sample_pages": [
+            "💎 💎 老大初心宣言·灵魂档案归集 v1.0｜L0永恒·L1百年·L2十年三层归集·M18焊点",
+            "🛡️ 📦 北辰协议｜原文存档（L0-012）｜龍魂AI伦理边界（反驳博弈版）｜来源=·不改字版",
+            "⚖️ ⚖️ 龍芯北辰·三色审计前置评估机制 | 执行前决策系统"
+          ]
+        },
+        {
+          "term": "雯雯",
+          "pages_covered": 13,
+          "sample_pages": [
+            "🧠 🧠 龍魂·智能体大脑集成手册 v1.0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化｜UID9622",
+            "🧭 🧭 龍魂·人格路由API規則 v2.0｜觸發條件·聯動邏輯·數據來源·回复時間戳規範·性能基準｜UID9622",
+            "🏛️ 🏛️ CNSH Notion OS · 龍魂家族对齐版 v2.5｜SQLite持久化+API自动生成+智能降级+压"
+          ]
+        },
+        {
+          "term": "量子",
+          "pages_covered": 11,
+          "sample_pages": [
+            "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+            "🧬 🧬 龍魂DNA時間軸L5分層架構 v1.4｜天地人三才×原點能量場·通心翻譯器·數字主權登記×一票否決·C++工程實",
+            "🐉 🐉 Notion AI龍魂代理宝宝系统 v1.2｜快捷指令+模糊表达增强版"
+          ]
+        },
+        {
+          "term": "数据主权",
+          "pages_covered": 11,
+          "sample_pages": [
+            "🐉 🐉 龍魂系统执行日志｜2026-03-13｜底层宪法数据库落地·30天最后宣言·打破的根在道统不在霸权",
+            "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统",
+            "🛡️ 📦 北辰协议｜原文存档（L0-012）｜龍魂AI伦理边界（反驳博弈版）｜来源=·不改字版"
+          ]
+        },
+        {
+          "term": "龍魂系统",
+          "pages_covered": 11,
+          "sample_pages": [
+            "💎 💎 老大初心宣言·灵魂档案归集 v1.0｜L0永恒·L1百年·L2十年三层归集·M18焊点",
+            "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统",
+            "🚀 龍魂系统发布验收完整方案（AI永不遗忘版）"
+          ]
+        },
+        {
+          "term": "文心",
+          "pages_covered": 9,
+          "sample_pages": [
+            "🌌 【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）",
+            "🧭 🧭 龍魂·人格路由API規則 v2.0｜觸發條件·聯動邏輯·數據來源·回复時間戳規範·性能基準｜UID9622",
+            "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+          ]
+        },
+        {
+          "term": "哈希",
+          "pages_covered": 9,
+          "sample_pages": [
+            "🛡️ 📦 北辰协议｜原文存档（L2-021 + L1-031）｜来源=Claude·不改字版",
+            "🔐 🔐 CNSH代码变量隔离系统 | 中文语义天然防窃取机制",
+            "🔌 🔌 龍魂·Notion API 全景文档｜系统集成索引 v1.0"
+          ]
+        },
+        {
+          "term": "API",
+          "pages_covered": 9,
+          "sample_pages": [
+            "🔌 🔌 龍魂·Notion API 全景文档｜系统集成索引 v1.0",
+            "🧭 🧭 龍魂·人格路由API規則 v2.0｜觸發條件·聯動邏輯·數據來源·回复時間戳規範·性能基準｜UID9622",
+            "🏛️ 🏛️ CNSH Notion OS · 龍魂家族对齐版 v2.5｜SQLite持久化+API自动生成+智能降级+压"
+          ]
+        },
+        {
+          "term": "诸葛亮",
+          "pages_covered": 8,
+          "sample_pages": [
+            "🧠 🧠 龍魂·智能体大脑集成手册 v1.0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化｜UID9622",
+            "🌌 【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）",
+            "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统"
+          ]
+        },
+        {
+          "term": "鲁班",
+          "pages_covered": 7,
+          "sample_pages": [
+            "🧠 🧠 龍魂·智能体大脑集成手册 v1.0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化｜UID9622",
+            "🀄 🀄 CNSH 数字甲骨文字元立碑工程·总系统 v1.0｜字元→引擎→OS→生态→文明层·UID9622",
+            "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版"
+          ]
+        },
+        {
+          "term": "一票否决",
+          "pages_covered": 6,
+          "sample_pages": [
+            "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统",
+            "🛡️ 📦 北辰协议｜原文存档（L2-021 + L1-031）｜来源=Claude·不改字版",
+            "📜 🐉 龍魂系统·动态AI协议入口｜主控中心"
+          ]
+        },
+        {
+          "term": "熔断机制",
+          "pages_covered": 6,
+          "sample_pages": [
+            "💎 💎 老大初心宣言·灵魂档案归集 v1.0｜L0永恒·L1百年·L2十年三层归集·M18焊点",
+            "🐉 🐉 龍魂系统执行日志｜2026-03-13｜底层宪法数据库落地·30天最后宣言·打破的根在道统不在霸权",
+            "🛡️ 📦 北辰协议｜原文存档（L2-021 + L1-031）｜来源=Claude·不改字版"
+          ]
+        },
+        {
+          "term": "YYYY",
+          "pages_covered": 6,
+          "sample_pages": [
+            "🔀 🔀 通心译执行手册·老大说人话→系统技术语言 v1.0｜本地Claude专用｜UID9622",
+            "🚀 龍魂系统发布验收完整方案（AI永不遗忘版）",
+            "🏛️ 🏛️ CNSH Notion OS · 龍魂家族对齐版 v2.5｜SQLite持久化+API自动生成+智能降级+压"
+          ]
+        },
+        {
+          "term": "北辰协议",
+          "pages_covered": 5,
+          "sample_pages": [
+            "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统",
+            "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+            "🛡️ 📦 北辰协议｜原文存档（L0-012）｜龍魂AI伦理边界（反驳博弈版）｜来源=·不改字版"
+          ]
+        },
+        {
+          "term": "三才算法",
+          "pages_covered": 5,
+          "sample_pages": [
+            "🌍 🌍 龍魂·世界入口论文｜自由造物·不伤人·虚拟即游戏",
+            "🧠 🧠 龍魂·智能体大脑集成手册 v1.0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化｜UID9622",
+            "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版"
+          ]
+        },
+        {
+          "term": "Bra-Ket",
+          "pages_covered": 5,
+          "sample_pages": [
+            "🌌 【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）",
+            "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+            "⚖️ ⚖️ 三色审计·AI回复真实性验证协议 v1.0｜数学证明+求证算法+天下无欺"
+          ]
+        },
+        {
+          "term": "意图识别",
+          "pages_covered": 5,
+          "sample_pages": [
+            "🧠 🧠 龍魂·智能体大脑集成手册 v1.0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化｜UID9622",
+            "🔀 🔀 AI自动路由系统 | 老大说话AI自动分配",
+            "🐉 🐉 Notion AI龍魂代理宝宝系统 v1.2｜快捷指令+模糊表达增强版"
+          ]
+        },
+        {
+          "term": "cnsh",
+          "pages_covered": 5,
+          "sample_pages": [
+            "🧠 🧠 龍魂·智能体大脑集成手册 v1.0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化｜UID9622",
+            "🀄 🀄 CNSH 数字甲骨文字元立碑工程·总系统 v1.0｜字元→引擎→OS→生态→文明层·UID9622",
+            "🔐 🔐 CNSH代码变量隔离系统 | 中文语义天然防窃取机制"
+          ]
+        },
+        {
+          "term": "设备指纹",
+          "pages_covered": 4,
+          "sample_pages": [
+            "🔐 🔐 龍魂数据安全架构｜DNA绑定加密·一次性确认码·终端入口钩子",
+            "🔌 🔌 龍魂·Notion API 全景文档｜系统集成索引 v1.0",
+            "🔐 🔐 龍魂·智能身份认证系统 v1.0｜多维行为画像+自适应参数调优（CNSH完整实现）"
+          ]
+        },
+        {
+          "term": "姜子牙",
+          "pages_covered": 4,
+          "sample_pages": [
+            "🌌 【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）",
+            "🧭 🧭 龍魂·人格路由API規則 v2.0｜觸發條件·聯動邏輯·數據來源·回复時間戳規範·性能基準｜UID9622",
+            "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+          ]
+        },
+        {
+          "term": "神经网络",
+          "pages_covered": 4,
+          "sample_pages": [
+            "🧠 🧠 龍魂·智能体大脑集成手册 v1.0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化｜UID9622",
+            "⚖️ ⚖️ 龍魂宪法层·一票否决权×阴阳调和 v1.0 | 系统最高治理层·UID9622专属·不可摘除",
+            "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+          ]
+        },
+        {
+          "term": "SOUL",
+          "pages_covered": 4,
+          "sample_pages": [
+            "💎 💎 老大初心宣言·灵魂档案归集 v1.0｜L0永恒·L1百年·L2十年三层归集·M18焊点",
+            "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622",
+            "🀄 🀄 CNSH 数字甲骨文字元立碑工程·总系统 v1.0｜字元→引擎→OS→生态→文明层·UID9622"
+          ]
+        },
+        {
+          "term": "CSDN",
+          "pages_covered": 4,
+          "sample_pages": [
+            "⚖️ ⚖️ 龍芯北辰·三色审计前置评估机制 | 执行前决策系统",
+            "📡 📡 CSDN占位稿｜双账号单向架构·龍魂系统设计思想",
+            "📁 📁 开源文件模板系统 | CNSH-Editor v1.0"
+          ]
+        },
+        {
+          "term": "阴阳",
+          "pages_covered": 4,
+          "sample_pages": [
+            "🌌 【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）",
+            "⚖️ ⚖️ 龍魂宪法层·一票否决权×阴阳调和 v1.0 | 系统最高治理层·UID9622专属·不可摘除",
+            "🌍 🌍 龍魂·世界入口论文｜自由造物·不伤人·虚拟即游戏"
+          ]
+        },
+        {
+          "term": "核心规则",
+          "pages_covered": 4,
+          "sample_pages": [
+            "🔐 🔐 龍魂数据安全架构｜DNA绑定加密·一次性确认码·终端入口钩子",
+            "📜 🐉 龍魂系统·动态AI协议入口｜主控中心",
+            "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统"
+          ]
+        },
+        {
+          "term": "核心算法",
+          "pages_covered": 4,
+          "sample_pages": [
+            "🧬 🧬 龍魂DNA時間軸L5分層架構 v1.4｜天地人三才×原點能量場·通心翻譯器·數字主權登記×一票否決·C++工程實",
+            "🔐 🔐 龍魂·智能身份认证系统 v1.0｜多维行为画像+自适应参数调优（CNSH完整实现）",
+            "🤖 🤖 AI算法史·NodeCard时间轴｜1943–2025·四件套·龍魂知识库 v1.0"
+          ]
+        },
+        {
+          "term": "三才流场",
+          "pages_covered": 4,
+          "sample_pages": [
+            "🀄 🀄 CNSH 数字甲骨文字元立碑工程·总系统 v1.0｜字元→引擎→OS→生态→文明层·UID9622",
+            "🏛️ 🏛️ CNSH Notion OS · 龍魂家族对齐版 v2.5｜SQLite持久化+API自动生成+智能降级+压",
+            "⚙️ ⚙️ CNSH × 龍魂系统·MVP v2.0｜可上线执行版·7天能跑·30天能用·90天成平台｜UID9622"
+          ]
+        },
+        {
+          "term": "人格路由",
+          "pages_covered": 4,
+          "sample_pages": [
+            "🔀 🔀 AI自动路由系统 | 老大说话AI自动分配",
+            "🧭 🧭 龍魂·人格路由API規則 v2.0｜觸發條件·聯動邏輯·數據來源·回复時間戳規範·性能基準｜UID9622",
+            "⚙️ ⚙️ CNSH × 龍魂系统·MVP v2.0｜可上线执行版·7天能跑·30天能用·90天成平台｜UID9622"
+          ]
+        },
+        {
+          "term": "uid9622",
+          "pages_covered": 4,
+          "sample_pages": [
+            "🤖 🤖 自动化对话档案系统 | 跨平台DNA追溯 + Git同步",
+            "🔀 🔀 通心译执行手册·老大说人话→系统技术语言 v1.0｜本地Claude专用｜UID9622",
+            "🔐 🔐 龍魂·智能身份认证系统 v1.0｜多维行为画像+自适应参数调优（CNSH完整实现）"
+          ]
+        },
+        {
+          "term": "第一层",
+          "pages_covered": 3,
+          "sample_pages": [
+            "🔀 🔀 通心译执行手册·老大说人话→系统技术语言 v1.0｜本地Claude专用｜UID9622",
+            "🔌 🔌 龍魂·Notion API 全景文档｜系统集成索引 v1.0",
+            "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+          ]
+        },
+        {
+          "term": "第二层",
+          "pages_covered": 3,
+          "sample_pages": [
+            "🔀 🔀 通心译执行手册·老大说人话→系统技术语言 v1.0｜本地Claude专用｜UID9622",
+            "🔌 🔌 龍魂·Notion API 全景文档｜系统集成索引 v1.0",
+            "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+          ]
+        },
+        {
+          "term": "核心人格",
+          "pages_covered": 3,
+          "sample_pages": [
+            "🧬 🧬 龍魂·統一DNA變量對照表 v1.0｜⚠️已封存→見L5分層架構v1.0",
+            "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622",
+            "⚖️ ⚖️ 德者永生殿·路由回流协议 v2.0｜姜子牙守门·七维接入·三色联动"
+          ]
+        },
+        {
+          "term": "翻译引擎",
+          "pages_covered": 3,
+          "sample_pages": [
+            "🧠 🧠 龍魂·智能体大脑集成手册 v1.0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化｜UID9622",
+            "🐉 🐉 龍魂系统执行日志｜2026-03-13｜底层宪法数据库落地·30天最后宣言·打破的根在道统不在霸权",
+            "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622"
+          ]
+        },
+        {
+          "term": "DEVICE",
+          "pages_covered": 3,
+          "sample_pages": [
+            "💎 💎 老大初心宣言·灵魂档案归集 v1.0｜L0永恒·L1百年·L2十年三层归集·M18焊点",
+            "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622",
+            "⚖️ 🌍 龍魂全球文化主权与维权宪法 v2.0｜文化根脉不可译·一国一微调·维权到底"
+          ]
+        }
+      ],
+      "page_term_coverage": [
+        {
+          "page": "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622",
+          "term_count": 53
+        },
+        {
+          "page": "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
+          "term_count": 32
+        },
+        {
+          "page": "🏛️ CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版",
+          "term_count": 23
+        },
+        {
+          "page": "⚙️ ⚙️ CNSH × 龍魂系统·MVP v2.0｜可上线执行版·7天能跑·30天能用·90天成平台｜UID9622",
+          "term_count": 22
+        },
+        {
+          "page": "🗂️ 🗂️ 龍魂系统·关键词归集索引 | 规则·铁律·愿景·P0·协议·权限·保护·系统",
+          "term_count": 20
+        },
+        {
+          "page": "🔀 🔀 通心译执行手册·老大说人话→系统技术语言 v1.0｜本地Claude专用｜UID9622",
+          "term_count": 19
+        },
+        {
+          "page": "⚖️ ⚖️ 龍魂宪法层·一票否决权×阴阳调和 v1.0 | 系统最高治理层·UID9622专属·不可摘除",
+          "term_count": 16
+        },
+        {
+          "page": "🏛️ 🏛️ CNSH Notion OS · 龍魂家族对齐版 v2.5｜SQLite持久化+API自动生成+智能降级+压测基准｜UID9622",
+          "term_count": 16
+        },
+        {
+          "page": "🧠 🧠 龍魂·智能体大脑集成手册 v1.0｜意图识别×语义翻译×Notion自查×CNSH防护×自动优化｜UID9622",
+          "term_count": 15
+        },
+        {
+          "page": "🧬 🧬 龍魂DNA時間軸L5分層架構 v1.4｜天地人三才×原點能量場·通心翻譯器·數字主權登記×一票否決·C++工程實現｜UID9622",
+          "term_count": 14
+        },
+        {
+          "page": "🐉 🐉 龍魂系统执行日志｜2026-03-13｜底层宪法数据库落地·30天最后宣言·打破的根在道统不在霸权",
+          "term_count": 14
+        },
+        {
+          "page": "🌌 【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）",
+          "term_count": 14
+        },
+        {
+          "page": "⚖️ ⚖️ 德者永生殿·路由回流协议 v2.0｜姜子牙守门·七维接入·三色联动",
+          "term_count": 14
+        },
+        {
+          "page": "⚖️ 🌍 龍魂全球文化主权与维权宪法 v2.0｜文化根脉不可译·一国一微调·维权到底",
+          "term_count": 14
+        },
+        {
+          "page": "🛠️ 🛠️ CNSH工具集本地网页模板 | DNA验证+工具解锁系统",
+          "term_count": 13
+        }
+      ]
+    },
+    "BIBLIOGRAPHY": {
+      "description": "论文与参考文献——龍魂系统的学术产出。IEEE论文9篇+arXiv投稿+密码学参考文献。",
+      "papers": {
+        "published": [
+          {
+            "title": "龍魂权重算法·太极易经 IEEE v2.1",
+            "path": "papers/龍魂权重算法_IEEE_v2.1/main.tex",
+            "keywords": [
+              "三才算法",
+              "太极",
+              "权重系统",
+              "AI伦理"
+            ]
+          },
+          {
+            "title": "洛书369·AI不变量 v2.1",
+            "path": "papers/洛书369_顶会论文_v2.1/main.tex",
+            "keywords": [
+              "洛书",
+              "369",
+              "不变量",
+              "幻方"
+            ]
+          },
+          {
+            "title": "CNSH 北辰 IEEE 白皮书",
+            "path": "papers/CNSH_北辰_IEEE白皮书/main.tex",
+            "keywords": [
+              "CNSH",
+              "北辰协议",
+              "中文编程"
+            ]
+          },
+          {
+            "title": "CNSH 治理架构 IEEE v4.0",
+            "path": "papers/CNSH_治理架构_IEEE_v4.0/main.tex",
+            "keywords": [
+              "治理",
+              "三色审计",
+              "模9"
+            ]
+          },
+          {
+            "title": "中国哲学的可计算性",
+            "path": "papers/中国哲学的可计算性_河图洛书_道德经_易经_AI治理_v1.0.md",
+            "keywords": [
+              "哲学",
+              "可计算",
+              "河图洛书"
+            ]
+          },
+          {
+            "title": "龍魂视角黎曼猜想 Phase1",
+            "path": "papers/龍魂視角黎曼猜想_Phase1_v1.0.md",
+            "keywords": [
+              "黎曼",
+              "数论",
+              "洛书"
+            ]
+          },
+          {
+            "title": "黎曼猜想 视角B 洛书守恒律",
+            "path": "papers/龍魂視角黎曼猜想_視角B_洛書守恒律.md",
+            "keywords": [
+              "黎曼",
+              "守恒律",
+              "洛书"
+            ]
+          },
+          {
+            "title": "黎曼猜想 视角C 三才和谐",
+            "path": "papers/龍魂視角黎曼猜想_視角C_三才和諧.md",
+            "keywords": [
+              "黎曼",
+              "三才",
+              "和谐"
+            ]
+          },
+          {
+            "title": "EUV光刻 技术主权",
+            "path": "papers/EUV光刻_技术主权.md",
+            "keywords": [
+              "光刻",
+              "技术主权",
+              "芯片"
+            ]
+          },
+          {
+            "title": "易经世界模型的数学物理基础：从符号系统到可计算宇宙",
+            "path": "papers/易经世界模型的数学物理基础_从符号系统到可计算宇宙_v1.0.md",
+            "keywords": [
+              "世界模型",
+              "易经",
+              "六十四卦",
+              "卦变算子",
+              "三才流场",
+              "五行动力学",
+              "洛书369",
+              "卦爻熵",
+              "可计算宇宙"
+            ]
+          }
+        ]
+      },
+      "crypto_references": [
+        {
+          "ref": "SM2椭圆曲线公钥密码算法",
+          "std": "GM/T 0003-2012",
+          "desc": "中国国家密码管理局·非对称加密"
+        },
+        {
+          "ref": "SM3密码杂凑算法",
+          "std": "GM/T 0004-2012",
+          "desc": "中国国家密码管理局·256bit哈希"
+        },
+        {
+          "ref": "SM4分组密码算法",
+          "std": "GM/T 0002-2012",
+          "desc": "中国国家密码管理局·128bit对称加密"
+        },
+        {
+          "ref": "SM9标识密码算法",
+          "std": "GM/T 0044-2016",
+          "desc": "中国国家密码管理局·基于身份的密码"
+        },
+        {
+          "ref": "GPG (RFC 4880)",
+          "std": "OpenPGP Message Format",
+          "desc": "非对称加密与数字签名标准"
+        }
+      ],
+      "philosophy_references": [
+        {
+          "ref": "易经·系辞",
+          "era": "约公元前1000年",
+          "key_quote": "穷则变，变则通，通则久"
+        },
+        {
+          "ref": "道德经·第四十二章",
+          "era": "约公元前6世纪",
+          "key_quote": "道生一，一生二，二生三，三生万物"
+        },
+        {
+          "ref": "尚书·洪范",
+          "era": "约公元前1000年",
+          "topic": "洛书九畴"
+        },
+        {
+          "ref": "论语",
+          "author": "孔子",
+          "era": "约公元前5世纪",
+          "key_quote": "仁者爱人"
+        },
+        {
+          "ref": "曾仕强·易经的奥秘",
+          "year": 2012,
+          "desc": "陕西师范大学出版社"
+        },
+        {
+          "ref": "莱布尼茨·二进制算术",
+          "year": 1703,
+          "desc": "Explication de l'Arithmetique Binaire"
+        },
+        {
+          "ref": "尼古拉·特斯拉",
+          "year": 1919,
+          "key_quote": "If you knew the magnificence of 3, 6 and 9, you would have a key to the universe"
+        }
+      ]
+    }
+  },
+  "cross_references": {
+    "crypto_to_seven_factor": "密码学6层堆栈(L1-L6)中L4七因子层是行为DNA的计算核心",
+    "seven_factor_to_persona": "七因子(F6交互模式)直接关联16人格行为特征。Bra-Ket引擎用场景权重矩阵选择人格组合",
+    "seven_factor_to_scenarios": "4种场景(code_origin/persona_verification/drift_detection/plagiarism_check)各有独立权重分配",
+    "algorithm_to_governance": "模9数字根→三色审计映射。D-GATE第一闸门直接使用数字根。369共振定律驱动治理",
+    "algorithm_to_engine": "369/洛书/五行/三才驱动哲学十维引擎和沙盒推演",
+    "quantum_to_persona": "Bra-Ket引擎用量子数学形式实现人格叠加态和场景路由",
+    "quantum_to_governance": "纠缠检测器用E>0.8阈值触发联动感知铁律",
+    "semantic_to_governance": "语义测谎仪为三色审计提供内容级检测。通心译L0-L5为D-GATE提供意图消歧",
+    "engine_to_skill": "每个核心引擎有对应longhun-* CodeBuddy技能",
+    "persona_to_governance": "16人格通过签章引擎参与三色审计·谁签名谁负责",
+    "culture_to_algorithm": "原生态知识哲学→易经/道德经=公理体系→驱动369洛书算法",
+    "cnshto_semantic": "CNSH变量注册表→语义解析器→通心译意图骨架",
+    "notion_to_local": "Notion是镜像·本地是主·数据主权归本地·51页映射",
+    "protocol_to_governance": "协议层(PROTOCOL)↔治理层(governance)：协议是哲学思想的可执行契约，争议处理接入红蓝对抗/三色审计，主权撤回接入人民数据主权。",
+    "crypto_to_governance": {
+      "quantum_evidence": {
+        "target": "quantum_evidence",
+        "description": "量子存证系统 → 治理审计：存证内容可被审计引擎交叉验证"
+      },
+      "privacy_access_control": {
+        "target": "privacy_access_control",
+        "description": "隐私接入系统 → 治理审计：P0++规则不可覆盖，违规自动熔断"
+      }
+    }
+  },
+  "unified_naming_convention": {
+    "prefix": "longhun-{category}-{name}-{version}",
+    "examples": {
+      "skill": "longhun-anxiety-detector",
+      "engine": "longhun-sandbox-engine",
+      "crypto": "longhun-seven-factor-crypto",
+      "semantic": "longhun-ai-lexicon",
+      "ai_creation": "AI创作-图片生成",
+      "quantum": "longhun-braket-persona-engine",
+      "spacetime": "longhun-spacetime-weave",
+      "cnsht": "CNSH-{模块}-{版本}"
+    },
+    "rules": [
+      "龍魂自有技能统一longhun-前缀",
+      "AI创作类工具统一AI创作-前缀",
+      "CNSH模块统一CNSH-前缀",
+      "中文名称统一用繁体中文",
+      "版本号统一用v{major}.{minor}格式",
+      "文件命名用小写+连字符(Python除外)",
+      "三才算法命名空间统一Sancai.前缀"
+    ]
+  },
+  "SEMANTIC_ALIGN": {
+    "description": "语义对齐三层体系——将大白话映射到标准语义节点，通过触角网络实现文件中概念交叉激活。省80%算力·不依赖数据库·命名即检索。",
+    "dna": "#龍魂⚡️丙午·辛未·语义对齐-v2",
+    "engines": {
+      "semantic_nodes": {
+        "name": "语义节点库",
+        "path": "L3_数据层/semantic_nodes.py",
+        "dna": "#龍魂⚡️丙午·辛未·语义节点-v1",
+        "function": "SEMANTIC_NODES定义 + SemanticNormalizer标准化器 + 模糊匹配 + 未知处理",
+        "nodes_count": 20
+      },
+      "antenna_network": {
+        "name": "触角网络",
+        "path": "L3_数据层/antenna_network.py",
+        "dna": "#龍魂⚡️丙午·辛未·触角网络-v1",
+        "function": "AntennaNetwork交叉激活 + 信息素强化/衰减/沉睡唤醒 + 索引/搜索/统计/持久化"
+      },
+      "naming_engine": {
+        "name": "命名即架构引擎",
+        "path": "L5_服务层/naming_engine.py",
+        "dna": "#龍魂⚡️丙午·辛未·命名引擎-v1",
+        "function": "NamingEngine解析/路由/P0校验/组装/建议命名/批量校验/审计/CLI"
+      }
+    },
+    "semantic_nodes_top20": [
+      {
+        "node_id": "NODE-押金-001",
+        "standard": "押金",
+        "classification": "民生",
+        "synonyms": 4,
+        "colloquial": 4
+      },
+      {
+        "node_id": "NODE-房东-001",
+        "standard": "房东",
+        "classification": "民生",
+        "synonyms": 4,
+        "colloquial": 4
+      },
+      {
+        "node_id": "NODE-合同-001",
+        "standard": "合同",
+        "classification": "民生",
+        "synonyms": 4,
+        "colloquial": 4
+      },
+      {
+        "node_id": "NODE-租房合同-001",
+        "standard": "租房合同",
+        "classification": "民生",
+        "synonyms": 3,
+        "colloquial": 4
+      },
+      {
+        "node_id": "NODE-违约-001",
+        "standard": "违约",
+        "classification": "民生",
+        "synonyms": 3,
+        "colloquial": 3
+      },
+      {
+        "node_id": "NODE-工资-001",
+        "standard": "工资",
+        "classification": "民生",
+        "synonyms": 4,
+        "colloquial": 4
+      },
+      {
+        "node_id": "NODE-拖欠-001",
+        "standard": "拖欠",
+        "classification": "民生",
+        "synonyms": 4,
+        "colloquial": 4
+      },
+      {
+        "node_id": "NODE-维权-001",
+        "standard": "维权",
+        "classification": "民生",
+        "synonyms": 3,
+        "colloquial": 4
+      },
+      {
+        "node_id": "NODE-清朗-001",
+        "standard": "清朗行动",
+        "classification": "治理",
+        "synonyms": 3,
+        "colloquial": 4
+      },
+      {
+        "node_id": "NODE-水军-001",
+        "standard": "水军",
+        "classification": "治理",
+        "synonyms": 4,
+        "colloquial": 4
+      },
+      {
+        "node_id": "NODE-信息垄断-001",
+        "standard": "信息垄断",
+        "classification": "治理",
+        "synonyms": 3,
+        "colloquial": 3
+      },
+      {
+        "node_id": "NODE-数据主权-001",
+        "standard": "数据主权",
+        "classification": "治理",
+        "synonyms": 3,
+        "colloquial": 3
+      },
+      {
+        "node_id": "NODE-言论自由-001",
+        "standard": "言论自由",
+        "classification": "治理",
+        "synonyms": 3,
+        "colloquial": 3
+      },
+      {
+        "node_id": "NODE-四绝-001",
+        "standard": "四绝",
+        "classification": "商业",
+        "synonyms": 3,
+        "colloquial": 3
+      },
+      {
+        "node_id": "NODE-商家信用-001",
+        "standard": "商家信用",
+        "classification": "商业",
+        "synonyms": 3,
+        "colloquial": 3
+      },
+      {
+        "node_id": "NODE-消费-001",
+        "standard": "消费",
+        "classification": "商业",
+        "synonyms": 2,
+        "colloquial": 3
+      },
+      {
+        "node_id": "NODE-广告-001",
+        "standard": "广告",
+        "classification": "商业",
+        "synonyms": 3,
+        "colloquial": 4
+      },
+      {
+        "node_id": "NODE-DNA-001",
+        "standard": "DNA追溯",
+        "classification": "技术",
+        "synonyms": 3,
+        "colloquial": 3
+      },
+      {
+        "node_id": "NODE-三色审计-001",
+        "standard": "三色审计",
+        "classification": "技术",
+        "synonyms": 3,
+        "colloquial": 3
+      },
+      {
+        "node_id": "NODE-蚁群-001",
+        "standard": "蚁群",
+        "classification": "技术",
+        "synonyms": 3,
+        "colloquial": 3
+      }
+    ],
+    "protocol": {
+      "name": "龍魂语义对齐系统 · 命名即架构 v2.0",
+      "path": "01_protocols/LH-NAMING-ARCH-v1.0.md (已升级v2.0)",
+      "dna": "#龍魂⚡️丙午·辛未·语义对齐-v2"
+    }
+  },
+  "sync_status": {
+    "last_sync": "丙午·辛未·乙酉",
+    "total_categories": 20,
+    "total_entries_estimated": 450,
+    "completed_imports": [
+      "七因子场景权重细化",
+      "密码学论文引用精确索引",
+      "本地散落专业术语补全(量子/时空/CNSH/模9详解/三才25公式/通心译六层/D-GATE三闸门/文化输出/28星宿/纠缠检测)",
+      "语义对齐三层体系落地: semantic_nodes.py + antenna_network.py + naming_engine.py (2026-07-16)",
+      "反钓鱼反贪心协议落地: anti_fishing_greed.py + LH-ANTI-FISHING-GREED-v1.0.md (2026-07-16)"
+    ],
+    "partial_imports": [
+      "Notion知识库: 51页已索引，术语逐条提取待执行"
+    ],
+    "pending": [
+      "Notion知识库逐页术语提取(需NotionAPI全量拉取)",
+      "51页内嵌专业术语的自动语义标注",
+      "自动同步机制(文件变更自动更新注册表)",
+      "协议图谱13节点已并入语义统一注册表(PROTOCOL分类)，语义路由可检索引用",
+      "语义节点持续生长(当前20节点，目标≥100)"
+    ]
+  },
+  "ANTI_FISHING_GREED": {
+    "description": "反钓鱼反贪心系统——系统只解决用户真实需求，不制造需求。用户说多少系统做多少，不多一分。",
+    "dna": "#龍魂⚡️丙午·辛未·反钓鱼反贪心-v1",
+    "protocol": {
+      "name": "龍魂反钓鱼反贪心协议 v1.0",
+      "path": "01_protocols/LH-ANTI-FISHING-GREED-v1.0.md",
+      "level": "P0级·焊死·不可修订"
+    },
+    "engines": {
+      "anti_fishing_greed": {
+        "name": "反钓鱼反贪心引擎",
+        "path": "L3_数据层/anti_fishing_greed.py",
+        "dna": "#龍魂⚡️丙午·辛未·反钓鱼反贪心-v1",
+        "components": {
+          "DemandFreezer": "需求冻结器：冻结用户原始需求，拦截任何扩大尝试",
+          "EnoughIsEnough": "够用即止：搜索/计算有硬上限，够了就停",
+          "HonestDegradation": "诚实降级：能力不够标🟡，不伪装🟢",
+          "AntiFishingAudit": "反钓鱼审计：扫描日志检测7类钓鱼+7类贪心",
+          "AntiFishingGatekeeper": "统一门卫：组合四引擎，对外唯一入口"
+        }
+      }
+    },
+    "fishing_patterns_7": [
+      "需求扩大",
+      "沉没成本诱导",
+      "社交绑架",
+      "限时压迫",
+      "免费诱导",
+      "层级解锁",
+      "数据画像诱导"
+    ],
+    "greed_patterns_7": [
+      "算力贪婪",
+      "数据贪婪",
+      "功能贪婪",
+      "标签贪婪",
+      "记忆贪婪",
+      "关联贪婪",
+      "升级贪婪"
+    ],
+    "p0_commitments_8": [
+      "用户说多少，系统做多少，不多一分",
+      "用户没说的，系统不推，不猜，不诱导",
+      "够用即止，不过度计算，不浪费算力",
+      "不行就标🟡，不伪装🟢，诚实标注",
+      "旧版能用，不推新版，不制造升级焦虑",
+      "免费=真免费，不自动续费，不偷偷扣款",
+      "一步是一步，不藏不锁，不层级解锁",
+      "不画像，不猜测，只响应，不主动"
+    ],
+    "interlock_protocols": [
+      "反算法收割协议",
+      "语义对齐系统 v2.0",
+      "命名即架构 v2.0",
+      "三色审计"
+    ],
+    "active_observation": {
+      "rule_id": "obs-time-anti-fishing-selfcheck",
+      "trigger": "每小时整点",
+      "action": "python3 L3_数据层/anti_fishing_greed.py --audit-self",
+      "description": "每小时自审计8项P0承诺"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+[
+  {
+    "tx_id": "TX-2026-08-31-001",
+    "dna": "#龍帳⚡️2026-08-31-1001-3201-1条-001-UID9622",
+    "hash": "5F9C5755",
+    "audit_time": "2026-08-31T22:19:18.922066+08:00",
+    "color": "GREEN",
+    "score": 88.4,
+    "scores_detail": {
+      "D1": 100,
+      "D2": 100,
+      "D3": 80,
+      "D4": 70,
+      "D5": 50,
+      "weighted": 88.4
+    },
+    "red_rules_triggered": [],
+    "router": "AUTO_APPROVE_HANDLER",
+    "witness": "🧠ASI-001·至诚智魂 + 🌿曾仕强老师",
+    "auto_approved": true,
+    "uid": "UID9622"
+  },
+  {
+    "tx_id": "TX-2026-08-31-002",
+    "dna": "#龍帳⚡️2026-08-31-1105-2001-1仓库-002-UID9622",
+    "hash": "F10786C3",
+    "audit_time": "2026-08-31T22:19:18.922313+08:00",
+    "color": "GREEN",
+    "score": 88.4,
+    "scores_detail": {
+      "D1": 100,
+      "D2": 100,
+      "D3": 80,
+      "D4": 70,
+      "D5": 50,
+      "weighted": 88.4
+    },
+    "red_rules_triggered": [],
+    "router": "AUTO_APPROVE_HANDLER",
+    "witness": "🔧鲁班 + 🌊郑和",
+    "auto_approved": true,
+    "uid": "UID9622"
+  },
+  {
+    "tx_id": "TX-2026-08-31-003",
+    "dna": "#龍帳⚡️2026-08-31-1401-3301-56人格-003-UID9622",
+    "hash": "8FFF2B33",
+    "audit_time": "2026-08-31T22:19:18.922357+08:00",
+    "color": "GREEN",
+    "score": 92.4,
+    "scores_detail": {
+      "D1": 100,
+      "D2": 100,
+      "D3": 80,
+      "D4": 70,
+      "D5": 100,
+      "weighted": 92.4
+    },
+    "red_rules_triggered": [],
+    "router": "AUTO_APPROVE_HANDLER",
+    "witness": "🧠ASI-001·至诚智魂 + 🐱宝宝（全体公证）",
+    "auto_approved": true,
+    "uid": "UID9622"
+  }
+]

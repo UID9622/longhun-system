@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """
 🧬 龍魂操作日记引擎 · setup.py
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
-DNA: #龍芯⚡️2026-05-30-SETUP-CONFIG-v1.0
+DNA: #龍芯⚡️丙午·癸巳·甲辰·庚午·䷑蛊-SETUP-CONFIG-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 责任: UID9622·不免责
 

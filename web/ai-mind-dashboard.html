@@ -1,0 +1,398 @@
+<!--
+# DNA: #龍芯⚡️丙午·乙巳·甲戌·甲子·䷌同人-乾-AI-MIND-DASHBOARD-v1.0-7d3f1a2b
+# 创建者: 诸葛鑫（UID9622）
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# 协议: 算法审计协议v1.0 · 透明审计 · DNA追溯
+# 作用: 把 AI/引擎怎么思考、怎么来怎么去，画成一面墙给老大看
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 龍魂 · AI 思维看板 · UID9622</title>
+<script src="../static/js/echarts.min.js"></script>
+<style>
+:root{
+  --bg:#06080c;--panel:rgba(8,8,16,0.94);--border:rgba(167,139,250,0.2);
+  --gold:#FFD700;--cyan:#00d4ff;--red:#FF1744;--green:#00C853;--purple:#a78bfa;--orange:#FF8F00;
+  --text:#e4e4e7;--dim:#94a3b8;--muted:#64748b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;}
+body{padding:12px;display:flex;flex-direction:column;align-items:center;gap:12px}
+#bg{position:fixed;inset:0;z-index:0;background:
+  radial-gradient(circle at 30% 20%,rgba(0,212,255,.07),transparent 50%),
+  radial-gradient(circle at 70% 30%,rgba(255,215,0,.07),transparent 50%),
+  radial-gradient(circle at 50% 80%,rgba(167,139,250,.07),transparent 50%),
+  radial-gradient(circle at 80% 60%,rgba(220,20,60,.05),transparent 40%)}
+#app{position:relative;z-index:1;max-width:1500px;width:100%;display:flex;flex-direction:column;gap:12px}
+
+/* Header */
+header{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;backdrop-filter:blur(10px)}
+header h1{font-size:20px;color:var(--gold);text-shadow:0 0 12px rgba(255,215,0,.25);letter-spacing:.05em;display:flex;align-items:center;gap:8px}
+header .sub{font-size:11px;color:var(--purple);margin-top:2px}
+header .dna{font-size:9px;color:#d4a574;font-family:monospace;word-break:break-all;max-width:520px}
+.badge{padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600}
+.badge.online{background:rgba(0,200,83,.15);color:var(--green);border:1px solid rgba(0,200,83,.3)}
+.badge.offline{background:rgba(255,23,68,.15);color:var(--red);border:1px solid rgba(255,23,68,.3)}
+.badge.partial{background:rgba(255,143,0,.15);color:var(--orange);border:1px solid rgba(255,143,0,.3)}
+#clock{font-family:monospace;color:var(--cyan);font-size:12px}
+
+/* Grid */
+main{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:12px}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:14px 16px;backdrop-filter:blur(10px)}
+.panel h2{font-size:14px;color:var(--cyan);margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.panel h2 .tag{font-size:9px;color:var(--muted);font-weight:400;margin-left:auto}
+.chart{width:100%;height:280px}
+.flow-canvas{width:100%;height:260px;border-radius:10px;border:1px solid rgba(0,212,255,.15);background:rgba(0,0,0,.4)}
+
+/* Engine lights */
+.lights{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:6px}
+.light{display:flex;align-items:center;gap:8px;padding:8px 10px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:8px;font-size:11px}
+.light .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.light .dot.up{background:var(--green);box-shadow:0 0 8px rgba(0,200,83,.6)}
+.light .dot.down{background:var(--red);box-shadow:0 0 8px rgba(255,23,68,.6)}
+.light .dot.unk{background:var(--muted)}
+.light .nm{color:var(--dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.light .port{color:var(--muted);font-size:9px;margin-left:auto}
+
+/* Decision chain */
+.chain{max-height:260px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;margin-top:6px}
+.chain-item{font-size:11px;padding:5px 8px;background:rgba(255,255,255,.02);border-left:3px solid var(--muted);border-radius:4px;display:flex;flex-direction:column;gap:2px}
+.chain-item .top{display:flex;justify-content:space-between;gap:8px}
+.chain-item .act{color:var(--purple);font-weight:600}
+.chain-item .tm{color:var(--muted);font-size:10px;flex-shrink:0}
+.chain-item .dna-t{color:#d4a574;font-size:9px;font-family:monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chain-item.ok{border-left-color:var(--green)}
+.chain-item.warn{border-left-color:var(--orange)}
+.chain-item.red{border-left-color:var(--red)}
+.chain-empty{color:var(--muted);font-size:11px;text-align:center;padding:20px 0}
+
+/* Persona grid */
+.personas{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:6px;margin-top:6px}
+.pers{display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 4px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:8px;font-size:10px}
+.pers .id{color:var(--gold);font-weight:700;font-size:11px}
+.pers .nm{color:var(--dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+.pers .st{width:8px;height:8px;border-radius:50%}
+
+/* Topo legend + tooltip overrides */
+.tooltip-legend{display:flex;gap:12px;flex-wrap:wrap;font-size:10px;color:var(--dim);margin-top:4px}
+.tooltip-legend span i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px}
+
+footer{width:100%;text-align:center;font-size:10px;color:var(--muted);padding:8px 0}
+footer .stamp{color:#d4a574;font-family:monospace}
+@media(max-width:900px){main{grid-template-columns:1fr}.chart{height:240px}}
+</style>
+</head>
+<body>
+<div id="bg"></div>
+<div id="app">
+
+<header>
+  <div>
+    <h1>🐉 龍魂 · AI 思维看板</h1>
+    <div class="sub">AI 怎么思考 · 数据怎么流动 · 系统怎么运转 —— 一面墙看穿</div>
+    <div class="dna" id="dnaLine">#龍芯⚡️丙午·乙巳·甲戌·子时-乾-AI-MIND-DASHBOARD-v1.0-UID9622</div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+    <div id="clock">--</div>
+    <span class="badge partial" id="sysBadge">⏳ 探测中…</span>
+  </div>
+</header>
+
+<main>
+  <!-- 雷达图 -->
+  <section class="panel">
+    <h2>📡 系统六维雷达<span class="tag">引擎/审计/记忆/安全/人格/算力</span></h2>
+    <div id="radarChart" class="chart"></div>
+  </section>
+
+  <!-- 流场 -->
+  <section class="panel">
+    <h2>🌀 思维流场<span class="tag">数据/思路流向 · 自动运转</span></h2>
+    <canvas id="flowCanvas" class="flow-canvas"></canvas>
+  </section>
+
+  <!-- 决策链路 -->
+  <section class="panel">
+    <h2>🧠 决策链路<span class="tag">最近 AI 干了啥 · 实时</span></h2>
+    <div class="chain" id="chainBox"><div class="chain-empty">正在拉取…</div></div>
+  </section>
+
+  <!-- 拓扑 -->
+  <section class="panel">
+    <h2>🕸️ 系统拓扑<span class="tag">节点怎么连 · 链路权重</span></h2>
+    <div id="topoChart" class="chart"></div>
+    <div class="tooltip-legend">
+      <span><i style="background:#FFD700"></i>战略层</span>
+      <span><i style="background:#00d4ff"></i>执行层</span>
+      <span><i style="background:#a78bfa"></i>文化层</span>
+      <span><i style="background:#00C853"></i>守护层</span>
+      <span><i style="background:#FF1744"></i>安全层</span>
+    </div>
+  </section>
+
+  <!-- 引擎红绿灯 -->
+  <section class="panel">
+    <h2>🚦 引擎红绿灯<span class="tag">谁活着谁罢工</span></h2>
+    <div class="lights" id="lightsBox"><div class="chain-empty">探测中…</div></div>
+  </section>
+
+  <!-- 人格矩阵 -->
+  <section class="panel">
+    <h2>👥 20 人格矩阵<span class="tag">职能路由 · 非扮演</span></h2>
+    <div class="personas" id="personasBox"></div>
+  </section>
+</main>
+
+<footer>
+  龍魂系统 · AI 思维看板 v1.0 · 数据每 10 秒自刷新 · 拉不到自动降级不白屏
+  <div class="stamp" id="stamp">🐉丙午·乙巳·甲戌·子时·䷓观·🟢</div>
+</footer>
+</div>
+
+<script>
+/* ========== 常量 ========== */
+const DNA_HEADER = {"X-Dragon-DNA": "#龍芯⚡️丙午·乙巳·甲戌·庚午·䷕贲-子时-乾-AI-MIND-DASHBOARD-UID9622"};
+const LOCAL = {
+  gateway:  {url:"http://127.0.0.1:8970/health",  name:"API网关",        layer:"gateway"},
+  svcctl:   {url:"http://127.0.0.1:8971/health",  name:"服务控制台",     layer:"exec"},
+  flow:     {url:"http://127.0.0.1:8972/health",  name:"流场拓扑引擎",   layer:"guard"},
+  memory:   {url:"http://127.0.0.1:8771/health",  name:"统一记忆服务",   layer:"exec"},
+  capture:  {url:"http://127.0.0.1:8769/health",  name:"采集器",         layer:"exec"},
+  search:   {url:"http://127.0.0.1:9631/health",  name:"搜索引擎",       layer:"exec"},
+  bcm:      {url:"http://127.0.0.1:8775/health",  name:"主控台",         layer:"guard"},
+  dashboard:{url:"http://127.0.0.1:8789/health",  name:"门户服务",       layer:"gateway"},
+};
+const REMOTE = {
+  kunpeng: {url:"https://uid9622.cn/health",     name:"鲲鹏官网",       layer:"gateway"},
+  api:     {url:"https://uid9622.cn/api/health", name:"鲲鹏API",        layer:"gateway"},
+  portal:  {url:"https://uid9622.cn/portal/",    name:"鲲鹏门户",       layer:"gateway"},
+};
+/* 拓扑骨架：节点 + 链路（与系统拓扑一致） */
+const TOPO_NODES = [
+  {id:"ssl", name:"SSL 入口", layer:0}, {id:"gate", name:"身份/伦理闸", layer:0},
+  {id:"router", name:"路由决策", layer:0}, {id:"persona", name:"人格编排", layer:1},
+  {id:"exec", name:"执行引擎", layer:1}, {id:"audit", name:"透明审计", layer:3},
+  {id:"memory", name:"统一记忆", layer:2}, {id:"search", name:"搜索引擎", layer:1},
+  {id:"flow", name:"流场拓扑", layer:3}, {id:"svc", name:"服务控制", layer:3},
+  {id:"chat", name:"对话桥", layer:1}, {id:"brain", name:"总控脑", layer:0},
+];
+const TOPO_LINKS = [
+  ["ssl","gate",1.0],["gate","router",1.0],["router","persona",1.0],["router","search",0.9],
+  ["router","svc",0.8],["router","chat",0.8],["persona","exec",0.9],["exec","memory",0.8],
+  ["exec","audit",0.7],["audit","memory",0.6],["flow","router",0.5],["brain","router",1.0],
+  ["brain","exec",0.9],["memory","brain",0.8],["svc","exec",0.7],
+];
+const PERSONAS = [
+  ["P00","文心"],["P01","诸葛亮"],["P02","宝宝"],["P03","雯雯"],["P04","鲁班"],
+  ["P05","上帝之眼"],["P06","数学大师"],["P07","管仲"],["P08","仓颉"],["P09","孙思邈"],
+  ["P10","苏东坡"],["P11","李白"],["P12","屈原"],["P13","姜子牙"],["P14","吕蒙"],
+  ["P15","乔前辈"],["P72","龍盾"],["P77","黑天使"],["S1","法律"],["S2","洛书369"],["S3","维权"],
+];
+const LAYER_COLOR = ["#FFD700","#00d4ff","#a78bfa","#00C853","#FF1744"];
+
+/* ========== 时钟 ========== */
+function tick(){
+  const d = new Date();
+  const p = n => String(n).padStart(2,"0");
+  document.getElementById("clock").textContent =
+    d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate())+" "+p(d.getHours())+":"+p(d.getMinutes())+":"+p(d.getSeconds());
+}
+setInterval(tick,1000); tick();
+
+/* ========== 探测引擎状态 ========== */
+const lightState = {};
+async function probe(eng, group){
+  try{
+    const ctl = new AbortController();
+    const to = setTimeout(()=>ctl.abort(), 3000);
+    const r = await fetch(eng.url, {headers:DNA_HEADER, signal:ctl.signal});
+    clearTimeout(to);
+    const ok = r.ok;
+    lightState[eng.name] = ok;
+    eng._up = ok;
+  }catch(e){ eng._up = false; lightState[eng.name] = false; }
+}
+async function renderLights(){
+  const box = document.getElementById("lightsBox");
+  box.innerHTML = "";
+  const all = {...LOCAL, ...REMOTE};
+  let up = 0;
+  for(const [k,v] of Object.entries(all)){
+    if(v._up) up++;
+    const dot = v._up===undefined ? "unk" : (v._up?"up":"down");
+    box.insertAdjacentHTML("beforeend",
+      `<div class="light"><span class="dot ${dot}"></span><span class="nm">${v.name}</span><span class="port">${k}</span></div>`);
+  }
+  const total = Object.keys(all).length;
+  const badge = document.getElementById("sysBadge");
+  if(up===0){badge.className="badge offline";badge.textContent="🔴 探测不可达（显示本地状态）";}
+  else if(up<total){badge.className="badge partial";badge.textContent=`🟡 ${up}/${total} 在线`;}
+  else{badge.className="badge online";badge.textContent=`🟢 ${up}/${total} 全在线`;}
+}
+
+/* ========== 雷达图 ========== */
+let _radarChart = null;
+function initRadar(base){
+  if(!_radarChart) _radarChart = echarts.init(document.getElementById("radarChart"));
+  const radarData = base || {engine:8,audit:9,memory:7,security:9,persona:8,compute:7};
+  const option = {
+    backgroundColor:"transparent",
+    tooltip:{},
+    radar:{
+      indicator:[
+        {name:"引擎在线", max:10},{name:"审计健康", max:10},{name:"记忆完整", max:10},
+        {name:"安全强度", max:10},{name:"人格就绪", max:10},{name:"算力余量", max:10}
+      ],
+      radius:"62%",
+      splitArea:{areaStyle:{color:["rgba(0,212,255,.03)","rgba(0,212,255,.06)"]}},
+      axisLine:{lineStyle:{color:"rgba(167,139,250,.3)"}},
+      splitLine:{lineStyle:{color:"rgba(167,139,250,.25)"}},
+      axisName:{color:"#94a3b8",fontSize:11}
+    },
+    series:[{
+      type:"radar",
+      data:[{
+        value:[radarData.engine,radarData.audit,radarData.memory,radarData.security,radarData.persona,radarData.compute],
+        name:"系统状态",
+        areaStyle:{color:"rgba(0,212,255,.3)"},
+        lineStyle:{color:"#00d4ff",width:2},
+        itemStyle:{color:"#FFD700"}
+      }]
+    }]
+  };
+  _radarChart.setOption(option);
+  window.addEventListener("resize",()=>_radarChart.resize());
+  return _radarChart;
+}
+
+/* ========== 流场画布（纯前端动画 · 不烧后端） ========== */
+function initFlow(){
+  const cv = document.getElementById("flowCanvas");
+  const ctx = cv.getContext("2d");
+  let W,H,parts=[];
+  function resize(){
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = W; cv.height = H;
+    if(!parts.length) for(let i=0;i<90;i++) parts.push({
+      x:Math.random()*W, y:Math.random()*H,
+      vx:(Math.random()-0.5)*1.2, vy:(Math.random()-0.5)*1.2,
+      hue:Math.random()*80+180
+    });
+  }
+  resize();
+  window.addEventListener("resize",resize);
+  function step(){
+    ctx.fillStyle="rgba(6,8,12,0.18)";
+    ctx.fillRect(0,0,W,H);
+    for(const p of parts){
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>W){p.vx*=-1;p.x=Math.max(2,Math.min(W-2,p.x));}
+      if(p.y<0||p.y>H){p.vy*=-1;p.y=Math.max(2,Math.min(H-2,p.y));}
+      // 微扰 = "思维流动"
+      p.vx+=(Math.random()-0.5)*0.06; p.vy+=(Math.random()-0.5)*0.06;
+      const sp=Math.hypot(p.vx,p.vy); if(sp>2){p.vx*=0.98;p.vy*=0.98;}
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,1.6,0,Math.PI*2);
+      ctx.fillStyle=`hsla(${p.hue},80%,60%,0.75)`;
+      ctx.fill();
+    }
+    requestAnimationFrame(step);
+  }
+  step();
+}
+
+/* ========== 拓扑图 ========== */
+function initTopo(){
+  const chart = echarts.init(document.getElementById("topoChart"));
+  const nodeMap = {}; TOPO_NODES.forEach(n=>nodeMap[n.id]=n);
+  const option = {
+    backgroundColor:"transparent",
+    tooltip:{},
+    series:[{
+      type:"graph", layout:"force",
+      roam:true, draggable:true,
+      label:{show:true,fontSize:10,color:"#e4e4e7"},
+      force:{repulsion:280,edgeLength:[60,130],gravity:0.06},
+      edgeSymbol:["none","arrow"], edgeSymbolSize:5,
+      lineStyle:{color:"rgba(167,139,250,.4)",width:1,curveness:0.1},
+      data:TOPO_NODES.map(n=>({...n, itemStyle:{color:LAYER_COLOR[n.layer]}})),
+      links:TOPO_LINKS.map(([s,t,w])=>({source:s,target:t,value:w,lineStyle:{width:Math.max(1,w*2)}}))
+    }]
+  };
+  chart.setOption(option);
+  window.addEventListener("resize",()=>chart.resize());
+  return chart;
+}
+
+/* ========== 人格矩阵 ========== */
+function renderPersonas(){
+  const box = document.getElementById("personasBox");
+  box.innerHTML = "";
+  PERSONAS.forEach(([id,nm])=>{
+    box.insertAdjacentHTML("beforeend",
+      `<div class="pers"><span class="st" style="background:${id==="P77"?"#FF1744":"#00C853"}"></span><span class="id">${id}</span><span class="nm">${nm}</span></div>`);
+  });
+}
+
+/* ========== 决策链路（探测 + 降级） ========== */
+async function loadChain(){
+  const box = document.getElementById("chainBox");
+  const tries = [
+    {url:"http://127.0.0.1:8970/chain/verify", parse:r=>r.history||r.chain||r},
+    {url:"http://127.0.0.1:8970/history", parse:r=>r.history||[r]},
+  ];
+  for(const t of tries){
+    try{
+      const r = await fetch(t.url, {headers:DNA_HEADER, signal:AbortSignal.timeout(3000)});
+      if(!r.ok) continue;
+      const j = await r.json();
+      const list = t.parse(j);
+      if(Array.isArray(list)&&list.length){
+        box.innerHTML = "";
+        list.slice(0,12).forEach(it=>{
+          const tm = (it.time||it.ts||it.timestamp||"").toString().slice(0,19);
+          const act = it.action||it.问题||"决策";
+          const dna = it.dna||it.父DNA||"";
+          const clz = it.red||it["三色"]==="🔴"?"red":(it.warn||it["三色"]==="🟡"?"warn":"ok");
+          box.insertAdjacentHTML("beforeend",
+            `<div class="chain-item ${clz}"><div class="top"><span class="act">${act}</span><span class="tm">${tm}</span></div><div class="dna-t">${dna}</div></div>`);
+        });
+        return;
+      }
+    }catch(e){}
+  }
+  box.innerHTML = `<div class="chain-empty">本地审计API未响应（服务未启或需认证）· 显示内置示意</div>` +
+    `<div class="chain-item ok"><div class="top"><span class="act">意图解析 → 人格路由 → 执行 → 审计 → 签章</span><span class="tm">链路</span></div><div class="dna-t">开启透明审计(:8970)后显示真实决策流</div></div>`;
+}
+
+/* ========== 主循环 ========== */
+let _lastUp = -1;
+async function refresh(){
+  const all = {...LOCAL, ...REMOTE};
+  await Promise.all(Object.values(all).map(e=>probe(e)));
+  renderLights();
+  // 用在线数更新雷达（稳定值，不闪）
+  const total = Object.keys(all).length;
+  const up = Object.values(lightState).filter(Boolean).length;
+  if(up !== _lastUp){
+    _lastUp = up;
+    initRadar({
+      engine: Math.round(up/total*10),
+      audit: up ? 9 : 3,
+      memory: up ? 7 : 3,
+      security: up ? 9 : 4,
+      persona: 8,
+      compute: up ? 7 : 3
+    });
+  }
+}
+initFlow(); initTopo(); renderPersonas();
+loadChain();
+refresh();
+setInterval(refresh, 10000);
+</script>
+</body>
+</html>

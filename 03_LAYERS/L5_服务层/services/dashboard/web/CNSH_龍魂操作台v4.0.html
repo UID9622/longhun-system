@@ -1,0 +1,411 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-5809aee3 -->
+<!--#龍芯⚡️2026-07-04-LONGHUN-CONSOLE-V4-0-WEB-v1.0 -->
+<!-- 君子协议：本文件受龍魂 DNA 追溯保护 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂操作台 v4.0 — UID9622 统一入口</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐉%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0a0a0f;--bg2:#12121a;--bg3:#1a1a25;--border:#2a2a3a;
+  --green:#4ade80;--green-dim:#22c55e33;--yellow:#fbbf24;--yellow-dim:#f59e0b33;
+  --red:#f87171;--red-dim:#ef444433;--blue:#60a5fa;--blue-dim:#3b82f633;
+  --purple:#c084fc;--purple-dim:#a855f733;--gold:#d4a574;
+  --text:#e4e4e7;--text-dim:#71717a;--accent:#a78bfa;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;}
+body{background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.6;}
+.container{max-width:1400px;margin:0 auto;padding:16px;}
+
+.header{background:linear-gradient(135deg,var(--bg2) 0%,var(--bg3) 100%);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:16px;}
+.header-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.header-title{font-size:22px;font-weight:700;display:flex;align-items:center;gap:10px;}
+.header-sub{color:var(--text-dim);font-size:12px;margin-top:4px;}
+.dna{font-size:11px;color:var(--gold);font-family:monospace;margin-top:6px;word-break:break-all;}
+.summary{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;}
+.summary-item{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:8px 14px;font-size:12px;}
+.summary-item b{color:var(--accent);}
+.qian-row{display:flex;gap:10px;flex-wrap:wrap;}
+.qian-card{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:10px 16px;text-align:center;min-width:110px;}
+.qian-card b{display:block;font-size:22px;color:var(--accent);}
+.qian-card span{font-size:11px;color:var(--text-dim);}
+
+.section{margin-bottom:20px;}
+.section-title{font-size:15px;font-weight:700;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.section-sub{color:var(--text-dim);font-size:12px;margin-bottom:12px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;}
+
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px;display:flex;flex-direction:column;justify-content:space-between;transition:all .2s;gap:10px;}
+.card:hover{border-color:var(--accent);}
+.card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:2px;}
+.card-name{font-weight:600;font-size:14px;}
+.status-dot{width:10px;height:10px;border-radius:50%;background:var(--text-dim);box-shadow:0 0 6px currentColor;}
+.status-dot.ok{background:var(--green);}
+.status-dot.warn{background:var(--yellow);}
+.status-dot.err{background:var(--red);}
+.status-dot.unknown{background:var(--text-dim);}
+.card-meta{font-size:12px;color:var(--text-dim);}
+.card-btns{display:flex;gap:8px;margin-top:auto;}
+.btn{flex:1;border:none;border-radius:6px;padding:7px 0;cursor:pointer;font-size:12px;transition:all .2s;}
+.btn-primary{background:var(--blue-dim);color:var(--blue);border:1px solid var(--blue);}
+.btn-primary:hover{background:var(--blue);color:#fff;}
+.btn-accent{background:var(--accent);color:#000;}
+.btn-accent:hover{filter:brightness(1.1);}
+.btn-outline{background:var(--bg3);color:var(--text);border:1px solid var(--border);}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+.btn-copy{background:var(--purple-dim);color:var(--purple);border:1px solid var(--purple);}
+.btn-copy:hover{background:var(--purple);color:#fff;}
+.cmd-card .cmd{font-family:monospace;font-size:11px;background:var(--bg);border:1px dashed var(--border);border-radius:6px;padding:8px;margin:0;word-break:break-all;color:var(--gold);}
+
+.workspace{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:16px;}
+.workspace-head{display:flex;gap:10px;align-items:center;margin-bottom:10px;flex-wrap:wrap;}
+.workspace iframe{width:100%;height:540px;border:none;border-radius:8px;background:var(--bg);}
+
+.toast{position:fixed;bottom:20px;right:20px;background:var(--green-dim);color:var(--green);border:1px solid var(--green);padding:10px 16px;border-radius:8px;font-size:13px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:100;}
+.toast.show{opacity:1;}
+.footer{text-align:center;font-size:11px;color:var(--text-dim);padding:20px;border-top:1px solid var(--border);margin-top:8px;}
+.tag-pill{font-size:10px;padding:2px 7px;border-radius:99px;background:var(--bg3);border:1px solid var(--border);color:var(--text-dim);}
+</style>
+
+<script src="../lh-utils.js"></script>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="header-top">
+    <div>
+      <div class="header-title"><span style="color:var(--accent)">☰ 龍🇨🇳魂 ☷</span> 龍魂操作台 v4.0 · UID9622 统一入口</div>
+      <div class="header-sub">本地运行 · 数据主权归己 · AI 执行审计 · Notion 只留摘要</div>
+    </div>
+    <div class="qian-row">
+      <div class="qian-card"><b id="hex-symbol">☰</b><span id="hex-name">干卦</span></div>
+      <div class="qian-card"><b id="dr-value">dr=2</b><span>数字根</span></div>
+      <div class="qian-card"><b id="tri-color">🟢</b><span>三色状态</span></div>
+    </div>
+  </div>
+  <div class="summary">
+    <div class="summary-item">🟢 运行中: <b id="running-count">-</b> / <b id="total-count">-</b></div>
+    <div class="summary-item">🔴 未运行: <b id="stopped-count">-</b></div>
+    <div class="summary-item">🟡 异常: <b id="warn-count">-</b></div>
+    <div class="summary-item">🔄 上次刷新: <b id="last-refresh">-</b></div>
+  </div>
+  <div class="dna">DNA: #龍芯⚡️2026-07-04-LONGHUN-CONSOLE-V4-0-v1.0 · CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z · GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</div>
+</div>
+
+<div class="section">
+  <div class="section-title">🚀 P0 创作工具 · 按钮直达</div>
+  <div class="grid" id="creative-grid"></div>
+</div>
+
+<div class="section">
+  <div class="section-title">🌐 核心服务 · 状态自动探测</div>
+  <div class="section-sub">绿色=端口可达，红色=未启动；本地多服务未开启 CORS，探测以端口连通为准，每 10 秒刷新。</div>
+  <div class="grid" id="core-grid"></div>
+</div>
+
+<div class="section">
+  <div class="section-title">🛡️ 治理审计 · 一键命令</div>
+  <div class="grid" id="gov-grid"></div>
+</div>
+
+<div class="section">
+  <div class="section-title">📚 资源库 · 文章与导航</div>
+  <div class="grid" id="resource-grid"></div>
+</div>
+
+<div class="section">
+  <div class="section-title">📜 Notion 对齐 · 核心协议看板</div>
+  <div class="grid" id="alignment-grid"></div>
+</div>
+
+<div class="section">
+  <div class="section-title">🖥️ 当前工作区 · <span id="workspace-title" style="color:var(--text-dim);font-size:12px">点击按钮在此打开</span></div>
+  <div class="workspace">
+    <div class="workspace-head">
+      <button class="btn btn-outline" onclick="loadWorkspace('http://127.0.0.1:18000/editor','CNSH 中文编辑器')">CNSH 编辑器</button>
+      <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/cnsh_examples.html','CNSH 示例库')">CNSH 示例库</button>
+      <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/cnsh_translate_vault.html','🏦 CNSH翻译金库')" style="border-color:var(--gold);color:var(--gold);">🏦 翻译金库</button>
+      <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/clipboard_pwa.html','📋 CNSH剪贴板')" style="background:var(--card2);">📋 剪贴板</button>
+      <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/龍魂知识矩阵-沉浸式AI播音员.html','🎙️ 沉浸式 AI 播音员')">真声控制台</button>
+      <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/龍魂知识矩阵-沉浸式AI播音员.html','🎙️ 沉浸式 AI 播音员')">🎙️ AI 播音员</button>
+      <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/龍魂知识矩阵-3D-沉浸式.html','🌌 知识矩阵 3D')">🌌 3D 矩阵</button>
+      <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/CNSH_龍魂星宿知识图.html','🌌 龍魂星宿图')">🌌 星宿图</button>
+      <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/龍魂-daodejing-v4.1.html','📜 道德经 v4.1')">📜 道德经 v4.1</button>
+      <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/龍魂-daodejing.html','📜 道德经 v1.0')">📜 道德经 v1.0</button>
+      <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/龍魂-yijing.html','☯ 易经')">☯ 易经</button>
+      <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/sancai-flow-v8.1.html','三才流场 v8.1')">三才流场</button>
+      <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/memory-editor.html','记忆编辑器')">记忆编辑</button>
+      <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/longhun_hub.html','龍魂智能中枢 v4.0')">龍守智</button>
+      <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/longhun-braket.html','🌌 Bra-Ket 人格协作')">Bra-Ket 协作</button>
+      <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/notion_alignment_dashboard.html','📜 Notion 对齐看板')">📜 对齐看板</button>
+      <button class="btn btn-outline" onclick="loadWorkspace('./p0-controls/cnsh_semantic_dashboard.html','🐉 CNSH 语义看板')">🐉 CNSH 语义</button>
+      <button class="btn btn-outline" onclick="openEthicsCheck()">🛡️ L0 倫理檢查</button>
+      <button class="btn btn-outline" onclick="loadWorkspace('about:blank','已关闭')">❌ 关闭</button>
+    </div>
+    <iframe id="workspace-frame" src="about:blank"></iframe>
+  </div>
+</div>
+
+<div class="footer">
+  中国的事情，中国人自己说了算 | DNA: #龍芯⚡️2026-07-04-LONGHUN-CONSOLE-V4-0-v1.0<br>
+  <span style="font-size:10px;color:#3a3a4a;">CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z · GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</span>
+</div>
+
+<div class="toast" id="toast">已复制到剪贴板</div>
+</div>
+
+<script>
+const services = {
+  creative: [
+    {id:'cnsh-editor', name:'CNSH 中文编辑器', desc:'在线写、跑 CNSH 脚本', port:18000, path:'/editor', embed:true, p0:true},
+    {id:'cnsh-docs', name:'CNSH API 文档', desc:'Swagger /docs', port:18000, path:'/docs', p0:true},
+    {id:'cnsh-examples', name:'CNSH 示例库', desc:'语法 · 类/装饰器/生成器 · 异步/枚举/dataclass · 类型注解/装饰器带参/异常 · Notion/数学公式一体化', url:'./p0-controls/cnsh_examples.html', embed:true, p0:true},
+    {id:'cnsh-translate-vault', name:'🏦 CNSH翻译金库', desc:'贴入→翻译→DNA注入→时间戳锁定 · 少一样不能用 · DNA链协作', url:'./p0-controls/cnsh_translate_vault.html', embed:true, p0:true, badge:'NEW'},
+    {id:'cnsh-clipboard', name:'📋 CNSH剪贴板', desc:'跨平台剪贴板翻译 · iOS快捷指令 · PWA · 鸿蒙服务卡片', url:'./p0-controls/clipboard_pwa.html', embed:true, p0:true, badge:'📱'},
+    {id:'cnsh-clipboard-ios', name:'📱 iOS快捷指南', desc:'一键导入iOS快捷指令 · 剪贴板→DNSH翻译→DNA注入', url:'./p0-controls/ios_shortcut_guide.md', embed:false, p0:true},
+    {id:'shengying', name:'声影桥 · AI 播音员', desc:'中国文化沉浸式朗读', port:8766, path:'/health', embed:true, p0:true},
+    {id:'ai-broadcaster', name:'🎙️ 沉浸式 AI 播音员', desc:'中国文化章节 · 朗读 · 对话 · 视频', url:'./p0-controls/龍魂知识矩阵-沉浸式AI播音员.html', embed:true, p0:true},
+    {id:'kg-3d', name:'🌌 3D 知识矩阵', desc:'三维沉浸式知识宇宙 · 文化视觉默认', url:'./p0-controls/龍魂知识矩阵-3D-沉浸式.html', embed:true},
+    {id:'星宿图', name:'🌌 龍魂星宿图', desc:'四象北辰 · 二十八宿 · 点击星辰查看真意', url:'./p0-controls/CNSH_龍魂星宿知识图.html', embed:true, p0:true},
+    {id:'chapter-daodejing', name:'📜 道德经 v4.1', desc:'81章全本 · L0倫理錨定 · 五級衰減模型', url:'./p0-controls/龍魂-daodejing-v4.1.html', embed:true, p0:true},
+    {id:'chapter-daodejing-old', name:'📜 道德经 v1.0', desc:'舊版章節頁（歷史保留）', url:'./p0-controls/龍魂-daodejing.html', embed:true},
+    {id:'chapter-yijing', name:'☯ 易经', desc:'周 · 穷变通久', url:'./p0-controls/龍魂-yijing.html', embed:true},
+    {id:'chapter-taiji', name:'☯ 太极', desc:'先秦 · 阴阳互根', url:'./p0-controls/龍魂-taiji.html', embed:true},
+    {id:'chapter-liushisigua', name:'六十四卦', desc:'情境决策矩阵', url:'./p0-controls/龍魂-liushisigua.html', embed:true},
+    {id:'flow-field', name:'三才流场', desc:'流场可视化', url:'./p0-controls/sancai-flow-v8.1.html', embed:true, p0:true},
+    {id:'memory-editor', name:'记忆编辑器', desc:'本地记忆压缩与编辑', url:'./p0-controls/memory-editor.html', embed:true, p0:true},
+    {id:'longhun-hub', name:'龍守智 v4.0', desc:'智能中枢 · AI对话/审计/DNA', url:'./p0-controls/longhun_hub.html', embed:true, p0:true},
+    {id:'braket-persona', name:'🌌 Bra-Ket 人格协作', desc:'量子叠加态 · 人格权重坍缩 · 三色审计', url:'./p0-controls/longhun-braket.html', embed:true, p0:true},
+    {id:'article-voice', name:'生成文章语音', desc:'lh 生成语音', cmd:'lh 生成语音', type:'cmd', p0:true},
+    {id:'article-pack', name:'CNSH 文章包', desc:'文章 + 真声 MP3', path:'/public-content/cnsh_editor_api_v1_voice/article_csdn.md'},
+    {id:'notion-pull', name:'🔄 Notion 拉取', desc:'从 Notion 拉取龍魂章节页面', port:8766, path:'/notion/pull', embed:false, type:'action', action:'notionPull()'},
+    {id:'notion-push', name:'📤 Notion 推送', desc:'推送章节到 Notion（默认演练）', port:8766, path:'/notion/push', embed:false, type:'action', action:'notionPush()'},
+  ],
+  core: [
+    {id:'ops-panel', name:'OPS 操作台', desc:'龍魂 OPS (9622)', port:9622, path:'/'},
+    {id:'dialogue-ethics', name:'龍魂對話（L0錨定）', desc:'帶道德經倫理檢查的對話服務', port:9635, path:'/health', embed:true, badge:'L0'},
+    {id:'capability-web', name:'能力官网', desc:'能力注册与发现', port:8844, path:'/api/registry'},
+    {id:'experience-portal', name:'体验门户', desc:'对外体验入口', port:8445, path:'/api/health'},
+    {id:'knowledge-graph', name:'知识图谱', desc:'龍魂知识图谱', port:8088, path:'/api/health'},
+    {id:'brain-stem', name:'龍魂脑干', desc:'核心协调服务', port:9625, path:'/health'},
+    {id:'heart-talk', name:'龍之心语', desc:'情感对话服务', port:9624, path:'/health'},
+    {id:'ollama', name:'Ollama 本地模型', desc:'本地 LLM', port:11434, path:'/api/tags'},
+    {id:'persona-api', name:'人格 API', desc:'人格中枢', port:9001, path:'/docs'},
+  ],
+  gov: [
+    {id:'memory', name:'记忆启动', desc:'lh 记忆', cmd:'lh 记忆', type:'cmd'},
+    {id:'review', name:'每日复盘', desc:'lh 复盘', cmd:'lh 复盘', type:'cmd'},
+    {id:'self-heal', name:'系统自愈', desc:'lh 自愈', cmd:'lh 自愈', type:'cmd'},
+    {id:'gov-audit', name:'治理巡检', desc:'lh 巡检', cmd:'lh 巡检', type:'cmd'},
+    {id:'global-index', name:'全局索引', desc:'lh 索引', cmd:'lh 索引', type:'cmd'},
+    {id:'voice-gen', name:'生成语音', desc:'lh 生成语音', cmd:'lh 生成语音', type:'cmd'},
+    {id:'dao-ethics', name:'L0 道德經倫理錨定', desc:'輸入側道德篩查·無為校驗·天網審計', port:9630, path:'/stats', embed:true, badge:'L0'},
+    {id:'compassion-kernel', name:'🛡️ 龍魂心法', desc:'容錯不仇恨·道德經總綱植入·至善第一性原理', cmd:'python3 /Users/zuimeidedeyihan/longhun-system/core/龍魂心法_容错内核_v1.0.py', type:'cmd', badge:'L0'},
+    {id:'notion-sync', name:'Notion 同步', desc:'pull/push 龍魂主控頁', cmd:'python3 /Users/zuimeidedeyihan/longhun-system/tools/notion_sync.py sync --config /Users/zuimeidedeyihan/longhun-system/config/notion_sync.json', type:'cmd', badge:'CLI'},
+    {id:'dna-align', name:'DNA 对齐审计', desc:'lh dna-align', cmd:'python3 /Users/zuimeidedeyihan/longhun-system/scripts/龍魂DNA審計門戶.py', type:'cmd'},
+    {id:'master-control', name:'旧版主控台', desc:'v2.0 历史入口', url:'./longhun-master-control.html', embed:true},
+  ],
+  resource: [
+    {id:'privacy-whitepaper', name:'隐私白皮书 v2.0', desc:'数据主权与隐私政策', path:'/articles/2026-07-04-龍魂隐私白皮书_v2.0.md'},
+    {id:'ip-assets', name:'IP 资产看板', desc:'专利论文协议代码索引', path:'/docs/private-shared-imports/ip-assets/INDEX-2026-07-04.md'},
+    {id:'notion-nav', name:'Notion 导航', desc:'50 页面统一索引', path:'/data/notion_nav.json'},
+    {id:'csdn-nav', name:'CSDN 导航', desc:'已发布文章清单', path:'/data/csdn_articles.json'},
+    {id:'consumer-fire', name:'🔥 提前消费的真相', desc:'离火运觉醒·民生觉醒·消费防割', path:'/articles/2026-07-05-提前消费的真相-离火运觉醒.md', p0:true},
+    {id:'articles-index', name:'📚 文章总索引', desc:'原创文章·CSDN发布版·民生觉醒', path:'/articles/INDEX.md'},
+    {id:'portal-v4', name:'longhun888.com 门户', desc:'对外官网 v3.1', path:'/index.html'},
+  ],
+  alignment: [
+    {id:'alignment-dashboard', name:'📜 Notion 对齐看板', desc:'Top 6 核心页摘要 · L0/L1/宪法/北辰/CNSH/动态协议', url:'./p0-controls/notion_alignment_dashboard.html', embed:true, p0:true},
+    {id:'cnsh-semantic-dashboard', name:'🐉 CNSH 语义看板', desc:'v2.0+ 协作宣言 · 八条铁律 · 术语对照 · §32/37/38/39', url:'./p0-controls/cnsh_semantic_dashboard.html', embed:true, p0:true},
+    {id:'notion-mirror-status', name:'🌐 Notion 镜像状态', desc:'瀏覽器鏡像抓取結果 · 51 頁面同步狀態', type:'action', action:'loadNotionMirrorStatus()', p0:true},
+    {id:'roster-l0l1', name:'龍芯家族花名册', desc:'设备主人主权铁律 · L0 全开闸 · L1+ 赋能层', url:'https://uid9622.notion.site/v1-0-L0-L1-UID9622-142168c7f03942e696e8c499d2914e47', embed:false},
+    {id:'constitution', name:'龍魂系统宪法 v1.0', desc:'14 条最高硬规则 · 不可删改', url:'https://uid9622.notion.site/v1-0-CNSH-Constitution-8ad36909a4504f0aae24cbaea3c4ea9f', embed:false},
+    {id:'cnsh-ieee-framework', name:'CNSH AI Governance Framework', desc:'IEEE 论文版 · 64 状态决策 · CNSH-OS 七层蓝图', url:'https://uid9622.notion.site/CNSH-AI-Governance-Framework-IEEE-fab5940bb6d84936a6a1e56432aeb33a', embed:false},
+    {id:'cnsh-beichen-paper', name:'CNSH × 北辰协议 IEEE 白皮书', desc:'三才算法补全版 · 阴阳耦合 · P0 22 条', url:'https://uid9622.notion.site/CNSH-IEEE-v1-1-3187125a9c9f80a68158d9064f591f26', embed:false},
+    {id:'cnsh-toolkit', name:'CNSH 工具集本地模板', desc:'DNA 解锁 · 本地执行 · 数据不上传', url:'https://uid9622.notion.site/CNSH-DNA-16399c8440fa4d1aad5cad3aa8cb5ffe', embed:false},
+    {id:'dynamic-protocol', name:'动态 AI 协议入口', desc:'三票通过 · 五大数据库联动 · 投喂闭环', url:'https://uid9622.notion.site/AI-19a8289545b74cae8b3b873c0e4bce68', embed:false},
+    {id:'uid9622-ip-dashboard', name:'🆔 UID9622 IP 看板', desc:'龍芯北辰公開身份·作品清單·對外入口', url:'./p0-controls/uid9622_ip_dashboard.html', embed:true, p0:true},
+    {id:'p0-feed-dashboard', name:'📥 P0 投喂分拣台', desc:'沙盒分揚·五大P0交叉驗證·三不原則', url:'./p0-controls/p0_feed_dashboard.html', embed:true, p0:true},
+  ]
+};
+
+const HEXAGRAMS = [
+  {n:'干',sym:'☰',h:[11,13]}, {n:'坤',sym:'☷',h:[1,3]}, {n:'坎',sym:'☵',h:[23,25]},
+  {n:'离',sym:'☲',h:[9,11]}, {n:'震',sym:'☳',h:[3,5]}, {n:'巽',sym:'☴',h:[5,7]},
+  {n:'艮',sym:'☶',h:[19,21]}, {n:'兑',sym:'☱',h:[7,9]}, {n:'坤2',sym:'☷',h:[13,15]},
+  {n:'兑2',sym:'☱',h:[15,17]}, {n:'巽2',sym:'☴',h:[17,19]}, {n:'坎2',sym:'☵',h:[21,23]},
+];
+
+function $(id){ return document.getElementById(id); }
+function updateHex(){ const h=new Date().getHours(); const hx=HEXAGRAMS.find(x=>h>=x.h[0]&&h<x.h[1])||HEXAGRAMS[0]; $('hex-symbol').textContent=hx.sym; $('hex-name').textContent=hx.n+'卦'; }
+function showToast(msg){ const t=$('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2200); }
+function copyCmd(cmd){ navigator.clipboard.writeText(cmd).then(()=>showToast('已复制: '+cmd)); }
+function openUrl(url){ window.open(url,'_blank'); }
+function loadWorkspace(url,title){ $('workspace-frame').src=url; $('workspace-title').textContent=title; }
+
+function renderCard(item, status){
+  const isCmd = item.type==='cmd';
+  const isAction = item.type==='action';
+  const dotClass = isCmd || isAction ? 'ok' : (status==='ok'?'ok':status==='warn'?'warn':status==='err'?'err':'unknown');
+  const statusText = isCmd ? '命令' : isAction ? '操作' : (status==='ok'?'运行中':status==='warn'?'异常':status==='err'?'未运行':'未知');
+  let badge = item.badge ? `<span style="font-size:10px;padding:2px 7px;border-radius:99px;background:var(--bg3);border:1px solid var(--border);color:var(--text-dim)">${item.badge}</span>` : '';
+  let buttons = '';
+  if(isCmd){
+    buttons = `<button class="btn btn-copy" onclick="copyCmd('${item.cmd.replace(/'/g,"\\'")}')">📋 复制命令</button>`;
+  } else if(isAction){
+    buttons = `<button class="btn btn-primary" onclick="${item.action}">▶ 执行</button>`;
+  } else if(item.port){
+    const url = `http://127.0.0.1:${item.port}${item.path}`;
+    buttons = `<button class="btn btn-primary" onclick="openUrl('${url}')">🚀 打开</button>`;
+    if(item.embed){ buttons += `<button class="btn btn-outline" onclick="loadWorkspace('${url}','${item.name}')">📺 嵌入</button>`; }
+  } else if(item.path){
+    buttons = `<button class="btn btn-primary" onclick="openUrl('${item.path}')">📄 打开</button>`;
+  } else if(item.url){
+    buttons = `<button class="btn btn-primary" onclick="openUrl('${item.url}')">🚀 打开</button>`;
+    if(item.embed){ buttons += `<button class="btn btn-outline" onclick="loadWorkspace('${item.url}','${item.name}')">📺 嵌入</button>`; }
+  }
+  return `
+    <div class="card ${isCmd?'cmd-card':''}" id="card-${item.id}">
+      <div class="card-head"><div class="card-name">${item.name}</div><div class="status-dot ${dotClass}" title="${statusText}"></div></div>
+      <div class="card-meta">${item.desc}${item.port && !isAction ?` · 端口 ${item.port}`:''}</div>
+      <div style="margin-bottom:4px">${badge}</div>
+      ${isCmd?`<div class="cmd">${item.cmd}</div>`:''}
+      <div class="card-btns">${buttons}</div>
+    </div>`;
+}
+
+async function checkHealth(port, path){
+  if(!port) return 'unknown';
+  try{
+    const controller = new AbortController();
+    const timeout = setTimeout(()=>controller.abort(),1800);
+    await fetch(`http://127.0.0.1:${port}${path}`, {method:'GET', mode:'no-cors', signal:controller.signal});
+    clearTimeout(timeout);
+    return 'ok';
+  }catch(e){ return 'err'; }
+}
+
+async function notionPull(){
+  showToast('正在从 Notion 拉取…');
+  try{
+    const r = await fetch('http://127.0.0.1:8766/notion/pull', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({query:'龍魂 章节', page_size:5})});
+    const d = await r.json();
+    const title = d.mode==='notion_api' ? `Notion 拉取成功 · ${d.pages?.length || 0} 页` : 'Notion 拉取（本地兜底）';
+    loadWorkspace('data:text/html;charset=utf-8,'+encodeURIComponent(`<pre style="padding:20px;font-size:13px;line-height:1.6;background:#0a0a0f;color:#e4e4e7;white-space:pre-wrap">${JSON.stringify(d,null,2)}</pre>`), title);
+  }catch(e){ showToast('拉取失败: '+e.message); }
+}
+async function notionPush(chapterId){
+  const cid = chapterId || prompt('请输入章节 ID（如 daodejing / yijing / taiji）','daodejing');
+  if(!cid) return;
+  showToast(`正在演练推送 ${cid}…`);
+  try{
+    const r = await fetch('http://127.0.0.1:8766/notion/push', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({chapter_id:cid, dry_run:true})});
+    const d = await r.json();
+    loadWorkspace('data:text/html;charset=utf-8,'+encodeURIComponent(`<pre style="padding:20px;font-size:13px;line-height:1.6;background:#0a0a0f;color:#e4e4e7;white-space:pre-wrap">${JSON.stringify(d,null,2)}</pre>`), `Notion 推送演练 · ${cid}`);
+  }catch(e){ showToast('推送失败: '+e.message); }
+}
+async function loadNotionMirrorStatus(){
+  showToast('正在加载 Notion 镜像状态…');
+  try{
+    const r = await fetch('/data/notion_mirror_status.json?v='+Date.now());
+    const d = await r.json();
+    const okRate = d.total ? Math.round(d.ok/d.total*100) : 0;
+    const html = `<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>Notion 镜像状态</title>
+<style>body{margin:0;padding:20px;background:#0a0a0f;color:#e4e4e7;font-family:"PingFang SC","Microsoft YaHei",sans-serif;font-size:14px;line-height:1.6}h2{margin:0 0 12px;color:#a78bfa}.box{background:#12121a;border:1px solid #2a2a3a;border-radius:10px;padding:14px;margin-bottom:14px}.stat{display:inline-block;margin-right:20px;font-size:13px}.stat b{font-size:18px;color:#a78bfa}.ok{color:#4ade80}.fail{color:#f87171}.time{color:#71717a;font-size:12px}table{width:100%;border-collapse:collapse;font-size:12px}th{text-align:left;color:#a78bfa;border-bottom:1px solid #2a2a3a;padding:6px}td{padding:6px;border-bottom:1px solid #1f1f2e}tr:hover{background:#1a1a25}</style>
+</head><body>
+<h2>🌐 Notion 瀏覽器鏡像狀態</h2>
+<div class="box">
+  <div class="stat">總頁面<br><b>${d.total}</b></div>
+  <div class="stat ok">成功<br><b class="ok">${d.ok}</b></div>
+  <div class="stat fail">失敗<br><b class="fail">${d.failed}</b></div>
+  <div class="stat">成功率<br><b>${okRate}%</b></div>
+  <div class="time">Run DNA: ${d.run_dna}<br>運行時間: ${d.run_at}</div>
+</div>
+<div class="box">
+  <table><tr><th>優先級</th><th>頁面</th><th>狀態</th><th>塊數</th></tr>
+  ${d.pages.map((p,i)=>`<tr><td>${i+1}</td><td>${p.title || p.page_id}</td><td class="${p.ok?'ok':'fail'}">${p.ok?'✅':'🔴'}</td><td>${p.blocks}</td></tr>`).join('')}
+  </table>
+</div>
+</body></html>`;
+    loadWorkspace('data:text/html;charset=utf-8,'+encodeURIComponent(html), '🌐 Notion 镜像状态');
+  }catch(e){ showToast('加载失败: '+e.message); }
+}
+
+function openEthicsCheck(){
+  const html = `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>L0 道德經倫理錨定檢查</title>
+<style>
+body{margin:0;padding:20px;background:#0a0a0f;color:#e4e4e7;font-family:"PingFang SC","Microsoft YaHei",sans-serif;font-size:14px;line-height:1.6}
+h2{margin:0 0 12px;color:#a78bfa}
+.box{background:#12121a;border:1px solid #2a2a3a;border-radius:10px;padding:14px;margin-bottom:14px}
+textarea{width:100%;min-height:120px;background:#0a0a0f;border:1px solid #2a2a3a;border-radius:8px;color:#e4e4e7;padding:12px;font-size:14px;resize:vertical}
+button{background:#3b82f633;color:#60a5fa;border:1px solid #60a5fa;border-radius:6px;padding:8px 18px;cursor:pointer;font-size:13px}
+button:hover{background:#60a5fa;color:#fff}
+#result{white-space:pre-wrap;font-family:monospace;font-size:12px;background:#0a0a0f;border:1px dashed #2a2a3a;border-radius:8px;padding:12px;min-height:60px}
+.tip{color:#71717a;font-size:12px;margin-top:8px}
+</style>
+</head>
+<body>
+<h2>🛡️ L0 道德經倫理錨定檢查</h2>
+<div class="box">
+  <textarea id="input" placeholder="輸入一段話，檢查是否觸發道德經約束...">強行干預用戶選擇，不擇手段達到目的</textarea>
+</div>
+<button onclick="check()">▶ 執行檢查</button>
+<p class="tip">調用本地 http://127.0.0.1:9630/check · 數據不出本機</p>
+<div class="box">
+  <div id="result">等待執行...</div>
+</div>
+<script>
+async function check(){
+  const text = document.getElementById('input').value;
+  document.getElementById('result').textContent = '檢查中...';
+  try{
+    const r = await fetch('http://127.0.0.1:9630/check', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({input:text, output:''})});
+    const d = await r.json();
+    document.getElementById('result').textContent = JSON.stringify(d, null, 2);
+  }catch(e){ document.getElementById('result').textContent = '錯誤：'+e.message; }
+}
+<\/script>
+</body>
+</html>`;
+  loadWorkspace('data:text/html;charset=utf-8,'+encodeURIComponent(html), '🛡️ L0 道德經倫理檢查');
+}
+
+async function refresh(){
+  let running=0, stopped=0, warn=0, total=0;
+  updateHex();
+  for(const cat of ['creative','core','gov','resource','alignment']){
+    const grid = $(cat+'-grid');
+    let html='';
+    for(const item of services[cat]){
+      let status='unknown';
+      if(item.type!=='cmd' && item.type!=='action' && item.port){
+        status = await checkHealth(item.port, item.path);
+        total++;
+        if(status==='ok') running++; else if(status==='warn'){ warn++; stopped++; } else stopped++;
+      }
+      html += renderCard(item, status);
+    }
+    grid.innerHTML = escHtml(html);
+  }
+  $('running-count').textContent = running;
+  $('total-count').textContent = total;
+  $('stopped-count').textContent = stopped;
+  $('warn-count').textContent = warn;
+  $('last-refresh').textContent = new Date().toLocaleTimeString();
+}
+
+updateHex(); refresh(); setInterval(refresh,10000);
+</script>
+</body>
+</html>

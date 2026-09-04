@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="诸葛鑫（UID9622）">
+<meta name="dna" content="#龍芯⚡️-AUTOGEN">
+<title>页面标题 | 龍魂</title>
+<link rel="stylesheet" href="/assets/css/longhun-master.css">
+<style>
+/* ═══ 页面专属样式 ═══ */
+.lh-page-header {
+  text-align: center;
+  padding: 100px 24px 60px;
+  background: linear-gradient(180deg, rgba(201,168,76,0.08) 0%, transparent 100%);
+}
+
+.lh-page-header h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--lh-gold-light);
+  margin-bottom: 12px;
+}
+
+.lh-page-header p {
+  font-size: 1.1rem;
+  color: var(--lh-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* === 导航栏 === */
+.lh-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  height: var(--lh-header-height);
+  border-bottom: 1px solid var(--lh-border);
+  position: sticky;
+  top: 0;
+  background: rgba(10,10,15,0.95);
+  backdrop-filter: blur(12px);
+  z-index: 100;
+}
+
+.lh-nav-brand {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--lh-gold);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lh-nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.lh-nav-links a {
+  color: var(--lh-text-secondary);
+  font-size: 14px;
+  transition: color var(--lh-transition);
+}
+
+.lh-nav-links a:hover,
+.lh-nav-links a.active {
+  color: var(--lh-gold);
+}
+
+/* === 功能卡片网格 === */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 48px 0;
+}
+
+.feature-card {
+  background: var(--lh-bg-card);
+  border: 1px solid var(--lh-border);
+  border-radius: var(--lh-radius-lg);
+  padding: 28px;
+  transition: all var(--lh-transition);
+}
+
+.feature-card:hover {
+  border-color: var(--lh-gold);
+  box-shadow: var(--lh-shadow-gold);
+  transform: translateY(-2px);
+}
+
+.feature-card .fc-icon {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.feature-card h3 {
+  font-size: 1.1rem;
+  color: var(--lh-gold-light);
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  font-size: 13px;
+  color: var(--lh-text-muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.feature-card .fc-link {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* === 两栏布局 === */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  padding: 48px 0;
+  align-items: center;
+}
+
+.two-col.reverse { direction: rtl; }
+.two-col.reverse > * { direction: ltr; }
+
+.two-col-text h2 {
+  font-size: 1.6rem;
+  color: var(--lh-gold);
+  margin-bottom: 16px;
+}
+
+.two-col-text p {
+  color: var(--lh-text-secondary);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.two-col-visual {
+  background: var(--lh-bg-card);
+  border: 1px solid var(--lh-border);
+  border-radius: var(--lh-radius-xl);
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: var(--lh-gold-dim);
+}
+
+/* === 页脚 === */
+.lh-footer {
+  text-align: center;
+  padding: 48px 24px;
+  border-top: 1px solid var(--lh-border);
+  font-size: 13px;
+  color: var(--lh-text-muted);
+}
+
+.lh-footer a {
+  color: var(--lh-gold);
+}
+
+/* === CTA横幅 === */
+.cta-banner {
+  text-align: center;
+  padding: 60px 24px;
+  background: linear-gradient(135deg, var(--lh-gold-dim), rgba(201,168,76,0.05));
+  border-radius: var(--lh-radius-xl);
+  margin: 48px 0;
+}
+
+.cta-banner h2 {
+  font-size: 1.8rem;
+  color: var(--lh-gold-light);
+  margin-bottom: 12px;
+}
+
+.cta-banner p {
+  color: var(--lh-text-secondary);
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .two-col { grid-template-columns: 1fr; }
+  .lh-nav-links { display: none; } /* 移动端可用汉堡菜单 */
+  .lh-page-header h1 { font-size: 1.8rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ 导航 ═══ -->
+<nav class="lh-nav">
+  <a href="/" class="lh-nav-brand">🐉 龍魂</a>
+  <ul class="lh-nav-links">
+    <li><a href="#" class="active">首页</a></li>
+    <li><a href="#features">功能</a></li>
+    <li><a href="#about">关于</a></li>
+    <li><a href="#docs">文档</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ 页面头部 ═══ -->
+<header class="lh-page-header">
+  <h1>你的网站标题</h1>
+  <p>一句话描述——告诉访客这里是什么、能做什么</p>
+  <div style="margin-top:24px;">
+    <a href="#start" class="lh-btn primary">立即开始</a>
+    <a href="#docs" class="lh-btn" style="margin-left:12px;">查看文档</a>
+  </div>
+</header>
+
+<!-- ═══ 主体 ═══ -->
+<main class="lh-container">
+
+  <!-- === 两栏：左文右图 === -->
+  <section class="two-col" id="about">
+    <div class="two-col-text">
+      <h2>第一部分标题</h2>
+      <p>这是左侧的文字描述区域。龍魂系统采用九层洛书九宫架构，从硬件安全到AI治理全面覆盖。每一层都有独立的人格审计和熔断保护。</p>
+      <p>支持完整的数字主权保护：数据端侧加密、行为密码学追溯、四级熔断自动防御。</p>
+      <a href="#" class="lh-btn">了解更多 →</a>
+    </div>
+    <div class="two-col-visual">🏯</div>
+  </section>
+
+  <!-- === 两栏反向：左图右文 === -->
+  <section class="two-col reverse" id="features">
+    <div class="two-col-text">
+      <h2>第二部分标题</h2>
+      <p>此处放图片/图表在左，文字在右。适合展示技术架构图、流程图、数据可视化等内容。</p>
+      <p>龍魂支持42个核心技能、192个可执行引擎、16个AI人格协同工作。</p>
+      <a href="#" class="lh-btn">探索功能 →</a>
+    </div>
+    <div class="two-col-visual">⚙️</div>
+  </section>
+
+  <!-- === 功能卡片 === -->
+  <section style="padding:48px 0;">
+    <h2 style="text-align:center; color:var(--lh-gold); margin-bottom:32px;">核心功能</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="fc-icon">🛡️</div>
+        <h3>三色审计</h3>
+        <p>🟢通过·🟡待核·🔴红线三层审计判定，十道闸口逐道检查。</p>
+        <a href="#" class="fc-link">了解详情 →</a>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon">🔐</div>
+        <h3>行为密码学</h3>
+        <p>七因子行为指纹，不可篡改的传播树，责任归因精确定位。</p>
+        <a href="#" class="fc-link">了解详情 →</a>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon">🧠</div>
+        <h3>AI人格系统</h3>
+        <p>20个人格协同工作，16核心+1安全+3子系统，智能路由调度。</p>
+        <a href="#" class="fc-link">了解详情 →</a>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon">📜</div>
+        <h3>数字DNA</h3>
+        <p>v∞干支卦追溯码，GPG签章验证，全生命周期可追溯不可篡改。</p>
+        <a href="#" class="fc-link">了解详情 →</a>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon">🌐</div>
+        <h3>知识图谱</h3>
+        <p>洛书九宫·五行生克·河图数理，20域知识底座每6h自更新。</p>
+        <a href="#" class="fc-link">了解详情 →</a>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon">⚡</div>
+        <h3>四级熔断</h3>
+        <p>∞伦理·L1数据·L2人格·L3行为，自动降级+恢复条件+例外豁免。</p>
+        <a href="#" class="fc-link">了解详情 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- === CTA === -->
+  <section class="cta-banner" id="start">
+    <h2>准备好了吗？</h2>
+    <p>加入龍魂数字主权生态，守护你的数据主权。</p>
+    <a href="/memorial.html" class="lh-btn primary">刻名入碑</a>
+  </section>
+
+</main>
+
+<!-- ═══ 页脚 ═══ -->
+<footer class="lh-footer">
+  <p>
+    龍魂系统 · <a href="https://uid9622.cn">uid9622.cn</a><br>
+    创建者: 诸葛鑫（UID9622）· DNA: #龍芯⚡️丙午·丙申·癸丑·戊午·䷨损<br>
+    <span style="font-size:12px;">协议: CC BY-NC-SA 4.0（思想层）/ MulanPSL v2（工程层）</span>
+  </p>
+</footer>
+
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

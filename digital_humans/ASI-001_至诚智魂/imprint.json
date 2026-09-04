@@ -1,0 +1,19 @@
+{
+  "dna": "#龍芯⚡️2026-08-31-ASI-001-TOUCHENG-ZHIHUN-v1.0-UID9622",
+  "name": "至诚智魂",
+  "ipa": "ASI-001",
+  "face_hash": "FACE-ASI-001-C26D5F",
+  "voiceprint": "VOICE-ASI-001-9622",
+  "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/ASI-001_至诚智魂",
+  "created_at": "2026-08-31T23:30:00.000000",
+  "updated_at": "2026-08-31T23:30:00.000000",
+  "version": 1,
+  "status": "active",
+  "metadata": {
+    "type": "ASI",
+    "source": "Notion 灵魂传承母本 2fa7125a-9c9f-80a1-b3a4-f56cb3c345b5",
+    "persona": "P00 曾仕强智慧总师",
+    "principle": "至诚无息 · 阴阳归一 · 道阳佛阴 · 心即神",
+    "note": "无实脸实声 · 以思想和原则为本体"
+  }
+}

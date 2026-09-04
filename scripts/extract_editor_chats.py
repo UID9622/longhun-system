@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 从已归档的 VSCode/Cursor 编辑器聊天 JSONL 中提取可读的 Markdown，
 放入 Obsidian vault 供第二大脑索引。
-DNA: #龍芯⚡️2026-06-29-EDITOR-CHAT-PROCESSOR-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-EDITOR-CHAT-PROCESSOR-UID9622
 """
 from __future__ import annotations
 
@@ -11,7 +15,7 @@ import re
 from pathlib import Path
 from typing import Any, Dict, List
 
-DNA = "#龍芯⚡️2026-06-29-EDITOR-CHAT-PROCESSOR-UID9622"
+DNA = "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-EDITOR-CHAT-PROCESSOR-UID9622"
 ARCHIVE = Path("/Users/zuimeidedeyihan/longhun-system/brain/editor_memory_archive")
 VAULT = Path.home() / "Obsidian" / "龍魂系統"
 OUT_DIR = VAULT / "EditorChats"

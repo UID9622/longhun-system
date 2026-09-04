@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷊泰-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+#!/usr/bin/env python3
 """
 🐉 龍魂操作台 MVP v1.1 · UID9622 调试
 FastAPI 後端：統一 API 入口，串接 10 個 Skill 與預定義工作流。
@@ -55,7 +60,7 @@ SKILL_METADATA = {
 
 @app.get("/")
 def index():
-    return {"message": "龍魂操作台 MVP v1.1", "dna":#龍芯⚡️2026-06-16-LONGHUN-CONTROL-PANEL-FILE1-FILE1-v1.1-1"}
+    return {"message": "龍魂操作台 MVP v1.1", "dna": "#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-LONGHUN-CONTROL-PANEL-FILE1-FILE1-v1.1-1"}
 
 
 @app.get("/api/health")
@@ -235,6 +240,6 @@ def ecosystem_dashboard():
 
 
 if __name__ == "__main__":
-
-    import uvicorn
-    uvicorn.run("main:app", host="127.0.0.1", port=9622, reload=False)
+    import uvicorn, os
+    port = int(os.environ.get("CONTROL_PANEL_PORT", "9622"))
+    uvicorn.run("main:app", host="127.0.0.1", port=port, reload=False)

@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂本地数据中台采集器 v2.0
@@ -10,7 +14,7 @@
   python3 龍魂数据中台采集器.py --sync
   python3 龍魂数据中台采集器.py --full
 
-DNA:#龍芯⚡️2026-07-02-LOCAL-DATA-HUB-FILE1-v2.0
+DNA:#龍芯⚡️丙午·甲午·丁丑·丙午·䷨损-LOCAL-DATA-HUB-FILE1-v2.0
 """
 import argparse
 import datetime
@@ -31,7 +35,7 @@ PROCESSED_DIR = HUB_DIR / "processed"
 INDEX_DIR = HUB_DIR / "index"
 BACKUP_DIR = HUB_DIR / "backup"
 LOG_DIR = HOME / "longhun-system" / "logs"
-DNA = "#龍芯⚡️2026-07-02-LOCAL-DATA-HUB-v2.0"
+DNA = "#龍芯⚡️丙午·甲午·丁丑·丙午·䷨损-LOCAL-DATA-HUB-v2.0"
 
 # 敏感文件/目录排除清单（永远不动）
 EXCLUDED_PATTERNS = {

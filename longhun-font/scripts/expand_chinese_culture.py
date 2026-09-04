@@ -1,6 +1,9 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-73de537c
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-CULTURE-EMOJI-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 """
 LonghunFont 道德经/文言文关键字 + 中国风表情扩展
@@ -64,7 +67,7 @@ def rect(x1, y1, x2, y2):
 # ============================================================
 CULTURE_ICONS = {
     # 神兽祥瑞
-    "龍纹": polyline([
+    "龙纹": polyline([
         (160, 340), (220, 260), (320, 240), (420, 280), (460, 360),
         (400, 440), (300, 460), (200, 420), (160, 340)
     ]) + circle(260, 300, 20, segments=8) + polyline([(420, 280), (440, 220)]),

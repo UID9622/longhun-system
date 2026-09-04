@@ -1,6 +1,9 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂·v1.1 训练数据补充方案
 
-> DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·讼-LONGHUN-V1.1-TRAIN-DATA
+> DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-LONGHUN-V1.1-TRAIN-DATA
 > 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 ---
@@ -514,7 +517,7 @@
   {
     "instruction": "DNA追溯码格式是什么",
     "input": "",
-    "output": "v∞格式：#龍芯⚡️<年干支>·<月干支>·<日干支>·<时辰>·<卦名>-<模块>-<动作>-<哈希8位>。示例：#龍芯⚡️丙午·辛未·乙酉·酉时·讼-PERSONA-GOVERNANCE-v1.0-A3F8C2D1"
+    "output": "v∞格式：#龍芯⚡️<年干支>·<月干支>·<日干支>·<时辰>·<卦名>-<模块>-<动作>-<哈希8位>。示例：#龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-PERSONA-GOVERNANCE-v1.0-A3F8C2D1"
   },
   {
     "instruction": "GPG指纹是多少",
@@ -782,5 +785,5 @@ if __name__ == "__main__":
 
 ---
 
-> DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·讼-LONGHUN-V1.1-TRAIN-DATA
+> DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-LONGHUN-V1.1-TRAIN-DATA
 > 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

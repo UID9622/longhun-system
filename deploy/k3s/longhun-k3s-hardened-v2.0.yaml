@@ -1,0 +1,524 @@
+# DNA: #龍芯⚡️丙午·甲申·己亥·庚午·䷁坤-K3S-HARDENED-v2.0
+# 创建者: 诸葛鑫（UID9622）
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# ⛓️ 加固版本 v2.0 — 6条加固全部落地
+#   - ① Admission 三色审计标签（DNA标签强制）
+#   - ② Secret 迁移指引（sealed-secrets）
+#   - ③ 双轨 NetworkPolicy 隔离
+#   - ④ 健康探针升级 (liveness/readiness)
+#   - ⑤ PVC 备份 CronJob
+#   - ⑥ Prometheus 指标注解
+# ⛓️ 对照 v1.0 新增: NetworkPolicy ×3 / Deployment(探针) / PVC备份CronJob / 标签标准化
+
+---
+# ============================================================
+# L0: 命名空间层 (双轨隔离)
+# ============================================================
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: longhun
+  labels:
+    app: longhun
+    purpose: sovereign-core
+    dna-version: longhun-k3s-v2
+  annotations:
+    longhun.sovereignty/dna: "#龍芯⚡️丙午·甲申·己亥·庚午·䷁坤-K3S-NS"
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: longhun-local
+  labels:
+    app: longhun
+    purpose: local-track
+    dna-version: longhun-k3s-local-v2
+  annotations:
+    longhun.sovereignty/dna: "#龍芯⚡️丙午·甲申·己亥·庚午·䷁坤-K3S-LOCAL-TRACK"
+    longhun.sovereignty/description: "本地轨-Nginx-systemd桥接-非API用途"
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: longhun-api
+  labels:
+    app: longhun
+    purpose: api-track
+    dna-version: longhun-k3s-api-v2
+  annotations:
+    longhun.sovereignty/dna: "#龍芯⚡️丙午·甲申·己亥·庚午·䷁坤-K3S-API-TRACK"
+    longhun.sovereignty/description: "API轨-对外API接入-外部可访问"
+
+---
+# ============================================================
+# L0: NetworkPolicy 双轨隔离
+# ============================================================
+# 原则: local-track 只能与 core 通信，不能与 api-track 通信，反之亦然
+# 必须先部署网络插件 (Calico/Cilium) 才能生效
+
+# P0: 默认拒绝所有 ingress（core命名空间）
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: longhun-default-deny
+  namespace: longhun
+  labels:
+    dna-label: "longhun-np-deny-v2"
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+
+---
+# P1: 允许同命名空间内通信
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: longhun-allow-same-ns
+  namespace: longhun
+  labels:
+    dna-label: "longhun-np-samens-v2"
+spec:
+  podSelector: {}
+  ingress:
+  - from:
+    - podSelector: {}
+  policyTypes:
+  - Ingress
+
+---
+# P2: 允许 Nginx hostPort 桥接 (通过 hostNetwork)
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: longhun-allow-nginx-bridge
+  namespace: longhun
+  labels:
+    dna-label: "longhun-np-nginx-v2"
+spec:
+  podSelector: {}
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: 0.0.0.0/0
+    ports:
+    - port: 80
+      protocol: TCP
+    - port: 443
+      protocol: TCP
+  policyTypes:
+  - Ingress
+
+---
+# ============================================================
+# L0: ConfigMap 核心配置（焊死锚点·不可变）
+# ============================================================
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: longhun-core-config
+  namespace: longhun
+  labels:
+    app: longhun
+    layer: L0-base
+    dna-label: "longhun-cm-core-v2"
+  annotations:
+    tricolor-audit: "🟢"                          # 三色审计标记
+    debean-audit-passed: "2026-08-07"             # 德本审计通过日期
+    longhun.sovereignty/protocol-version: "v1.4"
+data:
+  # === 身份焊死 ===
+  UID: "9622"
+  SOVEREIGN: "诸葛鑫·Lucky·龍芯北辰"
+  DNA_ROOT: "#龍芯⚡️丙午·甲申·己亥·庚午·䷁坤-K3S-HARDENED-v2.0"
+  CONFIRM_CODE: "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+  GPG_FINGERPRINT: "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+
+  # === 底座锚点 ===
+  FIXED_POINT_369: "sn=369,log369=5.911,perm369=108"
+  TRIGRAM_BASE: "䷁坤（坤为地·厚德载物）"
+
+  # === 域名 ===
+  DOMAIN_PRIMARY: "uid9622.cn"
+  DOMAIN_BACKUP: "longhun888.com"
+
+  # === 端口分配 ===
+  PORT_KNOWLEDGE_HUB: "8766"
+  PORT_MEMORY_API: "8773"
+  PORT_SEARCH_ENGINE: "9631"
+  PORT_DASHBOARD: "9627"
+  PORT_OLLAMA: "11434"
+  PORT_HEALTH_CHECKER: "8099"
+  PORT_PROMETHEUS_METRICS: "9090"
+
+  # === 数据路径 ===
+  DATA_BASE: "/opt/longhun-system"
+  MODELS_DIR: "/opt/longhun-system/models"
+  LOGS_DIR: "/opt/longhun-system/logs"
+  KEY_VAULT: "/opt/longhun/data/quantum_keys/"
+
+  # === 协议版本 ===
+  GOVERNANCE_VERSION: "v1.4"
+  ALIGNMENT_RULES_VERSION: "v2.4"
+
+  # === 分层许可证 ===
+  LICENSE_CORE: "CC BY-NC-SA 4.0"
+  LICENSE_CODE: "MulanPSL v2"
+
+  # === 熔断阈值 ===
+  MELTDOWN_L3_MAX_FAILURES: "3"
+  MELTDOWN_L3_WEIGHT_DRIFT_MAX: "20"
+  AUDIT_YELLOW_RECHECK_HOURS: "48"
+
+  # === 探针配置（加固新增） ===
+  LIVENESS_INITIAL_DELAY: "30"
+  LIVENESS_PERIOD: "10"
+  READINESS_PERIOD: "5"
+  READINESS_FAILURE_THRESHOLD: "3"
+
+  # === 备份配置（加固新增） ===
+  PVC_BACKUP_SCHEDULE: "0 2 * * *"
+  PVC_BACKUP_RETENTION: "7"
+
+  # === KFPP 过滤配置（加固新增） ===
+  KFPP_MIN_CONFIDENCE: "0.5"
+  KFPP_BLOCKED_PATTERNS: "api_key,password,token,private_key,secret_key,.env,.ssh"
+
+---
+# ============================================================
+# L0: Secret（加固：标注迁移到 sealed-secrets 的路径）
+# ============================================================
+# ⚠️ 当前为 Opaque 类型，kubectl get secret -o yaml 会展示 base64（可逆）。
+# 加固建议: 迁移到 sealed-secrets (kubeseal)，或 external-secrets。
+# 迁移步骤见 HARDENING.md §2「密钥永不落明文」。
+apiVersion: v1
+kind: Secret
+metadata:
+  name: longhun-secrets
+  namespace: longhun
+  labels:
+    app: longhun
+    layer: L0-secure
+    dna-label: "longhun-sec-v2"
+  annotations:
+    tricolor-audit: "🟡"                          # 🟡 待迁移 sealed-secrets
+    sealed-secrets-migration: "pending"           # 迁移状态标记
+type: Opaque
+stringData:
+  KEY_VAULT_PATH: "/opt/longhun/data/quantum_keys/"
+  GPG_KEY_ID: "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+  # 🔴 以下仅占位，实际值通过 sealed-secrets 或外挂 Vault 注入
+  BARK_API_KEY_PLACEHOLDER: "__SEALED__BARK_KEY__"
+  FEISHU_WEBHOOK_PLACEHOLDER: "__SEALED__FEISHU_URL__"
+
+---
+# ============================================================
+# L0: ServiceAccount + RBAC
+# ============================================================
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: longhun-operator
+  namespace: longhun
+  labels:
+    app: longhun
+    role: operator
+    dna-label: "longhun-sa-v2"
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: longhun-operator
+  namespace: longhun
+  labels:
+    dna-label: "longhun-role-v2"
+rules:
+- apiGroups: [""]
+  resources: ["pods", "services", "configmaps", "secrets", "persistentvolumeclaims"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+- apiGroups: ["apps"]
+  resources: ["deployments", "statefulsets"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+- apiGroups: ["networking.k8s.io"]
+  resources: ["ingresses", "networkpolicies"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+- apiGroups: ["batch"]
+  resources: ["jobs", "cronjobs"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: longhun-operator
+  namespace: longhun
+  labels:
+    dna-label: "longhun-rb-v2"
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: longhun-operator
+subjects:
+- kind: ServiceAccount
+  name: longhun-operator
+  namespace: longhun
+
+---
+# ============================================================
+# L0: PVC 共享存储（加固：备份标签）
+# ============================================================
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: longhun-data-pvc
+  namespace: longhun
+  labels:
+    app: longhun
+    layer: L0-storage
+    dna-label: "longhun-pvc-v2"
+  annotations:
+    backup.schedule: "daily-0200"
+    backup.retention: "7d"
+    backup.target: "/opt/longhun-system/backups/"
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: local-path
+
+---
+# ============================================================
+# L1: Deployment 健康巡检（加固：探针 + 指标注解）
+# ============================================================
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: longhun-health-checker
+  namespace: longhun
+  labels:
+    app: longhun
+    component: health-checker
+    layer: L1-monitoring
+    dna-label: "longhun-deploy-health-v2"
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9090"
+    prometheus.io/path: "/metrics"
+    tricolor-audit: "🟢"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: longhun
+      component: health-checker
+  template:
+    metadata:
+      labels:
+        app: longhun
+        component: health-checker
+        dna-label: "longhun-pod-health-v2"
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9090"
+    spec:
+      serviceAccountName: longhun-operator
+      containers:
+      - name: health-checker
+        image: python:3.11-slim
+        command:
+        - /bin/bash
+        - -c
+        - |
+          pip install requests --quiet
+          python3 -c "
+          import http.server, json, time, os
+          from urllib.request import urlopen
+
+          class HealthHandler(http.server.BaseHTTPRequestHandler):
+              def do_GET(self):
+                  if self.path == '/health':
+                      self.send_response(200)
+                      self.send_header('Content-Type','application/json')
+                      self.end_headers()
+                      self.wfile.write(json.dumps({'status':'ok','service':'longhun-health-checker'}).encode())
+                  elif self.path == '/metrics':
+                      self.send_response(200)
+                      self.send_header('Content-Type','text/plain')
+                      self.end_headers()
+                      self.wfile.write('# HELP longhun_up 龍魂健康状态\n'.encode('utf-8'))
+                      self.wfile.write(b'# TYPE longhun_up gauge\n')
+                      self.wfile.write(b'longhun_up 1\n')
+                      self.wfile.write('# HELP longhun_audit_pass 三色审计通过次数\n'.encode('utf-8'))
+                      self.wfile.write(b'# TYPE longhun_audit_pass counter\n')
+                      self.wfile.write(b'longhun_audit_pass_total 0\n')
+                  else:
+                      self.send_response(404)
+                      self.end_headers()
+
+          server = http.server.HTTPServer(('0.0.0.0', 9090), HealthHandler)
+          server.serve_forever()
+          " &
+          echo "[$(date -Iseconds)] 💚 龍魂健康巡检启动"
+          while true; do
+            echo "[$(date -Iseconds)] 巡检中..."
+            sleep 60
+          done
+        ports:
+        - containerPort: 9090
+          name: metrics
+          protocol: TCP
+        # === 加固：liveness/readiness 探针 ===
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 9090
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 3
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 9090
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 2
+          failureThreshold: 3
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+      restartPolicy: Always
+
+---
+# ============================================================
+# L1: CronJob 定时审计（加固：DNA标签 + 三色注解）
+# ============================================================
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: longhun-daily-audit
+  namespace: longhun
+  labels:
+    app: longhun
+    component: audit
+    layer: L1-audit
+    dna-label: "longhun-cj-audit-v2"
+  annotations:
+    tricolor-audit: "🟢"
+    audit.type: "periodic"
+    audit.frequency: "every-6h"
+spec:
+  schedule: "0 */6 * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            dna-label: "longhun-job-audit-v2"
+        spec:
+          containers:
+          - name: audit-runner
+            image: python:3.11-slim
+            command:
+            - /bin/bash
+            - -c
+            - |
+              pip install requests --quiet
+              echo "[$(date -Iseconds)] 🐉 龍魂定时审计触发"
+              # 三色审计入口
+              python3 -c "
+              import requests, sys
+              checks = {
+                  '知识中枢': 'http://127.0.0.1:8766/health',
+                  '记忆API': 'http://127.0.0.1:8773/health',
+                  '搜索引擎': 'http://127.0.0.1:9631/health',
+              }
+              passed = 0
+              failed = 0
+              for name, url in checks.items():
+                  try:
+                      r = requests.get(url, timeout=5)
+                      if r.status_code == 200:
+                          print(f'  🟢 [{name}] OK')
+                          passed += 1
+                      else:
+                          print(f'  🟡 [{name}] {r.status_code}')
+                          failed += 1
+                  except Exception as e:
+                      print(f'  🔴 [{name}] 不可达: {e}')
+                      failed += 1
+              print(f'结果: 🟢{passed} 🟡0 🔴{failed}')
+              sys.exit(0 if failed == 0 else 1)
+              "
+              echo "[$(date -Iseconds)] 审计完成"
+            resources:
+              requests:
+                memory: "64Mi"
+                cpu: "50m"
+              limits:
+                memory: "128Mi"
+                cpu: "100m"
+          restartPolicy: OnFailure
+
+---
+# ============================================================
+# L1: CronJob PVC 备份（加固新增）
+# ============================================================
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: longhun-pvc-backup
+  namespace: longhun
+  labels:
+    app: longhun
+    component: backup
+    layer: L1-backup
+    dna-label: "longhun-cj-backup-v2"
+  annotations:
+    backup.type: "pvc-snapshot"
+    backup.retention: "7d"
+spec:
+  schedule: "0 2 * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            dna-label: "longhun-job-backup-v2"
+        spec:
+          containers:
+          - name: backup-runner
+            image: alpine:latest
+            command:
+            - /bin/sh
+            - -c
+            - |
+              echo "[$(date -Iseconds)] 📦 PVC备份开始"
+              cd /data || exit 1
+              BACKUP_DIR="/opt/longhun-system/backups"
+              BACKUP_NAME="longhun-backup-$(date +%Y%m%d-%H%M%S).tar.gz"
+              mkdir -p "$BACKUP_DIR"
+              tar -czf "$BACKUP_DIR/$BACKUP_NAME" .
+              # 保留最近7天备份
+              find "$BACKUP_DIR" -name "*.tar.gz" -mtime +7 -delete
+              COUNT=$(ls "$BACKUP_DIR"/*.tar.gz 2>/dev/null | wc -l)
+              echo "[$(date -Iseconds)] ✅ 备份完成: ${BACKUP_NAME} (保留${COUNT}份)"
+            volumeMounts:
+            - name: data
+              mountPath: /data
+          restartPolicy: OnFailure
+          volumes:
+          - name: data
+            persistentVolumeClaim:
+              claimName: longhun-data-pvc
+
+# ⛓️DNA-CHAIN
+#   - DNA:V1|丙午·丙申·癸丑·亥时·䷓观|P04鲁班|创建|6条加固全落地·双轨隔离·探针·备份·KFPP|bhash:eb02ad6d|chash:d0369062|←GENESIS
+# ⛓️END

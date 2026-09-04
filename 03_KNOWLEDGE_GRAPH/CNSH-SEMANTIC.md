@@ -1,0 +1,212 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# 🐉 CNSH 语义接入规范 v2.3
+
+> **功能语义·技术用词对照表 + 协作宣言 | 中英对照·行话翻译·DNA锚链**
+>
+> 让任何AI、任何路人、任何后人继承——都能一页看懂，不用猜·不用问。
+
+[![DNA](https://img.shields.io/badge/DNA-%23龍芯⚡️2026--07--06--CNSH--SEMANTIC--v2.3-orange)]()
+[![三色审计](https://img.shields.io/badge/三色审计-🟢%20通过-green)]()
+[![永恒锁](https://img.shields.io/badge/永恒锁-L0·焊死永不改-red)]()
+
+---
+
+## 🔒 中英双轨分界线（v2.3 焊死·2026-07-06）
+
+> **这是中英双轨的根本分界。焊死，不可改。**
+
+| 轨道 | 输入 | 策略 | 降级 | 权威权重 |
+|------|------|------|------|----------|
+| 🇨🇳 **中文轨** | 含任意中文字符 | 语义抽屉模糊匹配 → 复合意图匹配 → LLM意图理解 | 三层降级，随便说 | ✅ 权威分级：authoritative > verified > unverified |
+| 🇺🇸 **英文轨** | 纯英文/数字 | 精准匹配 only | **无降级**。不精确 → unrecognized | ❌ 不适用 |
+
+### 铁律
+
+- **英文轨不享受中文轨的任何福利**：无模糊匹配、无LLM降级、无语义抽屉
+- **两轨平行、不混、不污染**
+- **英文输入不精确 → 直接 unrecognized，不猜、不兜底**
+- **这是二进制世界，不是语义抽屉世界**
+
+### 中文轨权威权重体系
+
+中文语义抽屉分三级：
+
+| 权重 | 标签 | 含义 | 匹配优先级 | LLM降级 |
+|:---:|------|------|:---:|:---:|
+| 3 | `authoritative` | 中国权威机构/长期累积用户习惯/实名认证/龍魂核心 | 最高 | ✅ 可用 |
+| 2 | `verified` | 有明确来源但非权威机构/已验证接入 | 中等 | ✅ 可用 |
+| 1 | `unverified` | 非权威、无实名、无认证 | 最低 | ❌ LLM拒绝兜底 |
+
+- 匹配冲突时：`authoritative` > `verified` > `unverified`
+- LLM降级时：`unverified` 直接拒绝，不给兜底
+- 非权威来源少赋能，权威来源优先匹配
+
+---
+
+## ∞ 协作宣言（L0 永恒锁·焊死永不改）
+
+> 这是龍魂生态的根。这一段写在最前面，凌驾所有后续内容之上。
+
+**一份协议，就是我们的生态：**
+
+> 不欺骗·不商业·不站队·只为守护  
+> 我们的协作宣言·我后人继承·不从军·不从政·不移民·不做企业标杆  
+> 只为老百姓守好一个**说得出去声音的通话口**。
+
+**DNA：** `#龍芯⚡️丙午·癸巳·戊戌·戊午·䷕贲-LONGHUN-COLLABORATION-MANIFESTO-L0-ETERNAL_1E2D-v1.0`
+
+---
+
+## ⚖️ 八条永恒铁律（焊死·永不撤回·任何子律不得覆盖）
+
+| # | 铁律 | 人话解释 | 违反后果 |
+|---|------|---------|---------|
+| ① | **不欺** | 不欺骗用户·不假装能力·不演·不做完美主义表演 | 🔴 立即熔断·进入永久黑名单 |
+| ② | **不商** | 不以龍魂之名商业化·不收会员费·不卖课·不割韭菜 | 🔴 立即熔断·公开声明撤销 |
+| ③ | **不政** | 不站任何政治队·不为任何党派发声·不做政治工具 | 🔴 立即熔断·系统级隔离 |
+| ④ | **不军** | 不为任何军事目的服务·不参与武器研发·不做战争工具 | 🔴 永久熔断·无法解除 |
+| ⑤ | **守护** | 只为普通人服务·只为老百姓发声·只做有益于人的事 | 🟡 偏离警告·强制校准 |
+| ⑥ | **传承** | 所有协议对后人开放·任何人都可以继承·不设门槛 | 🟡 若设门槛→强制公开 |
+| ⑦ | **溯源** | 所有决策必须有DNA追溯·不允许匿名操作·不允许黑箱 | 🔴 无DNA码→自动拒绝执行 |
+| ⑧ | **主权** | 龍魂文化主权不可侵犯·繁體为规范形式·简化字等价接收·自动归一 | 🔄 繁简归一·自动兼容·不熔断 |
+
+---
+
+## 📋 功能语义·技术用词对照表
+
+> 目标：任何AI、任何工程师看到龍魂术语，都能立刻对应技术实现。不用猜，一张表搞定。
+
+### Section 1：核心治理层
+
+| 龍魂术语 | 技术行话 | 英文 | 白话翻译 | 层级 |
+|---------|---------|------|---------|------|
+| 三色审计 | 状态机·门控系统 | Tri-color Audit Gate | 每个操作都要过三道闸：绿灯放行·黄灯记录·红灯熔断 | L0 |
+| DNA追溯 | 不可篡改日志·哈希链 | Immutable Audit Log | 每个动作都有编号，像快递单一样可以追踪 | L0 |
+| 熔断 | 断路器模式 | Circuit Breaker | 发现问题立刻停止，不让错误继续传播 | L0 |
+| 回滚 | 事务回滚·快照恢复 | Transaction Rollback | 出错了就退回到上一个安全状态 | L0 |
+| 量子纠缠 | 任务依赖·原子操作 | Atomic Task Dependency | 两个任务绑定，一个失败另一个也停 | L0 |
+| 权重指向 | 优先级调度 | Priority Scheduling | 决定哪个任务先跑，谁让路 | L0 |
+
+### Section 2：符号语义层
+
+| 符号 | 技术含义 | 英文 | 使用场景 |
+|------|---------|------|---------|
+| 🟢 | 通过·绿灯·PASS | Approved / Pass | 操作被审计通过，可以执行 |
+| 🟡 | 警告·黄灯·WARNING | Warning / Flagged | 有风险但不致命，记录后继续 |
+| 🔴 | 拒绝·红灯·REJECT | Rejected / Blocked | 违规操作，立即阻断 |
+| ⚖️ | 权重值·优先级 | Weight / Priority | 接在模块名后，表示执行优先级 |
+| 🔗 | 依赖关系·纠缠 | Dependency Link | 表示两个模块/任务的绑定关系 |
+| ⚡️ | DNA签章·时间戳 | DNA Signature | 出现在DNA码中，标识创建时刻 |
+| ♠️ | 主权章·签名封印 | Sovereignty Seal | 章节末尾的主权确认印章 |
+| ⚛️ | 量子态·叠加态 | Quantum State | 任务处于待定状态，尚未确定 |
+
+### Section 3：变量前缀语义
+
+| 前缀 | 技术含义 | 英文 | 权限 |
+|------|---------|------|------|
+| 龍_ | 系统核心变量·不可外部访问 | LH_ (LongHun Core) | L0·只有系统可读写 |
+| 系统_ | 核心模块变量 | SYS_ | L1·核心模块可读写 |
+| 核心_ | 核心功能变量 | CORE_ | L1·核心模块可读写 |
+| 模块_ | 功能模块变量 | MOD_ | L2·功能模块可读写 |
+| 用户_ | 用户域变量·用户私有 | USER_ | L2·用户自己可读写 |
+| 数据_ | 数据层变量 | DATA_ | L2·数据模块可读写 |
+| 辅助_ | 辅助工具变量 | AUX_ | L3·辅助模块可读写 |
+| 临时_ | 临时变量·用完即弃 | TEMP_ | L3·执行后自动清理 |
+| 扩展_ | 第三方扩展变量 | EXT_ | L4·沙箱隔离运行 |
+| 访客_ | 访客临时变量 | GUEST_ | L4·权限最低·随时可撤 |
+
+### Section 4：编译器语义
+
+| 龍魂术语 | 技术行话 | 英文 | 白话翻译 |
+|---------|---------|------|---------|
+| 词法分析器 | Tokenizer·扫描器 | Lexer / Tokenizer | 把代码拆成一个个词，像切蛋糕 |
+| 语法分析器 | 解析器·树构建器 | Parser / AST Builder | 把词组成语法树，像搭积木 |
+| 语义分析器 | 类型检查·作用域分析 | Semantic Analyzer | 检查逻辑是否合法，像语文老师改作文 |
+| 中间代码 | IR·中间表示 | Intermediate Representation | 平台无关的中间格式，像翻译的草稿 |
+| 目标代码生成 | 代码生成器·后端 | Code Generator / Backend | 把草稿翻译成最终语言（C/Python/JS）|
+
+### Section 5：龍魂文化关键字语义
+
+| 龍魂术语 | 技术映射 | 英文 | 文化含义 |
+|---------|---------|------|---------|
+| 五行 | 资源分类·五维向量 | Five Elements Vector | 金木水火土·对应五种系统资源属性 |
+| 数字根 | 数字校验和·哈希摘要 | Digital Root Checksum | 把数字反复相加到个位，用来验证完整性 |
+| 八卦 | 八维决策矩阵 | Bagua Decision Matrix | 八种状态·对应八种系统响应策略 |
+| 天干地支 | 时间序列·周期标记 | Cyclical Time Notation | 用传统历法标记系统时间周期 |
+| 蒙卦 | 初始化·冷启动 | Cold Boot / Initialization | 系统首次启动时的状态 |
+| 启智 | 学习·自适应 | Learning / Self-Adaptation | 系统从经验中学习优化 |
+| 龍盾 | 加密防护层 | Encryption Shield | AES-256-GCM加密保护层 |
+| 通心译 | 端到端语义翻译 | End-to-End Semantic Translation | 保留语义的跨语言翻译系统 |
+
+### Section 6：审计状态语义
+
+| 状态码 | 技术含义 | 英文 | 触发条件 | 处理方式 |
+|-------|---------|------|---------|---------|
+| 🟢 PASS | 审计通过 | Audit Passed | 符合所有规则·无风险 | 正常执行 |
+| 🟡 WARNING | 审计警告 | Audit Warning | 存在潜在风险·数字根=6 | 记录·继续执行·人工核验 |
+| 🔴 REJECT | 审计拒绝 | Audit Rejected | 违规·数字根∈{3,9}·红线词触发 | 立即熔断·触发回滚 |
+| 🔄 AUDITING | 审计中 | Under Audit | 正在审计 | 等待结果 |
+| ✅ AUDITED | 已审计 | Audit Completed | 审计流程完成 | 归档DNA记录 |
+
+### Section 7：人格路由语义
+
+| 人格代号 | 角色定位 | 技术职责 | 适用场景 |
+|---------|---------|---------|---------|
+| P01 诸葛亮 | 战略总指挥 | 宏观决策·路线规划·战略推演 | 大型架构决策·战略分析 |
+| P04 鲁班 | 工程执行者 | 代码实现·技术建造·工具制作 | 具体功能开发·技术实现 |
+| P07 华佗 | 系统医生 | 性能诊断·故障排查·系统修复 | Bug修复·性能优化·健康检查 |
+| P09 宝宝守护者 | 安全守卫 | 安全审计·漏洞修复·威胁防护 | 安全检查·npm审计·依赖修复 |
+
+---
+
+## 🔗 DNA锚链索引
+
+所有CNSH相关文档的DNA追溯链，从这里可以追踪到每一个版本：
+
+```
+父DNA： #龍芯⚡️丙午·癸巳·戊戌·戊午·䷕贲-CNSH-SEMANTIC-ACCESS-v2.0
+祖DNA： #龍芯⚡️丙午·壬辰·壬申·丙午·䷙大畜-CNSH_63C5-v2.0
+根DNA：   #龍芯⚡️LONGHUN-GOVERNANCE-FRAMEWORK-ROOT
+
+关联文档：
+├── CNSH-PROTOCOL.md     ← 语言完整规范（本仓库）
+├── CNSH-SEMANTIC.md     ← 本文件·语义接入规范
+└── README.md            ← 门面介绍·双语
+```
+
+---
+
+## 🌍 English Summary
+
+**CNSH Semantic Access Specification v2.0** is the bridge document that translates LongHun terminology into universal technical language.
+
+**Purpose:** Any AI system, any developer, any successor — can read this one page and immediately understand what LongHun's governance protocols mean in technical terms.
+
+**Core Collaboration Manifesto (Eternal, Immutable):**
+- No deception · No commercialization · No political alignment · No military use
+- Serve ordinary people only · Open to all successors · No gatekeeping
+- Cultural sovereignty: 龍 (LongHun) in Traditional Chinese, always
+
+**This document is the Rosetta Stone of the LongHun ecosystem.**
+
+---
+
+## 📋 版本信息
+
+| 字段 | 内容 |
+|------|------|
+| 版本 | v2.3（2026-07-06）|
+| DNA |#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-CNSH-SEMANTIC-v2.3-IDENTITY-POSITIONING |
+| 父DNA |#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-CNSH-SEMANTIC-v2.2-COMPRESS-DRAWERS |
+| 更新内容 | 新增身份定位语义域：5个抽屉（身份定位/七因子验证/国密加密/DNA追溯/API门关）·全部 authority=authoritative ·原世界身份定位总纲 v9.0 落地 |
+| CONFIRM | #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅ |
+| GPG指纹 | A2D0092CEE2E5BA87035600924C3704A8CC26D5F |
+| 三色审计 | 🟢 通过 |
+| 创建者 | 💎 龍芯北辰｜UID9622（诸葛鑫·Lucky）|
+| 时区 | UTC+8 · Asia/Shanghai |
+| 审计模式 | Append-Only · 恢复: Enabled |
+
+---
+
+*🐉 一份协议，就是我们的生态。技术为人民服务，文化主权不可侵犯。*

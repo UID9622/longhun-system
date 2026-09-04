@@ -1,6 +1,9 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-d5f300ca
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-FRAGMENT-EXTRA-SOVEREIGNTY-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 """
 LonghunFont 扩展：20 枚中华文化主权图标碎片
@@ -76,9 +79,9 @@ SOVEREIGNTY_ICONS = [
         + star(500, 360, 14, 6)
     ),
 
-    # 2. 青龍
+    # 2. 青龙
     (
-        "青龍",
+        "青龙",
         polyline([
             (160, 420), (200, 340), (180, 280), (260, 240), (360, 260),
             (420, 220), (480, 260), (440, 320), (360, 360), (300, 420),

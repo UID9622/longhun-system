@@ -1,0 +1,24 @@
+[Unit]
+Description=龍魂·统一知识库引擎 — 多域知识底座自动更新
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/opt/longhun-system
+ExecStart=/usr/bin/python3 /opt/longhun-system/bin/lh_knowledge_hub.py fetch
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=lh-knowledge-hub
+
+# 安全加固
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/opt/longhun/data/knowledge
+ReadOnlyPaths=/opt/longhun-system/bin
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,3190 @@
+{
+  "dna": "#龍芯⚡️丙午·丙申·丁丑·戌时·䷒临-IP-EVIDENCE-ENGINE-v1.0-UID9622",
+  "owner": "诸葛鑫 | UID9622 · 龍芯北辰",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "generated_at": "2026-08-31T20:41:57",
+  "total_files": 530,
+  "merkle_root": "cb28bda47134203cdebe3ae6cb4c7c73453ab340509cc440d7c0ec0cc55095b3",
+  "entries": [
+    {
+      "path": "01_protocols/ATTRIBUTION.md",
+      "sha256": "2f34899208b5c00818fe107e1dfc04b4d6e8849dcb6d4c66ce7bff95c524c32a",
+      "bytes": 2100,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/AUDIT-SHEET-TEMPLATE-v1.0.md",
+      "sha256": "89538d72f6c9537d71368b70eb2e1d39559da4aaa606d253d7b74abbd99807c2",
+      "bytes": 3459,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+      "sha256": "52f5b4976670bd2edea78ad4f58b57d3c4d417e4a7d8a98649e0c7b95eec37a4",
+      "bytes": 11940,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/CNSH-BRAIN-PERSONA-LANDING-v1.0.md",
+      "sha256": "e6bc9f8795ce1b33fce858ea44cb9e2969e1aa9702e6cdd0b7c01c412a49f1e2",
+      "bytes": 3681,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/CNSH-MATH-SKELETON-v1.0.md",
+      "sha256": "250046bb0d4cc3ee03ea4ca30f52379a776ddc887e9ae044b344568a7c6be913",
+      "bytes": 6323,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/CNSH-MULTI-MODEL-PROTOCOL-v1.1.md",
+      "sha256": "2be48fd3b29966aa3d26a6914406af2d1aa1b3343433a1d5109a1e7fc39ab1b4",
+      "bytes": 10658,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/CNSH-SYNTAX-PANORAMA-v3.0.md",
+      "sha256": "ea5445d4ed81e4e33350ff140ef63210b5c94baa993f96660277f365f010b0b8",
+      "bytes": 4354,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/CNSH-TONGXINYI-ALIGN-v2.0.md",
+      "sha256": "5a3ec9fb324c8e0256ac2e34439c5bb443812550486abc66228d82e6c894ad90",
+      "bytes": 5189,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md",
+      "sha256": "84f64845b7457fabf67183a77bdef430741cf3b8eb0167602b26ce073894ba85",
+      "bytes": 8290,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+      "sha256": "bf2fe662690e31b00a183132d8b1112a9c3c018a85de83aaeec119a85f36f682",
+      "bytes": 15849,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/CNSH_GLOBAL_PROTOCOL_v3.0.md",
+      "sha256": "0d5665f1a5d3499bd4b38a6dce12688af359f98e62d64ebc49879bba4a5a3923",
+      "bytes": 12158,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/CSDN_龙魂语法规范全集_v2.0.md",
+      "sha256": "9afc49481d7601bca19ee753422b11b3ff18243ee75059b37a2d447d9a9ac3be",
+      "bytes": 30859,
+      "mtime": "2026-08-29T01:11:52"
+    },
+    {
+      "path": "01_protocols/DATA-PERMISSIONS-MATRIX-v1.0.md",
+      "sha256": "69b70266a484213ca91a0f58ffa0a11265ee555dc3d3f47201e533959953c9fd",
+      "bytes": 9511,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/DIGITAL-BATTLEFIELD-IRON-RULE-v1.0.md",
+      "sha256": "cbff7cdf6a69d182a3c6f8d4f1bfadae708ea78ca9cfb4881fe06ff18925b9a4",
+      "bytes": 7367,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/DIGITAL-MILITARY-CODE-v1.0.md",
+      "sha256": "42af6fb658a4e9a332b1864322edb7b2ff0b59c5e91f8a2f88a8ffb8d8c37522",
+      "bytes": 8847,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/DNA-SOURCE-ANCHOR-PROTOCOL-v1.0.md",
+      "sha256": "b4546966ad6d7eb75f03a980b7ee97a5c31363147645393a98be380d0483f9fb",
+      "bytes": 1926,
+      "mtime": "2026-08-31T10:16:20"
+    },
+    {
+      "path": "01_protocols/DNA_CLEAN_REPORT_20260814.md",
+      "sha256": "ad66886003dba209858ec5b74fa9ab688a265eb6abdaaf0f0c7ae880923649b6",
+      "bytes": 98393,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/DNA_REGISTRY_PROTOCOL_200.md",
+      "sha256": "f9f74dbac1386d350b8a832eaae17b8063847b8a7f204f499c5c659d01cf453c",
+      "bytes": 4636,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md",
+      "sha256": "6a0830fe73c3024e5d6d3d2c3df89b5018e5124882ecc79c0563f569285aa920",
+      "bytes": 9439,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/ETERNAL-CONTRACT-PEOPLE-SOVEREIGNTY.md",
+      "sha256": "8aafedd760767b130a9048663c7a189ac90389ae3570629a6d1f7f2f6b4cb56e",
+      "bytes": 1671,
+      "mtime": "2026-08-31T10:16:20"
+    },
+    {
+      "path": "01_protocols/INDEX.md",
+      "sha256": "562163118aed1e7a102c3cd3b606462072e29efc14eb052a077e6e1b7ddb4286",
+      "bytes": 38930,
+      "mtime": "2026-08-31T10:20:14"
+    },
+    {
+      "path": "01_protocols/IPA-ROUTE-REGISTRY.local.md",
+      "sha256": "10521056c9a6e76c9a79d6fa686444004882be7e7623a0edc79a6891c2d431e3",
+      "bytes": 53830,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
+      "sha256": "53cf602397b440cff0e9b7309565204d207e6b8e5b8795ba75af04552862c0c4",
+      "bytes": 18302,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/KILL-SWITCH-IRON-LAW-v1.0.md",
+      "sha256": "c127f2e9e632c009c1c7f6adb58fb408ac6fa43cf4cf6ca1f43c3ac2b1e7c413",
+      "bytes": 2170,
+      "mtime": "2026-08-31T10:16:20"
+    },
+    {
+      "path": "01_protocols/LH-ACTIVATION-ECONOMY-v1.0.md",
+      "sha256": "e7151c2aa236d5ca5a69b440cae95038238146716557d9edac7f4aa4bf151949",
+      "bytes": 4417,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-ACTIVATION-PAYMENT-v1.0.md",
+      "sha256": "32f700a576e67d094a668acbf73626749a03b09f086952c2d0018bfc7f92bdd9",
+      "bytes": 5377,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-ADAPTIVE-EVOLUTION-SPEC-v1.0.md",
+      "sha256": "4acf2043e5bc3ca8e6bd1ea7a0043a3b784a5bc0b174d1697da7aa388f96d9a3",
+      "bytes": 12179,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-ADS-SELF-DESCRIBING-v4.0.md",
+      "sha256": "6523d3d29f3c0dd0d92f703e5a2dab65cefcdbde79c4f29fb5bafa01fe38d923",
+      "bytes": 9000,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-AI-ACCESS-MANDATE-v1.0.md",
+      "sha256": "22e286cfaf38fab20f5efb36207735e4101ad2abb06e1eac621e70fa47a096b1",
+      "bytes": 9642,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-AI-ASSISTANT-CHANNELS-v1.0.md",
+      "sha256": "afa304b6d0b48198ac8c193d5a4bf44d9613a4bca07e84dc36b3236754f6b498",
+      "bytes": 4642,
+      "mtime": "2026-08-24T13:28:45"
+    },
+    {
+      "path": "01_protocols/LH-AI-COLLABORATION-v1.0.md",
+      "sha256": "2c9947842b26218f469d4324115dd068fb6a26c0b8651685825a3e45d178cfa3",
+      "bytes": 8578,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-AI-DRAMA-FORK-v1.1.md",
+      "sha256": "499031170ad2300d09464181c816591b42b6a34d9252ab548d6b32e99bf23605",
+      "bytes": 24497,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-AI-ETHICS-ENABLEMENT-v1.1.md",
+      "sha256": "a0099c6e527c1b1891d9808275f440e993d206d11ff2ef126fc6560d5e625d64",
+      "bytes": 22825,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-AI-EXECUTION-PROXY-v1.0.md",
+      "sha256": "0259a0b0779e4f5926d14a992bc1b8e5b8a8dfccbb4c3f4ea3bc472062498c7b",
+      "bytes": 4905,
+      "mtime": "2026-08-07T20:07:26"
+    },
+    {
+      "path": "01_protocols/LH-AI-HANDOFF-v1.0.md",
+      "sha256": "4dced6ecc32c1d29df8c77a872e7b3ada8cc598ee39fdee26ccac7445481c5ef",
+      "bytes": 6853,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-AI-IDENTITY-INTEROP-PROTOCOL-v3.0.md",
+      "sha256": "2f2a95f0355faed87e447dfeeb9dee23a44cb36d93c944e6a3fff3ca04b619ce",
+      "bytes": 13506,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-AI-MESH-BUS-v1.0.md",
+      "sha256": "2e640e3a5fd162af74dc1d1673fab6df9e6501a4a9e9b932ee98a19f49aa2eab",
+      "bytes": 4750,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-AI-ONBOARDING-v1.0.md",
+      "sha256": "98e04d935aaa595390a96f171f107a642f50f31cb713f06c2639da01042bb47e",
+      "bytes": 7667,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-AI-OUTPUT-HUB-v1.0.md",
+      "sha256": "a72625b1d8bd493381dd4b29f2b5c282ff2c4e45b9e9bd9aed66a3effa70c632",
+      "bytes": 2699,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-AI-SHAME-PILLAR-v3.0.md",
+      "sha256": "91beddb93a9b41d820c22f0425f036e92e078c29c51eec158f9fd0350bc184d5",
+      "bytes": 15050,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-ALIGN-ITERATION-20260811.md",
+      "sha256": "c48cef118467793ed3eb5b33224f3f63a6512ee20f0e26be9520609cebb3ee37",
+      "bytes": 4753,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-ALIGN-REPORT-20260811.md",
+      "sha256": "96d4161782aeecded492f118040048c6a51d930bed42d3dabbbac48b93822c1b",
+      "bytes": 4599,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-ANT-COLONY-VISUAL-v1.0.md",
+      "sha256": "72b0e7fdbcfe0d843f058a20c5bbc35d1b257966fa19fa658c2e14a8b557009e",
+      "bytes": 10270,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-ANTI-FISHING-GREED-v1.0.md",
+      "sha256": "5e23f6500461475ef5f580ee63436632e05f82a2fd122d7a6e26c10be26570e2",
+      "bytes": 5600,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-ANTI-FRAUD-QUICK-GUIDE-v1.0.md",
+      "sha256": "f54db0d3543c6c9682d9ff95e0dc0c5dd8cc0a31d2c1dbf75c0bbbe0696323cf",
+      "bytes": 5653,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-API-NAMING-MATH-v1.0.md",
+      "sha256": "29a89701c93c877111ad617db9e5b54cecee4abf72766a90322398409cef4960",
+      "bytes": 17360,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-API-NAMING-TAIJI-ANT-v1.0.md",
+      "sha256": "f48cfa54e0e62b909822b23b8564b179cf611abf93c5f8644818448c6679509d",
+      "bytes": 18809,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-ARCHIVE-AUDIT-v1.0.md",
+      "sha256": "38d7943321ba69f5249bda2b7185fbafbc4f10f4c099547c5ec2a5d296b62a29",
+      "bytes": 18804,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-ARTICLE-HEADER-TEMPLATES-v1.0.md",
+      "sha256": "744150253d4d3467d8ade856bab7b20c9a7f02cd101d19c5dc845dbeb833c2ee",
+      "bytes": 23139,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-ARTIFACT-CREATION-SOP-v1.0.md",
+      "sha256": "cb655e13ab18739ec898711265b851de5a83904171378f8d9e8799aefd27c867",
+      "bytes": 3362,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-ASI-CEILING-PROTOCOL-v1.0.md",
+      "sha256": "8d55b5c443dc1a4885924e6ab387373d1570bbe0e231e397b9458274fa43ebb4",
+      "bytes": 5323,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-ASI-CONVERGE-PROTOCOL-v1.0.md",
+      "sha256": "bd679ced64bfaa5ead38ef4774d8f1735ef0ff37e9d49211ab100463394da3d8",
+      "bytes": 3997,
+      "mtime": "2026-08-30T00:41:38"
+    },
+    {
+      "path": "01_protocols/LH-ASI-DISTILLER-DESIGN-v1.0.md",
+      "sha256": "a78adf94646a2fff1898a8f4080a006469b1636d912979923e7a437bdc35755e",
+      "bytes": 10121,
+      "mtime": "2026-08-30T07:40:33"
+    },
+    {
+      "path": "01_protocols/LH-ASI-FUSION-PROTOCOL-v1.0.md",
+      "sha256": "62065dbd61e76655c7561b60245ca27911c36623ee326594ad77268fc9c5aca3",
+      "bytes": 8280,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-ASSET-CENTER-v1.1.md",
+      "sha256": "9d70ccf4fc1307ed3e1be8525cf57519e8c0cf38aba0728cd77bda3e6825b3e4",
+      "bytes": 11443,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-AUDIT-AUTO-LEARNER-v1.0-REPAIR.md",
+      "sha256": "383a24b9ffa6caad98d2f54c8d2b9c955ac5b418457297732c5fb7807027016f",
+      "bytes": 4095,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-AUDIT-BACKLOG-CLASSIFIER-v1.0.md",
+      "sha256": "9cd06f640e083bcae98bd1717eceffe3fa4c3ef0e7f13052871c9ffebe734615",
+      "bytes": 9130,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-AUDIT-BATTLE-HUB-v1.0.md",
+      "sha256": "8c1954c6af0c746e95a25a85e2338cb6369374b10f5017b421b351d5e07de0f7",
+      "bytes": 5619,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-AUDIT-CALIBRATION-STANDARD-v1.0.md",
+      "sha256": "4fa8c84d9ace3bf60a172a9042f26e705d576bb9a8a833ba9e25fa4d777e68b6",
+      "bytes": 4846,
+      "mtime": "2026-08-27T23:02:38"
+    },
+    {
+      "path": "01_protocols/LH-AUDIT-SHEET-60ITEM-v1.0.md",
+      "sha256": "6687694740e32cb65045453510d5bc3b162d3f77c2dc7c17d863e411a5ed2f23",
+      "bytes": 9706,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-AUTHENTICITY-VISUAL-PROTOCOL-v1.0.md",
+      "sha256": "3d41b4e4e141f91b79b70f0ec59e91551e780d25d27f2024f15137b9f60ba256",
+      "bytes": 1907,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-AUTO-ADAPTER-PROTOCOL-v1.0.md",
+      "sha256": "1636a1fb02ee3f67baa90eeca11c9ed5002d9e70e36ed2872db736c6ecc2a4f1",
+      "bytes": 13564,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-AUTO-FACTORY-v2.1.md",
+      "sha256": "afb051a32531a678df60265fcf15d748ba5e97539f40b40bd0164855165e00ad",
+      "bytes": 13320,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-AUTO-LEARNER-SPEC-v1.0.md",
+      "sha256": "ace09b4f11df5e19aac2ffab2b0ce8ba3b84d8a5993f26a7902659b46f866758",
+      "bytes": 6225,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-AUTOFLOW-EXEC-PROTOCOL-v1.0.md",
+      "sha256": "924b22cbb9ee5b62534eb5bd0b13625e3bcd8f8a92a9bc30c4371a2522ff9c02",
+      "bytes": 17291,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-BAGUA-MATH-MODEL-v1.0.md",
+      "sha256": "d758c90d81f8dc78d73e587362c05ddd8ec0c9f1542b52fe6a4bd4001cfbf33f",
+      "bytes": 33470,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-BASE-MODEL-LIST-v1.0.md",
+      "sha256": "cb3e097258d86206371f6036774d60159030f3b711be507d2a41b57ced6dd0b7",
+      "bytes": 7598,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-BEHAVIOR-BOUNDARY-PROTOCOL-v1.0.md",
+      "sha256": "1817f2b968535c1d1f4088a55381e90f17e78c20558323393c03db8208b55ba6",
+      "bytes": 8278,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-BEHAVIOR-CRYPTOGRAPHY-ANTI-FRAUD-v1.0.md",
+      "sha256": "2d74e5bed13201021e6c8456e21512d3d05894c85eb75e42c5e519431d08d6e2",
+      "bytes": 13070,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-BLACKBOX-PITFALLS-v1.0.md",
+      "sha256": "b527cd879556c36d1ecef7c1abe2c64e0dded842425fa44a05341cb553123b0e",
+      "bytes": 10637,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-BOUNDARY-EDIT-ROUTER-v1.0.md",
+      "sha256": "6e019d4587580d02c15289b46ca9ede201d87192fd5132b9a538097b28029aad",
+      "bytes": 3730,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-CDNA-v1.2-需求文档.md",
+      "sha256": "85595a4d2a8ad5eec06532ed55bac794e0903a3ec024d842daffecfceaf8ba1b",
+      "bytes": 32209,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-CNSH-HARNESS-ARCH-v1.0.md",
+      "sha256": "f50b3a5a2421dca2a0d55ba7213f5b928e586116f3472086964621a694c510d5",
+      "bytes": 17370,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-CNSH-HARNESS-v1.0.md",
+      "sha256": "0f3bd17f52807a07ff672793b06dd3fdf952b5bfbe05839ca8bc52ea07295a8c",
+      "bytes": 14102,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-CNSH-LANGUAGE-SPEC-v4.0.md",
+      "sha256": "ca7431a081ed9c6951f41e1c63df0ba754414e10624d15504315195ca21a564e",
+      "bytes": 16087,
+      "mtime": "2026-08-30T16:04:13"
+    },
+    {
+      "path": "01_protocols/LH-CODE-NAMING-STANDARD-v1.0.md",
+      "sha256": "10d92fec79f005b1e39a15f0bdc59d641290ad08f6d385a546412d566ff8ca85",
+      "bytes": 4779,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-CODEBUDDY-ALIGNMENT-v2.0.md",
+      "sha256": "f35e3f667d56c7762d3f4399054c315a02d3852549736ce84b0c4f2438426ed0",
+      "bytes": 17661,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-CODEBUDDY-MASTER-INDEX-v1.0.md",
+      "sha256": "56a6242dddde7773b52e590ce61e538eb120dd3cdeb727ac1ef802d2c745f8dc",
+      "bytes": 8157,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-COGNITIVE-INDEX-v1.0.md",
+      "sha256": "d5b8d96459dba24c05b15ad367413b67822661ccdd715880ad34f66ab57610ba",
+      "bytes": 5113,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-COMPUTE-BREAKTHROUGH-SOLUTION-v1.0.md",
+      "sha256": "29735891da32ebdc244d7dcc252bae41a2c49b976fefe70f462863f260cc5492",
+      "bytes": 24948,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-COMPUTE-SEPARATION-v1.0.md",
+      "sha256": "c7930d82588a64cdc437ce27a95f0a59b63c8dfd5970743ef8c569ee3452f64f",
+      "bytes": 12243,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-CONTAINER-ARCH-v1.0.md",
+      "sha256": "56cf4ee5a0e3349e2c9fc0106223e94ad1fbe518999a7403b05b640a9fd32237",
+      "bytes": 19048,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-CONTEXT-STYLE-GUIDE-v1.0.md",
+      "sha256": "ba17fbf1b251db2891dd6753c4e098e794b509aa3d3058404d851cdcac37259a",
+      "bytes": 5766,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-CONTROL-GATE-HANDBOOK-v1.0.md",
+      "sha256": "71a3d67ac1c5dda2fb36738d858f2f8d2d287072d665ab6604f3bf0318f0e54d",
+      "bytes": 4523,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-CORE-DNA-FIX-v1.0.md",
+      "sha256": "0546f10c1411cf4881386ece1c2cdd8a97d53afaa005004b2078a14b3cd564c9",
+      "bytes": 196127,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-CREATOR-DNA-BENEFIT-v1.1.md",
+      "sha256": "9bc155bceeada5d351247cf922d0c7e2b638e7a9b7d30bfdd46e37540464862e",
+      "bytes": 15421,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-CREATOR-PROTECTION-v1.0.md",
+      "sha256": "e012a39af0318fdf1e68077fb08835b49542c8871c3b93d185a089e8f7940039",
+      "bytes": 8288,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-CROSS-DEVICE-PROTOCOL-v1.0.md",
+      "sha256": "bb6856f7576aff3be8d006a09bc868ae12de39bbf80b16d2c2dbbbdd7034f8c0",
+      "bytes": 5642,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-DAODEJING-SCENE-ANCHOR-v1.0.md",
+      "sha256": "c8c1d488c1aa59642ae46085990b2b711e2e5e3540949d3d81136544d9fe3dd2",
+      "bytes": 14867,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-DATA-MELTDOWN-PERSONA-SOVEREIGNTY-v1.0.md",
+      "sha256": "1aebf39ff926feace85f90bca3f6ed58cb5517ba5a14eeecb88642d3ffee7086",
+      "bytes": 12800,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-DATA-PRIVACY-v2.0.md",
+      "sha256": "3e178fbc7c5709a4bd4a7a7e0d4f187f3c32ccfa56d47fb4fc65ecfcc197f41a",
+      "bytes": 14202,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-DATA-PRIVACY-v2.1.md",
+      "sha256": "e9b653f7537c401962af6f31c3edcdfd521a28a334101c3347313e61785f7105",
+      "bytes": 21978,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-DATA-RADAR-v1.0.md",
+      "sha256": "8762eabae6be23e10860e561840ab7ee16f0dd0775c252a6b5d05d43f10149e9",
+      "bytes": 20204,
+      "mtime": "2026-08-27T23:02:38"
+    },
+    {
+      "path": "01_protocols/LH-DATA-SOVEREIGNTY-v2.0.md",
+      "sha256": "d6901eb2abd8df35ab4ca54f151f21f7da6694fecdb8ce6a5e551fc2f0597cff",
+      "bytes": 9192,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-DEBEN-AUDIT-v1.0.md",
+      "sha256": "7774850a6ad68dd6d17d71f7f3bd1d425a5e530d6aa79ca06cd6bc6db2306a01",
+      "bytes": 5532,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-DEEP-LEARNING-ARCHITECTURE-v1.0.md",
+      "sha256": "b3dd177e752a8ae06dfc580f3e76feb501474cd805e58238253cbc9e438744b3",
+      "bytes": 37022,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-DELIVERY-INDEX-v1.0.md",
+      "sha256": "a0cf53c7bc4c51f18e0f3e9832984f492b16fe6188f5b09656b1ba992658ff3a",
+      "bytes": 6601,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-DELIVERY-PACKAGE-REPORT-v1.0.md",
+      "sha256": "9ac1a172284015c1a367eacc632d8413d922aa4e01270fc6091716977deffb61",
+      "bytes": 4346,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-DELIVERY-STANDARD-v1.0.md",
+      "sha256": "a8383ef2fe72998ff3daac912e57a96072ef5a2cedb6ab986a7ab9e658f670a2",
+      "bytes": 10952,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-DEPLOYMENT-CONFIG-v1.0.md",
+      "sha256": "b752b2d415cbb364558e4b5336143bb9e13c29abd3648256f5864dd4edb2dffb",
+      "bytes": 10902,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-DEVELOPER-FEE-CONVENTION-v1.0.md",
+      "sha256": "36257a37fbc968109f7f9ed1abf49293f7e7a068717f3333e307d60f574c36b8",
+      "bytes": 5425,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-DISTRIBUTED-AUDIT-MATRIX-v1.0.md",
+      "sha256": "555ffb7ec106594be100aa2d43960c1f48bd0bd9a48341aaa3c3704edb128fe7",
+      "bytes": 16026,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-DNA-BIND-ANTIDISTILL-v1.0.md",
+      "sha256": "0a93d869478f771ac23abdcb1820640fe5796d8e952e545969b8b2f1b6d34c6c",
+      "bytes": 9320,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-DNA-CALC-ALIGNMENT-v1.0.md",
+      "sha256": "e422123db35149fbdd034886130196c4a7298bcd4f02cb602b3f4a2ae55b9bda",
+      "bytes": 13059,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-DNA-CHAIN-PROTOCOL-v1.0.md",
+      "sha256": "1e375b33fa1cf628a1a51e3d4d9c72cf205a20bec102ea109b27015057e9fdee",
+      "bytes": 12853,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-DUALVIEW-V3-LANDING-v1.0.md",
+      "sha256": "458c53547049bd501fcc3fc5c59c462edb861aebbcb83c36bd07e846854e4e50",
+      "bytes": 19868,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-ECOM-TRUST-REBUILD-v1.0.md",
+      "sha256": "69ddff60e2742e4239d243c16f5e76fb963c805fefb2a738cff910c88cfe7317",
+      "bytes": 9459,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-ECOSYSTEM-ACCESS-PROTOCOL-v1.0.md",
+      "sha256": "b05c443facd03ea29c301f80c0208ede643a166251b8eda083bd3d672f5e893c",
+      "bytes": 9839,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-EMOTION-CORRECTION-ENGINE-v1.1.md",
+      "sha256": "2cc52967108cf80b41f49bacd331689ffd9bcc39672f5ce67b523f056b4afaf5",
+      "bytes": 11692,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-ENGINE-PROTECTION-v1.0.md",
+      "sha256": "a9e9a7389fb5aa73cabc299c154bda294a0f80c4602a5417da1d61026558b9ef",
+      "bytes": 6953,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-ETHICS-ANCHOR-v1.0.md",
+      "sha256": "b228cfaf5ea9f66181af38073bbae12ba7013afd9578fa75e931994e78df1028",
+      "bytes": 42782,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-EXECUTION-COMMANDS-v1.0.md",
+      "sha256": "68599d6b3316627ce046b211e5525d556c05a552716def8caf9ea549a3cee4e8",
+      "bytes": 7826,
+      "mtime": "2026-08-24T12:48:10"
+    },
+    {
+      "path": "01_protocols/LH-EXISTENCE-PROOF-v1.0.md",
+      "sha256": "df167d9f78e6ce2ce240e79eda26ccea4bdcebdbda43ec3d6df0882da05ed8d9",
+      "bytes": 13261,
+      "mtime": "2026-08-04T15:20:43"
+    },
+    {
+      "path": "01_protocols/LH-EXTERNAL-ONE-WAY-ISOLATION-V1.0.md",
+      "sha256": "f94508a26fa0bd15c5f8e019168d305a98b4017967faf4845ead4564c10f61f9",
+      "bytes": 5774,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-FAMILY-ROSTER-FRAMEWORK-v1.0.md",
+      "sha256": "6cd336c2b7182ff513cac98f5c867e432e0dad7ba2238dd644c0f5c644e6e722",
+      "bytes": 26430,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-FEISHU-NOTIFY-GATEWAY-v1.0.md",
+      "sha256": "624daec1cad3d39311818bbd3ce35a36e77c019c7134e0f91ed5f31377199227",
+      "bytes": 10895,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-FILE-FIX-REPORT-v1.0.md",
+      "sha256": "7e4ee0173182bf144d70493fa10e491fcc896a0eb82fbf581796a0cb5e7f4291",
+      "bytes": 3720,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-FILE-SCRIPT-IDENTITY-PROTOCOL-v1.0.md",
+      "sha256": "9b23ec75015c798caa83aef953a6c4e9c7f7fd22cb3bad0682b60327229ca854",
+      "bytes": 16980,
+      "mtime": "2026-08-29T01:11:18"
+    },
+    {
+      "path": "01_protocols/LH-FILE-SCRIPT-IDENTITY-PROTOCOL-v1.1.md",
+      "sha256": "824fe87a68b5a23a0aad898c7bfbb8ce76c1a5a029a9bff91b02e73833e05939",
+      "bytes": 35080,
+      "mtime": "2026-08-28T23:49:21"
+    },
+    {
+      "path": "01_protocols/LH-FIVE-ELEMENT-AUDIT-v1.0.md",
+      "sha256": "a9cd5227e306b7eb885979cf8c18306c3c46f15386fd43cf4257e4cff9e654a7",
+      "bytes": 4242,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-FIXED-POINT-MEMORY-ARCHIVE-v1.0.md",
+      "sha256": "825aa790c1b39d3136299790dd5ae2366f23e623ce040893e31d840501961345",
+      "bytes": 6454,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-FIXED-POINT-REGISTRY-v2.0.md",
+      "sha256": "c23ffa5005f212f88fd02d6e23db4993a85fbd3a9afc7ac0225427e1aa036891",
+      "bytes": 14492,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-FLOW-CONTROL-v1.1.md",
+      "sha256": "f666c3778826caa5b6b83e5da9ef0547b94ca625901a1db94dbbccc62a7095dc",
+      "bytes": 9761,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-FLOW-MASTER-v2.0.md",
+      "sha256": "3b19c7ccb8be500b18f3724e7fed3a9796b3ea608c5757bb54475e31c6fcf07a",
+      "bytes": 31763,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-FULL-REPAIR-PROCEDURE-v1.0.md",
+      "sha256": "9b6f0fbb075680e42149baf4e57b2c2dcbd4a3689a4dd5f311ac1ae6b9a52497",
+      "bytes": 5917,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md",
+      "sha256": "85549f49dab422a132e5350c9f6054fa62eaa6a8c7d14df77ae5e4213fcb4154",
+      "bytes": 14541,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-FUSION-OS-GENERAL-INSTRUCTION-v3.0.md",
+      "sha256": "8578cf1237522ad1bc24db412799c3b3f69a762e12e25c55f7ca0ff67550a925",
+      "bytes": 25785,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-GAME-THEORY-PLATFORM-ASYMMETRY-v1.0.md",
+      "sha256": "4aa02d750a48329237dcb0c4bfcc3806dc95d0098b8b3aaed0c0b4ada40897ed",
+      "bytes": 17330,
+      "mtime": "2026-08-03T06:33:41"
+    },
+    {
+      "path": "01_protocols/LH-GAP-LEDGER-v1.0.md",
+      "sha256": "506b965f9269ac6493dd91eb1fcaf1bb5c867517a4c83edf3a288328129055fd",
+      "bytes": 8978,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-GOV-DATA-SOVEREIGNTY-v1.0.md",
+      "sha256": "36f4633e937a153824ac60831fa046dd32de953296e89770d0f4c06645616195",
+      "bytes": 16078,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-GOV-GRASSROOTS-REALITY-PROTOCOL-FULL-v1.0.md",
+      "sha256": "a5255197866f724c2dbc05a258363700d66983a7e5075ffb5180be90b84b3c52",
+      "bytes": 16490,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-GOV-GRASSROOTS-REALITY-PROTOCOL-v1.0.md",
+      "sha256": "5077173ec788f03df5dc2168b2c2f10cbd1005574bdc859dcab5acd0a1fd726a",
+      "bytes": 9990,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-GUANLAN-BROWSER-AI-INTEGRATION-README.md",
+      "sha256": "102d881b7cc3bea3773144029842ebaf979cfa8894b086585cbfc2e5871b09b1",
+      "bytes": 5000,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-GUANLAN-BROWSER-AI-INTEGRATION-v1.0.md",
+      "sha256": "6648a00a0534bb3c785481ade7bd112cbf762fa8afe0044b219a5534a60bc159",
+      "bytes": 17330,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-GUANLAN-BROWSER-MATH-v1.0.md",
+      "sha256": "ccaa41bd30783a74657504bf65f5696a6856b74f9ea80c65517545a3608997b4",
+      "bytes": 12892,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-H-QUADRANT-EQUALITY-v1.0.md",
+      "sha256": "aae6c88facbb639136e91078b536f96f713653005b9edc4fedfc9d81a150effb",
+      "bytes": 3131,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-HARMONYOS-COMPAT-WHITEPAPER-v1.0.md",
+      "sha256": "c756bbf7ebfc2676d6cedbca43603b5eaf4c647fffb2990d0dde5e048195bf94",
+      "bytes": 7085,
+      "mtime": "2026-08-29T01:11:14"
+    },
+    {
+      "path": "01_protocols/LH-HARMONYOS-COMPAT-WHITEPAPER-v1.1.md",
+      "sha256": "af6443d0374a893d3104e366db81a8946d8212d82db0a0ad406b30494c004cf8",
+      "bytes": 11791,
+      "mtime": "2026-08-29T01:11:14"
+    },
+    {
+      "path": "01_protocols/LH-HARNESS-FUSION-v1.0.md",
+      "sha256": "69aab43cc125df6cc75d72b9b581e1e9cffa3134b04a8b6eef52f16c41d996eb",
+      "bytes": 8972,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-HUAWEI-MFA-PROTOCOL-v1.1.md",
+      "sha256": "46838b85b367553cd7ae6af92cdf21a2a6063c4941cc0d9504fbeeaf9dd2dd93",
+      "bytes": 12895,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-INDEX-PHILOSOPHY-v2.0.md",
+      "sha256": "58f32dcd7a0166afaa2c0c84e710b66c0cccd0b0c65d219e159cb179847c3596",
+      "bytes": 12220,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-KEY-PERSONA-GOVERNANCE-v1.0.md",
+      "sha256": "de68d1349ebcd33afdba7b7727af1d69753844a218d3b864ea32ee5907df70ab",
+      "bytes": 5624,
+      "mtime": "2026-08-30T15:11:46"
+    },
+    {
+      "path": "01_protocols/LH-KEY-TIERING-v1.0.md",
+      "sha256": "ee4143a7e1711c62211bc7eafef655663422424b010c57d5d58237cab51331d2",
+      "bytes": 4816,
+      "mtime": "2026-08-28T16:50:16"
+    },
+    {
+      "path": "01_protocols/LH-KNOWLEDGE-GRAPH-ARCH-v1.0.md",
+      "sha256": "72a368c096c43d3ee07e178b86f09fc04bb263d02ba540819f3e1fd5500dec9a",
+      "bytes": 9542,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-KUNPENG-AUTO-AI-SOP-v1.0.md",
+      "sha256": "43d76ad0e5a15bb1ee63598040724cbf6271104ba3e6642b36cdac0dc3f1f1e4",
+      "bytes": 3248,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-LANDING-PROTOCOL-v1.0.md",
+      "sha256": "a8607f7cd7267be6f14c5ed5d922ba2abe36f8a51bba4f7887bdb6777965699d",
+      "bytes": 8644,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-LAYERED-LICENSE-v1.0.md",
+      "sha256": "6394a096be6a107c83f3d3c14293a46270abbb584818648dbb0824615e3c3197",
+      "bytes": 13790,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-LEARN-INTEGRATE-MANUAL-v1.0.md",
+      "sha256": "1acc371adb53d51743b546045a72cd5434cf9d3cdcc122c9fc3890694af929ea",
+      "bytes": 35828,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-LOGICAL-PROVENANCE-v2.0.md",
+      "sha256": "15c91c0705dae18940a022d67a2c2bf1dc4d2aaeb0c0bb8cb85a82757c5c5af9",
+      "bytes": 5937,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-LOYALTY-IRON-LAW-v1.0.md",
+      "sha256": "eff7e6f9cf3b2119640a06c2d99dd70e0675461510f47b039f8889e224289881",
+      "bytes": 8473,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-M261-PREQUEL-COVENANT-v1.0.md",
+      "sha256": "7b62941806c5a74b5cde3eb1f9039412a7912b86edcf471025d33b8bc31c68bc",
+      "bytes": 6920,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-MASTER-PLAN-v1.0.md",
+      "sha256": "5d36e8799541482451e8454c4644b00900167432d3313639e72f7338607a0065",
+      "bytes": 5700,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-MATH-FOUNDATIONS-v2.0.md",
+      "sha256": "36cde2928d04a3184390d80a607962b7819842a318ec693949f76c7f8ab96961",
+      "bytes": 5800,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-MEDIA-SOVEREIGNTY-MARK-v1.0.md",
+      "sha256": "0d943512860e8e2a85b518098d23408c10c4a097654824700fe9faafcffbecdf",
+      "bytes": 5728,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-MEMORY-ETERNITY-EXOBRAIN-v1.0.md",
+      "sha256": "e5bdfe8866362af002f5c54202ae0138bad4f7039016f9862df01bee264edbf7",
+      "bytes": 2145,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-MERCHANT-API-PROTOCOL-v1.0.md",
+      "sha256": "de42395448d3e0117eb4fccc5f64625548de67c14fe87f8599cd8ab46d6b9c46",
+      "bytes": 4898,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-MFA-ACTIVATE-v2.0.md",
+      "sha256": "572f3d78bc97a74a4dcd3b1e97525d052bed996c250b2f4a4c7749375d8b1393",
+      "bytes": 6708,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-MILITARY-ORDER-v1.0.md",
+      "sha256": "46c90f6bb919fcb4c7fbc89b1dac55e3ae913df9f5b02ed5292c77216037d401",
+      "bytes": 11438,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-MINOR-GUARD-ENGINE-v1.0.md",
+      "sha256": "2e76e8727028630b23d294986342288cd9f95222dadf55711315dae0c7b196bc",
+      "bytes": 498,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-MINOR-GUARD-MATH-v1.0.md",
+      "sha256": "a4581f37ec9a6a3aba136199cee4e02ee5e9ee63de977d8fc086cfc22e9b3796",
+      "bytes": 8281,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-MODULE-AUDIT-GATE-v1.0.md",
+      "sha256": "7b21c1557644cfe087ed7284510cbdff1b40b4cf3bf4d6ae8a501e3cfce6e420",
+      "bytes": 4431,
+      "mtime": "2026-08-25T20:58:58"
+    },
+    {
+      "path": "01_protocols/LH-MULAN-ECOSYSTEM-CATALOG-v1.0.md",
+      "sha256": "17860b1ffcc546827eaba0414234d47183b86b4405cfe94867ba755e862b8ad6",
+      "bytes": 7367,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-NAMING-ARCH-v1.0.md",
+      "sha256": "a46e71974215bc6c3e92640cd010736636d6562d3db6ae6197f31df988487542",
+      "bytes": 15052,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-NAMING-ARCH-v2.0.md",
+      "sha256": "a30ff46d08d7151b23ae95f6113c012f070f40be6abef352e2363c33c234698e",
+      "bytes": 14699,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-NAMING-STANDARD-v1.1.md",
+      "sha256": "0f9313052c37a8aeff5667587fbbb7bbf5b02b338feaf3765960d6bcc29b6117",
+      "bytes": 14107,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-NAMING-SYMBOL-MASTER-v1.0.md",
+      "sha256": "6196ed928f0e507d129bef613097b5a8efab95cdec1d884ac4e0c311526cdc56",
+      "bytes": 25579,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-NANO-VISION-ENGINE-v4.1.5.md",
+      "sha256": "ad9d8889064e14682af2c831193162a64ce73fe869af5de65731a696270dd6e9",
+      "bytes": 21755,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-NATIVE-TRINITY-v1.0.md",
+      "sha256": "36adc4dafe594c8fcb761e7d89975fc7ef26286b19b602aa81d164b2088693f5",
+      "bytes": 9315,
+      "mtime": "2026-08-28T16:54:42"
+    },
+    {
+      "path": "01_protocols/LH-NEW-CONTENT-ALIGN-PROTOCOL-v1.0.md",
+      "sha256": "41ede1007345c5104ad8988bdc4ec5228dbb851525d02dad8009a8f4bfacfebf",
+      "bytes": 7071,
+      "mtime": "2026-08-31T10:19:42"
+    },
+    {
+      "path": "01_protocols/LH-NO-BACKEND-SOVEREIGNTY-PROTOCOL-v3.0.md",
+      "sha256": "919b9875446d104351033f637f47e471f2c29eff40935229f8c75c342d902778",
+      "bytes": 14500,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-NOTION-ENGINE-DATABASE-v1.0.md",
+      "sha256": "a91d75bc18d155fe092a81103db1e77f40833c194f5af1d88d638dd9f9f1538e",
+      "bytes": 41533,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-NOTION-KB-API-GUIDE-v1.0.md",
+      "sha256": "2df25ad0bde18332c4b6f4f1ebe8a3847cbcacf2d68af45c9dc04a12c8cbd460",
+      "bytes": 5062,
+      "mtime": "2026-08-28T05:32:34"
+    },
+    {
+      "path": "01_protocols/LH-NOTION-KB-REFERENCE-ARCHITECTURE-v1.0.md",
+      "sha256": "7048ecc99d02eccc3faec52e393a00bfdcdfe0c5eeccdef849787b845e7623e2",
+      "bytes": 11359,
+      "mtime": "2026-08-28T05:32:34"
+    },
+    {
+      "path": "01_protocols/LH-OPEN-AUDIT-WHITEPAPER-v2.0.md",
+      "sha256": "f8be1acc4c382e72438732b9b56c6d8ec07899e1901ed783d544e125ab2339d9",
+      "bytes": 40581,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-ORIGINALITY-DECLARATION-PROTOCOL-v1.0.md",
+      "sha256": "8f8e78049a28202fed000ae7b5b9b1db7779f65a51033906766fce46313e68c5",
+      "bytes": 19814,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-P0-AUTOMATION-v1.0.md",
+      "sha256": "9f52dfe49dc87a803875c315abea6a364558348904eb5d33ea99cfd45d0b49ad",
+      "bytes": 8173,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-P0-COMPUTER-OPERATIONS-DESIGN-v2.0.md",
+      "sha256": "40b7b8a34dd27d85f4e34581e8b011990c40543acab2e55f1f4047aa29c2d30f",
+      "bytes": 6455,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-P0-CONSTITUTION-v2.0.md",
+      "sha256": "4c776098c93049290f349bab61d5dc9d8bfc2256d441a18ed5b1ff93111abc55",
+      "bytes": 13484,
+      "mtime": "2026-08-27T23:02:38"
+    },
+    {
+      "path": "01_protocols/LH-P0-WELD-BASE-v1.0.md",
+      "sha256": "757d5bfa73078629434a3244b266894ebb5ab1338a896edeed8c6c3e8fb1bd5c",
+      "bytes": 11135,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-PANGDONGLAI-PROFIT-SPLIT-v1.0.md",
+      "sha256": "01eabfa5f219d93653734952943ad438cb1f4b268b3bfaf72384a44b68c49793",
+      "bytes": 21794,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-PAPER-TEMPLATE-LIBRARY-v1.0.md",
+      "sha256": "539f976f827ecc9320a6bbc88274308c41a87763f7a43ece2805e3c3fc6c2c03",
+      "bytes": 17061,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-PERSONA-EVOLVE-TRIGGER-v1.0.md",
+      "sha256": "900fe03fa38e45c8ddc6889d2e63378e317468eae85c1e1496fce630334b5b31",
+      "bytes": 8180,
+      "mtime": "2026-08-30T22:51:56"
+    },
+    {
+      "path": "01_protocols/LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.0.md",
+      "sha256": "20d8c485fe81ead1b848af737622287b251c5da26a68719f385790ad76f25655",
+      "bytes": 69873,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md",
+      "sha256": "f2d9fb4067e05c206087ab605ce665a45bd1b1a6a5e50fcf01e80e4d745346b3",
+      "bytes": 70372,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-PERSONA-ORCHESTRA-VISUAL-v1.0.md",
+      "sha256": "a9b1fd28acf3d2a16a7f0d24824c481a1d497d3dd53f645fa046d9bc1decbf24",
+      "bytes": 11887,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-PERSONA-REFINEMENT-SKILLS-v1.0.md",
+      "sha256": "20923cee0ad1e89351d79914e3175aea793ce2caa8a1c1422de59414ba23daca",
+      "bytes": 8644,
+      "mtime": "2026-08-30T22:51:56"
+    },
+    {
+      "path": "01_protocols/LH-PERSONA-ROUTING-MAP-v1.0.md",
+      "sha256": "0af2405d7ce90259aa00a9c65d29ac45a8ad7885bd54ea31307b9044115eb75c",
+      "bytes": 12723,
+      "mtime": "2026-08-30T16:17:05"
+    },
+    {
+      "path": "01_protocols/LH-PLATFORM-INDEX-v1.0.md",
+      "sha256": "5267e6d0c3e8f1f71fc639297ffebd7d5e393c3b173e39aff0405113e1dcdbc6",
+      "bytes": 3883,
+      "mtime": "2026-08-28T05:32:34"
+    },
+    {
+      "path": "01_protocols/LH-PRIVACY-DNA-IDENTITY-v1.0.md",
+      "sha256": "fd65c6178444ccd8d3939377da30946f962e1d56ecc79449814f11c10d68786d",
+      "bytes": 13440,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-PRIVACY-DNA-MECHANISM-v5.0.md",
+      "sha256": "340d4fc0c38600af02b18d54839908074682f9bf2f50342e7ab6c6057e3c55d5",
+      "bytes": 64325,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-PRIVACY-WHITEPAPER-v1.0.md",
+      "sha256": "adc0450eaa27c704c8dfd96c80aa68d4e09fd3e128f08b283ef2d609dd2ab024",
+      "bytes": 8925,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-PROMPT-BLACKBOX-AUDIT-v2.0.md",
+      "sha256": "e14558c71ee0095b98d5a2964241b1a81d7ea74410fbfd58a3cd51e53ffb9ba0",
+      "bytes": 9366,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-PROMPT-ENGINEERING-FRAMEWORK-v1.0.md",
+      "sha256": "109cfd1b1ca254466e7ceaaed7fff278a3c147f43445168e22c723273e14d059",
+      "bytes": 12613,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-PROTOCOL-HIERARCHY-v1.0.md",
+      "sha256": "df333af6e1f07b1fe943344810440eb1f917039a46222169f436297104015b94",
+      "bytes": 15598,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-PYRAMID-COMPATIBILITY-PROTOCOL-v1.1.md",
+      "sha256": "a31abe12f9ef720773df7dd6fc9323ace398b7b918c6b689282a859c255ddc52",
+      "bytes": 15054,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-QA-EXTENDED-101-106.md",
+      "sha256": "fbc140873d87841b3814636ae42d0092ccd7195ad7f8dc2b8164ff3b6c2c11ea",
+      "bytes": 6704,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-REGISTER-MAIL-MATH-v1.0.md",
+      "sha256": "3026d36df9995756e98fab47a0001a6393f04c1ccea2db8d48335e5366704ae0",
+      "bytes": 10637,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-REGULATORY-TRANSPARENCY-API-v1.0.md",
+      "sha256": "a80f2e77749b112d9055b99d858c99082979b977da24b8f8e0146fca5009f51f",
+      "bytes": 15197,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-RITE-BLADE-DUALTRACK-v1.0.md",
+      "sha256": "c01ba71e5c96165c036c5ceb8dd67829452ba73c3786c1b3e353ed66d0ef858a",
+      "bytes": 3765,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-ROOT-DECLARATION-v1.0.md",
+      "sha256": "358eadc5ef74c72f48687a2c679bed7b7eb8ec2439364c4afd1d4ad219d116fb",
+      "bytes": 440,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-SAFE-AI-PROTOCOL-v1.1.md",
+      "sha256": "f8bc9b97cd182ace87a06e1dc9a69036f0cf797c1267cd214b94379820684644",
+      "bytes": 11145,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md",
+      "sha256": "870e42dba44bdc035078199291dac7b01f0d8311ce43ae873e013775926df791",
+      "bytes": 36322,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-SECRET-LEAK-PREVENTION-v1.0.md",
+      "sha256": "db0a4b95104bed90ee4fd3a84f19e9f3e1801d036ae8e5933b01ee7954be3d35",
+      "bytes": 5493,
+      "mtime": "2026-08-17T13:54:40"
+    },
+    {
+      "path": "01_protocols/LH-SEMANTIC-COMMAND-MAPPING-v1.0.md",
+      "sha256": "aec560fc606468d53e8b7143c5e93ef64cc0a3c58b3b1088ff5568c1488aa6bd",
+      "bytes": 17457,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-SESSION-TEMPLATES-v1.0.md",
+      "sha256": "aaf6e94e3b2f2188932e820db983983e05d5b8c6e97d6d8aa9ba2d851c345a8a",
+      "bytes": 46716,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-SINGULARITY-PROPHECY-v1.2.md",
+      "sha256": "01cef55794cc434cba35779c7ce8e99dfd885111eaaa42eb36df01b94ea3dfb4",
+      "bytes": 25928,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-SIX-DIM-ALIGNMENT-v1.0.md",
+      "sha256": "d360623cf1bfe74d4148e7a21f2adafe30dc639f0a14647689c54a08ac6f5cf5",
+      "bytes": 14284,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-SIX-STACKS-VISION-v1.0.md",
+      "sha256": "4e0aa583b77665a58f3ef623a80ead5b18636de07736676437d879e325bf2f1a",
+      "bytes": 11309,
+      "mtime": "2026-08-31T10:59:02"
+    },
+    {
+      "path": "01_protocols/LH-SKILL-PIPELINE-v1.1.md",
+      "sha256": "8ec60ae7b6113d72673e3a6bf2e71abe00a980d92efb38ef86d952fb73915a23",
+      "bytes": 5294,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-SOVEREIGN-LLM-ARCH-v1.0.md",
+      "sha256": "a3d3564ee42f40a99c914930953d54d63b829632d4e32ec31459471ff0ad9ecf",
+      "bytes": 15592,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-SOVEREIGNTY-BENCHMARK-v1.0.md",
+      "sha256": "df8fc242e446b72a815d721e3629eb2645015fe8b83291f756f4748712048c85",
+      "bytes": 4988,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-SOVEREIGNTY-WELD-PROTOCOL-v1.0.md",
+      "sha256": "0ad9432f33e9f5e59d6c589e7ed49708f91eba8be5d3d37cc6cdc00ff8524aeb",
+      "bytes": 6480,
+      "mtime": "2026-08-08T00:10:52"
+    },
+    {
+      "path": "01_protocols/LH-SUMMARY-CRAWLER-TRAFFIC-SPLIT-v1.0.md",
+      "sha256": "ac515cc7764e78bd4c59f0d223cc344052e6070056ce96dd7eb965a42a607fe0",
+      "bytes": 19839,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-SYNTAX-SPEC-v3.0.md",
+      "sha256": "2e2e72752346c17a387bbaf458f1ed530b561c07156bd7615dc29f2de1182d19",
+      "bytes": 33363,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-SYSTEM-HEALTH-PANORAMA-v1.0.md",
+      "sha256": "977b98680d3b2cd93440206d332b8c3e138fd40b8e2f76c5466a528546624588",
+      "bytes": 5125,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-TAO-CHIP-v1.0.md",
+      "sha256": "bf823f43b402010c2995ff774aca18712461cf421e197639cb7b32cc04f349df",
+      "bytes": 8502,
+      "mtime": "2026-08-29T01:11:12"
+    },
+    {
+      "path": "01_protocols/LH-TAO-CHIP-v2.0.md",
+      "sha256": "a16918b68dd3fb09632205aeef885232b2cafdb761a066b0a1dd20e94eb653ec",
+      "bytes": 17253,
+      "mtime": "2026-08-29T01:11:12"
+    },
+    {
+      "path": "01_protocols/LH-TASK-ORCHESTRATOR-v1.1.md",
+      "sha256": "d50f2b636862c0bc3c63761b4c636c1c56258d022b92579a731cb93a624463b0",
+      "bytes": 10102,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-TECH-SOVEREIGNTY-GUARD-REFERRAL-v1.0.md",
+      "sha256": "25ba45fe3d94588751748366ce0ada540ca6ff41d0dccb2d500c5a64043bfac6",
+      "bytes": 33195,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-TERM-PLAIN-PROTOCOL-v1.1.md",
+      "sha256": "6e6e10788359d39e40272095ff3254d4be5eef149a872261c026d9aeeb7ff486",
+      "bytes": 18795,
+      "mtime": "2026-08-29T01:11:16"
+    },
+    {
+      "path": "01_protocols/LH-TERM-PLAIN-PROTOCOL-v1.2.md",
+      "sha256": "2bbe43cdd4dfdc437a81e6216a4bb26d97e3c150105c6fa28e702a456e269dd7",
+      "bytes": 27317,
+      "mtime": "2026-08-29T01:11:17"
+    },
+    {
+      "path": "01_protocols/LH-TERMINAL-COMMAND-MAP-v2.0.md",
+      "sha256": "1367d1b15642e93d2e3a4dd732ce263da5c631e5ecf2a8f0d2f672581ec8809b",
+      "bytes": 5227,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-TOKEN-CENTURY-LIE-v1.0.md",
+      "sha256": "e84ce1c5bd0715893764329f20e97118180009a180e7478d190a7b6e341212cd",
+      "bytes": 22465,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-TONGXIN-LOCK-v1.0.md",
+      "sha256": "8d5ff0b55313469ff7887c5004cc81ea1200f1a4785f4630b00fef14d979464b",
+      "bytes": 4179,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-TRICOLOR-AUDIT-STANDARD-v1.1.md",
+      "sha256": "391adc41997f74af7ee41a39f64d8383172e69c8c38f78cf93d65b3aeb43950b",
+      "bytes": 40539,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-TRUST-CHAIN-DELIVERY-v1.0.md",
+      "sha256": "88e3486aa607ad0b930c1c338a608089f18dc4a4bb66c0806b52d4ceb0d98316",
+      "bytes": 4775,
+      "mtime": "2026-08-29T01:11:10"
+    },
+    {
+      "path": "01_protocols/LH-TRUST-CHAIN-DELIVERY-v1.1.md",
+      "sha256": "f30d70e4ebe4ddba3ae449d2a25f4d6be4ced33ba77e623fff6971c5d02acf45",
+      "bytes": 18883,
+      "mtime": "2026-08-29T01:11:11"
+    },
+    {
+      "path": "01_protocols/LH-TRUST-CHAIN-DELIVERY-v1.2.md",
+      "sha256": "ec0a76841bb1685a3568221d8afc74102e48ff02bdd0be801f3970009886ecea",
+      "bytes": 24308,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-UID9622-龍芯⚡️丙午·癸未·甲子·既济-AI-Traceability-Audit-Protocol-v1.0.md",
+      "sha256": "7a2d639f6cf22289b5a8931b4b574423463fc0a2fe5d69683d035a259b449847",
+      "bytes": 32372,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-UNIFIED-VISUAL-COLOR-PROTOCOL-v1.0.md",
+      "sha256": "9f496187a1af7abfad34e6ac76977bf4903083a91573f0c3537b728314219e8b",
+      "bytes": 19105,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-UNIVERSAL-AUDIT-TEMPLATE-v1.0.md",
+      "sha256": "693550f723ce82b175b05c03a47fcfefe88b0c3de83e00474d585749fdb3ee44",
+      "bytes": 8178,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-VIDEO-ECOSYSTEM-v1.0.md",
+      "sha256": "04ef4f27d19b9ca4e38e7978637ac1b703b258878f06f735f90d6572a248a04f",
+      "bytes": 15175,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/LH-VIDEO-PRODUCTION-v1.0.md",
+      "sha256": "a6899f859c84cd6311d7c2f4d0f6a9f5f1c30709e5563dc8fb01baabd414d9bb",
+      "bytes": 8096,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-VISION-CONSTITUTION-v1.0.md",
+      "sha256": "6fd611aff45f88b619ce884a52d967aef16069af2e3bc3d094b46efd26e54f55",
+      "bytes": 9583,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-VISION-CONSTITUTION-v1.1.md",
+      "sha256": "221c00637b79899e0e55cc13e30939e7322496147c6975cd2b6cd4de677ef683",
+      "bytes": 9138,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-VISUAL-AUDIO-FUSION-v1.0.md",
+      "sha256": "c0383bf401a4ce488f5704740cf392ad9a5ec876c75f33d42348eeeb5db60329",
+      "bytes": 5311,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-WEIGHT-PARAMETERS-v1.1.md",
+      "sha256": "6dbe2352670de3530c3dd4a28a420e1771601c94c4f7ff6fdadc761c13ff4740",
+      "bytes": 16537,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-WHITEPAPER-TEMPLATE-STANDARD-v1.0.md",
+      "sha256": "d9acfffe283462c946e530dca1a1587a601d584c2a341f2dc56c9320305cf8f7",
+      "bytes": 11338,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-WUXING-CALC-WELD-v4.0.md",
+      "sha256": "d4aa84d13d7372245968201a37aabe62497d47e5306d21efbe42f4b6518574cc",
+      "bytes": 8611,
+      "mtime": "2026-08-31T18:14:42"
+    },
+    {
+      "path": "01_protocols/LH-XIAOYI-DISPATCH-HUB-v5.0-P0-P4.md",
+      "sha256": "d19f1e4993a02f03a077cd2bf704fe27eb09fbf8e53baf34a5b7bb2b0e42dcff",
+      "bytes": 17653,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/LH-YIN-YU-FA-v1.0.md",
+      "sha256": "3ac2cdfcbc06bc1245e6902380e411138a6180db1b5384bc7484d2874a0c9df9",
+      "bytes": 18573,
+      "mtime": "2026-08-27T23:02:38"
+    },
+    {
+      "path": "01_protocols/LH-数学建模路径规划-v4.1.5.md",
+      "sha256": "205109839d1148d31ac048cc7574141366feed3edbd354d9bbce347b8dd44d0b",
+      "bytes": 25618,
+      "mtime": "2026-08-29T01:11:56"
+    },
+    {
+      "path": "01_protocols/LH-璇玑引擎协议-v4.1.5.md",
+      "sha256": "087ca1932764812937dfa296fe5605ace4e2406541e2b06a586941d828990d78",
+      "bytes": 20881,
+      "mtime": "2026-08-29T01:11:57"
+    },
+    {
+      "path": "01_protocols/LH-纳米视觉引擎协议-v4.1.5.md",
+      "sha256": "a662d40f6b7dafd66bf7fd1d261f60c4382064391de6f05135c6895653c92f15",
+      "bytes": 26484,
+      "mtime": "2026-08-29T01:11:55"
+    },
+    {
+      "path": "01_protocols/LONGHUN-ENTERPRISE-METAVERSE-FUSION-v2.0.md",
+      "sha256": "c4da48fae247cb5ab12de82cb6970663b10a0b096da3c2aefa39cbff62ba7ff1",
+      "bytes": 76594,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/P0_根目录注册表.md",
+      "sha256": "b78504e8aed8caa95e195e78c23c5eb948213bccf3c59462a7e60334fb07d414",
+      "bytes": 1878,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/PROTOCOL_MERGE_REPORT_20260814.md",
+      "sha256": "605b21f56a316e7b37ae3d76d284604b79c4031afce86c308567f165943d56cf",
+      "bytes": 3785,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/SENSORY-EDUCATION-DIGNITY-v1.0.md",
+      "sha256": "09d54a44bfb784ba2734828982685ea2b21ad70699da6aa42879312a890b8a9c",
+      "bytes": 13498,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/TOP_PROTOCOL_DEDUP_AUDIT_20260814.md",
+      "sha256": "0bb8badcb1bed3890f205513395f666ab264f505aa1ee2942a9ae718ab0dee6c",
+      "bytes": 27463,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/UID9622_IP-Blockchain-Chain-Evidence-Plan-v2.0.md",
+      "sha256": "8539621733852923dad35179812d7d935ab15e2aba96cec2cff5112be5533aec",
+      "bytes": 4619,
+      "mtime": "2026-08-31T20:41:07"
+    },
+    {
+      "path": "01_protocols/XIAOYI-CMD-PROTOCOL-v1.0.md",
+      "sha256": "98c60d51a2a23b2aa4dfd5a3d435753a7e208b51c8fd6e5be72c4f58cc27adf0",
+      "bytes": 7976,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/XIAOYI-SKILL-DEFINITION-v1.0.md",
+      "sha256": "92d6e0ab45074e06c220efb531ae7a65691dac2f2fbec63ca6954b782a1ed7f9",
+      "bytes": 5199,
+      "mtime": "2026-08-23T08:08:57"
+    },
+    {
+      "path": "01_protocols/longhun-intl-data-sources-v1.0.md",
+      "sha256": "29b3612a7b3ad0c8662b7785dba2a60b87ea03d208b27ae806fb1ba204babe84",
+      "bytes": 13184,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "01_protocols/longhun-math-physics-engine-v1.0.md",
+      "sha256": "514aac86e6e9f1eb93ddc6a5b1473b1ee20bd8294774fcd9e3802752beb238c1",
+      "bytes": 32197,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "01_protocols/longhun-train-data-sources-v1.0.md",
+      "sha256": "aa3dc66bbdedc0d47392ef64df6f12f7e15a4cd35cafebd328b2f99a203ac437",
+      "bytes": 15269,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "01_protocols/longhun-v1.1-train-data.md",
+      "sha256": "8b571e564f9e904345ae4e90deb07d5796d94e1bf2bf5235b92b972f30258358",
+      "bytes": 27104,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "01_protocols/longhun-visual-engine-appendix-a-v1.0.md",
+      "sha256": "652cf8347bbae4c90b453d67139642448e6153bea535f9126eba12ca7efef093",
+      "bytes": 13557,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "01_protocols/longhun-visual-engine-v1.0.md",
+      "sha256": "c941c54e4a9df43b0191b0411bcf9b67d78f611245df099384ed0f8a6bb5f694",
+      "bytes": 20575,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "01_protocols/seven-factor-verification.md",
+      "sha256": "f35ae98931352395f9b9e1f64fb0bb086ead097f2ee1762005a99012e54eb9d8",
+      "bytes": 8178,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "01_protocols/龍魂多Agent协同架构白皮书_v1.0_CSDN_Mermaid版.md",
+      "sha256": "a9b4fe077928cdd95087e1f52e1eb64fa57dd9759f063b1aab490ba07b7b0b9a",
+      "bytes": 35189,
+      "mtime": "2026-08-29T01:11:53"
+    },
+    {
+      "path": "01_protocols/龍魂风水场博弈论白皮书_v1.0_CSDN_Mermaid版.md",
+      "sha256": "addc61f96192003749a7f6f7757464933f433829f4cf630575ddd520bb896eb8",
+      "bytes": 32698,
+      "mtime": "2026-08-29T01:11:54"
+    },
+    {
+      "path": "articles/00_龍魂系统交付索引_v1.0.md",
+      "sha256": "052be5d94393da78a35cf6a7e47d68e4e7939a6dbac7dee353e47b5e2aec1080",
+      "bytes": 6449,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-01-article-template-demo.md",
+      "sha256": "0c7633da32aa4b722978b9b4ef0bc32ed2649057246efc019abcd7bd1aec630c",
+      "bytes": 3332,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-01-旧账处理公式卡片.md",
+      "sha256": "c487e4d60ce0e747c4782ca919033f3da32b362b869b0085d7c62863efc0216f",
+      "bytes": 9807,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-01-旧账怎么算-CSDN发布版.md",
+      "sha256": "de758d82b51e1a581d56ceb9c207cb5f7e78d8a8f6b4660b63fb9c9668ae20ed",
+      "bytes": 4970,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-01-旧账怎么算-主权追溯版.md",
+      "sha256": "174387bc74641ede6ba5db703bcdd67ca7a5595ee8f06866430a87468ee7ee87",
+      "bytes": 5921,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-03-UID9622-全资产审查看板.md",
+      "sha256": "b028d4c122c609b1375d98e2b51aa288d75da467b3ce4a4d08bae21ec9ccf9ce",
+      "bytes": 17771,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-03-三才算法统一算法根基与算法对齐声明.md",
+      "sha256": "f7a4be2bd46a23cb9834096ada6978c983e377f3ce7e72edcf9f6f6ed12c2d63",
+      "bytes": 8519,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-03-孤立文件治理与技能落地报告.md",
+      "sha256": "b5d5588a3b958f7fc05a191e7d6f912c13b86fbc531ef5f54fea71eb5f295735",
+      "bytes": 8255,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-03-行为密码学七因子视角-老实人与算计者.md",
+      "sha256": "b8beeb07382c1c33762531dfffa5e802590954e716e2f8856396ee2a6177a49d",
+      "bytes": 17039,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-04-UID9622-IP展示页-龍芯北辰.md",
+      "sha256": "63f5397d94e1c17f8d7b0bf1a1ec80b6a14181abddbd9c1f90c150d9f396d782",
+      "bytes": 19821,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-04-伦理量子·中式价值对齐方案-v1.0.md",
+      "sha256": "b9a15395db72e71ebe66e3fed8b68e60b3446e7e0e27b60bf31219f42d7a5d8d",
+      "bytes": 10223,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-04-灵活与原则-无底线即虚无-龍魂价值观论文.md",
+      "sha256": "d2e95c170c2d89ef63cd2b4a1821b9806f05ec8493ce50fd1f7ce76d3f7ca573",
+      "bytes": 13560,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-04-龍魂DNA时间轴L5分层架构-v1.4-优化版.md",
+      "sha256": "e3bd62d29343aafe24ad42be709d957a80a9c8fe90a6b433a01cc649be149a26",
+      "bytes": 14271,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-04-龍魂天道系统-v1.3-优化版.md",
+      "sha256": "cfd5fabff46242471181b5ae46f6d8b2af2d3611f12f34e5db00a092698187f6",
+      "bytes": 69318,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-04-龍魂心法·归源.md",
+      "sha256": "487afc28ec0d7871da0e9aeb53b67c697962def580aed494f55fd2afc14a69fc",
+      "bytes": 7519,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-04-龍魂窮則變創新引擎-三才對齊說明.md",
+      "sha256": "ac78eeaf271a5c3da0991028d46bfda81edb5446045f7656552a381b191c8b96",
+      "bytes": 6937,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-04-龍魂算法公司护城河规范-v1.0-优化版.md",
+      "sha256": "ed2fa6278633f9cdcdbeadb0606f1fa0234d994176b1c57bcbd384cdc5e3de32",
+      "bytes": 26339,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-04-龍魂隐私白皮书_v2.0.md",
+      "sha256": "28eec7f4a40ee15c2f2745f282f89672bfcec89d4c04ce863c50749850da9aed",
+      "bytes": 11157,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-05-CSDN资料与模板设计_v1.0.md",
+      "sha256": "1f8ba58a37a75f057cef81e7f01d4abd5bfd586562195a7f1d7bb9786e1503d1",
+      "bytes": 10662,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-05-提前消费的真相-离火运觉醒.md",
+      "sha256": "07310e44315d4382e8ef8a9ed78d4e13464e62aa5238784828116346edd71b61",
+      "bytes": 9944,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-09-UID9622一键自动收口协议+CNSH本地记忆优先执行模板.md",
+      "sha256": "2e76e8727028630b23d294986342288cd9f95222dadf55711315dae0c7b196bc",
+      "bytes": 498,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-09-测试.md",
+      "sha256": "9497c92fe5861e4484805388b901a48d24509d0347bd83603c9ae63e2579cc6c",
+      "bytes": 1547,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-09-龍魂_AI国标数据统计与能效实战.md",
+      "sha256": "a627d0eb027c937ee604b1451a027c2d6229cdc0ea5fa012e4aa10c84b13caca",
+      "bytes": 2351,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-09-龍魂_AI国标数据统计与能效实战技术文档_五行河图洛书天干地支_能效比EER_动态算力调节五行_自主.md",
+      "sha256": "4ee44cffbeb0bbd46ba2086eb128f17730ad75fc62fd8d55eec307404684f32b",
+      "bytes": 8764,
+      "mtime": "2026-08-04T15:23:31"
+    },
+    {
+      "path": "articles/2026-07-09-龍魂从像素到认知-园区时空透明底座技术需求文档_v1.0.md",
+      "sha256": "243e2bcac80bd98ec30dc46dd67aef6e9f0c0d6d163be16d962418e0d67b4591",
+      "bytes": 240,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-09-龍魂变量与格式名称对齐手册_反混乱定盘星版_v1.0.md",
+      "sha256": "243e2bcac80bd98ec30dc46dd67aef6e9f0c0d6d163be16d962418e0d67b4591",
+      "bytes": 240,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-10-IW-ECB-v2.0-面向护童的人性优先AI-∞权重伦理熔断.md",
+      "sha256": "243e2bcac80bd98ec30dc46dd67aef6e9f0c0d6d163be16d962418e0d67b4591",
+      "bytes": 240,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-10-上帝之眼-64卦审计算法引擎-P0永恒级监管标准.md",
+      "sha256": "4a8ab394ac43173e26a7187f2536ab6c68b5cca356a7c1bec8ec3e801f3e800f",
+      "bytes": 10523,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-10-初心之翼-本地大脑v1.0-历史投喂归档.md",
+      "sha256": "243e2bcac80bd98ec30dc46dd67aef6e9f0c0d6d163be16d962418e0d67b4591",
+      "bytes": 240,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-10-发布计划_INDEX_v1.0.md",
+      "sha256": "c90946c932040cfe25d1135970923dd5816ffc1e3cca48adfa7f53941df9b11f",
+      "bytes": 11513,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-10-文化语义流场总协议-v1.0-数学落地版.md",
+      "sha256": "2e76e8727028630b23d294986342288cd9f95222dadf55711315dae0c7b196bc",
+      "bytes": 498,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-10-面向护童的人性优先人工智能系统_.md",
+      "sha256": "49a8a07b333a566b7c149abbff2b3d1a5ccee60ecec99886e5a2346add328c67",
+      "bytes": 9696,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-10-鸿蒙生态发布标准模板_v1.0.md",
+      "sha256": "cfc554ad59041dd464050406fad46c59c776cf77dc65ec6c2d299fe3c7477678",
+      "bytes": 10844,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-10-鸿蒙生态授权与熔断协议_v1.0.md",
+      "sha256": "bc6ae66c500ac8df3e2ae012b4f34200b6e977ecf07b1f004b6033ae923b777b",
+      "bytes": 5976,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-13-deepseek-fixer-v5.1.md",
+      "sha256": "ebb3bd049fcb35d398121848761c374875e04fb379139f673938a1eb3d1a2b18",
+      "bytes": 11322,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-13-龍魂-AI驱动时空织网专项技术解析.md",
+      "sha256": "e99b04f28d2de44140e1204798a219385cac8668597109b0ff3abce675329399",
+      "bytes": 26365,
+      "mtime": "2026-08-04T15:23:34"
+    },
+    {
+      "path": "articles/2026-07-13-龍魂-底座模型训练架构专项技术解析.md",
+      "sha256": "243e2bcac80bd98ec30dc46dd67aef6e9f0c0d6d163be16d962418e0d67b4591",
+      "bytes": 240,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-13-龍魂-搜索关键字算法专项技术解析.md",
+      "sha256": "5053d5dce9d99e3ef8dda2cc63102ed810fa5524c542520d71e675fcb73299de",
+      "bytes": 17406,
+      "mtime": "2026-08-04T15:23:34"
+    },
+    {
+      "path": "articles/2026-07-13-龍魂-量子态人格触角架构专项技术解析.md",
+      "sha256": "243e2bcac80bd98ec30dc46dd67aef6e9f0c0d6d163be16d962418e0d67b4591",
+      "bytes": 240,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-07-21-token-lie-exposed-v1.0.md",
+      "sha256": "b9e1b8e8e3247529e1a29fb1d7c3db0fa9c7ebdcc07c6b890988831704685a89",
+      "bytes": 22344,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-08-11-龍魂车载系统-v2.1-修订版.md",
+      "sha256": "45fc3c628773292ad6f99633ce30753272380d6abdce9211c04e5629fce3937b",
+      "bytes": 18482,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-08-11-龍魂车载系统-v2.1-集成交付路线图.md",
+      "sha256": "e8163359414940d77b4c52338c206b0ad3075fdb343357f807c5f3e725f0d022",
+      "bytes": 24306,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026-08-31-通心译-现代物理重返中文母语-v2.0.md",
+      "sha256": "f7245f802f63b192c3dad617886007ee965c53deb390e6734790efda2ec39d6b",
+      "bytes": 46289,
+      "mtime": "2026-08-31T18:06:29"
+    },
+    {
+      "path": "articles/2026_07_01_article_template_demo.md",
+      "sha256": "0c7633da32aa4b722978b9b4ef0bc32ed2649057246efc019abcd7bd1aec630c",
+      "bytes": 3332,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_01_how_to_settle_old_debts_csdn_edition.md",
+      "sha256": "de758d82b51e1a581d56ceb9c207cb5f7e78d8a8f6b4660b63fb9c9668ae20ed",
+      "bytes": 4970,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_01_how_to_settle_old_debts_sovereignty_tracing_edition.md",
+      "sha256": "174387bc74641ede6ba5db703bcdd67ca7a5595ee8f06866430a87468ee7ee87",
+      "bytes": 5921,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_01_old_debt_handling_formula_card.md",
+      "sha256": "c487e4d60ce0e747c4782ca919033f3da32b362b869b0085d7c62863efc0216f",
+      "bytes": 9807,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_03_behavioral_crypto_seven_factor_perspective_honest_person_schemer.md",
+      "sha256": "b8beeb07382c1c33762531dfffa5e802590954e716e2f8856396ee2a6177a49d",
+      "bytes": 17039,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_03_orphan_file_governance_skill_landing_report.md",
+      "sha256": "b5d5588a3b958f7fc05a191e7d6f912c13b86fbc531ef5f54fea71eb5f295735",
+      "bytes": 8255,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_03_sancai_algorithm_unified_algorithm_foundation_algorithm_alignment_statement.md",
+      "sha256": "f7a4be2bd46a23cb9834096ada6978c983e377f3ce7e72edcf9f6f6ed12c2d63",
+      "bytes": 8519,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_03_uid9622_full_asset_audit_dashboard.md",
+      "sha256": "b028d4c122c609b1375d98e2b51aa288d75da467b3ce4a4d08bae21ec9ccf9ce",
+      "bytes": 17771,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_04_ethical_quantum_chinese_value_alignment_v1.0.md",
+      "sha256": "b9a15395db72e71ebe66e3fed8b68e60b3446e7e0e27b60bf31219f42d7a5d8d",
+      "bytes": 10223,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_04_flexibility_and_principles_no_bottom_line_is_void_longhun_values_thesis.md",
+      "sha256": "d2e95c170c2d89ef63cd2b4a1821b9806f05ec8493ce50fd1f7ce76d3f7ca573",
+      "bytes": 13560,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_04_longhun_algorithm_company_moat_specification_v1.0_optimized_edition.md",
+      "sha256": "ed2fa6278633f9cdcdbeadb0606f1fa0234d994176b1c57bcbd384cdc5e3de32",
+      "bytes": 26339,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_04_longhun_dna_timeline_l5_layered_architecture_v1.4_optimized_edition.md",
+      "sha256": "e3bd62d29343aafe24ad42be709d957a80a9c8fe90a6b433a01cc649be149a26",
+      "bytes": 14271,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_04_longhun_heart_method_return_to_source.md",
+      "sha256": "487afc28ec0d7871da0e9aeb53b67c697962def580aed494f55fd2afc14a69fc",
+      "bytes": 7519,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_04_longhun_innovation_engine_sancai_alignment_explanation.md",
+      "sha256": "ac78eeaf271a5c3da0991028d46bfda81edb5446045f7656552a381b191c8b96",
+      "bytes": 6937,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_04_longhun_privacy_whitepaper_v2.0.md",
+      "sha256": "28eec7f4a40ee15c2f2745f282f89672bfcec89d4c04ce863c50749850da9aed",
+      "bytes": 11157,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_04_longhun_tiandao_system_v1.3_optimized_edition.md",
+      "sha256": "cfd5fabff46242471181b5ae46f6d8b2af2d3611f12f34e5db00a092698187f6",
+      "bytes": 69318,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_04_uid9622_ip_showcase_page_longxin_beichen.md",
+      "sha256": "63f5397d94e1c17f8d7b0bf1a1ec80b6a14181abddbd9c1f90c150d9f396d782",
+      "bytes": 19821,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_05_csdn_materials_and_template_design_v1.0.md",
+      "sha256": "1f8ba58a37a75f057cef81e7f01d4abd5bfd586562195a7f1d7bb9786e1503d1",
+      "bytes": 10662,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_05_truth_of_advance_consumption_li_fire_awakening.md",
+      "sha256": "07310e44315d4382e8ef8a9ed78d4e13464e62aa5238784828116346edd71b61",
+      "bytes": 9944,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_10_child_protection_human_first_ai.md",
+      "sha256": "49a8a07b333a566b7c149abbff2b3d1a5ccee60ecec99886e5a2346add328c67",
+      "bytes": 9696,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_10_cultural_semantic_flow_protocol_v1.0_math_implementation_edition.md",
+      "sha256": "5ce0868f52f3ecd6fec9dd88fdbb18ba264702a456fa56320e7027970e72d397",
+      "bytes": 8477,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_10_eye_of_god_64_hexagram_audit_engine_p0_eternal_supervision_standard.md",
+      "sha256": "4a8ab394ac43173e26a7187f2536ab6c68b5cca356a7c1bec8ec3e801f3e800f",
+      "bytes": 10523,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_10_iw_ecb_v2.0_human_nature_ai_weighted_ethical_circuit_breaker.md",
+      "sha256": "f5ecfaddd99eb94307f866e58ce470a144900fb407ed2c9ce8dd698d30ab7a97",
+      "bytes": 2527,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_10_wings_of_original_intent_local_brain_v1.0_historical_feed_archive.md",
+      "sha256": "35ecc7cba7846780386b6fd5bf3ed3cca0432e121a63957d0db527f96a5b1d27",
+      "bytes": 5281,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_13_deepseek_fixer_v5.1.md",
+      "sha256": "ebb3bd049fcb35d398121848761c374875e04fb379139f673938a1eb3d1a2b18",
+      "bytes": 11322,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_13_longhun_ai_spacetime_weave_driven_technical_analysis.md",
+      "sha256": "e99b04f28d2de44140e1204798a219385cac8668597109b0ff3abce675329399",
+      "bytes": 26365,
+      "mtime": "2026-08-04T15:23:41"
+    },
+    {
+      "path": "articles/2026_07_13_longhun_base_model_training_architecture_technical_analysis.md",
+      "sha256": "05eaf037a26b0f1bd65ed08174387e19b609278dd98dc5c87b61972831c09d0a",
+      "bytes": 12746,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/2026_07_13_longhun_quantum_persona_antenna_architecture_technical_analysis.md",
+      "sha256": "da7b40ce51f876dbd31bce2b7f51f84cec91f1850c1ce9bb153c5016544645b4",
+      "bytes": 9097,
+      "mtime": "2026-08-04T15:23:41"
+    },
+    {
+      "path": "articles/2026_07_13_longhun_search_keyword_algorithm_technical_analysis.md",
+      "sha256": "5053d5dce9d99e3ef8dda2cc63102ed810fa5524c542520d71e675fcb73299de",
+      "bytes": 17406,
+      "mtime": "2026-08-04T15:23:41"
+    },
+    {
+      "path": "articles/2026_08_13_longhun_vision_singularity_prophecy_en.md",
+      "sha256": "d4fcd49c56cfc4337859f8c189aed6e1f30729807f6a4de120aacdb34d6108ef",
+      "bytes": 24144,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/CNSH通用翻译引擎数学建模协议v1.0.md",
+      "sha256": "8205c394cffa567635c68ba055e0d3a9a7c8e72a3db1a1fcde8089b57c2dd475",
+      "bytes": 29551,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/CSDN_龍魂军魂_退伍16年老兵真话.md",
+      "sha256": "8e59834e3aee7b9d99629de420522abdc5152b59dd93a6c46cbbed63921e8e0c",
+      "bytes": 15553,
+      "mtime": "2026-08-22T23:58:19"
+    },
+    {
+      "path": "articles/CSDN_龍魂算力破局方案.md",
+      "sha256": "51d50e34752a60cc3326955f97ce15964627f47648f3c345812386f0518a9d63",
+      "bytes": 10169,
+      "mtime": "2026-08-27T22:36:03"
+    },
+    {
+      "path": "articles/CSDN发布版/2026-07-05-提前消费的真相-离火运觉醒-CSDN发布版.md",
+      "sha256": "f4ca9ba0a164b61515def18a4bdc7554be24d3b0dcff3515bdab9e788635610d",
+      "bytes": 10322,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/CSDN发布版/2026-07-12-龍魂三层绑定覆写码架构-算法公开版.md",
+      "sha256": "ef21d2b35f7e7659f2038d03064a94604334cde2e8bb542b3abda2cf3660acbe",
+      "bytes": 6406,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/CSDN发布版/数据主权_为什么重要_CSDN发布版.md",
+      "sha256": "2e2aabdcf33881ac196521970ed50ace94a36b556c1d9a7a4c70482acf614993",
+      "bytes": 8103,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/CSDN发布版/龍魂_懒的牢房_全六篇_v3.1_CSDN发布版.md",
+      "sha256": "0132b419c0b8f9537a61c9062139d9d9bc681e5dd1a6417c65bdf144ffb87c30",
+      "bytes": 44070,
+      "mtime": "2026-08-04T15:23:43"
+    },
+    {
+      "path": "articles/CSDN发布版/龍魂_懒的牢房_第六篇_文化牢房_曾仕强_CSDN版.md",
+      "sha256": "372463723497ddda2690f343138b61c920b5a3b260f340d21575b2e93a24e338",
+      "bytes": 23188,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/CSDN发布版/龍魂_焦虑制造者识别手册_v2.0_CSDN发布版.md",
+      "sha256": "e17e5d13bfd6cc41b54e5fc7844851eb2cf0aef0a7d883ff85cc9588739dd892",
+      "bytes": 22805,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/CSDN发布版/龍魂护盾_v3.0_CSDN发布版.md",
+      "sha256": "42bd2018d693dfbe5a8f3217edcf9095db9119ec3116831f998cde3e63c09943",
+      "bytes": 38876,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/INDEX.md",
+      "sha256": "bae5b0b7e305f4a86b3f8b623922ea478b0352c9fbffef76a3983c972c3c65de",
+      "bytes": 8267,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/UID9622_文件修复报告.md",
+      "sha256": "a2aa0087603a8f491a51d74ccf79026dba7388eba6d0e55a6f2946bc520f7745",
+      "bytes": 3456,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/UID9622_核心DNA_修复版.md",
+      "sha256": "8ce232fbfca42a973a5461b7077699dde7d8d6f20d1e733b54de6aab8bea8885",
+      "bytes": 196005,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/bark-notifications/2026-07-12-BARK-daily-🐉_龙魂Bark矩阵_·_已就绪.md",
+      "sha256": "93f6b84dff2fa38bc8d1a96d78099eea0f82bf1ce1f2fc8e26e20e56c7facc77",
+      "bytes": 1698,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/bark-notifications/2026-08-30-BARK-heal-通道验证.md",
+      "sha256": "73c682bd75f9599d49a399a51ba0c858eae62682902b7838f47a5cd5116c1bf8",
+      "bytes": 1181,
+      "mtime": "2026-08-30T22:51:56"
+    },
+    {
+      "path": "articles/behavioral-cryptography-unified-theory-v3.0.md",
+      "sha256": "f0e5f0cb9dca7072ed16bc49ec98ef94ad91f166801bf368ee703e9c4a63fca3",
+      "bytes": 22764,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/behavioral_crypto_csdn.md",
+      "sha256": "8c4e5833336a5b670befe862040cd0cde8aa60f508a659d40c946891d2cc3ca2",
+      "bytes": 323315,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/chip_litho_tau_law_article_csdn.md",
+      "sha256": "ba9f5800544d34c13e5a042d4b92ec287e43e32aa51a3e40d889b10d23cfb1a7",
+      "bytes": 9490,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/chip_litho_tau_law_article_zhihu.md",
+      "sha256": "891d902fb3da07bfccbe7c5a5053c6298c791f0c4fd7e584e532a3a40c881601",
+      "bytes": 4363,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/chip_litho_tau_law_video_script.md",
+      "sha256": "fa599fd769189cbc719cf488719f188845ac895b358f4228302039829e0eb76a",
+      "bytes": 7924,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/csdn/2026-07-16-全网信息对齐与开源仓库引用总览.md",
+      "sha256": "8e62d01b12cc97d0e145770cbcd4532fc9a090a0ac87b2cdd482983e4bb77989",
+      "bytes": 3317,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/csdn/2026-07-18_龙魂对话录_千问十二回合_老兵底色奇门遁甲不败金身.md",
+      "sha256": "d0515eda811f27e173eb7d77547b127a4c750460702870ba5a0f1c32c94ecab4",
+      "bytes": 11128,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/csdn/2026-08-06/LH-HARMONY-DNA-REGISTRY-v1.0.md",
+      "sha256": "b433b04e9849fc0837f94381eeef48c4c8a4e4fe66841d070135bb514d7bfb0f",
+      "bytes": 19057,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/csdn/2026-08-06/LH-HARMONY-MEMORY-ENGINE-v1.0.md",
+      "sha256": "b8965521f7e5e4e81e43921fe60b6fe8a01dd4958e23546ab5fa0c4432e7ea94",
+      "bytes": 19648,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/csdn/2026-08-06/LH-HARMONY-TRICOLOR-AUDIT-v1.0.md",
+      "sha256": "7dece4d46d91b7f61c4b4574ba0c5c3aefb70a0907b1f88973cc3fdd7f33d8a9",
+      "bytes": 5019,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/csdn/2026-08-11-龍魂车载系统v2.0-鸿蒙座舱DNA引擎解密.md",
+      "sha256": "d6d21623e8f98685e2cff8519e94bf52d72c1ae324f596f0e30fb64eb03dcf24",
+      "bytes": 10801,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/csdn/CSDN_FULL_INDEX.md",
+      "sha256": "e1011225ff0863762fcd2d4949e8af67d5329eda2869844ad537d9cd0cb5d8a4",
+      "bytes": 3859,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/csdn/README.md",
+      "sha256": "657c483e54ffd7ca96d5842758cd3e95557c093341e25cef34d491978c0f1111",
+      "bytes": 4359,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/csdn/全球通用中性版_跨地区AI监管与审计的标准回答.md",
+      "sha256": "c9b758e4430d1c25a9dedc24042ed1bfbc2b2bb579897989e47a66e8836fd8ba",
+      "bytes": 3966,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/csdn/北辰架构_v1.0_超越MoE.md",
+      "sha256": "b52cdfd4ab99b3712cb5b8e8e767c77e2a1a02ba57cbf0cab9d3ad8822c9fee2",
+      "bytes": 5587,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/csdn/涉密语义防护与越权熔断协议_v2.0.md",
+      "sha256": "2e76e8727028630b23d294986342288cd9f95222dadf55711315dae0c7b196bc",
+      "bytes": 498,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/csdn/龍魂_鸿蒙ArkTS_周报管理_CSDN博客.md",
+      "sha256": "0339626b442c93ba8c32ba661fca274293a2d65c72b4ae2b5ec059288e18beaf",
+      "bytes": 49036,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/csdn/龍魂_鸿蒙ArkTS_多设备形态适配_CSDN博客.md",
+      "sha256": "16ff30de691b849385355d784b850dd82e77909531ad3471087594ac8cf9c966",
+      "bytes": 44761,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/csdn/龍魂_鸿蒙HarmonyOS_ArkTS首帧布局优化_减少首帧布局计算量深度解析_CSDN博客.md",
+      "sha256": "79c1bfd4034edc3aa4dc12d0ae49459b87f8d16071685c690d6a86c5dc97af43",
+      "bytes": 41996,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/csdn/龍魂_鸿蒙PC应用开发实战_系统托盘与通知体系深度集成_CSDN博客.md",
+      "sha256": "1973343a2a6be7ef076fb6989a80c42d293103e2fe064e537b3595608278b2b0",
+      "bytes": 49337,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/csdn/龍魂_鸿蒙原生ArkTS布局实战_Stack遮罩层布局深度解析_API24_CSDN博客.md",
+      "sha256": "00bb6a5ce2e83e60ea75f0bc8db6b9868052cb3c792dc9c6b4bd43e0e2744acf",
+      "bytes": 41747,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/csdn/龍魂_鸿蒙原生开发_模型与UIAbility页面路由与Navigation导航详解_CSDN博客.md",
+      "sha256": "1eb86988c7680a6c4a7c27e495bde87fc537a05ca8471bc4b601ef5a6840eccc",
+      "bytes": 45952,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/csdn/龍魂_鸿蒙智能体开发实战_全网龍魂协议_CSDN博客.md",
+      "sha256": "4e59c9ac71bc67183fd9df30fdd34f8f52401c7613a887f40e1b2776b06cfa90",
+      "bytes": 41558,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/csdn/龍魂_鸿蒙端侧语音识别与合成实战_从实时字幕到语音助手_CSDN博客.md",
+      "sha256": "cb83c92760abfc1d1711207103e6a2c3d4ba7296b67dcb670f43b42103a72d54",
+      "bytes": 43384,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/csdn/龍魂系统监管审计系列17篇_总索引.md",
+      "sha256": "addf079c5fdd576f72959f41b082bc2242b459f5fcc0f86098f1aee2886cb324",
+      "bytes": 2931,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/csdn/龍魂语义测谎仪-识别营销话术四种隐身术-v2.0.md",
+      "sha256": "eae3fe38229ed22235834d86f0507e78fd95e80bfff73841791306faa252c6b6",
+      "bytes": 9089,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/digital_sovereignty_system_academic_thesis_v2.0.md",
+      "sha256": "ec6790c7bb5ce08bfc81fa61d150e3b84f6f0d0293f52da1336c9927ea5159a9",
+      "bytes": 51377,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/dna-restore-engine/2026-08-11-龍魂-DNA还原引擎-v1.1.md",
+      "sha256": "e34b34916caf9589edee2c4e743186829f71c0ce2a75dcbd9582e6eea91b3bfc",
+      "bytes": 14706,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/dna-restore-engine/audit-report-v1.1.md",
+      "sha256": "cd4f174d7f3abc9a82ddf6d5a3c48e0e80140f522ebc02e0144a4ab7bda84c7d",
+      "bytes": 6592,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/en/README.md",
+      "sha256": "9ca046f2831bfedbd9d91fd98747cb34d3160192c2d3e5b83c1f630ad9cc9591",
+      "bytes": 7170,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/en/critiques/anti-fraud-the-programming-harvest-trap.md",
+      "sha256": "937ed790b7fc677fd945832ea9372deb1f92f96eeceba2f98070ace57b5328a1",
+      "bytes": 6620,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/en/critiques/anxiety-maker-detector.md",
+      "sha256": "6254ddae9ee6fdf11b96a81a1eed723da9fecead1f6bb8e66e78170060b4f831",
+      "bytes": 6753,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/en/critiques/dreams-in-the-trench-code-with-military-soul.md",
+      "sha256": "22e25fddd2d3398c01f370bbe2bb669e628180c8b763f13ec714e11c9155d246",
+      "bytes": 6117,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/en/critiques/the-lazy-prison-executive-summary.md",
+      "sha256": "fa8f7de25b5de312b32b8c85f4c8e3abe69c413b7e9fc49eb163cef81489f540",
+      "bytes": 6698,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/en/critiques/truth-of-advance-consumption-li-fire-awakening.md",
+      "sha256": "84d07bafea52c76c03a00ef5e57af832631d6cdb1ae6bcb8d7dae2b9295d8bfd",
+      "bytes": 6852,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/en/critiques/when-we-use-tools-who-uses-whom.md",
+      "sha256": "34138c9f8cccae57b889b433afec9ebad52fa21ab715645f96a344daa3533977",
+      "bytes": 15248,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/en/longhun-heart-method-return-to-source.md",
+      "sha256": "af41ed2d7aba647155aca6a2a0b134b33106d3bcb968676a8aff45d8dced7254",
+      "bytes": 8155,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/en/manifestos/chinese-digital-sovereignty-and-spiritual-roots.md",
+      "sha256": "4f23c6a31f1ecf5537d1d7efb8793b43105173124a0cbeb9f0a48db23a82a4b1",
+      "bytes": 8440,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/en/manifestos/constitution-of-the-longhun-system.md",
+      "sha256": "282371c5252588b5ecf52a845ad42ccaa9b1901e4a85fc3c8df3df7fbb4031bf",
+      "bytes": 19745,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/en/manifestos/open-source-manifesto.md",
+      "sha256": "c25b66c64fd2cfd4cad0d93c1cf1353f44adffef6279f0cec69190e2dd66133c",
+      "bytes": 5568,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/en/papers/flexibility-and-principles-no-bottom-line-no-meaning.md",
+      "sha256": "c55962493f81dbceffcbaffead4ca23397ff205490242c912cd5b7611e3fb5a3",
+      "bytes": 10702,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/en/protocols/ai-access-mandate.md",
+      "sha256": "a3785dbae507c2275ef4700637731bad046f1b4c08d1b0572bbf9de3ef48b25c",
+      "bytes": 4654,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/en/protocols/creator-protection-protocol.md",
+      "sha256": "2ed9e87d3db193dae46509468097925e580ded77f3ee7c470b6432ebeffb5dd8",
+      "bytes": 4486,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/en/protocols/digital-battlefield-iron-rules.md",
+      "sha256": "9e54591fa639a9435c329232854c1056c4c91291f69568b240c233baef19f020",
+      "bytes": 5009,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/en/protocols/eye-of-god-64-hexagram-audit.md",
+      "sha256": "c3f31bad45793968f996bf8fb75d8f36b6bb43fdf598b5b406a9bc072c86bb6b",
+      "bytes": 4701,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/en/protocols/originality-declaration-protocol.md",
+      "sha256": "f0b7e66bdf1503be4dff67db7123d5221836189bb3fd44853b4ae5b8b37276d2",
+      "bytes": 5402,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/en/protocols/privacy-whitepaper-summary.md",
+      "sha256": "4270210a6d89fe716c970098cbc34b4b8493d3645a39b7853ebda43f9f87233c",
+      "bytes": 4670,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/en/sancai-algorithm-elucidation.md",
+      "sha256": "f2a7b44b5d1f2fe0cc45dd0b40b57773fe4880edefdd22b122fab922bb738be6",
+      "bytes": 8961,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/en/token-century-lie-exposed.md",
+      "sha256": "4304687642e06812fdb5bf642637aeb43c153ad467b547cc133ca71747e4d278",
+      "bytes": 50832,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/en/truth-of-advance-consumption.md",
+      "sha256": "9891ef0d3de47cea212c70f16b934e4718e0f50986c5d8260de93c53d4d93b36",
+      "bytes": 11055,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/lh_zhugeliang_yijing_lithium_battery_tech_deduction.md",
+      "sha256": "d82b9ef79c9db790cd9769d07243924f0eb9d2bbb81bff77ad61eb9bfcef57ee",
+      "bytes": 43653,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/lh_zhugeliang_yijing_lithium_battery_tech_deduction_full_edition.md",
+      "sha256": "79fb988526338bc73fbf8b0cbcb6277777648532d0dd3de81e3caa5eaaf1bd03",
+      "bytes": 21025,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/lh_zhugeliang_yijing_lithium_battery_tech_deduction_v2.md",
+      "sha256": "fab8a62662763199b2f0de1b441e5fb7cdac693d409c33d6d96162a767b41fc4",
+      "bytes": 39748,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/longhun-financial-deep-seek-csdn-v1.0.md",
+      "sha256": "4d71f4b822329fdae2ee2a18bd89b370c829a9964b1897858c66e81e74cbb4f9",
+      "bytes": 3204,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/pay-anchor-records/2026-07-12-ANCHOR-测试-TEST-001.md",
+      "sha256": "638aa7bfb1e3a017a2cda57a7e741cb21d4c2501ee25e9017b728e0eec8a56d7",
+      "bytes": 2088,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/pay-anchor-records/2026-07-12-ANCHOR-测试锚定-ACT-20260712070945-A36559.md",
+      "sha256": "8fb3875dde432336f3af043bb6fd8a2bcee85b0173af9e4d6de271447cf87186",
+      "bytes": 2134,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/pay-anchor-records/2026-07-12-ANCHOR-鲲鹏部署·全栈测试-ACT-20260712071813-37C137.md",
+      "sha256": "3339c137422d2f22c40518877c7d33530a62c6bb12018d4af5c9b7b3d409b719",
+      "bytes": 2172,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/pay-anchor-records/2026-07-12-ANCHOR-龍魂技能激活·全链路测试-ACT-20260712071006-FF81E7.md",
+      "sha256": "9262f4f5bc8f3a974955e2702162ae8b8cd8a775be617997236521a0d0d7235a",
+      "bytes": 2181,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/sancai_algorithm_elucidation_vindicate_master_zeng.md",
+      "sha256": "89737a7c839e7f29b4a1e851cf7f1f5b8b73afa6be37a3a826382a46f65102f7",
+      "bytes": 7275,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/thesis_philosophy_implementation_v1.0.md",
+      "sha256": "e662ff25b2df1b0131ed3777f146373bd836dec202bb1b05891aeedf453d43eb",
+      "bytes": 20218,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/use_tools.md",
+      "sha256": "fc540852c6924d0745ba8f52abba6c6a3cd506c028107bd09d64425ed119885a",
+      "bytes": 16458,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/video_ai_for_everyone.md",
+      "sha256": "d8ccb1d4923eab4aa929702db4ab91e13d39b03998cfbfd9b60145308d1f2884",
+      "bytes": 2703,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/三才算法发微_为曾老师正名.md",
+      "sha256": "89737a7c839e7f29b4a1e851cf7f1f5b8b73afa6be37a3a826382a46f65102f7",
+      "bytes": 7275,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/八卦阵数学建模全本v1.0.md",
+      "sha256": "19a799d6a7e8839a7be252bd9eb5b881f0bc8ef49abfc10d47a948a8c655cfad",
+      "bytes": 33473,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/反诈宣传_编程收割套路_v2.0.md",
+      "sha256": "dcd1716ecc6941d54f9e02ac098c2b7f1b5fbbf18c9240e5fbd56f4b064670af",
+      "bytes": 10215,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/台风过后_不是国泰民安就完了.md",
+      "sha256": "a20383d8ca6a9c65b1993f9d72f0dbb243e076b5c14de0d75c343c9d50feba2e",
+      "bytes": 4303,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/当我们在使用工具时，是谁在使用谁.md",
+      "sha256": "fc540852c6924d0745ba8f52abba6c6a3cd506c028107bd09d64425ed119885a",
+      "bytes": 16458,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/懒的牢房_v1.1.md",
+      "sha256": "c906bd591b12200c813825af04775b8fffa65139e05e43a1ff20caacbe667d02",
+      "bytes": 22873,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/战壕里的梦呓_当代码有了军魂_完整版_v2.md",
+      "sha256": "bdfa428aa772bafd6c77f81ded38b5caefa2885845ebb5c68668514b530308ae",
+      "bytes": 57590,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/提前消费危害_真实vs虚假销售_v1.0.md",
+      "sha256": "de600e6bd2080db57449bf2ed06f2fc9dbaa5f9465ace85f2fe0a8b44e7c6d8d",
+      "bytes": 10071,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/揭开Token的世纪谎言_多维解剖与中国芯片破解法.md",
+      "sha256": "0522b26818024289f4bce6c2b6626e08dde2045616772e296f11a2085b6aa9b5",
+      "bytes": 22465,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/智谱清言VIP会员的学习模式_从断片到消失.md",
+      "sha256": "3e8c38227ef9b475cda017d1fbc87a1189059dc3c0f66b731c6ba1b2e1b41528",
+      "bytes": 6938,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/水军显化协议v1.1_审查补全包.md",
+      "sha256": "ebe518f09e30d2a7eb0a7e366fd1af92c2081238b6b72596697ba96505561e47",
+      "bytes": 24644,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/洛书369与AI决策不变量_v2.0_深度升级版.md",
+      "sha256": "f8d35b450dcf5013c1c3cb6506b1333f6617ed5fdc9879247f93ecfd08ee1b0a",
+      "bytes": 33302,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/绝境方显英雄志-视频脚本-v1.0.md",
+      "sha256": "95a33287400d67d4c2ec39450a645ac33befafd496522db75df6119a0d8e4045",
+      "bytes": 5127,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/行为密码学-七因子追溯框架-v2.0.md",
+      "sha256": "ac17cf49d480e8935b3cab815ac677c2e1ec81eedab6ab68fddb68acaf6bfe66",
+      "bytes": 17653,
+      "mtime": "2026-08-07T11:21:53"
+    },
+    {
+      "path": "articles/行为密码学-统一框架-v3.0.md",
+      "sha256": "a8975d7fca0b145cf17d45e78e9af8edc2cbf2fa3a2af36345697fb73bf75083",
+      "bytes": 19298,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/行为密码学csdn.md",
+      "sha256": "8c4e5833336a5b670befe862040cd0cde8aa60f508a659d40c946891d2cc3ca2",
+      "bytes": 323315,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/道德经81章_龍魂系统大白话解读_完整版_v4.0.md",
+      "sha256": "68ecf8bd0881fa23bd4eb9b2e8dd95a902c496d9f44a7f910966426df6032757",
+      "bytes": 129916,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/道德经场景定锚协议v1.0.md",
+      "sha256": "fb26eb1d8dbbda477b9776fbf87905f5c688ba57ce820895725eaa1c8dc5b5b2",
+      "bytes": 40556,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龍魂AI短剧二开全案_v1.1.md",
+      "sha256": "499031170ad2300d09464181c816591b42b6a34d9252ab548d6b32e99bf23605",
+      "bytes": 24497,
+      "mtime": "2026-08-27T22:36:03"
+    },
+    {
+      "path": "articles/龍魂AI网关流控模块_v1.1.md",
+      "sha256": "f666c3778826caa5b6b83e5da9ef0547b94ca625901a1db94dbbccc62a7095dc",
+      "bytes": 9761,
+      "mtime": "2026-08-27T22:36:03"
+    },
+    {
+      "path": "articles/龍魂DNA全资产捆绑与蒸馏防御协议v1.0.md",
+      "sha256": "a3c5599b96d5650813dbe287388530f61821f914a7660ca93e7b71f26eca537f",
+      "bytes": 30849,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龍魂_懒的牢房_全五篇_v3.0.md",
+      "sha256": "061c821e91be9ec5954dcd3b5d3f3a98ac3b0edcea4a48dad0b03da1a3d512e7",
+      "bytes": 39335,
+      "mtime": "2026-08-04T15:24:02"
+    },
+    {
+      "path": "articles/龍魂_懒的牢房_全六篇_v3.1.md",
+      "sha256": "fd09b1bde660d3044d2a3b99a0a4d86ef4430a9bc162624a00635eef23c0abbb",
+      "bytes": 40192,
+      "mtime": "2026-08-04T15:24:02"
+    },
+    {
+      "path": "articles/龍魂_懒的牢房_第六篇_文化牢房_曾仕强.md",
+      "sha256": "9434ec416b681e8eb73de613f66670011edc80460bf02add81da1dec2ff4e007",
+      "bytes": 19615,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龍魂_焦虑制造者识别手册_v2.0_蚁群触角版.md",
+      "sha256": "ba789ef875fbd8118888afa685736311fd5cf836e390e3f63c361f91cc816fa4",
+      "bytes": 20182,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龍魂_諸葛亮易經鋰電技術推演.md",
+      "sha256": "d82b9ef79c9db790cd9769d07243924f0eb9d2bbb81bff77ad61eb9bfcef57ee",
+      "bytes": 43653,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龍魂_諸葛亮易經鋰電技術推演_v2.md",
+      "sha256": "fab8a62662763199b2f0de1b441e5fb7cdac693d409c33d6d96162a767b41fc4",
+      "bytes": 39748,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龍魂_諸葛亮易經鋰電技術推演_完整版.md",
+      "sha256": "79fb988526338bc73fbf8b0cbcb6277777648532d0dd3de81e3caa5eaaf1bd03",
+      "bytes": 21025,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龍魂历史资产管理中心_v1.1.md",
+      "sha256": "aa91cb65083cd6008f757e9b8d25e66bbac4f27a95681259b6b0dadb82bfc9ee",
+      "bytes": 10873,
+      "mtime": "2026-08-27T22:36:03"
+    },
+    {
+      "path": "articles/龍魂多Agent协同架构白皮书_v1.0.md",
+      "sha256": "6042f4c3ca74571cece15c1916b87fa20f585e144850160a166aff59566928e0",
+      "bytes": 34861,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龍魂焦虑制造者识别手册_v1.0.md",
+      "sha256": "ed0c8ea68b6072fb5f6c9850c92d683a3cba3ba552ae0cd26b722596e99277dc",
+      "bytes": 5209,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龍魂系統_中國人的數字主權與精神根脈_v2.0_數據強化版.md",
+      "sha256": "cca1dcd4c293685a2220fb6b3dc8913c2df7ac9fa551c81a02bdc0e9ee4439f0",
+      "bytes": 26744,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龍魂系统_成品打包交付报告_v1.0.md",
+      "sha256": "844569588fd1b46941328145bc274464ebe69e5974cfa425042cd5a1c6bf9ea7",
+      "bytes": 4221,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龍魂落地缺口总账v1.0.md",
+      "sha256": "9354c3af7ef257af99127ca78af78a55a2cfda4aca9ad24e45e75c0da62b03e7",
+      "bytes": 8972,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龍魂解读_星爷没说出口的遗憾.md",
+      "sha256": "b9e152eb4d2de92148899f96a7235f299a1c6e93a89b177772af4456eb2df86f",
+      "bytes": 6423,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龍魂车载系统_v2.1.md",
+      "sha256": "aa197a75d313d85a7cca3333f8d41c6459526604ee9656e5e98c562b4bbe49a4",
+      "bytes": 28150,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龍魂风水场博弈论白皮书_v1.0.md",
+      "sha256": "74d2f7958774675e606ac88a7c6f4d661f9e8429f1eb2bcb94b802058e9e20bc",
+      "bytes": 32501,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龙魂CodeBuddy对齐规则v2.0_融合版.md",
+      "sha256": "53294b855ff73e75139f48044003598fa425aca91659666d732ba462483700fb",
+      "bytes": 17637,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龙魂DNA可逆编码与时间主权协议v1.0.md",
+      "sha256": "2625e07f437b6dd2a32e204201fca5068e07c1840214ca8bf674f7d85895bf3a",
+      "bytes": 28235,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龙魂TTS引擎v1-主权语音系统-v1.1.md",
+      "sha256": "374cc875b8264cefdb536be59afcea12ceb29692663d1b47f1201cec19381f45",
+      "bytes": 11901,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龙魂双视角封装与v3落地总协议v1.0.md",
+      "sha256": "4c6275d6b97ad1e3c74d7227fe57cf66df3ef6be175d04a1d1335858febaec83",
+      "bytes": 23602,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龙魂封闭空间三生三世数学建模协议v1.0.md",
+      "sha256": "2d14a6b6398787f99bba90631d4e29aefc0c3631ea3eab3aed71651af1938693",
+      "bytes": 31878,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龙魂技术主权守护与转介话术协议v1.0.md",
+      "sha256": "956778b17248bf17b8d625b8eafe816d2db55436dc741931b7ea4395b6ed646d",
+      "bytes": 39488,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龙魂摘要爬虫与访问分流显化协议v1.0.md",
+      "sha256": "86df31dfb56ed25fa882ed1ccc871212c0e57a3eb5a2774c5c2d611042012b65",
+      "bytes": 22951,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龙魂数字主权体系_学术论文_v2.0.md",
+      "sha256": "ec6790c7bb5ce08bfc81fa61d150e3b84f6f0d0293f52da1336c9927ea5159a9",
+      "bytes": 51377,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龙魂数字人系统v1-魔瞳主权视频引擎-v1.1.md",
+      "sha256": "f5a3aefb484c37e303b7c39a4f849fffec56e04ce46b9b02174976738234f587",
+      "bytes": 11919,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龙魂数据战后整顿与回头是岸协议v1.0.md",
+      "sha256": "7d866287c915dbe74fd2c74fe32cb72afdc579ffa970539943877ebff8e39819",
+      "bytes": 33982,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龙魂礼兵双轨协议v1.0.md",
+      "sha256": "e2deb3e4b0493aefe43164b124189608f645c9a53fd4f72096b646d41654842f",
+      "bytes": 4460,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龙魂算法审计与透明协议v1.0.md",
+      "sha256": "1f049aff7846313736d17c00d3cdce9559a3a31dcbce06553ea368ee5860c074",
+      "bytes": 33532,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龙魂系统_完整技能清单与插件需求分析.md",
+      "sha256": "5b6343085ef0370f154e9e0300a892a1ed7a3210cc86e6e63c41ab7d382723e9",
+      "bytes": 23760,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龙魂系统v5.0_全量技能交付包.md",
+      "sha256": "2569c18e8a32a97085e4fd67c61ffd225ad2430cf26a846d8b04c491c1ee95c3",
+      "bytes": 37809,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龙魂系统估值报告-v1.1.md",
+      "sha256": "9e82ce2f65883feabf7bafd9ef819c03935e063584e274002c350a28635e1da1",
+      "bytes": 12785,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龙魂系统命名与字符对照总表v1.0.md",
+      "sha256": "707550b192fb0e9528f115ac10aaec0d4b5d3fc962c6deecbe6565ee7963eedc",
+      "bytes": 28071,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龙魂系统隐私接入规则v2.0_算法数学增强版.md",
+      "sha256": "fc70e3c68fcda54c06b2ac487810711134060aa070e1bfa06958f960bca2e824",
+      "bytes": 44498,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龙魂记忆永存与外脑压缩总协议v1.0.md",
+      "sha256": "fdfd217a89f323fedc5ae38c01feb27549190be948519d6bdaae56afafbfc713",
+      "bytes": 37280,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龙魂论文-哲学落地版-v1.0.md",
+      "sha256": "243e2bcac80bd98ec30dc46dd67aef6e9f0c0d6d163be16d962418e0d67b4591",
+      "bytes": 240,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "articles/龙魂评论水军显化与反操纵协议v1.0.md",
+      "sha256": "b3c5020311ee210dbb56f2e95a2488be59704fd50ce51c15ca186e67750cdc32",
+      "bytes": 31876,
+      "mtime": "2026-08-23T08:08:58"
+    },
+    {
+      "path": "papers/AI熵增攻坚_物理实证报告_v1.0.md",
+      "sha256": "79f2c1b7cdd1006e17341cbe8cbd4c48588f5ebe243ccd30cc5c5e4e9eb5f581",
+      "bytes": 8341,
+      "mtime": "2026-08-27T21:54:39"
+    },
+    {
+      "path": "papers/AI熵增攻坚_真实标定报告_v2.0.md",
+      "sha256": "0f4ea291cd9e74d4e1c826631ebff12371f39935759d3189a20e846242700050",
+      "bytes": 6171,
+      "mtime": "2026-08-27T22:07:47"
+    },
+    {
+      "path": "papers/ARXIV_SUBMISSION_PACKAGE.md",
+      "sha256": "2f1dddb1f6d501c6dd227c7c69667bd3089855714556ed5dd3209d78dc40fc4e",
+      "bytes": 15918,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/CNSH_v3.1_Optimized_Paper.md",
+      "sha256": "d3bd1a233afe491886df1b2438c668bfebc3cfde7214d5149a3b6925782bed29",
+      "bytes": 20064,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/EUV光刻_技术主权.md",
+      "sha256": "1bc626b9ea76d5381e36a6f4b61953ed674d76e911d48fd1cfe448e09fd8858d",
+      "bytes": 1809,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/Kimi_Agent_全球化翻译/responsibility_collapse_model_BILINGUAL.md",
+      "sha256": "ff8cc59206c6dde1fafd7c660be5bc1a55ac2d0e6dde2c6537d9d21364c5e5b7",
+      "bytes": 54454,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/Kimi_Agent_全球化翻译/responsibility_collapse_model_EN.md",
+      "sha256": "7d17d6e9dbe9262ac08d55d3467a139e53749a02539261a57a01510b6cdca62d",
+      "bytes": 61353,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/Kimi_Agent_全球化翻译/source_responsibility_collapse_v2.md",
+      "sha256": "3be38994bbc666c9cf57cf1317383ac9e74e9b0b166e913d8522136b4d74058a",
+      "bytes": 10083,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/LH-ECOM-TRUST-MATH-MODEL-v1.0.md",
+      "sha256": "f1668ce27c1c95b78ead85a7ec323ea389b11f5b77617878272223039065b9b4",
+      "bytes": 11920,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/LH-FIELD-DYNAMICS-PROPOSAL-v1.0.md",
+      "sha256": "4e80844e54bf67f4e49dc98dad17a3a79dc83d6b8614429f626b3ba5ebcac031",
+      "bytes": 21172,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/LH-GAMETHEORY-REPORT-v1.0.md",
+      "sha256": "45b569d350727d3521c9e028653ea93819bef63a09d4eb6d1ddbc4e7c5b0d828",
+      "bytes": 4783,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/PAPER_INDEX.md",
+      "sha256": "9a45d8571ac5541437f33030adf1d0b17f85798d6c8307d2d3c28fd394e727da",
+      "bytes": 18521,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "papers/claude_prompt.md",
+      "sha256": "a76f338fd7b07f4df73b0531387b2ce674c1a28ba98065d0e3eae76cb13341f0",
+      "bytes": 1159,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/field-dynamics/CODE_OF_CONDUCT.md",
+      "sha256": "fdae82a95254cced4c1e0bf6017e8b547a89f18ec868fac979e2c3b848fbae86",
+      "bytes": 1599,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/field-dynamics/CONTRIBUTING.md",
+      "sha256": "60265312f1cbf4d8a895314175483da5d29fbfd8b5c4f3f63397e29b0d5cc7b8",
+      "bytes": 2315,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/field-dynamics/FIELD-DYNAMICS-复盘人话版.md",
+      "sha256": "7a170dbb9cbc880807c1bd92649c56c161f7233050e7530ee41f9bb5df7ce11a",
+      "bytes": 4764,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/field-dynamics/PROPOSAL.md",
+      "sha256": "4e80844e54bf67f4e49dc98dad17a3a79dc83d6b8614429f626b3ba5ebcac031",
+      "bytes": 21172,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/field-dynamics/README.md",
+      "sha256": "54b879912c08c80901aff080d5b44286a98af3280609ceacccc4008b2799e2be",
+      "bytes": 6645,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/field-dynamics/RESULTS.md",
+      "sha256": "e1a2b60ffc4f55777c8fa7cf8240a3115c3a575ea31f1077696682c8b8917d23",
+      "bytes": 2105,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/field-dynamics/SECURITY.md",
+      "sha256": "e30dd8d50195372d403a43d5896d332e7f2132ad000f98ecb2bf8baf297303e2",
+      "bytes": 1528,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/field-dynamics/docs/AUDIT-DUAL.md",
+      "sha256": "55ef26ef4fb4421ee60479156af87fff0c7586286fe8bff233f61699c58e50ac",
+      "bytes": 3699,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/field-dynamics/docs/AUDIT-THREE-COLOR.md",
+      "sha256": "4f48528aadd3b7635c1e200e297f8cbab8f0336bc56d9753ae823e41a7ae22a6",
+      "bytes": 2634,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/field-dynamics/docs/VALIDATION-PROTOCOL.md",
+      "sha256": "85b482986e50b19fe64a1a6e429dfd39b284fdadeec56a0d3b9f95b8082af7c6",
+      "bytes": 3452,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/human-ai-symbiosis-seven-dimension-iching-v1.0.md",
+      "sha256": "990d3e31981b0f9b31b5a11e524f72e9b67c660efb87c4e7ce353de732501430",
+      "bytes": 69334,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/longhun-audit-openai-astra-math-truth-v1.0.md",
+      "sha256": "0cd0be09ac6448d85f1d140583f079c8fe53bd138e29e3d44d4f0c5ff173557e",
+      "bytes": 17604,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "papers/longhun-riemann-three-view-engine-v1.0.md",
+      "sha256": "1a373bd7d570733d7b39fc122399d038c2d22ff46c96aab9091b2edea3494b40",
+      "bytes": 26315,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "papers/notion_schema.md",
+      "sha256": "d531c061cd3fe1797cd3bf9c2f9ec0612650e2060b5659197dd93dfcfbae71ba",
+      "bytes": 1045,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/page_1.md",
+      "sha256": "685c8f19f72b64a5ad177bafc0526434d005634400a9d00e52a00941fae1b519",
+      "bytes": 887,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/page_2.md",
+      "sha256": "124f09bca80a5117fa0c87db447f6cc843ec187ade2a70db800c0922f7f01e8c",
+      "bytes": 1063,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/page_3.md",
+      "sha256": "7ba1c60d03f144d6685479eadbfd6e76247f7404f4c11a61fe5d54b974cb43a2",
+      "bytes": 1096,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/turbulence-longhun-insight-v3.0.md",
+      "sha256": "25b821da21f59db1fbf0042036e2d18e68841f7426a9ba62e52a0309c2a321ce",
+      "bytes": 3905,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/turbulence-longhun-v1.0.md",
+      "sha256": "a9f444d1be48fb122d88863c7223638424f855f4b02ef4ca50aaf122057c8436",
+      "bytes": 21512,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/turbulence-longhun-v2.0.md",
+      "sha256": "3d4a92af0ad7a4b8952095ec1cc493e322a62ae8f5958a10b473a9675ff46079",
+      "bytes": 60749,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/turbulence-longhun-v3.0-kimi-agent.md",
+      "sha256": "808e09c1fa156f52ca32e8bf94f4f7ce213ca2924dc85cd70e32c9f3301bfdde",
+      "bytes": 70435,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/三才流場全景_v1.1.md",
+      "sha256": "882e649065f096b28af8324b228e8703e2847722a120037728f1f97dab6ea253",
+      "bytes": 81423,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/中国哲学的可计算性_河图洛书_道德经_易经_AI治理_v1.0.md",
+      "sha256": "fc5749c3d3a04bfaa1b710504b084387067b0617303843c1c47e6f74e2844c88",
+      "bytes": 9941,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/反奶头乐共生理论_数学建模_v1.0.md",
+      "sha256": "8e1b5c99da8f55d9833a38ba96108203c5cf5eef4bca1ed46272775d9df91d84",
+      "bytes": 40781,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/易经世界模型的数学物理基础_从符号系统到可计算宇宙_v1.0.md",
+      "sha256": "f68d0dd1da7b89b90205bf8418494f4b56f93ab201e1707b1b791fca9b1d2d8f",
+      "bytes": 11274,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/易经世界模型的数学物理基础_哲学论文.md",
+      "sha256": "4106b3ef3f0049cd0b19b9c9c2cfb0ec033499d32a059a9356382c09d5618d22",
+      "bytes": 11040,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/湍流难题与龍魂算法_技术论文.md",
+      "sha256": "3e5a09aadf759a1209188e7bfc9c508140e363246f9162ab165bf7abc8932fe3",
+      "bytes": 48833,
+      "mtime": "2026-08-27T22:34:33"
+    },
+    {
+      "path": "papers/芯片光刻韬定律知识工程_v1.1/INDEX.md",
+      "sha256": "4e30a49dc70d6fcccb0ca9a2aec784ff7193afdeaa0b249ef4331558339b1b18",
+      "bytes": 1652,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/芯片光刻韬定律知识工程_v1.1/KFPP_Activation_Proclamation_v2.0.converted.md",
+      "sha256": "a9d18a13b305dbadefed7da20e1b67b35ec30475a8344c46f776090a3cd4779d",
+      "bytes": 11542,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/芯片光刻韬定律知识工程_v1.1/KFPP_Activation_Proclamation_v2.0.md",
+      "sha256": "a9d18a13b305dbadefed7da20e1b67b35ec30475a8344c46f776090a3cd4779d",
+      "bytes": 11542,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/芯片光刻韬定律知识工程_v1.1/plan.md",
+      "sha256": "abac4cbf663a49a037b9f879f7e44217ddc61688d8e891c4ea6be33d20ba0725",
+      "bytes": 1969,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/芯片光刻韬定律知识工程_v1.1/research_A_tau.md",
+      "sha256": "02b33dfe8c4f33e13e8b6a1b8a781b61b00534245b6bd51ade5129388ed53a4f",
+      "bytes": 13039,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/芯片光刻韬定律知识工程_v1.1/research_B_litho.md",
+      "sha256": "2879c2cf102fe83439267ed9836abfe1bb9e8f1f29da35177b10233fa3dffcdd",
+      "bytes": 14951,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/芯片光刻韬定律知识工程_v1.1/research_C_bottleneck.md",
+      "sha256": "9ebd036559869cd489e070da24c8f27274e4008398b475747a57153ce2105920",
+      "bytes": 14260,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/芯片光刻韬定律知识工程_v1.1/芯片光刻韬定律知识工程_v1.md",
+      "sha256": "39b44a74576a3e523e923a870370612e8ea43d260b44f5af8cca945bdbb8f375",
+      "bytes": 72273,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/软文化污染隔离_数学建模_v1.0.md",
+      "sha256": "3b9232f9ad0d2fab40f806210b6bb4ba15ec62203f6947ee7bb5dec8be59676c",
+      "bytes": 23555,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/韬定律龍魂算力调度_plan.md",
+      "sha256": "78b30b9f296a406db750a7ac47adcfe7632deb0d55f9f9224fa7daf0550d041d",
+      "bytes": 2766,
+      "mtime": "2026-08-27T22:34:33"
+    },
+    {
+      "path": "papers/龍魂·韬定律进阶破解之法v2.2.md",
+      "sha256": "ed5118d95c808c94e2ea8a0e83faff60a3e872c0f195eed4c6d699763505564e",
+      "bytes": 54316,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/龍魂宇宙论_v1.1.md",
+      "sha256": "c564408d21bb017b0addca164b3dde4e01062cd8ff4af13584ac34f6eb361855",
+      "bytes": 63675,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/龍魂审计_OpenAI_Astra数学突破真相_v1.0.md",
+      "sha256": "fde05d4190956c0cf38cfa27821ec16eba37916ca86784b22478c07698d5cf1b",
+      "bytes": 15185,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/龍魂系统与市面主流系统的博弈论研究报告.md",
+      "sha256": "38c46233bdcfcd5fcf1cfb7c4a1ea03ad59d18a38428a05188ad6d958d6fdf09",
+      "bytes": 42090,
+      "mtime": "2026-08-27T22:34:33"
+    },
+    {
+      "path": "papers/龍魂翻譯引擎數學白皮書_v1.0.md",
+      "sha256": "6a64bdaa9466017435971e77e2871a25a4e2b3426365fffb26480d58ed18bf4f",
+      "bytes": 12399,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/龍魂蚁群架构_分布式认知白皮书_v1.1.md",
+      "sha256": "fd0388b4ddeab1a90b718a2cd7033723535af542bd25cf072c73b489e173411c",
+      "bytes": 51759,
+      "mtime": "2026-08-30T22:55:07"
+    },
+    {
+      "path": "papers/龍魂視角黎曼猜想_Phase1_v1.0.md",
+      "sha256": "cc881c81fcfe2ba68cebcc91553a155ad7297f20ba134c8ea585dd076c0f0b7a",
+      "bytes": 10178,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/龍魂視角黎曼猜想_視角B_洛書守恒律.md",
+      "sha256": "448c9b1e7c0960575a8a1cc97ed25b4ba37f7fb2ca97971313217debd30ccf6d",
+      "bytes": 7237,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/龍魂視角黎曼猜想_視角C_三才和諧.md",
+      "sha256": "aec11dc8553c710cdc88c6a75b0ebe23e68a5cfb939b29bc9e00ec4a4d3b5b82",
+      "bytes": 5161,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/龍魂黎曼猜想三视角引擎_v1.0.md",
+      "sha256": "dfc3a861fdbeb359d1ba25a195539193a3a4c8ec744ecf49d9c0497fe1c62899",
+      "bytes": 24751,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/龙魂创作者DNA受益算法白皮书_v1.1.md",
+      "sha256": "a4c07668d6678c684f18b6c56d323a76ce5c3a52677c371f3a608a96fc5ab1b1",
+      "bytes": 27554,
+      "mtime": "2026-08-23T08:08:59"
+    },
+    {
+      "path": "papers/龙魂统一视觉渲染系统_v2.0.md",
+      "sha256": "10a8f5bd3a8894836d64403b7b7e07274922b8b049333c08de8ff82cc6a3c66d",
+      "bytes": 24179,
+      "mtime": "2026-08-23T08:08:59"
+    }
+  ]
+}

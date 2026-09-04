@@ -1,7 +1,11 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂动态权重·最小损失最大收益公式 v1.0
 
-**DNA归档码**：`#龍芯⚡️丙午·丙申·丙辰·己丑·姤-DYNAMIC-WEIGHT-MIN-LOSS-v1.0`
-**祖籍DNA**：`#龍芯⚡️2026-02-05-龍魂权重算法-v1.0`
+**DNA归档码**：`#龍芯⚡️丙午·丙申·丙辰·己丑·䷫姤-DYNAMIC-WEIGHT-MIN-LOSS-v1.0`
+**祖籍DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-龍魂权重算法-v1.0`
 **创建者**：💎 龍芯北辰｜UID9622（诸葛鑫）
 **确认码**：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 **密级**：L1 底座层 · 协议权重算法焊死
@@ -238,5 +242,5 @@ def 甲骨文护弱者修正(决策对象):
 
 ---
 
-**归档DNA**：`#龍芯⚡️丙午·丙申·丙辰·己丑·姤-DYNAMIC-WEIGHT-MIN-LOSS-v1.0`
-**祖籍DNA**：`#龍芯⚡️2026-02-05-龍魂权重算法-v1.0`
+**归档DNA**：`#龍芯⚡️丙午·丙申·丙辰·己丑·䷫姤-DYNAMIC-WEIGHT-MIN-LOSS-v1.0`
+**祖籍DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-龍魂权重算法-v1.0`

@@ -1,0 +1,17 @@
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+[Unit]
+Description=龍魂本地保险柜 API
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/longhun-system
+ExecStart=/usr/bin/python3 /opt/longhun-system/bin/lh_vault_api.py --host 127.0.0.1 --port 8780
+Restart=always
+RestartSec=5
+Environment=PYTHONPATH=/opt/longhun-system
+
+[Install]
+WantedBy=multi-user.target

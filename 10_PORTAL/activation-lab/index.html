@@ -1,0 +1,1144 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-d47c87f9 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="龍魂激活经济舱 · 一元起步 · 上不封顶 · 实名留痕 · 主权归己 · 龍魂系统核心功能入场券">
+<meta name="keywords" content="龍魂, UID9622, 激活经济舱, 数据主权, MFA, 一元起步">
+<meta name="author" content="诸葛鑫 UID9622">
+<meta property="og:title" content="龍魂激活经济舱 · 一元起步">
+<meta property="og:description" content="你的支持就是进入龍魂核心功能的入场券 · 实名留痕 · 主权归己">
+<meta property="og:type" content="website">
+<title>龍魂激活经济舱 · 一元起步 · 上不封顶</title>
+<style>
+:root {
+  --bg:#0a0a14;--bg2:#111121;--bg3:#1a1a2e;--bg4:#22223b;
+  --gold:#d4a574;--gold-light:#edd5b8;--gold-dark:#b8854a;
+  --text:#e8dcc8;--text-dim:#a09080;--text-muted:#6b6b7b;
+  --green:#27ae60;--red:#c0392b;--cyan:#4ecdc4;--purple:#9b59b6;
+  --border:rgba(212,165,116,.12);
+  --glow:0 0 20px rgba(212,165,116,.15);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+header{position:sticky;top:0;z-index:100;background:rgba(10,10,20,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:18px;font-weight:800;color:var(--gold);letter-spacing:2px}
+.logo span{font-size:11px;color:var(--text-dim);font-weight:400}
+.nav-links{display:flex;gap:20px;list-style:none;font-size:13px}
+.nav-links a{color:var(--text-dim);text-decoration:none;transition:.2s}
+.nav-links a:hover{color:var(--gold)}
+main{max-width:820px;margin:0 auto;padding:32px 24px}
+.dna-bar{text-align:center;font-family:"SF Mono","Fira Code",monospace;font-size:11px;color:var(--text-dim);margin-bottom:16px;word-break:break-all}
+.hero{text-align:center;margin-bottom:28px}
+.hero h1{font-size:clamp(26px,5vw,40px);font-weight:800;background:linear-gradient(135deg,var(--gold-light),var(--gold) 50%,var(--gold-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{color:var(--text-dim);margin-top:8px;font-size:14px}
+
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:20px;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5}
+.card h2{font-size:17px;color:var(--gold-light);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card h2 .icon{font-size:20px}
+.card h2 .subtitle{font-size:12px;color:var(--text-dim);font-weight:400;margin-left:auto}
+label{display:block;font-size:12px;color:var(--text-dim);margin-bottom:6px;margin-top:14px}
+input,textarea{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--text);font-size:13px;font-family:inherit;resize:vertical}
+input:focus,textarea:focus{outline:none;border-color:var(--gold)}
+.amount-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:8px;margin-top:8px}
+.amount-btn{padding:10px;border-radius:10px;border:1px solid var(--border);background:var(--bg3);color:var(--text-dim);cursor:pointer;text-align:center;font-size:13px;transition:.2s}
+.amount-btn:hover{border-color:var(--gold);color:var(--gold)}
+.amount-btn.active{border-color:var(--gold);background:rgba(212,165,116,.12);color:var(--gold-light);box-shadow:var(--glow)}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;align-items:center}
+.btn-primary{padding:10px 22px;border-radius:20px;border:none;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);font-size:13px;font-weight:600;cursor:pointer;transition:.2s}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(212,165,116,.3)}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn-outline{padding:9px 18px;border-radius:20px;border:1px solid var(--gold);background:transparent;color:var(--gold);font-size:13px;cursor:pointer;transition:.2s}
+.btn-outline:hover{background:rgba(212,165,116,.08)}
+.btn-outline:disabled{opacity:.4;cursor:not-allowed}
+.result{margin-top:18px;padding:16px;border-radius:10px;background:var(--bg3);border:1px solid var(--border);font-family:"SF Mono","Fira Code",monospace;font-size:12px;white-space:pre-wrap;word-break:break-all;min-height:80px;color:var(--text-dim)}
+.result.ok{border-color:rgba(39,174,96,.3);color:var(--text)}
+.result.err{border-color:rgba(192,57,43,.3)}
+.loading{display:none;align-items:center;gap:8px;font-size:12px;color:var(--gold)}
+.loading.show{display:inline-flex}
+.spinner{width:14px;height:14px;border:2px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.qr-wrap{text-align:center;margin-top:16px}
+.qr-wrap img{max-width:220px;border-radius:10px;border:1px solid var(--border);background:#fff;padding:8px}
+.qr-wrap .secret{font-family:"SF Mono","Fira Code",monospace;font-size:12px;color:var(--gold);margin-top:10px;word-break:break-all;background:var(--bg3);padding:10px;border-radius:8px;border:1px dashed var(--border)}
+.legend{font-size:11px;color:var(--text-dim);margin-top:8px}
+.step-disabled{opacity:.5;pointer-events:none}
+.step-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--bg);font-size:12px;font-weight:700;margin-right:8px}
+.action-bar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.action-pill{display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:24px;border:1px solid var(--border);background:var(--bg3);color:var(--text);cursor:pointer;transition:.2s;font-size:13px}
+.action-pill:hover{border-color:var(--gold);background:rgba(212,165,116,.08)}
+.action-pill .count{font-size:11px;color:var(--gold);background:rgba(212,165,116,.12);padding:2px 8px;border-radius:10px}
+footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);margin-top:40px;font-size:12px;color:rgba(255,255,255,.25)}
+footer .dna{font-family:"SF Mono","Fira Code",monospace;margin-top:8px;color:var(--text-dim)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);padding:10px 20px;border-radius:10px;background:var(--bg2);border:1px solid var(--gold);color:var(--gold);font-size:13px;z-index:99999;opacity:0;pointer-events:none;transition:.3s}
+.toast.show{opacity:1}
+
+/* 主权声明卡 */
+.sovereignty-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:16px}
+.sov-item{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;transition:.2s}
+.sov-item:hover{border-color:var(--gold);transform:translateY(-2px)}
+.sov-item .icon{font-size:24px;margin-bottom:6px}
+.sov-item .title{font-size:13px;font-weight:600;color:var(--gold-light);margin-bottom:4px}
+.sov-item .desc{font-size:11px;color:var(--text-dim);line-height:1.5}
+.confirm-code{font-family:"SF Mono","Fira Code",monospace;font-size:13px;color:var(--gold);background:rgba(212,165,116,.1);padding:8px 12px;border-radius:8px;border:1px dashed var(--gold);display:inline-block;margin-top:10px}
+
+/* 标签 */
+.tag{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:20px;background:var(--bg3);border:1px solid var(--border);font-size:11px;color:var(--text-dim);margin-right:6px;margin-bottom:6px}
+.tag.gold{border-color:var(--gold);color:var(--gold)}
+.tag.green{border-color:var(--green);color:var(--green)}
+.tag.red{border-color:var(--red);color:var(--red)}
+
+/* 日志面板 */
+.log-panel{max-height:220px;overflow-y:auto;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px;font-family:"SF Mono","Fira Code",monospace;font-size:11px}
+.log-entry{display:flex;gap:10px;padding:6px 0;border-bottom:1px solid var(--border)}
+.log-entry:last-child{border-bottom:none}
+.log-time{color:var(--text-muted);white-space:nowrap}
+.log-action{color:var(--gold)}
+.log-result.ok{color:var(--green)}
+.log-result.err{color:var(--red)}
+.log-detail{color:var(--text-dim);flex:1;word-break:break-all}
+.log-empty{color:var(--text-dim);text-align:center;padding:20px}
+
+/* 图表 */
+.chart-card{position:relative}
+.chart-canvas{width:100%;height:180px;background:var(--bg3);border-radius:10px;border:1px solid var(--border)}
+.chart-tabs{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.chart-tab{padding:6px 12px;border-radius:16px;border:1px solid var(--border);background:var(--bg3);color:var(--text-dim);font-size:12px;cursor:pointer;transition:.2s}
+.chart-tab:hover{border-color:var(--gold);color:var(--gold)}
+.chart-tab.active{border-color:var(--gold);background:rgba(212,165,116,.12);color:var(--gold-light)}
+
+/* 弹窗 */
+.modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:1000}
+.modal.show{display:flex}
+.modal-content{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:24px;width:90%;max-width:420px;max-height:80vh;overflow-y:auto}
+.modal h3{font-size:16px;color:var(--gold-light);margin-bottom:12px}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:16px}
+
+/* 收益说明 */
+.benefit-list{margin-top:12px}
+.benefit-item{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border)}
+.benefit-item:last-child{border-bottom:none}
+.benefit-num{width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--bg);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.benefit-text{font-size:13px;color:var(--text-dim)}
+.benefit-text strong{color:var(--gold-light)}
+
+/* 进度指示 */
+.progress-bar{height:4px;background:var(--bg3);border-radius:2px;margin:16px 0;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-dark));width:0%;transition:width .5s ease}
+.step-status{display:flex;justify-content:space-between;font-size:11px;color:var(--text-dim);margin-top:4px}
+.step-status span.active{color:var(--gold);font-weight:600}
+
+/* 实时看板数字 */
+.metrics-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:16px}
+.metric-box{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center}
+.metric-box .value{font-size:20px;font-weight:700;color:var(--gold-light)}
+.metric-box .label{font-size:11px;color:var(--text-dim);margin-top:4px}
+
+/* 隐藏/显示 */
+.hidden{display:none}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">龍魂<span>· 激活经济舱</span></a>
+  <ul class="nav-links">
+    <li><a href="/">首页</a></li>
+    <li><a href="/pathfinder-lab/">路径规划</a></li>
+    <li><a href="/knowledge/">记忆库</a></li>
+    <li><a href="/activation-lab/admin.html">🔐 管理</a></li>
+  </ul>
+</header>
+
+<main>
+  <div class="dna-bar">#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-ACTIVATION-ECONOMY-v1.0-A1B2C3D4</div>
+
+  <div class="hero">
+    <h1>🎫 龍魂激活经济舱</h1>
+    <p>一元起步 · 上不封顶 · 实名留痕 · 主权归己<br>你的支持就是进入龍魂核心功能的入场券</p>
+    <div class="confirm-code">#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</div>
+  </div>
+
+  <!-- 龍魂主权声明 -->
+  <div class="card">
+    <h2><span class="icon">🛡️</span>龍魂主权声明</h2>
+    <div class="sovereignty-grid">
+      <div class="sov-item">
+        <div class="icon">👑</div>
+        <div class="title">零号协议</div>
+        <div class="desc">世界老百姓最高<br>不可覆盖 · 不可弱化</div>
+      </div>
+      <div class="sov-item">
+        <div class="icon">🇨🇳</div>
+        <div class="title">数据主权</div>
+        <div class="desc">数据根留中国<br>来源可查去向可追</div>
+      </div>
+      <div class="sov-item">
+        <div class="icon">📜</div>
+        <div class="title">审计留痕</div>
+        <div class="desc">所有判定留痕<br>KPI 更新 · 为人民</div>
+      </div>
+      <div class="sov-item">
+        <div class="icon">🔐</div>
+        <div class="title">MFA 核心闸</div>
+        <div class="desc">支付后绑定 MFA<br>激活核心功能</div>
+      </div>
+    </div>
+    <div style="margin-top:14px">
+      <span class="tag gold">🐉 龍魂系统 UID9622</span>
+      <span class="tag">💰 1 CNY 起</span>
+      <span class="tag">🌐 鲲鹏服务器 · 中国香港</span>
+      <span class="tag green">✅ 已审计 · 可验证</span>
+    </div>
+  </div>
+
+  <!-- 进度指示 -->
+  <div class="card" id="progressCard">
+    <h2><span class="icon">🚀</span>激活进度 <span class="subtitle" id="progressText">0/3 完成</span></h2>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="step-status">
+      <span id="ps1">1 选择金额</span>
+      <span id="ps2">2 支付确认</span>
+      <span id="ps3">3 MFA 绑定</span>
+    </div>
+  </div>
+
+  <!-- 步骤1：选择金额 -->
+  <div class="card" id="step1">
+    <h2><span class="step-badge">1</span><span class="icon">💰</span>选择支持金额</h2>
+    <label>快捷金额（元）</label>
+    <div class="amount-grid" id="amountGrid">
+      <div class="amount-btn active" data-amount="1">1元</div>
+      <div class="amount-btn" data-amount="5">5元</div>
+      <div class="amount-btn" data-amount="10">10元</div>
+      <div class="amount-btn" data-amount="50">50元</div>
+      <div class="amount-btn" data-amount="100">100元</div>
+      <div class="amount-btn" data-amount="custom">自定义</div>
+    </div>
+    <div id="customWrap" style="display:none;margin-top:12px">
+      <label>自定义金额（≥1.00）</label>
+      <input id="customAmount" type="number" step="0.01" min="1" placeholder="请输入支持金额">
+    </div>
+    <label>支付人姓名（可选，企业建议实名）</label>
+    <input id="payerName" placeholder="张三 或 某某公司">
+    <label>备注（可选）</label>
+    <input id="payerNote" placeholder="支持龍魂系统">
+    <div class="btn-row">
+      <button class="btn-primary" id="genOrderBtn" onclick="generateOrder()">🎫 生成订单与收款二维码</button>
+      <span class="loading" id="genLoading"><span class="spinner"></span>生成中…</span>
+    </div>
+    <div class="result" id="orderResult">等待生成订单</div>
+
+    <!-- 静态收款二维码 -->
+    <div id="staticQrSection" style="display:none;margin-top:16px">
+      <div class="tag gold">📱 龍魂收款码（备注订单号）</div>
+      <div class="qr-wrap" id="qrWrap"></div>
+    </div>
+
+    <!-- 真实支付渠道 -->
+    <div id="realPayWrap" style="display:none;margin-top:18px">
+      <label>💳 真实支付渠道（推荐 · 自动到账）</label>
+      <div class="btn-row" id="payProviderBtns"></div>
+      <div class="qr-wrap" id="payQrWrap"></div>
+      <div class="btn-row">
+        <button class="btn-outline" id="pollBtn" onclick="pollPayment()">🔄 查询支付状态</button>
+        <button class="btn-outline" id="autoPollBtn" onclick="toggleAutoPoll()">⏳ 自动轮询</button>
+        <span class="loading" id="payQueryLoading"><span class="spinner"></span>查询中…</span>
+      </div>
+      <div class="result" id="payQueryResult" style="min-height:40px"></div>
+    </div>
+  </div>
+
+  <!-- 步骤2：MFA绑定 -->
+  <div class="card step-disabled" id="step2">
+    <h2><span class="step-badge">2</span><span class="icon">🔐</span>MFA 扫码绑定（核心安全闸）</h2>
+    <p style="font-size:12px;color:var(--text-dim);margin-bottom:12px">支付确认到账后，绑定 MFA 才能激活核心功能。支持华为账号 / Google Authenticator / Authy / 微软 Authenticator。</p>
+    <label>绑定邮箱账号</label>
+    <input id="mfaAccount" value="longhun@uid9622.cn" placeholder="用于 TOTP 标签显示">
+    <div class="btn-row">
+      <button class="btn-primary" id="mfaGenBtn" onclick="generateMFA()">📱 生成 MFA 二维码</button>
+      <span class="loading" id="mfaLoading"><span class="spinner"></span>生成中…</span>
+    </div>
+    <div class="qr-wrap" id="mfaQrWrap"></div>
+    <div id="mfaVerifyWrap" style="display:none;margin-top:16px">
+      <label>输入 6 位动态码</label>
+      <input id="mfaCode" maxlength="6" placeholder="123456" style="font-size:18px;letter-spacing:8px;text-align:center">
+      <div class="btn-row">
+        <button class="btn-primary" id="mfaVerifyBtn" onclick="verifyMFA()">✅ 验证并绑定</button>
+        <span class="loading" id="mfaVerifyLoading"><span class="spinner"></span>验证中…</span>
+      </div>
+    </div>
+    <div class="result" id="mfaResult">等待生成 MFA</div>
+  </div>
+
+  <!-- 步骤3：手动确认到账 -->
+  <div class="card step-disabled" id="step3">
+    <h2><span class="step-badge">3</span><span class="icon">✅</span>回填交易单号确认到账</h2>
+    <p style="font-size:12px;color:var(--text-dim);margin-bottom:12px">如使用静态收款码转账，请回填支付宝/微信账单交易单号完成手动确认。</p>
+    <label>订单号</label>
+    <input id="confirmOrderId" placeholder="PAY-20260729-XXXXXXXX" readonly>
+    <label>交易单号（微信/支付宝账单里的单号）</label>
+    <input id="txId" placeholder="2026...">
+    <div class="btn-row">
+      <button class="btn-primary" id="confirmBtn" onclick="confirmOrder()">✅ 确认到账并激活</button>
+      <span class="loading" id="confirmLoading"><span class="spinner"></span>确认中…</span>
+    </div>
+    <div class="result" id="confirmResult">等待确认</div>
+  </div>
+
+  <!-- 收益说明 -->
+  <div class="card">
+    <h2><span class="icon">💡</span>一元起步 · 上不封顶</h2>
+    <div class="benefit-list">
+      <div class="benefit-item"><div class="benefit-num">1</div><div class="benefit-text"><strong>入场券机制</strong><br>支付即获得龍魂核心功能访问权，不是购买 API 调用次数。</div></div>
+      <div class="benefit-item"><div class="benefit-num">2</div><div class="benefit-text"><strong>打赏即主权</strong><br>1 元是态度，100 元是支持，多次支付累计激活更高权益。</div></div>
+      <div class="benefit-item"><div class="benefit-num">3</div><div class="benefit-text"><strong>实名留痕</strong><br>每笔支付生成唯一 DNA 追溯码，来源可查、去向可追、责任可究。</div></div>
+      <div class="benefit-item"><div class="benefit-num">4</div><div class="benefit-text"><strong>商业可用</strong><br>企业用户可实名多次支持，获得龍魂系统商业使用权。</div></div>
+    </div>
+  </div>
+
+  <!-- 运行日志摘要 -->
+  <div class="card">
+    <h2><span class="icon">📜</span>运行日志摘要 <span class="subtitle">最近一次操作结果/错误码</span></h2>
+    <div class="log-panel" id="logPanel">
+      <div class="log-empty">暂无运行日志，执行操作后将自动记录</div>
+    </div>
+  </div>
+
+  <!-- 实时数据看板 -->
+  <div class="card chart-card">
+    <h2><span class="icon">📈</span>实时数据看板 <span class="subtitle">真实计数 · 未作假 · 可审计</span></h2>
+    <div class="metrics-summary">
+      <div class="metric-box"><div class="value" id="sumDownload">-</div><div class="label">下载协议</div></div>
+      <div class="metric-box"><div class="value" id="sumView">-</div><div class="label">浏览量</div></div>
+      <div class="metric-box"><div class="value" id="sumUse">-</div><div class="label">使用量</div></div>
+      <div class="metric-box"><div class="value" id="sumComment">-</div><div class="label">真实评论</div></div>
+      <div class="metric-box"><div class="value" id="sumForward">-</div><div class="label">转发</div></div>
+    </div>
+    <div class="chart-tabs">
+      <button class="chart-tab active" data-chart="view" onclick="switchChart('view')">浏览量</button>
+      <button class="chart-tab" data-chart="use" onclick="switchChart('use')">使用量</button>
+      <button class="chart-tab" data-chart="comment" onclick="switchChart('comment')">评论</button>
+      <button class="chart-tab" data-chart="forward" onclick="switchChart('forward')">转发</button>
+      <button class="chart-tab" data-chart="download" onclick="switchChart('download')">下载</button>
+    </div>
+    <canvas id="metricsChart" class="chart-canvas" width="760" height="180"></canvas>
+    <p style="font-size:11px;color:var(--text-dim);margin-top:10px">数据来自后端 SQLite 真实计数，每次点击写入数据库并留痕，未作假、可审计。每小时自动聚合。</p>
+  </div>
+
+  <!-- 传播与使用数据 -->
+  <div class="card">
+    <h2><span class="icon">📢</span>传播与使用数据</h2>
+    <div class="action-bar">
+      <button class="action-pill" onclick="downloadProtocol()">⬇️ 下载协议 <span class="count" id="cDownload">-</span></button>
+      <button class="action-pill" onclick="doCounter('view')">👁 浏览量 <span class="count" id="cView">-</span></button>
+      <button class="action-pill" onclick="doCounter('use')">▶ 使用量 <span class="count" id="cUse">-</span></button>
+      <button class="action-pill" onclick="openCommentModal()">💬 真实评论 <span class="count" id="cComment">-</span></button>
+      <button class="action-pill" onclick="openShareModal()">↗️ 转发 <span class="count" id="cForward">-</span></button>
+    </div>
+    <div id="recentComments" style="display:none;margin-top:16px">
+      <label>最新真实评论</label>
+      <div class="log-panel" id="commentsPanel">
+        <div class="log-empty">暂无评论</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 激活经济状态 -->
+  <div class="card">
+    <h2><span class="icon">📊</span>激活经济状态</h2>
+    <div class="btn-row">
+      <button class="btn-outline" onclick="loadStatus()">🔄 刷新状态</button>
+      <span class="tag" id="providerTag">加载中…</span>
+    </div>
+    <div class="result" id="statusResult">点击刷新</div>
+  </div>
+
+</main>
+
+<footer>
+  <p>龍魂激活经济主权协议 v1.0 · 一元起步 · 上不封顶</p>
+  <div class="dna">#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-ACTIVATION-LAB-v1.0</div>
+</footer>
+
+<!-- 评论弹窗 -->
+<div class="modal" id="commentModal">
+  <div class="modal-content">
+    <h3>💬 发表真实评论</h3>
+    <label>你的称呼（可选）</label>
+    <input id="commentName" placeholder="龍魂支持者">
+    <label>评论内容</label>
+    <textarea id="commentText" rows="4" placeholder="写下你对龍魂系统的真实看法…"></textarea>
+    <div class="modal-actions">
+      <button class="btn-outline" onclick="closeModal('commentModal')">取消</button>
+      <button class="btn-primary" onclick="submitComment()">提交评论</button>
+    </div>
+  </div>
+</div>
+
+<!-- 转发弹窗 -->
+<div class="modal" id="shareModal">
+  <div class="modal-content">
+    <h3>↗️ 转发龍魂激活舱</h3>
+    <p style="font-size:13px;color:var(--text-dim);margin-bottom:12px">复制下方链接分享到任意平台，每次分享计数+1。</p>
+    <input id="shareUrl" readonly value="https://uid9622.cn/activation-lab/">
+    <div class="modal-actions">
+      <button class="btn-outline" onclick="closeModal('shareModal')">关闭</button>
+      <button class="btn-primary" onclick="copyShare()">复制链接</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const API_BASE = '/api/activation';
+let currentAmount = '1';
+let currentOrderId = '';
+let currentMfaSecret = '';
+let autoPollTimer = null;
+let currentChart = 'view';
+
+// 初始化
+document.querySelectorAll('.amount-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentAmount = btn.dataset.amount;
+    document.getElementById('customWrap').style.display = currentAmount === 'custom' ? 'block' : 'none';
+  });
+});
+
+function show(el, text, ok){
+  const r = document.getElementById(el);
+  r.textContent = text;
+  r.className = 'result ' + (ok === true ? 'ok' : (ok === false ? 'err' : ''));
+}
+function setLoading(id, on){ document.getElementById(id).classList.toggle('show', on); }
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2000); }
+function enableStep(id){ document.getElementById(id).classList.remove('step-disabled'); }
+function stepDone(n){
+  document.getElementById('ps'+n).textContent = ['✅ 选择金额','✅ 支付确认','✅ MFA 绑定'][n-1];
+  document.getElementById('ps'+n).classList.add('active');
+  updateProgress();
+}
+function updateProgress(){
+  let done = 0;
+  if(currentOrderId) done++;
+  if(document.getElementById('step2').classList.contains('step-disabled') === false && currentOrderId) done++;
+  // MFA完成由结果判断
+  const mfaResult = document.getElementById('mfaResult').textContent;
+  if(mfaResult.includes('绑定成功')) done++;
+  document.getElementById('progressFill').style.width = (done/3*100) + '%';
+  document.getElementById('progressText').textContent = `${done}/3 完成`;
+}
+
+async function api(path, body, method='POST'){
+  const opts = {method, headers: {'Content-Type':'application/json'}};
+  if(body) opts.body = JSON.stringify(body);
+  const res = await fetch(API_BASE + path, opts);
+  const text = await res.text();
+  try { return {ok: res.ok, data: JSON.parse(text)}; }
+  catch { return {ok: res.ok, data: text}; }
+}
+
+// 运行日志摘要
+function appendLog(action, result, detail, errorCode){
+  const panel = document.getElementById('logPanel');
+  if(panel.querySelector('.log-empty')) panel.innerHTML = '';
+  const time = new Date().toLocaleTimeString('zh-CN');
+  const entry = document.createElement('div');
+  entry.className = 'log-entry';
+  entry.innerHTML = `
+    <span class="log-time">${time}</span>
+    <span class="log-action">${action}</span>
+    <span class="log-result ${result==='success'?'ok':'err'}">${result}${errorCode?' · '+errorCode:''}</span>
+    <span class="log-detail">${detail}</span>
+  `;
+  panel.insertBefore(entry, panel.firstChild);
+  while(panel.children.length > 20) panel.removeChild(panel.lastChild);
+}
+
+async function loadPaymentProviders(){
+  try{
+    const res = await fetch(API_BASE + '/payment/providers');
+    const data = await res.json();
+    const wrap = document.getElementById('realPayWrap');
+    const btns = document.getElementById('payProviderBtns');
+    const providers = data.providers || {};
+    const enabled = Object.entries(providers).filter(([_,v])=>v).map(([k,_])=>k);
+    wrap.style.display = 'block';
+    if(enabled.length === 0){
+      btns.innerHTML = '<span style="font-size:12px;color:var(--text-dim)">真实支付未配置，请使用静态收款码 + 步骤3手动确认</span>';
+      return;
+    }
+    let html = '';
+    if(providers.wechat_pay) html += `<button class="btn-outline" onclick="createRealPayment('wechat_pay')">微信支付</button>`;
+    if(providers.alipay) html += `<button class="btn-outline" onclick="createRealPayment('alipay')">支付宝</button>`;
+    btns.innerHTML = html;
+  }catch(e){ console.log('load providers failed', e); }
+}
+
+async function createRealPayment(provider){
+  if(!currentOrderId){ toast('请先生成订单'); return; }
+  setLoading('payQueryLoading', true);
+  try{
+    const r = await api('/payment/create', {order_id: currentOrderId, provider});
+    if(r.ok && r.data.qr_code){
+      document.getElementById('payQrWrap').innerHTML = `
+        <div style="margin-bottom:8px"><span class="tag gold">💳 ${provider==='wechat_pay'?'微信':'支付宝'}沙箱支付</span></div>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(r.data.qr_code)}" alt="收款二维码">
+        <div class="legend">${provider==='wechat_pay'?'微信':'支付宝'}扫码支付 · 订单号 ${r.data.out_trade_no||currentOrderId}</div>
+      `;
+      show('payQueryResult', '已生成收款二维码，请扫码支付。支持自动轮询。', true);
+      appendLog('payment.create', 'success', `${provider} 订单=${r.data.out_trade_no||currentOrderId}`);
+      startAutoPoll();
+    } else {
+      show('payQueryResult', '失败: ' + (r.data.error || JSON.stringify(r.data)), false);
+      appendLog('payment.create', 'failed', r.data.error || '未知错误');
+    }
+  }catch(e){ show('payQueryResult', '错误: ' + e.message, false); appendLog('payment.create','failed',e.message); }
+  setLoading('payQueryLoading', false);
+}
+
+function startAutoPoll(){
+  if(autoPollTimer) clearInterval(autoPollTimer);
+  document.getElementById('autoPollBtn').textContent = '⏹ 停止轮询';
+  autoPollTimer = setInterval(() => {
+    if(!currentOrderId){ stopAutoPoll(); return; }
+    pollPayment(true);
+  }, 3000);
+}
+function stopAutoPoll(){
+  if(autoPollTimer){ clearInterval(autoPollTimer); autoPollTimer = null; }
+  document.getElementById('autoPollBtn').textContent = '⏳ 自动轮询';
+}
+function toggleAutoPoll(){
+  if(autoPollTimer) stopAutoPoll(); else startAutoPoll();
+}
+
+async function pollPayment(silent=false){
+  if(!currentOrderId){ toast('请先生成订单'); return; }
+  if(!silent) setLoading('payQueryLoading', true);
+  try{
+    const res = await fetch(API_BASE + '/payment/query?order_id=' + encodeURIComponent(currentOrderId));
+    const data = await res.json();
+    if(data.success && (data.status==='SUCCESS' || data.status==='TRADE_SUCCESS')){
+      show('payQueryResult', `支付已确认 ✅\n状态: ${data.status}\nprovider: ${data.provider}`, true);
+      enableStep('step2');
+      enableStep('step3');
+      stepDone(2);
+      loadStatus();
+      stopAutoPoll();
+      appendLog('payment.query', 'success', `状态=${data.status} provider=${data.provider}`);
+    } else {
+      const statusText = data.status || data.error || '未知';
+      show('payQueryResult', `未支付或处理中\n状态: ${statusText}\nprovider: ${data.provider || '-'}`, false);
+      if(!silent) appendLog('payment.query', 'pending', `状态=${statusText}`);
+    }
+  }catch(e){ show('payQueryResult', '错误: ' + e.message, false); appendLog('payment.query','failed',e.message); }
+  if(!silent) setLoading('payQueryLoading', false);
+}
+
+async function generateOrder(){
+  setLoading('genLoading', true);
+  try{
+    let amount = currentAmount;
+    if(amount === 'custom') amount = document.getElementById('customAmount').value;
+    const body = {
+      amount: amount,
+      name: document.getElementById('payerName').value || '匿名',
+      note: document.getElementById('payerNote').value || ''
+    };
+    const r = await api('/order', body);
+    if(r.ok && r.data.order_id){
+      currentOrderId = r.data.order_id;
+      document.getElementById('confirmOrderId').value = r.data.order_id;
+      show('orderResult', `订单号: ${r.data.order_id}\n金额: ${r.data.amount} ${r.data.currency}\nDNA: ${r.data.dna}`, true);
+      const qw = document.getElementById('qrWrap');
+      if(r.data.qr_base64){
+        qw.innerHTML = `<img src="${r.data.qr_base64}" alt="支付二维码"><div class="legend">扫码支付并备注订单号 ${r.data.order_id}</div>`;
+        document.getElementById('staticQrSection').style.display = 'block';
+      } else {
+        qw.innerHTML = '<div class="legend">服务端未生成二维码图片</div>';
+      }
+      enableStep('step2');
+      enableStep('step3');
+      stepDone(1);
+      loadPaymentProviders();
+      appendLog('order.create', 'success', `订单=${r.data.order_id} 金额=${r.data.amount}`);
+    } else {
+      show('orderResult', '失败: ' + (r.data.error || r.data), false);
+      appendLog('order.create', 'failed', r.data.error || '未知错误');
+    }
+  }catch(e){ show('orderResult', '错误: ' + e.message, false); appendLog('order.create','failed',e.message); }
+  setLoading('genLoading', false);
+}
+
+async function generateMFA(){
+  setLoading('mfaLoading', true);
+  try{
+    const account = document.getElementById('mfaAccount').value || 'longhun@uid9622.cn';
+    const r = await api('/mfa/generate', {account}, 'POST');
+    if(r.ok && r.data.secret){
+      currentMfaSecret = r.data.secret;
+      document.getElementById('mfaQrWrap').innerHTML = `
+        <div style="margin-bottom:8px"><span class="tag gold">🔐 TOTP MFA</span></div>
+        <img src="${r.data.qr_base64}" alt="MFA二维码">
+        <div class="legend">${r.data.hint}</div>
+        <div class="secret">密钥: ${r.data.secret}</div>
+      `;
+      document.getElementById('mfaVerifyWrap').style.display = 'block';
+      show('mfaResult', '请扫码或手动输入密钥，然后输入 6 位动态码', true);
+      appendLog('mfa.generate', 'success', `账户=${account}`);
+    } else {
+      show('mfaResult', '失败: ' + (r.data.error || r.data), false);
+      appendLog('mfa.generate', 'failed', r.data.error || '未知错误');
+    }
+  }catch(e){ show('mfaResult', '错误: ' + e.message, false); appendLog('mfa.generate','failed',e.message); }
+  setLoading('mfaLoading', false);
+}
+
+async function verifyMFA(){
+  if(!currentOrderId){ toast('请先生成订单'); return; }
+  if(!currentMfaSecret){ toast('请先生成 MFA 二维码'); return; }
+  const code = document.getElementById('mfaCode').value.trim();
+  if(!/^\d{6}$/.test(code)){ toast('请输入 6 位数字'); return; }
+  setLoading('mfaVerifyLoading', true);
+  try{
+    const r = await api('/mfa/bind', {
+      order_id: currentOrderId,
+      secret: currentMfaSecret,
+      code: code,
+      device_name: 'activation-lab-web'
+    });
+    if(r.ok && r.data.success){
+      show('mfaResult', `MFA 绑定成功\n设备ID: ${r.data.device_id}\nDNA: ${r.data.dna}`, true);
+      stepDone(3);
+      toast('MFA 绑定成功 · 核心功能已激活');
+      appendLog('mfa.bind', 'success', `设备=${r.data.device_id}`);
+    } else {
+      show('mfaResult', '失败: ' + (r.data.error || r.data), false);
+      appendLog('mfa.bind', 'failed', r.data.error || '未知错误');
+    }
+  }catch(e){ show('mfaResult', '错误: ' + e.message, false); appendLog('mfa.bind','failed',e.message); }
+  setLoading('mfaVerifyLoading', false);
+}
+
+async function confirmOrder(){
+  setLoading('confirmLoading', true);
+  try{
+    const r = await api('/confirm', {
+      order_id: document.getElementById('confirmOrderId').value,
+      tx_id: document.getElementById('txId').value
+    });
+    if(r.ok && r.data.success){
+      show('confirmResult', `激活成功\n订单: ${r.data.order_id}\nDNA: ${r.data.dna}\n时间: ${r.data.confirmed_at}`, true);
+      enableStep('step2');
+      stepDone(2);
+      loadStatus();
+      appendLog('order.confirm', 'success', `订单=${r.data.order_id}`);
+    } else {
+      show('confirmResult', '失败: ' + (r.data.error || r.data), false);
+      appendLog('order.confirm', 'failed', r.data.error || '未知错误');
+    }
+  }catch(e){ show('confirmResult', '错误: ' + e.message, false); appendLog('order.confirm','failed',e.message); }
+  setLoading('confirmLoading', false);
+}
+
+async function loadStatus(){
+  try{
+    const res = await fetch(API_BASE + '/status');
+    const data = await res.json();
+    let text = `累计支持: ${data.total_amount} ${data.currency || 'CNY'}\n订单总数: ${data.total_orders}\n已确认: ${data.confirmed_orders}\n待支付: ${data.pending}`;
+    if(data.orders && data.orders.length){
+      text += '\n\n最近订单:';
+      data.orders.slice(-5).forEach(o => {
+        const mfa = o.mfa_bound ? '🔐' : '';
+        text += `\n${o.status==='confirmed'?'🟢':'🟡'} ${mfa} ${o.order_id} | ${o.amount} | ${o.name} | ${o.status}`;
+      });
+    }
+    show('statusResult', text, true);
+    // 支付渠道标签
+    const providers = data.payment_providers || {};
+    const enabled = Object.entries(providers).filter(([_,v])=>v).map(([k,_])=>k);
+    document.getElementById('providerTag').textContent = enabled.length ? `已接入: ${enabled.join(', ')}` : '未配置真实支付';
+    document.getElementById('providerTag').className = enabled.length ? 'tag green' : 'tag';
+    // 渲染运行日志
+    if(data.last_log && data.last_log.length){
+      const panel = document.getElementById('logPanel');
+      panel.innerHTML = '';
+      data.last_log.forEach(log => {
+        const entry = document.createElement('div');
+        entry.className = 'log-entry';
+        const t = log.created_at ? new Date(log.created_at).toLocaleTimeString('zh-CN') : '-';
+        entry.innerHTML = `
+          <span class="log-time">${t}</span>
+          <span class="log-action">${log.action}</span>
+          <span class="log-result ${log.result==='success'?'ok':'err'}">${log.result}${log.error_code?' · '+log.error_code:''}</span>
+          <span class="log-detail">${log.detail || ''} ${log.order_id ? '#'+log.order_id : ''}</span>
+        `;
+        panel.appendChild(entry);
+      });
+    }
+  }catch(e){ show('statusResult', '错误: ' + e.message, false); }
+}
+
+async function loadCounters(){
+  try{
+    const res = await fetch(API_BASE + '/metrics/all');
+    const data = await res.json();
+    ['download','view','use','comment','forward'].forEach(k=>{
+      const el = document.getElementById('c'+k.charAt(0).toUpperCase()+k.slice(1));
+      const sumEl = document.getElementById('sum'+k.charAt(0).toUpperCase()+k.slice(1));
+      const v = data[k] || 0;
+      if(el) el.textContent = v.toLocaleString();
+      if(sumEl) sumEl.textContent = v.toLocaleString();
+    });
+  }catch(e){ console.log('counter load failed', e); }
+}
+
+async function doCounter(name){
+  try{
+    const r = await api('/metrics/counter', {name, delta:1}, 'POST');
+    if(r.ok){
+      const el = document.getElementById('c'+name.charAt(0).toUpperCase()+name.slice(1));
+      const sumEl = document.getElementById('sum'+name.charAt(0).toUpperCase()+name.slice(1));
+      if(el) el.textContent = r.data.count.toLocaleString();
+      if(sumEl) sumEl.textContent = r.data.count.toLocaleString();
+      toast({download:'下载计数 +1',view:'浏览量 +1',use:'使用量 +1',comment:'真实评论 +1',forward:'转发 +1'}[name]);
+      appendLog('metrics.counter', 'success', `${name} +1`);
+      if(name === currentChart) drawChart(currentChart);
+    }
+  }catch(e){ toast('计数失败: '+e.message); appendLog('metrics.counter','failed',e.message); }
+}
+
+function downloadProtocol(){
+  const content = `龍魂激活经济主权协议 v1.0
+一元起步 · 上不封顶 · 实名留痕 · 主权归己
+确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-ACTIVATION-LAB-v1.0
+
+零号协议：世界老百姓最高。
+所有支付生成唯一 DNA 追溯码，来源可查、去向可追、责任可究。
+数据主权归 UID9622 / 龍魂系统所有，数据根留中国。
+`;
+  const blob = new Blob([content], {type:'text/plain;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'longhun-activation-protocol-v1.0.txt';
+  a.click();
+  URL.revokeObjectURL(url);
+  doCounter('download');
+}
+
+// 弹窗
+function openCommentModal(){ document.getElementById('commentModal').classList.add('show'); }
+function openShareModal(){ document.getElementById('shareModal').classList.add('show'); doCounter('forward'); }
+function closeModal(id){ document.getElementById(id).classList.remove('show'); }
+
+async function submitComment(){
+  const name = document.getElementById('commentName').value.trim() || '匿名';
+  const text = document.getElementById('commentText').value.trim();
+  if(!text){ toast('请输入评论内容'); return; }
+  try{
+    const r = await api('/metrics/counter', {name:'comment', delta:1, comment:`[${name}] ${text}`}, 'POST');
+    if(r.ok){
+      document.getElementById('cComment').textContent = r.data.count.toLocaleString();
+      document.getElementById('sumComment').textContent = r.data.count.toLocaleString();
+      document.getElementById('commentText').value = '';
+      closeModal('commentModal');
+      toast('评论已提交 · 真实留痕');
+      appendLog('comment.submit', 'success', name);
+      loadComments();
+      drawChart('comment');
+    }
+  }catch(e){ toast('提交失败: '+e.message); appendLog('comment.submit','failed',e.message); }
+}
+
+function copyShare(){
+  const input = document.getElementById('shareUrl');
+  input.select();
+  navigator.clipboard.writeText(input.value).then(() => toast('链接已复制'));
+}
+
+async function loadComments(){
+  try{
+    const res = await fetch(API_BASE + '/metrics/comments?limit=10');
+    const data = await res.json();
+    const panel = document.getElementById('commentsPanel');
+    const wrap = document.getElementById('recentComments');
+    if(data.comments && data.comments.length){
+      wrap.style.display = 'block';
+      panel.innerHTML = '';
+      data.comments.forEach(c => {
+        const entry = document.createElement('div');
+        entry.className = 'log-entry';
+        const t = c.created_at ? new Date(c.created_at).toLocaleString('zh-CN') : '-';
+        entry.innerHTML = `<span class="log-time">${t}</span><span class="log-detail">${c.content}</span>`;
+        panel.appendChild(entry);
+      });
+    }
+  }catch(e){ console.log('load comments failed', e); }
+}
+
+// Canvas 图表
+async function loadChartData(name){
+  try{
+    const res = await fetch(API_BASE + `/metrics/history?name=${name}&hours=24`);
+    const data = await res.json();
+    return data.data || [];
+  }catch(e){ return []; }
+}
+
+function switchChart(name){
+  currentChart = name;
+  document.querySelectorAll('.chart-tab').forEach(t => t.classList.toggle('active', t.dataset.chart === name));
+  drawChart(name);
+}
+
+async function drawChart(name){
+  const canvas = document.getElementById('metricsChart');
+  const ctx = canvas.getContext('2d');
+  const width = canvas.width;
+  const height = canvas.height;
+  const data = await loadChartData(name);
+  // 补齐24小时
+  const hours = [];
+  const now = new Date();
+  for(let i=23;i>=0;i--){
+    const d = new Date(now.getTime() - i*3600000);
+    hours.push(d.toISOString().slice(0,13).replace('T',' ')+':00:00');
+  }
+  const values = hours.map(h => {
+    const found = data.find(d => d.hour === h);
+    return found ? found.delta : 0;
+  });
+  const labels = hours.map(h => h.slice(11,13)+'时');
+  const max = Math.max(...values, 1);
+
+  ctx.clearRect(0,0,width,height);
+  ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--bg3').trim();
+  ctx.fillRect(0,0,width,height);
+
+  const pad = {top:20,right:20,bottom:30,left:40};
+  const chartW = width - pad.left - pad.right;
+  const chartH = height - pad.top - pad.bottom;
+  const barW = chartW / values.length * 0.6;
+  const gap = chartW / values.length * 0.4;
+
+  // 坐标轴
+  ctx.strokeStyle = 'rgba(212,165,116,.2)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(pad.left, pad.top);
+  ctx.lineTo(pad.left, height - pad.bottom);
+  ctx.lineTo(width - pad.right, height - pad.bottom);
+  ctx.stroke();
+
+  // 柱状图
+  values.forEach((v,i) => {
+    const x = pad.left + i * (barW + gap) + gap/2;
+    const barH = (v / max) * chartH;
+    const y = height - pad.bottom - barH;
+    const grad = ctx.createLinearGradient(0, y, 0, height - pad.bottom);
+    grad.addColorStop(0, 'rgba(212,165,116,.8)');
+    grad.addColorStop(1, 'rgba(212,165,116,.2)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(x, y, barW, barH);
+    // 数值
+    if(v > 0){
+      ctx.fillStyle = '#edd5b8';
+      ctx.font = '10px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(v, x + barW/2, y - 4);
+    }
+    // 标签（每3小时显示）
+    if(i % 3 === 0){
+      ctx.fillStyle = '#a09080';
+      ctx.font = '10px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(labels[i], x + barW/2, height - pad.bottom + 14);
+    }
+  });
+
+  // Y轴刻度
+  ctx.fillStyle = '#6b6b7b';
+  ctx.font = '10px sans-serif';
+  ctx.textAlign = 'right';
+  ctx.fillText(max, pad.left - 6, pad.top + 4);
+  ctx.fillText('0', pad.left - 6, height - pad.bottom + 4);
+}
+
+// 响应式 canvas 尺寸
+function resizeCanvas(){
+  const canvas = document.getElementById('metricsChart');
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = Math.max(760, Math.floor(rect.width));
+  canvas.height = 180;
+  drawChart(currentChart);
+}
+window.addEventListener('resize', resizeCanvas);
+
+// 初始化加载
+loadCounters();
+loadStatus();
+loadComments();
+setTimeout(() => { resizeCanvas(); switchChart('view'); }, 100);
+setInterval(() => { loadCounters(); loadStatus(); }, 30000);
+</script>
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

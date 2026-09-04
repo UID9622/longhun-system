@@ -1,0 +1,478 @@
+# #龍芯⚡️2026-07-03-MODULE-LONGHUN-v1.0
+# 君子協議: 本文件受龍魂DNA追溯保護
+
+#!/bin/bash
+# 🐉 龍魂统一交互入口 · LH 看板（系统级 longhun 代理）
+# DNA: #龍芯⚡️20260629-LONGHUN-LONGHUN-PROXY-v2.0
+# 新增：lh search / video / distill / audit / status / logs / web / schedule
+
+CTL_COMMANDS="search video distill audit status logs web schedule 3d memory"
+LH_PY_FLAGS="--xuanji --safeai --judge --seq --dashboard --engine --personas --audit --push --health --console --help --help-flag --quick --align --status"
+NATURAL_CMDS="ask 问 说一下 聊聊 查一下 帮我 给我 看看"
+FIRST_ARG="${1:-}"
+
+# 使用项目虚拟环境，确保 chromadb 等依赖可用
+VENV_PYTHON="$HOME/longhun-system/.venv/bin/python3"
+if [ ! -x "$VENV_PYTHON" ]; then
+  VENV_PYTHON="python3"
+fi
+
+# 自动意图入口
+if [ "$FIRST_ARG" = "analyze" ]; then
+  shift
+  exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_auto_intent.py" analyze "$@"
+fi
+if [ "$FIRST_ARG" = "chat" ]; then
+  shift
+  exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_auto_intent.py" auto --stdin "$@"
+fi
+if [ "$FIRST_ARG" = "auto" ]; then
+  shift
+  exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_clipboard_daemon.py" "$@"
+fi
+if [ "$FIRST_ARG" = "run" ]; then
+  shift
+  exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_auto_intent.py" run --execute "$@"
+fi
+if [ "$FIRST_ARG" = "kfpp" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_kfpp_engine.py" "$@"
+fi
+if [ "$FIRST_ARG" = "safeai" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_safeai.py" "$@"
+fi
+if [ "$FIRST_ARG" = "judge" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_judge.py" "$@"
+fi
+if [ "$FIRST_ARG" = "seq" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_seq.py" "$@"
+fi
+
+# 中文帮助 → 路由到 lh.py --help
+if [ "$FIRST_ARG" = "帮助" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh.py" --help "$@"
+fi
+
+# 自然语言路由：显式 --natural 优先（--ask 已升级为民入口，交给 lh.py）
+if [ "$FIRST_ARG" = "--natural" ]; then
+  shift
+  exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_natural_router.py" "$@"
+fi
+for cmd in $NATURAL_CMDS; do
+  if [ "$FIRST_ARG" = "$cmd" ]; then
+    shift
+    exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_natural_router.py" "$@"
+  fi
+done
+
+# 通用 flag 路由：任何 -- 开头的参数都交给 lh.py
+# （比白名单更健壮，自动支持 lh.py 新增的所有 flag）
+if [ -n "$FIRST_ARG" ] && [ "${FIRST_ARG#--}" != "$FIRST_ARG" ]; then
+  exec python3 "$HOME/longhun-system/bin/lh.py" "$@"
+fi
+
+# lh.py 提供的现代化 flag 路由到 bin/lh.py（保留兼容）
+for flag in $LH_PY_FLAGS; do
+  if [ "$FIRST_ARG" = "$flag" ]; then
+    exec python3 "$HOME/longhun-system/bin/lh.py" "$@"
+  fi
+done
+
+if [ "$FIRST_ARG" = "知识拉取" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_knowledge_harvester.py" "$@"
+fi
+
+if [ "$FIRST_ARG" = "知识补全" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_knowledge_complete.py" "$@"
+fi
+
+if [ "$FIRST_ARG" = "notion-bridge" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_notion_chat_bridge.py" "$@"
+fi
+
+if [ "$FIRST_ARG" = "knowledge-source" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_knowledge_source_manager.py" "$@"
+fi
+
+if [ "$FIRST_ARG" = "焊接" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_self_healing_welder.py" "$@"
+fi
+
+if [ "$FIRST_ARG" = "焊接自动化" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_automated_welder.py" "$@"
+fi
+
+if [ "$FIRST_ARG" = "lu-page" ] || [ "$FIRST_ARG" = "lp" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_lu_page_generator.py" "$@"
+fi
+
+
+if [ "$FIRST_ARG" = "flow-up" ] || [ "$FIRST_ARG" = "fu" ]; then
+  echo "🐉 启动流场融合全栈..."
+  python3 "$HOME/longhun-system/bin/lh_flow_fusion_bridge.py" &
+  sleep 1
+  python3 "$HOME/longhun-system/bin/lh_flow_fusion_pipeline.py" --watch &
+  sleep 1
+  echo "✅ 流场融合已启动"
+  echo "📊 仪表盘: http://localhost:8777/"
+  echo "📡 流场引擎: http://localhost:8776/health"
+  exit 0
+fi
+
+if [ "$FIRST_ARG" = "flow-status" ] || [ "$FIRST_ARG" = "fs" ]; then
+  echo "🐉 流场融合状态检查..."
+  echo ""
+  if curl -s --connect-timeout 2 http://localhost:8777/health > /dev/null 2>&1; then
+    echo "✅ 融合桥接: 运行中 (:8777)"
+  else
+    echo "❌ 融合桥接: 未运行 (:8777)"
+  fi
+  if curl -s --connect-timeout 2 http://localhost:8776/health > /dev/null 2>&1; then
+    echo "✅ 流场引擎: 运行中 (:8776)"
+  else
+    echo "❌ 流场引擎: 未运行 (:8776)"
+  fi
+  if launchctl list com.longhun.flow-fusion > /dev/null 2>&1; then
+    echo "✅ launchd 守护: 已加载"
+  else
+    echo "🟡 launchd 守护: 未加载"
+  fi
+  echo ""
+  exit 0
+fi
+
+if [ "$FIRST_ARG" = "flow-stop" ]; then
+  echo "🐉 停止流场融合组件..."
+  pkill -f "lh_flow_fusion_bridge" 2>/dev/null && echo "✅ 融合桥接已停止" || echo "🟡 桥接未在运行"
+  pkill -f "lh_flow_fusion_pipeline" 2>/dev/null && echo "✅ 融合管线已停止" || echo "🟡 管线未在运行"
+  exit 0
+fi
+
+if [ "$FIRST_ARG" = "flow-restart" ] || [ "$FIRST_ARG" = "fr" ]; then
+  echo "🐉 重启流场融合组件..."
+  pkill -f "lh_flow_fusion_bridge" 2>/dev/null
+  pkill -f "lh_flow_fusion_pipeline" 2>/dev/null
+  sleep 2
+  python3 "$HOME/longhun-system/bin/lh_flow_fusion_bridge.py" &
+  sleep 1
+  python3 "$HOME/longhun-system/bin/lh_flow_fusion_pipeline.py" --watch &
+  echo "✅ 流场融合已重启"
+  echo "📊 仪表盘: http://localhost:8777/"
+  exit 0
+fi
+
+# ─── 商户API一键接入 ───
+if [ "$FIRST_ARG" = "gateway-quickstart" ] || [ "$FIRST_ARG" = "gqs" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_merchant_gateway_quickstart.py" "$@"
+fi
+
+# ─── 端口状态 ───
+if [ "$FIRST_ARG" = "端口状态" ] || [ "$FIRST_ARG" = "--ports" ]; then
+  echo "╔══════════════════════════════════════════════════╗"
+  echo "║        🐉 龍魂 · Mac端口矩阵                      ║"
+  echo "╠══════════════════════════════════════════════════╣"
+  echo ""
+
+  # 核心端口检测表
+  PORTS="8766:知识中枢 8769:天线八闸 8770:天线八闸备用 8771:审计引擎 8776:流场隧道 8777:流场融合 8779:记忆服务 8799:主权验证 8848:安全网关 9000:量子卦象 9001:量子卦象备用 9631:搜索网关 9632:搜索备用 11434:Ollama推理"
+  
+  for entry in $PORTS; do
+    port="${entry%%:*}"
+    name="${entry##*:}"
+    if lsof -iTCP:$port -sTCP:LISTEN -P -n 2>/dev/null | grep -q LISTEN; then
+      printf "  %-6s %-16s 🟢\\n" ":$port" "$name"
+    else
+      printf "  %-6s %-16s 🔴\\n" ":$port" "$name"
+    fi
+  done
+  
+  echo ""
+  echo "╠══════════════════════════════════════════════════╣"
+  echo "║  📡 SSH隧道 (鲲鹏端口→本地1xxxx)                 ║"
+  # 统一隧道 all-tunnels
+  if curl -s --connect-timeout 2 http://localhost:18771/health > /dev/null 2>&1; then
+    TK=0
+    curl -s --connect-timeout 2 http://localhost:18776/health > /dev/null 2>&1 && TK=$((TK+1))
+    curl -s --connect-timeout 2 http://localhost:18777/health > /dev/null 2>&1 && TK=$((TK+1))
+    curl -s --connect-timeout 2 http://localhost:18778/health > /dev/null 2>&1 && TK=$((TK+1))
+    printf "  %-20s 🟢 +%d (18771/18776/18777/18778..)\\n" "all-tunnels" "$TK"
+  else
+    launchctl list com.longhun.all-tunnels 2>/dev/null | grep -q "^[0-9]" && {
+      printf "  %-20s 🟡 (正在连接...)\\n" "all-tunnels"
+    } || {
+      printf "  %-20s 🔴 (未运行)\\n" "all-tunnels"
+    }
+  fi
+  echo "║  映射: Kunpeng端口+10000=本地  例: 8771→18771   ║"
+  
+  echo ""
+  echo "╠══════════════════════════════════════════════════╣"
+  echo "║  🔧 launchd 服务                                 ║"
+  launchctl list 2>/dev/null | grep com.longhun | while read pid ec label; do
+    short="${label#com.longhun.}"
+    if [ "$pid" = "-" ]; then
+      continue
+    fi
+    if [ "$ec" = "0" ]; then
+      printf "  %-32s 🟢\\n" "$short"
+    else
+      printf "  %-32s 🟡 (ec=%s)\\n" "$short" "$ec"
+    fi
+  done
+  
+  echo "╚══════════════════════════════════════════════════╝"
+  exit 0
+fi
+
+# ─── 鲲鹏状态 ───
+if [ "$FIRST_ARG" = "鲲鹏状态" ] || [ "$FIRST_ARG" = "--kunpeng" ]; then
+  echo "╔══════════════════════════════════════════════════╗"
+  echo "║        🐉 龍魂 · 鲲鹏服务器状态                    ║"
+  echo "╠══════════════════════════════════════════════════╣"
+  echo ""
+
+  # 检查SSH连通性
+  if ssh -i ~/.ssh/longhun_kunpeng_ed25519 -o ConnectTimeout=5 -o StrictHostKeyChecking=no -o BatchMode=yes root@119.13.90.27 "echo OK" 2>/dev/null | grep -q OK; then
+    echo "  🔗 SSH连通性: 🟢"
+  else
+    echo "  🔗 SSH连通性: 🔴 (尝试密码备用...)"
+    if sshpass -p 'qweQWE@123' ssh -o ConnectTimeout=5 -o StrictHostKeyChecking=no root@119.13.90.27 "echo OK" 2>/dev/null | grep -q OK; then
+      echo "  🔗 SSH密码备用: 🟢"
+    else
+      echo "  🔗 SSH密码备用: 🔴 鲲鹏不可达"
+      exit 1
+    fi
+  fi
+
+  echo ""
+  echo "╠══════════════════════════════════════════════════╣"
+  echo "║  📦 systemd 服务                                  ║"
+  echo "╠══════════════════════════════════════════════════╣"
+  
+  SSH_CMD="ssh -i ~/.ssh/longhun_kunpeng_ed25519 -o ConnectTimeout=5 -o StrictHostKeyChecking=no -o BatchMode=yes root@119.13.90.27"
+  $SSH_CMD "systemctl list-units --type=service --state=running --no-legend 2>/dev/null | grep longhun" 2>/dev/null | while read line; do
+    svc=$(echo "$line" | awk '{print $1}' | sed 's/\.service//')
+    printf "  %-42s 🟢\\n" "$svc"
+  done
+  
+  echo ""
+  echo "╠══════════════════════════════════════════════════╣"
+  echo "║  📡 鲲鹏内网端口                                  ║"
+  $SSH_CMD "ss -tlnp 2>/dev/null | grep -E 'LISTEN.*127\.|LISTEN.*0\.0\.0\.0'" 2>/dev/null | awk '{print $4}' | grep -oP ':\d+' | sort -t: -k2 -n | uniq | while read port; do
+    printf "  %-6s 🟢\\n" "$port"
+  done
+  
+  echo "╚══════════════════════════════════════════════════╝"
+  exit 0
+fi
+
+# ─── 流场注入 ───
+if [ "$FIRST_ARG" = "流场注入" ]; then
+  shift
+  if [ "${1:-}" = "--all" ] || [ "${1:-}" = "-a" ]; then
+    echo "🐉 全量流场注入测试..."
+    echo ""
+    ENGINES=(
+      "search_engine:搜索引擎:info"
+      "antenna_8gate:天线八闸:info"
+      "quantum_gua:量子卦象:info"
+      "audit_engine:审计引擎:info"
+      "knowledge_hub:知识中枢:info"
+      "memory_service:记忆服务:info"
+      "persona_matrix:人格矩阵:info"
+      "cognition_pipeline:思维管线:info"
+      "anti_fraud:反虚伪引擎:info"
+      "gentlemans_protocol:君子协议:info"
+      "vault_api:保险柜:info"
+      "sovereignty_verify:主权验证:info"
+      "energy_report:省电报告:info"
+      "causal_inference:因果推断:info"
+      "anomaly_detect:异常检测:info"
+      "self_evolve:自我进化:info"
+      "model_manager:模型管理:info"
+      "multi_agent:多智能体:info"
+      "task_orchestrator:任务编排:info"
+      "event_bus:事件总线:info"
+      "resource_scheduler:资源调度:info"
+      "perf_analyzer:性能分析:info"
+      "knowledge_compiler:知识编译:info"
+      "security_gateway:安全网关:info"
+      "flow_engine:流场引擎:info"
+      "fusion_bridge:融合桥接:info"
+      "search_gateway:搜索网关:info"
+      "imprint_manager:印记管理:info"
+      "cleanse_report:清扫报告:info"
+      "dishonor_ledger:耻辱柱:info"
+      "unbox_engine:掀黑箱:info"
+    )
+    
+    PASS=0
+    FAIL=0
+    for entry in "${ENGINES[@]}"; do
+      engine="${entry%%:*}"
+      rest="${entry#*:}"
+      label="${rest%%:*}"
+      
+      result=$(curl -s -X POST http://localhost:8777/event \
+        -H "Content-Type: application/json" \
+        -d "{\"engine\":\"$engine\",\"action\":\"ping\",\"severity\":\"info\"}" 2>/dev/null)
+      
+      if echo "$result" | grep -q '"success"'; then
+        printf "  %-22s 🟢\\n" "$label"
+        ((PASS++))
+      else
+        printf "  %-22s 🔴\\n" "$label"
+        ((FAIL++))
+      fi
+    done
+    
+    echo ""
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "  结果: 🟢$PASS / 🔴$FAIL / 总计$(($PASS+$FAIL))"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  else
+    # 单引擎注入
+    engine="${1:-health_check}"
+    action="${2:-ping}"
+    severity="${3:-info}"
+    curl -s -X POST http://localhost:8777/event \
+      -H "Content-Type: application/json" \
+      -d "{\"engine\":\"$engine\",\"action\":\"$action\",\"severity\":\"$severity\"}" | python3 -m json.tool 2>/dev/null || \
+    curl -s -X POST http://localhost:8777/event \
+      -H "Content-Type: application/json" \
+      -d "{\"engine\":\"$engine\",\"action\":\"$action\",\"severity\":\"$severity\"}"
+  fi
+  exit 0
+fi
+
+# ─── 引擎验证 ───
+if [ "$FIRST_ARG" = "引擎验证" ] || [ "$FIRST_ARG" = "engine-verify" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_engine_verify.py" "$@"
+fi
+
+# ─── 告警引擎 ───
+if [ "$FIRST_ARG" = "告警" ] || [ "$FIRST_ARG" = "alert" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_alert_engine.py" "$@"
+fi
+
+# ─── 统一控制台 ───
+if [ "$FIRST_ARG" = "控制台" ] || [ "$FIRST_ARG" = "console" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_unified_console.py" "$@"
+fi
+
+# ─── 权限管理 ───
+if [ "$FIRST_ARG" = "权限" ] || [ "$FIRST_ARG" = "perm" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_permission_manager.py" "$@"
+fi
+
+# ─── 健康检查 ───
+if [ "$FIRST_ARG" = "健康检查" ] || [ "$FIRST_ARG" = "health" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_health_check.py" "$@"
+fi
+
+# ─── 文档生成 ───
+if [ "$FIRST_ARG" = "文档生成" ] || [ "$FIRST_ARG" = "docs" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_doc_generator.py" "$@"
+fi
+
+# ─── CNSH Runtime Mathematics ───
+if [ "$FIRST_ARG" = "cnsh-math" ] || [ "$FIRST_ARG" = "cm" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_cnsh_runtime_math.py" "$@"
+fi
+
+# ─── CNSH Academic Runtime (三页合一论文引擎) ───
+if [ "$FIRST_ARG" = "academic" ] || [ "$FIRST_ARG" = "ac" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_academic_runtime.py" "$@"
+fi
+
+# ─── CNSH MVP Runtime (三件套治理链) ───
+if [ "$FIRST_ARG" = "mvp" ] || [ "$FIRST_ARG" = "mvp-runner" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_mvp_runner.py" "$@"
+fi
+
+# ─── 伦理量子审计 (中式价值对齐) ───
+if [ "$FIRST_ARG" = "ethics" ] || [ "$FIRST_ARG" = "ethics-quantum" ] || [ "$FIRST_ARG" = "eq" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_ethics_quantum.py" "$@"
+fi
+
+# ─── 跨AI压缩指令引擎 ───
+if [ "$FIRST_ARG" = "compress" ] || [ "$FIRST_ARG" = "c" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_compression_commands.py" "$@"
+fi
+
+# ─── 神经元-流场映射引擎 v4.0 ───
+if [ "$FIRST_ARG" = "neuron-flow" ] || [ "$FIRST_ARG" = "nf" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_neuron_flow_engine.py" "$@"
+fi
+
+# ─── 哲学方法论引擎 v1.0 (13律) ───
+if [ "$FIRST_ARG" = "philosophy" ] || [ "$FIRST_ARG" = "phi" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_philosophy_engine.py" "$@"
+fi
+
+# ─── 六大哲学原理引擎 v1.0 (6P) ───
+if [ "$FIRST_ARG" = "principles" ] || [ "$FIRST_ARG" = "6p" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_philosophy_principles.py" "$@"
+fi
+
+# ─── 自适应微调参数系统 v2.0 ───
+if [ "$FIRST_ARG" = "tune" ] || [ "$FIRST_ARG" = "adaptive-tuner" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_adaptive_tuner.py" "$@"
+fi
+
+# ─── 责任卡/决策卡片系统 v2.0 ───
+if [ "$FIRST_ARG" = "deck" ] || [ "$FIRST_ARG" = "decision" ] || [ "$FIRST_ARG" = "dec" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_decision_card_system.py" "$@"
+fi
+
+if [ "$FIRST_ARG" = "longhun" ] || [ "$FIRST_ARG" = "lhcore" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_longhun_core_v2.py" "$@"
+fi
+
+# ─── 网络铁门系统 v1.0 ───
+if [ "$FIRST_ARG" = "iron-door" ] || [ "$FIRST_ARG" = "irondoor" ] || [ "$FIRST_ARG" = "tf" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_iron_door.py" "$@"
+fi
+
+for cmd in $CTL_COMMANDS; do
+  if [ "$FIRST_ARG" = "$cmd" ]; then
+    exec python3 "$HOME/longhun-system/bin/lh_ctl.py" "$@"
+  fi
+done
+
+# 兜底：任何非 flag 且非已知命令的参数，视为自然语言查询
+if [ -n "$FIRST_ARG" ] && [ "${FIRST_ARG#-}" = "$FIRST_ARG" ]; then
+  exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_natural_router.py" "$@"
+fi
+
+exec python3 "$HOME/.longhun/bin/lh_dashboard.py" "$@"

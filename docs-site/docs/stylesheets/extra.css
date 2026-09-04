@@ -1,0 +1,10 @@
+/* 龍魂系统 · 对外文档站点微调样式 */
+.md-header {
+  background: linear-gradient(90deg, #1a1a2e 0%, #3b3b6e 100%);
+}
+.md-footer-meta {
+  background-color: #1a1a2e;
+}
+.md-typeset code {
+  font-size: 0.9em;
+}

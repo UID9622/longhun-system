@@ -1,0 +1,39 @@
+# 🐉 SearXNG 本地搜索引擎·完全免费·零 API Key
+# DNA: #龍芯⚡️2026-08-31-SEARXNG-LOCAL-V1.0-UID9622
+# 创建者: 诸葛鑫（UID9622）· 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# 协议: MulanPSL v2（工程实现层）
+# 启动: docker-compose -f searxng-compose.yml up -d
+# 访问: http://localhost:8888
+
+version: '3.8'
+
+services:
+  searxng:
+    image: searxng/searxng:latest
+    container_name: longhun_searxng
+    ports:
+      - "8888:8080"
+    volumes:
+      - ./searxng-settings:/etc/searxng:rw
+    environment:
+      - SEARXNG_BASE_URL=http://localhost:8888/
+    restart: unless-stopped
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETGID
+      - SETUID
+      - DAC_OVERRIDE
+
+  redis:
+    image: redis:7-alpine
+    container_name: longhun_searxng_redis
+    command: redis-server --save "" --appendonly "no"
+    restart: unless-stopped
+    cap_drop:
+      - ALL
+    cap_add:
+      - SETGID
+      - SETUID
+      - DAC_OVERRIDE

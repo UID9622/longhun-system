@@ -1,0 +1,179 @@
+{
+  "1": {
+    "inputs": {
+      "ckpt_name": "v1-5-pruned-emaonly.ckpt"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "2": {
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "model_name": "mm_sd_v15_v2.ckpt",
+      "beta_schedule": "autoselect"
+    },
+    "class_type": "ADE_AnimateDiffLoaderGen1",
+    "_meta": {
+      "title": "AnimateDiff Loader"
+    }
+  },
+  "3": {
+    "inputs": {
+      "image": "SHOT_20260820_131305.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "3b": {
+    "inputs": {
+      "image": [
+        "3",
+        0
+      ],
+      "width": 384,
+      "height": 384,
+      "upscale_method": "lanczos",
+      "crop": "center"
+    },
+    "class_type": "ImageScale",
+    "_meta": {
+      "title": "Scale to 512"
+    }
+  },
+  "4": {
+    "inputs": {
+      "pixels": [
+        "3b",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE Encode"
+    }
+  },
+  "4b": {
+    "inputs": {
+      "samples": [
+        "4",
+        0
+      ],
+      "amount": 16
+    },
+    "class_type": "RepeatLatentBatch",
+    "_meta": {
+      "title": "Repeat to 16 frames"
+    }
+  },
+  "5": {
+    "inputs": {
+      "text": "四人背影渐渐变小，消失在雪夜街道尽头。, camera: 航拍升起, mood: 少年豪图, 空镜 shot",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive Prompt"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": "blurry, low quality, distorted face, watermark, text, extra limbs",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative Prompt"
+    }
+  },
+  "7": {
+    "inputs": {
+      "model": [
+        "2",
+        0
+      ],
+      "seed": 9622,
+      "steps": 12,
+      "cfg": 7.5,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "normal",
+      "positive": [
+        "5",
+        0
+      ],
+      "negative": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "4b",
+        0
+      ],
+      "denoise": 0.72
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "7",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "9": {
+    "inputs": {
+      "images": [
+        "8",
+        0
+      ],
+      "fps": 8.0
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "Create Video"
+    }
+  },
+  "10": {
+    "inputs": {
+      "video": [
+        "9",
+        0
+      ],
+      "filename_prefix": "video/animate",
+      "format": "auto",
+      "codec": "h264"
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save Video"
+    }
+  }
+}

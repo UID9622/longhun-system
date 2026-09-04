@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 Notion 下载缺失统计报告生成器
 
 对比索引与本地数据库，输出 Markdown 缺失清单，便于最后统一补全。
 
-DNA: #龍芯⚡️2026-06-23-NOTION-MISSING-REPORT-v1.0
+DNA: #龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-NOTION-MISSING-REPORT-v1.0
 """
 from __future__ import annotations
 

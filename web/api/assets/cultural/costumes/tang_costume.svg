@@ -1,0 +1,14 @@
+<!-- DNA: #龍芯⚡️2026-08-28-PORTAL-CULTURAL-ASSETS-v1.0 | 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600" viewBox="0 0 400 600">
+  <rect width="400" height="600" fill="#f7f3e8"/>
+  <g>
+    <path d="M120 180 Q200 150 280 180 L300 500 Q200 540 100 500 Z" fill="#7a1f1f"/>
+    <path d="M120 180 Q200 120 280 180" fill="#5c1212"/>
+    <path d="M150 220 L250 220 L250 460 L150 460 Z" fill="#a84444" opacity="0.3"/>
+    <circle cx="200" cy="240" r="12" fill="#d4af37"/>
+    <circle cx="200" cy="300" r="12" fill="#d4af37"/>
+    <circle cx="200" cy="360" r="12" fill="#d4af37"/>
+  </g>
+  <text x="200" y="560" text-anchor="middle" font-family="serif" font-size="18" fill="#4a0000">唐代服饰 · 圆领袍占位</text>
+  <text x="200" y="40" text-anchor="middle" font-family="serif" font-size="13" fill="#555">待替换为真实唐代服饰公开版权图像</text>
+</svg>

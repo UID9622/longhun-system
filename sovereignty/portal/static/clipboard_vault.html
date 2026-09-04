@@ -1,0 +1,240 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-a9ebefc7 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📋 龍魂·剪贴板容器</title>
+<style>
+:root {
+  --bg:#08080f; --bg2:#0c0c1a; --card:#12122a; --card-hover:#181836;
+  --border:#2a2a4a; --gold:#c9a84c; --gold-dim:rgba(201,168,76,0.12);
+  --gold-border:rgba(201,168,76,0.25); --cyan:#22d3ee; --green:#4ade80;
+  --red:#f87171; --text:#d4d4d8; --dim:#71717a; --bright:#f0f0f0;
+  --radius:12px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:"PingFang SC","Microsoft YaHei",sans-serif; min-height:100vh; line-height:1.6; }
+.container { max-width:800px; margin:0 auto; padding:20px 16px 40px; }
+.header { text-align:center; padding:24px 0; border-bottom:1px solid var(--border); margin-bottom:24px; }
+.header h1 { font-size:1.5rem; color:var(--gold); margin-bottom:6px; }
+.header p { color:var(--dim); font-size:0.85rem; }
+
+.card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:18px; margin-bottom:16px; }
+.card h2 { font-size:1rem; color:var(--gold); margin-bottom:14px; display:flex; align-items:center; gap:8px; }
+
+.input-area { width:100%; min-height:120px; background:var(--bg2); border:1px solid var(--border); border-radius:8px; padding:12px; color:var(--text); font-size:14px; resize:vertical; margin-bottom:12px; }
+.input-area:focus { outline:none; border-color:var(--gold); }
+
+.row { display:flex; gap:10px; margin-bottom:12px; flex-wrap:wrap; }
+.input-sm { flex:1; min-width:120px; background:var(--bg2); border:1px solid var(--border); border-radius:8px; padding:10px 12px; color:var(--text); font-size:13px; }
+.input-sm:focus { outline:none; border-color:var(--gold); }
+
+.btn { padding:10px 18px; border:none; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; transition:all 0.2s; }
+.btn:active { transform:scale(0.97); }
+.btn-primary { background:linear-gradient(135deg,var(--gold),#b08d3c); color:#1a1a1e; }
+.btn-secondary { background:var(--bg2); color:var(--text); border:1px solid var(--border); }
+.btn-outline { background:transparent; color:var(--gold); border:1px solid var(--gold); }
+
+.stats-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:12px; }
+.stat { background:var(--bg2); border-radius:8px; padding:14px; text-align:center; }
+.stat .num { font-size:1.5rem; font-weight:700; color:var(--bright); }
+.stat .label { font-size:0.75rem; color:var(--dim); margin-top:4px; }
+
+.filter-bar { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+.chip { padding:5px 12px; border-radius:20px; font-size:12px; background:var(--bg2); border:1px solid var(--border); cursor:pointer; }
+.chip.active { background:rgba(201,168,76,0.2); border-color:var(--gold); color:var(--gold); }
+
+.item-list { display:flex; flex-direction:column; gap:10px; }
+.item { background:var(--bg2); border:1px solid var(--border); border-radius:8px; padding:12px; cursor:pointer; transition:all 0.2s; }
+.item:hover { border-color:var(--gold-border); }
+.item .meta { display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
+.item .topic { font-size:11px; color:var(--gold); background:rgba(201,168,76,0.12); padding:2px 8px; border-radius:4px; }
+.item .time { font-size:11px; color:var(--dim); }
+.item .dna { font-size:11px; color:var(--dim); font-family:monospace; word-break:break-all; }
+.item .copy-count { font-size:10px; color:var(--gold); background:rgba(201,168,76,0.1); padding:1px 6px; border-radius:4px; margin-left:6px; }
+.item .tags { display:flex; gap:6px; margin-top:6px; flex-wrap:wrap; }
+.item .tag { font-size:10px; color:var(--cyan); background:rgba(34,211,238,0.08); padding:2px 6px; border-radius:4px; }
+
+.toast { position:fixed; top:20px; left:50%; transform:translateX(-50%); padding:10px 24px; border-radius:20px; font-size:13px; font-weight:500; z-index:999; }
+.toast.success { background:rgba(74,222,128,0.15); border:1px solid var(--green); color:var(--green); }
+.toast.error { background:rgba(248,113,113,0.15); border:1px solid var(--red); color:var(--red); }
+
+.empty { text-align:center; color:var(--dim); padding:40px 0; font-size:14px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>📋 龍魂·剪贴板容器</h1>
+    <p>复制 → 落盘 → 归档 → 进知识图谱</p>
+  </div>
+
+  <!-- 保存区域 -->
+  <div class="card">
+    <h2>📝 手动保存</h2>
+    <textarea id="content" class="input-area" placeholder="在此处粘贴或输入要收集的内容..."></textarea>
+    <div class="row">
+      <input id="source" class="input-sm" placeholder="来源 (默认 portal)" value="portal">
+      <input id="topic" class="input-sm" placeholder="主题 (可自动识别)">
+      <input id="tags" class="input-sm" placeholder="标签，逗号分隔">
+    </div>
+    <div class="row">
+      <button class="btn btn-primary" onclick="saveItem()">📦 保存到容器</button>
+      <button class="btn btn-outline" onclick="readClipboard()">📋 读取剪贴板</button>
+    </div>
+  </div>
+
+  <!-- 统计 -->
+  <div class="card">
+    <h2>📊 容器统计</h2>
+    <div class="stats-grid" id="statsArea">
+      <div class="stat"><div class="num">-</div><div class="label">剪贴项</div></div>
+      <div class="stat"><div class="num">-</div><div class="label">主题</div></div>
+      <div class="stat"><div class="num">-</div><div class="label">标签</div></div>
+    </div>
+    <div class="row" style="margin-top:14px;">
+      <button class="btn btn-secondary" onclick="syncToKg()">🕸️ 同步到知识图谱</button>
+      <button class="btn btn-secondary" onclick="loadItems()">🔄 刷新列表</button>
+    </div>
+  </div>
+
+  <!-- 列表 -->
+  <div class="card">
+    <h2>🗂️ 剪贴项列表</h2>
+    <div class="filter-bar" id="filterBar"></div>
+    <div id="itemList" class="item-list"><div class="empty">加载中...</div></div>
+  </div>
+</div>
+
+<script>
+const API = '/api/clipboard-vault';
+let allItems = [];
+let activeTopic = null;
+
+function showToast(msg, type='success') {
+  const t = document.createElement('div');
+  t.className = `toast ${type}`;
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => { t.style.opacity='0'; t.style.transition='opacity 0.3s'; setTimeout(()=>t.remove(),300); }, 2200);
+}
+
+async function api(path, opts={}) {
+  const r = await fetch(`${API}${path}`, opts);
+  if (!r.ok) throw new Error(`HTTP ${r.status}`);
+  return r.json();
+}
+
+async function readClipboard() {
+  try {
+    const text = await navigator.clipboard.readText();
+    document.getElementById('content').value = text;
+    showToast('✅ 已读取剪贴板');
+  } catch(e) {
+    showToast('❌ 无法读取剪贴板，请手动粘贴', 'error');
+  }
+}
+
+async function saveItem() {
+  const content = document.getElementById('content').value.trim();
+  if (!content) return showToast('⚠️ 内容为空', 'error');
+  const tagsVal = document.getElementById('tags').value.trim();
+  const tags = tagsVal ? tagsVal.split(/[,，]/).map(s=>s.trim()).filter(Boolean) : undefined;
+  try {
+    const res = await api('/save', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        content,
+        source: document.getElementById('source').value.trim() || 'portal',
+        topic: document.getElementById('topic').value.trim() || undefined,
+        tags,
+      })
+    });
+    showToast(`✅ 已保存: ${res.result.path}`);
+    document.getElementById('content').value = '';
+    loadItems();
+  } catch(e) {
+    showToast(`❌ 保存失败: ${e.message}`, 'error');
+  }
+}
+
+async function syncToKg() {
+  try {
+    const res = await api('/sync-to-kg', {method:'POST'});
+    const r = res.report;
+    showToast(`🕸️ 已导入 ${r.imported_clips} 条到知识图谱`);
+    loadStats();
+  } catch(e) {
+    showToast(`❌ 同步失败: ${e.message}`, 'error');
+  }
+}
+
+async function loadStats() {
+  try {
+    const res = await api('/stats');
+    const topics = Object.keys(res.topics || {}).length;
+    const tags = Object.keys(res.tags || {}).length;
+    document.getElementById('statsArea').innerHTML = `
+      <div class="stat"><div class="num">${res.total}</div><div class="label">剪贴项</div></div>
+      <div class="stat"><div class="num">${topics}</div><div class="label">主题</div></div>
+      <div class="stat"><div class="num">${tags}</div><div class="label">标签</div></div>
+    `;
+  } catch(e) {
+    showToast('❌ 统计加载失败', 'error');
+  }
+}
+
+function renderFilters() {
+  const topics = [...new Set(allItems.map(i=>i.topic).filter(Boolean))];
+  const bar = document.getElementById('filterBar');
+  if (!topics.length) { bar.innerHTML = ''; return; }
+  bar.innerHTML = '<span class="chip' + (activeTopic?'':' active') + '" onclick="setTopic(null)">全部</span>' +
+    topics.map(t => `<span class="chip ${activeTopic===t?'active':''}" onclick="setTopic('${t.replace(/'/g,"\\'")}')">${t}</span>`).join('');
+}
+
+function setTopic(t) {
+  activeTopic = t;
+  renderItems();
+}
+
+function renderItems() {
+  const list = document.getElementById('itemList');
+  const items = activeTopic ? allItems.filter(i=>i.topic===activeTopic) : allItems;
+  if (!items.length) {
+    list.innerHTML = '<div class="empty">暂无剪贴项</div>';
+    return;
+  }
+  list.innerHTML = items.slice().reverse().map(item => `
+    <div class="item" onclick="openItem('${item.path}')">
+      <div class="meta">
+        <span class="topic">${item.topic || '未分类'}</span>
+        <span class="time">${item.updated_at ? item.updated_at.replace('T',' ').slice(0,16) : (item.timestamp ? item.timestamp.replace('T',' ').slice(0,16) : '')}${item.copy_count > 1 ? `<span class="copy-count">复制 ${item.copy_count} 次</span>` : ''}</span>
+      </div>
+      <div class="dna">${item.dna}</div>
+      ${item.tags && item.tags.length ? `<div class="tags">${item.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>` : ''}
+    </div>
+  `).join('');
+  renderFilters();
+}
+
+function openItem(path) {
+  window.open(`/${path}`, '_blank');
+}
+
+async function loadItems() {
+  try {
+    const res = await api('/items');
+    allItems = res.items || [];
+    renderItems();
+    loadStats();
+  } catch(e) {
+    showToast('❌ 列表加载失败', 'error');
+  }
+}
+
+loadItems();
+</script>
+</body>
+</html>

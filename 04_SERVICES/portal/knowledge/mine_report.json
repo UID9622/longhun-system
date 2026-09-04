@@ -1,0 +1,755 @@
+{
+  "generated_at": "2026-07-21T22:09:59.073570",
+  "total_size_gb": 29.57,
+  "total_files": 360636,
+  "total_mineable": 84844,
+  "total_mineable_gb": 3.75,
+  "apps": [
+    {
+      "name": "Claude",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/Claude",
+      "size_bytes": 2822188062,
+      "size_mb": 2691.4,
+      "file_count": 8400,
+      "mineable_count": 1137,
+      "mineable_size_mb": 207.2,
+      "data_types": {
+        ".json": 101,
+        ".log": 13,
+        ".md": 260,
+        ".txt": 241,
+        ".jsonl": 66,
+        ".html": 66,
+        ".py": 349,
+        ".js": 11,
+        ".xml": 30
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:09:59.121153"
+    },
+    {
+      "name": "CodeBuddy CN",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/CodeBuddy CN",
+      "size_bytes": 209656750,
+      "size_mb": 199.9,
+      "file_count": 30937,
+      "mineable_count": 9221,
+      "mineable_size_mb": 307.6,
+      "data_types": {
+        ".json": 4244,
+        ".log": 459,
+        ".txt": 24,
+        ".py": 2612,
+        ".md": 1638,
+        ".yaml": 7,
+        ".html": 123,
+        ".css": 10,
+        ".ts": 27,
+        ".js": 13,
+        ".yml": 10,
+        ".toml": 26,
+        ".jsonl": 12,
+        ".conf": 11,
+        ".ini": 1,
+        ".tsx": 4
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:09:59.282873"
+    },
+    {
+      "name": "CodeBuddyExtension",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/CodeBuddyExtension",
+      "size_bytes": 1452876987,
+      "size_mb": 1385.6,
+      "file_count": 63264,
+      "mineable_count": 62449,
+      "mineable_size_mb": 2068.7,
+      "data_types": {
+        ".json": 54993,
+        ".log": 22,
+        ".py": 4594,
+        ".md": 2447,
+        ".html": 217,
+        ".toml": 32,
+        ".css": 14,
+        ".yaml": 7,
+        ".conf": 15,
+        ".txt": 15,
+        ".ts": 40,
+        ".jsonl": 16,
+        ".tsx": 7,
+        ".yml": 11,
+        ".js": 18,
+        ".ini": 1
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:09:59.494253"
+    },
+    {
+      "name": "Cursor",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/Cursor",
+      "size_bytes": 3020742284,
+      "size_mb": 2880.8,
+      "file_count": 12308,
+      "mineable_count": 1652,
+      "mineable_size_mb": 165.6,
+      "data_types": {
+        ".json": 423,
+        ".log": 827,
+        ".txt": 27,
+        ".md": 123,
+        ".py": 228,
+        ".yaml": 12,
+        ".yml": 8,
+        ".html": 4
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:09:59.536901"
+    },
+    {
+      "name": "Code",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/Code",
+      "size_bytes": 552481611,
+      "size_mb": 526.9,
+      "file_count": 562,
+      "mineable_count": 345,
+      "mineable_size_mb": 66.6,
+      "data_types": {
+        ".json": 67,
+        ".log": 238,
+        ".txt": 5,
+        ".jsonl": 17,
+        ".py": 3,
+        ".js": 2,
+        ".md": 13
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:09:59.546424"
+    },
+    {
+      "name": "Chrome",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/Google/Chrome",
+      "size_bytes": 4897069410,
+      "size_mb": 4670.2,
+      "file_count": 8613,
+      "mineable_count": 1753,
+      "mineable_size_mb": 193.6,
+      "data_types": {
+        ".json": 617,
+        ".js": 745,
+        ".html": 85,
+        ".log": 139,
+        ".txt": 60,
+        ".css": 103,
+        ".ts": 2,
+        ".md": 2
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:09:59.610487"
+    },
+    {
+      "name": "Arc",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/Arc",
+      "size_bytes": 929,
+      "size_mb": 0.0,
+      "file_count": 2,
+      "mineable_count": 2,
+      "mineable_size_mb": 0.0,
+      "data_types": {
+        ".json": 2
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:09:59.610631"
+    },
+    {
+      "name": "Brave",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/BraveSoftware",
+      "size_bytes": 0,
+      "size_mb": 0.0,
+      "file_count": 0,
+      "mineable_count": 0,
+      "mineable_size_mb": 0.0,
+      "data_types": {},
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:09:59.610731"
+    },
+    {
+      "name": "360Chrome",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/360Chrome",
+      "size_bytes": 155836171,
+      "size_mb": 148.6,
+      "file_count": 1546,
+      "mineable_count": 88,
+      "mineable_size_mb": 3.9,
+      "data_types": {
+        ".json": 30,
+        ".log": 15,
+        ".html": 7,
+        ".css": 11,
+        ".js": 19,
+        ".txt": 6
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:09:59.781871"
+    },
+    {
+      "name": "Caches",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/Caches",
+      "size_bytes": 548352423,
+      "size_mb": 522.9,
+      "file_count": 8,
+      "mineable_count": 4,
+      "mineable_size_mb": 0.0,
+      "data_types": {
+        ".json": 4
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:09:59.791183"
+    },
+    {
+      "name": "Chromium",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/Chromium",
+      "size_bytes": 325808037,
+      "size_mb": 310.7,
+      "file_count": 3819,
+      "mineable_count": 570,
+      "mineable_size_mb": 34.2,
+      "data_types": {
+        ".js": 109,
+        ".html": 28,
+        ".json": 250,
+        ".log": 53,
+        ".txt": 30,
+        ".css": 100
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:09:59.824814"
+    },
+    {
+      "name": "FileProvider",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/FileProvider",
+      "size_bytes": 345009941,
+      "size_mb": 329.0,
+      "file_count": 30,
+      "mineable_count": 0,
+      "mineable_size_mb": 0.0,
+      "data_types": {},
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:09:59.942501"
+    },
+    {
+      "name": "Firefox",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/Firefox",
+      "size_bytes": 156500525,
+      "size_mb": 149.3,
+      "file_count": 5961,
+      "mineable_count": 223,
+      "mineable_size_mb": 1.0,
+      "data_types": {
+        ".ini": 10,
+        ".json": 181,
+        ".txt": 22,
+        ".js": 8,
+        ".log": 2
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:10:00.010227"
+    },
+    {
+      "name": "GitKrakenCLI",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/GitKrakenCLI",
+      "size_bytes": 182758859,
+      "size_mb": 174.3,
+      "file_count": 36,
+      "mineable_count": 13,
+      "mineable_size_mb": 0.8,
+      "data_types": {
+        ".log": 2,
+        ".json": 7,
+        ".cfg": 1,
+        ".js": 3
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:10:00.012304"
+    },
+    {
+      "name": "Google",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/Google",
+      "size_bytes": 5365289480,
+      "size_mb": 5116.7,
+      "file_count": 8641,
+      "mineable_count": 1758,
+      "mineable_size_mb": 194.6,
+      "data_types": {
+        ".log": 140,
+        ".json": 620,
+        ".jsonl": 1,
+        ".js": 745,
+        ".html": 85,
+        ".txt": 60,
+        ".css": 103,
+        ".ts": 2,
+        ".md": 2
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:10:00.063038"
+    },
+    {
+      "name": "Notion",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/Notion",
+      "size_bytes": 1218184836,
+      "size_mb": 1161.8,
+      "file_count": 148579,
+      "mineable_count": 12,
+      "mineable_size_mb": 3.8,
+      "data_types": {
+        ".json": 2,
+        ".jsonl": 1,
+        ".log": 8,
+        ".txt": 1
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:10:00.158960"
+    },
+    {
+      "name": "Notion_Backup_20260306",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/Notion_Backup_20260306",
+      "size_bytes": 2741937031,
+      "size_mb": 2614.9,
+      "file_count": 28827,
+      "mineable_count": 14,
+      "mineable_size_mb": 3.4,
+      "data_types": {
+        ".json": 2,
+        ".jsonl": 1,
+        ".log": 10,
+        ".txt": 1
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:10:00.179662"
+    },
+    {
+      "name": "Ollama",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/Ollama",
+      "size_bytes": 60738308,
+      "size_mb": 57.9,
+      "file_count": 4,
+      "mineable_count": 0,
+      "mineable_size_mb": 0.0,
+      "data_types": {},
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:10:00.179746"
+    },
+    {
+      "name": "Quark",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/Quark",
+      "size_bytes": 2370529225,
+      "size_mb": 2260.7,
+      "file_count": 7546,
+      "mineable_count": 2690,
+      "mineable_size_mb": 170.6,
+      "data_types": {
+        ".json": 863,
+        ".log": 48,
+        ".js": 1332,
+        ".html": 184,
+        ".css": 232,
+        ".txt": 30,
+        ".md": 1
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:10:00.237686"
+    },
+    {
+      "name": "SiYuan",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/SiYuan",
+      "size_bytes": 188546985,
+      "size_mb": 179.8,
+      "file_count": 50,
+      "mineable_count": 32,
+      "mineable_size_mb": 2.8,
+      "data_types": {
+        ".log": 1,
+        ".json": 24,
+        ".html": 3,
+        ".js": 2,
+        ".css": 2
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:10:00.239335"
+    },
+    {
+      "name": "WeType",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/WeType",
+      "size_bytes": 106774881,
+      "size_mb": 101.8,
+      "file_count": 96,
+      "mineable_count": 3,
+      "mineable_size_mb": 0.1,
+      "data_types": {
+        ".log": 2,
+        ".conf": 1
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:10:00.243145"
+    },
+    {
+      "name": "com.apple.mobileAssetDesktop",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/com.apple.mobileAssetDesktop",
+      "size_bytes": 117000647,
+      "size_mb": 111.6,
+      "file_count": 2,
+      "mineable_count": 0,
+      "mineable_size_mb": 0.0,
+      "data_types": {},
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:10:00.245035"
+    },
+    {
+      "name": "com.apple.wallpaper",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/com.apple.wallpaper",
+      "size_bytes": 477971961,
+      "size_mb": 455.8,
+      "file_count": 211,
+      "mineable_count": 1,
+      "mineable_size_mb": 0.1,
+      "data_types": {
+        ".json": 1
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:10:00.248732"
+    },
+    {
+      "name": "com.tencent.imamac",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/com.tencent.imamac",
+      "size_bytes": 179358865,
+      "size_mb": 171.0,
+      "file_count": 4493,
+      "mineable_count": 1054,
+      "mineable_size_mb": 184.3,
+      "data_types": {
+        ".js": 578,
+        ".html": 155,
+        ".json": 139,
+        ".log": 44,
+        ".txt": 12,
+        ".css": 121,
+        ".md": 5
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:10:00.281305"
+    },
+    {
+      "name": "kdesktop",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/kdesktop",
+      "size_bytes": 66118264,
+      "size_mb": 63.1,
+      "file_count": 5075,
+      "mineable_count": 11,
+      "mineable_size_mb": 0.6,
+      "data_types": {
+        ".log": 8,
+        ".txt": 1,
+        ".ini": 2
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:10:00.314742"
+    },
+    {
+      "name": "kimi-desktop",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/kimi-desktop",
+      "size_bytes": 418250762,
+      "size_mb": 398.9,
+      "file_count": 7131,
+      "mineable_count": 15,
+      "mineable_size_mb": 2.8,
+      "data_types": {
+        ".json": 5,
+        ".log": 9,
+        ".txt": 1
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:10:00.372401"
+    },
+    {
+      "name": "obsidian",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/obsidian",
+      "size_bytes": 300422812,
+      "size_mb": 286.5,
+      "file_count": 402,
+      "mineable_count": 13,
+      "mineable_size_mb": 3.8,
+      "data_types": {
+        ".json": 5,
+        ".log": 6,
+        ".txt": 2
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:10:00.377028"
+    },
+    {
+      "name": "tts",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/tts",
+      "size_bytes": 1876049555,
+      "size_mb": 1789.1,
+      "file_count": 5,
+      "mineable_count": 2,
+      "mineable_size_mb": 0.3,
+      "data_types": {
+        ".json": 2
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:10:00.377250"
+    },
+    {
+      "name": "yuque-desktop",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/yuque-desktop",
+      "size_bytes": 407569130,
+      "size_mb": 388.7,
+      "file_count": 8348,
+      "mineable_count": 59,
+      "mineable_size_mb": 4.8,
+      "data_types": {
+        ".log": 41,
+        ".txt": 2,
+        ".json": 16
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:10:00.425972"
+    },
+    {
+      "name": "微信开发者工具",
+      "path": "/Users/zuimeidedeyihan/Library/Application Support/微信开发者工具",
+      "size_bytes": 64923176,
+      "size_mb": 61.9,
+      "file_count": 2012,
+      "mineable_count": 1691,
+      "mineable_size_mb": 155.3,
+      "data_types": {
+        ".txt": 6,
+        ".log": 26,
+        ".json": 177,
+        ".html": 17,
+        ".js": 958,
+        ".css": 229,
+        ".ts": 278
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:10:00.442509"
+    },
+    {
+      "name": "GeoServices",
+      "path": "/Users/zuimeidedeyihan/Library/Caches/GeoServices",
+      "size_bytes": 54855520,
+      "size_mb": 52.3,
+      "file_count": 165,
+      "mineable_count": 3,
+      "mineable_size_mb": 0.0,
+      "data_types": {
+        ".json": 3
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:10:00.473721"
+    },
+    {
+      "name": "Homebrew",
+      "path": "/Users/zuimeidedeyihan/Library/Caches/Homebrew",
+      "size_bytes": 858516525,
+      "size_mb": 818.7,
+      "file_count": 3204,
+      "mineable_count": 15,
+      "mineable_size_mb": 64.7,
+      "data_types": {
+        ".json": 7,
+        ".txt": 8
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:10:00.491161"
+    },
+    {
+      "name": "ms-playwright",
+      "path": "/Users/zuimeidedeyihan/Library/Caches/ms-playwright",
+      "size_bytes": 204085497,
+      "size_mb": 194.6,
+      "file_count": 359,
+      "mineable_count": 14,
+      "mineable_size_mb": 0.0,
+      "data_types": {
+        ".json": 10,
+        ".js": 4
+      },
+      "status": "🟢 已勘探",
+      "last_scan": "2026-07-21T22:10:00.508017"
+    }
+  ],
+  "summary": {
+    "ai_apps": {
+      "Claude": "2691MB/1137文件",
+      "CodeBuddy CN": "200MB/9221文件",
+      "CodeBuddyExtension": "1386MB/62449文件",
+      "Cursor": "2881MB/1652文件",
+      "Code": "527MB/345文件"
+    },
+    "browsers": {
+      "Chrome": "4670MB",
+      "Arc": "0MB",
+      "Brave": "0MB"
+    },
+    "other_large": {
+      "360Chrome": "149MB",
+      "Caches": "523MB",
+      "Chromium": "311MB",
+      "FileProvider": "329MB",
+      "Firefox": "149MB",
+      "GitKrakenCLI": "174MB",
+      "Google": "5117MB",
+      "Notion": "1162MB",
+      "Notion_Backup_20260306": "2615MB",
+      "Ollama": "58MB",
+      "Quark": "2261MB",
+      "SiYuan": "180MB",
+      "WeType": "102MB",
+      "com.apple.mobileAssetDesktop": "112MB",
+      "com.apple.wallpaper": "456MB",
+      "com.tencent.imamac": "171MB",
+      "kdesktop": "63MB",
+      "kimi-desktop": "399MB",
+      "obsidian": "286MB",
+      "tts": "1789MB",
+      "yuque-desktop": "389MB",
+      "微信开发者工具": "62MB",
+      "GeoServices": "52MB",
+      "Homebrew": "819MB",
+      "ms-playwright": "195MB"
+    },
+    "top_mineable": [
+      {
+        "name": "CodeBuddyExtension",
+        "path": "/Users/zuimeidedeyihan/Library/Application Support/CodeBuddyExtension",
+        "size_bytes": 1452876987,
+        "size_mb": 1385.6,
+        "file_count": 63264,
+        "mineable_count": 62449,
+        "mineable_size_mb": 2068.7,
+        "data_types": {
+          ".json": 54993,
+          ".log": 22,
+          ".py": 4594,
+          ".md": 2447,
+          ".html": 217,
+          ".toml": 32,
+          ".css": 14,
+          ".yaml": 7,
+          ".conf": 15,
+          ".txt": 15,
+          ".ts": 40,
+          ".jsonl": 16,
+          ".tsx": 7,
+          ".yml": 11,
+          ".js": 18,
+          ".ini": 1
+        },
+        "status": "🟢 已勘探",
+        "last_scan": "2026-07-21T22:09:59.494253"
+      },
+      {
+        "name": "CodeBuddy CN",
+        "path": "/Users/zuimeidedeyihan/Library/Application Support/CodeBuddy CN",
+        "size_bytes": 209656750,
+        "size_mb": 199.9,
+        "file_count": 30937,
+        "mineable_count": 9221,
+        "mineable_size_mb": 307.6,
+        "data_types": {
+          ".json": 4244,
+          ".log": 459,
+          ".txt": 24,
+          ".py": 2612,
+          ".md": 1638,
+          ".yaml": 7,
+          ".html": 123,
+          ".css": 10,
+          ".ts": 27,
+          ".js": 13,
+          ".yml": 10,
+          ".toml": 26,
+          ".jsonl": 12,
+          ".conf": 11,
+          ".ini": 1,
+          ".tsx": 4
+        },
+        "status": "🟢 已勘探",
+        "last_scan": "2026-07-21T22:09:59.282873"
+      },
+      {
+        "name": "Claude",
+        "path": "/Users/zuimeidedeyihan/Library/Application Support/Claude",
+        "size_bytes": 2822188062,
+        "size_mb": 2691.4,
+        "file_count": 8400,
+        "mineable_count": 1137,
+        "mineable_size_mb": 207.2,
+        "data_types": {
+          ".json": 101,
+          ".log": 13,
+          ".md": 260,
+          ".txt": 241,
+          ".jsonl": 66,
+          ".html": 66,
+          ".py": 349,
+          ".js": 11,
+          ".xml": 30
+        },
+        "status": "🟢 已勘探",
+        "last_scan": "2026-07-21T22:09:59.121153"
+      },
+      {
+        "name": "Google",
+        "path": "/Users/zuimeidedeyihan/Library/Application Support/Google",
+        "size_bytes": 5365289480,
+        "size_mb": 5116.7,
+        "file_count": 8641,
+        "mineable_count": 1758,
+        "mineable_size_mb": 194.6,
+        "data_types": {
+          ".log": 140,
+          ".json": 620,
+          ".jsonl": 1,
+          ".js": 745,
+          ".html": 85,
+          ".txt": 60,
+          ".css": 103,
+          ".ts": 2,
+          ".md": 2
+        },
+        "status": "🟢 已勘探",
+        "last_scan": "2026-07-21T22:10:00.063038"
+      },
+      {
+        "name": "Chrome",
+        "path": "/Users/zuimeidedeyihan/Library/Application Support/Google/Chrome",
+        "size_bytes": 4897069410,
+        "size_mb": 4670.2,
+        "file_count": 8613,
+        "mineable_count": 1753,
+        "mineable_size_mb": 193.6,
+        "data_types": {
+          ".json": 617,
+          ".js": 745,
+          ".html": 85,
+          ".log": 139,
+          ".txt": 60,
+          ".css": 103,
+          ".ts": 2,
+          ".md": 2
+        },
+        "status": "🟢 已勘探",
+        "last_scan": "2026-07-21T22:09:59.610487"
+      }
+    ]
+  },
+  "total_extracted": 1407,
+  "total_cleaned": 1112,
+  "total_linked": 1112,
+  "total_train": 1083
+}

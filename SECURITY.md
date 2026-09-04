@@ -1,81 +1,63 @@
-# 龍魂系统 · 安全策略
+# 安全政策 / Security Policy
 
-> DNA: `#龍芯⚡️2026-07-06-SECURITY-POLICY-v1.0-E3F6B8A1`
-> 依据: GB/T 30998-2014《信息技术 软件安全保障规范》
+## 支持版本 / Supported Versions
 
-## 支持的版本
+以下版本当前接受安全更新 / The following versions currently receive security updates:
 
-| 版本 | 状态 | 安全更新至 |
-|------|------|-----------|
-| v5.x (主线) | ✅ 活跃开发 | 持续 |
-| v4.x | 🟡 仅安全修复 | 2026-12-31 |
-| < v4.0 | 🔴 已停止 | — |
+| 版本 / Version | 支持状态 / Supported |
+|---|---|
+| 最新版 / Latest | ✅ |
+| 上一个次版本 / Previous minor | ✅ |
+| 更早版本 / Older | ❌ |
 
-## 安全实践
+## 报告漏洞 / Reporting a Vulnerability
 
-### 密钥管理
+**请勿通过公开 Issue 报告安全漏洞。**
+**Please do NOT report security vulnerabilities through public GitHub Issues.**
 
-- 🔴 **严禁**将 `.env`、`.pem`、`.key`、`.p12`、`.pfx` 等文件提交到 Git
-- 🔴 **严禁**将 API Key、Token、密码写入代码
-- 🟢 本地密钥统一存放在 `.longhun/` 目录（已在 `.gitignore` 中）
-- 🟢 公共配置使用 `.example` 模板文件
+### 中文报告方式
 
-### 身份验证
+请通过以下方式私下报告安全漏洞：
 
-- 所有签名使用 GPG detached signature (`.asc`)
-- 签名文件是公共验证文件，**必须**提交到 Git
-- DNA 追溯码嵌入所有核心文件
+1. **邮件**：发送至 `longhun2025@petalmail.com`
+   - 标题格式：`[SECURITY] longhun-system 安全漏洞报告`
+   - 可使用 GPG 加密（可选）：`A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
+2. **GitHub Security Advisories**：使用仓库的[私密漏洞报告](../../security/advisories/new)功能
 
-### 审计日志
+**报告应包含：**
+- 漏洞类型（如 SQL 注入、XSS、任意代码执行）
+- 受影响版本
+- 详细复现步骤
+- 可能的影响范围
+- 修复建议（如有）
 
-- 所有操作通过三色/五色审计引擎记录
-- 审计日志为 append-only，防止篡改
-- `audit/` 目录包含完整审计工具链
+**我们的承诺：**
+- 24 小时内确认收到报告
+- 7 天内提供初步评估
+- 修复后通知报告者，并在 Release Notes 中致谢（须报告者同意）
 
-### 代码安全
+### English
 
-- 使用 `bandit` 进行 Python 代码静态安全分析
-- 使用 `pre-commit` 钩子在提交前拦截敏感信息
-- `.gitignore` 已覆盖常见敏感文件模式
+Please report security vulnerabilities privately:
 
-## 报告安全漏洞
+1. **Email**: Send to `longhun2025@petalmail.com`
+   - Subject: `[SECURITY] longhun-system Vulnerability Report`
+   - Optional GPG encryption: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
+2. **GitHub Security Advisories**: Use the [private vulnerability reporting](../../security/advisories/new) feature
 
-### 如果发现安全漏洞
+**Please include:**
+- Vulnerability type (e.g., SQL injection, XSS, RCE)
+- Affected versions
+- Detailed reproduction steps
+- Potential impact scope
+- Suggested fix (if any)
 
-1. **请勿**在公开 Issue 中报告
-2. 通过以下方式私密报告：
-   - GPG 加密邮件：使用 `CONSTITUTION.md.asc` 中绑定的公钥加密
-   - 或直接联系 UID9622
-
-### 报告内容
-
-请包含以下信息：
-- 漏洞描述和影响范围
-- 复现步骤
-- 建议的修复方案（可选）
-- 是否希望被致谢
-
-### 响应时间
-
-| 严重程度 | 确认时间 | 修复时间 |
-|---------|---------|---------|
-| 🔴 严重 | 24 小时内 | 3 天内 |
-| 🟡 高危 | 48 小时内 | 7 天内 |
-| 🟢 中低 | 1 周内 | 下一版本 |
-
-## 已修复的安全问题
-
-| 日期 | 问题 | 修复 |
-|------|------|------|
-| 2026-07-06 | `.env` 文件 6 处暴露 | 加入 `.gitignore` + 创建 `.env.example` 模板 |
-| 2026-07-06 | SM2 国密私钥 `data/sm2/sk.pem` 暴露 | `git rm --cached` + `.gitignore` 封堵 |
-| 2026-07-06 | DNA 主密钥 `schemas/software_dna_master.key` 暴露 | `git rm --cached` + `.gitignore` 封堵 |
-
-## 安全认可
-
-感谢以下人员对龍魂系统安全的贡献：
-- *(待补充)*
+**Our commitment:**
+- Acknowledge receipt within 24 hours
+- Provide initial assessment within 7 days
+- Credit reporters in Release Notes upon fix (with consent)
 
 ---
 
-> 龍魂系统·数据主权归于人民 🐉
+*维护者 / Maintainer: [@UID9622](https://github.com/UID9622)*
+*GPG Key: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`*

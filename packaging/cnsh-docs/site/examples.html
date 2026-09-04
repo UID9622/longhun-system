@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>示例 · CNSH 中文原生编程语言</title>
+<style>
+:root{--gold:#d4af37;--ink:#0e0e12;--card:#17171e;--line:#2a2a35;--fg:#e8e6df;--mut:#9a9688}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ink);color:var(--fg);font:16px/1.7 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+header{border-bottom:1px solid var(--line);background:linear-gradient(180deg,#12121a,#0e0e12)}
+.bar{max-width:1080px;margin:0 auto;padding:16px 20px;display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.brand{font-size:20px;font-weight:700;color:var(--gold);letter-spacing:1px}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:var(--mut);font-size:14px}nav a:hover{color:var(--gold)}
+main{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:30px;color:var(--gold);margin:14px 0}h2{font-size:22px;margin:26px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+h3{font-size:18px;margin:20px 0 8px;color:#c9c4b5}h4{font-size:16px;margin:14px 0 6px}
+p{margin:10px 0}ul,ol{margin:10px 0 10px 26px}li{margin:4px 0}
+code{background:#23232e;padding:2px 6px;border-radius:4px;color:#ffd479;font-size:14px}
+pre{background:#101018;border:1px solid var(--line);border-radius:10px;padding:16px;overflow-x:auto;margin:12px 0}
+pre code{background:none;padding:0;color:#e6e0c8;display:block;font-size:13.5px;line-height:1.6}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}th{background:#1a1a24;color:var(--gold)}
+blockquote{border-left:3px solid var(--gold);padding:6px 14px;color:var(--mut);margin:12px 0;background:#14141c}
+.hero{padding:50px 20px;text-align:center;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at top,#1c1c2c 0%,#0e0e12 70%)}
+.hero h1{font-size:44px;margin:6px 0}
+.hero p{color:var(--mut);max-width:760px;margin:10px auto}
+.btn{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:10px 24px;border-radius:30px;margin:14px 6px 0;font-size:15px}
+.btn:hover{background:var(--gold);color:#000;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:22px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.card h3{margin-top:0;color:var(--gold)}
+.cmd{background:#0c0c12;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-family:monospace;color:#7ee0a3;font-size:14px;margin:6px 0}
+footer{text-align:center;color:#666;padding:26px;font-size:13px;border-top:1px solid var(--line)}
+.toc{background:#12121a;border:1px solid var(--line);padding:14px 20px;border-radius:10px;margin:14px 0;font-size:14px}
+@media(max-width:700px){.hero h1{font-size:32px}}
+</style></head>
+<body><header><div class="bar">
+<span class="brand">🐉 CNSH 语言</span>
+<nav><a href="index.html">首页</a><a href="guide.html">入门教程</a><a href="reference.html">语法参考</a><a href="stdlib.html">标准库</a><a href="tools.html">工具链</a><a href="examples.html" style=color:var(--gold)>示例</a></nav></div></header>
+<main><h1>🧪 官方示例（自动同步 cnsh-spec/examples）</h1>
+<h2>audit_sample.cnsh</h2><pre><code>归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# audit_sample.cnsh — 三色审计示例
+# DNA: #龍芯⚡️2026-08-21-EXAMPLES-AUDIT-v1.0-UID9622-44445555
+
+# 1. 三色审计
+审计 文件=&quot;README.md&quot;
+  三色 判定 结果
+    🟢 输出 &quot;通过，放行&quot;
+    🟡 输出 &quot;待核，48h复查&quot;
+    🔴 输出 &quot;红线，立即熔断&quot;
+
+# 2. verdict 判定
+判定 检查结果 = 通过
+判定 审计结果 = 拒绝
+判定 状态 = 待核
+
+# 3. 一致性校验
+校验SHA 文件=&quot;SCHEMA.md&quot;
+校验一致性 文件=&quot;dataset.jsonl&quot; 期望哈希=&quot;156d3ebb...&quot;
+
+# 4. 熔断保护
+熔断 L1 原因=&quot;检测到明文密码入请求&quot;
+记录 熔断事件
+  级别: L1
+  原因: 明文密码入请求
+  DNA: #龍芯⚡️2026-08-21-熔断-L1-v1.0-UID9622-55556666
+
+审计: 🟢 通过
+</code></pre>
+<h2>dna_sample.cnsh</h2><pre><code>归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# dna_sample.cnsh — DNA 追溯链示例
+# DNA: #龍芯⚡️2026-08-21-EXAMPLES-DNA-v1.0-UID9622-22223333
+
+# 1. 生成 DNA
+生成DNA 模块=&quot;EXAMPLES&quot; 动作=&quot;CREATE&quot;
+# → #龍芯⚡️2026-08-21-申时-EXAMPLES-CREATE-v1.0-UID9622-22223333
+
+# 2. 验证 DNA
+验证DNA &quot;#龍芯⚡️2026-08-21-申时-EXAMPLES-CREATE-v1.0-UID9622-22223333&quot;
+# → ✅ 有效
+
+# 3. DNA 链（追溯部署全过程）
+DNA链:
+  - #龍芯⚡️2026-08-20-未时-EXAMPLES-DRAFT-v0.1-UID9622-11110000
+  - #龍芯⚡️2026-08-21-申时-EXAMPLES-CREATE-v1.0-UID9622-22223333
+  - #龍芯⚡️2026-08-21-酉时-EXAMPLES-PUBLISH-v1.1-UID9622-33334444
+
+# 4. GPG 签名联动
+GPG签名 文件=&quot;dna_sample.cnsh&quot; 密钥=&quot;A2D0092CEE2E5BA87035600924C3704A8CC26D5F&quot;
+
+审计: 🟢 通过
+</code></pre>
+<h2>hello.cnsh</h2><pre><code># hello.cnsh — 入门示例
+# DNA: #龍芯⚡️2026-08-21-EXAMPLES-HELLO-v1.0-UID9622-11112222
+# 执行: lh6 run hello.cnsh
+
+DNA: #龍芯⚡️2026-08-21-EXAMPLES-HELLO-v1.0-UID9622-11112222
+创建者: 诸葛鑫（UID9622）
+
+输出 &quot;Hello, 龍魂&quot;
+输出 &quot;欢迎来到 CNSH 世界&quot;
+
+# 带变量
+字符串 名称 = &quot;龍魂系统&quot;
+输出 &quot;当前环境: &quot; + 名称
+
+# 三色审计
+审计: 🟢 通过
+确认: ✅
+</code></pre>
+<h2>pipeline_sample.cnsh</h2><pre><code>归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# pipeline_sample.cnsh — 管道处理示例
+# DNA: #龍芯⚡️2026-08-21-EXAMPLES-PIPELINE-v1.0-UID9622-33334444
+
+# 1. 数据采集管道：读取 → 筛选 → 计数
+读取 &quot;audit.jsonl&quot; | 筛选 verdict=rejected | 计数 → 输出
+
+# 2. 审计管道：读取 → 提取DNA → 验证 → 三色
+读取 &quot;README.md&quot; | 提取DNA | 验证DNA | 审计
+
+# 3. 发布管道：构建 → 签名 → 校验 → 部署
+管道 发布流程
+  构建 文档
+  签名 GPG
+  校验 一致性
+  部署 到 鲲鹏
+  每个环节 记录 DNA + 三色标记
+
+# 4. 熔断保护：任一环节失败即停
+管道 处理数据
+  读取 | 清洗 | 存储
+  熔断条件: 任一环节 verdict=rejected → 停止后续
+
+审计: 🟢 通过
+</code></pre></main>
+<footer>归属名: 诸葛鑫 | UID9622 · 龍芯北辰 &nbsp;·&nbsp; CNSH v2.0 规范 · 标准库 v1.0 · 工具链 v1.0<br>
+GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F · License: MulanPSL v2 / CC BY-NC-SA 4.0</footer>
+</body></html>

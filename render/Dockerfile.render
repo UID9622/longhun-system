@@ -1,0 +1,37 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# M75 渲染服务镜像 · 鲲鹏(x86_64)优化
+# DNA: #龍芯⚡️2026-08-25-RENDER-ENV-v1.0-UID9622
+# License: MulanPSL v2
+# 实测鲲鹏 = Intel Xeon 6348 (x86_64)，不用 arm64v8 基镜像（exec format error）
+# bookworm(12) 必须：trixie(13) 的 zlib ABI 与 paddlepaddle/pyclipper 不兼容 → zlib error
+FROM python:3.11-slim-bookworm
+
+WORKDIR /app
+
+# Chromium + 中文字体 + OpenCV 系统库 + OpenMP(paddle 依赖 libgomp)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    chromium chromium-driver \
+    libglib2.0-0 libnss3 libatk-bridge2.0-0 libdrm2 libxkbcommon0 libgbm1 \
+    libgomp1 \
+    fonts-noto-cjk \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY render/requirements.render.txt /app/requirements.render.txt
+# 核心依赖层（必须成功）：清华源装 requirements
+RUN pip install --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple -r /app/requirements.render.txt \
+    && playwright install chromium --with-deps || true
+# OCR 可选层（pyclipper 必须 post4：1.3.0.post3 仅 sdist 需编译，slim 无 g++ → build 失败拖垮整个 pip）
+# numpy==1.24.4 必须显式：paddleocr→opencv 会把 numpy 拉到 2.x 覆盖核心层 → paddle ABI 冲突
+# || true 保护：OCR 装失败不影响核心服务启动
+RUN pip install --no-cache-dir -i https://pypi.org/simple \
+    paddlepaddle==2.6.2 paddleocr==2.7.3 pyclipper==1.3.0.post4 numpy==1.24.4 || true
+
+COPY render/ /app/render/
+
+ENV LH_UID=UID9622 \
+    LH_LOCAL_ONLY=true \
+    PYTHONUNBUFFERED=1
+
+EXPOSE 8788
+
+CMD ["python", "-m", "uvicorn", "render.server:app", "--host", "0.0.0.0", "--port", "8788"]

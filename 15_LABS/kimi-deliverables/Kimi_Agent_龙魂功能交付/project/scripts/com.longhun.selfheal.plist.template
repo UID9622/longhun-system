@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- DNA: #龍芯⚡️2026-08-22-SELFHEAL-PLIST-ALIGN-v1.0 -->
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.longhun.selfheal</string>
+	<!-- 默认干跑（dry_run）：只检测记录不执行修复。
+	     确需真执行安全策略时，在 --once 之后追加一行 --execute 参数。 -->
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/bin/env</string>
+		<string>python3</string>
+		<string>-m</string>
+		<string>longhun_trust.selfheal</string>
+		<string>--once</string>
+		<string>--project-root</string>
+		<string>__PROJECT_ROOT__</string>
+		<string>--log-dir</string>
+		<string>__LONGHUN_HOME__/logs</string>
+	</array>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>LONGHUN_HOME</key>
+		<string>__LONGHUN_HOME__</string>
+		<key>PYTHONPATH</key>
+		<string>__PROJECT_ROOT__</string>
+	</dict>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<true/>
+	<key>ThrottleInterval</key>
+	<integer>300</integer>
+	<key>StandardOutPath</key>
+	<string>__LONGHUN_HOME__/logs/selfheal.out.log</string>
+	<key>StandardErrorPath</key>
+	<string>__LONGHUN_HOME__/logs/selfheal.err.log</string>
+</dict>
+</plist>

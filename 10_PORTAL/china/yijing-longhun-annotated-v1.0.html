@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="诸葛鑫（UID9622）">
+<meta name="dna" content="#龍芯⚡️丙午·甲申·庚子·坤卦-CHINA-YIJING-ANNOTATED-UID9622">
+<title>易经六十四卦 × 龍魂系统状态向量映射 | 龍魂注释版</title>
+<link rel="stylesheet" href="/assets/css/longhun-master.css">
+<style>
+.annotated-container { max-width: 900px; margin: 60px auto; padding: 0 24px; }
+.annotated-hero { text-align: center; padding: 60px 0 48px; }
+.annotated-hero h1 { font-size: 2rem; font-weight: 800; color: var(--lh-gold-light); margin-bottom: 16px; }
+.annotated-hero .subtitle { color: var(--lh-text-secondary); font-size: 15px; }
+.annotated-body { font-size: 15px; line-height: 1.9; }
+.annotated-body h2 { font-size: 1.3rem; color: var(--lh-gold); margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--lh-border); }
+.annotated-body h3 { font-size: 1.1rem; color: var(--lh-gold-light); margin: 28px 0 12px; }
+.annotated-body table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 13px; }
+.annotated-body table caption { color: var(--lh-text-muted); font-size: 12px; margin-bottom: 8px; text-align: left; }
+.annotated-body table th { background: var(--lh-gold-dim); color: var(--lh-gold); padding: 10px 12px; border: 1px solid var(--lh-border); font-weight: 600; font-size: 12px; text-align: center; }
+.annotated-body table td { padding: 10px 12px; border: 1px solid var(--lh-border-light); font-size: 13px; }
+.annotated-body table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+.hexagram { font-family: serif; font-size: 24px; text-align: center; line-height: 1; }
+.yang { color: var(--lh-gold); }
+.yin { color: var(--lh-text-muted); }
+.system-status-ok { color: var(--lh-green); font-weight: 600; }
+.system-status-warn { color: var(--lh-yellow); font-weight: 600; }
+.system-status-crit { color: var(--lh-red); font-weight: 600; }
+.gua-nav { display: flex; flex-wrap: wrap; gap: 4px; margin: 24px 0; }
+.gua-nav a { display: inline-block; padding: 4px 10px; border: 1px solid var(--lh-border); border-radius: 4px; font-size: 13px; text-decoration: none; color: var(--lh-text-secondary); }
+.gua-nav a:hover { border-color: var(--lh-gold); color: var(--lh-gold); background: var(--lh-gold-dim); }
+@media (max-width: 768px) { .annotated-hero h1 { font-size: 1.4rem; } }
+</style>
+</head>
+<body>
+
+<nav class="lh-article-nav" style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--lh-border);">
+  <a href="/" style="font-weight:700; color:var(--lh-gold);">🐉 龍魂</a>
+  <div style="display:flex; gap:16px; font-size:14px;">
+    <a href="/china/">中国文化</a>
+    <a href="/portal-index.html">首页</a>
+  </div>
+</nav>
+
+<main class="annotated-container">
+
+  <div class="annotated-hero">
+    <h1>📜 易经六十四卦 × 龍魂系统状态向量映射</h1>
+    <p class="subtitle">龍魂注释版 v1.0 · 六十四卦—系统状态—人格路由—数字根锚定</p>
+  </div>
+
+  <div class="annotated-body">
+
+    <h2>映射原理</h2>
+    <p>易经六十四卦是2⁶=64种状态的完整枚举（六爻，每爻阴阳两种可能）。恰好，龍魂系统的运行状态也可分为64种核心场景（8大类×8子类）。本映射将每一卦对应到一种<strong>系统状态向量</strong>，包含：当前卦象→对应系统模块→触发人格→三色审计状态→建议动作。</p>
+    <p>这不是"占卜"，而是将易经的<strong>状态分类智慧</strong>转化为AI系统的<strong>状态机路由表</strong>。</p>
+
+    <div class="gua-nav" id="gua-nav"></div>
+
+    <h2>上经三十卦（天地·万物·人伦）</h2>
+
+    <table>
+      <caption>表1: 六十四卦—系统状态映射（上经 1-30）</caption>
+      <thead>
+        <tr><th>#</th><th>卦名</th><th>卦象</th><th>系统状态</th><th>人格路由</th><th>审计</th><th>建议动作</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td><td>䷀ 乾</td>
+          <td class="hexagram"><span class="yang">━━━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span></td>
+          <td><strong>系统全量启动</strong><br>所有服务正常运行</td>
+          <td>P00文心 + P13姜子牙</td>
+          <td class="system-status-ok">🟢</td>
+          <td>启动52 launchd+12 systemd</td>
+        </tr>
+        <tr>
+          <td>2</td><td>䷁ 坤</td>
+          <td class="hexagram"><span class="yin">━ ━</span><br><span class="yin">━ ━</span><br><span class="yin">━ ━</span><br><span class="yin">━ ━</span><br><span class="yin">━ ━</span><br><span class="yin">━ ━</span></td>
+          <td><strong>系统静止/归档态</strong><br>所有服务挂起</td>
+          <td>P03雯雯 + P15乔前辈</td>
+          <td class="system-status-ok">🟢</td>
+          <td>归档·冻结·等待唤醒</td>
+        </tr>
+        <tr>
+          <td>3</td><td>䷂ 屯</td>
+          <td class="hexagram"><span class="yang">━━━</span><br><span class="yin">━ ━</span><br><span class="yin">━ ━</span><br><span class="yin">━ ━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span></td>
+          <td><strong>系统初启困难</strong><br>服务启动中</td>
+          <td>P14吕蒙 + P09孙思邈</td>
+          <td class="system-status-warn">🟡</td>
+          <td>检查依赖服务·等待就绪</td>
+        </tr>
+        <tr>
+          <td>4</td><td>䷃ 蒙</td>
+          <td class="hexagram"><span class="yang">━━━</span><br><span class="yin">━ ━</span><br><span class="yin">━ ━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span><br><span class="yin">━ ━</span></td>
+          <td><strong>新用户接入·教学态</strong></td>
+          <td>P02宝宝 + P08仓颉 + P11李白</td>
+          <td class="system-status-ok">🟢</td>
+          <td>教学链路：画像→温度→桥接→类比</td>
+        </tr>
+        <tr>
+          <td>5</td><td>䷄ 需</td>
+          <td class="hexagram"><span class="yin">━ ━</span><br><span class="yang">━━━</span><br><span class="yin">━ ━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span></td>
+          <td><strong>等待外部输入</strong><br>API调用挂起</td>
+          <td>P00文心·等待意图</td>
+          <td class="system-status-warn">🟡</td>
+          <td>超时监控T=30s·超时自动切换</td>
+        </tr>
+        <tr>
+          <td>6</td><td>䷅ 讼</td>
+          <td class="hexagram"><span class="yang">━━━</span><br><span class="yin">━ ━</span><br><span class="yang">━━━</span><br><span class="yin">━ ━</span><br><span class="yang">━━━</span><br><span class="yin">━ ━</span></td>
+          <td><strong>冲突/争议态</strong><br>用户投诉·IP冲突</td>
+          <td>P10苏东坡 + P12屈原</td>
+          <td class="system-status-warn">🟡</td>
+          <td>先调解后程序·升级UID9622</td>
+        </tr>
+        <tr>
+          <td>7</td><td>䷆ 师</td>
+          <td class="hexagram"><span class="yin">━ ━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span><br><span class="yin">━ ━</span><br><span class="yang">━━━</span><br><span class="yin">━ ━</span></td>
+          <td><strong>部署执行态</strong><br>发布/上线进行中</td>
+          <td>P14吕蒙 + P77黑天使</td>
+          <td class="system-status-warn">🟡</td>
+          <td>部署前安全扫描·十步法</td>
+        </tr>
+        <tr>
+          <td>8</td><td>䷇ 比</td>
+          <td class="hexagram"><span class="yin">━ ━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span><br><span class="yin">━ ━</span><br><span class="yin">━ ━</span></td>
+          <td><strong>协同协作态</strong><br>多人格/多Agent并行</td>
+          <td>P13姜子牙·蚁群调度</td>
+          <td class="system-status-ok">🟢</td>
+          <td>信息素协议·黑板写入</td>
+        </tr>
+        <tr>
+          <td>9</td><td>䷈ 小畜</td>
+          <td class="hexagram"><span class="yin">━ ━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span></td>
+          <td><strong>资源积累态</strong><br>数据收集·训练准备</td>
+          <td>P07管仲 + P04鲁班</td>
+          <td class="system-status-ok">🟢</td>
+          <td>数据自举·质量过滤</td>
+        </tr>
+        <tr>
+          <td>10</td><td>䷉ 履</td>
+          <td class="hexagram"><span class="yang">━━━</span><br><span class="yang">━━━</span><br><span class="yin">━ ━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span></td>
+          <td><strong>规范执行态</strong><br>协议校验·合规检查</td>
+          <td>P05上帝之眼 + P12屈原</td>
+          <td class="system-status-ok">🟢</td>
+          <td>GATE-01~10逐道过</td>
+        </tr>
+        <tr>
+          <td>11</td><td>䷊ 泰</td>
+          <td class="hexagram"><span class="yin">━ ━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span><br><span class="yin">━ ━</span><br><span class="yin">━ ━</span><br><span class="yin">━ ━</span></td>
+          <td><strong>系统全绿·太平态</strong><br>所有审计通过</td>
+          <td>全部16人格正常运转</td>
+          <td class="system-status-ok">🟢</td>
+          <td>正常运维·持续监控</td>
+        </tr>
+        <tr>
+          <td>12</td><td>䷋ 否</td>
+          <td class="hexagram"><span class="yang">━━━</span><br><span class="yin">━ ━</span><br><span class="yin">━ ━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span></td>
+          <td><strong>系统瘫痪态</strong><br>多服务离线·中断</td>
+          <td>P72龍盾 + P09孙思邈</td>
+          <td class="system-status-crit">🔴</td>
+          <td>紧急恢复·自动自愈·Bark推送</td>
+        </tr>
+        <tr>
+          <td>13</td><td>䷌ 同人</td>
+          <td class="hexagram"><span class="yang">━━━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span><br><span class="yin">━ ━</span><br><span class="yin">━ ━</span><br><span class="yang">━━━</span></td>
+          <td><strong>社区协作态</strong><br>外部协作·开源交互</td>
+          <td>P10苏东坡 + P15乔前辈</td>
+          <td class="system-status-ok">🟢</td>
+          <td>开源治理·Pull Request审核</td>
+        </tr>
+        <tr>
+          <td>14</td><td>䷍ 大有</td>
+          <td class="hexagram"><span class="yang">━━━</span><br><span class="yin">━ ━</span><br><span class="yin">━ ━</span><br><span class="yin">━ ━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span></td>
+          <td><strong>知识丰收态</strong><br>产出丰富·归档中</td>
+          <td>P03雯雯 + P15乔前辈</td>
+          <td class="system-status-ok">🟢</td>
+          <td>四签验证·德字闸归档</td>
+        </tr>
+        <tr>
+          <td>15</td><td>䷎ 谦</td>
+          <td class="hexagram"><span class="yin">━ ━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span><br><span class="yang">━━━</span><br><span class="yin">━ ━</span><br><span class="yin">━ ━</span></td>
+          <td><strong>低算力模式</strong><br>节能·静默运行</td>
+          <td>P07管仲·资源优化</td>
+          <td class="system-status-ok">🟢</td>
+          <td>降频·减少轮询·省电策略</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>下经三十四卦（人事·变迁·终始）</h2>
+
+    <table>
+      <caption>表2: 六十四卦—系统状态映射（下经 31-64）</caption>
+      <thead>
+        <tr><th>#</th><th>卦名</th><th>系统状态</th><th>人格路由</th><th>审计</th><th>关键动作</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>31</td><td>䷞ 咸</td><td><strong>感知启动态</strong><br>传感器/监听器激活</td><td>P00文心 + P09孙思邈</td><td class="system-status-ok">🟢</td><td>激活所有监听端口</td>
+        </tr>
+        <tr>
+          <td>36</td><td>䷣ 明夷</td><td><strong>安全事件态</strong><br>攻击检测·入侵告警</td><td>P72龍盾 + P77黑天使</td><td class="system-status-crit">🔴</td><td>全系统冻结·取证·上报</td>
+        </tr>
+        <tr>
+          <td>39</td><td>䷦ 蹇</td><td><strong>系统瓶颈态</strong><br>性能瓶颈·资源不足</td><td>P07管仲 + P09孙思邈</td><td class="system-status-warn">🟡</td><td>资源分析·扩容·优化</td>
+        </tr>
+        <tr>
+          <td>43</td><td>䷪ 夬</td><td><strong>决定态</strong><br>重大决策·分支选择</td><td>P01诸葛亮 + P12屈原</td><td class="system-status-warn">🟡</td><td>多路径推演→最优选择</td>
+        </tr>
+        <tr>
+          <td>49</td><td>䷰ 革</td><td><strong>系统升级态</strong><br>版本升级·迁移</td><td>P04鲁班 + P14吕蒙</td><td class="system-status-warn">🟡</td><td>备份→升级→验证→回滚预案</td>
+        </tr>
+        <tr>
+          <td>51</td><td>䷲ 震</td><td><strong>紧急熔断态</strong><br>L3行为熔断触发</td><td>P72龍盾</td><td class="system-status-crit">🔴</td><td>M型信息素扩散·全群暂停</td>
+        </tr>
+        <tr>
+          <td>52</td><td>䷳ 艮</td><td><strong>静止冻结态</strong><br>L2人格熔断</td><td>P72龍盾 + P05审计</td><td class="system-status-crit">🔴</td><td>人格禁用·等待重设</td>
+        </tr>
+        <tr>
+          <td>58</td><td>䷹ 兑</td><td><strong>用户交互态</strong><br>对话·反馈·沟通</td><td>P02宝宝 + P08仓颉</td><td class="system-status-ok">🟢</td><td>温度调节·术语桥接</td>
+        </tr>
+        <tr>
+          <td>60</td><td>䷻ 节</td><td><strong>限制/约束态</strong><br>速率限制·配额管理</td><td>P07管仲 + P13姜子牙</td><td class="system-status-ok">🟢</td><td>API限流·资源配给</td>
+        </tr>
+        <tr>
+          <td>63</td><td>䷾ 既济</td><td><strong>任务完成态</strong><br>所有任务完成·交付</td><td>P15乔前辈 + P03雯雯</td><td class="system-status-ok">🟢</td><td>签章·归档·审计日志写入</td>
+        </tr>
+        <tr>
+          <td>64</td><td>䷿ 未济</td><td><strong>未完成态</strong><br>任务中断·待续</td><td>P00文心 + P05审计</td><td class="system-status-warn">🟡</td><td>状态保存·下次会话恢复</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>卦象—数字根关联表</h2>
+    <p>每一卦的六爻可转化为六位二进制数（阳=1，阴=0），进而计算数字根。数字根落在{3,6,9}的卦对应系统的"最优锚定状态"：</p>
+
+    <table>
+      <caption>表3: 六十四卦数字根分布</caption>
+      <thead><tr><th>数字根</th><th>卦数</th><th>系统含义</th><th>占比</th></tr></thead>
+      <tbody>
+        <tr><td style="color:var(--lh-gold);">3</td><td>7卦</td><td>最优执行状态</td><td>10.9%</td></tr>
+        <tr><td style="color:var(--lh-gold);">6</td><td>7卦</td><td>稳健运行状态</td><td>10.9%</td></tr>
+        <tr><td style="color:var(--lh-gold);">9</td><td>7卦</td><td>边界监视状态</td><td>10.9%</td></tr>
+        <tr><td>1,2,4,5,7,8</td><td>43卦</td><td>一般运行状态</td><td>67.2%</td></tr>
+      </tbody>
+    </table>
+
+    <h2>使用说明</h2>
+    <ul>
+      <li><strong>日常运行</strong>：系统自动根据当前状态匹配卦象→路由人格→执行动作</li>
+      <li><strong>时间卦</strong>：由 <code>lh te --stamp</code> 根据当前天干地支起卦，输出当前卦象</li>
+      <li><strong>手动路由</strong>：<code>lh bagua route --gua 51</code> 手动切换至指定卦象的系统状态</li>
+      <li><strong>审计追溯</strong>：每次状态变更记录卦象变换链，形成完整的"系统卦象日志"</li>
+    </ul>
+
+    <blockquote>
+      <strong>注</strong>：此映射是龍魂系统的<strong>内部状态机</strong>，不是占卜工具。易经在这里被用作一个完备的64状态分类系统——与计算机科学中的状态机概念完全等价。2⁶=64种状态，恰好穷举了系统的所有可能运行态。
+    </blockquote>
+
+  </div>
+
+  <div class="article-audit" style="margin-top:48px; display:flex; flex-wrap:wrap; gap:16px; padding:16px 20px; background:var(--lh-bg-card); border:1px solid var(--lh-border); border-radius:var(--lh-radius); font-size:13px; color:var(--lh-text-muted);">
+    <div class="audit-item"><span>🟢 审计: 通过</span></div>
+    <div class="audit-item"><span>🔑 DNA: #龍芯⚡️丙午·甲申·庚子·坤卦-CHINA-YIJING-ANNOTATED-UID9622</span></div>
+    <div class="audit-item"><span>📜 协议: CC BY-NC-SA 4.0（核心思想层）</span></div>
+    <div class="audit-item"><span>🔏 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</span></div>
+  </div>
+
+</main>
+
+<script>
+// Quick nav
+const nav = document.getElementById('gua-nav');
+for (let i=1; i<=64; i++) {
+  const a = document.createElement('a');
+  a.textContent = i;
+  a.href = '#';
+  nav.appendChild(a);
+}
+</script>
+
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

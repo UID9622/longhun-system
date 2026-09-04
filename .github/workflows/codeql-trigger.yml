@@ -1,0 +1,73 @@
+# 🔬 龍魂 · CodeQL → 本地 CodeBuddy 触发联动 v1.0
+# DNA: #龍芯⚡️2026-09-03-CODEQL-TRIGGER-WORKFLOW-v1.0-UID9622
+# 创建者: 诸葛鑫（UID9622）
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# 协议: MulanPSL v2 (工程层)
+# 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+#
+# 目标: CodeQL 扫描（codeql.yml）完成后 → repository_dispatch/Webhook 唤醒本地监听器
+# 方案A（主）: workflow_run 完成后 curl 到 WEBHOOK_URL（ngrok/cloudflared 内网穿透指向本机，
+#              本机 lh codeql listen --webhook 收到事件即跑一轮 autofix）
+# 方案B（兜底·无需 webhook）: 本机 lh codeql listen --daemon 定时轮询（默认每 60 秒），
+#              该 workflow 在无 WEBHOOK_URL 时跳过并提示。
+# 安全: WEBHOOK_URL 存于 repo Secrets（人工配置）；不硬编码内网地址；
+#       失败静默（retry 0 次）· 不阻塞 CodeQL 主 workflow。
+# 2026-09-03 · CodeQL 自动响应闭环任务4
+
+name: "🔗 CodeQL 自动响应触发"
+
+on:
+  workflow_run:
+    workflows: [ "🔬 龍魂 CodeQL 安全扫描" ]
+    types:
+      - completed
+
+permissions:
+  contents: read
+
+jobs:
+  notify-local-listener:
+    name: 唤醒本地监听器
+    runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'success' || github.event.workflow_run.conclusion == 'failure'
+    timeout-minutes: 5
+    steps:
+      - name: 检查 WEBHOOK_URL 是否配置
+        id: hook
+        env:
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+        run: |
+          if [ -n "$WEBHOOK_URL" ]; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+            echo "url=$WEBHOOK_URL" >> "$GITHUB_OUTPUT"
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::notice title=CodeQL 触发联动::未配置 WEBHOOK_URL secret，本 job 跳过。降级方案: 本地 lh codeql listen --daemon 轮询兜底（默认60秒）。"
+          fi
+
+      - name: 推送 repository_dispatch / webhook 到本地监听器
+        if: steps.hook.outputs.configured == 'true'
+        env:
+          WEBHOOK_URL: ${{ steps.hook.outputs.url }}
+          RUN_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          payload=$(cat <<EOF
+          {
+            "event": "codeql_completed",
+            "run_id": "$RUN_ID",
+            "conclusion": "$RUN_CONCLUSION",
+            "head_sha": "$HEAD_SHA",
+            "repo": "${{ github.repository }}",
+            "triggered_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          }
+          EOF
+          )
+          # 内网穿透隧道一次尝试，失败静默（本地轮询兜底）
+          curl -sS -m 10 -X POST \
+            -H "Content-Type: application/json" \
+            -H "User-Agent: longhun-codeql-trigger/1.0" \
+            -d "$payload" \
+            "$WEBHOOK_URL" || echo "::warning::本地监听器不可达（WEBHOOK_URL），依赖轮询兜底"

@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# DNA: #龍芯⚡️丙午·丙申·#龍芯⚡️丙午·丙申·POSTAUDIT-LONGHUN_ECOSYSTEM_ST-7AFA3B14
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂支付生态 · 完全独立版本 v1.0
 LongHun Payment Ecosystem · Standalone Complete Version
@@ -366,4 +369,4 @@ if __name__ == '__main__':
     main()
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·复-CONFIRM-SEAL-LongHun_Ecosystem_St-87F8CD20
+# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷗复-CONFIRM-SEAL-LongHun_Ecosystem_St-87F8CD20

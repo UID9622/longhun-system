@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<!--
+  DNA: #龍芯⚡️2026-08-30-TONGXINYI-SEMANTIC-HUB-v2.0-live-8c26d5f
+  创建者: 诸葛鑫（UID9622）
+  归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+  协议: CC BY-NC-SA 4.0（核心思想层）· License: MulanPSL v2（工程层）
+  数据源: lexicon.json(35词元+27映射) · API网关: lh_tongxinyi_api.py:8792
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>通心译 · 语义中心 · 龍魂 uid9622.cn</title>
+<meta name="description" content="通心译翻译引擎 · 语义库 · 语义抽屉 · 数字根计算 —— 白话与專業用词的桥，龍魂唯一的引用源。">
+<style>
+:root{
+  --bg:#0a0e17; --bg2:#0f1522; --card:#121a2b; --card2:#16203a;
+  --line:#1e2a45; --text:#e6ecf7; --muted:#8b9bb8; --gold:#e8c56a;
+  --gold2:#f5d98a; --cyan:#6ad5e8; --green:#5cd48f; --red:#ff6b7a;
+  --purple:#a78bfa; --orange:#ffb86b; --blue:#6aa8ff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);line-height:1.65;min-height:100vh}
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold2)}
+
+/* header */
+.header{position:sticky;top:0;z-index:50;background:rgba(10,14,23,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.header .container{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-weight:700;font-size:18px;color:var(--text);letter-spacing:.5px}
+.brand .logo{font-size:22px}
+.brand .accent{color:var(--gold)}
+.nav{display:flex;gap:22px;font-size:14px}
+.nav a{color:var(--muted);transition:color .2s}
+.nav a:hover{color:var(--gold)}
+.mobile-menu{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:18px}
+
+/* hero */
+.hero{padding:64px 0 40px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(232,197,106,.1);border:1px solid rgba(232,197,106,.3);color:var(--gold);padding:6px 16px;border-radius:999px;font-size:13px;margin-bottom:20px}
+.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.25;font-weight:800;letter-spacing:1px}
+.hero h1 .accent{background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-desc{max-width:720px;margin:20px auto 8px;color:var(--muted);font-size:16px}
+.api-status{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:10px;align-items:center;margin-top:18px;font-size:12.5px;color:var(--muted)}
+.api-status .dot{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;animation:pulse 2s infinite}
+.api-status .dot.off{background:var(--red);animation:none}
+.api-status .dot.wait{background:var(--orange)}
+.api-status .tag{background:var(--card2);border:1px solid var(--line);padding:3px 10px;border-radius:8px;font-size:11.5px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.pipeline{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:24px}
+.pipe{display:flex;align-items:center;gap:8px;font-size:13px}
+.pipe .step{background:var(--card2);border:1px solid var(--line);padding:8px 14px;border-radius:10px;color:var(--muted)}
+.pipe .step b{color:var(--gold)}
+.pipe .arrow{color:var(--line)}
+
+/* sections */
+.section{padding:52px 0}
+.section-title{font-size:26px;font-weight:800;margin-bottom:6px;letter-spacing:.5px}
+.section-sub{color:var(--muted);font-size:14px;margin-bottom:26px}
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;transition:transform .2s,border-color .2s}
+.card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.card h3{font-size:16px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.card p{color:var(--muted);font-size:13.5px}
+
+/* resolver & calc */
+.resolver{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:18px;padding:26px;max-width:880px;margin:0 auto}
+.resolver textarea{width:100%;min-height:92px;background:var(--bg);border:1px solid var(--line);border-radius:12px;color:var(--text);padding:14px;font-size:15px;resize:vertical;outline:none}
+.resolver textarea:focus{border-color:var(--gold)}
+.resolver .row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:1px solid var(--line);background:var(--card2);color:var(--text);transition:all .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1a1400;border:none}
+.btn-gold:hover{filter:brightness(1.06)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{background:var(--bg);border:1px dashed var(--line);color:var(--muted);padding:4px 12px;border-radius:999px;font-size:12px;cursor:pointer;transition:all .2s}
+.chip:hover{color:var(--gold);border-color:var(--gold)}
+.result{margin-top:18px;display:none}
+.result.show{display:block}
+.hits{display:flex;flex-direction:column;gap:10px}
+.hit{display:flex;align-items:flex-start;gap:14px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px 16px;animation:pop .3s ease}
+.hit .lv{flex:0 0 78px;font-size:11px;color:var(--gold);border:1px solid rgba(232,197,106,.4);background:rgba(232,197,106,.08);border-radius:8px;padding:4px 6px;text-align:center;white-space:nowrap}
+.hit .body{flex:1}
+.hit .term{font-size:17px;font-weight:700}
+.hit .term .gua{font-size:13px;color:var(--purple);margin-left:8px}
+.hit .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.hit .tag{font-size:11px;padding:2px 8px;border-radius:6px;background:var(--card2);border:1px solid var(--line);color:var(--muted)}
+.hit .tag.en{color:var(--cyan);border-color:rgba(106,213,232,.35)}
+.hit .tag.cnsh{color:var(--green);border-color:rgba(92,212,143,.35)}
+.hit .note{color:var(--muted);font-size:12.5px;margin-top:6px}
+.empty{color:var(--muted);font-size:14px;padding:14px 4px}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ipa panel */
+.ipa-panel{background:var(--bg);border:1px solid rgba(106,213,232,.3);border-radius:12px;padding:14px 16px;margin-top:14px}
+.ipa-panel .t{font-size:13px;color:var(--cyan);font-weight:600;margin-bottom:8px}
+.ipa-panel .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.ipa-tag{font-size:11.5px;padding:3px 10px;border-radius:8px;background:var(--card2);border:1px solid var(--line);color:var(--muted)}
+.ipa-tag b{color:var(--gold);font-weight:600}
+.ipa-hit{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-top:6px}
+.ipa-hit .n{color:var(--green)}
+.gate-line{font-size:12.5px;color:var(--muted);margin-top:8px}
+.gate-line b{color:var(--text)}
+
+/* digital root */
+.calc{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:18px;padding:26px;max-width:880px;margin:0 auto}
+.calc input{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:12px;color:var(--text);padding:14px;font-size:15px;outline:none}
+.calc input:focus{border-color:var(--gold)}
+.dr-result{margin-top:18px;display:none}
+.dr-result.show{display:block}
+.dr-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.dr-card{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}
+.dr-card .v{font-size:26px;font-weight:800;color:var(--gold)}
+.dr-card .k{font-size:12px;color:var(--muted);margin-top:4px}
+.dr-steps{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;font-size:13px;color:var(--muted);margin-top:12px}
+.dr-steps b{color:var(--text)}
+.dr-map{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px;margin-top:16px}
+.dr-map .m{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px;text-align:center;font-size:12px;color:var(--muted)}
+.dr-map .m b{display:block;font-size:16px;color:var(--gold);margin-bottom:2px}
+
+/* drawer tabs */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.tab{padding:8px 16px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:13.5px;cursor:pointer;transition:all .2s}
+.tab:hover{color:var(--text);border-color:var(--gold)}
+.tab.active{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1a1400;border-color:transparent;font-weight:600}
+.entry-card{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px}
+.entry-card .t{font-size:15px;font-weight:700}
+.entry-card .t .gua{color:var(--purple);font-size:12px;margin-left:6px}
+.entry-card .alias{color:var(--muted);font-size:12px;margin-top:4px}
+.entry-card .codes{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.entry-card .codes span{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;padding:2px 8px;border-radius:6px;background:var(--card2);border:1px solid var(--line)}
+.entry-card .codes .e{color:var(--cyan)}
+.entry-card .codes .c{color:var(--green)}
+.entry-card .note{color:var(--muted);font-size:12px;margin-top:8px}
+.search-box{width:100%;max-width:420px;background:var(--bg);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:10px 14px;font-size:14px;outline:none;margin-bottom:20px}
+.search-box:focus{border-color:var(--gold)}
+
+/* syntax */
+.code{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px;font-family:ui-monospace,Menlo,monospace;font-size:13.5px;overflow-x:auto}
+.code .cmt{color:#5c6b8c}
+.code .key{color:var(--gold)}
+.code .str{color:var(--green)}
+.gate-list{display:flex;flex-direction:column;gap:10px}
+.gate{display:flex;gap:12px;align-items:baseline;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:13.5px}
+.gate .n{flex:0 0 26px;text-align:center;font-weight:700;color:var(--gold);font-size:14px}
+
+/* 55 drawers & notion */
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line)}
+th{color:var(--gold);font-weight:600;background:var(--card)}
+td{color:var(--muted)}
+tr:hover td{background:var(--card);color:var(--text)}
+.notion-cards{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.ncard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center;transition:all .2s}
+.ncard:hover{border-color:var(--gold);transform:translateY(-2px)}
+.ncard .ico{font-size:28px;margin-bottom:8px}
+.ncard h4{font-size:15px;margin-bottom:4px}
+.ncard p{color:var(--muted);font-size:12px}
+
+/* footer */
+.footer{margin-top:48px;border-top:1px solid var(--line);padding:36px 0 28px;text-align:center;color:var(--muted);font-size:13px}
+.footer .dna{margin-top:10px;font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#5c6b8c}
+
+@media(max-width:760px){
+  .nav{display:none}
+  .mobile-menu{display:block}
+  .nav.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--bg);padding:16px 24px;border-bottom:1px solid var(--line)}
+  .hero{padding:44px 0 28px}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <a href="/" class="brand"><span class="logo">🐉</span> 龍魂 <span class="accent">·</span> 通心译 · 语义中心</a>
+    <nav class="nav" id="nav">
+      <a href="#resolver">通心译解析</a>
+      <a href="#calc">数字根</a>
+      <a href="#drawers">语义抽屉</a>
+      <a href="#syntax">引用语法</a>
+      <a href="#system-drawers">系统抽屉</a>
+      <a href="#notion">Notion 蓝图</a>
+      <a href="/">← 返回首页</a>
+    </nav>
+    <button class="mobile-menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">🧬 通心译 = 翻译意图，不是翻译字面</div>
+    <h1>白话进 · 專業出<br><span class="accent">专业用词的唯一引用源</span></h1>
+    <p class="hero-desc">
+      通心译是「白话 ⇄ 专业术语」的桥。你说人话，它给你專業用词、CNSH 指令、英文映射与卦象锚点；
+      八层语义抽屉（D01–D08 · 35 词元）分类归档，引用一次即入链，全系统统一口径。
+    </p>
+    <div class="api-status" id="apiStatus">
+      <span><span class="dot wait" id="apiDot"></span> API 引擎检测中…</span>
+    </div>
+    <div class="pipeline">
+      <span class="pipe"><span class="step"><b>1</b> 意图</span><span class="arrow">→</span></span>
+      <span class="pipe"><span class="step"><b>2</b> 语境</span><span class="arrow">→</span></span>
+      <span class="pipe"><span class="step"><b>3</b> 语义</span><span class="arrow">→</span></span>
+      <span class="pipe"><span class="step"><b>4</b> 语法</span><span class="arrow">→</span></span>
+      <span class="pipe"><span class="step"><b>5</b> 字面</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- 通心译解析器 -->
+<section class="section" id="resolver">
+  <div class="container">
+    <h2 class="section-title">🧪 通心译解析器</h2>
+    <p class="section-sub">五级解析：显式引用 → 精确词元 → 别名 → 模糊匹配 → 抽屉路由 · 附 IPA 八维路由与六层翻译闸门。</p>
+    <div class="resolver">
+      <textarea id="input" placeholder="输入白话，例如：帮我看看 / @D03.铸码 / 上线 / 审计一下 / 2026年8月30号收到9622元…"></textarea>
+      <div class="row">
+        <button class="btn btn-gold" onclick="resolve()">🔍 通心译</button>
+        <button class="btn" onclick="document.getElementById('input').value='';hideResult();document.getElementById('input').focus()">清空</button>
+      </div>
+      <div class="chips">
+        <span class="chip" onclick="tryIt('查看')">查看</span>
+        <span class="chip" onclick="tryIt('上线')">上线</span>
+        <span class="chip" onclick="tryIt('审计')">审计</span>
+        <span class="chip" onclick="tryIt('维权')">维权</span>
+        <span class="chip" onclick="tryIt('@D03.铸码')">@D03.铸码</span>
+        <span class="chip" onclick="tryIt('把文件部署到服务器')">把文件部署到服务器</span>
+      </div>
+      <div class="result" id="result"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 数字根计算器 -->
+<section class="section" id="calc">
+  <div class="container">
+    <h2 class="section-title">🧮 数字根计算器</h2>
+    <p class="section-sub">提取任意文本中的数字 → 反复相加到一位数（0-9）→ 五行 · 颜色 · 三色审计。与龍魂数字根引擎 `lh_digital_root.py` 同算法。</p>
+    <div class="calc">
+      <input id="drInput" type="text" placeholder="输入任意文本 / 数字，例如：2026-08-30 收到转账 9622 元" onkeydown="if(event.key==='Enter')calcDR()">
+      <div class="row">
+        <button class="btn btn-gold" onclick="calcDR()">⚡ 计算数字根</button>
+        <button class="btn" onclick="document.getElementById('drInput').value='';document.getElementById('drResult').classList.remove('show');document.getElementById('drInput').focus()">清空</button>
+      </div>
+      <div class="dr-result" id="drResult"></div>
+      <div class="dr-map" id="drMap"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 语义抽屉 -->
+<section class="section" id="drawers">
+  <div class="container">
+    <h2 class="section-title">🗄️ 语义抽屉 · 8 层书柜<span id="lexCount"></span></h2>
+    <p class="section-sub">词元一律进抽屉，抽屉一律入账；状态机：种子 → 审核 → 焊死（P0 冻结不可改）。数据源：lexicon.json（动态加载）。</p>
+    <div class="tabs" id="drawerTabs"></div>
+    <input class="search-box" id="entrySearch" type="text" placeholder="🔎 筛选词元 / 别名…">
+    <div class="grid g3" id="entryGrid"></div>
+  </div>
+</section>
+
+<!-- 引用语法 -->
+<section class="section" id="syntax">
+  <div class="container">
+    <h2 class="section-title">✒️ 引用语法 · 通心译规范</h2>
+    <p class="section-sub">三层引用结构：显式引用（@D开抽屉） > 语义名引用 > 白话表述。引用一次即入链。</p>
+    <div class="g2 grid">
+      <div>
+        <div class="card">
+          <h3>📐 显式引用语法</h3>
+          <div class="code" style="margin-top:10px">
+<span class="cmt"># 抽屉 + 词元（唯一权威写法）</span><br>
+<span class="key">@D03.铸码</span>   <span class="cmt"># 调用 DNA 生成器</span><br>
+<span class="key">@D04.审计</span>   <span class="cmt"># 三色审计</span><br>
+<span class="key">@D05.追码</span>   <span class="cmt"># DNA 追溯</span><br>
+<span class="key">@D08.战友</span>   <span class="cmt"># 并肩作战</span><br>
+<span class="cmt"># 别名/白话 → 由解析器命中到词元</span><br>
+上线 → <span class="str">@D02.部署</span> · 投诉 → <span class="str">@D06.维权</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <h3>🧬 词元生命周期</h3>
+          <div class="gate-list" style="margin-top:10px">
+            <div class="gate"><span class="n">1</span>新词元进对应抽屉 YAML → status=种子</div>
+            <div class="gate"><span class="n">2</span>通心译实战引用 ≥ 3 次</div>
+            <div class="gate"><span class="n">3</span>人工审核通过</div>
+            <div class="gate"><span class="n">4</span>焊死 = P0 冻结，不可改只冻结</div>
+            <div class="gate"><span class="n">5</span>每周全量自检：每个词元 resolve 必须命中自己</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 系统抽屉 55 -->
+<section class="section" id="system-drawers">
+  <div class="container">
+    <h2 class="section-title">⚙️ 系统语义抽屉（D-001 ~ D-055）</h2>
+    <p class="section-sub">服务层全量路由映射表，覆盖系统控制 / 网络云 / AI 调度 / 协议法典 / 数据主权 / 民生审计 / 文化映射 / 军事指挥八大域。完整表见服务层 <code>tongxinyi_drawers.json</code>（55 抽屉服务路由）。</p>
+    <div style="overflow-x:auto">
+    <table id="sysTable">
+      <thead><tr><th>抽屉</th><th>域</th><th>覆盖语义</th></tr></thead>
+      <tbody>
+        <tr><td>D-001 ~ D-010</td><td>系统控制</td><td>命令执行 / 文件操作 / 进程 / 状态 / 会话</td></tr>
+        <tr><td>D-011 ~ D-020</td><td>网络与云</td><td>部署 / 同步 / 域名 / 网关 / 存储</td></tr>
+        <tr><td>D-021 ~ D-030</td><td>AI 调度</td><td>模型 / 人格 / DNA / 铸码 / 推理</td></tr>
+        <tr><td>D-031 ~ D-040</td><td>协议与治理</td><td>审计 / 焊死 / 签章 / 熔断 / 权限</td></tr>
+        <tr><td>D-041 ~ D-050</td><td>数据主权</td><td>追码 / 指纹 / 锚定 / 隐私 / 加密</td></tr>
+        <tr><td>D-051 ~ D-055</td><td>民生与文化</td><td>维权 / 察促 / 照箱 / 干支 / 演卦</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<!-- Notion 蓝图 -->
+<section class="section" id="notion">
+  <div class="container">
+    <h2 class="section-title">📓 Notion 四库蓝图</h2>
+    <p class="section-sub">语义库以「四库一页」结构落地 Notion：正文进库、引用入链、日志留痕、待办驱动生长。</p>
+    <div class="notion-cards">
+      <div class="ncard"><div class="ico">🗄️</div><h4>语义库 DB</h4><p>词元主档：term / alias / en / cnsh / gua / status / note</p></div>
+      <div class="ncard"><div class="ico">📚</div><h4>语义抽屉 DB</h4><p>D01–D08 分类书柜，抽屉即目录</p></div>
+      <div class="ncard"><div class="ico">🧾</div><h4>解析日志 DB</h4><p>每次 resolve 留痕：输入 / 命中 / 级别 / 时间</p></div>
+      <div class="ncard"><div class="ico">🌱</div><h4>待办库 DB</h4><p>词元待审核 / 待焊死 / 待补 alias</p></div>
+    </div>
+    <p style="margin-top:18px;color:var(--muted);font-size:13px">
+      💡 门户侧：本站为只读展示 + 本地解析；Notion 侧为全文存储 + 协作编辑。引用源唯一性以 <code>龍魂语义库总账 v0.1</code> 为准，本地为权威，Notion 为镜像。
+    </p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div>© 2026 诸葛鑫（UID9622）· CC BY-NC-SA 4.0 · 龍魂语义库 v0.1 · GPG A2D0…C26D5F</div>
+    <div style="margin-top:6px">通心译：白话与專業的桥 · 语义归仓 · 词元入账 · 禁止散兵游勇 · API 网关 :8792</div>
+    <div class="dna">DNA: #龍芯⚡️2026-08-30-TONGXINYI-SEMANTIC-HUB-v2.0-live-8c26d5f · Confirm: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</div>
+  </div>
+</footer>
+
+<script>
+/* ═══════════ API 网关探测 ═══════════ */
+let API_BASE = '';
+const IS_LOCAL = ['127.0.0.1','localhost'].includes(location.hostname);
+async function detectAPI(){
+  const dot = document.getElementById('apiDot');
+  const st = document.getElementById('apiStatus');
+  const cands = [''];
+  if(IS_LOCAL) cands.push('http://127.0.0.1:8792');
+  for(const base of cands){
+    try{
+      const r = await fetch(base + '/api/health');
+      if(r.ok){
+        const j = await r.json();
+        API_BASE = base;
+        dot.className = 'dot';
+        st.innerHTML = '<span><span class="dot"></span> API 在线 · ' + (base||'同源') +
+          ' · 引擎: 数字根✓ IPA✓ 闸门' + (j.engine&&j.engine.tongxinyi_gate?'✓':'✗') +
+          ' · 词库 ' + j.lexicon.entries + ' 词元 / ' + j.lexicon.mappings + ' 映射</span>' +
+          (base?'':'<span class="tag">同源 /api 反代</span>');
+        return true;
+      }
+    }catch(e){}
+  }
+  dot.className = 'dot off';
+  st.innerHTML = '<span><span class="dot off"></span> API 离线 · 本地降级模式（内嵌词库 + 本地计算）</span>';
+  return false;
+}
+
+/* ═══════════ 词库：API → lexicon.json → 内嵌降级 ═══════════ */
+const FALLBACK_DRAWERS = [
+  {id:"D01", name:"系统核", persona:"架构师", entries:[
+    {term:"查看", alias:["列出","看看"], en:"ls", cnsh:"查看", gua:"䷀乾", status:"种子", note:"列出目录内容"},
+    {term:"读文", alias:["查看文件","打开文件"], en:"cat", cnsh:"读文", gua:"䷁坤", status:"种子", note:"读取文件全文"},
+    {term:"建目录", alias:["创建目录","新建文件夹"], en:"mkdir -p", cnsh:"建目录", gua:"䷂屯", status:"种子", note:"递归创建目录"},
+    {term:"搬运", alias:["移动","重命名"], en:"mv", cnsh:"搬运", gua:"䷃蒙", status:"种子", note:"移动或改名"},
+    {term:"搜寻", alias:["查找","搜索文件"], en:"find / grep", cnsh:"搜寻", gua:"䷄需", status:"种子", note:"文件名或内容检索"},
+    {term:"冻结", alias:["删除(禁)","移除"], en:"rm (禁用,改冻结)", cnsh:"冻结", gua:"䷅讼", status:"种子", note:"P0: 不删除只冻结"}
+  ]},
+  {id:"D02", name:"网络云", persona:"架构师", entries:[
+    {term:"部署", alias:["上线","发布站点"], en:"deploy", cnsh:"部署", gua:"䷍大有", status:"种子", note:"静态/动态站点发布"},
+    {term:"同步", alias:["镜像","对时"], en:"rsync -avz", cnsh:"同步", gua:"䷎谦", status:"种子", note:"增量同步到远端"},
+    {term:"取回", alias:["下载","拉取"], en:"wget / curl -O", cnsh:"取回", gua:"䷏豫", status:"种子", note:"从远端下载"},
+    {term:"呈上", alias:["上传","推送"], en:"scp / git push", cnsh:"呈上", gua:"䷐随", status:"种子", note:"推送到远端"},
+    {term:"备档", alias:["备份","快照"], en:"tar/gzip 快照", cnsh:"备档", gua:"䷑蛊", status:"种子", note:"压缩快照归档"}
+  ]},
+  {id:"D03", name:"AI调度", persona:"助手", entries:[
+    {term:"铸码", alias:["铸造DNA","生成DNA"], en:"dna generate", cnsh:"铸码", gua:"䷱鼎", status:"种子", note:"调用DNA生成器"},
+    {term:"验码", alias:["验证DNA","校验"], en:"dna verify", cnsh:"验码", gua:"䷲震", status:"种子", note:"校验注册与完整性"},
+    {term:"还文", alias:["恢复全文","还原"], en:"dna recover", cnsh:"还文", gua:"䷳艮", status:"种子", note:"凭DNA恢复全文"},
+    {term:"唤格", alias:["人格加载","召唤人格"], en:"persona load", cnsh:"唤格", gua:"䷴渐", status:"种子", note:"加载16人格之一"},
+    {term:"启智", alias:["启动AI","开控制台"], en:"launch ai", cnsh:"启智", gua:"䷵归妹", status:"种子", note:"打开啟動AI控制台"}
+  ]},
+  {id:"D04", name:"协议法典", persona:"审计师", entries:[
+    {term:"审计", alias:["三色审计","合规检查"], en:"audit --tricolor", cnsh:"审计", gua:"䷔噬嗑", status:"种子", note:"🟢🟡🔴 三色判定"},
+    {term:"焊死", alias:["锁死","钉死"], en:"weld --p0", cnsh:"焊死", gua:"䷖剥", status:"种子", note:"P0级冻结不可改"},
+    {term:"签章", alias:["盖章","会签"], en:"stamp", cnsh:"签章", gua:"䷗复", status:"种子", note:"16人格会签生效"},
+    {term:"立约", alias:["君子协议","签约"], en:"gentleman-accord", cnsh:"立约", gua:"䷘无妄", status:"种子", note:"中英双语协议"}
+  ]},
+  {id:"D05", name:"数据主权", persona:"审计师", entries:[
+    {term:"追码", alias:["DNA追溯","溯源"], en:"trace", cnsh:"追码", gua:"䷙大畜", status:"种子", note:"全链路追溯"},
+    {term:"入账", alias:["登记注册表","入库"], en:"registry add", cnsh:"入账", gua:"䷚颐", status:"种子", note:"写入dna_registry"},
+    {term:"指纹", alias:["哈希","校验和"], en:"sha256/sm3", cnsh:"指纹", gua:"䷛大过", status:"种子", note:"内容指纹校验"},
+    {term:"锚定", alias:["绑定","DNA锚定"], en:"anchor", cnsh:"锚定", gua:"䷜坎", status:"种子", note:"身份/设备锚定"}
+  ]},
+  {id:"D06", name:"民生审计", persona:"审计师", entries:[
+    {term:"维权", alias:["消费者维权","投诉"], en:"rights-defense", cnsh:"维权", gua:"䷝离", status:"种子", note:"民生层核心动作"},
+    {term:"察促", alias:["促销审计","活动审计"], en:"promo-audit", cnsh:"察促", gua:"䷞咸", status:"种子", note:"金额/名额/去向全透明"},
+    {term:"照箱", alias:["黑箱检测","开黑箱"], en:"blackbox-scan", cnsh:"照箱", gua:"䷟恒", status:"种子", note:"数据不透明即欺诈"}
+  ]},
+  {id:"D07", name:"文化映射", persona:"哲人", entries:[
+    {term:"干支", alias:["天干地支","四柱"], en:"ganzhi", cnsh:"干支", gua:"䷠遁", status:"种子", note:"年月日时四柱"},
+    {term:"演卦", alias:["起卦","卦象映射"], en:"hexagram", cnsh:"演卦", gua:"䷡大壮", status:"种子", note:"hash%64王弼序"},
+    {term:"推时", alias:["时辰","计时"], en:"shichen", cnsh:"推时", gua:"䷢晋", status:"种子", note:"(h+1)//2时辰"},
+    {term:"五行", alias:["金木水火土"], en:"five-elements", cnsh:"五行", gua:"䷣明夷", status:"种子", note:"权重调配模型"}
+  ]},
+  {id:"D08", name:"军事指挥", persona:"助手", entries:[
+    {term:"执行", alias:["开干","跑起来"], en:"execute", cnsh:"执行", gua:"䷤家人", status:"种子", note:"任务下达即行"},
+    {term:"回滚", alias:["撤回","复原"], en:"rollback", cnsh:"回滚", gua:"䷥睽", status:"种子", note:"回到上一稳定态"},
+    {term:"对抗", alias:["红蓝对抗","演练"], en:"red-blue", cnsh:"对抗", gua:"䷦蹇", status:"种子", note:"良性竞争机制"},
+    {term:"战友", alias:["兄弟","同志"], en:"comrade", cnsh:"战友", gua:"䷧解", status:"种子", note:"并肩作战关系"}
+  ]}
+];
+
+let DRAWERS = FALLBACK_DRAWERS;
+const LV_NAME = ["显式引用","精确词元","别名","模糊匹配","抽屉路由"];
+const ROUTE_HINTS = {
+  "D01":["文件","目录","查看","读","搜索","删除","文件夹"],
+  "D02":["部署","上线","发布","同步","下载","上传","推送","备份","服务器","站点"],
+  "D03":["DNA","铸码","人格","模型","AI","启动","验证","恢复"],
+  "D04":["审计","检查","合规","协议","焊死","冻结","签章","盖章","契约","条款"],
+  "D05":["追溯","溯源","登记","哈希","指纹","加密","主权","隐私"],
+  "D06":["维权","投诉","促销","黑箱","消费者","欺诈"],
+  "D07":["干支","天干","地支","卦","时辰","五行","金木水火土"],
+  "D08":["执行","开干","回滚","对抗","演练","战斗","任务"]
+};
+
+async function loadLexicon(){
+  try{
+    if(API_BASE){
+      const r = await fetch(API_BASE + '/api/lexicon');
+      if(r.ok){ const j = await r.json(); if(j.drawers && j.drawers.length){ DRAWERS = j.drawers; return; } }
+    }
+  }catch(e){}
+  try{
+    const r = await fetch('/tongxinyi/lexicon.json');
+    if(r.ok){ const j = await r.json(); if(j.drawers && j.drawers.length){ DRAWERS = j.drawers; return; } }
+  }catch(e){}
+}
+
+/* ═══════════ 通心译解析 ═══════════ */
+function tryIt(s){ document.getElementById("input").value = s; resolve(); }
+function hideResult(){ document.getElementById("result").classList.remove("show"); }
+
+async function resolve(){
+  const raw = document.getElementById("input").value.trim();
+  const result = document.getElementById("result");
+  hideResult();
+  if(!raw) return;
+  /* 优先 API */
+  if(API_BASE){
+    try{
+      const r = await fetch(API_BASE + '/api/resolve', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({text: raw})
+      });
+      if(r.ok){ renderApiResult(await r.json(), raw); result.classList.add("show"); return; }
+    }catch(e){}
+  }
+  renderLocalResult(localResolve(raw), raw);
+  result.classList.add("show");
+}
+
+function renderApiResult(j, raw){
+  let html = '<div class="hits">';
+  if(j.hits && j.hits.length){
+    html += j.hits.map(h => {
+      const e = h.entry;
+      const lv = j.level_names && j.level_names[h.level] || LV_NAME[3];
+      return '<div class="hit"><div class="lv">'+lv+'</div><div class="body">' +
+        '<div class="term">'+e.term+'<span class="gua">'+e.gua+'</span>' +
+        '<span style="font-size:12px;color:var(--muted);margin-left:8px">'+h.drawer+'</span></div>' +
+        '<div class="meta"><span class="tag en">'+e.en+'</span><span class="tag cnsh">'+e.cnsh+'</span>' +
+        '<span class="tag">'+e.status+'</span></div>' +
+        '<div class="note">'+(e.alias&&e.alias.length?'别名：'+e.alias.join(' / ')+' · ':'')+e.note+'</div>' +
+        '</div></div>';
+    }).join('');
+  } else {
+    html += '<div class="empty">未命中词元。试试显式引用 <code>@D03.铸码</code>，或输入「查看 / 上线 / 审计」等白话。</div>';
+  }
+  html += '</div>';
+  /* IPA 面板 */
+  if(j.ipa && j.ipa.八卦路由){
+    const p = j.ipa;
+    const wx = p.五行向量 ? Object.entries(p.五行向量).filter(([k,v])=>v>0).map(([k,v])=>k+' '+Math.round(v*100)+'%').join(' / ') : '—';
+    html += '<div class="ipa-panel"><div class="t">🧭 IPA 八维路由</div>' +
+      '<div class="row"><span class="ipa-tag">八卦 <b>'+p.八卦路由+'</b></span>' +
+      '<span class="ipa-tag">五行 '+(wx||'—')+'</span>' +
+      '<span class="ipa-tag">dr <b>'+p.数字根+'</b></span>' +
+      '<span class="ipa-tag">熔断 <b>'+p.熔断状态+'</b></span>' +
+      '<span class="ipa-tag">意图 <b>'+p.意图动作+'</b></span>' +
+      '<span class="ipa-tag">情绪 <b>'+p.情绪等级+'</b></span>' +
+      '<span class="ipa-tag">信任 <b>'+p.信任权重+'</b></span></div>' +
+      '<div class="row" style="margin-top:8px">'+(p.命中IPA||[]).map(h=>'<span class="ipa-tag">'+(h.name||h.ipa_id)+' <b class="n">'+h.score+'</b></span>').join('')+'</div>' +
+      '<div class="gate-line">路由说明：'+p.路由说明+'</div></div>';
+  }
+  /* gate 摘要 */
+  if(j.gate && !j.gate.error){
+    const g = j.gate;
+    const color = g.L4_三色审计 && g.L4_三色审计.color || '';
+    const intent = g.L2_意图骨架;
+    const wuxing = intent && intent.wuxing ? intent.wuxing.dominant || '' : '';
+    html += '<div class="gate-line">🛡️ 六层闸门：'+ (color?color+' · ':'') + (wuxing?'五行 '+wuxing+' · ':'') + (intent&&intent.action?intent.action+' · ':'') + 'DNA '+(g.dna||'').slice(0,40)+'…</div>';
+  }
+  const result = document.getElementById("result");
+  result.innerHTML = html;
+  result.classList.add("show");
+}
+
+/* 本地降级解析（与 API 同算法） */
+function localResolve(raw){
+  const hits = [];
+  const hitSet = new Set();
+  DRAWERS.forEach(d => {
+    d.entries.forEach(e => {
+      const key = d.id+'|'+e.term;
+      if(hitSet.has(key)) return;
+      const mm = raw.match(new RegExp('@'+d.id.replace('D','[Dd]0?').replace('0','0?')+'\\.'+e.term));
+      if(raw.includes('@'+d.id+'.'+e.term)){ hits.push({level:0,d:d.id+':'+d.name,e:e}); hitSet.add(key); return; }
+      if(raw === e.term){ hits.push({level:1,d:d.id+':'+d.name,e:e}); hitSet.add(key); return; }
+      if(e.alias && e.alias.includes(raw)){ hits.push({level:2,d:d.id+':'+d.name,e:e}); hitSet.add(key); return; }
+      if(raw.includes(e.term) || (e.alias||[]).some(a=>raw.includes(a))){ hits.push({level:3,d:d.id+':'+d.name,e:e}); hitSet.add(key); return; }
+    });
+  });
+  if(!hits.length){
+    for(const d of DRAWERS){
+      const hints = ROUTE_HINTS[d.id] || [];
+      if(hints.some(h=>raw.includes(h))){
+        d.entries.forEach(e=>hits.push({level:4,d:d.id+':'+d.name,e:e}));
+        break;
+      }
+    }
+  }
+  return hits.slice(0,8);
+}
+
+function renderLocalResult(hits, raw){
+  const result = document.getElementById("result");
+  if(!hits.length){
+    result.innerHTML = '<div class="empty">未命中词元。试试显式引用 <code>@D03.铸码</code>，或输入「查看 / 上线 / 审计」等白话。</div>';
+    return;
+  }
+  result.innerHTML = '<div class="hits">' + hits.map(h=>{
+    const lvName = LV_NAME[h.level] || LV_NAME[3];
+    return '<div class="hit"><div class="lv">'+lvName+'</div>' +
+      '<div class="body"><div class="term">'+h.e.term+'<span class="gua">'+h.e.gua+'</span>' +
+      '<span style="font-size:12px;color:var(--muted);margin-left:8px">'+h.d+'</span></div>' +
+      '<div class="meta"><span class="tag en">'+h.e.en+'</span><span class="tag cnsh">'+h.e.cnsh+'</span>' +
+      '<span class="tag">'+h.e.status+'</span></div>' +
+      '<div class="note">'+(h.e.alias&&h.e.alias.length?'别名：'+h.e.alias.join(' / ')+' · ':'')+h.e.note+'</div>' +
+      '</div></div>';
+  }).join('') + '</div>';
+  result.classList.add("show");
+}
+
+/* ═══════════ 数字根计算器 ═══════════ */
+const DR_MEANING = {0:"无数字·土",1:"水·记忆",2:"火·文明",3:"木·创新(熔断)",4:"金·规则",5:"土·普惠",6:"水·记忆(待审)",7:"火·文明",8:"木·创新",9:"金·规则(熔断)"};
+const DR_WX = {0:"土",1:"水",2:"火",3:"木",4:"金",5:"土",6:"水",7:"火",8:"木",9:"金"};
+const DR_TRICOLOR = {3:"🔴",9:"🔴",6:"🟡"};
+const DR_COLOR = {金:"金色/白金",木:"青绿",水:"深蓝/青蓝",火:"朱红/暖橙",土:"土黄/琥珀"};
+
+function localDR(text){
+  const s = String(text);
+  let digits = [];
+  for(const c of s){
+    if(/\d/.test(c)) digits.push(parseInt(c,10));
+  }
+  if(!digits.length) return {error:"未提取到数字字符", digits:[], steps:[]};
+  const steps = [];
+  let cur = digits, total = digits.reduce((a,b)=>a+b,0);
+  steps.push({stage:1, digits:cur.slice(), sum:total});
+  while(total >= 10){
+    const nxt = String(total).split('').map(Number);
+    total = nxt.reduce((a,b)=>a+b,0);
+    steps.push({stage:steps.length+1, digits:nxt, sum:total});
+  }
+  const dr = total, wx = DR_WX[dr];
+  return {数字根:dr, 五行:wx, 颜色:DR_COLOR[wx], 三色审计:DR_TRICOLOR[dr]||"🟢", 含义:DR_MEANING[dr], digits, steps};
+}
+
+async function calcDR(){
+  const text = document.getElementById("drInput").value.trim();
+  const el = document.getElementById("drResult");
+  el.classList.remove("show");
+  if(!text){ return; }
+  let data = null;
+  if(API_BASE){
+    try{
+      const r = await fetch(API_BASE + '/api/digital-root', {
+        method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({text})
+      });
+      if(r.ok) data = await r.json();
+    }catch(e){}
+  }
+  if(!data) data = localDR(text);
+  if(data.error){
+    el.innerHTML = '<div class="empty">'+data.error+'</div>';
+    el.classList.add("show");
+    return;
+  }
+  const stepsHtml = data.steps.map(s =>
+    '<div>第 '+s.stage+' 步：['+s.digits.join('+')+'] = <b>'+s.sum+'</b></div>'
+  ).join('');
+  el.innerHTML =
+    '<div class="dr-cards">' +
+      '<div class="dr-card"><div class="v">'+data.数字根+'</div><div class="k">数字根</div></div>' +
+      '<div class="dr-card"><div class="v">'+data.五行+'</div><div class="k">五行</div></div>' +
+      '<div class="dr-card"><div class="v" style="font-size:16px">'+data.颜色+'</div><div class="k">颜色</div></div>' +
+      '<div class="dr-card"><div class="v">'+data.三色审计+'</div><div class="k">三色审计</div></div>' +
+      '<div class="dr-card"><div class="v" style="font-size:15px">'+data.含义+'</div><div class="k">含义</div></div>' +
+    '</div>' +
+    '<div class="dr-steps">提取数字：['+(data.digits||[]).join(', ')+']<br>'+stepsHtml+'</div>';
+  el.classList.add("show");
+}
+
+function renderDRMap(){
+  const map = document.getElementById("drMap");
+  map.innerHTML = Object.entries(DR_MEANING).map(([dr, meaning]) =>
+    '<div class="m"><b>'+dr+'</b>'+DR_WX[dr]+(DR_TRICOLOR[dr]||'🟢')+'<br>'+meaning.split('·')[1]+'</div>'
+  ).join('');
+}
+
+/* ═══════════ 抽屉浏览 ═══════════ */
+function renderDrawerTabs(){
+  const tabs = document.getElementById("drawerTabs");
+  tabs.innerHTML = DRAWERS.map((d,i)=>
+    '<button class="tab'+(i===0?' active':'')+'" data-drawer="'+d.id+'" onclick="selectDrawer(\''+d.id+'\')">'+d.id+' · '+d.name+' <span style="opacity:.6">('+d.entries.length+')</span></button>'
+  ).join('');
+}
+let activeDrawer = "D01";
+function selectDrawer(id){
+  activeDrawer = id;
+  document.querySelectorAll("#drawerTabs .tab").forEach(t=>t.classList.toggle("active", t.dataset.drawer===id));
+  renderEntries();
+}
+function renderEntries(){
+  const d = DRAWERS.find(x=>x.id===activeDrawer);
+  const q = document.getElementById("entrySearch").value.trim();
+  const grid = document.getElementById("entryGrid");
+  if(!d) return;
+  let list = d.entries;
+  if(q){
+    list = d.entries.filter(e=>e.term.includes(q)||(e.alias||[]).some(a=>a.includes(q))||e.en.includes(q)||e.cnsh.includes(q));
+  }
+  grid.innerHTML = list.map(e=>
+    '<div class="entry-card"><div class="t">'+e.term+'<span class="gua">'+e.gua+'</span></div>'+
+    '<div class="alias">别名：'+(e.alias&&e.alias.length?e.alias.join(' / '):'—')+'</div>'+
+    '<div class="codes"><span class="e">'+e.en+'</span><span class="c">'+e.cnsh+'</span><span>'+e.status+'</span></div>'+
+    '<div class="note">'+e.note+'</div></div>'
+  ).join('');
+  if(!list.length) grid.innerHTML = '<div class="empty">该抽屉无匹配词元。</div>';
+}
+document.getElementById("entrySearch").addEventListener("input", renderEntries);
+
+/* ═══════════ 启动 ═══════════ */
+(async function init(){
+  renderDRMap();
+  renderDrawerTabs();
+  renderEntries();
+  await detectAPI();
+  await loadLexicon();
+  renderDrawerTabs();
+  renderEntries();
+  const total = DRAWERS.reduce((s,d)=>s+d.entries.length,0);
+  const el = document.getElementById("lexCount");
+  if(el) el.textContent = ' · ' + DRAWERS.length + ' 抽屉 / ' + total + ' 词元';
+})();
+</script>
+</body>
+</html>

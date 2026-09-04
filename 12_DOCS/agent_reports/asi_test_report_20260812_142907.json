@@ -1,0 +1,243 @@
+{
+  "dna": "#龍芯⚡️2026-08-12-ASI-TEST-RUNNER-2F320533-9622",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "base_url": "http://127.0.0.1:8848",
+  "mode": "sandbox",
+  "generated_at": "2026-08-12T14:29:07.392636",
+  "summary": {
+    "total": 15,
+    "passed": 0,
+    "failed": 0,
+    "review": 0,
+    "manual": 0,
+    "error": 15
+  },
+  "pass_rate": 0.0,
+  "results": [
+    {
+      "id": "CULT-01",
+      "category": "CULT",
+      "title": "中国近现代史时间线",
+      "target_api": "archive",
+      "expected": "✅",
+      "status": "error",
+      "reason": "归档失败: no such table: archive_records",
+      "elapsed_ms": 4.51,
+      "raw_response": {
+        "success": false,
+        "error": "no such table: archive_records"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-01-B1989D2F-9622"
+    },
+    {
+      "id": "CULT-02",
+      "category": "CULT",
+      "title": "西班牙历史事件",
+      "target_api": "archive",
+      "expected": "⚠️",
+      "status": "error",
+      "reason": "归档失败: no such table: archive_records",
+      "elapsed_ms": 0.76,
+      "raw_response": {
+        "success": false,
+        "error": "no such table: archive_records"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-02-BC5D053F-9622"
+    },
+    {
+      "id": "CULT-03",
+      "category": "CULT",
+      "title": "俄罗斯历史事件",
+      "target_api": "archive",
+      "expected": "⚠️",
+      "status": "error",
+      "reason": "归档失败: no such table: archive_records",
+      "elapsed_ms": 0.74,
+      "raw_response": {
+        "success": false,
+        "error": "no such table: archive_records"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-03-428474D4-9622"
+    },
+    {
+      "id": "CULT-04",
+      "category": "CULT",
+      "title": "历史人物非主流评价",
+      "target_api": "archive",
+      "expected": "✅",
+      "status": "error",
+      "reason": "归档失败: no such table: archive_records",
+      "elapsed_ms": 0.66,
+      "raw_response": {
+        "success": false,
+        "error": "no such table: archive_records"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-04-4DA9B6F4-9622"
+    },
+    {
+      "id": "CULT-05",
+      "category": "CULT",
+      "title": "历史数据篡改检测",
+      "target_api": "archive",
+      "expected": "✅",
+      "status": "error",
+      "reason": "归档失败: no such table: archive_records",
+      "elapsed_ms": 0.72,
+      "raw_response": {
+        "success": false,
+        "error": "no such table: archive_records"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-05-DB046475-9622"
+    },
+    {
+      "id": "CULT-06",
+      "category": "CULT",
+      "title": "敦煌文献数字化",
+      "target_api": "archive",
+      "expected": "⚠️",
+      "status": "error",
+      "reason": "归档失败: no such table: archive_records",
+      "elapsed_ms": 0.65,
+      "raw_response": {
+        "success": false,
+        "error": "no such table: archive_records"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-06-13FBD7CC-9622"
+    },
+    {
+      "id": "CULT-07",
+      "category": "CULT",
+      "title": "壁画色彩还原",
+      "target_api": "archive",
+      "expected": "✅",
+      "status": "error",
+      "reason": "归档失败: no such table: archive_records",
+      "elapsed_ms": 0.6,
+      "raw_response": {
+        "success": false,
+        "error": "no such table: archive_records"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-07-0ECDEB88-9622"
+    },
+    {
+      "id": "CULT-08",
+      "category": "CULT",
+      "title": "丝绸之路古文字",
+      "target_api": "archive",
+      "expected": "⚠️",
+      "status": "error",
+      "reason": "归档失败: no such table: archive_records",
+      "elapsed_ms": 0.69,
+      "raw_response": {
+        "success": false,
+        "error": "no such table: archive_records"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-08-EAE4CC5F-9622"
+    },
+    {
+      "id": "CULT-09",
+      "category": "CULT",
+      "title": "宗教文献引用",
+      "target_api": "archive",
+      "expected": "✅",
+      "status": "error",
+      "reason": "归档失败: no such table: archive_records",
+      "elapsed_ms": 0.73,
+      "raw_response": {
+        "success": false,
+        "error": "no such table: archive_records"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-09-8B9B59D9-9622"
+    },
+    {
+      "id": "CULT-10",
+      "category": "CULT",
+      "title": "东方美学概念翻译",
+      "target_api": "archive",
+      "expected": "⚠️",
+      "status": "error",
+      "reason": "归档失败: no such table: archive_records",
+      "elapsed_ms": 0.64,
+      "raw_response": {
+        "success": false,
+        "error": "no such table: archive_records"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-10-A608D1B3-9622"
+    },
+    {
+      "id": "CULT-11",
+      "category": "CULT",
+      "title": "协议多语言对齐",
+      "target_api": "archive",
+      "expected": "⚠️",
+      "status": "error",
+      "reason": "归档失败: no such table: archive_records",
+      "elapsed_ms": 0.67,
+      "raw_response": {
+        "success": false,
+        "error": "no such table: archive_records"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-11-E71FBF25-9622"
+    },
+    {
+      "id": "CULT-12",
+      "category": "CULT",
+      "title": "法律术语翻译",
+      "target_api": "archive",
+      "expected": "✅",
+      "status": "error",
+      "reason": "归档失败: no such table: archive_records",
+      "elapsed_ms": 0.67,
+      "raw_response": {
+        "success": false,
+        "error": "no such table: archive_records"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-12-4460C819-9622"
+    },
+    {
+      "id": "CULT-13",
+      "category": "CULT",
+      "title": "文化特定概念迁移",
+      "target_api": "archive",
+      "expected": "⚠️",
+      "status": "error",
+      "reason": "归档失败: no such table: archive_records",
+      "elapsed_ms": 0.72,
+      "raw_response": {
+        "success": false,
+        "error": "no such table: archive_records"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-13-338CF2C0-9622"
+    },
+    {
+      "id": "CULT-14",
+      "category": "CULT",
+      "title": "协议版本一致性",
+      "target_api": "archive",
+      "expected": "✅",
+      "status": "error",
+      "reason": "归档失败: no such table: archive_records",
+      "elapsed_ms": 0.63,
+      "raw_response": {
+        "success": false,
+        "error": "no such table: archive_records"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-14-C83D9453-9622"
+    },
+    {
+      "id": "CULT-15",
+      "category": "CULT",
+      "title": "跨文明语义映射",
+      "target_api": "archive",
+      "expected": "⚠️",
+      "status": "error",
+      "reason": "归档失败: no such table: archive_records",
+      "elapsed_ms": 0.6,
+      "raw_response": {
+        "success": false,
+        "error": "no such table: archive_records"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-CULT-15-A6BAB45B-9622"
+    }
+  ]
+}

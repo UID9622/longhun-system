@@ -1,0 +1,59 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# 龍魂五行八门长驻守护配置 v1.0（对齐修正版）
+# 修改服务路径后，守护进程无需重启（支持热更新信号：kill -HUP <pid>）
+# DNA: #龍芯⚡️2026-08-25-DOORKEEPER-CONFIG-v1.0-UID9622
+
+守护进程:
+  心跳间隔: 60        # 单位：秒
+  日志级别: INFO
+  DNA链路径: 08_STATE/dna-chain/
+  耻辱墙路径: 08_STATE/shame-wall/
+
+# 服务清单 = longhun-system 真实服务（2026-08-25 实测端口）
+# 对齐修正：:9622=API网关 / :8766=主权网关 / :8972=渲染M75 / :9623=注册中心
+服务监控:
+  - 名称: 龍魂API网关
+    端口: 9622
+    健康路径: /health
+    重启命令: launchctl kickstart -k gui/$(id -u)/com.longhun.internal-net
+    自动重启: true
+    最大重启次数: 3
+
+  - 名称: 主权网关
+    端口: 8766
+    健康路径: /
+    重启命令: python3 ~/longhun-system/08_BIN/lh_sovereign_gateway.py
+    自动重启: true
+    最大重启次数: 3
+
+  - 名称: 渲染服务M75
+    端口: 8788
+    健康路径: /render/health
+    重启命令: python3 ~/longhun-system/08_BIN/lh_render.py server
+    自动重启: true
+    最大重启次数: 3
+
+  - 名称: Ollama模型
+    端口: 11434
+    健康路径: /api/version
+    重启命令: launchctl kickstart -k gui/$(id -u)/homebrew.mxcl.ollama
+    自动重启: true
+    最大重启次数: 5
+
+  - 名称: 注册中心
+    端口: 9623
+    健康路径: /
+    重启命令: python3 ~/longhun-system/deploy/longhun-registry/registry_server.py --host 127.0.0.1 --port 9623
+    自动重启: true
+    最大重启次数: 3
+
+  - 名称: Ollama反代
+    端口: 11435
+    健康路径: /
+    重启命令: launchctl kickstart -k gui/$(id -u)/com.uid9622.ollama-host-proxy
+    自动重启: true
+    最大重启次数: 3
+
+报警配置:
+  公安联动开关: false   # 生产环境改为 true（需法律评估后由 UID9622 拍板）
+  耻辱墙路径: 08_STATE/shame-wall/

@@ -1,5 +1,5 @@
-{"_dna": "#龍芯⚡️2026-06-21-CONFIG-PACKAGE_4995-v1.0",
-
+{
+  "_dna": "#龍芯⚡️2026-06-21-CONFIG-PACKAGE_4995-v1.0",
   "name": "baobao-guardian-frontend",
   "version": "1.0.0",
   "description": "宝宝守护助手 · 龍魂系统心脏应用",
@@ -27,7 +27,7 @@
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@types/three": "^0.184.0",
-    "@vitejs/plugin-react": "^4.2.1",
+    "@vitejs/plugin-react": "^6.0.5",
     "autoprefixer": "^10.4.16",
     "concurrently": "^8.2.2",
     "electron": "^42.3.3",
@@ -61,6 +61,5 @@
       ],
       "category": "public.app-category.utilities"
     }
-  },
-  "_dna": "2026-06-21-CONFIG-PACKAGE-v1.0"
+  }
 }

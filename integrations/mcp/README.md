@@ -1,6 +1,9 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂 MCP Server 套件
 
-> DNA: `#龍芯⚡️2026-07-13-LONGHUN-MCP-SUITES-v2.0`
+> DNA: `#龍芯⚡️丙午·乙未·戊子·戊午·䷙大畜-LONGHUN-MCP-SUITES-v2.0`
 > 总工具数: **67** · 5 个 Server · 全系统覆盖
 
 龍魂系统提供 5 个 MCP Server，覆盖从底层编译到高层语义的全部能力：
@@ -155,7 +158,21 @@ pip install -r requirements.txt
 
 ## DNA
 
-- 套件 DNA: `#龍芯⚡️2026-07-13-LONGHUN-MCP-SUITES-v2.0`
+- 套件 DNA: `#龍芯⚡️丙午·乙未·戊子·戊午·䷙大畜-LONGHUN-MCP-SUITES-v2.0`
 - GPG: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 - 创建者: UID9622（诸葛鑫·Lucky）
 - 三色审计: 🟢 通过
+
+
+---
+
+## 💛 支持龍魂（纯自愿 · 零黑箱）
+
+龍魂的一切免费开放。若你认可「让技术为人、为普通人生长」，可自愿支持——款项仅用于服务器与开发成本，不留一分私账。
+
+- **收款方式**: SOL / USDC（Solana）
+- **实时地址与二维码**: 见官网 [uid9622.cn](https://uid9622.cn) 底部「支持龍魂」区 — 地址由 `lh wallet` 统一管理（公司账户落地后自动切换 · 以官网为准）
+
+> 龍魂不诱导、不施压、不道德绑架。捐与不捐，开放与尊重不变。
+
+<!-- LH-WALLET-SUPPORT -->

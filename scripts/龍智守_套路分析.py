@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍智守 · 套路分析引擎
@@ -11,7 +15,7 @@
 用法：
   python3 龍智守_套路分析.py
   python3 龍智守_套路分析.py --top 10 --days 7
-DNA: #龍芯⚡️20260630-LONGZHI-SHOU-ANALYZER
+DNA: #龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGZHI-SHOU-ANALYZER
 """
 
 import argparse

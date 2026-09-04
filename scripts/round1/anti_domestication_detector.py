@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂 · AI隐性驯化反驯化检测器
 ============================================================
 论文: AI 隐性驯化实证研究 (D1-D10 十类驯化模式)
-DNA: #龍芯⚡️2026-07-07-ANTI-DOMESTICATION-DETECTOR-v1.0
+DNA: #龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-ANTI-DOMESTICATION-DETECTOR-v1.0
 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 来源: 行为密码学 · 反驯化论文 · 附录D十铁律
 
@@ -237,7 +240,7 @@ class AntiDomesticationDetector:
     十铁律反制自动建议
     """
 
-    DNA = "#龍芯⚡️2026-07-07-ANTI-DOMESTICATION-DETECTOR-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-ANTI-DOMESTICATION-DETECTOR-v1.0"
     CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
     # 严重程度权重（用于纯度扣分）

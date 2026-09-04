@@ -1,0 +1,57 @@
+{
+  "timestamp": "2026-08-25T21:04:17.823114",
+  "dna": "#龍芯⚡️2026-08-25-TEST-REPORT-UID9622",
+  "total": 5,
+  "passed": 5,
+  "failed": 0,
+  "pass_rate": 1.0,
+  "elapsed": 0.66,
+  "tri_color": "🟢",
+  "results": [
+    {
+      "name": "test_fibonacci",
+      "dna": "DNA: #龍芯⚡️2026-07-30-函数示例-v1.0",
+      "status": "🟢",
+      "tri_color": "green",
+      "output": "斐波那契( 0 ) =  0\n斐波那契( 1 ) =  1\n斐波那契( 2 ) =  1\n斐波那契( 3 ) =  2\n斐波那契( 4 ) =  3\n斐波那契( 5 ) =  5\n斐波那契( 6 ) =  8\n斐波那契( 7 ) =  13\n斐波那契( 8 ) =  21\n斐波那契( 9 ) =  34\n",
+      "error": null,
+      "elapsed": 0.125
+    },
+    {
+      "name": "test_grade",
+      "dna": "DNA: #龍芯⚡️2026-07-30-条件示例-v1.0",
+      "status": "🟢",
+      "tri_color": "green",
+      "output": "分数: 95  等级: 优秀\n分数: 82  等级: 良好\n分数: 67  等级: 及格\n分数: 45  等级: 不及格\n分数: 91  等级: 优秀\n",
+      "error": null,
+      "elapsed": 0.126
+    },
+    {
+      "name": "test_hello",
+      "dna": "DNA: #龍芯⚡️2026-07-30-HelloWorld-v1.0",
+      "status": "🟢",
+      "tri_color": "green",
+      "output": "你好，龍魂！\n",
+      "error": null,
+      "elapsed": 0.13
+    },
+    {
+      "name": "test_minimal",
+      "dna": "DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+      "status": "🟢",
+      "tri_color": "green",
+      "output": "CNSH编译器最小测试通过\n",
+      "error": null,
+      "elapsed": 0.139
+    },
+    {
+      "name": "test_operators",
+      "dna": "DNA: #龍芯⚡️2026-07-30-运算符测试-v1.0",
+      "status": "🟢",
+      "tri_color": "green",
+      "output": "加法: 13\n减法: 7\n乘法: 30\n除法: 3.3333333333333335\n取余: 1\n幂: 1000\na > b: True\na < b: False\na == b: False\na != b: True\nx 和 y: False\nx 或 y: True\n非 x: False\n",
+      "error": null,
+      "elapsed": 0.141
+    }
+  ]
+}

@@ -1,7 +1,9 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ============================================================================
 # longhun-persona-pipeline.sh — 四步一键执行：挖掘 → 训练 → 可视化 → 模型训练
 # DNA: #龍芯⚡️丙午·辛未·PERSONA-PIPELINE-v2.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #
 # 用法:
 #   ./scripts/longhun-persona-pipeline.sh               # 完整四步

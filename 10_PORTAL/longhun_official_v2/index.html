@@ -1,0 +1,995 @@
+> DNA: #龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-SYNC-COMPLIANCE-20260827-7A2C9F3D
+> 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂系统 · 龍芯北辰 UID9622</title>
+<meta name="description" content="龍魂系统民用透明托管平台 - 主权人格 · 透明审计 · 分布式部署">
+<style>
+/* ===== 龍魂设计系统 · 黑底金边军事风 ===== */
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #111111;
+    --bg-card: #1a1a1a;
+    --gold-primary: #d4af37;
+    --gold-dim: #8b7355;
+    --gold-bright: #f0d878;
+    --text-primary: #e8e8e8;
+    --text-secondary: #a0a0a0;
+    --border-gold: rgba(212, 175, 55, 0.3);
+    --border-dim: rgba(212, 175, 55, 0.1);
+    --red-alert: #c0392b;
+    --green-ok: #27ae60;
+    --font-mono: "SF Mono", "Fira Code", "Consolas", monospace;
+    --font-sans: -apple-system, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-sans);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* 扫描线效果 */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(212, 175, 55, 0.02) 2px,
+        rgba(212, 175, 55, 0.02) 4px
+    );
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* ===== 导航栏 ===== */
+.navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 64px;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-gold);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold-primary);
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+
+.nav-brand::before {
+    content: "◈";
+    color: var(--red-alert);
+    font-size: 1.3rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    letter-spacing: 1px;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold-primary);
+    transition: width 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--gold-primary);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--gold-primary);
+    transition: all 0.3s;
+}
+
+/* ===== 轮播图 ===== */
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: var(--bg-secondary);
+}
+
+.slide-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+}
+
+.slide-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 24px;
+}
+
+.slide-content h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: var(--gold-primary);
+    margin-bottom: 20px;
+    letter-spacing: 4px;
+    text-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+}
+
+.slide-content p {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    font-family: var(--font-mono);
+}
+
+.slide-dna {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--gold-dim);
+    letter-spacing: 1px;
+    margin-top: 24px;
+    opacity: 0.7;
+}
+
+/* 轮播控制 */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(10, 10, 10, 0.7);
+    border: 1px solid var(--border-gold);
+    color: var(--gold-primary);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: var(--gold-primary);
+}
+
+.carousel-prev { left: 24px; }
+.carousel-next { right: 24px; }
+
+.carousel-dots {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid var(--border-gold);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.carousel-dot.active {
+    background: var(--gold-primary);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* ===== 通用区块 ===== */
+.section {
+    padding: 100px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--gold-primary);
+    text-align: center;
+    margin-bottom: 16px;
+    letter-spacing: 3px;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    margin-bottom: 60px;
+    letter-spacing: 1px;
+}
+
+/* ===== 下载中心 ===== */
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.download-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-dim);
+    border-left: 3px solid var(--gold-primary);
+    padding: 28px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.download-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, var(--gold-primary), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.download-card:hover {
+    border-color: var(--border-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(212, 175, 55, 0.08);
+}
+
+.download-card:hover::before {
+    opacity: 1;
+}
+
+.download-card h3 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.download-card h3::before {
+    content: "▼";
+    color: var(--gold-primary);
+    font-size: 0.8rem;
+}
+
+.download-meta {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.download-meta span {
+    display: inline-block;
+    margin-right: 16px;
+}
+
+.download-meta .version { color: var(--green-ok); }
+.download-meta .size { color: var(--gold-dim); }
+
+.download-hash {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    background: rgba(0,0,0,0.3);
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    word-break: break-all;
+    border: 1px solid var(--border-dim);
+}
+
+.download-dna {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--gold-dim);
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid var(--gold-primary);
+    color: var(--gold-primary);
+    padding: 10px 24px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.download-btn:hover {
+    background: rgba(212, 175, 55, 0.1);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+/* ===== Git 仓库卡片 ===== */
+.repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.repo-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-dim);
+    padding: 28px;
+    transition: all 0.3s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.repo-card:hover {
+    border-color: var(--border-gold);
+    box-shadow: 0 4px 24px rgba(212, 175, 55, 0.06);
+}
+
+.repo-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.repo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--border-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.repo-name {
+    font-weight: 700;
+    color: var(--gold-primary);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+}
+
+.repo-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.repo-stats {
+    display: flex;
+    gap: 20px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.repo-stats span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ===== DNA 验证区块 ===== */
+.dna-section {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-dim);
+    border-bottom: 1px solid var(--border-dim);
+}
+
+.dna-display {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid var(--border-gold);
+    padding: 32px;
+    font-family: var(--font-mono);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.dna-display::before {
+    content: "DNA TRACE";
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 0.65rem;
+    color: var(--gold-dim);
+    opacity: 0.5;
+    letter-spacing: 2px;
+}
+
+.dna-code {
+    font-size: clamp(0.8rem, 2vw, 1.1rem);
+    color: var(--gold-primary);
+    letter-spacing: 2px;
+    word-break: break-all;
+    line-height: 2;
+}
+
+.dna-confirm {
+    margin-top: 16px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* ===== 启动 AI 按钮 ===== */
+.ai-launch {
+    text-align: center;
+    padding: 60px 24px;
+}
+
+.ai-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(192, 57, 43, 0.1));
+    border: 2px solid var(--gold-primary);
+    color: var(--gold-bright);
+    padding: 18px 48px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    letter-spacing: 2px;
+    text-decoration: none;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.ai-btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.ai-btn:hover::before {
+    left: 100%;
+}
+
+.ai-btn:hover {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+    transform: translateY(-2px);
+}
+
+.ai-note {
+    margin-top: 16px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* ===== 页脚 ===== */
+.footer {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-dim);
+    padding: 60px 24px 40px;
+    text-align: center;
+}
+
+.footer-brand {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--gold-primary);
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+}
+
+.footer-uid {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+.footer-dna {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--gold-dim);
+    margin-bottom: 24px;
+    word-break: break-all;
+    padding: 0 16px;
+}
+
+.footer-p0 {
+    display: inline-block;
+    border: 1px solid var(--red-alert);
+    color: var(--red-alert);
+    padding: 8px 20px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.footer-p0:hover {
+    background: rgba(192, 57, 43, 0.1);
+}
+
+.footer-copy {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 768px) {
+    .navbar { padding: 0 16px; }
+    .nav-links {
+        position: fixed;
+        top: 64px; right: -100%;
+        width: 200px;
+        height: calc(100vh - 64px);
+        background: rgba(10, 10, 10, 0.98);
+        flex-direction: column;
+        padding: 32px;
+        border-left: 1px solid var(--border-gold);
+        transition: right 0.3s;
+    }
+    .nav-links.active { right: 0; }
+    .nav-hamburger { display: flex; }
+    .section { padding: 60px 16px; }
+    .carousel-btn { width: 36px; height: 36px; }
+    .carousel-prev { left: 12px; }
+    .carousel-next { right: 12px; }
+}
+
+/* ===== 滚动条 ===== */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-primary); }
+</style>
+</head>
+<body>
+
+<!-- 导航栏 -->
+<nav class="navbar">
+    <a href="#" class="nav-brand">龍魂系统</a>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home">首页</a></li>
+        <li><a href="#download">下载中心</a></li>
+        <li><a href="#docs">文档</a></li>
+        <li><a href="#repos">Git仓库</a></li>
+        <li><a href="#dna">DNA验证</a></li>
+        <li><a href="#about">关于</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<!-- 轮播图 -->
+<section class="hero-carousel" id="home">
+    <div class="carousel-track" id="carouselTrack">
+
+        <div class="carousel-slide">
+            <div class="slide-bg" style="background-image: linear-gradient(135deg, #1a0a0a, #0a0a0a);"></div>
+            <div class="slide-content">
+                <h1>龍魂宣言</h1>
+                <p>主权人格 · 透明审计 · 分布式部署<br>不为个人赚钱，只为保障普通人在 AI 文明跃迁中的参与权</p>
+                <div class="slide-dna">#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️</div>
+            </div>
+        </div>
+
+        <div class="carousel-slide">
+            <div class="slide-bg" style="background-image: linear-gradient(135deg, #0a1a0a, #0a0a0a);"></div>
+            <div class="slide-content">
+                <h1>五大元知框架</h1>
+                <p>军事 · 历史 · 哲学 · 经济 · 政治<br>五维叠加，调配人格矩阵，优化思考-决策-执行-反馈路由</p>
+                <div class="slide-dna">五维人格矩阵 · 16人格签章 · DNA验证</div>
+            </div>
+        </div>
+
+        <div class="carousel-slide">
+            <div class="slide-bg" style="background-image: linear-gradient(135deg, #0a0a1a, #0a0a0a);"></div>
+            <div class="slide-content">
+                <h1>DNA 追溯体系</h1>
+                <p>命名即架构 · 四层命名法 · 干支四柱<br>文件系统即数据库，所有产出嵌入归属标识</p>
+                <div class="slide-dna">#龍芯⚡️{干支}·{卦名}-{动作标签}-{版本}</div>
+            </div>
+        </div>
+
+        <div class="carousel-slide">
+            <div class="slide-bg" style="background-image: linear-gradient(135deg, #1a1a0a, #0a0a0a);"></div>
+            <div class="slide-content">
+                <h1>鲲鹏算力中心</h1>
+                <p>华为鲲鹏服务器 · 本地 Ollama 部署<br>数据不出家门，模型自主可控，龍魂 AI 本地运行</p>
+                <div class="slide-dna">鲲鹏 + Ollama + WireGuard 隧道 · 全链路可控</div>
+            </div>
+        </div>
+
+        <div class="carousel-slide">
+            <div class="slide-bg" style="background-image: linear-gradient(135deg, #1a0a1a, #0a0a0a);"></div>
+            <div class="slide-content">
+                <h1>CNSH 中文编辑器</h1>
+                <p>纯原生中文语法 · 推倒重来 · 全球普惠<br>让人民方便，不是让技术方便</p>
+                <div class="slide-dna">CNSH v2.0 · 语义协议 · 中文界面替代英文渲染</div>
+            </div>
+        </div>
+
+    </div>
+
+    <button class="carousel-btn carousel-prev" id="prevBtn">◀</button>
+    <button class="carousel-btn carousel-next" id="nextBtn">▶</button>
+
+    <div class="carousel-dots" id="carouselDots"></div>
+</section>
+
+<!-- 下载中心 -->
+<section class="section" id="download">
+    <h2 class="section-title">下载中心</h2>
+    <p class="section-subtitle">所有文件带 SHA256 校验 + DNA 追溯码 · 下载前请验证</p>
+
+    <div class="download-grid">
+
+        <div class="download-card">
+            <h3>龍魂系统安装包</h3>
+            <div class="download-meta">
+                <span class="version">v4.1.4</span>
+                <span class="size">~2.1 GB</span>
+            </div>
+            <div class="download-hash">SHA256: a1b2c3d4e5f6...（上传后替换为真实值）</div>
+            <div class="download-dna">#龍芯⚡️丙午·辛未·丁卯·离为火-DEPLOY-v4.1.4</div>
+            <a href="./download/longhun-v4.1.4.zip" class="download-btn">⬇ 立即下载</a>
+        </div>
+
+        <div class="download-card">
+            <h3>龍魂宪法白皮书</h3>
+            <div class="download-meta">
+                <span class="version">v2.0</span>
+                <span class="size">~15 MB</span>
+            </div>
+            <div class="download-hash">SHA256: （上传后替换）</div>
+            <div class="download-dna">#龍芯⚡️丙午·辛未·丁卯·乾为天-PUBLISH-v2.0</div>
+            <a href="./docs/constitution-v2.0.pdf" class="download-btn">⬇ 下载 PDF</a>
+        </div>
+
+        <div class="download-card">
+            <h3>CNSH 语法规范</h3>
+            <div class="download-meta">
+                <span class="version">v2.0</span>
+                <span class="size">~8 MB</span>
+            </div>
+            <div class="download-hash">SHA256: （上传后替换）</div>
+            <div class="download-dna">#龍芯⚡️丙午·辛未·丁卯·巽为风-SPEC-v2.0</div>
+            <a href="./docs/cnsh-spec-v2.0.pdf" class="download-btn">⬇ 下载 PDF</a>
+        </div>
+
+        <div class="download-card">
+            <h3>龍魂共生协议</h3>
+            <div class="download-meta">
+                <span class="version">v1.0</span>
+                <span class="size">~3 MB</span>
+            </div>
+            <div class="download-hash">SHA256: （上传后替换）</div>
+            <div class="download-dna">#龍芯⚡️丙午·辛未·丁卯·坤为地-PROTOCOL-v1.0</div>
+            <a href="./docs/symbiosis-protocol-v1.0.pdf" class="download-btn">⬇ 下载 PDF</a>
+        </div>
+
+        <div class="download-card">
+            <h3>鲲鹏部署脚本</h3>
+            <div class="download-meta">
+                <span class="version">v1.0</span>
+                <span class="size">~50 KB</span>
+            </div>
+            <div class="download-hash">SHA256: （上传后替换）</div>
+            <div class="download-dna">#龍芯⚡️丙午·辛未·丁卯·坎为水-INSTALL-v1.0</div>
+            <a href="./download/deploy-kunpeng.sh" class="download-btn">⬇ 下载脚本</a>
+        </div>
+
+        <div class="download-card">
+            <h3>WireGuard 隧道配置</h3>
+            <div class="download-meta">
+                <span class="version">v1.0</span>
+                <span class="size">~5 KB</span>
+            </div>
+            <div class="download-hash">SHA256: （上传后替换）</div>
+            <div class="download-dna">#龍芯⚡️丙午·辛未·丁卯·艮为山-TUNNEL-v1.0</div>
+            <a href="./download/wireguard-config.zip" class="download-btn">⬇ 下载配置</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- Git 仓库 -->
+<section class="section" id="repos" style="background: var(--bg-secondary);">
+    <h2 class="section-title">Git 仓库</h2>
+    <p class="section-subtitle">开源可审计 · 所有代码带 DNA 追溯 · 欢迎审查</p>
+
+    <div class="repo-grid">
+
+        <a href="https://gitee.com/uid9622/longhun-system" class="repo-card" target="_blank">
+            <div class="repo-header">
+                <div class="repo-icon">📦</div>
+                <div class="repo-name">longhun-system</div>
+            </div>
+            <div class="repo-desc">龍魂系统核心代码仓库 · P0-P4 协议实现 · 16人格矩阵</div>
+            <div class="repo-stats">
+                <span>⭐ 128</span>
+                <span>🍴 32</span>
+                <span>📅 2026-07-28</span>
+            </div>
+        </a>
+
+        <a href="https://gitee.com/uid9622/cnsh-editor" class="repo-card" target="_blank">
+            <div class="repo-header">
+                <div class="repo-icon">📝</div>
+                <div class="repo-name">cnsh-editor</div>
+            </div>
+            <div class="repo-desc">CNSH 中文编辑器 · 纯原生中文语法 · 语义协议 v2.0</div>
+            <div class="repo-stats">
+                <span>⭐ 86</span>
+                <span>🍴 18</span>
+                <span>📅 2026-07-25</span>
+            </div>
+        </a>
+
+        <a href="https://gitee.com/uid9622/longhun-protocols" class="repo-card" target="_blank">
+            <div class="repo-header">
+                <div class="repo-icon">⚖️</div>
+                <div class="repo-name">longhun-protocols</div>
+            </div>
+            <div class="repo-desc">龍魂协议文档 · 宪法白皮书 · 共生协议 · 审计规范</div>
+            <div class="repo-stats">
+                <span>⭐ 64</span>
+                <span>🍴 12</span>
+                <span>📅 2026-07-20</span>
+            </div>
+        </a>
+
+        <a href="https://github.com/uid9622/longhun-ai" class="repo-card" target="_blank">
+            <div class="repo-header">
+                <div class="repo-icon">🤖</div>
+                <div class="repo-name">longhun-ai</div>
+            </div>
+            <div class="repo-desc">龍魂 AI 模型训练 · Ollama 适配 · 本地推理优化</div>
+            <div class="repo-stats">
+                <span>⭐ 45</span>
+                <span>🍴 8</span>
+                <span>📅 2026-07-15</span>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<!-- DNA 验证 -->
+<section class="section dna-section" id="dna">
+    <h2 class="section-title">DNA 验证</h2>
+    <p class="section-subtitle">所有文档、代码、协议均带龍魂 DNA 追溯码 · 可验证本源</p>
+
+    <div class="dna-display">
+        <div class="dna-code">
+            #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL<br><br>
+            确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z<br><br>
+            创始人：龍芯北辰 UID9622<br>
+            系统锚定：P0 焊死底座 · 12条全球统一不可改<br>
+            协议层级：P0 → P1 → P2 → P3 → P4
+        </div>
+        <div class="dna-confirm">
+            所有下载文件均含 DNA 追溯 · 篡改即失效 · 冻结不删除
+        </div>
+    </div>
+</section>
+
+<!-- 启动 AI -->
+<section class="ai-launch" id="about">
+    <a href="http://10.8.0.2:11434" class="ai-btn" target="_blank">
+        <span>🔥</span> 启动龍魂 AI（本地模型）
+    </a>
+    <p class="ai-note">数据不出家门 · 鲲鹏本地运行 · Ollama longhun:latest</p>
+</section>
+
+<!-- 页脚 -->
+<footer class="footer">
+    <div class="footer-brand">龍魂系统</div>
+    <div class="footer-uid">龍芯北辰 · UID9622 · 民用透明托管平台</div>
+    <div class="footer-dna">
+        #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+    </div>
+    <a href="./docs/p0-constitution.html" class="footer-p0">📜 P0 焊死底座 · 12条全球统一不可改</a>
+    <div class="footer-copy">
+        © 2025-2026 龍魂系统 · 不申请专利 · 不做企业 · 不走资本 · 免费开源<br>
+        双域名同步：longhun888.com | uid9622.cn · 香港节点托管 · 鲲鹏算力中心
+    </div>
+</footer>
+
+<script>
+// ===== 轮播图逻辑 =====
+(function() {
+    const track = document.getElementById('carouselTrack');
+    const slides = track.children;
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dotsContainer = document.getElementById('carouselDots');
+
+    let current = 0;
+    const total = slides.length;
+    let autoPlay;
+
+    // 生成指示点
+    for (let i = 0; i < total; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+    }
+
+    const dots = dotsContainer.children;
+
+    function goTo(index) {
+        current = index;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        for (let i = 0; i < total; i++) {
+            dots[i].classList.toggle('active', i === current);
+        }
+    }
+
+    function next() { goTo((current + 1) % total); }
+    function prev() { goTo((current - 1 + total) % total); }
+
+    nextBtn.addEventListener('click', () => { next(); resetAuto(); });
+    prevBtn.addEventListener('click', () => { prev(); resetAuto(); });
+
+    function resetAuto() {
+        clearInterval(autoPlay);
+        autoPlay = setInterval(next, 6000);
+    }
+
+    autoPlay = setInterval(next, 6000);
+
+    // 触摸滑动支持
+    let touchStartX = 0;
+    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+    track.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) {
+            diff > 0 ? next() : prev();
+            resetAuto();
+        }
+    });
+})();
+
+// ===== 汉堡菜单 =====
+document.getElementById('hamburger').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('active');
+});
+
+// 点击链接后关闭菜单
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('active');
+    });
+});
+
+// ===== 滚动时导航栏高亮 =====
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (scrollY >= sectionTop) current = section.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+        link.style.color = link.getAttribute('href') === '#' + current ? 'var(--gold-primary)' : '';
+    });
+});
+</script>
+
+</body>
+</html>

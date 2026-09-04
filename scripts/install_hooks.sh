@@ -1,7 +1,9 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·Git钩子安装脚本 v1.0
 # 将.githooks/下的钩子安装到.git/hooks/
-# DNA: #龍芯⚡️丙午·辛未·乙酉·亥-HOOK-INSTALL-v1.0
+# DNA: #龍芯⚡️丙午·辛未·乙酉·丁亥·䷵归妹-HOOK-INSTALL-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e
 cd "$(dirname "$0")/.."
@@ -16,4 +18,4 @@ echo "[✓] Git hooksPath → .githooks/"
 echo "[✓] 以下钩子已激活:"
 ls -la .githooks/ 2>/dev/null | grep -v "^total\|^$" | awk '{print "    "$NF}'
 echo ""
-echo "DNA: #龍芯⚡️丙午·辛未·乙酉·亥-HOOK-INSTALL-v1.0"
+echo "DNA: #龍芯⚡️丙午·辛未·乙酉·丁亥·䷵归妹-HOOK-INSTALL-v1.0"

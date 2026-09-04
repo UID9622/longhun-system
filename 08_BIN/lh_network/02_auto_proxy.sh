@@ -1,0 +1,71 @@
+#!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# DNA: #龍芯⚡️丙午·乙未·乙巳·壬午·䷃蒙-网络限流应对-自动代理-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 创建者: 诸葛鑫（UID9622）
+# 协议: CC BY-NC-SA 4.0
+# 龍魂网络限流应对方案 · 终端自动代理
+# 自动检测限流→切换代理→恢复直连
+
+HK_SERVER_IP="YOUR_HK_SERVER_IP"       # ⚠️ 华为云香港IP待配置
+HK_SSH_KEY="~/.ssh/huawei_hk.pem"
+HK_USER="root"
+PROXY_PORT="1080"
+TEST_URL="https://github.com"
+TIMEOUT="5"
+
+# 检测函数
+check_limit() {
+    local direct_time=$(curl -o /dev/null -s -w '%{time_total}' --max-time $TIMEOUT $TEST_URL 2>/dev/null || echo "0")
+    if [ -z "$direct_time" ] || [ "$direct_time" = "0" ] || [ "$(echo "$direct_time > 5" | bc -l 2>/dev/null || echo 1)" -eq 1 ]; then
+        echo "LIMITED"
+    else
+        echo "OK"
+    fi
+}
+
+# 启动代理
+start_proxy() {
+    if [ "$HK_SERVER_IP" = "YOUR_HK_SERVER_IP" ]; then
+        echo "[龍魂] ⚠️ 香港服务器IP未配置，跳过代理启动"
+        echo "[龍魂] 请在脚本中设置 HK_SERVER_IP"
+        return 1
+    fi
+    echo "[龍魂] 检测到限流，启动香港代理..."
+    if pgrep -f "ssh.*-D $PROXY_PORT" > /dev/null; then
+        echo "[龍魂] 代理隧道已存在"
+    else
+        ssh -i $HK_SSH_KEY -f -N -D $PROXY_PORT $HK_USER@$HK_SERVER_IP 2>/dev/null || {
+            echo "[龍魂] ❌ SSH隧道建立失败"
+            return 1
+        }
+        echo "[龍魂] SOCKS5代理已启动: localhost:$PROXY_PORT"
+    fi
+    source ~/.longhun_proxy 2>/dev/null
+    export GH_PROXY="socks5://127.0.0.1:$PROXY_PORT"
+    export HF_ENDPOINT="https://hf-mirror.com"
+}
+
+# 停止代理
+stop_proxy() {
+    echo "[龍魂] 网络恢复，关闭代理..."
+    pkill -f "ssh.*-D $PROXY_PORT" 2>/dev/null
+    unset http_proxy https_proxy ALL_PROXY GH_PROXY
+}
+
+# 主逻辑
+echo "[龍魂] 网络状态检测..."
+status=$(check_limit)
+
+if [ "$status" = "LIMITED" ]; then
+    start_proxy
+    if [ $? -eq 0 ]; then
+        echo "[龍魂] ✅ 当前走香港代理，限流已绕过"
+    else
+        echo "[龍魂] 🟡 代理不可用，切换国内镜像兜底"
+        export HF_ENDPOINT="https://hf-mirror.com"
+    fi
+else
+    stop_proxy
+    echo "[龍魂] ✅ 直连正常，无需代理"
+fi

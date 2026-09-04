@@ -1,0 +1,47 @@
+# DNA: #龍芯⚡️丙午·乙未·乙未·子时·☰乾-DEPLOY-FRPC-TUNNEL-v2.0-81d2c9e4
+# 创建者: 诸葛鑫（UID9622）
+# 协议: CC BY-NC-SA 4.0
+# 用途: Mac本地服务 → 鲲鹏FRP穿透 → uid9622.cn对外可达
+# v2.0 (2026-08-17): 新增 search-engine(9631) + sovereign-gateway(8766) 穿透
+
+serverAddr = "119.13.90.27"
+serverPort = 7000
+
+# FRP认证token（和鲲鹏frps.toml一致）
+auth.token = "lh-ee71c0f0b97d8981"
+
+[[proxies]]
+name = "xiaoyi-bridge"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 18799
+remotePort = 18799
+
+[[proxies]]
+name = "xiaoyi-admin"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 18798
+remotePort = 18798
+
+[[proxies]]
+name = "search-engine"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 9631
+remotePort = 19631
+
+[[proxies]]
+name = "sovereign-gateway"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 8766
+remotePort = 19636
+
+# v2.1 (2026-08-22): 语音遥控塔 voice-agent(18880) 穿透
+[[proxies]]
+name = "voice-agent"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 18880
+remotePort = 18880

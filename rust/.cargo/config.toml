@@ -1,0 +1,26 @@
+# DNA: #龍芯⚡️丙午·丙申·壬子·丑时·䷖剥-RUST-CROSS-COMPILE-v1.0-UID9622
+# 创建者: 诸葛鑫（UID9622）
+# 协议: MulanPSL v2 (工程层)
+#
+# Rust 交叉编译链接器配置
+# 支持: Android (JNI) · 鸿蒙 (NAPI) · 鲲鹏 · Apple Silicon · 龍芯 · 申威
+
+[target.aarch64-linux-android]
+linker = "aarch64-linux-android21-clang"
+# Android NDK 路径（按实际安装调整）
+# 通常在: $ANDROID_NDK_HOME/toolchains/llvm/prebuilt/darwin-x86_64/bin/
+
+[target.armv7-linux-androideabi]
+linker = "armv7a-linux-androideabi21-clang"
+
+[target.x86_64-linux-android]
+linker = "x86_64-linux-android21-clang"
+
+[target.aarch64-unknown-linux-gnu]
+linker = "aarch64-linux-gnu-gcc"
+
+[target.loongarch64-unknown-linux-gnu]
+linker = "loongarch64-unknown-linux-gnu-gcc"
+
+[target.sunway64-unknown-linux-gnu]
+linker = "sw64-unknown-linux-gnu-gcc"

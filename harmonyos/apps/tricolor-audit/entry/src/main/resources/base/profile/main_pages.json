@@ -1,0 +1,8 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/AuditPage",
+    "pages/ResultPage",
+    "pages/HistoryPage"
+  ]
+}

@@ -1,8 +1,10 @@
 #!/bin/bash
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ═══════════════════════════════════════════════════════════════
 #  龍魂系统 · 终极引导部署脚本
 #  CNSH-MCP 27步 增强版 + 全资产迁移 + 一键上线
-#  DNA: #龍芯⚡️2026-07-06-LONGHUN-BOOTSTRAP-v3.0
+#  DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-LONGHUN-BOOTSTRAP-v3.0
 #  归属: UID9622｜龍芯北辰｜CNSH
 #  适用: Ubuntu 24.04 / openEuler 22.03+ / CentOS 8+
 #  ⚠️  以 root 执行: sudo bash longhun-bootstrap.sh
@@ -291,7 +293,7 @@ NOTION_DATABASE_ID=
 
 # ═══ DeepSeek ═══
 DEEPSEEK_API_KEY=
-DEEPSEEK_MODEL=deepseek-chat
+DEEPSEEK_MODEL=deepseek-v4-flash
 
 # ═══ 华为云 ═══
 HUAWEI_CLOUD_ACCESS_KEY=
@@ -333,7 +335,7 @@ step_09() {
     cat > "${LONGHUN_ROOT}/scripts/health-check.sh" <<'HEALTHEOF'
 #!/bin/bash
 # 龍魂健康检查v2
-# DNA: #龍芯⚡️2026-07-06-HEALTH-CHECK-v2.0
+# DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-HEALTH-CHECK-v2.0
 
 RED='\033[0;31m'; GREEN='\033[0;32m'; NC='\033[0m'
 
@@ -521,7 +523,7 @@ NGINXEOF
 <div class="box">
   <h1>🐉 龍魂系统</h1>
   <p>数据主权归人民 · 不跪资本不舔流量</p>
-  <p class="dna">#龍芯⚡️2026-07-06-DEPLOY-v3.0</p>
+  <p class="dna">#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-DEPLOY-v3.0</p>
 </div>
 </body>
 </html>
@@ -775,7 +777,7 @@ step_20() {
     cat > "${LONGHUN_ROOT}/DEPLOY_SUMMARY.md" <<SUMMARYEOF
 # 🐉 龍魂系统部署摘要
 
-**DNA:** \`#龍芯⚡️2026-07-06-LONGHUN-BOOTSTRAP-v3.0\`
+**DNA:** \`#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-LONGHUN-BOOTSTRAP-v3.0\`
 **时间:** $(date '+%Y-%m-%d %H:%M:%S')
 **服务器:** $(hostname -I | awk '{print $1}')
 **OS:** ${OS_ID} ${OS_VERSION}
@@ -893,7 +895,7 @@ main() {
     echo ""
     echo "🐉 龍魂系统 · 终极引导部署 v3.0"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  DNA: #龍芯⚡️2026-07-06-LONGHUN-BOOTSTRAP-v3.0"
+    echo "  DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-LONGHUN-BOOTSTRAP-v3.0"
     echo "  归属: UID9622｜龍芯北辰｜CNSH"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
