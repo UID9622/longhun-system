@@ -846,6 +846,7 @@ SUB_DISPATCH = {
     'gov':                  ('lh_governance.py',              '🚦', '三色治理指挥层·status/propose/vote/audit/trace/score/score-log/check/trust/sync/leaderboard/redline/dashboard（决策绑定声誉·贡献门槛·主权红线·数据~/.longhun/governance/）', [], 'status'),
     # 🕵️ 作假行为检测引擎 v1.0 — 反诈总库(2026-09-04)焊入·7类作假(无DNA/伪签名/时间戳篡改/水印抹除/克隆无DNA/虚假贡献/AI内容伪造)·GPG核验·单文件或目录扫描
     'fraud':                ('lh_fraud_detector.py',          '🕵️', '作假行为检测·scan <路径> [--报告]/status（7类作假·GPG核验·反诈总库2026-09-04）', [], 'status'),
+    'fraud-glossary':       ('lh_fraud_detector.py',          '📖', '反诈知识词条库·glossary --list / --search <关键词>（学术词语·心理机制·技术漏洞·检测引擎 20词条·数据~/.longhun/fraud/glossary.json·2026-09-04）', [], 'glossary'),
     # 💤 技能调度器 v1.0 — 技能用完即休·用时即唤·不常驻省算力（2026-08-16）
     'skill':                ('lh_skill_scheduler.py',         '💤', '技能调度·list/wake/sleep/autosleep/stats（用完休眠·用前唤醒·省CPU）', [], 'status'),
     # 🧬 人格按任务触发+经验累积引擎 v1.0 — 能力对标全球大模型·按需唤醒人格·经验沉淀越练越聪明（2026-08-30）
@@ -2654,6 +2655,9 @@ def main():
         # 回收顶层 --health flag（lh <subcmd> --health 语义 → 交给子命令引擎处理）
         if getattr(args, 'health', False):
             extra += ['--health']
+        # 🔧 fraud-glossary 专用: 顶层 --search(搜索引擎REMAINDER flag) 会劫持词条搜索参数 → 回收并归入 glossary 子命令
+        if subcmd == 'fraud-glossary' and getattr(args, 'search', None):
+            extra = ['glossary', '--search'] + list(args.search)
         # 回收顶层 --format 供 lh speak 使用（排版引擎专属 REMAINDER，speak 场景不冲突）
         if subcmd == 'speak' and getattr(args, 'fmt', None):
             extra += ['--format'] + list(args.fmt)

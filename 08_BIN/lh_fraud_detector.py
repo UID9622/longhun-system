@@ -97,14 +97,54 @@ def scan_file(path):
         except: pass
     return {"文件":str(path),"状态":top_color,"置信度":top_conf,"问题":results}
 
+GLOSSARY_PATH = Path.home() / ".longhun" / "fraud" / "glossary.json"
+
+def glossary(args):
+    """反诈知识词条库查询（数据 ~/.longhun/fraud/glossary.json）"""
+    try:
+        data = json.loads(GLOSSARY_PATH.read_text(encoding="utf-8"))
+    except Exception as e:
+        print(f"🔴 词条库不可读: {e}（预期路径 {GLOSSARY_PATH}）")
+        return
+    items = data.get("glossary", [])
+    if args.list:
+        print(f"# 📖 {data.get('meta',{}).get('title','龍魂·反诈词条库')}")
+        for cat in data.get("categories", []):
+            print(f"\n## {cat}")
+            for g in [x for x in items if x["category"] == cat]:
+                print(f"- {g['term']}: {g['definition']}")
+        print(f"\n共 {len(items)} 词条 · {data.get('meta',{}).get('dna','')}")
+        return
+    q = (args.search or "").strip()
+    if not q:
+        print(f"📖 反诈词条库: {len(items)}词条 / {len(data.get('categories',[]))}类")
+        print("用法: lh fraud glossary --list | --search <关键词>")
+        return
+    hits = [g for g in items if q.lower() in g["term"].lower()
+            or q.lower() in g["definition"].lower()
+            or any(q.lower() in (a or "").lower() for a in g.get("aliases", []))]
+    if not hits:
+        print(f"🔴 无匹配词条: {q}（--list 查看全部）")
+        return
+    for g in hits:
+        print(f"### {g['term']}〔{g['category']}〕")
+        print(f"- 定义: {g['definition']}")
+        print(f"- 检测抓手: {g.get('detect','—')}")
+        al = [a for a in g.get("aliases", []) if a]
+        if al: print(f"- 别名: {', '.join(al)}")
+        print()
+
 def main():
     import argparse
     p = argparse.ArgumentParser(description="🐉 龍魂·作假行为检测")
     sub = p.add_subparsers(dest="cmd")
     s = sub.add_parser("scan"); s.add_argument("路径",nargs="?",default="."); s.add_argument("--报告")
     sub.add_parser("status")
+    g = sub.add_parser("glossary"); g.add_argument("--list", action="store_true"); g.add_argument("--search", metavar="关键词")
     args = p.parse_args()
-    if args.cmd == "scan":
+    if args.cmd == "glossary":
+        glossary(args)
+    elif args.cmd == "scan":
         tp = Path(args.路径)
         files = list(tp.rglob("*")) if tp.is_dir() else [tp]
         results = [scan_file(f) for f in files if f.is_file() and f.suffix not in ('.asc','.pyc','.json')]
