@@ -37,6 +37,7 @@ https://uid9622.notion.site
 - 系统状态与待办：STATE.md
 - 项目配置与启动：.codebuddy/CODEBUDDY.md
 - 治理文档全集：01_protocols/
+- **无后台治理链（焊死·P0）**：无后台审批团公开决策 `governance/protocols/P1_core/LH-NO-BACKEND-COMMUNITY-COUNCIL-v1.0.md`（怎么表决）→ 三色治理 v2.1 `governance/protocols/P1_core/LH-TRICOLOR-GOVERNANCE-v2.1.md`（什么该表决·按什么颜色通行）—— 系统无后台·账号无人可锁·决策绑定声誉·中国主权红线 · 任何修改需 UID9622 签章 · 指挥层 `lh gov`
 - 命令总目：.codebuddy/COMMAND_INDEX.md
 
 ## 6.5 新代码 CNSH 命名闸口（2026-09-01 焊死 · 只补缺不改心血）

@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "dna": "#龍芯⚡️2026-09-04-LONGHUN-KUNPENG-MCP-CONFIG-v1.0-UID9622",
+    "creator": "诸葛鑫（UID9622）",
+    "attribution": "诸葛鑫 | UID9622 · 龍芯北辰",
+    "license": "MulanPSL v2 / CC BY-NC-SA 4.0",
+    "version": "1.0.0",
+    "auth_note": "出厂绑定 127.0.0.1 + 无 token。开放外网前必须：1) 改 token 2) systemd --host 0.0.0.0 3) 重签名"
+  },
+  "lh-mcp-readonly": {
+    "server": "lh-mcp-readonly",
+    "host": "127.0.0.1",
+    "port": 8763,
+    "auth": { "mode": "none", "note": "只读·内网安全区默认不鉴权；对外需开 token" },
+    "log_dir": "~/.longhun/logs/mcp",
+    "lh_root": "",
+    "peer_allowlist": [],
+    "sse_get": false
+  },
+  "lh-mcp-audit": {
+    "server": "lh-mcp-audit",
+    "host": "127.0.0.1",
+    "port": 8764,
+    "auth": { "mode": "none", "note": "审计层·对外需开 token" },
+    "log_dir": "~/.longhun/logs/mcp",
+    "lh_root": "",
+    "peer_allowlist": [],
+    "shamewall_file": "~/.longhun/shame_wall/shame_wall.json"
+  },
+  "lh-mcp-admin": {
+    "server": "lh-mcp-admin",
+    "host": "127.0.0.1",
+    "port": 8767,
+    "auth": { "mode": "none", "note": "高危层·强制本机绑定 + IP 白名单 + X-Confirm 二次确认" },
+    "log_dir": "~/.longhun/logs/mcp",
+    "lh_root": "",
+    "peer_allowlist": ["127.0.0.1", "::1"],
+    "whitelist_file": "config/admin-whitelist.json",
+    "port_note": "2026-09-04 裁决: 原 8765 被鲲鹏 longhun-cal(cal_server) 常驻占用 → admin 换 8767"
+  }
+}
