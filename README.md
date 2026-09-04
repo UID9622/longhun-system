@@ -79,8 +79,8 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 | 入口 | 地址 | 说明 |
 |:---|:---|:---|
-| 🌐 **拓扑页面** | <https://uid9622.cn/topo/> | 23 节点全绿 · 根哈希 `FB48FCE383AF689E` |
-| 💓 **健康检查** | <https://uid9622.cn/topo/health> | `{"entries":23,"root_hash":"FB48FCE383AF689E"}` |
+| 🌐 **拓扑页面** | <https://uid9622.cn/docs/topology/> | 22 节点全绿 · 变更可视化 · 根哈希 `824EDDE86F104FD2`（每日自检） |
+| 📡 **拓扑公开 API** | <https://uid9622.cn/docs/topology-api/status.json> | 实时数据含根哈希 · 独立核验：本地 `lh topo audit-verify 对外交付` 比对 |
 | 🔌 **网关健康** | <https://uid9622.cn/api/v1/health> | 开放 API 网关（lh-api）存活与版本 |
 | 📖 **API 集成指南** | [`12_DOCS/龙魂API集成指南-v1.0.md`](./12_DOCS/龙魂API集成指南-v1.0.md) | 认证 / 端点 / 限流 / curl / Python 示例 |
 
@@ -102,7 +102,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 | 维度 | 状态 | 验证入口 |
 |:---|:---|:---|
 | 🏷️ **最新版本** | v5.2.0 · 生态交付三任务 | [`CHANGELOG.md`](./CHANGELOG.md) |
-| 🧬 **默认分支** | `orphan_main` | GitHub 仓库首页 |
+| 🧬 **默认分支** | `main`（2026-09-05 正式收编 · 拓扑能力全量纳入） | GitHub 仓库首页 |
 | ✅ **CI 状态** | GitHub Actions 持续集成 | [`.github/workflows/`](./.github/workflows/) |
 | 🔐 **GPG 签名** | 全量文件 `.asc` 脱签验证 | 本仓库任意 `.md.asc` / `.py.asc` |
 | 🎨 **品牌资产** | 印章风格 Logo / App 图标 / OG 预览 | [`brand/`](./brand/) |
