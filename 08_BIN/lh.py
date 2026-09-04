@@ -844,6 +844,8 @@ SUB_DISPATCH = {
     'council':              ('lh_council.py',                 '⚖️', '无后台审批团公开决策·propose/vote/list/view/ledger/verify/wall/export/status/rotate（三色🟡自动升级提案·机器委员GD无票·超时默认拒绝·公示墙+哈希链·~/.longhun/council/）', [], ''),
     # 🚦 三色治理指挥层 v2.1 — 决策权与声誉绑定×贡献门槛×中国主权红线·薄胶水复用既有引擎(M77零重复): status聚合health/council/耻辱墙·propose/vote/audit转发council·sync扫ledger自动信誉(一致+1/不一致−2/连续±)·score+dr数字根·redline系统主权红线R001-R006(2026-09-04·协议 LH-TRICOLOR-GOVERNANCE-v2.1)
     'gov':                  ('lh_governance.py',              '🚦', '三色治理指挥层·status/propose/vote/audit/trace/score/score-log/check/trust/sync/leaderboard/redline/dashboard（决策绑定声誉·贡献门槛·主权红线·数据~/.longhun/governance/）', [], 'status'),
+    # 🕵️ 作假行为检测引擎 v1.0 — 反诈总库(2026-09-04)焊入·7类作假(无DNA/伪签名/时间戳篡改/水印抹除/克隆无DNA/虚假贡献/AI内容伪造)·GPG核验·单文件或目录扫描
+    'fraud':                ('lh_fraud_detector.py',          '🕵️', '作假行为检测·scan <路径> [--报告]/status（7类作假·GPG核验·反诈总库2026-09-04）', [], 'status'),
     # 💤 技能调度器 v1.0 — 技能用完即休·用时即唤·不常驻省算力（2026-08-16）
     'skill':                ('lh_skill_scheduler.py',         '💤', '技能调度·list/wake/sleep/autosleep/stats（用完休眠·用前唤醒·省CPU）', [], 'status'),
     # 🧬 人格按任务触发+经验累积引擎 v1.0 — 能力对标全球大模型·按需唤醒人格·经验沉淀越练越聪明（2026-08-30）
