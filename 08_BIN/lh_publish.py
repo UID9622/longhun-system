@@ -635,14 +635,42 @@ def do_merge(pr_num: int, app: str, title: str, rid: str) -> tuple[bool, str, st
     return False, f"merge HTTP {code} {msg}", ""
 
 
-def cleanup_branch(flow: dict) -> tuple[bool, str]:
-    """合并后清理：切回主干 + 删本地分支 + 删远端分支。"""
-    if flow.get("branch"):
-        run_cmd(["git", "-C", str(ROOT), "checkout", BASE_BRANCH], timeout=60)
-        run_cmd(["git", "-C", str(ROOT), "branch", "-D", flow["branch"]], timeout=60)
-        rc, out = run_cmd(["git", "-C", str(ROOT), "push", REMOTE, "--delete", flow["branch"]], timeout=60)
-        if rc != 0:
-            return False, f"远端分支删除失败: {out[-150:]}"
+def cleanup_branch(flow: dict, base_b: str = BASE_BRANCH) -> tuple[bool, str]:
+    """合并后清理：切回主干 + 删本地分支 + 删远端分支（逐步 rc 守卫）。
+
+    merge 后若工作区有余量（如 GPG 重签产生的 .asc），仅当余量都属于本 PR 文件
+    （内容已在远端 merge，丢弃无损）才 -f 强制；否则保守失败，等人工。
+    """
+    branch = flow.get("branch")
+    if not branch:
+        return True, "branch-cleaned(无分支)"
+    prfiles = set(flow.get("files", []))
+    prasc = {p + ".asc" for p in prfiles}
+    rc, out = run_cmd(["git", "-C", str(ROOT), "status", "--porcelain", "--untracked-files=all"], timeout=30)
+    extra = []
+    for ln in (out or "").splitlines():
+        if not ln.strip():
+            continue
+        p = ln[3:].strip()
+        if p.startswith('"') and p.endswith('"'):
+            try:
+                p = json.loads(p)
+            except Exception:
+                pass
+        if p in prfiles or p in prasc or is_generated(p):
+            continue
+        extra.append(p)
+    force = not extra                      # 无外来改动 → 可 -f
+    cmd = ["git", "-C", str(ROOT), "checkout"] + (["-f"] if force else []) + [base_b]
+    rc, out = run_cmd(cmd, timeout=60)
+    if rc != 0:
+        return False, f"切回主干失败: {out[-150:]}"
+    rc, out = run_cmd(["git", "-C", str(ROOT), "branch", "-D", branch], timeout=60)
+    if rc != 0 and "not found" not in out.lower():
+        return False, f"本地分支删除失败: {out[-150:]}"
+    rc, out = run_cmd(["git", "-C", str(ROOT), "push", REMOTE, "--delete", branch], timeout=90)
+    if rc != 0 and "not found" not in out.lower():
+        return False, f"远端分支删除失败: {out[-150:]}"
     return True, "branch-cleaned"
 
 
@@ -937,7 +965,7 @@ def cmd_pr(argv):
         print(f"✅ {info} sha={sha}")
 
     if not st_step_done(flow, "branch_cleaned"):
-        ok, info = cleanup_branch(flow)
+        ok, info = cleanup_branch(flow, base_b)
         if not ok:
             st_mark(flow, "failed", err=info)
             st_save(data)
