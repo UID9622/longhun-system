@@ -149,8 +149,10 @@ def get_pat() -> str:
 def get_app_token() -> str:
     """longhun-bot App token: python3 08_BIN/lh_github_app.py token → ghs_…"""
     try:
+        env = {k: v for k, v in os.environ.items()
+               if not k.upper() in ("HTTP_PROXY", "HTTPS_PROXY", "ALL_PROXY", "NO_PROXY")}
         r = subprocess.run([sys.executable, str(BIN / "lh_github_app.py"), "token"],
-                           capture_output=True, text=True, timeout=20)
+                           capture_output=True, text=True, timeout=25, env=env)
         for line in (r.stdout or "").splitlines():
             m = re.search(r"ghs_[A-Za-z0-9_.-]+", line)
             if m:
@@ -609,13 +611,18 @@ def do_approve(pr_num: int, app: str) -> tuple[bool, str]:
 
 
 def do_merge(pr_num: int, app: str, title: str, rid: str) -> tuple[bool, str, str]:
-    """轮询 mergeable_state→clean，squash merge。返回 (ok, info, sha)。"""
+    """轮询 mergeable_state∈{clean,unstable,has_hooks}→squash merge。
+
+    CI 终裁权交给 GitHub 保护规则：unstable=存在非 required 检查失败
+    （历史先例: 🦀 Rust Check pre-existing 失败非 required → 仍可合并）；
+    blocked=required 未通过→继续等；dirty=冲突→失败。
+    返回 (ok, info, sha)。"""
     t0 = time.time()
     state = ""
     while time.time() - t0 < MERGE_STATE_WAIT_MAX:
         code, pr = gh_get_retry(f"/repos/{FULL_REPO}/pulls/{pr_num}", app)
         state = (pr or {}).get("mergeable_state", "") if isinstance(pr, dict) else ""
-        if state == "clean":
+        if state in ("clean", "unstable", "has_hooks"):
             break
         if state == "blocked":
             time.sleep(5)
@@ -623,8 +630,8 @@ def do_merge(pr_num: int, app: str, title: str, rid: str) -> tuple[bool, str, st
         if state == "dirty":
             return False, f"PR #{pr_num} 冲突 dirty，无法自动合并", ""
         time.sleep(5)
-    if state != "clean":
-        return False, f"PR #{pr_num} 不可合并(mergeable_state={state or '?'})·CI 未绿或被保护规则挡", ""
+    if state not in ("clean", "unstable", "has_hooks"):
+        return False, f"PR #{pr_num} 不可合并(mergeable_state={state or '?'})·保护规则未通过", ""
     code, mg = gh_request("PUT", f"/repos/{FULL_REPO}/pulls/{pr_num}/merge", app,
                           {"merge_method": "squash",
                            "commit_title": f"{title} ({rid} · lh publish) (#{pr_num})"})
@@ -635,14 +642,42 @@ def do_merge(pr_num: int, app: str, title: str, rid: str) -> tuple[bool, str, st
     return False, f"merge HTTP {code} {msg}", ""
 
 
-def cleanup_branch(flow: dict) -> tuple[bool, str]:
-    """合并后清理：切回主干 + 删本地分支 + 删远端分支。"""
-    if flow.get("branch"):
-        run_cmd(["git", "-C", str(ROOT), "checkout", BASE_BRANCH], timeout=60)
-        run_cmd(["git", "-C", str(ROOT), "branch", "-D", flow["branch"]], timeout=60)
-        rc, out = run_cmd(["git", "-C", str(ROOT), "push", REMOTE, "--delete", flow["branch"]], timeout=60)
-        if rc != 0:
-            return False, f"远端分支删除失败: {out[-150:]}"
+def cleanup_branch(flow: dict, base_b: str = BASE_BRANCH) -> tuple[bool, str]:
+    """合并后清理：切回主干 + 删本地分支 + 删远端分支（逐步 rc 守卫）。
+
+    merge 后若工作区有余量（如 GPG 重签产生的 .asc），仅当余量都属于本 PR 文件
+    （内容已在远端 merge，丢弃无损）才 -f 强制；否则保守失败，等人工。
+    """
+    branch = flow.get("branch")
+    if not branch:
+        return True, "branch-cleaned(无分支)"
+    prfiles = set(flow.get("files", []))
+    prasc = {p + ".asc" for p in prfiles}
+    rc, out = run_cmd(["git", "-C", str(ROOT), "status", "--porcelain", "--untracked-files=all"], timeout=30)
+    extra = []
+    for ln in (out or "").splitlines():
+        if not ln.strip():
+            continue
+        p = ln[3:].strip()
+        if p.startswith('"') and p.endswith('"'):
+            try:
+                p = json.loads(p)
+            except Exception:
+                pass
+        if p in prfiles or p in prasc or is_generated(p):
+            continue
+        extra.append(p)
+    force = not extra                      # 无外来改动 → 可 -f
+    cmd = ["git", "-C", str(ROOT), "checkout"] + (["-f"] if force else []) + [base_b]
+    rc, out = run_cmd(cmd, timeout=60)
+    if rc != 0:
+        return False, f"切回主干失败: {out[-150:]}"
+    rc, out = run_cmd(["git", "-C", str(ROOT), "branch", "-D", branch], timeout=60)
+    if rc != 0 and "not found" not in out.lower():
+        return False, f"本地分支删除失败: {out[-150:]}"
+    rc, out = run_cmd(["git", "-C", str(ROOT), "push", REMOTE, "--delete", branch], timeout=90)
+    if rc != 0 and "not found" not in out.lower():
+        return False, f"远端分支删除失败: {out[-150:]}"
     return True, "branch-cleaned"
 
 
@@ -895,22 +930,17 @@ def cmd_pr(argv):
         st_save(data)
         return 2
 
-    if not st_step_done(flow, "ci_passed"):
+    if not (st_step_done(flow, "ci_passed") or st_step_done(flow, "ci_warn")):
         print(f"⏳ 等待 CI（≤{CI_RUN_MAX // 60} 分钟 · 轮询 {CI_POLL_SEC}s）…")
         head_sha = get_head_sha(flow, flow["pr"], pat)
         ok, info = wait_ci(flow, head_sha, pat)
-        if not ok:
-            st_mark(flow, "failed", err=info)
-            st_save(data)
-            if flags["rollback"]:
-                rb = rollback_pr(flow, flow["pr"], app)
-                print(f"↩️ 回滚: {rb[1]}")
-            else:
-                print(f"↩️ 未回滚（改动保留在分支 {flow.get('branch')}）。需要回滚: lh publish pr --resume {flow['id']} --rollback-on-fail")
-            rp = write_report(flow, f"失败: {info}")
-            print(f"📄 报告: {rp}")
-            return 2
-        st_mark(flow, "ci_passed", info=info)
+        if ok:
+            st_mark(flow, "ci_passed", info=info)
+        else:
+            # 失败/超时 → 不直接判死：mergeable_state 由 GitHub 保护规则终裁
+            # （历史先例: 🦀 Rust Check pre-existing 失败但非 required → unstable 仍可合并）
+            print(f"🟡 {info} —— 交由 GitHub 保护规则终裁（尝试合并）")
+            st_mark(flow, "ci_warn", info=info)
         st_save(data)
 
     if not st_step_done(flow, "approved"):
@@ -937,7 +967,7 @@ def cmd_pr(argv):
         print(f"✅ {info} sha={sha}")
 
     if not st_step_done(flow, "branch_cleaned"):
-        ok, info = cleanup_branch(flow)
+        ok, info = cleanup_branch(flow, base_b)
         if not ok:
             st_mark(flow, "failed", err=info)
             st_save(data)
