@@ -1251,6 +1251,37 @@ def cmd_templates(argv):
     return 0
 
 
+def cmd_outreach(argv):
+    """扩散素材包路径指引（供手动发布 · 2026-09-05 任务B）"""
+    pkg = Path(__file__).resolve().parent.parent / "docs" / "扩散素材-2026-09-05"
+    j = "--json" in argv
+    if not pkg.exists():
+        if j:
+            print(json.dumps({"ok": False, "reason": f"素材目录不存在: {pkg}"}))
+        else:
+            print(f"🟡 扩散素材目录不存在: {pkg}（先 lh docs weekly / 生成素材包）")
+        return 1
+    files = sorted(pkg.glob("*.md"))
+    platforms = {"v2ex.md": "V2EX", "osc.md": "开源中国", "zhihu.md": "知乎",
+                 "hackernews.md": "Hacker News"}
+    rows = []
+    for f in files:
+        sig = Path(str(f) + ".asc").exists()
+        rows.append({"file": f.name, "platform": platforms.get(f.name, "总览/通用"),
+                     "signed": sig})
+    if j:
+        print(json.dumps({"tool": "lh-publish", "mode": "outreach", "ok": True,
+                          "package": str(pkg), "files": rows}, ensure_ascii=False, indent=2))
+    else:
+        print(f"📢 扩散素材包（2026-09-05 · 供手动发布）\n路径: {pkg}\n")
+        for r in rows:
+            mark = "✅" if r["signed"] else "🟡未签"
+            print(f"  · [{r['platform']}] {r['file']}  {mark}")
+        print("\n手动发布流程: 打开各平台 → 粘贴对应文件正文 → 附核心链接与 GPG 指纹 → 发布")
+        print("自检: docs/扩散素材-2026-09-05/00_README.md 的 GATE 清单")
+    return 0
+
+
 USAGE = """龍魂·统一对外发布工具链 v2.0（PR 一键发布 · 状态驱动）
 
 用法:
@@ -1260,6 +1291,7 @@ USAGE = """龍魂·统一对外发布工具链 v2.0（PR 一键发布 · 状态�
       #          →squash merge→删分支→本地同步→GPG 报告。默认=人工审阅(建 PR 即止)。
   lh publish prstate                 # PR 流程状态查询（断点恢复: pr --resume <ID> --auto）
   lh publish announce <标题> [正文] [--channels issue,web,readme] [--template <名>] [--dry-run]
+  lh publish outreach                # 扩散素材包路径指引（docs/扩散素材-2026-09-05/ · 4平台+总览）
   lh publish status / dashboard / rollback <ID> [--reason …] / templates list|show <name>
 """
 
@@ -1283,6 +1315,8 @@ def main(argv):
         return cmd_rollback(rest)
     if cmd == "templates":
         return cmd_templates(rest)
+    if cmd == "outreach":
+        return cmd_outreach(rest)
     print(USAGE)
     return 1
 

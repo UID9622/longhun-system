@@ -35,7 +35,7 @@ import sys
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timedelta
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -711,6 +711,10 @@ def cmd_list(keyword: str = ""):
                         print(f"        DNA {na.get('dna')}")
                     if na.get("link"):
                         print(f"        链接 {na.get('link')}")
+            for e in d.get("edges", []):
+                print(f"   🔗 边 · {e.get('source')} → {e.get('target')} [{e.get('type')}]")
+                if e.get("label"):
+                    print(f"        ↳ {e.get('label')}")
     print()
 
 
@@ -790,6 +794,1769 @@ def cmd_node_add(keyword: str, group: str = "", name: str = "", ntype: str = "ot
     f.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     green, yellow, neutral = asset_stats(data)
     print(f"     图谱 {data.get('display')} · 节点 {green+yellow+neutral} · 🟢{green} 🟡{yellow}")
+
+
+# ── v1.7 对外交付文档自动拓扑同步（12_DOCS ↔ 图谱）─────────────────
+# 白名单镜像 lh_doc_sync.DELIVERY_DOCS（11份交付文档）：对外文档站 9 站内文档 + 30分钟接入 + 文档体系
+DOC_SYNC_MAP = [
+    ("12_DOCS/DEPENDENCIES.md", "document", "依赖清单"),
+    ("12_DOCS/INSTALL.md", "document", "安装指南"),
+    ("12_DOCS/QUICKSTART.md", "document", "快速开始"),
+    ("12_DOCS/USAGE.md", "document", "使用说明"),
+    ("12_DOCS/API_REFERENCE.md", "document", "API技术文档"),
+    ("12_DOCS/JSONRPC.md", "document", "JSON-RPC协议"),
+    ("12_DOCS/MCP_GUIDE.md", "document", "MCP接入指南"),
+    ("12_DOCS/NOTION_MCP_GUIDE.md", "document", "Notion MCP指南"),
+    ("12_DOCS/TROUBLESHOOTING.md", "document", "故障排查"),
+    ("12_DOCS/龍魂对外交付文档体系-v1.0.md", "document", "对外交付文档体系"),
+    ("12_DOCS/30分钟接入龙魂系统.md", "article", "30分钟接入指南"),
+]
+
+# 图谱类型定义表（写 data.types · lh topo <图谱> status/list 可用）
+TOPOLOGY_TYPES = {
+    "document": "正式文档（DEPENDENCIES/INSTALL/USAGE/API_REFERENCE/JSONRPC/MCP_GUIDE/NOTION_MCP_GUIDE/TROUBLESHOOTING/体系总览）",
+    "article": "导读文章/对外发布稿/30分钟接入指南",
+    "report": "反馈报告（docs_feedback_weekly 周报产物）",
+    "asset": "扩散素材包（含 4 平台 copy 子项）",
+    "copy": "平台扩散文案（v2ex/osc/zhihu/hackernews）",
+    "endpoint": "反馈入口/耻辱墙（反馈链路端点）",
+    "issue": "GitHub Issue（#99 对外文档上线公告）",
+}
+
+_AUTO_SYNC_LOG = Path(os.path.expanduser("~/.longhun/topo_auto_sync.log"))
+
+# ── v1.8 对外公开化：耻辱墙审计事件 + 文档站公开页（2026-09-05）──
+SITE_DOC_DIR = ROOT / "docs-site" / "docs"         # 文档站源目录（mkdocs docs_dir）
+SITE_TOPO_DIR = SITE_DOC_DIR / "topology"          # 文档站拓扑状态页目录
+SHAME_DIR = STATE_DIR / "shame_wall"
+SHAME_JSON = SHAME_DIR / "shame_wall.json"         # 归一审判官耻辱墙（judge v1.1 结构）
+TOPO_AUDIT_LOG = SHAME_DIR / "topo_audit.jsonl"    # 拓扑变更/告警事件流（append-only）
+TOPO_PUBLIC_PAGE = "对外交付状态页.md"              # 本地状态页产物名
+TOPO_DEPLOY_LOG = STATE_DIR / "topo_auto_deploy.log"  # sync 自动部署链日志（v1.9）
+KUNPENG = "root@119.13.90.27:/opt/longhun-system/docs-site/"
+KUNPENG_HOST = "root@119.13.90.27"
+SSH_KEY = Path.home() / ".ssh" / "longhun_kunpeng_ed25519"
+
+# ── v2.0 可验证神经中枢（2026-09-05·自证/自审计/自响应/对外协作）──
+SNAPSHOT_DIR = STATE_DIR / "topo_snapshots"          # 每次 export-page 落时间戳快照（保留 30 天·自愈恢复源）
+SNAPSHOT_KEEP_DAYS = 30
+TOPO_API_DIR = ROOT / "docs-site" / "topology-api"   # 公共 API 静态 JSON（rsync 鲲鹏 + nginx alias /api/topo/）
+TOPO_WEEKLY_DIR = STATE_DIR / "audit" / "topo_weekly"  # 每周拓扑审计报告（GPG 签后归档）
+GENESIS_FILE = SHAME_DIR / "topo_chain_genesis.json" # 事件链创世（legacy 事件段聚合哈希）
+API_BASE = "https://uid9622.cn/api/topo/"            # 公共 API 基址（对外文档/页面链接）
+ISSUE_NEW_URL = ("https://github.com/UID9622/longhun-system/issues/new"
+                 "?template=shame_report.yml&labels=topo-feedback")  # 拓扑反馈（耻辱墙模板预填 topo-feedback 标签）
+TOPO_FEEDBACK_LABEL = "topo-feedback"            # 拓扑反馈统一标签（Issue labels + 耻辱墙事件分类）
+TOPO_SITE_ARCHIVE_DIR = SITE_TOPO_DIR / "archive"          # 站点归档目录（→ /docs/topology/archive/）
+TOPO_ROOT_DECL = SITE_TOPO_DIR / "ROOT_HASH_DECLARATION.md"  # 根哈希公开声明页（GPG 分离签名）
+GPG_SIGN_BIN = ROOT / "08_BIN" / "lh_gpg_sign.py"          # GPG 分离签名引擎
+GH_API_BASE = "https://api.github.com/repos/UID9622/longhun-system"  # 本仓库 GitHub API 基址
+STALE_HOURS = 24                                     # 🟡 持续阈值 → 自响应（heal）
+
+# ── v1.9 文档站交互检索前端（export-page 每次生成 topo_live.js·纯前端零后端）──
+_TOPO_LIVE_JS = r'''(function () {
+  'use strict';
+  var TYPE_CN = { document: '文档', article: '文章', asset: '素材', copy: '平台文案', endpoint: '入口', issue: '公告', report: '报告' };
+  var style = document.createElement('style');
+  style.textContent = [
+    '#topo-live{font-size:14px;line-height:1.75;margin:10px 0}',
+    '#topo-live-q{width:100%;box-sizing:border-box;padding:10px 14px;font-size:15px;border:1px solid #d1d5db;border-radius:10px;outline:none;background:#fff}',
+    '#topo-live-q:focus{border-color:#4f46e5;box-shadow:0 0 0 3px rgba(79,70,229,.15)}',
+    '.tlc{color:#64748b;font-size:13px;margin:8px 2px}',
+    '.tlr{display:flex;gap:10px;align-items:baseline;padding:7px 10px;border-bottom:1px solid #f1f5f9;border-radius:8px}',
+    '.tlr:hover{background:#f8fafc}',
+    '.tldot{width:8px;height:8px;border-radius:50%;flex:none;align-self:center}',
+    '.tln{font-weight:600;white-space:nowrap}',
+    '.tldna{flex:none;font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#6d4c41;background:#efe6d5;border-radius:4px;padding:1px 6px;cursor:pointer;white-space:nowrap;max-width:22em;overflow:hidden}',
+    '.tlm{color:#64748b;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}',
+    '.tla{margin-left:auto;flex:none;text-decoration:none;color:#4f46e5;font-size:13px;font-weight:600}',
+    '.tle{margin:12px 2px;color:#334155;font-size:13px;line-height:1.9}'
+  ].join('\n');
+  document.head.appendChild(style);
+  var q = document.getElementById('topo-live-q');
+  var cnt = document.getElementById('topo-live-count');
+  var list = document.getElementById('topo-live-list');
+  if (!q || !cnt || !list) { return; }
+  var data = null;
+  fetch('data.json', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) { throw new Error('HTTP ' + r.status); } return r.json(); })
+    .then(function (d) { data = d; render(''); })
+    .catch(function () { cnt.textContent = '⚠️ 交互数据加载失败（data.json 未就绪）'; });
+  function find(f) {
+    if (!f) { return data.nodes; }
+    var k = f.toLowerCase();
+    return data.nodes.filter(function (n) {
+      return [n.name, n.group, n.type, TYPE_CN[n.type] || '', n.doc_type, n.title, n.desc, n.dna]
+        .join(' ').toLowerCase().indexOf(k) >= 0;
+    });
+  }
+  function row(n) {
+    var r = document.createElement('div'); r.className = 'tlr';
+    var dot = document.createElement('span'); dot.className = 'tldot';
+    var st = String(n.status || '');
+    dot.style.background = st.indexOf('🟢') >= 0 ? '#16a34a' : (st.indexOf('🟡') >= 0 ? '#d97706' : '#94a3b8');
+    dot.title = st;
+    var name = document.createElement('span'); name.className = 'tln';
+    name.textContent = n.name;
+    var meta = document.createElement('span'); meta.className = 'tlm';
+    meta.textContent = '  ' + (TYPE_CN[n.type] || n.type || '节点')
+      + (n.doc_type ? ' · ' + n.doc_type : '') + ' · ' + (n.group || '');
+    r.appendChild(dot); r.appendChild(name);
+    if (n.dna) {
+      var dna = document.createElement('span'); dna.className = 'tldna';
+      dna.textContent = (n.dna.slice(0, 8) || '?');
+      dna.title = 'DNA 前缀（v2.0 可验证）· 点击展开/收起完整 DNA';
+      dna.addEventListener('click', function () {
+        dna.textContent = dna._full ? (n.dna.slice(0, 8)) : n.dna;
+        dna._full = !dna._full;
+      });
+      r.appendChild(dna);
+    }
+    r.appendChild(meta);
+    var tail = document.createElement('span'); tail.className = 'tla';
+    if (n.link) {
+      var a = document.createElement('a');
+      a.href = n.link; a.target = '_blank'; a.rel = 'noopener noreferrer';
+      a.textContent = '↗ 打开';
+      r.appendChild(a);
+    } else {
+      tail.style.color = '#94a3b8'; tail.style.fontWeight = 'normal';
+      tail.textContent = '🔒 内部资产';
+      r.appendChild(tail);
+    }
+    return r;
+  }
+  function edgesBlock() {
+    var w = document.createElement('div'); w.className = 'tle';
+    w.textContent = '🔗 关联边 ' + (data.edges ? data.edges.length : 0) + ' 条：'
+      + (data.edges || []).map(function (e) {
+        return e.source + ' → ' + e.target + (e.label ? '（' + e.label + '）' : '');
+      }).join(' · ');
+    return w;
+  }
+  function render(f) {
+    if (!data) { return; }
+    var rows = find(f);
+    cnt.textContent = '共 ' + data.nodes.length + ' 个节点 · 当前匹配 ' + rows.length + ' 个';
+    list.innerHTML = '';
+    rows.forEach(function (n) { list.appendChild(row(n)); });
+    if (!f) { list.appendChild(edgesBlock()); }
+  }
+  q.addEventListener('input', function () { render(q.value.trim()); });
+  // v2.0: 5 分钟轮询公共 status API → 根哈希变化即提示刷新（无后端 · 404 静默）
+  var banner = document.getElementById('topo-live-updated');
+  function pollStatus() {
+    fetch('/api/topo/status.json', { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) { return null; } return r.json(); })
+      .then(function (st) {
+        if (st && data && banner && st.root_hash && st.root_hash !== data.root_hash) {
+          banner.style.display = 'inline';
+        }
+      })
+      .catch(function () { /* 本地/未部署 API → 静默 */ });
+  }
+  setInterval(pollStatus, 300000);
+  pollStatus();
+})();'''
+
+# v1.9 交互检索 HTML 块（嵌入状态页 index.md 尾部·script 置于 div 块内防 markdown 拆散）
+_TOPO_LIVE_HTML = """
+## 🔍 图谱检索（实时过滤 · 无需后端）
+
+<div id="topo-live">
+<input id="topo-live-q" type="search" placeholder="输入节点名称 / 类型 / DNA / 关键词…  例：发布稿 · 耻辱墙 · article · D" autocomplete="off">
+<p id="topo-live-count" class="tlc"></p>
+<div id="topo-live-list"></div>
+<script defer src="topo_live.js"></script>
+</div>
+"""
+
+
+def _extract_doc_meta(rel: str) -> dict:
+    """提取 12_DOCS 交付文档元信息：标题/文档版本行/DNA/大小/mtime/GPG签名状态"""
+    p = ROOT / rel
+    if not p.exists():
+        return {"exists": False}
+    txt = p.read_text(encoding="utf-8", errors="ignore")
+    m_dna = re.search(r"#龍[^\s\n·<]*", txt[:800])
+    m_t = re.search(r"^#\s*(.+)$", txt, re.M)
+    m_v = re.search(r"^> 文档版本:\s*(.+)$", txt, re.M)
+    st = p.stat()
+    return {
+        "exists": True,
+        "title": (m_t.group(1).strip() if m_t else p.stem),
+        "dna": m_dna.group(0) if m_dna else "",
+        "version": m_v.group(1).strip() if m_v else "",
+        "size": st.st_size,
+        # 微秒精度（秒级截断会让「变更后立刻 sync」判定失效）
+        "mtime": datetime.fromtimestamp(st.st_mtime).astimezone().isoformat(timespec="microseconds"),
+        "signed": Path(str(p) + ".asc").exists(),
+        "path": rel,
+    }
+
+
+def cmd_topo_docs_sync(keyword: str, dry_run: bool = False):
+    """lh topo sync <图谱> — 12_DOCS 交付文档 ↔ 图谱自动拓扑同步 v1.7
+    白名单 11 份交付文档：扫描 DNA/大小/修改时间/GPG签名 → 补全/更新 document+article 节点
+    → 移除已消失文档 → 类型定义表入 data.types → 自动 verify → 写 ~/.longhun/topo_auto_sync.log
+    图谱落盘 auto_docs_sync=true（lh doc-sync 后钩子自动触发）"""
+    if not keyword.strip():
+        raise SystemExit("  ❌ 用法: lh topo sync <图谱名>（12_DOCS 文档自动拓扑同步）")
+    f, data = _find_topo_file(keyword)
+    graph = data.get("display")
+    scan = [{"rel": rel, "type": t, "subtype": sub, "stem": Path(rel).stem}
+            for rel, t, sub in DOC_SYNC_MAP]
+    scan_idx = {it["stem"]: it for it in scan}
+
+    def _node_map():
+        out = {}
+        for g in data.get("groups", []):
+            for a in g.get("assets", []):
+                out[a.get("name")] = (g, a)
+        return out
+
+    nodelist = _node_map()
+    added, updated, removed = [], [], []
+    for it in scan:
+        meta = _extract_doc_meta(it["rel"])
+        entry = nodelist.get(it["stem"])
+        if not meta["exists"]:
+            if entry is not None:
+                removed.append(it["stem"])
+            continue
+        if entry is None:
+            added.append(it)
+            continue
+        g, a = entry
+        cur = (a.get("dna"), a.get("size"), a.get("mtime"), a.get("doc_type"),
+               a.get("type") != it["type"])
+        new = (meta["dna"], meta["size"], meta["mtime"], it["subtype"],
+               a.get("type") != it["type"])
+        if cur != new:
+            updated.append(it["stem"])
+
+    # 类型对齐（v1.7 规整）：assets → asset（扩散素材包）
+    for g in data.get("groups", []):
+        for a in g.get("assets", []):
+            if a.get("type") == "assets":
+                a["type"] = "asset"
+                updated.append(a.get("name"))
+    updated = sorted(set(updated))
+
+    print(f"\n  🕸️  12_DOCS 拓扑同步 · {graph}")
+    print(f"     白名单扫描 {len(scan)} 份 · 新增 {len(added)} · 更新 {len(updated)}"
+          f" · 移除 {len(removed)}" + (" · 🔍 dry-run 不落盘" if dry_run else ""))
+    for it in added:
+        print(f"     ➕ 新文档 → {it['stem']} [{it['type']}·{it['subtype']}]")
+    for nm in updated:
+        print(f"     ✏️  更新 {nm}")
+    for nm in removed:
+        print(f"     ➖ 移除 {nm}")
+    if dry_run:
+        print()
+        return
+
+    # types 元数据 + auto_docs_sync 标记
+    data["types"] = dict(TOPOLOGY_TYPES)
+    data["auto_docs_sync"] = True
+    # 补齐/更新节点
+    doc_group = next((g for g in data.get("groups", []) if g.get("name") == "D发布"), None)
+    if doc_group is None:
+        doc_group = {"name": "D发布", "assets": []}
+        data.setdefault("groups", []).append(doc_group)
+    existing = {a.get("name"): a for a in doc_group["assets"]}
+    for it in added:
+        meta = _extract_doc_meta(it["rel"])
+        suffix = f" · {meta['version']}" if meta.get("version") else ""
+        asset = {
+            "name": it["stem"], "type": it["type"], "doc_type": it["subtype"],
+            "dna": meta["dna"], "status": "🟢 可用",
+            "link": it["rel"], "path": it["rel"],
+            "size": meta["size"], "mtime": meta["mtime"],
+            "signed": meta["signed"], "version": meta.get("version", ""),
+            "title": meta["title"],
+            "desc": f"对外交付文档·{it['subtype']}{suffix} · {meta['size']}字节"
+                    f" · GPG{'已签' if meta['signed'] else '未签'}",
+            "registered_at": datetime.now().astimezone().isoformat(timespec="seconds"),
+        }
+        doc_group["assets"].append(asset)
+    for nm in updated:
+        it = scan_idx.get(nm)
+        a = existing.get(nm)
+        if it is None or a is None:
+            continue
+        meta = _extract_doc_meta(it["rel"])
+        a["type"] = it["type"]
+        a["doc_type"] = it["subtype"]
+        a["dna"] = meta["dna"]
+        a["link"] = it["rel"]
+        a["path"] = it["rel"]
+        a["size"] = meta["size"]
+        a["mtime"] = meta["mtime"]
+        a["signed"] = meta["signed"]
+        a["version"] = meta.get("version", "")
+        a["title"] = meta["title"]
+        suffix = f" · {meta['version']}" if meta.get("version") else ""
+        a["desc"] = f"对外交付文档·{it['subtype']}{suffix} · {meta['size']}字节" \
+                    f" · GPG{'已签' if meta['signed'] else '未签'}"
+    # 移除已消失文档节点（仅限本次白名单注册名）
+    doc_group["assets"] = [a for a in doc_group["assets"]
+                           if a.get("name") not in set(removed)]
+
+    data["last_sync"] = datetime.now().astimezone().isoformat(timespec="seconds")
+    f.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    _archive_snapshot(data)
+    res = _auto_verify_write("topo-docs-auto", data)
+    # 钩子日志
+    with contextlib.suppress(Exception):
+        _AUTO_SYNC_LOG.parent.mkdir(parents=True, exist_ok=True)
+        with _AUTO_SYNC_LOG.open("a", encoding="utf-8") as lf:
+            lf.write(json.dumps({
+                "ts": datetime.now().astimezone().isoformat(timespec="seconds"),
+                "tool": "lh-topo-docs-sync", "graph": data.get("topo_name"),
+                "scan": len(scan), "added": len(added), "updated": len(updated),
+                "removed": len(removed), "ok": res.get("ok"),
+                "nodes": res.get("nodes"),
+            }, ensure_ascii=False) + "\n")
+    # v1.9: 耻辱墙变更事件（topo_change·带操作明细/severity·移除=warning）+ 自动部署链
+    if added or updated or removed:
+        ops = [{"name": it["stem"], "type": it.get("type"), "op": "add",
+                "severity": "info"} for it in added]
+        ops += [{"name": nm, "type": scan_idx[nm]["type"] if nm in scan_idx else None,
+                 "op": "update", "severity": "info"} for nm in updated]
+        ops += [{"name": n, "op": "remove", "severity": "warning"} for n in removed]
+        _shame_topo_append(
+            "topo_change",
+            f"对外交付图谱拓扑变更 → 新增{len(added)}·更新{len(updated)}"
+            f"·移除{len(removed)} · 节点{res.get('nodes')}"
+            f" · verify {'✅通过' if res.get('ok') else '❌失败'}",
+            color="🟡" if (removed or not res.get("ok")) else "🟢",
+            warn=1 if removed else (0 if res.get("ok") else 1),
+            ops=ops, severity="warning" if removed else "info")
+        # v1.9: 变更即自动更新公开页 + 构建 + 部署鲲鹏（零变更不部署·节能）
+        _topo_auto_deploy(keyword)
+    elif not res.get("ok"):
+        _shame_topo_append("topo_verify_alert",
+                           f"拓扑自动校验告警 · 对外交付图谱 节点{res.get('nodes')}"
+                           f" · 缺口{len(res.get('gaps') or [])}条",
+                           color="🔴", bad=len(res.get("gaps") or []),
+                           severity="warning")
+    print(f"     日志 {_AUTO_SYNC_LOG}")
+    print()
+
+
+# ─────────────────────────── v1.8 对外公开化（2026-09-05）───────────────────────────
+# 让拓扑本身成为对外交付：summary/search/export/export-page/audit-log + 耻辱墙事件链
+
+# ── v2.0 Merkle 事件链（可验证审计链）─────────────────────────────
+
+def _ev_self_hash(ev: dict) -> str:
+    """事件自证哈希 = sha256(除 hash 外全字段稳定序列化) 前 16 大写
+    sort_keys 稳定序 → 外部观察者可独立重算验证"""
+    d = dict(ev)
+    d.pop("hash", None)
+    raw = json.dumps(d, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(raw.encode("utf-8")).hexdigest()[:16].upper()
+
+
+def _chain_genesis() -> str:
+    """Merkle 链创世根：聚合所有 legacy（无 seq）事件 raw 行哈希并持久化
+    （append-only 不重写历史·只一次性记录·已存在读缓存）"""
+    try:
+        if GENESIS_FILE.is_file():
+            g = json.loads(GENESIS_FILE.read_text(encoding="utf-8"))
+            if g.get("genesis"):
+                return g["genesis"]
+    except Exception:  # noqa: BLE001
+        pass
+    legacy = []
+    with contextlib.suppress(Exception):
+        if TOPO_AUDIT_LOG.is_file():
+            for line in TOPO_AUDIT_LOG.read_text(encoding="utf-8").splitlines():
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    is_chain = "seq" in json.loads(line)
+                except Exception:  # noqa: BLE001
+                    is_chain = False
+                if not is_chain:
+                    legacy.append(line)
+    genesis = hashlib.sha256("\n".join(legacy).encode("utf-8")).hexdigest()[:16].upper()
+    try:
+        GENESIS_FILE.parent.mkdir(parents=True, exist_ok=True)
+        GENESIS_FILE.write_text(json.dumps(
+            {"genesis": genesis, "created": datetime.now().astimezone().isoformat(timespec="seconds"),
+             "n_legacy": len(legacy), "alg": "sha256(legacy raw lines 串联)"},
+            ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    except Exception:  # noqa: BLE001
+        pass
+    return genesis
+
+
+def _chain_state() -> tuple:
+    """事件流尾部链状态 → (最新 seq, 最新 self hash 或 genesis)
+    append-only 文件 → 只扫尾段即可（取最后一个带 seq 的行）"""
+    last_seq, last_hash = 0, _chain_genesis()
+    with contextlib.suppress(Exception):
+        if TOPO_AUDIT_LOG.is_file():
+            for line in reversed(TOPO_AUDIT_LOG.read_text(encoding="utf-8").splitlines()):
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    ev = json.loads(line)
+                except Exception:  # noqa: BLE001
+                    continue
+                if isinstance(ev, dict) and ev.get("seq"):
+                    last_seq = int(ev["seq"])
+                    if ev.get("hash"):
+                        last_hash = ev["hash"]
+                    break
+    return last_seq, last_hash
+
+
+def _audit_chain_rows():
+    """全部审计事件（含 raw 原始行·供 audit-chain/audit-verify）→ [(raw, ev|None)]"""
+    rows = []
+    with contextlib.suppress(Exception):
+        if TOPO_AUDIT_LOG.is_file():
+            for line in TOPO_AUDIT_LOG.read_text(encoding="utf-8").splitlines():
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    rows.append((line, json.loads(line)))
+                except Exception:  # noqa: BLE001
+                    rows.append((line, None))
+    return rows
+
+
+def _shame_topo_append(kind: str, detail: str, color: str = "🟢", bad: int = 0, warn: int = 0,
+                       ops=None, severity: str = "info"):
+    """拓扑审计事件 → 耻辱墙（v1.9 深化 + v2.0 Merkle 链）：
+    topo_audit.jsonl（append-only）事件行带 ops 操作明细 + severity
+    + seq/prev_hash/hash（可验证链·创世为 legacy 段聚合哈希）· shame_wall.json 同步"""
+    with contextlib.suppress(Exception):
+        SHAME_DIR.mkdir(parents=True, exist_ok=True)
+        ts = datetime.now().astimezone()
+        seq, prev = _chain_state()
+        ev = {"ts": ts.isoformat(timespec="seconds"), "type": kind, "color": color,
+              "bad": bad, "warn": warn, "severity": severity,
+              "ops": [dict(o) for o in (ops or [])], "detail": detail,
+              "seq": seq + 1, "prev_hash": prev}
+        ev["hash"] = _ev_self_hash(ev)
+        with TOPO_AUDIT_LOG.open("a", encoding="utf-8") as lf:
+            lf.write(json.dumps(ev, ensure_ascii=False) + "\n")
+        if SHAME_JSON.is_file():
+            sj = json.loads(SHAME_JSON.read_text(encoding="utf-8"))
+            recs = sj.setdefault("记录", [])
+            reason = detail
+            if ops:
+                n_add = sum(1 for o in ops if o.get("op") == "add")
+                n_up = sum(1 for o in ops if o.get("op") == "update")
+                n_rm = sum(1 for o in ops if o.get("op") == "remove")
+                if n_add or n_up or n_rm:
+                    reason += f" · 明细 {n_add}增/{n_up}更/{n_rm}移"
+            recs.append({"date": ts.date().isoformat(),
+                         "time": ts.isoformat(timespec="seconds"),
+                         "type": kind, "color": color, "bad": bad, "warn": warn,
+                         "severity": severity, "reason": reason})
+            sj["总记录数"] = len(recs)
+            sj["生成时间"] = ts.isoformat(timespec="seconds")
+            SHAME_JSON.write_text(json.dumps(sj, ensure_ascii=False, indent=2) + "\n",
+                                  encoding="utf-8")
+
+
+_TYPE_CN = {"document": "文档", "article": "文章", "asset": "素材", "copy": "平台文案",
+            "endpoint": "入口", "issue": "公告", "report": "报告"}
+
+
+def _topo_auto_deploy(keyword: str) -> bool:
+    """v1.9 sync 变更后自动部署链：export-page（重生成公开页+首页区块+data.json）
+    → mkdocs build → rsync 鲲鹏 → 写 ~/.longhun/topo_auto_deploy.log
+    失败不中断主流程 · 自动触发仅在图谱实际变更时（零变更不部署·节能）"""
+    import shutil as _sh
+    started = datetime.now().astimezone()
+    ok, notes = True, []
+    try:
+        # 1) 重生成公开页（覆盖本地 docs/topology/对外交付状态页.md + 站点源 + 首页区块）
+        cmd_topo_export_page(keyword)
+        notes.append("export-page 公开页已刷新")
+        # 2) mkdocs build（文档站静态构建）
+        mkdocs_bin = (_sh.which("mkdocs")
+                      or str(Path.home() / "Library" / "Python/3.14/bin/mkdocs"))
+        r = subprocess.run([mkdocs_bin, "build", "-f", "mkdocs.yml"],
+                           cwd=str(ROOT / "docs-site"), capture_output=True, text=True,
+                           timeout=300)
+        tail = ((r.stdout + r.stderr).strip().splitlines() or [""])[-1][:120]
+        notes.append(f"mkdocs build {'✅' if r.returncode == 0 else '❌'} {tail}")
+        ok = ok and r.returncode == 0
+        # 3) rsync 静态站 → 鲲鹏
+        if ok:
+            ssh = (f"ssh -i {SSH_KEY} -o ConnectTimeout=10"
+                   f" -o StrictHostKeyChecking=accept-new")
+            r = subprocess.run(["rsync", "-az", "-e", ssh, "site/", KUNPENG],
+                               cwd=str(ROOT / "docs-site"), capture_output=True,
+                               text=True, timeout=300)
+            notes.append("rsync 鲲鹏 ✅" if r.returncode == 0
+                         else f"rsync ❌ {r.stderr.strip()[:180]}")
+            ok = ok and r.returncode == 0
+            # 3b) rsync 公共 API 静态 JSON → 鲲鹏 docs-site/topology-api/（v2.0 对外协作）
+            _api_src = ROOT / "docs-site" / "topology-api"
+            if _api_src.is_dir():
+                r = subprocess.run(
+                    ["rsync", "-az", "-e", ssh, "topology-api/",
+                     f"root@119.13.90.27:/opt/longhun-system/docs-site/topology-api/"],
+                    cwd=str(ROOT / "docs-site"), capture_output=True, text=True, timeout=120)
+                notes.append("rsync topo-api ✅" if r.returncode == 0
+                             else f"topo-api rsync ❌ {r.stderr.strip()[:160]}")
+                ok = ok and r.returncode == 0
+    except Exception as e:  # noqa: BLE001
+        ok = False
+        notes.append(f"部署异常 {e}")
+    TOPO_DEPLOY_LOG.parent.mkdir(parents=True, exist_ok=True)
+    with contextlib.suppress(Exception), TOPO_DEPLOY_LOG.open("a", encoding="utf-8") as lf:
+            lf.write(json.dumps({
+                "ts": started.isoformat(timespec="seconds"),
+                "graph": keyword, "ok": ok,
+                "elapsed_ms": int((datetime.now().astimezone() - started).total_seconds() * 1000),
+                "steps": notes,
+            }, ensure_ascii=False) + "\n")
+    if not ok:
+        print(f"     ⚙️ 自动部署失败（已记 {TOPO_DEPLOY_LOG}）· {' | '.join(notes)}")
+    else:
+        print(f"     ⚙️ 自动部署完成 · 公开页已刷新上线 https://uid9622.cn/docs/topology/ · 日志 {TOPO_DEPLOY_LOG}")
+    return ok
+
+
+def _topo_known_types() -> list:
+    """全局拓扑节点类型集合（events --node-type 过滤提示用·v2.3 审计深化）"""
+    ts = set()
+    for f in list_topos():
+        try:
+            d = json.loads(f.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        for g in d.get("groups", []):
+            for a in g.get("assets", []):
+                if a.get("type"):
+                    ts.add(str(a["type"]))
+    return sorted(ts)
+
+
+def _topo_events_rows(limit: int = 20, kind: str = "", node_type: str = "") -> list:
+    """读耻辱墙拓扑事件流（topo_audit.jsonl 反向 N 条·兼容旧事件无 ops/severity）
+    v2.3: 细粒度审计过滤 —— kind=事件类型 / node_type=变更节点类型（任一 ops 命中）"""
+    rows = []
+    if TOPO_AUDIT_LOG.is_file():
+        for line in TOPO_AUDIT_LOG.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            try:
+                r = json.loads(line)
+            except Exception:
+                continue
+            if kind and r.get("type") != kind:
+                continue
+            if node_type and not any(o.get("type") == node_type
+                                     for o in (r.get("ops") or [])):
+                continue
+            rows.append(r)
+    rows.reverse()
+    return rows[: max(1, limit)]
+
+
+def cmd_topo_events(keyword: str = "", limit: int = 20, json_out: bool = False,
+                    kind: str = "", node_type: str = ""):
+    """lh topo events [图谱名] [--limit N] [--kind 事件类型] [--node-type 节点类型]
+    — 近期拓扑事件（耻辱墙事件流·带操作明细·v2.3 支持细粒度过滤审计）"""
+    rows = _topo_events_rows(limit, kind=kind, node_type=node_type)
+    if json_out:
+        print(json.dumps({"topo": keyword or "全部", "total": len(rows),
+                          "filters": {"kind": kind, "node_type": node_type},
+                          "events": rows}, ensure_ascii=False, indent=2))
+        return
+    _f = " / ".join(x for x in [f"类型={kind}" if kind else "",
+                                 f"节点类型={node_type}" if node_type else ""] if x)
+    print(f"\n  🕰️  拓扑事件 · {keyword or '全部图谱'} · 最近 {len(rows)} 条"
+          + (f" · 过滤[{_f}]" if _f else "") + f" · {TOPO_AUDIT_LOG}")
+    op_cn = {"add": "新增", "update": "更新", "remove": "移除"}
+    for r in rows:
+        color = r.get("color", "🟢")
+        sev = r.get("severity") or ("warning" if (r.get("warn") or r.get("bad")) else "info")
+        sev_txt = "⚠️" if sev == "warning" else ""
+        print(f"     [{r.get('ts')}] {r.get('type')} {color} {sev_txt} · {r.get('detail', '')}")
+        for o in r.get("ops") or []:
+            mark = "+" if o.get("op") == "add" else ("~" if o.get("op") == "update" else "-")
+            tag = "warning" if o.get("severity") == "warning" else ""
+            print(f"         {mark} {o.get('name')} [{o.get('op') and op_cn.get(o.get('op')) or ''}"
+                  f"{('/' + str(o.get('type'))) if o.get('type') else ''}] {tag}")
+    if not rows:
+        if node_type:
+            print(f"     （无匹配事件 · 已知节点类型: {', '.join(_topo_known_types())}）")
+        else:
+            print("     （暂无事件 · sync 变更/校验告警将自动记录至此）")
+    print()
+
+
+def cmd_topo_ask(keyword: str = "", question: str = "", json_out: bool = False):
+    """lh topo ask [图谱名] --query <自然语言问题> — 自然语言拓扑查询 v1.9
+    例: 有哪些文档？ / 最近更新了什么？ / 和耻辱墙有什么关系？ / 发布了哪些文章？"""
+    if not question.strip():
+        raise SystemExit("  ❌ 用法: lh topo ask <图谱名> <自然语言问题>   "
+                         "例: lh topo 对外交付 ask 有哪些文档")
+    kw = keyword.strip() or "对外交付"
+    f, data = _find_topo_file(kw)
+    q = question.strip()
+    intent = _ask_intent(q)
+    assets = [a for g in data.get("groups", []) for a in g.get("assets", [])]
+    groups = data.get("groups", [])
+
+    def _lines_of(nodes: list) -> list:
+        out = []
+        for a in nodes:
+            t = a.get("type") or "?"
+            cn = _TYPE_CN.get(t, t)
+            doc = (a.get("doc_type") or "")
+            tag = f"{cn}·{doc}" if doc else cn
+            link = _public_link(a)
+            out.append(f"· {a.get('name')}（{tag}）{' ↗ ' + link if link else ' 🔒内部'}")
+        return out
+
+    if intent == "documents":
+        nodes = [a for a in assets if a.get("type") == "document"]
+        head = f"答：共 {len(nodes)} 份对外文档（全部可在线阅读 · https://uid9622.cn/docs/）："
+        lines = _lines_of(nodes)
+    elif intent == "articles":
+        nodes = [a for a in assets if a.get("type") == "article"]
+        head = f"答：已发布文章 {len(nodes)} 篇："
+        lines = _lines_of(nodes)
+    elif intent == "assets":
+        nodes = [a for a in assets if a.get("type") == "asset"]
+        head = f"答：素材资产 {len(nodes)} 项："
+        lines = _lines_of(nodes)
+    elif intent == "copies":
+        nodes = [a for a in assets if a.get("type") == "copy"]
+        head = f"答：扩散平台文案 {len(nodes)} 套（发布稿已同步以下平台）："
+        lines = _lines_of(nodes)
+    elif intent == "issues":
+        nodes = [a for a in assets if a.get("type") in ("issue", "endpoint")]
+        head = f"答：对外公告 / 入口 {len(nodes)} 个："
+        lines = _lines_of(nodes)
+    elif intent == "update":
+        evs = _topo_events_rows(4)
+        head = (f"答：最近同步 {data.get('last_sync', '—')}。"
+                f"近期变更事件 {len(evs)} 条：")
+        lines = []
+        for r in evs:
+            lines.append(f"· [{r.get('ts')}] {r.get('color', '')} {r.get('detail', '')}")
+            for o in r.get("ops") or []:
+                lines.append(f"    {'+' if o.get('op') != 'remove' else '-'} {o.get('name')}"
+                             f"（{'新增' if o.get('op') == 'add' else ('更新' if o.get('op') == 'update' else '移除')}）")
+    elif intent == "shame":
+        edges = data.get("edges", [])
+        wall_edges = [e for e in edges
+                      if "耻辱墙" in str(e.get("source")) or "耻辱墙" in str(e.get("target"))]
+        evs = _topo_events_rows(3)
+        head = (f"答：耻辱墙是交付反馈的最终落点（Issue 模板·社区可提交）。"
+                f"拓扑中关联边 {len(wall_edges)} 条 · 近期事件 {len(evs)} 条：")
+        lines = [f"· {e.get('source')} → {e.get('target')}（{e.get('type')}"
+                 f"{' · ' + str(e.get('label')) if e.get('label') else ''}）"
+                 for e in wall_edges]
+        for r in evs:
+            lines.append(f"· [{r.get('ts')}] {r.get('color', '')} {r.get('detail', '')}")
+        if not wall_edges and not evs:
+            lines.append("· （暂未记录事件）")
+    elif intent == "edges":
+        head = f"答：图谱关联边共 {len(data.get('edges', []))} 条（数据流向）："
+        lines = [f"· {e.get('source')} → {e.get('target')}"
+                 f"（{e.get('type')}{' · ' + str(e.get('label')) if e.get('label') else ''}）"
+                 for e in data.get("edges", [])]
+    elif intent == "types":
+        dist = _type_dist(data)
+        head = "答：类型分布："
+        lines = [f"· {_TYPE_CN.get(k, k)} {v} 个"
+                 + ("（文档站 https://uid9622.cn/docs/）" if k == "document" else "")
+                 for k, v in dist.items()]
+    elif intent == "verify":
+        s = _topo_summary(data)
+        tv = s.get("verify") or {}
+        head = (f"答：{s['display']} —— 节点 {s['nodes']}（🟢{s['green']}"
+                f" · 🟡{s['yellow']}）· 边 {s['edges']} · "
+                f"自动校验{'全绿 ✅' if tv.get('ok') else '有缺口 ⚠️'}"
+                f" · 最近同步 {s['last_sync']}。公开页 https://uid9622.cn/docs/topology/")
+        lines = []
+    else:  # search 兜底：关键词节点搜索
+        hay_hits = []
+        for a in assets:
+            hay = " ".join(str(a.get(k, "")) for k in
+                           ("name", "type", "doc_type", "dna", "title", "desc", "link")).lower()
+            if q.lower() in hay:
+                hay_hits.append(a)
+        for g in groups:
+            if q.lower() in str(g.get("name", "")).lower():
+                hay_hits += g.get("assets", [])
+        seen, nodes = set(), []
+        for a in hay_hits:
+            if a.get("name") not in seen:
+                seen.add(a.get("name"))
+                nodes.append(a)
+        head = f"答：按「{q}」在 {len(assets)} 个节点中找到 {len(nodes)} 个相关项："
+        lines = _lines_of(nodes)
+        if not nodes:
+            head = (f"答：没找到与「{q}」直接相关的节点。试试问「有哪些文档？」"
+                    f"「最近更新了什么？」「和耻辱墙有什么关系？」")
+    if json_out:
+        print(json.dumps({"topo": data.get("display"), "question": q,
+                          "intent": intent, "answer": head,
+                          "items": lines}, ensure_ascii=False, indent=2))
+        return
+    print(f"\n  🧭 拓扑问答 · {data.get('display')}")
+    print(f"     问：{q}")
+    print(f"     {head}")
+    for ln in lines:
+        print(f"         {ln}")
+    print()
+
+
+# ── v2.0 可验证/可审计/自响应/对外协作命令 ─────────────────────────
+
+def _chain_display():
+    """审计链展示数据 → (创世根, 链事件正序)"""
+    genesis = _chain_genesis()
+    rows = [ev for _raw, ev in _audit_chain_rows()
+            if isinstance(ev, dict) and ev.get("seq")]
+    rows.sort(key=lambda r: int(r["seq"]))
+    return genesis, rows
+
+
+def cmd_topo_audit_chain(keyword: str = "", limit: int = 10, json_out: bool = False):
+    """lh topo audit-chain [图谱名] [--limit N] — 显示 Merkle 审计链（v2.0）
+    每事件带 seq / prev_hash(指向前一条自证哈希) / hash(本条自证)·创世根=legacy 段聚合"""
+    genesis, rows = _chain_display()
+    rows = rows[-max(1, limit):] if limit else rows
+    if json_out:
+        print(json.dumps({"genesis": genesis, "chain": rows}, ensure_ascii=False, indent=2))
+        return
+    print(f"\n  ⛓️  Merkle 审计链 · 共 {len(_chain_display()[1])} 条链事件 · {TOPO_AUDIT_LOG}")
+    print(f"     🧬 创世根(legacy 聚合) {genesis}")
+    for r in rows:
+        print(f"     #{int(r.get('seq')):>3} [{r.get('ts')}] {r.get('type')} {r.get('color')} ·"
+              f" ←{str(r.get('prev_hash'))[:8]}… 自证 {r.get('hash')} · {str(r.get('detail'))[:52]}")
+    print()
+
+
+def cmd_topo_audit_verify(keyword: str = "", json_out: bool = False):
+    """lh topo audit-verify [图谱名] — 验证 Merkle 审计链完整性（v2.0）
+    legacy 段 → 创世根固定 · 链事件逐条: prev_hash==前条自证 且 hash==重算值 → 未篡改"""
+    genesis = _chain_genesis()
+    broken, checked = [], 0
+    prev_self = genesis
+    for _raw, ev in _audit_chain_rows():
+        if not isinstance(ev, dict) or not ev.get("seq"):
+            continue
+        if str(ev.get("prev_hash", "")) != prev_self:
+            broken.append((int(ev["seq"]), f"prev存储{str(ev.get('prev_hash'))[:8]}",
+                           f"前条自证{prev_self[:8]}"))
+        calc = _ev_self_hash(ev)
+        if str(ev.get("hash", "")) != calc:
+            broken.append((int(ev["seq"]), f"hash存储{str(ev.get('hash'))[:8]}",
+                           f"重算{calc[:8]}"))
+        prev_self = calc
+        checked += 1
+    ok = not broken
+    if json_out:
+        print(json.dumps({"ok": ok, "genesis": genesis, "checked": checked,
+                          "broken": [{"seq": b[0], "field": b[1], "expect": b[2]}
+                                     for b in broken]}, ensure_ascii=False, indent=2))
+        return
+    print(f"\n  🧾 审计链完整性验证 · {TOPO_AUDIT_LOG}")
+    print(f"     🧬 创世根 {genesis} · 链事件 {checked} 条")
+    if ok:
+        print("     ✅ 链完整：逐条 prev_hash 指向前条自证哈希 · 与事件流重算一致 · 未篡改")
+    else:
+        print("     🔴 链断裂：")
+        for b in broken:
+            print(f"        seq #{b[0]} · {b[1]} ≠ {b[2]}")
+    print()
+    return ok
+
+
+def cmd_topo_history(keyword: str = "", since: str = "", json_out: bool = False,
+                     limit: int = 30):
+    """lh topo history [图谱名] [--since YYYY-MM-DD] — 拓扑变更历史（v2.0）
+    事件流变更类过滤（topo_change/healed/stale_warning）· 含节点级操作与链哈希"""
+    kw = keyword.strip() or "对外交付"
+    rows = []
+    kinds = ("topo_change", "topo_healed", "topo_stale_warning")
+    for _raw, ev in _audit_chain_rows():
+        if not isinstance(ev, dict) or not ev.get("seq"):
+            continue
+        if ev.get("type") not in kinds:
+            continue
+        if since:
+            try:
+                if str(ev.get("ts", ""))[:10] < str(since).split("T")[0]:
+                    continue
+            except Exception:
+                pass
+        rows.append(ev)
+    rows.reverse()
+    rows = rows[:max(1, limit)]
+    if json_out:
+        print(json.dumps({"topo": kw, "total": len(rows), "changes": rows},
+                         ensure_ascii=False, indent=2))
+        return
+    print(f"\n  🕓 变更历史 · {kw} · 最近 {len(rows)} 条（链 seq 反向 · {TOPO_AUDIT_LOG}）")
+    op_cn = {"add": "新增", "update": "更新", "remove": "移除"}
+    for r in rows:
+        print(f"     #{int(r.get('seq'))} [{r.get('ts')}] {r.get('type')} {r.get('color')}"
+              f" · {r.get('detail', '')}")
+        for o in r.get("ops") or []:
+            print(f"        {'+' if o.get('op') == 'add' else ('~' if o.get('op') == 'update' else '-')}"
+                  f" {o.get('name')} · {op_cn.get(o.get('op'), o.get('op'))}"
+                  f"{('/' + str(o.get('type'))) if o.get('type') else ''}")
+    print()
+
+
+def _snapshot_newest(keyword: str = "") -> dict:
+    """最近快照 → {root_hash, path, ts}（SNAPSHOT_DIR/<topo>_*.json·文件名反向取新·v2.0）"""
+    SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
+    for p in sorted(SNAPSHOT_DIR.glob("*.json"), key=lambda p: p.name, reverse=True):
+        try:
+            snap = json.loads(p.read_text(encoding="utf-8"))
+            disp = str(snap.get("display") or "")
+            if keyword and keyword not in disp.replace("_", ""):
+                continue
+            return {"root_hash": (snap.get("meta") or {}).get("root_hash"),
+                    "path": p, "ts": p.stem.split("_")[-1]}
+        except Exception:
+            continue
+    return {}
+
+
+def _stale_event() -> dict:
+    """最新未处理告警事件 → {} 或 {ev, hours}（severity=warning / 🟡🔴 / 移除类）"""
+    rows = [ev for _raw, ev in _audit_chain_rows()
+            if isinstance(ev, dict) and ev.get("seq")]
+    if not rows:
+        return {}
+    last = rows[-1]
+    sev = last.get("severity") or ("warning" if (last.get("warn") or last.get("bad"))
+                                   else "info")
+    removed = any(o.get("op") == "remove" for o in (last.get("ops") or []))
+    if not (sev == "warning" or last.get("color") in ("🟡", "🔴") or removed):
+        return {}
+    try:
+        hours = (datetime.now().astimezone()
+                 - datetime.fromisoformat(str(last.get("ts")))).total_seconds() / 3600
+    except Exception:
+        hours = 0
+    return {"ev": last, "hours": max(0, hours)}
+
+
+def cmd_topo_heal(keyword: str = "", dry: bool = False, json_out: bool = False):
+    """lh topo heal [图谱名] [--dry] — 拓扑自修复（v2.0）
+    🟡 未处理告警持续 ≥24h → 耻辱墙 topo_stale_warning(当日幂等) + 快照比对：
+    快照根哈希==当前 → 数据未被改动(人工核验) · ≠ → 冻结坏图→快照回滚→自动部署"""
+    kw = keyword.strip() or "对外交付"
+    f, data = _find_topo_file(kw)
+    st = _stale_event()
+    if not st:
+        msg = "✅ 拓扑无未处理告警 · 无需修复"
+        if json_out:
+            print(json.dumps({"ok": True, "action": "none", "message": msg},
+                             ensure_ascii=False, indent=2))
+            return
+        print(f"\n  🩺 拓扑自修复 · {data.get('display')}")
+        print(f"     {msg}\n")
+        return
+    hours = st["hours"]
+    print(f"\n  🩺 拓扑自修复 · {data.get('display')}")
+    print(f"     ⚠️ 未处理告警已持续 {hours:.0f}h（阈值 {STALE_HOURS}h）"
+          f" · 事件 {st['ev'].get('type')} [{st['ev'].get('ts')}]")
+    if hours < STALE_HOURS:
+        print(f"     🕓 距自动响应线还差 {STALE_HOURS - hours:.0f}h · 观察中（events 查看明细）\n")
+        return
+    today = datetime.now().astimezone().date().isoformat()
+    already = any(ev.get("type") == "topo_stale_warning"
+                  and str(ev.get("ts", ""))[:10] == today
+                  for _raw, ev in _audit_chain_rows()
+                  if isinstance(ev, dict))
+    if not already and not dry:
+        _shame_topo_append("topo_stale_warning",
+                           f"拓扑未处理告警持续 {hours:.0f}h ≥ {STALE_HOURS}h · 自动响应启动",
+                           color="🟡", warn=1, severity="warning")
+        print("     🧱 已记耻辱墙 topo_stale_warning（当日幂等·不重复刷墙）")
+    cur_root = topo_root_hash(data)
+    snap = _snapshot_newest(kw)
+    if not (snap and snap.get("root_hash")):
+        print("     ⚠️ 无可用快照（export-page 自动留存 30 天）→ 需人工介入：events 查看明细")
+        print()
+        return True
+    if snap["root_hash"] == cur_root:
+        print("     ✅ 快照根哈希与当前一致 → 图谱数据未被篡改 · 需人工核验（events --limit 5）")
+        print()
+        return True
+    if dry:
+        print(f"     🧪 dry-run：快照 {snap['root_hash']} ≠ 当前 {cur_root}"
+              f" → 将冻结当前图并回滚 {snap['path'].name}")
+        print()
+        return
+    qu_dir = SNAPSHOT_DIR / "_quarantine"
+    qu_dir.mkdir(parents=True, exist_ok=True)
+    q_p = qu_dir / f"{kw}_preheal_{datetime.now().astimezone().strftime('%Y%m%d-%H%M%S')}.json"
+    import shutil as _sh
+    _sh.copy2(f, q_p)
+    _sdata = json.loads(snap["path"].read_text(encoding="utf-8"))
+    graph = _sdata.get("graph") if _sdata.get("__topo_snapshot__") else _sdata
+    f.write_text(json.dumps(graph, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"     🧊 当前图已冻结（不删除只冻结）→ {q_p}")
+    print(f"     ♻️  已回滚 {snap['path'].name} → 重新同步发布…")
+    ok = _topo_auto_deploy(kw)
+    _shame_topo_append("topo_healed",
+                       f"拓扑已从快照 {snap['root_hash']} 自动恢复 · 坏图冻结 {q_p.name}",
+                       color="🟢")
+    print("     ✅ 自动恢复完成 · 已记 topo_healed\n" if ok
+          else "     ❌ 自动恢复部署失败 · 需人工检查（heal 再跑一次看日志）\n")
+    return True
+
+
+def cmd_topo_weekly_report(keyword: str = "", json_out: bool = False):
+    """lh topo weekly-report [图谱名] — 每周拓扑审计报告（v2.0·周锁幂等）
+    自动路径：lh health 每轮检测缺本周报告即补生成（无定时器新增·节能）· GPG 签后归档"""
+    kw = keyword.strip() or "对外交付"
+    f, data = _find_topo_file(kw)
+    week_key = (datetime.now().astimezone().date()
+                - timedelta(days=datetime.now().astimezone().weekday())).isoformat()
+    out_p = TOPO_WEEKLY_DIR / f"topo-{kw}-weekly-{week_key}.md"
+    if out_p.is_file():
+        msg = f"本周报告已存在（幂等）· {out_p}"
+        if json_out:
+            print(json.dumps({"ok": True, "path": str(out_p)}, ensure_ascii=False, indent=2))
+            return
+        print(f"\n  📅 拓扑每周审计 · {msg}\n")
+        return
+    genesis, chain_rows = _chain_display()
+    s = _topo_summary(data)
+    recent = [ev for _raw, ev in _audit_chain_rows()
+              if isinstance(ev, dict) and ev.get("seq")][-30:]
+    warn_cnt = sum(1 for e in recent if e.get("severity") == "warning"
+                   or e.get("color") in ("🟡", "🔴"))
+    lines = ["# 🗺️ 拓扑每周审计报告 · " + str(data.get("display")), "",
+             f"> 周次: {week_key} · 生成: {datetime.now().astimezone().isoformat(timespec='seconds')}",
+             "> 归属名: 诸葛鑫 | UID9622 · 龍芯北辰",
+             "> GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+             f"> 事件源: {TOPO_AUDIT_LOG} · append-only Merkle 链", "",
+             "## 一、本图谱概览", "",
+             f"- 节点 {s['nodes']}（🟢{s['green']} · 🟡{s['yellow']}）· 边 {s['edges']}",
+             f"- 拓扑根哈希: `{s['root_hash']}`",
+             f"- 最近同步: {s['last_sync']}",
+             f"- 自动校验: {'全绿 ✅' if (s.get('verify') or {}).get('ok') else '有缺口 ⚠️'}",
+             "", "## 二、近期事件流（最近 30 条）", "",
+             f"链事件总数 {len(chain_rows)} · 含告警/异常 {warn_cnt} 条", ""]
+    for e in reversed(recent):
+        lines.append(f"- `#{int(e.get('seq'))}` [{e.get('ts')}] {e.get('type')}"
+                     f" {e.get('color')} · {str(e.get('detail'))[:76]}")
+    lines += ["", "## 三、完整性验证", "",
+              f"- 创世根: `{genesis}`",
+              "- 验证命令: `lh topo audit-verify 对外交付` · `lh topo verify 对外交付`",
+              "- 公开 API: https://uid9622.cn/api/topo/对外交付（自含根哈希）", "",
+              "---", "> 龍魂系统 · 对外交付拓扑 v2.0 可验证神经中枢 · CC BY-NC-SA 4.0（核心思想层）"]
+    md = "\n".join(lines) + "\n"
+    TOPO_WEEKLY_DIR.mkdir(parents=True, exist_ok=True)
+    out_p.write_text(md, encoding="utf-8")
+    gpg = ROOT / "08_BIN" / "lh_gpg_sign.py"
+    if gpg.is_file():
+        subprocess.run([sys.executable, str(gpg), "sign", "--force", str(out_p)],
+                       capture_output=True, text=True)
+    if json_out:
+        print(json.dumps({"ok": True, "path": str(out_p), "root_hash": s["root_hash"]},
+                         ensure_ascii=False, indent=2))
+        return
+    print(f"\n  📅 拓扑每周审计报告已生成 + GPG 签名\n     {out_p}\n")
+
+
+def cmd_topo_serve_api(keyword: str = "", port: int = 8873, host: str = "127.0.0.1"):
+    """lh topo serve-api [图谱名] [--port N] — 本地公共 API 静态服务（v2.0 可选·只读）
+    服务 docs-site/topology-api/（对外交付.json / status.json / events.json）· CORS 全开 · Ctrl-C 停"""
+    TOPO_API_DIR.mkdir(parents=True, exist_ok=True)
+
+    class _ApiHandler(BaseHTTPRequestHandler):
+        def do_GET(self):
+            rel = self.path.split("?", 1)[0].lstrip("/")
+            rel = rel.removeprefix("api/topo/").removeprefix("api/")
+            p = (TOPO_API_DIR / rel).resolve()
+            if not str(p).startswith(str(TOPO_API_DIR.resolve())) or not p.is_file():
+                self.send_error(404, "not found")
+                return
+            body = p.read_bytes()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+
+        def log_message(self, *_a):
+            pass
+
+    srv = ThreadingHTTPServer((host, port), _ApiHandler)
+    print(f"\n  🌐 拓扑公共 API 静态服务 · http://{host}:{port}/api/topo/ · Ctrl-C 退出")
+    print(f"     端点: 对外交付.json / status.json / events.json（内容自含根哈希 · 可独立验证）\n")
+    try:
+        srv.serve_forever()
+    except KeyboardInterrupt:
+        print("\n  ⏹ 已停止")
+
+
+def _ask_intent(q: str) -> str:
+    """自然语言 → 意图（规则有序：具体意图词优先 · 兜底 search 关键词）v1.9"""
+    rules = [
+        ("shame",    ("耻辱墙", "怎么联动", "什么关系", "事件", "审计", "告警", "wall")),
+        ("update",   ("最近更新", "更新了什么", "什么变了", "最新变更", "最近变更", "新增了",
+                      "什么变化", "最近", "动态", "recent")),
+        ("edges",    ("关联边", "边有", "数据流向", "怎么连接", "连接关系", "链路", "依赖")),
+        ("documents", ("有哪些文档", "什么文档", "文档列表", "列出文档", "几份文档", "有哪些文件", "documents")),
+        ("articles", ("文章", "发布稿", "导读", "教程", "发布"),),
+        ("issues",   ("公告", "issue", "反馈入口", "反馈", "#99")),
+        ("copies",   ("平台", "扩散", "发在哪", "v2ex", "知乎", "开源中国", "oschina", "hacker", "reddit")),
+        ("assets",   ("素材", "素材包", "压缩包")),
+        ("types",    ("什么类型", "类型分布", "分类")),
+        ("verify",   ("状态", "健康", "全绿", "校验", "绿了吗", "有没有问题", "verify")),
+    ]
+    for intent, kws in rules:
+        if any(k in q.lower() for k in kws):
+            return intent
+    return "search"
+
+
+def _type_dist(data: dict) -> dict:
+    """节点类型分布 {type: n}（v1.8 供 summary/状态页/首页区块）"""
+    out = {}
+    for g in data.get("groups", []):
+        for a in g.get("assets", []):
+            t = a.get("type") or "other"
+            out[t] = out.get(t, 0) + 1
+    return dict(sorted(out.items()))
+
+
+def _public_link(a: dict) -> str:
+    """节点链接对外化：http(s) 直通 · 本地 .md → 文档站公开 URL · 其余（file/zip/本地目录）= 内部资产不给链接"""
+    link = (a.get("link") or "").strip()
+    if not link:
+        return ""
+    if link.startswith(("http://", "https://")):
+        return link
+    if link.startswith(("file://", "obsidian://", "yuque:")):
+        return ""
+    p = Path(link)
+    if p.suffix.lower() in (".md", ".html"):
+        return f"https://uid9622.cn/docs/{p.stem}/"
+    return ""
+
+
+def _topo_summary(data: dict, verify_file: Path = VERIFY_DIR / "topo-docs-auto_verify.json") -> dict:
+    """图谱摘要（v1.8）：节点/边/类型分布/同步/校验 · 对外展示数据源"""
+    assets = [a for g in data.get("groups", []) for a in g.get("assets", [])]
+    green = sum(1 for a in assets if str(a.get("status", "")).startswith("🟢"))
+    yellow = sum(1 for a in assets if str(a.get("status", "")).startswith("🟡"))
+    v = None
+    if verify_file.is_file():
+        try:
+            v = json.loads(verify_file.read_text(encoding="utf-8"))
+        except Exception:
+            v = None
+    return {
+        "topo_name": data.get("topo_name"),
+        "display": data.get("display"),
+        "nodes": len(assets), "green": green, "yellow": yellow,
+        "edges": len(data.get("edges", [])),
+        "types": _type_dist(data),
+        "last_sync": data.get("last_sync") or data.get("created", ""),
+        "root_hash": topo_root_hash(data),   # v2.0 拓扑根哈希（外部可独立重算验证）
+        "verify": {"ok": bool(v and v.get("ok")), "node_total": (v or {}).get("nodes"),
+                   "gaps": len((v or {}).get("gaps") or [])} if v else None,
+    }
+
+
+def cmd_topo_summary(keyword: str = "", json_out: bool = False):
+    """lh topo summary [图谱名] — 图谱摘要：节点/边/类型分布/同步/校验（v1.8 公开）"""
+    if keyword.strip():
+        _f, data = _find_topo_file(keyword)
+        graphs = [data]
+    else:
+        graphs = []
+        for f in list_topos():
+            try:
+                graphs.append(json.loads(f.read_text(encoding="utf-8")))
+            except Exception:
+                continue
+    if json_out:
+        print(json.dumps([_topo_summary(d) for d in graphs],
+                         ensure_ascii=False, indent=2))
+        return
+    for d in graphs:
+        s = _topo_summary(d)
+        tv = s["verify"]
+        vtxt = f" · verify {'✅' if tv.get('ok') else '❌'}({tv.get('node_total')}节点)" if tv else ""
+        print(f"\n  📢 图谱摘要 · {s['display']}")
+        print(f"     节点 {s['nodes']}（🟢{s['green']} · 🟡{s['yellow']}）· 边 {s['edges']}"
+              f" · 同步 {s['last_sync']}{vtxt}")
+        dist = " · ".join(f"{k}×{v}" for k, v in s["types"].items()) or "—"
+        print(f"     类型分布: {dist}")
+    print()
+
+
+def cmd_topo_search(keyword: str = "", kw: str = "", json_out: bool = False):
+    """lh topo search <图谱名> <关键词> — 在节点 名称/类型/DNA/描述/标题 中搜索（v1.8）"""
+    if not kw.strip():
+        raise SystemExit("  ❌ 用法: lh topo search <图谱名> <关键词>   例: lh topo search 对外交付 发布")
+    f, data = _find_topo_file(keyword)
+    q = kw.strip().lower()
+    hits = []
+    for g in data.get("groups", []):
+        for a in g.get("assets", []):
+            hay = " ".join(str(a.get(k, "")) for k in
+                           ("name", "type", "doc_type", "dna", "title", "desc", "link")).lower()
+            if q in hay:
+                hits.append({"name": a.get("name"), "group": g.get("name"),
+                             "type": a.get("type"), "status": a.get("status"),
+                             "dna": (a.get("dna") or "")[:40],
+                             "link": _public_link(a)})
+    for g in data.get("groups", []):
+        if q in str(g.get("name", "")).lower():
+            hits.append({"group_hit": g.get("name"),
+                         "note": f"命中分组（{len(g.get('assets', []))} 节点）"})
+    if json_out:
+        print(json.dumps({"topo": data.get("display"), "query": kw,
+                          "hits": len(hits), "items": hits}, ensure_ascii=False, indent=2))
+        return
+    print(f"\n  🔍 拓扑搜索 · {data.get('display')} · 「{kw}」 · 命中 {len(hits)}")
+    for h in hits:
+        if "group_hit" in h:
+            print(f"     📂 {h['group_hit']}（{h['note']}）")
+            continue
+        print(f"     · {h['name']}  [{h['type'] or '?'}] {h.get('status') or ''}")
+        if h.get("dna"):
+            print(f"        DNA {h['dna']}")
+        if h.get("link"):
+            print(f"        ↳ {h['link']}")
+    print()
+
+
+def cmd_topo_export(keyword: str, json_out: bool = False):
+    """lh topo export <图谱名> [--format json] — 导出完整图谱 JSON（供外部系统调用 v1.8）"""
+    f, data = _find_topo_file(keyword)
+    out = {"exported_at": datetime.now().astimezone().isoformat(timespec="seconds"),
+           "source_file": str(f.relative_to(ROOT)),
+           "graph": data}
+    print(json.dumps(out, ensure_ascii=False, indent=2 if json_out else None))
+
+
+def cmd_topo_audit_log(keyword: str = "", json_out: bool = False, limit: int = 20):
+    """lh topo audit-log — 拓扑变更/告警审计历史（topo_audit.jsonl 反向 N 条 v1.8）"""
+    rows = []
+    if TOPO_AUDIT_LOG.is_file():
+        for line in TOPO_AUDIT_LOG.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            try:
+                rows.append(json.loads(line))
+            except Exception:
+                continue
+    rows.reverse()
+    rows = rows[: max(1, limit)]
+    if json_out:
+        print(json.dumps({"total": len(rows), "events": rows},
+                         ensure_ascii=False, indent=2))
+        return
+    print(f"\n  🕰️  拓扑审计日志 · 最近 {len(rows)} 条 · {TOPO_AUDIT_LOG}")
+    for r in rows:
+        print(f"     [{r.get('ts')}] {r.get('type')} {r.get('color', '')}"
+              f" · {r.get('detail', '')}")
+    if not rows:
+        print("     （暂无事件 · 图谱变更/校验告警将自动记录至此）")
+    print()
+
+
+def _summary_block_md(s: dict) -> str:
+    """首页/状态页复用的摘要 html 区块（md_in_html）"""
+    tv = s.get("verify") or {}
+    dist = " · ".join(f"<code>{k}</code>×{v}" for k, v in (s.get("types") or {}).items()) \
+        or "—"
+    vtxt = (f"🟢 全绿（{tv.get('node_total')} 节点）" if tv.get("ok")
+            else f"🔴 verify 缺口 {tv.get('gaps')}") if tv else "未校验"
+    return f"""<div class="topo-summary" style="border:1px solid #e2e8f0;border-radius:12px;padding:16px 20px;margin:16px 0;background:linear-gradient(180deg,#f8fafc,#ffffff)">
+<table style="width:100%;border-collapse:collapse">
+<tr><td style="padding:6px 12px;width:110px;white-space:nowrap;color:#64748b">🧮 节点总数</td><td style="padding:6px 12px"><strong>{s['nodes']}</strong> · 🟢{s['green']} · 🟡{s['yellow']}</td></tr>
+<tr><td style="padding:6px 12px;white-space:nowrap;color:#64748b">🔗 关联边</td><td style="padding:6px 12px"><strong>{s['edges']}</strong></td></tr>
+<tr><td style="padding:6px 12px;white-space:nowrap;color:#64748b">🏷️ 类型分布</td><td style="padding:6px 12px">{dist}</td></tr>
+<tr><td style="padding:6px 12px;white-space:nowrap;color:#64748b">⏱️ 最后同步</td><td style="padding:6px 12px"><code>{s['last_sync']}</code></td></tr>
+<tr><td style="padding:6px 12px;white-space:nowrap;color:#64748b">✅ 自动校验</td><td style="padding:6px 12px">{vtxt}</td></tr>
+</table>
+<p style="margin:8px 0 0">📈 <a href="topology/">查看完整拓扑 → /docs/topology/</a> · 💻 <code>lh topo summary 对外交付 --json</code></p>
+</div>"""
+
+
+def _node_row_md(a: dict, group: str = "") -> str:
+    link = _public_link(a)
+    nm = a.get("name", "?")
+    dna = a.get("dna") or ""
+    dna_s = (dna[:30] + "…") if len(dna) > 30 else (dna or "（待补DNA）")
+    cell = f"**{nm}**" if not link or link.startswith("⚠️") or "内部" in link \
+        else f"[**{nm}**]({link})"
+    extra = ""
+    if a.get("doc_type"):
+        extra = f" · {a['doc_type']}"
+    elif a.get("type"):
+        extra = f" · {a['type']}"
+    return f"| {cell} | <code>{dna_s}</code> | {a.get('status', '')}{extra} |"
+
+
+def _root_decl_md(data: dict, s: dict, root_h: str, now: str) -> list:
+    """根哈希公开声明页内容行（v2.1 · ROOT_HASH_DECLARATION.md · 方向三）"""
+    tv = s.get("verify") or {}
+    vtxt = f"🟢 全绿 · {tv.get('node_total', s.get('nodes'))} 节点" if tv.get("ok") \
+        else "🔴 verify 有缺口"
+    return [
+        "---",
+        "# 📜 龙魂系统 · 对外交付拓扑 根哈希公开声明",
+        "# DNA: #龍芯⚡️2026-09-05-ROOT-HASH-DECLARATION-v1.0-UID9622",
+        "# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 · GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+        "---",
+        "",
+        "# 📜 根哈希公开声明（Root Hash Declaration）",
+        "",
+        f"> 本声明公开锚定「{data.get('display') or data.get('topo_name')}」拓扑根哈希，任何人可独立重算验证。",
+        "> 根哈希 = 全部节点 `name|dna` 行按序聚合 → SHA-256 前 16 位。数据一改，哈希必变。",
+        "",
+        "| 项 | 值 |",
+        "|---|---|",
+        f"| 图谱 | {data.get('topo_name')} · {data.get('display')} |",
+        f"| **根哈希** | `{root_h}` |",
+        f"| 声明时间 | {now} |",
+        f"| 节点总数 | {s.get('nodes')}（🟢 {s.get('green')} · 🟡 {s.get('yellow')}） |",
+        f"| 关联边 | {s.get('edges')} |",
+        f"| 自动校验 | {vtxt} |",
+        "| 验证① | 本机重算: `lh topo audit-verify 对外交付` |",
+        "| 验证② | 在线比对: `GET https://uid9622.cn/api/topo/status.json` 的 `root_hash` |",
+        "| 验证③ | 快照比对: `GET https://uid9622.cn/docs/topology/archive/` 最新快照 |",
+        "| 验证④ | 签名核验: `gpg --verify ROOT_HASH_DECLARATION.md.asc ROOT_HASH_DECLARATION.md` |",
+        "| 审计链 | [⛓ Merkle 审计链](audit/) · [📦 归档快照](archive/) |",
+        f"| 数据源 | `docs/topology/{data.get('topo_name')}_legion_topo.json` |",
+        "| 归属名 | 诸葛鑫 \\| UID9622 · 龍芯北辰 |",
+        "| GPG | `A2D0092CEE2E5BA87035600924C3704A8CC26D5F` |",
+        "| 协议 | CC BY-NC-SA 4.0（核心思想层） · MulanPSL v2（数据/工程层） |",
+        "",
+        "> 📌 声明=**可独立重算的事实锚点**：保证「此刻数据即此哈希；此后任何改动必异哈希」。",
+        "> 声明不替代审计结论，一切以根哈希比对为准。欢迎任何人独立复核并提交纠错反馈。",
+        "",
+        f"> 🐛 发现与声明不符？[提交拓扑反馈]({ISSUE_NEW_URL})",
+    ]
+
+
+def cmd_topo_feedback(keyword: str = "对外交付"):
+    """lh topo feedback 对外交付 — 拓扑问题反馈清单（v2.1·耻辱墙反馈闭环）
+    数据源1: GitHub issues（labels=topo-feedback · open/closed）
+    数据源2: 耻辱墙事件链 topo_audit.jsonl / shame_wall.json（type=topo-feedback）
+    新 open 反馈自动去重写入耻辱墙（append-only 链 · seq/prev_hash 自证）
+    输出: 时间倒序 Markdown 表格"""
+    _ua = {"User-Agent": "longhun-topo/2.1"}
+    gh_rows = []
+    gh_err = ""
+    try:
+        _url = (f"{GH_API_BASE}/issues?labels={TOPO_FEEDBACK_LABEL}"
+                "&state=all&sort=created&direction=desc&per_page=100")
+        _req = urllib.request.Request(_url, headers=_ua)
+        with _OPENER.open(_req, timeout=20) as _r:
+            _body = json.loads(_r.read().decode("utf-8"))
+        for _it in (_body or []):
+            gh_rows.append({
+                "title": str(_it.get("title", "?")),
+                "url": str(_it.get("html_url", "")),
+                "state": str(_it.get("state", "open")),
+                "created": str(_it.get("created_at", "")).replace("T", " ")[:19],
+            })
+    except Exception as _e:   # noqa: BLE001 网络失败不阻断（本地耻辱墙仍可查）
+        gh_err = f"（GitHub 拉取失败: {_e}）"
+    # ── 本地耻辱墙 topo-feedback（事件链 append-only）──
+    local = {}
+    if TOPO_AUDIT_LOG.is_file():
+        for _line in TOPO_AUDIT_LOG.read_text(encoding="utf-8").splitlines():
+            _line = _line.strip()
+            if not _line:
+                continue
+            try:
+                _ev = json.loads(_line)
+            except Exception:
+                continue
+            if _ev.get("type") != TOPO_FEEDBACK_LABEL:
+                continue
+            _d = str(_ev.get("detail", ""))
+            _title = _d.split(" · ")[0] if _d else f"seq{_ev.get('seq')}"
+            _url = _d.split(" · ")[1] if " · " in _d else ""
+            local[_d or _title] = {
+                "title": _title, "url": _url,
+                "state": "open" if _ev.get("color") in ("🟡", "🔴") else "closed",
+                "created": str(_ev.get("ts", "")).replace("T", " ")[:19],
+            }
+    # ── 新 open 反馈自动写入耻辱墙链（去重·幂等）──
+    _known = set(local.keys())
+    _new = 0
+    for _r in gh_rows:
+        _key = f"{_r['title']} · {_r['url']}"
+        if _key in _known:
+            continue
+        if _r.get("state") == "open":
+            _shame_topo_append(TOPO_FEEDBACK_LABEL,
+                               f"{_r['title']} · {_r['url']} · {_r['created']} · open",
+                               color="🟡", severity="info")
+            local[_key] = {"title": _r["title"], "url": _r["url"],
+                           "state": "open", "created": _r["created"]}
+            _new += 1
+    # ── 合并去重输出（url 优先键）──
+    merged = {}
+    for _v in list(local.values()) + gh_rows:
+        merged.setdefault(_v.get("url") or _v["title"], _v)
+    rows = sorted(merged.values(), key=lambda x: x.get("created", ""), reverse=True)
+    print(f"\n  🐛 拓扑反馈清单 · topo-feedback · 共 {len(rows)} 条{gh_err}")
+    if _new:
+        print(f"     ↳ 新 {_new} 条 open 反馈已入耻辱墙链（topo_audit.jsonl · append-only）")
+    if not rows:
+        print("     📭 暂无反馈（即拓扑无投诉记录）")
+        return 0
+    print()
+    print("| # | 时间 | 状态 | 标题 | 链接 |")
+    print("|:---|:---|:---|:---|:---|")
+    for _i, _r in enumerate(rows, 1):
+        _s = "🟡 open" if _r.get("state") == "open" else "🟢 closed"
+        _t = str(_r.get("title", "?")).replace("|", "\\|")[:60]
+        print(f"| {_i} | {_r.get('created', '')} | {_s} | {_t} | {_r.get('url', '')} |")
+    print()
+    return 0
+
+
+def cmd_topo_archive(keyword: str = "对外交付"):
+    """lh topo archive 对外交付 — 归档可验证快照（v2.1·方向三）
+    产出: ~/.longhun/topo_archive_YYYYMMDD.json（完整拓扑 JSON + 审计链 + 根哈希 + 时间戳）
+      + 站点副本 docs-site/docs/topology/archive/（mkdocs build 后 /docs/topology/archive/）
+      + 列表页 archive/index.md · 自动 GPG 签名 · mkdocs build + rsync 上线（_topo_auto_deploy）"""
+    f, data = _find_topo_file(keyword)
+    s = _topo_summary(data)
+    now = datetime.now().astimezone().isoformat(timespec="seconds")
+    root_h = s.get("root_hash") or topo_root_hash(data)
+    tv = s.get("verify") or {}
+    _genesis, _chain = "", []
+    try:
+        _g, _chain = _chain_display()
+        _genesis = _g
+    except Exception:   # noqa: BLE001
+        pass
+    snap = {"__topo_archive__": True, "api": "topo/archive-v2.1",
+            "topo_name": data.get("topo_name"), "display": data.get("display"),
+            "root_hash": root_h, "generated_at": now,
+            "nodes": s.get("nodes"), "edges": s.get("edges"),
+            "green": s.get("green"), "yellow": s.get("yellow"),
+            "verify_ok": bool(tv.get("ok")), "genesis": _genesis,
+            "audit_chain": _chain, "graph": data,
+            "by": "诸葛鑫 | UID9622 · 龍芯北辰"}
+    _fname = f"topo_archive_{datetime.now().astimezone():%Y%m%d}.json"
+    home_p = STATE_DIR / _fname
+    TOPO_SITE_ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
+    site_p = TOPO_SITE_ARCHIVE_DIR / _fname
+    home_p.write_text(json.dumps(snap, ensure_ascii=False, indent=2) + "\n",
+                      encoding="utf-8")
+    site_p.write_text(home_p.read_text(encoding="utf-8"), encoding="utf-8")
+    # ── 列表页 archive/index.md 刷新 ──
+    _files = sorted(TOPO_SITE_ARCHIVE_DIR.glob("topo_archive_*.json"), reverse=True)
+    _lines = ["# 📦 拓扑归档快照", "",
+              f"> 图谱: {data.get('display')} · 当前根哈希 `{root_h}` · 每份快照含完整拓扑 JSON + 审计链",
+              f"> 生成: {now} · 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 · GPG 分离签名（.asc 同目录）",
+              "", f"共 {len(_files)} 份归档 · 快照为不可变时间点（内容哈希即文件本身 · 可独立重算）", "",
+              "| 快照 | 大小 | 根哈希 | 校验 |",
+              "|:---|:---|:---|:---|"]
+    for _pf in _files:
+        try:
+            _d = json.loads(_pf.read_text(encoding="utf-8"))
+            _rh = str(_d.get("root_hash", root_h))
+            _sz = f"{_pf.stat().st_size // 1024} KB"
+            _ok = "✅" if _d.get("verify_ok") else "❌"
+        except Exception:
+            _rh, _sz, _ok = root_h, "?", "?"
+        _lines.append(f"| [{_pf.name}]({_pf.name}) | {_sz} | `{_rh}` | {_ok} |")
+    if _files:
+        _lines += ["", f"> 校验: `gpg --verify {_files[0].name}.asc {_files[0].name}`（最新） · "
+                        f"`lh topo audit-verify {data.get('topo_name') or '对外交付'}`", ""]
+    idx_p = TOPO_SITE_ARCHIVE_DIR / "index.md"
+    idx_p.write_text("\n".join(_lines) + "\n", encoding="utf-8")
+    # ── GPG 签名（本地快照 + 站点副本 + 列表页 · 失败不阻断）──
+    for _p in (home_p, site_p, idx_p):
+        try:
+            subprocess.run([sys.executable, str(GPG_SIGN_BIN), "sign", str(_p)],
+                           capture_output=True, text=True, timeout=120)
+        except Exception:   # noqa: BLE001
+            pass
+    # ── 自动上线（export-page 刷新声明 + mkdocs build + rsync 鲲鹏）──
+    _topo_auto_deploy(data.get("topo_name") or keyword)
+    print(f"\n  📦 拓扑归档快照已生成 · {_fname}")
+    print(f"     本地: {home_p}")
+    print(f"     站点: {TOPO_SITE_ARCHIVE_DIR.relative_to(ROOT)}/{_fname}（→ /docs/topology/archive/）")
+    print(f"     根哈希: {root_h} · 审计链 {len(_chain)} 条 · 节点 {s.get('nodes')} · GPG 已签")
+    print(f"     列表页: {idx_p.relative_to(ROOT)}")
+    return 0
+
+
+def cmd_topo_export_page(keyword: str = "", json_out: bool = False):
+    """lh topo export-page <图谱名> — 生成拓扑公开状态页（v1.8）
+    本地 docs/topology/对外交付状态页.md + 文档站源 docs-site/docs/topology/index.md
+    + summary.json（首页区块数据源）· 随后 mkdocs build + rsync 上线"""
+    f, data = _find_topo_file(keyword)
+    s = _topo_summary(data)
+    now = datetime.now().astimezone().isoformat(timespec="seconds")
+    root_h = s.get("root_hash") or topo_root_hash(data)  # v2.1 前移：声明/快照共用
+
+    def _group_md(grp_name: str, assets: list) -> str:
+        if not assets:
+            return ""
+        head = "📂 " + grp_name
+        lines = [f"### {head}", "", "| 节点 | DNA | 状态 |", "|:---|:---|:---|"]
+        for a in sorted(assets, key=lambda x: x.get("name", "")):
+            lines.append(_node_row_md(a))
+        return "\n".join(lines) + "\n"
+
+    body = []
+    for g in data.get("groups", []):
+        body.append(_group_md(g.get("name", ""), g.get("assets", [])))
+    edges = []
+    name_map = {}
+    for g in data.get("groups", []):
+        for a in g.get("assets", []):
+            name_map[a.get("name")] = a
+    for e in data.get("edges", []):
+        src, tgt = name_map.get(e.get("source")), name_map.get(e.get("target"))
+        sl, tl = _public_link(src) if src else "", _public_link(tgt) if tgt else ""
+        s_txt = f"[{e.get('source')}]({sl})" if sl else str(e.get("source"))
+        t_txt = f"[{e.get('target')}]({tl})" if tl else str(e.get("target"))
+        edges.append(f"| {e.get('source')} → {e.get('target')} | {s_txt} → {t_txt}"
+                     f" | {e.get('type')} | {e.get('label') or '—'} |")
+    edge_md = "| 边 | 端点 | 类型 | 说明 |\n|:---|:---|:---|:---|\n" + "\n".join(edges) if edges \
+        else "（无边）"
+
+    tv = s.get("verify") or {}
+    vcell = f"🟢 全绿 · {tv['node_total']} 节点" if tv.get("ok") \
+        else f"🔴 verify 缺口 {tv.get('gaps')} 条"
+    evs = _topo_events_rows(3)
+    last_change = evs[0].get("ts") if evs else (data.get("last_sync") or "")
+    # ── v2.2 拓扑变更可视化：页首直展最近 3 次变更（用户打开即知变化）──
+    _op_cn = {"add": "➕ 新增", "update": "✏️ 更新", "remove": "➖ 移除"}
+    _type_cn = {"topo-change": "🔄 变更", "topo_change": "🔄 变更",
+                "topo-feedback": "🐛 反馈", "topo-sync": "🕓 同步",
+                "verify": "🧾 校验", "shame": "📛 耻辱", "topo-verify": "🧾 校验"}
+    _chg = ["### 🕐 最近 3 次变更", ""]
+    if evs:
+        _chg += ["| 时间 | 动作 | 内容 |", "|:---|:---|:---|"]
+        for _r in evs:
+            _ops = _r.get("ops") or []
+            _act = _op_cn.get(_ops[0].get("op")) if (_ops and _ops[0].get("op")) \
+                else _type_cn.get(str(_r.get("type", "")), str(_r.get("type", "事件")))
+            _det = str(_r.get("detail", "")).replace("|", "\\|")
+            if len(_det) > 90:
+                _det = _det[:87] + "…"
+            _ts = (str(_r.get("ts", "")).replace("T", " "))[5:16]
+            _chg.append(f"| {_ts} | {_act} | {_det} |")
+    else:
+        _chg += ["（暂无记录 · 拓扑变更将自动留痕于此）"]
+    change_md = "\n".join(_chg)
+    meta_bar = (
+        f'<div id="topo-verify-bar" style="margin:14px 0;padding:10px 14px;'
+        f'border:1px solid #d8c9a3;border-radius:8px;background:#faf6ea;'
+        f'font-size:.95rem;line-height:1.7">'
+        f'🔐 拓扑根哈希 <code>{s.get("root_hash", "")}</code>'
+        f' · 更新 {last_change}'
+        f' · <a href="audit/">⛓ 审计链</a>'
+        f' · <a href="{ISSUE_NEW_URL}" target="_blank" rel="noopener">发现拓扑问题？提交反馈</a>'
+        f'<span id="topo-live-updated" style="display:none;color:#b45309;font-weight:700">'
+        f' · 🔄 拓扑已更新，请刷新页面</span></div>')
+    page = f"""---
+# 🕸️ 龙魂系统 · 对外交付图谱
+# DNA: #龍芯⚡️2026-09-05-TOPO-PUBLIC-PAGE-V2.0-UID9622
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 · GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+---
+
+# 🕸️ 龙魂系统 · 对外交付图谱
+
+> 龙魂系统对外交付产物拓扑总览。节点即交付物：文档/文章/素材/反馈/Issue——全部可溯源（DNA）、
+> 可跳转（链接）、可审计（校验全绿）、可验证（根哈希+审计链）。本页由
+> `lh topo export-page 对外交付` 自动生成 · v2.0 可验证神经中枢。
+
+{_summary_block_md(s)}
+
+{meta_bar}
+
+{change_md}
+
+## 📚 节点明细（{s['nodes']}）
+
+{chr(10).join(b for b in body if b.strip())}
+
+## 🔗 关联边（{s['edges']}）
+
+{edge_md}
+
+## 🔐 可验证声明
+
+| 项 | 值 |
+|---|---|
+| 归属名 | 诸葛鑫 \\| UID9622 · 龙芯北辰 |
+| GPG 指纹 | `A2D0092CEE2E5BA87035600924C3704A8CC26D5F` |
+| **反馈** | [发现拓扑问题？提交反馈]({ISSUE_NEW_URL}) — 耻辱墙模板 · 预填 `topo-feedback` · 自动入耻辱墙 |
+| 验证命令 | `gpg --verify <file>.asc <file>` |
+| **拓扑根哈希** | `{s.get('root_hash', '')}`（聚合 name\\|dna 行 → SHA-256 前 16 · 可独立重算） |
+| **外部独立验证** | 本机 `lh topo audit-verify 对外交付` · 在线 `GET {API_BASE}status.json` · 快照 `GET {API_BASE}archive/<快照>.json` |
+| **最近变更** | {last_change} |
+| **审计链** | [⛓ 查看 Merkle 审计链](audit/)（创世根+逐条 prev_hash 自证） |
+| **归档快照** | [📦 历史归档](archive/)（完整拓扑 JSON + 审计链 · GPG 签名 · 变更时快照） |
+| **根哈希声明** | [📜 根哈希公开声明](ROOT_HASH_DECLARATION/)（声明时间+验证方法 · GPG 签名） |
+| 图谱名 | {data.get('topo_name')} · {data.get('display')} |
+| 数据源 | `docs/topology/{f.name}` |
+| 生成时间 | {now} |
+| 自动校验 | {vcell} |
+
+> 外部查询：`lh topo summary/search/export/audit-log/ask/events/audit-chain/history/heal 对外交付`（本机） ·
+> 在线 JSON：`summary.json`（本页同目录）· 交互数据：`data.json` · 公共 API：`{API_BASE}对外交付`
+{_TOPO_LIVE_HTML}"""
+
+    # 落盘 1: 本地缓存层产物
+    out_local = TOPO_DIR / TOPO_PUBLIC_PAGE
+    out_local.write_text(page, encoding="utf-8")
+    # 落盘 2: 文档站源（mkdocs docs_dir/topology/index.md）
+    SITE_TOPO_DIR.mkdir(parents=True, exist_ok=True)
+    site_idx = SITE_TOPO_DIR / "index.md"
+    site_idx.write_text(page, encoding="utf-8")
+    # ── v2.1 落盘 2b: 根哈希公开声明（方向三 · ROOT_HASH_DECLARATION.md · GPG 收尾统一签）──
+    TOPO_ROOT_DECL.write_text("\n".join(_root_decl_md(data, s, root_h, now)) + "\n",
+                              encoding="utf-8")
+    # 落盘 3: 摘要 JSON（首页区块/外部接口数据源）
+    (SITE_TOPO_DIR / "summary.json").write_text(
+        json.dumps({"updated_at": now, "page": "https://uid9622.cn/docs/topology/",
+                    **s}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    # 落盘 4: 交互检索数据 data.json（v2.0: 完整 DNA + 根哈希·供页面自证 + JS 轮询对比）
+    live_nodes, lname = [], {}
+    for g in data.get("groups", []):
+        for a in g.get("assets", []):
+            lname[a.get("name")] = a
+            live_nodes.append({
+                "name": a.get("name"), "group": g.get("name"), "type": a.get("type"),
+                "doc_type": a.get("doc_type", ""), "title": a.get("title", ""),
+                "status": str(a.get("status", "")).split("·")[0].strip(),
+                "dna": a.get("dna") or "", "link": _public_link(a),
+                "desc": (a.get("desc") or "")[:140]})
+    live_edges = []
+    for _e in data.get("edges", []):
+        _s, _t = lname.get(_e.get("source")), lname.get(_e.get("target"))
+        live_edges.append({"source": _e.get("source"), "target": _e.get("target"),
+                           "type": _e.get("type"), "label": _e.get("label") or "",
+                           "src_link": _public_link(_s) if isinstance(_s, dict) else "",
+                           "tgt_link": _public_link(_t) if isinstance(_t, dict) else ""})
+    (SITE_TOPO_DIR / "data.json").write_text(
+        json.dumps({"updated_at": now, "root_hash": root_h,
+                    "topo": data.get("display"),
+                    "verify": tv, "nodes": live_nodes, "edges": live_edges},
+                   ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    # 落盘 5: 交互检索前端 topo_live.js（内容不变则跳过写·保 asc 签名有效）
+    _js_p = SITE_TOPO_DIR / "topo_live.js"
+    if not _js_p.exists() or _js_p.read_text(encoding="utf-8") != _TOPO_LIVE_JS:
+        _js_p.write_text(_TOPO_LIVE_JS, encoding="utf-8")
+
+    # ── v2.0 落盘 6: 公共 API 静态 JSON（docs-site/topology-api/ · rsync 鲲鹏 + nginx alias /api/topo/）──
+    TOPO_API_DIR.mkdir(parents=True, exist_ok=True)
+    api_meta = {"api": "topo/v2.0", "topo_name": data.get("topo_name"),
+                "display": data.get("display"), "updated_at": now,
+                "root_hash": root_h, "last_sync": s["last_sync"],
+                "verify": tv, "page": "https://uid9622.cn/docs/topology/",
+                "verify_cmd": "lh topo audit-verify 对外交付"}
+    full_payload = {**api_meta, "nodes": live_nodes, "edges": live_edges}
+    (TOPO_API_DIR / f"{data.get('topo_name')}.json").write_text(
+        json.dumps(full_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    status_payload = {**api_meta, "nodes_count": s["nodes"], "green": s["green"],
+                      "yellow": s["yellow"], "edges_count": s["edges"],
+                      "types": s["types"]}
+    (TOPO_API_DIR / "status.json").write_text(
+        json.dumps(status_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    try:
+        genesis = _chain_genesis()
+    except Exception:
+        genesis = ""
+    (TOPO_API_DIR / "events.json").write_text(
+        json.dumps({"api": "topo/v2.0", "updated_at": now, "genesis": genesis,
+                    "events": _topo_events_rows(30)},
+                   ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    # ── v2.0 落盘 7: 时间戳快照（自愈恢复源 · 保留 30 天）──
+    SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
+    _snap_p = SNAPSHOT_DIR / f"{data.get('topo_name')}_{now[:19].replace(':', '').replace('-', '').replace('T', '-')}.json"
+    (_snap_p.write_text(json.dumps(
+        {"__topo_snapshot__": True,
+         "meta": {"root_hash": root_h, "updated_at": now, "verify_ok": bool(tv.get("ok"))},
+         "display": data.get("display"), "topo_name": data.get("topo_name"),
+         "graph": data}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"))
+    # prune: 30 天前快照（保留 _quarantine 冻结区不动）
+    _cutoff = (datetime.now().astimezone() - timedelta(days=SNAPSHOT_KEEP_DAYS)).timestamp()
+    for _p in SNAPSHOT_DIR.glob("*.json"):
+        if "_quarantine" in str(_p) or "_preheal" in _p.name:
+            continue
+        try:
+            if _p.stat().st_mtime < _cutoff:
+                _p.unlink()
+        except Exception:
+            pass
+
+    # ── v2.0 落盘 8: Merkle 审计链页（docs-site/docs/topology/audit/index.md → /docs/topology/audit/）──
+    _genesis, _chain = _chain_display()
+    _aud_rows = list(reversed(_chain))[:20]
+    _al = ["# ⛓️ 拓扑 Merkle 审计链",
+           "",
+           f"> 图谱: {data.get('display')} · 链: append-only · 每事件带 seq + prev_hash(指向前条自证) + hash(本条自证)",
+           f"> 生成: {now} · 归属名: 诸葛鑫 | UID9622 · 龍芯北辰",
+           "",
+           f"- 🧬 创世根（legacy 事件段聚合哈希）: `{_genesis}`",
+           f"- 链事件总数: {len(_chain)}",
+           f"- 当前拓扑根哈希: `{root_h}`",
+           "",
+           "## 最近 20 条链事件",
+           "",
+           "| # | 时间 | 类型 | 自证哈希 | 上一链 | 事件 |",
+           "|:---|:---|:---|:---|:---|:---|"]
+    for _r in _aud_rows:
+        _al.append(f"| {int(_r.get('seq'))} | {_r.get('ts')} | {_r.get('type')} | "
+                   f"`{_r.get('hash')}` | `{str(_r.get('prev_hash'))[:8]}…` | "
+                   f"{str(_r.get('detail'))[:60]} |")
+    _al += ["", "## 验证", "",
+            "本机：`lh topo audit-verify 对外交付`（逐条重算比对 → 未篡改 ✅） · "
+            "`lh topo audit-chain 对外交付 --limit 10`",
+            "",
+            f"反馈: [🐛 耻辱墙模板]({ISSUE_NEW_URL}) · 公共 API: `{API_BASE}events.json`",
+            "",
+            "> 龍魂系统 · 对外交付拓扑 v2.0 可验证神经中枢 · CC BY-NC-SA 4.0（核心思想层）"]
+    _aud_dir = SITE_TOPO_DIR / "audit"
+    _aud_dir.mkdir(parents=True, exist_ok=True)
+    (_aud_dir / "index.md").write_text("\n".join(_al) + "\n", encoding="utf-8")
+    # 首页拓扑区块自动刷新（<!-- TOPO-SUMMARY --> 锚点）
+    home = SITE_DOC_DIR / "index.md"
+    if home.is_file():
+        text = home.read_text(encoding="utf-8")
+        block = "<!-- TOPO-SUMMARY -->\n\n" + _summary_block_md(s) + \
+                "\n\n<!-- /TOPO-SUMMARY -->"
+        if "<!-- TOPO-SUMMARY -->" in text:
+            text = re.sub(r"<!-- TOPO-SUMMARY -->.*?<!-- /TOPO-SUMMARY -->",
+                          block, text, flags=re.S)
+        elif "## 🗺️ 拓扑状态" in text:
+            text = re.sub(r"(## 🗺️ 拓扑状态).*?(?=^## |\Z)",
+                          r"\1\n\n" + block + "\n", text, flags=re.S | re.M)
+        else:
+            text += "\n## 🗺️ 拓扑状态\n\n" + block + "\n"
+        home.write_text(text, encoding="utf-8")
+
+    if json_out:
+        print(json.dumps({"ok": True, "topo": s["display"], "nodes": s["nodes"],
+                          "local": str(out_local), "site": str(site_idx),
+                          "summary": str(SITE_TOPO_DIR / "summary.json"),
+                          "live_data": str(SITE_TOPO_DIR / "data.json")},
+                         ensure_ascii=False, indent=2))
+        return
+    print(f"\n  🖨️  拓扑状态页已生成 · {s['display']}")
+    print(f"     节点 {s['nodes']} · 边 {s['edges']} · 同步 {s['last_sync']}")
+    print(f"     本地产物 {out_local.relative_to(ROOT)}")
+    print(f"     文档站源 {site_idx.relative_to(ROOT)}")
+    print(f"     摘要 JSON  {SITE_TOPO_DIR / 'summary.json'}")
+    print(f"     交互数据    {SITE_TOPO_DIR / 'data.json'}（页面 🔍 图谱检索实时读取）")
+    print("     上线: cd docs-site && mkdocs build -f mkdocs.yml && rsync -az site/ 鲲鹏:/opt/longhun-system/docs-site/")
+    print()
+
+
+def cmd_edge_add(keyword: str, source: str = "", target: str = "", etype: str = "relates_to",
+                 label: str = "", desc: str = ""):
+    """lh topo edge <图谱名> --source <源> --target <目标> [--type relates_to] [--label …]
+    边存 data['edges']（source→target→type 去重更新）；两端节点须已注册（group 资产或子图谱）v1.6"""
+    if not keyword.strip() or not source.strip() or not target.strip():
+        raise SystemExit("  ❌ 用法: lh topo edge <图谱名> --source <源节点> --target <目标节点> [--type relates_to]")
+    f, data = _find_topo_file(keyword)
+    names = set()
+    for g in data.get("groups", []):
+        names |= {a.get("name", "") for a in g.get("assets", [])}
+    names |= {sg.get("name", "") for sg in data.get("subgraphs", [])}
+    if source.strip() not in names:
+        raise SystemExit(f"  ❌ 源节点「{source.strip()}」未注册（先 lh topo node … 或 lh topo list <图谱名> 核对名称）")
+    if target.strip() not in names:
+        raise SystemExit(f"  ❌ 目标节点「{target.strip()}」未注册（先注册或核对名称）")
+    edges = data.setdefault("edges", [])
+    edge = {"source": source.strip(), "target": target.strip(),
+            "type": etype.strip() or "relates_to",
+            "registered_at": datetime.now().astimezone().isoformat(timespec="seconds")}
+    if label.strip():
+        edge["label"] = label.strip()
+    if desc.strip():
+        edge["desc"] = desc.strip()
+    updated = False
+    for i, e in enumerate(edges):
+        if (e.get("source"), e.get("target"), e.get("type")) == (edge["source"], edge["target"], edge["type"]):
+            edge["registered_at"] = e.get("registered_at", edge["registered_at"])
+            if not edge.get("label") and e.get("label"):
+                edge["label"] = e.get("label")
+            if not edge.get("desc") and e.get("desc"):
+                edge["desc"] = e.get("desc")
+            edges[i] = edge
+            updated = True
+            break
+    if updated:
+        print(f"  🔄 边已更新 · {edge['source']} → {edge['target']} [{edge['type']}]")
+    else:
+        edges.append(edge)
+        print(f"  ✅ 边已注册 · {edge['source']} → {edge['target']} [{edge['type']}]")
+    f.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"     图谱 {data.get('display')} · 边 {len(edges)} 条")
+
+
+def cmd_topo_status(keyword: str = ""):
+    """lh topo status <图谱名> — 图谱状态速览(Markdown 表格·节点/边/更新时间/最新节点) v1.6"""
+    if not keyword.strip():
+        raise SystemExit("  ❌ 用法: lh topo status <图谱名>  （别名: lh topo <图谱名> status）")
+    f, data = _find_topo_file(keyword)
+    nodes = list(iter_nodes(data))
+    n = len(nodes)
+    green, yellow, _neutral = asset_stats(data)
+    subs = len(data.get("subgraphs", []))
+    edges = data.get("edges", [])
+    newest_at, newest_name = "", ""
+    for _g, asset in nodes:
+        ra = asset.get("registered_at", "")
+        if ra and ra > newest_at:
+            newest_at, newest_name = ra, asset.get("name", "")
+    for sg in data.get("subgraphs", []):
+        ra = sg.get("registered_at", "")
+        if ra and ra > newest_at:
+            newest_at, newest_name = ra, sg.get("name", "")
+    tcount = {}
+    for _g, asset in nodes:
+        t = asset.get("type") or "other"
+        tcount[t] = tcount.get(t, 0) + 1
+    tdist = " · ".join(f"{k}×{v}" for k, v in sorted(tcount.items())) or "—"
+    print(f"\n  📢 图谱状态 · {data.get('display')}  ({f.relative_to(ROOT)})")
+    print("  | 项目 | 值 |")
+    print("  |:---|:---|")
+    print(f"  | 图谱名 | {data.get('topo_name')} |")
+    print(f"  | 节点总数 | {n}（🟢{green} · 🟡{yellow}）|")
+    print(f"  | 类型分布 | {tdist} |")
+    print(f"  | 子图谱 | {subs} |")
+    print(f"  | 关联边 | {len(edges)} |")
+    print(f"  | 最后同步 | {data.get('last_sync') or data.get('created')} |")
+    print(f"  | 🔐 根哈希 | {topo_root_hash(data)}（聚合 name|dna 行 · 可独立重算） |")
+    print(f"  | 最新节点 | {newest_name or '—'} · {newest_at or '—'} |")
+    print("  🔐 完整性验证: lh topo audit-verify 对外交付（Merkle 链） ·"
+          " lh topo history 对外交付 --since 2026-09-01（变更历史）")
+    print()
 
 
 # ─────────────────────────── verify ───────────────────────────
@@ -945,6 +2712,10 @@ def cmd_verify(keyword: str, json_out: bool = False):
                          "id": a.get("id"), "why": "·".join(why)})
 
     if json_out:
+        if gaps:   # v1.8: verify 失败自动耻辱墙告警
+            _shame_topo_append("topo_verify_alert",
+                               f"拓扑校验失败 · {data.get('display')} · 缺口{len(gaps)}条",
+                               color="🔴", bad=len(gaps))
         print(json.dumps({"topo": data.get("display"), "nodes": green+yellow+neutral,
                           "green": green, "yellow": yellow, "ok": not gaps,
                           "gaps": gaps}, ensure_ascii=False, indent=2))
@@ -956,6 +2727,10 @@ def cmd_verify(keyword: str, json_out: bool = False):
     if not gaps:
         print(f"  ✅ 全绿 · {green+yellow+neutral} 资产 DNA+链接+状态 全部在位")
     else:
+        if gaps:   # v1.8: verify 失败自动耻辱墙告警
+            _shame_topo_append("topo_verify_alert",
+                               f"拓扑校验失败 · {data.get('display')} · 缺口{len(gaps)}条",
+                               color="🔴", bad=len(gaps))
         print(f"  🔴 缺口 {len(gaps)} 条：")
         for gp in gaps:
             print(f"     [{gp['group']}] {gp['name']}")
@@ -1561,6 +3336,8 @@ def cmd_sync(keyword: str, dry_run: bool = False, source: str = "notion",
         _loc_f, _loc_data = _find_topo_file(keyword)
     except SystemExit:
         _loc_data = None
+    if _loc_data is not None and _loc_data.get("auto_docs_sync"):
+        return cmd_topo_docs_sync(keyword, dry_run)   # v1.7: 12_DOCS 文档自动拓扑同步
     if live or (_loc_data is not None and _loc_data.get("sync_from") == "live-check"):
         return _sync_live_check(keyword, dry_run)
     if source == "obsidian":
@@ -1791,15 +3568,43 @@ def _sync_from_yuque(keyword: str, namespace: str, dry_run: bool = False):
 
 # ─────────────────────────── main ───────────────────────────
 
+_ACTIONS = ["list", "verify", "sync", "stats", "serve", "kb-status",
+            "cite", "frameworks", "register", "node", "diff", "db",
+            "subgraph", "obsidian", "edge", "status", "summary", "export",
+            "export-page", "audit-log", "search", "ask", "events",
+            "audit-chain", "audit-verify", "history", "heal",
+            "weekly-report", "serve-api", "feedback", "archive"]
+
+
 def main():
+    # 口语化词序规整 v1.8: 「lh topo <图谱名> <action> [关键词/--flags]」
+    #   → 「lh topo <action> <图谱名> [--kw 关键词/--flags]」· search 裸关键词转 --kw
+    if len(sys.argv) >= 3 and sys.argv[1] not in _ACTIONS and sys.argv[2] in _ACTIONS:
+        act, graph, tail = sys.argv[2], sys.argv[1], list(sys.argv[3:])
+        new_argv = sys.argv[:1] + [act, graph]
+        i = 0
+        while i < len(tail):
+            t = tail[i]
+            if act in ("search", "ask") and not t.startswith("-"):
+                new_argv += ["--query", t]
+            else:
+                new_argv.append(t)
+            i += 1
+        sys.argv = new_argv
     ap = argparse.ArgumentParser(description="龍魂知识图谱拓扑引擎 (lh topo)")
-    ap.add_argument("action", nargs="?", default="list",
-                    choices=["list", "verify", "sync", "stats", "serve", "kb-status",
-                             "cite", "frameworks", "register", "node", "diff", "db",
-                             "subgraph", "obsidian"],
-                    help="list/verify/sync/serve/kb-status/cite/frameworks/register/node/diff/db/subgraph/obsidian")
+    ap.add_argument("action", nargs="?", default="list", choices=_ACTIONS,
+                    help="list/verify/sync/serve/kb-status/cite/frameworks/register/node/diff/db/subgraph/obsidian/edge/status/summary/search/export/export-page/audit-log/audit-chain/audit-verify/history/heal/weekly-report/serve-api")
     ap.add_argument("keyword", nargs="?", default="", help="图谱名/资产名关键词（如 通心译）")
+    ap.add_argument("--query", default="", help="search 搜索关键词（名称/类型/DNA/描述）")
+    ap.add_argument("--format", default="json", choices=["json"],
+                    help="export 导出格式（当前 json）")
+    ap.add_argument("--limit", type=int, default=20, help="audit-log 最近 N 条")
+    ap.add_argument("--kind", default="",
+                    help="events 按事件类型过滤 (topo_change/topo-feedback/topo-verify_alert/topo_healed…)")
+    ap.add_argument("--node-type", default="",
+                    help="events 按变更节点类型过滤 (model/engine/document/article/asset/…)")
     ap.add_argument("--port", type=int, default=8762, help="serve 监听端口 (默认 8762)")
+    ap.add_argument("--api-port", type=int, default=8873, help="serve-api 监听端口 (默认 8873)")
     ap.add_argument("--host", default="127.0.0.1",
                     help="serve 监听地址 (默认 127.0.0.1·对外显式 0.0.0.0)")
     ap.add_argument("--source", default="notion",
@@ -1824,6 +3629,8 @@ def main():
     ap.add_argument("--meta", default="", help="subgraph 库元数据 JSON（row_count/created/edited/parent）")
     ap.add_argument("--kw", default="", help="obsidian scan/sync 命中关键词（默认 通心译）")
     ap.add_argument("--chats", action="store_true", help="obsidian 含 EditorChats 会话存档")
+    ap.add_argument("--target", default="", help="edge 目标节点")
+    ap.add_argument("--label", default="", help="edge 标签/说明")
     args = ap.parse_args()
 
     if args.action == "list":
@@ -1850,6 +3657,43 @@ def main():
         cmd_node_add(args.keyword, group=args.group, name=args.name, ntype=args.type,
                      dna=args.dna, status=args.status, path=args.path,
                      source=args.source, desc=args.desc, link=args.link)
+    elif args.action == "edge":
+        cmd_edge_add(args.keyword, source=args.source, target=args.target,
+                     etype=(args.type if args.type and args.type != "other" else ""),
+                     label=args.label, desc=args.desc)
+    elif args.action == "status":
+        cmd_topo_status(args.keyword)
+    elif args.action == "summary":
+        cmd_topo_summary(args.keyword, json_out=args.json)
+    elif args.action == "search":
+        cmd_topo_search(args.keyword, kw=args.query, json_out=args.json)
+    elif args.action == "export":
+        cmd_topo_export(args.keyword, json_out=args.json)
+    elif args.action == "export-page":
+        cmd_topo_export_page(args.keyword, json_out=args.json)
+    elif args.action == "feedback":
+        cmd_topo_feedback(args.keyword or "对外交付")
+    elif args.action == "archive":
+        cmd_topo_archive(args.keyword or "对外交付")
+    elif args.action == "audit-log":
+        cmd_topo_audit_log(args.keyword, json_out=args.json, limit=args.limit)
+    elif args.action == "ask":
+        cmd_topo_ask(args.keyword, question=args.query, json_out=args.json)
+    elif args.action == "events":
+        cmd_topo_events(args.keyword, limit=args.limit, json_out=args.json,
+                        kind=args.kind, node_type=args.node_type)
+    elif args.action == "audit-chain":
+        cmd_topo_audit_chain(args.keyword, limit=args.limit, json_out=args.json)
+    elif args.action == "audit-verify":
+        cmd_topo_audit_verify(args.keyword, json_out=args.json)
+    elif args.action == "history":
+        cmd_topo_history(args.keyword, since=args.since, json_out=args.json)
+    elif args.action == "heal":
+        cmd_topo_heal(args.keyword, dry=args.dry_run, json_out=args.json)
+    elif args.action == "weekly-report":
+        cmd_topo_weekly_report(args.keyword, json_out=args.json)
+    elif args.action == "serve-api":
+        cmd_topo_serve_api(args.keyword, port=args.api_port, host=args.host)
     elif args.action == "diff":
         cmd_diff(args.keyword, since=args.since, json_out=args.json)
     elif args.action == "db":

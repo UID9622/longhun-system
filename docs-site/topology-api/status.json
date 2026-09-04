@@ -1,0 +1,28 @@
+{
+  "api": "topo/v2.0",
+  "topo_name": "对外交付",
+  "display": "📢 对外交付图谱 v1.0",
+  "updated_at": "2026-09-05T04:10:07+08:00",
+  "root_hash": "824EDDE86F104FD2",
+  "last_sync": "2026-09-05T03:51:35+08:00",
+  "verify": {
+    "ok": true,
+    "node_total": 22,
+    "gaps": 0
+  },
+  "page": "https://uid9622.cn/docs/topology/",
+  "verify_cmd": "lh topo audit-verify 对外交付",
+  "nodes_count": 22,
+  "green": 22,
+  "yellow": 0,
+  "edges_count": 5,
+  "types": {
+    "article": 3,
+    "asset": 1,
+    "copy": 4,
+    "document": 10,
+    "endpoint": 2,
+    "issue": 1,
+    "report": 1
+  }
+}

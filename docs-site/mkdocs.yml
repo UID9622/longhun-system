@@ -1,0 +1,95 @@
+# 龍魂系统 · 对外文档站点 MkDocs 配置
+# DNA: #龍帳⚡️2026-09-04-DOCS-SITE-v1.0-UID9622
+# 创建者: 诸葛鑫（UID9622）
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# 协议: CC BY-NC-SA 4.0（核心思想层）
+# 构建: ~/Library/Python/3.14/bin/mkdocs build -f docs-site/mkdocs.yml
+
+site_name: 龍魂系统 · 对外文档
+site_description: 龍魂系统对外交付文档体系 v1.0 — 依赖清单/安装/快速开始/使用/API/JSON-RPC/MCP/Notion/故障排查
+site_url: https://uid9622.cn/docs/
+repo_url: https://github.com/UID9622/longhun-system
+repo_name: UID9622/longhun-system
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  language: zh
+  custom_dir: overrides
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/weather-night
+        name: 切换深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: 切换浅色模式
+  icon:
+    logo: material/library
+    repo: fontawesome/brands/github
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/UID9622
+    - icon: material/web
+      link: https://uid9622.cn
+
+nav:
+  - 🏠 首页: index.md
+  - 🗺️ 拓扑状态: topology/index.md
+  - 📋 依赖清单: DEPENDENCIES.md
+  - 🛠️ 安装指南: INSTALL.md
+  - ⚡ 快速开始: QUICKSTART.md
+  - 📖 使用指南: USAGE.md
+  - 🌐 API 技术文档: API_REFERENCE.md
+  - 🔌 JSON-RPC 接口: JSONRPC.md
+  - 🤝 MCP 接入指南: MCP_GUIDE.md
+  - 📓 Notion MCP: NOTION_MCP_GUIDE.md
+  - 🔧 故障排查: TROUBLESHOOTING.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - fenced_code
+  - footnotes
+  - def_list
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true
+
+plugins:
+  - search
+
+extra_css:
+  - stylesheets/extra.css
+
+copyright: '🔐 龍魂系统 · 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 · GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F'

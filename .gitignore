@@ -432,3 +432,6 @@ skills/longhun-deployment-ready/docs/DEPLOYMENT_READY_CHECKLIST_2026-06-10.md.as
 ios/LonghunKit/.build/
 weights
 archive/
+
+# mkdocs 构建产物（不入仓·源码 docs-site/docs 保留）
+docs-site/site/

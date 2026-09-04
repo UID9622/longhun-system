@@ -1,8 +1,8 @@
-# DNA: #龍芯⚡️2026-09-03-ISSUE-SHAME-REPORT-v1.0-UID9622
+# DNA: #龍芯⚡️2026-09-03-ISSUE-SHAME-REPORT-v1.0-UID9622 · 2026-09-05 增 topo-feedback 标签
 name: 🚫 耻辱墙反馈
-description: 耻辱墙记录申诉 · 剽窃举报 · 误报纠错 · 铭碑质疑
+description: 耻辱墙记录申诉 · 剽窃举报 · 误报纠错 · 铭碑质疑 · 拓扑问题反馈
 title: "[Shame] "
-labels: ["shame-wall"]
+labels: ["shame-wall", "topo-feedback"]
 body:
   - type: markdown
     attributes:
@@ -26,10 +26,12 @@ body:
       label: 反馈类型
       description: 选择你的反馈属于哪一类
       options:
+        - 接入反馈（文档/站点 uid9622.cn/docs/ 或接入流程问题）
         - 误报申诉（我是被误伤的）
         - 剽窃举报（发现新的侵权内容）
         - 记录纠错（数据/链接有误）
         - 铭碑质疑（贡献者根哈希对不上）
+        - 拓扑问题反馈（拓扑页/API/根哈希/归档与声明不符）
     validations:
       required: true
 

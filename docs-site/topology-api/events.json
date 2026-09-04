@@ -1,0 +1,107 @@
+{
+  "api": "topo/v2.0",
+  "updated_at": "2026-09-05T04:10:07+08:00",
+  "genesis": "DA5E84F817CEFFC3",
+  "events": [
+    {
+      "ts": "2026-09-05T03:50:11+08:00",
+      "type": "topo_change",
+      "color": "🟢",
+      "bad": 0,
+      "warn": 0,
+      "severity": "info",
+      "ops": [],
+      "detail": "对外交付拓扑 v2.0 Merkle 审计链启用建档 · 5 条 legacy 事件已聚合为创世根",
+      "seq": 1,
+      "prev_hash": "DA5E84F817CEFFC3",
+      "hash": "C2DE948D11460670"
+    },
+    {
+      "ts": "2026-09-05T02:09:28+08:00",
+      "type": "topo_change",
+      "color": "🟢",
+      "bad": 0,
+      "warn": 0,
+      "severity": "info",
+      "ops": [
+        {
+          "name": "API_REFERENCE",
+          "type": "document",
+          "op": "update",
+          "severity": "info"
+        },
+        {
+          "name": "TROUBLESHOOTING",
+          "type": "document",
+          "op": "update",
+          "severity": "info"
+        },
+        {
+          "name": "USAGE",
+          "type": "document",
+          "op": "update",
+          "severity": "info"
+        }
+      ],
+      "detail": "对外交付图谱拓扑变更 → 新增0·更新3·移除0 · 节点22 · verify ✅通过"
+    },
+    {
+      "ts": "2026-09-05T02:09:16+08:00",
+      "type": "topo_change",
+      "color": "🟢",
+      "bad": 0,
+      "warn": 0,
+      "severity": "info",
+      "ops": [
+        {
+          "name": "QUICKSTART",
+          "type": "document",
+          "op": "add",
+          "severity": "info"
+        }
+      ],
+      "detail": "对外交付图谱拓扑变更 → 新增1·更新0·移除0 · 节点22 · verify ✅通过"
+    },
+    {
+      "ts": "2026-09-05T02:09:08+08:00",
+      "type": "topo_change",
+      "color": "🟡",
+      "bad": 0,
+      "warn": 1,
+      "severity": "warning",
+      "ops": [
+        {
+          "name": "QUICKSTART",
+          "op": "remove",
+          "severity": "warning"
+        }
+      ],
+      "detail": "对外交付图谱拓扑变更 → 新增0·更新0·移除1 · 节点21 · verify ✅通过"
+    },
+    {
+      "ts": "2026-09-05T02:08:31+08:00",
+      "type": "topo_change",
+      "color": "🟢",
+      "bad": 0,
+      "warn": 0,
+      "severity": "info",
+      "ops": [
+        {
+          "name": "USAGE",
+          "type": "document",
+          "op": "update",
+          "severity": "info"
+        }
+      ],
+      "detail": "对外交付图谱拓扑变更 → 新增0·更新1·移除0 · 节点22 · verify ✅通过"
+    },
+    {
+      "ts": "2026-09-05T01:57:33+08:00",
+      "type": "topo_changed",
+      "color": "🟢",
+      "bad": 0,
+      "warn": 0,
+      "detail": "对外交付图谱拓扑变更 → 新增0·更新1·移除0 · 节点22 · verify ✅通过"
+    }
+  ]
+}

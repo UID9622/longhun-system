@@ -6,31 +6,32 @@
     "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
     "license": "MulanPSL v2"
   },
-  "generated_at": "2026-09-02T19:00:13.583956+00:00",
-  "merkle_root": "66534a848e73062af675911e0cc1db2907b6507bfc86409e1fdf505b66cac908",
-  "contributor_count": 5,
-  "total_commits": 187,
+  "generated_at": "2026-09-04T20:00:23.490127+00:00",
+  "merkle_root": "11fa1de02d7103f63795591848d22ae242ddf33666fd0f5e2c2620962d9583fc",
+  "contributor_count": 6,
+  "total_commits": 224,
   "tree": {
     "leaves": {
-      "346045695@qq.com": "3d20462b54a737d1b9006807de4b79576198ef376b1558ab75402dc1a6fedbb6",
+      "346045695@qq.com": "a1495c0cc8b60822e4c80273901817ce9bf2b616689a1b5b13d9336b20f0ac5b",
+      "319369578+longhun-bot[bot]@users.noreply.github.com": "26de8c1e5580ec90bd78fc26c9428f0071ef84d21592e32fba752e9204342ab2",
       "codebuddy@ai.copilot": "d37ab9d33117b17b235be8e66b27f23010aa27fdbf1be9d8d2b37523f370b50f",
       "deepseek@data.audit": "4aadbce8b08ac2888d271af197cc816c7cec253a392c7aaa000a5c5190b5e649",
       "qingkong66@community.github": "09f2ff3e52bafecdd3f96be0e052a21c1887b127766a09dfc5c1ccea961724e4",
       "kimi@ai.assistant": "971db9fd77571a13ecfb9a94aaecc902124df2d8e67ed788e337590216f15c45"
     },
     "level_1": [
-      "f5d01c0057d1088eeea69c415c07582296dc5549450ee2c54fa05313f3d520cd",
-      "98ddd774dbd34e8be9e36b612cdff649d7311f055deeb02d8ee29e12a27ab1c7",
-      "0ba1d3683f46fcab9ec0ebeb8bbaa8e3f48e3ba7df71295c909c6bd8a5373172"
+      "90269ef0d3598e12bf6eb0a7081687b4084b5887334d322b5817e4bbe685ee4e",
+      "5395c0fc5ccdf774fe9fcbbf3c92f21c6baec0ca7735b0ccc20a6495b4fc07c4",
+      "6505f00a0400c4b14f8f9883c9417f666cbd334a2aa8c9a6dbc21412aecb632d"
     ],
     "level_2": [
-      "5c36131fe1393cb95fa4cd827e5f0045ead4bef385c1f5464415a4a7908f59fd",
-      "e56228052bb62062c8e7868546ff987de67695caa9c6c1c4d7fdd8c6d186360c"
+      "c5a6e3480abf631530e35b5e26e82a185201f0a054be0510df05696d166d82fb",
+      "c94e60c5a911a293cc5db8e323fa4f2f6423e56d33ca9002ad6c39bdd94327d4"
     ],
     "level_3": [
-      "66534a848e73062af675911e0cc1db2907b6507bfc86409e1fdf505b66cac908"
+      "11fa1de02d7103f63795591848d22ae242ddf33666fd0f5e2c2620962d9583fc"
     ],
-    "root": "66534a848e73062af675911e0cc1db2907b6507bfc86409e1fdf505b66cac908",
+    "root": "11fa1de02d7103f63795591848d22ae242ddf33666fd0f5e2c2620962d9583fc",
     "depth": 3
   },
   "contributors": [
@@ -38,11 +39,21 @@
       "name": "诸葛鑫",
       "email": "346045695@qq.com",
       "source": "git",
-      "commits": 187,
+      "commits": 223,
       "first": "2026-08-07T08:16:52+00:00",
-      "last": "2026-08-31T16:01:06+00:00",
-      "node_hash": "3d20462b54a737d1b9006807de4b79576198ef376b1558ab75402dc1a6fedbb6",
-      "share_pct": 100.0
+      "last": "2026-09-04T13:30:26+00:00",
+      "node_hash": "a1495c0cc8b60822e4c80273901817ce9bf2b616689a1b5b13d9336b20f0ac5b",
+      "share_pct": 99.55
+    },
+    {
+      "name": "longhun-bot[bot]",
+      "email": "319369578+longhun-bot[bot]@users.noreply.github.com",
+      "source": "git",
+      "commits": 1,
+      "first": "2026-09-03T23:49:18+00:00",
+      "last": "2026-09-03T23:49:18+00:00",
+      "node_hash": "26de8c1e5580ec90bd78fc26c9428f0071ef84d21592e32fba752e9204342ab2",
+      "share_pct": 0.45
     },
     {
       "name": "CodeBuddy",

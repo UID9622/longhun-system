@@ -1,24 +1,24 @@
 {
   "dna": "#龍芯⚡️丙午·丙申·己未·未时·䷋否-WORKSPACE-SYNC-v1.0",
   "creator": "诸葛鑫（UID9622·龍芯北辰）",
-  "generated_at": "2026-09-02T23:34:33+08:00",
+  "generated_at": "2026-09-04T23:30:01+08:00",
   "root": "/Users/zuimeidedeyihan/longhun-system",
-  "count": 477,
-  "total_size": 7708576,
+  "count": 506,
+  "total_size": 7954312,
   "items": [
     {
       "name": "COMMAND_INDEX.md",
       "path": ".codebuddy/COMMAND_INDEX.md",
-      "size": 286866,
-      "mtime": "2026-09-02T19:38:33+08:00",
-      "sha256": "68d566275c573f1e"
+      "size": 325682,
+      "mtime": "2026-09-04T22:45:40+08:00",
+      "sha256": "c94e554e2b00ed2c"
     },
     {
       "name": "MEMORY.md",
       "path": ".codebuddy/memory/MEMORY.md",
-      "size": 10634,
-      "mtime": "2026-09-01T08:30:23+08:00",
-      "sha256": "8f695b012e1fdd7d"
+      "size": 7772,
+      "mtime": "2026-09-04T19:47:56+08:00",
+      "sha256": "3299432083927b97"
     },
     {
       "name": "ATTRIBUTION.md",
@@ -605,7 +605,7 @@
       "name": "LH-CONTRIBUTOR-MEMORIAL-v1.0.md",
       "path": "01_protocols/LH-CONTRIBUTOR-MEMORIAL-v1.0.md",
       "size": 3003,
-      "mtime": "2026-09-02T01:27:22+08:00",
+      "mtime": "2026-09-03T12:06:15+08:00",
       "sha256": "804246e47ed1a578"
     },
     {
@@ -640,7 +640,7 @@
       "name": "LH-CRON-TIMELINE-v1.0.md",
       "path": "01_protocols/LH-CRON-TIMELINE-v1.0.md",
       "size": 3637,
-      "mtime": "2026-08-31T22:44:24+08:00",
+      "mtime": "2026-09-03T12:06:15+08:00",
       "sha256": "cb56acf6da7cab74"
     },
     {
@@ -1074,7 +1074,7 @@
       "name": "LH-LEDGER-ACCOUNTING-v1.0.md",
       "path": "01_protocols/LH-LEDGER-ACCOUNTING-v1.0.md",
       "size": 6601,
-      "mtime": "2026-08-31T22:37:19+08:00",
+      "mtime": "2026-09-03T12:06:15+08:00",
       "sha256": "d60ca5f9f4624d6f"
     },
     {
@@ -1256,7 +1256,7 @@
       "name": "LH-OFFICIAL-WALLET-REGISTRY-v1.0.md",
       "path": "01_protocols/LH-OFFICIAL-WALLET-REGISTRY-v1.0.md",
       "size": 3153,
-      "mtime": "2026-08-31T20:54:10+08:00",
+      "mtime": "2026-09-03T12:06:15+08:00",
       "sha256": "ef7d372af0d037cf"
     },
     {
@@ -1277,7 +1277,7 @@
       "name": "LH-OUTPUT-PARADIGM-v1.0.md",
       "path": "01_protocols/LH-OUTPUT-PARADIGM-v1.0.md",
       "size": 8352,
-      "mtime": "2026-08-31T23:04:04+08:00",
+      "mtime": "2026-09-03T12:06:15+08:00",
       "sha256": "6834d1f14d768855"
     },
     {
@@ -1585,7 +1585,7 @@
       "name": "LH-TECH-INTEGRITY-PLEDGE-v1.0.md",
       "path": "01_protocols/LH-TECH-INTEGRITY-PLEDGE-v1.0.md",
       "size": 5898,
-      "mtime": "2026-09-01T08:30:36+08:00",
+      "mtime": "2026-09-03T12:06:15+08:00",
       "sha256": "759273ae0782b66f"
     },
     {
@@ -1732,7 +1732,7 @@
       "name": "LH-WUXING-CALC-WELD-v4.0.md",
       "path": "01_protocols/LH-WUXING-CALC-WELD-v4.0.md",
       "size": 8611,
-      "mtime": "2026-08-31T18:14:42+08:00",
+      "mtime": "2026-09-03T12:07:16+08:00",
       "sha256": "d4aa84d13d737224"
     },
     {
@@ -1809,7 +1809,7 @@
       "name": "UID9622_IP-Blockchain-Chain-Evidence-Plan-v2.0.md",
       "path": "01_protocols/UID9622_IP-Blockchain-Chain-Evidence-Plan-v2.0.md",
       "size": 5682,
-      "mtime": "2026-08-31T20:52:03+08:00",
+      "mtime": "2026-09-03T12:06:15+08:00",
       "sha256": "4299482566302efc"
     },
     {
@@ -2200,16 +2200,16 @@
     {
       "name": "API.md",
       "path": "12_DOCS/API.md",
-      "size": 6371,
-      "mtime": "2026-08-23T08:08:58+08:00",
-      "sha256": "4707c2a52188a030"
+      "size": 6963,
+      "mtime": "2026-09-04T17:16:55+08:00",
+      "sha256": "2ed18d3e4623503f"
     },
     {
       "name": "API参考-v1.0.md",
       "path": "12_DOCS/API参考-v1.0.md",
-      "size": 6325,
-      "mtime": "2026-09-01T08:02:22+08:00",
-      "sha256": "9a920ffe5d5dd14c"
+      "size": 6917,
+      "mtime": "2026-09-04T17:16:55+08:00",
+      "sha256": "a0f755e8dd4be446"
     },
     {
       "name": "ARCHITECTURE.md",
@@ -2259,6 +2259,13 @@
       "size": 26781,
       "mtime": "2026-08-23T08:08:58+08:00",
       "sha256": "34d0ed730c12d31c"
+    },
+    {
+      "name": "CNSH-多模态感知语法-v1.0.md",
+      "path": "12_DOCS/CNSH-多模态感知语法-v1.0.md",
+      "size": 13928,
+      "mtime": "2026-09-04T23:14:24+08:00",
+      "sha256": "d5056209277c8c31"
     },
     {
       "name": "CNSH_命令与变量命名规范-v1.0.md",
@@ -2338,6 +2345,13 @@
       "sha256": "a8e0b9f566af55c6"
     },
     {
+      "name": "DeepSeek漏洞侦查与修复报告-2026-09-04.md",
+      "path": "12_DOCS/DeepSeek漏洞侦查与修复报告-2026-09-04.md",
+      "size": 4195,
+      "mtime": "2026-09-04T19:39:39+08:00",
+      "sha256": "0fc62df21825edca"
+    },
+    {
       "name": "ECOSYSTEM-BASE-ANALYSIS-v1.0.md",
       "path": "12_DOCS/ECOSYSTEM-BASE-ANALYSIS-v1.0.md",
       "size": 18037,
@@ -2401,6 +2415,13 @@
       "sha256": "dfe6f4eb21489907"
     },
     {
+      "name": "Home深度集成追踪-v1.0.md",
+      "path": "12_DOCS/Home深度集成追踪-v1.0.md",
+      "size": 7776,
+      "mtime": "2026-09-04T17:40:40+08:00",
+      "sha256": "b84a926417d9fbf4"
+    },
+    {
       "name": "IDE_HEAVY_ARTILLERY_SETUP.md",
       "path": "12_DOCS/IDE_HEAVY_ARTILLERY_SETUP.md",
       "size": 10558,
@@ -2431,16 +2452,16 @@
     {
       "name": "LH-COMMANDS-AUTOGEN.md",
       "path": "12_DOCS/LH-COMMANDS-AUTOGEN.md",
-      "size": 26225,
-      "mtime": "2026-09-02T18:32:37+08:00",
-      "sha256": "843bffb7e5189484"
+      "size": 34989,
+      "mtime": "2026-09-04T23:09:33+08:00",
+      "sha256": "5f94c6a1659e00ad"
     },
     {
       "name": "LH-DH-DISPATCH-API.md",
       "path": "12_DOCS/LH-DH-DISPATCH-API.md",
-      "size": 3330,
-      "mtime": "2026-09-02T02:24:13+08:00",
-      "sha256": "83bb3ffa2094eb08"
+      "size": 3922,
+      "mtime": "2026-09-04T17:16:55+08:00",
+      "sha256": "59f9cc745c2f85f6"
     },
     {
       "name": "LH-INDEX-PHILOSOPHY-v2.0.md",
@@ -2527,6 +2548,13 @@
       "sha256": "54fd5713f133b9c8"
     },
     {
+      "name": "Notion-MCP-龙魂深度联动指南.md",
+      "path": "12_DOCS/Notion-MCP-龙魂深度联动指南.md",
+      "size": 6062,
+      "mtime": "2026-09-04T17:16:55+08:00",
+      "sha256": "dc4a1569ca9e80d2"
+    },
+    {
       "name": "P2_DAG_ARCHITECTURE.md",
       "path": "12_DOCS/P2_DAG_ARCHITECTURE.md",
       "size": 5135,
@@ -2536,16 +2564,16 @@
     {
       "name": "README.md",
       "path": "12_DOCS/README.md",
-      "size": 2682,
-      "mtime": "2026-08-23T08:08:58+08:00",
-      "sha256": "7b15effccf15cf3e"
+      "size": 3274,
+      "mtime": "2026-09-04T17:16:55+08:00",
+      "sha256": "58ec53e350524982"
     },
     {
       "name": "README_GITHUB.md",
       "path": "12_DOCS/README_GITHUB.md",
-      "size": 2018,
-      "mtime": "2026-08-23T08:08:58+08:00",
-      "sha256": "1c423601176fed8c"
+      "size": 2610,
+      "mtime": "2026-09-04T17:16:55+08:00",
+      "sha256": "244bbf1069d25508"
     },
     {
       "name": "README_LONGHUN_FLOW.md",
@@ -2620,15 +2648,15 @@
     {
       "name": "SDK-GUIDE.md",
       "path": "12_DOCS/SDK-GUIDE.md",
-      "size": 3675,
-      "mtime": "2026-08-30T22:55:07+08:00",
-      "sha256": "ab562e55bb2a5718"
+      "size": 4267,
+      "mtime": "2026-09-04T17:16:55+08:00",
+      "sha256": "657d364a47b6ced9"
     },
     {
       "name": "SECURITY-RED-BLUE-CONFRONTATION-2026-08-31.md",
       "path": "12_DOCS/SECURITY-RED-BLUE-CONFRONTATION-2026-08-31.md",
       "size": 4955,
-      "mtime": "2026-08-31T17:42:46+08:00",
+      "mtime": "2026-09-03T12:06:15+08:00",
       "sha256": "e2d21b0f7627fa69"
     },
     {
@@ -2737,11 +2765,32 @@
       "sha256": "6c4093636bd4630e"
     },
     {
+      "name": "github-pat-setup-guide.md",
+      "path": "12_DOCS/github-pat-setup-guide.md",
+      "size": 3587,
+      "mtime": "2026-09-03T12:06:15+08:00",
+      "sha256": "053b9782fd142873"
+    },
+    {
       "name": "handover_v1.3_training.md",
       "path": "12_DOCS/handover_v1.3_training.md",
       "size": 3975,
       "mtime": "2026-08-27T22:34:28+08:00",
       "sha256": "d63c81cde07e1bf2"
+    },
+    {
+      "name": "holo-vision-pro-适配与测试方案-2026-09-04.md",
+      "path": "12_DOCS/holo-vision-pro-适配与测试方案-2026-09-04.md",
+      "size": 2993,
+      "mtime": "2026-09-04T21:30:22+08:00",
+      "sha256": "c13e13d76a72c39b"
+    },
+    {
+      "name": "holo真机验证-人工审计与决策申请-2026-09-04.md",
+      "path": "12_DOCS/holo真机验证-人工审计与决策申请-2026-09-04.md",
+      "size": 7287,
+      "mtime": "2026-09-04T22:27:57+08:00",
+      "sha256": "99f0724304ffd609"
     },
     {
       "name": "home-directory-longhun-INDEX.md",
@@ -2807,6 +2856,20 @@
       "sha256": "9b61e1831f577285"
     },
     {
+      "name": "lh-sense-v2-识别决策编排反馈闭环-使用说明-2026-09-04.md",
+      "path": "12_DOCS/lh-sense-v2-识别决策编排反馈闭环-使用说明-2026-09-04.md",
+      "size": 5960,
+      "mtime": "2026-09-04T23:09:49+08:00",
+      "sha256": "6b09279d6b1ec084"
+    },
+    {
+      "name": "lh-sense-统一多模态识别-使用说明-2026-09-04.md",
+      "path": "12_DOCS/lh-sense-统一多模态识别-使用说明-2026-09-04.md",
+      "size": 3693,
+      "mtime": "2026-09-04T22:56:34+08:00",
+      "sha256": "5ab7b8167215ccec"
+    },
+    {
       "name": "longhun-immutable-philosophy.md",
       "path": "12_DOCS/longhun-immutable-philosophy.md",
       "size": 4363,
@@ -2847,6 +2910,13 @@
       "size": 3599,
       "mtime": "2026-08-23T08:08:58+08:00",
       "sha256": "801952ef46115b73"
+    },
+    {
+      "name": "notion-master-mcp-guide-v1.0.md",
+      "path": "12_DOCS/notion-master-mcp-guide-v1.0.md",
+      "size": 4626,
+      "mtime": "2026-09-04T11:07:35+08:00",
+      "sha256": "ce28b31d4c17a4f4"
     },
     {
       "name": "notion_8theme_reorganize_plan.md",
@@ -2942,23 +3012,23 @@
     {
       "name": "tricolor-api-usage-guide-v1.1.md",
       "path": "12_DOCS/tricolor-api-usage-guide-v1.1.md",
-      "size": 52833,
-      "mtime": "2026-08-23T08:08:58+08:00",
-      "sha256": "47de0009c27f89bd"
+      "size": 53425,
+      "mtime": "2026-09-04T17:16:55+08:00",
+      "sha256": "5f70eaa35d9e6a5a"
     },
     {
       "name": "tricolor-js-sdk-guide-v1.1.md",
       "path": "12_DOCS/tricolor-js-sdk-guide-v1.1.md",
-      "size": 24440,
-      "mtime": "2026-08-23T08:08:58+08:00",
-      "sha256": "87b18180354529dd"
+      "size": 25032,
+      "mtime": "2026-09-04T17:16:55+08:00",
+      "sha256": "0655047c8cfddc36"
     },
     {
       "name": "tricolor-python-sdk-guide-v1.1.md",
       "path": "12_DOCS/tricolor-python-sdk-guide-v1.1.md",
-      "size": 25077,
-      "mtime": "2026-08-23T08:08:58+08:00",
-      "sha256": "46eba4d120b7750f"
+      "size": 25669,
+      "mtime": "2026-09-04T17:16:55+08:00",
+      "sha256": "4d0d40f76be7f254"
     },
     {
       "name": "v4.0_base_migration_checklist.md",
@@ -3017,11 +3087,25 @@
       "sha256": "2a640a02677ca6cd"
     },
     {
+      "name": "六项Bug修复-实测复核与闭环确认-2026-09-04.md",
+      "path": "12_DOCS/六项Bug修复-实测复核与闭环确认-2026-09-04.md",
+      "size": 3546,
+      "mtime": "2026-09-04T21:35:42+08:00",
+      "sha256": "0ae45f4da68945fe"
+    },
+    {
       "name": "华为_eNSP_安装完全指南_人民标准版_v3.0.md",
       "path": "12_DOCS/华为_eNSP_安装完全指南_人民标准版_v3.0.md",
       "size": 34791,
       "mtime": "2026-08-23T08:08:58+08:00",
       "sha256": "b5c3a5ad2696d2ec"
+    },
+    {
+      "name": "合规报告-2026-09-03.md",
+      "path": "12_DOCS/合规报告-2026-09-03.md",
+      "size": 1528,
+      "mtime": "2026-09-03T12:06:15+08:00",
+      "sha256": "8fc8d3a268bfe4bf"
     },
     {
       "name": "哲学资产总目_出师有名_v1.0.md",
@@ -3031,17 +3115,31 @@
       "sha256": "fe20efc9060723b7"
     },
     {
+      "name": "域名部署指南.md",
+      "path": "12_DOCS/域名部署指南.md",
+      "size": 7268,
+      "mtime": "2026-09-04T17:16:55+08:00",
+      "sha256": "361d092cdf976a2a"
+    },
+    {
+      "name": "复盘系统使用指南.md",
+      "path": "12_DOCS/复盘系统使用指南.md",
+      "size": 7466,
+      "mtime": "2026-09-04T17:16:55+08:00",
+      "sha256": "c864dbff60dc8167"
+    },
+    {
       "name": "媒体引擎手册-v1.0.md",
       "path": "12_DOCS/媒体引擎手册-v1.0.md",
-      "size": 6381,
-      "mtime": "2026-09-01T13:30:23+08:00",
-      "sha256": "45a9f9df62625a70"
+      "size": 6973,
+      "mtime": "2026-09-04T17:16:55+08:00",
+      "sha256": "8f16250ef0ea1345"
     },
     {
       "name": "守护服务治理方案_v1.0.md",
       "path": "12_DOCS/守护服务治理方案_v1.0.md",
       "size": 5819,
-      "mtime": "2026-08-31T13:47:51+08:00",
+      "mtime": "2026-09-03T12:06:15+08:00",
       "sha256": "34ee10d52eb3cc8d"
     },
     {
@@ -3054,9 +3152,9 @@
     {
       "name": "安装指南.md",
       "path": "12_DOCS/安装指南.md",
-      "size": 4519,
-      "mtime": "2026-09-01T08:02:15+08:00",
-      "sha256": "2d22558f73aff971"
+      "size": 5111,
+      "mtime": "2026-09-04T17:16:55+08:00",
+      "sha256": "c0dd7265a44de071"
     },
     {
       "name": "宝宝决策来源卡片.md",
@@ -3069,7 +3167,7 @@
       "name": "对外接口协议-v1.0.md",
       "path": "12_DOCS/对外接口协议-v1.0.md",
       "size": 6357,
-      "mtime": "2026-09-01T08:17:28+08:00",
+      "mtime": "2026-09-03T12:06:15+08:00",
       "sha256": "136319e6b60f87f7"
     },
     {
@@ -3083,7 +3181,7 @@
       "name": "常见问题.md",
       "path": "12_DOCS/常见问题.md",
       "size": 4139,
-      "mtime": "2026-09-01T08:02:02+08:00",
+      "mtime": "2026-09-03T12:06:15+08:00",
       "sha256": "5d86123392de0225"
     },
     {
@@ -3096,9 +3194,9 @@
     {
       "name": "快速开始.md",
       "path": "12_DOCS/快速开始.md",
-      "size": 2902,
-      "mtime": "2026-09-01T07:43:56+08:00",
-      "sha256": "2e9cb7bc3df30cbe"
+      "size": 3494,
+      "mtime": "2026-09-04T17:16:55+08:00",
+      "sha256": "fd3b511699995805"
     },
     {
       "name": "懒的牢房_全五篇_v3.0.md",
@@ -3117,9 +3215,9 @@
     {
       "name": "手把手部署教程-API联动-DNA注册.md",
       "path": "12_DOCS/手把手部署教程-API联动-DNA注册.md",
-      "size": 21356,
-      "mtime": "2026-08-23T08:08:58+08:00",
-      "sha256": "4fd2823e64b7c42c"
+      "size": 21948,
+      "mtime": "2026-09-04T17:16:55+08:00",
+      "sha256": "76336b3f9ec3c991"
     },
     {
       "name": "文档权威对照表_v1.0.md",
@@ -3143,6 +3241,20 @@
       "sha256": "e2b8aa98e3b7b4fc"
     },
     {
+      "name": "深度学习代码精修报告.md",
+      "path": "12_DOCS/深度学习代码精修报告.md",
+      "size": 8418,
+      "mtime": "2026-09-03T12:06:15+08:00",
+      "sha256": "d5baad716795a8cc"
+    },
+    {
+      "name": "演示脚本.md",
+      "path": "12_DOCS/演示脚本.md",
+      "size": 4153,
+      "mtime": "2026-09-03T12:06:15+08:00",
+      "sha256": "f584d7f76df1e4b7"
+    },
+    {
       "name": "焦虑制造者识别手册_v2.0.md",
       "path": "12_DOCS/焦虑制造者识别手册_v2.0.md",
       "size": 20182,
@@ -3150,10 +3262,38 @@
       "sha256": "ba789ef875fbd811"
     },
     {
+      "name": "生态补全报告.md",
+      "path": "12_DOCS/生态补全报告.md",
+      "size": 6386,
+      "mtime": "2026-09-03T12:06:15+08:00",
+      "sha256": "309485ab370896da"
+    },
+    {
+      "name": "生态验证报告-2026-09-03.md",
+      "path": "12_DOCS/生态验证报告-2026-09-03.md",
+      "size": 10003,
+      "mtime": "2026-09-03T12:06:15+08:00",
+      "sha256": "d479fe996c2f0879"
+    },
+    {
+      "name": "社区响应模板.md",
+      "path": "12_DOCS/社区响应模板.md",
+      "size": 6990,
+      "mtime": "2026-09-03T12:06:15+08:00",
+      "sha256": "c07051bb5f017658"
+    },
+    {
+      "name": "社区接入指南.md",
+      "path": "12_DOCS/社区接入指南.md",
+      "size": 7749,
+      "mtime": "2026-09-04T17:16:55+08:00",
+      "sha256": "d97f79ca6a9c2856"
+    },
+    {
       "name": "算法标准化手册-v1.0.md",
       "path": "12_DOCS/算法标准化手册-v1.0.md",
       "size": 10556,
-      "mtime": "2026-09-01T08:56:48+08:00",
+      "mtime": "2026-09-03T12:06:15+08:00",
       "sha256": "a0de4520e077faf7"
     },
     {
@@ -3195,14 +3335,21 @@
       "name": "运维手册.md",
       "path": "12_DOCS/运维手册.md",
       "size": 3246,
-      "mtime": "2026-09-01T13:17:12+08:00",
+      "mtime": "2026-09-03T12:06:15+08:00",
       "sha256": "0e6b128101e510cd"
+    },
+    {
+      "name": "通心译拓扑决策记录.md",
+      "path": "12_DOCS/通心译拓扑决策记录.md",
+      "size": 11281,
+      "mtime": "2026-09-03T12:06:15+08:00",
+      "sha256": "d8941119307e7936"
     },
     {
       "name": "通心译拓扑方案-v1.0.md",
       "path": "12_DOCS/通心译拓扑方案-v1.0.md",
       "size": 7250,
-      "mtime": "2026-09-02T19:31:42+08:00",
+      "mtime": "2026-09-03T12:06:15+08:00",
       "sha256": "60b64ab10eb956a8"
     },
     {
@@ -3227,6 +3374,34 @@
       "sha256": "47b093888082d594"
     },
     {
+      "name": "闸口绕行规则.md",
+      "path": "12_DOCS/闸口绕行规则.md",
+      "size": 3791,
+      "mtime": "2026-09-04T08:18:48+08:00",
+      "sha256": "06f4b37cec825572"
+    },
+    {
+      "name": "项目gitignore-模板.md",
+      "path": "12_DOCS/项目gitignore-模板.md",
+      "size": 1387,
+      "mtime": "2026-09-04T08:41:21+08:00",
+      "sha256": "ec79541149ff89be"
+    },
+    {
+      "name": "鲲鹏MCP接入指南-v1.0.md",
+      "path": "12_DOCS/鲲鹏MCP接入指南-v1.0.md",
+      "size": 12128,
+      "mtime": "2026-09-04T17:16:55+08:00",
+      "sha256": "27f00f2830874a5f"
+    },
+    {
+      "name": "鸿蒙接入龙魂数据层指南.md",
+      "path": "12_DOCS/鸿蒙接入龙魂数据层指南.md",
+      "size": 4961,
+      "mtime": "2026-09-04T17:16:55+08:00",
+      "sha256": "087fb2d5ba30ac0c"
+    },
+    {
       "name": "龍魂倫理錨定層_v1.0.md",
       "path": "12_DOCS/龍魂倫理錨定層_v1.0.md",
       "size": 42475,
@@ -3246,6 +3421,13 @@
       "size": 12009,
       "mtime": "2026-08-23T08:08:58+08:00",
       "sha256": "e35a4919544bb549"
+    },
+    {
+      "name": "龍魂反诈知识总库-v1.0.md",
+      "path": "12_DOCS/龍魂反诈知识总库-v1.0.md",
+      "size": 6155,
+      "mtime": "2026-09-04T21:20:15+08:00",
+      "sha256": "cef98742ae7d3014"
     },
     {
       "name": "龍魂多平台调度中枢_v1.0.md",
@@ -3290,6 +3472,20 @@
       "sha256": "41845c139e226135"
     },
     {
+      "name": "龙魂API集成指南-v1.0.md",
+      "path": "12_DOCS/龙魂API集成指南-v1.0.md",
+      "size": 8242,
+      "mtime": "2026-09-04T17:16:55+08:00",
+      "sha256": "ec5f7c2a7017dd0f"
+    },
+    {
+      "name": "龙魂商业模式白皮书-v1.0.md",
+      "path": "12_DOCS/龙魂商业模式白皮书-v1.0.md",
+      "size": 3923,
+      "mtime": "2026-09-04T22:44:23+08:00",
+      "sha256": "78398b8f22062912"
+    },
+    {
       "name": "龙魂多平台账号破局模板.md",
       "path": "12_DOCS/龙魂多平台账号破局模板.md",
       "size": 13542,
@@ -3300,22 +3496,29 @@
       "name": "龙魂系统完整性报告.md",
       "path": "12_DOCS/龙魂系统完整性报告.md",
       "size": 5656,
-      "mtime": "2026-09-01T08:56:14+08:00",
+      "mtime": "2026-09-03T12:06:15+08:00",
       "sha256": "7f7725662281a7eb"
+    },
+    {
+      "name": "龙魂系统能力清单-2026-09-03.md",
+      "path": "12_DOCS/龙魂系统能力清单-2026-09-03.md",
+      "size": 10553,
+      "mtime": "2026-09-04T17:16:55+08:00",
+      "sha256": "acc961e7956e4c9f"
     },
     {
       "name": "龙魂语法统一化报告.md",
       "path": "12_DOCS/龙魂语法统一化报告.md",
       "size": 5083,
-      "mtime": "2026-09-01T08:57:07+08:00",
+      "mtime": "2026-09-03T12:06:15+08:00",
       "sha256": "a2be716a08fa16be"
     },
     {
       "name": "AGENTS.md",
       "path": "AGENTS.md",
-      "size": 3543,
-      "mtime": "2026-09-01T13:02:10+08:00",
-      "sha256": "f8989870b11bf7a9"
+      "size": 10830,
+      "mtime": "2026-09-04T20:10:11+08:00",
+      "sha256": "432a53a167517b8d"
     },
     {
       "name": "CONSTITUTION.md",
@@ -3335,14 +3538,14 @@
       "name": "STATE.md",
       "path": "STATE.md",
       "size": 46442,
-      "mtime": "2026-08-31T23:59:28+08:00",
+      "mtime": "2026-09-03T12:07:28+08:00",
       "sha256": "b7a9932c0c3da271"
     },
     {
       "name": "功能清单.md",
       "path": "功能清单.md",
       "size": 229568,
-      "mtime": "2026-08-31T23:59:28+08:00",
+      "mtime": "2026-09-03T12:07:28+08:00",
       "sha256": "fa8c1953cab297fb"
     }
   ]

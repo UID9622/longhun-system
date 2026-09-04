@@ -6,6 +6,7 @@
 #龍芯⚡️丙午·丙申·癸丑·申时·䷍大有-lh-CONSOLE-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # -*- coding: utf-8 -*-
 """
 #龍芯⚡️丙午·丙申·癸丑·申时·䷍大有-lh-CONSOLE-v1.0
@@ -835,7 +836,7 @@ SUB_DISPATCH = {
     'codeql-autofix':       ('lh_codeql_autofix.py',           '🤖', 'CodeQL自动修复引擎·autofix [--dry-run|--pr-only|--auto-merge]/dashboard·日上限3次·健康闸·耻辱墙熔断', [], ''),
     'codeql-dashboard':     ('lh_codeql_autofix.py',           '📊', 'CodeQL状态面板·Markdown+GPG签名→~/.longhun/codeql_dashboard.md', [], 'dashboard'),
     # 📢 统一对外发布工具链 v1.0 — 一句话全渠发布: 模板渲染→GitHub Issue+官网横幅+README→PR→bot approve→merge→rsync（2026-09-04）
-    'publish':              ('lh_publish.py',                 '📢', '对外发布工具链·announce/status/dashboard/rollback/templates（一键多渠分发·自动PR+approve+merge·发布日志~/.longhun/publish_log.json）', [], ''),
+    'publish':              ('lh_publish.py',                 '📢', '对外发布工具链·pr/prstate/announce/outreach/status/dashboard/rollback/templates（outreach=扩散素材包路径指引 docs/扩散素材-2026-09-05/ 4平台·一键多渠分发·自动PR+approve+merge·发布日志~/.longhun/publish_log.json）', [], ''),
     'search':               ('lh_search_engine.py',           '🔍', '搜索引擎', [], 'search'),
     'recap':                ('lh_recap.py',                   '🔄', '执行复盘可视化·generate/view/locate/codemark/snapshot/diff/rollback/export/search/timeline/stats/diagnose/suggest/template/config/protect/archive/share/qr（每次执行自动复盘·三图+DNA戳·~/.longhun/recap/）', [], ''),
     # 📥 内容自动消化闭环 v1.0 — 粘贴即消化: 分类→意图→上下文→缺口→建议→归档（2026-09-04·老大指令:贴什么系统自己处理·不再等"开始"）
@@ -847,12 +848,26 @@ SUB_DISPATCH = {
     # 🕵️ 作假行为检测引擎 v1.0 — 反诈总库(2026-09-04)焊入·7类作假(无DNA/伪签名/时间戳篡改/水印抹除/克隆无DNA/虚假贡献/AI内容伪造)·GPG核验·单文件或目录扫描
     'fraud':                ('lh_fraud_detector.py',          '🕵️', '作假行为检测·scan <路径> [--报告]/status（7类作假·GPG核验·反诈总库2026-09-04）', [], 'status'),
     'fraud-glossary':       ('lh_fraud_detector.py',          '📖', '反诈知识词条库·glossary --list / --search <关键词>（学术词语·心理机制·技术漏洞·检测引擎 20词条·数据~/.longhun/fraud/glossary.json·2026-09-04）', [], 'glossary'),
+    # 🧠 日历记忆系统 v1.0 — 日历=记忆库: 多源聚合(复盘/工作日志/万年历/年轮/Notion镜像)+全文检索+哈希链封链不可抹去(2026-09-04)
+    'calmem':               ('lh_calendar_memory.py',          '🧠', '日历记忆系统·ingest/ingest-all/search <词>/day [日期]/seal [日期]/verify/status/sources/note <日期> <文本>（日历即记忆库·本地+Notion+年轮多源聚合·哈希链不可抹去·~/.longhun/calendar_memory/）', [], 'status'),
+    # 💰 商业闭环 v1.0 — 无后台商业模式落地: 本地免费+云端按量付费+公户双渠道收款+三色自动对账（2026-09-04·白皮书 docs/龙魂商业模式白皮书-v1.0.md）
+    'billing':              ('lh_billing.py',                 '💰', 'API计费系统·balance余额/recharge充值/usage用量/history记录（阶梯定价·月免10万Token·数据~/.longhun/billing/）', [], ''),
+    'payment':              ('lh_payment.py',                 '🏦', '支付渠道管理·channels列表/status状态/webhook回调（微信/支付宝/连连/Airwallex/XTransfer·配置~/.longhun/payment_config.json）', [], ''),
+    'reconcile':            ('lh_reconcile.py',               '⚖️', '对账审计·自动三色核销（报告~/.longhun/billing/reconciliation/·billing_audit事件落耻辱墙）', [], ''),
+    # 📒 龍魂账法 v1.0 — 底层记账能力·DNA/哈希/见证人格/科目表·每笔交易自动三色审计+耻辱墙+brain·感知识别记账·JSON-RPC（2026-09-04·lh_ledger.py）
+    'ledger':               ('lh_ledger.py',                  '📒', '龍魂账法·dna/hash/add/list/verify/balance/export/audit/confirm/wall/scan/rpc（底层记账·自动三色审计+耻辱墙+记忆·数据~/.longhun/ledger/）', [], ''),
+    'ledger-wall':          ('lh_ledger.py',                  '📜', '账法·耻辱墙账本事件 (lh ledger wall)', [], 'wall'),
     # 💤 技能调度器 v1.0 — 技能用完即休·用时即唤·不常驻省算力（2026-08-16）
     'skill':                ('lh_skill_scheduler.py',         '💤', '技能调度·list/wake/sleep/autosleep/stats（用完休眠·用前唤醒·省CPU）', [], 'status'),
     # 🧬 人格按任务触发+经验累积引擎 v1.0 — 能力对标全球大模型·按需唤醒人格·经验沉淀越练越聪明（2026-08-30）
     'evolve':               ('lh_persona_evolve.py',          '🧬', '人格按任务触发路由+经验累积（对标全球大模型能力·按需唤醒·越练越聪明）', [], ''),
     # 🧠 记忆分层架构 v1.0 — 工作/长期/档案三级记忆+蒸馏巩固（MemGPT思路·2026-08-30）
     'memory':               ('lh_memory_arch.py',             '🧠', '记忆分层·working/longterm/archive读写+distill蒸馏巩固', [], 'status'),
+    # 👁️ 统一多模态识别引擎 v1.0 — 图片(moondream+tesseract)/音频(faster-whisper)/视频(抽帧+音轨)一键识别·全本地零云端（2026-09-04 · 装配既有引擎: 全散件已有未接统一入口）
+    'sense':                ('lh_sense.py',                    '👁️', '统一多模态识别 v2.0·识别→决策→编排→反馈闭环 (lh sense <文件> [--auto 自动三色审计] [--pipeline 技能链] [--feedback 置信度] [--cnsh CNSH语法输出] | sense monitor [--watch-dir] 目录监听 | sense pipeline list|run <链> <文件> | sense feedback list|correct|export | sense config 三方向统一配置·全本地·数据不出机·CNSH草案 docs/CNSH-多模态感知语法-v1.0.md)', [], ''),
+    'sense-monitor':        ('lh_sense.py',                    '👁️', '感知·目录监听·新文件自动识别+审计 (lh sense monitor [--watch-dir 目录] [--interval 秒] [--once])', [], 'monitor'),
+    'sense-pipeline':       ('lh_sense.py',                    '🧬', '感知·技能编排·OCR/ASR/VLM 三链 (lh sense pipeline list|run <链名> <文件>)', [], 'pipeline'),
+    'sense-feedback':       ('lh_sense.py',                    '🧪', '感知·自我反馈·疑似误识别纠正 (lh sense feedback list|correct <id> --text …|export [--format jsonl|csv])', [], 'feedback'),
     # 🧠 超级大脑记忆引擎 v1.0 — 对话自动加载/保存/检索（2026-09-03 · CodeBuddy超级大脑任务）
     'brain':                ('lh_brain.py',                    '🧠', '超级大脑记忆·load|save --note|search <kw>|summary|remember|hook|stats (对话记忆自动加载更新·索引~/.longhun/brain/brain_index.json·O(1)召回·零三方)', [], 'stats'),
     'skill-list':           ('lh_skill_scheduler.py',         '📋', '技能调度·清单', [], 'list'),
@@ -1126,7 +1141,7 @@ SUB_DISPATCH = {
     'backup':               ('lh_backup.py',                    '💾', '龍魂状态一键备份→~/backups/longhun·SQLite图谱库/耻辱墙/topo全打包 (lh backup [--keep N]) · 任务C生态(2026-09-03)', [], ''),
     'audit':                ('lh_audit.py',                     '📋', '三色审计 (lh audit --tri-color) · 合规报告 (lh audit report [--out] [--pdf]) · 任务E生态(2026-09-03)', [], ''),
     # 🕸️ 知识图谱拓扑引擎 v1.1 — verify/sync/list/serve:8762/kb-status·HTML开放页+数字人知识库（2026-09-02）
-    'topo':                 ('lh_topo.py',                      '🕸️', '知识图谱拓扑·verify/sync/diff/db/list/serve:8762/kb-status/cite/frameworks/register/node (lh topo <verify|sync|diff|db|list|serve|kb-status|cite|frameworks|register|node> [图谱名]·serve=HTML开放页+/dashboard看板·缓存 docs/topology/·sync三源notion/obsidian/yuque·diff变更历史·db SQLite持久化·任务C/D生态2026-09-03)', [], ''),
+    'topo':                 ('lh_topo.py',                      '🕸️', '知识图谱拓扑 v1.8·verify/sync/diff/db/list/serve:8762/kb-status/cite/frameworks/register/node/edge/status/summary/search/export/export-page/audit-log (lh topo <...> [图谱名]·node=注册节点·edge=关联边 --source/--target/--type relates_to·status=状态速览MD表(含类型分布)·**sync <本地图谱> = 12_DOCS 交付文档自动拓扑同步**(11份白名单文档→自动补全document+article/移除消失→types表→verify→lh docs sync 链式触发)·**v1.8 公开化**: summary=摘要(--json)·search <关键词>=节点搜索(--json)·export=全图谱JSON(--json)·export-page=公开状态页(本地 docs/topology/对外交付状态页.md+文档站源 docs-site/docs/topology/index.md+首页区块自动刷新+summary.json)·audit-log=变更审计(--json·读 ~/.longhun/shame_wall/topo_audit.jsonl)·耻辱墙事件 topo_changed/topo_verify_alert 自动记录(同步 shame_wall.json)·线上 https://uid9622.cn/docs/topology/·口语词序全兼容)·serve=HTML开放页+/dashboard看板·缓存 docs/topology/·sync三源notion/obsidian/yuque·diff变更历史·db SQLite持久化·📢对外交付图谱22节点5边全绿(document10/article3/asset1/copy4/endpoint2/issue1/report1)·**v1.9 丝滑三链**(2026-09-05): ask <自然语言问题>=拓扑问答(有哪些文档/最近更新/耻辱墙关系/发布了哪些文章/状态→人话返回)·events [--limit N]=近期拓扑事件(耻辱墙事件流·ops操作明细/severity)·**sync 变更自动部署链**=export-page→mkdocs build→rsync 鲲鹏→~/.longhun/topo_auto_deploy.log(零变更不部署·节能)·耻辱墙事件 topo_change 带节点级操作(新增/更新=info·移除=warning)·lh health 新增「拓扑变更审计(耻辱墙)」项(移除未处理→🟡·下一次正常变更自愈🟢)·公开页含 🔍 图谱检索(纯前端 topo_live.js+data.json·实时过滤点击直达)·线上 https://uid9622.cn/docs/topology/)·**v2.0 可验证神经中枢**(2026-09-05): 自证 root_hash 全产物+status/summary · Merkle 审计链 audit-chain/audit-verify/history(创世根=legacy 聚合·GENESIS_FILE 防篡改) · 自修复 heal(🟡≥24h·快照比对回滚·30天快照保留) · 公共 API serve-api --port 8873(docs-site/topology-api/*.json 自含根哈希·rsync 鲲鹏 nginx /api/topo/) · 公开审计页 docs/topology/audit/ · 页面5分钟轮询变更提示 · weekly-report 每周审计(GPG签)', [], ''),
     'sec-check':            ('lh_security_check.py',            '🔐', '龍魂安全自检·端口绑定/权限/GPG签名/文件泄露 (lh sec-check [--json] [--scan-dir PATH]) · 键名2026-09-04改(security 归侦查审计引擎)', [], ''),
     'benchmark':            ('lh_benchmark.py',                 '⚡', '龍魂性能基准·排盘/流场/网关QPS (lh benchmark [--iterations 1000] [--json])', [], ''),
     # 🧬 归一收网 v1.0 — 归一回流头/外部调用审计/归一断言/反向追溯（2026-09-01）
@@ -1160,7 +1175,8 @@ SUB_DISPATCH = {
     'bind':                 ('lh_pledge.py',                    '🧬', '归属检测·检测任意文本是否含龙魂逻辑 (lh bind <文本> -> 🔴归属龙魂/🟢未检测到)', [], ''),
     'sys-check':            ('lh_pledge.py',                    '🔍', '零中间层铁律环境检查·Python版本/核心引擎/零依赖 (lh sys-check)', [], 'sys-check'),
     # 📖 文档自动同步 v1.0 — 从 lh.py SUB_DISPATCH 提取命令表→生成 autogen 清单（不碰 README 正文）
-    'doc-sync':             ('lh_doc_sync.py',                  '📖', '文档同步·提取命令表→docs/LH-COMMANDS-AUTOGEN.md (lh doc-sync [--json|--diff])', [], ''),
+    'doc-sync':             ('lh_doc_sync.py',                  '📖', '文档同步·提取命令表→docs/LH-COMMANDS-AUTOGEN.md+交付文档版本联动v5.2.0+**写盘后自动拓扑钩子**(扫 auto_docs_sync 图谱→lh topo sync <图谱> 12_DOCS 节点自动补全·2026-09-05 v1.7) (lh doc-sync [--json|--diff|--no-bump])', [], ''),
+    'docs':                 ('lh_docs.py',                      '📚', '对外文档一体化 v2.1·check/sync/version/stats/feedback(--all全量)/weekly(双落docs_feedback_weekly+反馈报告_<日期>)/audit/feedback-form(耻辱墙表单链接) (lh docs <...> [--json] · audit:站点一致性+首页DNA+页面GPG→耻辱墙docs_audit+归档 · 巡航04:00 · 周报周日00:00 · 文档站底部反馈区块已上线)', [], ''),
     # 🧑 数字人调动引擎 v1.0 — 自然语言/CLI/HTTP 三通道调动 22 数字人（2026-09-02）
     'dh':                   ('lh_dh_dispatch.py',              '🧑', '数字人调动·自然语言点名任意数字人·知识库含通心译总台19资产 (lh dh "字靈 设计字体"|DH-011 "任务" [--json])', [], ''),
     'dh-api':               ('lh_dh_dispatch.py',              '🌐', '数字人调动网关·POST /dh/dispatch GET /dh/list (lh dh-api [--port 8761] [--daemon]·Header X-UID:9622)', [], 'dh-api'),
@@ -1349,10 +1365,10 @@ def _brain_hook_post():
 def _session_auto_save(command_name: str):
     """🧠 会话记忆·执行后自动记录最后命令(静默·零输出·不覆盖 active_task·2026-09-04)"""
     try:
-        import json as _json
-        from pathlib import Path as _P
         from datetime import UTC as _UTC, datetime as _dt
-        _p = _P.home() / ".longhun" / "session_context.json"
+        import json as _json
+        from pathlib import Path
+        _p = Path.home() / ".longhun" / "session_context.json"
         d = {}
         if _p.exists():
             try:
@@ -1372,10 +1388,10 @@ def _state_hook_post(command_name: str):
     """🗄️ 全局状态总线+⏱️时间轴·执行后钩子(静默·零输出·不阻塞·2026-09-04):
     global_state.json 命令计数/last_command + timeline JSONL 追加(含干支戳)"""
     try:
-        import json as _json
-        from pathlib import Path as _P
         from datetime import datetime as _dt
-        _d = _P.home() / ".longhun"
+        import json as _json
+        from pathlib import Path
+        _d = Path.home() / ".longhun"
         (_d / "state").mkdir(parents=True, exist_ok=True)
         _g = _d / "state" / "global_state.json"
         s = {}
@@ -1413,19 +1429,19 @@ def _state_hook_post(command_name: str):
 
 def _ganzhi_simple(_dt_):
     """⏱️ 简版干支戳(年60甲子·月简·时2h制23时归子)·完整四柱走 lh te --stamp"""
-    _TG = "甲乙丙丁戊己庚辛壬癸"
-    _DZ = "子丑寅卯辰巳午未申酉戌亥"
+    _tg = "甲乙丙丁戊己庚辛壬癸"
+    _dz = "子丑寅卯辰巳午未申酉戌亥"
     _y = (_dt_.year - 4) % 60
     _h = (_dt_.hour + 1) // 2 % 12
-    return f"{_TG[_y % 10]}{_DZ[_y % 12]}年·{_TG[_dt_.month % 10]}{_DZ[_dt_.month % 12]}月·{_DZ[_h]}时"
+    return f"{_tg[_y % 10]}{_dz[_y % 12]}年·{_tg[_dt_.month % 10]}{_dz[_dt_.month % 12]}月·{_dz[_h]}时"
 
 
 def _session_banner():
     """🧠 会话记忆·恢复摘要(交互/无参入口一行·不打扰)"""
     try:
         import json as _json
-        from pathlib import Path as _P
-        _p = _P.home() / ".longhun" / "session_context.json"
+        from pathlib import Path
+        _p = Path.home() / ".longhun" / "session_context.json"
         if not _p.exists():
             return
         d = _json.loads(_p.read_text(encoding="utf-8"))
@@ -1446,19 +1462,17 @@ def _recap_hook_post(command_name: str, extra_args, result, t0):
     简单命令(skip_for)静默；失败(rc≠0)必复盘；太快的成功命令跳过。
     """
     try:
-        import json as _j
         import base64 as _b64
         import datetime as _dt
+        import json as _j
         if os.environ.get('LH_RECAP_OFF') == '1':
             return
         if not command_name or command_name == 'recap':
             return
         cfg = {}
-        try:
+        with contextlib.suppress(Exception):
             cfg = _j.loads((Path.home() / '.longhun' / 'recap' / 'config.json')
                            .read_text(encoding='utf-8'))
-        except Exception:
-            pass
         if not cfg.get('enabled', True):
             return
         cmd = str(command_name)

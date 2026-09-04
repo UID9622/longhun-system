@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🐉 龍魂·每日审计引擎 v1.0 — 每日 03:00 自审 · 系统自己养自己
+🐉 龍魂·每日审计引擎 v1.0 — 每日 04:00 自审 · 系统自己养自己
 ================================================================
 DNA:    #龍芯⚡️20260902-DAILY-AUDIT-v1.0-9622
 创建者: 诸葛鑫（UID9622）
@@ -12,7 +12,8 @@ License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 协议:    CC BY-NC-SA 4.0（核心思想层）
 
 功能:
-  --run    每日全流程: 互搏审计核心文件 + health + 铭碑校验 → 综合分
+  --run    每日全流程: 互搏审计核心文件 + health + 铭碑校验
+           + 对外文档一致性(lh docs check·🟡自动标记) → 综合分
            → JSON 报告(~/.longhun/audit/daily/YYYY-MM-DD.json)
            → 分<80 自动耻辱墙告警 + Bark 通知
   --show   查看最近报告
@@ -21,6 +22,7 @@ License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 设计:
   - 纯标准库 · 零三方依赖 · 单文件可跑
   - 综合分 = 互搏overall×0.6 + health通过率×0.25 + 铭碑校验×0.15
+  - docs 一致性不入分（记录不阻断）· 不一致自动标记 🟡 待更新
   - 阈值: 🟢≥80 🟡≥60 🔴<60 (与 lh_audit_battle_hub 同口径)
   - 告警落点: ~/.longhun/audit/alerts.json (append-only 审计日志)
     + ~/.longhun/shame_wall/shame_wall.json (耻辱墙, 若存在)
@@ -171,6 +173,22 @@ def run_daily(quiet: bool = False):
     # 3. 铭碑校验
     memorial = memorial_verify()
 
+    # 3.5 对外文档一致性 + 文档站三色审计 (lh docs · 2026-09-05 任务C/D焊入 · 04:00 巡航环)
+    docs = {"consistent": None, "issue_count": -1, "audit_color": None}
+    try:
+        _r = run_capture([sys.executable, str(ROOT / "08_BIN" / "lh_docs.py"),
+                          "check", "--json"], timeout=90)
+        _d = json.loads(_r) if _r.strip().startswith("{") else {}
+        docs = {"consistent": _d.get("consistent"), "issue_count": _d.get("issue_count", -1),
+                "audit_color": None}
+        # 文档站三色审计（内容一致性/首页DNA/页面GPG/未授权改动 → 耻辱墙 docs_audit + 归档）
+        _a = run_capture([sys.executable, str(ROOT / "08_BIN" / "lh_docs.py"),
+                          "audit", "--json"], timeout=90)
+        _ad = json.loads(_a) if _a.strip().startswith("{") else {}
+        docs["audit_color"] = _ad.get("color")
+    except Exception:  # noqa: BLE001
+        pass
+
     # 4. 综合分（缺项按 0 计，防止假高分）
     parts = []
     if battle_score is not None:
@@ -189,8 +207,11 @@ def run_daily(quiet: bool = False):
         "score": {"overall": overall, "color": color,
                   "battle": battle_score, "battle_color": battle_color,
                   "health": health["pass_rate"] if health else None,
-                  "memorial_ok": memorial["ok"] if memorial else None},
-        "details": {"battles": battles, "health": health, "memorial": memorial},
+                  "memorial_ok": memorial["ok"] if memorial else None,
+                  "docs_ok": docs.get("consistent"),
+                  "docs_audit": docs.get("audit_color")},
+        "details": {"battles": battles, "health": health, "memorial": memorial,
+                    "docs": docs},
     }
 
     REPORT_DIR.mkdir(parents=True, exist_ok=True)

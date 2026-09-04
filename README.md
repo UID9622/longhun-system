@@ -4,6 +4,10 @@
 <!--#龍芯⚡️丙午·甲午·庚辰·壬午·丷蛊-DOC-README-v5.0 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
+> 🎉 **龍魂系统对外文档已正式上线** → 点击查看 https://uid9622.cn/docs/
+> 公告期：2026-09-05 → 2026-10-05（保留 30 天）· 引擎：`lh docs check/sync/audit`
+> 📄 **正式发布稿**：[龙魂系统 · 从透明审计到主权人格的 AI 协作生态](docs/龙魂系统对外发布稿-2026-09-05.md) · 扩散素材：`docs/扩散素材-2026-09-05/`（V2EX/开源中国/知乎/Hacker News）· 手动发布指引：`lh publish outreach`
+
 # 🐉 龍魂系统 · LongHun System
 
 > **中国自主可控的数字主权底座。**
@@ -356,12 +360,37 @@ lh codeql-dashboard              # 面板：Markdown 表格 + 状态徽章 + GPG
 ### 入门必读
 | 文件 | 内容 |
 |:---|:---|
+| 📖 [完整文档站点](https://uid9622.cn/docs/) | 🌐 九份对外文档在线版 · 可搜索（与 `12_DOCS/` 同源同步 · 全页 GPG 可验证） |
+| 🗺️ [对外交付图谱拓扑状态](https://uid9622.cn/docs/topology/) | 📈 对外交付物拓扑总览（22 节点/5 边 · 自动同步 · 页面 🔍 检索实时过滤） · 🔮 自然语言问答：`lh topo 对外交付 ask 有哪些文档？`/`最近更新了什么？` · 📣 变更自动部署：`lh topo 对外交付 sync`（export-page→build→rsync 全自动） · 🕰️ 事件明细：`lh topo 对外交付 events` · 🟡 `lh health` 联动拓扑变更审计 · 🧬 v2.0 可验证神经中枢: Merkle 审计链(`lh topo 对外交付 audit-chain/audit-verify/history`)+自修复(`heal`)+公开 API `https://uid9622.cn/api/topo/*.json`+公开审计页 |
+| 📖 [龙魂系统导读（是什么·能做什么·怎么开始）](./12_DOCS/龙魂系统导读-2026-09-05.md) | 5 分钟认知入门 · 从问题到接入到文档站导航 |
 | 📖 [README.md](./README.md) | 系统介绍（你在看的这个） |
 | 🚀 [INSTALL.md](./INSTALL.md) | 安装指南（Linux/macOS/Windows/Docker） |
 | ❓ [docs/FAQ.md](./docs/FAQ.md) | 常见问题 |
 | 📔 [docs/GLOSSARY.md](./docs/GLOSSARY.md) | 术语表 |
 | 📋 [docs/龙魂系统能力清单-2026-09-03.md](./docs/龙魂系统能力清单-2026-09-03.md) | 能力盘点 · 命令/图谱/接口/守护 一表看清 |
 | 🤝 [docs/社区接入指南.md](./docs/社区接入指南.md) | 社区接入 · clone/跑命令/接API/提Issue/验耻辱墙 |
+
+### 📊 拓扑可验证
+
+> 对外交付拓扑 v2.0 已公开上线 —— 可独立验证 · 可提交反馈 · 可引用归档。
+
+| 项 | 值 |
+|:---|:---|
+| 📈 [拓扑公开页面](https://uid9622.cn/docs/topology/) | 对外交付图谱实时状态（22 节点 / 5 边 · 全绿 · 页面 🔍 可检索） |
+| 🔗 [公开 API](https://uid9622.cn/api/topo/status.json) | `https://uid9622.cn/api/topo/status.json` · `events.json` · 归档 JSON |
+| 🧬 **根哈希** | `824EDDE86F104FD2`（聚合 name\|dna → SHA-256 前 16 · 数据一改哈希必变） |
+| 📜 [根哈希声明](https://uid9622.cn/docs/topology/ROOT_HASH_DECLARATION/) | 声明时间 + 验证方法 · GPG 分离签名 |
+| 📦 [归档快照](https://uid9622.cn/docs/topology/archive/) | 完整拓扑 JSON + 审计链 · GPG 签名 · 变更/同步时自动打点 |
+| ⛓ [Merkle 审计链](https://uid9622.cn/docs/topology/audit/) | append-only · seq/prev_hash 逐条自证 · 公开可复核 |
+| 🐛 [拓扑反馈](https://github.com/UID9622/longhun-system/issues/new?template=shame_report.yml&labels=topo-feedback) | 耻辱墙模板 · `topo-feedback` 标签 · 自动收集：`lh topo 对外交付 feedback` |
+
+**独立验证指令**
+```
+curl https://uid9622.cn/api/topo/status.json      # ① 在线比对 root_hash 是否 824EDDE86F104FD2
+lh topo audit-verify 对外交付                      # ② 本机重算（仓库内）
+gpg --verify ROOT_HASH_DECLARATION.md.asc ROOT_HASH_DECLARATION.md  # ③ 签名核验
+```
+> 归属名: 诸葛鑫 \| UID9622 · 龍芯北辰 · 数据主权: 本地生成 · 云端仅静态镜像（无后台 / 无数据采集）
 
 ### 技术文档
 | 文件 | 内容 |
@@ -377,6 +406,8 @@ lh codeql-dashboard              # 面板：Markdown 表格 + 状态徽章 + GPG
 | 📦 [docs/SDK-GUIDE.md](./docs/SDK-GUIDE.md) | SDK 第三方对接指南（pip/npm） |
 | 🏗️ [docs/CASE_STUDIES.md](./docs/CASE_STUDIES.md) | 完整落地案例 |
 | 💡 [docs/USE_CASES.md](./docs/USE_CASES.md) | 使用案例 |
+| 📒 [12_DOCS/龙魂账法使用指南-2026-09-04.md](./12_DOCS/龙魂账法使用指南-2026-09-04.md) | 龍魂账法 v1.0 使用指南（底层记账能力） |
+| 📡 [12_DOCS/龙魂账法API参考-v1.0.md](./12_DOCS/龙魂账法API参考-v1.0.md) | 龍魂账法 API 参考（Python/JSON-RPC） |
 
 ### 治理与协议
 | 文件 | 内容 |
@@ -399,6 +430,25 @@ lh codeql-dashboard              # 面板：Markdown 表格 + 状态徽章 + GPG
 | 🌐 [docs/ECOSYSTEM.md](./docs/ECOSYSTEM.md) | 生态系统·MCP·插件 |
 
 > 📊 完整索引见 [`docs/DOCUMENTATION_INDEX.md`](./docs/DOCUMENTATION_INDEX.md)
+
+---
+
+## 📒 账法系统 · Ledger System v1.0（2026-09-04）
+
+龍魂底层记账能力：**每笔交易都有 DNA（#龍帳⚡️）、8 位哈希、见证人格与三色审计**，
+入账即上耻辱墙、重大交易入超级大脑、发票/收据/口述可感知识别记账。
+
+```bash
+lh ledger dna 1001 3201 1条                       # 生成账法 DNA
+lh ledger add T1 1001 3201 1条 --note "测试铁律"   # 记账（自动三色审计）
+lh ledger list / verify --full / balance / export --format md
+lh ledger wall / audit 1 / confirm 2 / scan 发票.png / rpc '{"method":"balance"}'
+```
+
+- 数据落点 `~/.longhun/ledger/`（append-only·零中间层零依赖）
+- 命令入口 `lh ledger` · 引擎 `08_BIN/lh_ledger.py`（含 JSON-RPC 供 MCP/数字人）
+- 集成：三色审计 `lh audit` · 耻辱墙 `lh judge` · 记忆 `lh brain` · 多模态 `lh sense ledger-chain`
+- 文档：[使用指南](./12_DOCS/龙魂账法使用指南-2026-09-04.md) · [API 参考](./12_DOCS/龙魂账法API参考-v1.0.md)
 
 ---
 

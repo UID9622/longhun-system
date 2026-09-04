@@ -14,9 +14,11 @@ import argparse
 import contextlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
+from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent   # longhun-system/
@@ -24,6 +26,7 @@ BIN = ROOT / "08_BIN"
 CMD_INDEX = ROOT / ".codebuddy" / "COMMAND_INDEX.md"
 AUTOGEN = ROOT / "docs" / "LH-COMMANDS-AUTOGEN.md"
 TOPO_DIR = ROOT / "docs" / "topology"   # 知识图谱拓扑缓存 (lh topo sync)
+DOCS_DIR = ROOT / "12_DOCS"             # 对外交付文档 (lh docs check / docs_version)
 
 
 def check_file(path: Path, name: str) -> tuple:
@@ -80,6 +83,23 @@ def _dh_kb_state() -> dict:
     return {}
 
 
+def _docs_version() -> str:
+    """对外文档版本：扫 12_DOCS/*.md 文件头 DNA 行时间戳，取最新 YYYY-MM-DD
+    (lh docs check 同口径 · 只认每文件首个 DNA · 缺文档返回 'none')"""
+    import re as _re
+    pat = _re.compile(r"#龍(?:芯|帳)⚡️[^\n]*?(\d{4}-\d{2}-\d{2})")
+    best = ""
+    try:
+        for p in DOCS_DIR.glob("*.md"):
+            txt = p.read_text(encoding="utf-8", errors="ignore")[:900]
+            m = pat.search(txt)
+            if m and m.group(1) > best:
+                best = m.group(1)
+    except Exception:  # noqa: BLE001
+        pass
+    return best or "none"
+
+
 def kg_stats() -> dict:
     """知识图谱节点统计：聚合 docs/topology/*.topo.json（多图谱取节点最多者为主）
     含数字人知识库接入状态 kb_loaded（B4·2026-09-02）"""
@@ -130,6 +150,140 @@ def kg_stats() -> dict:
                  "kb_error": kb.get("error", ""),
                  "graphs": graphs})   # 全图谱列表 v1.3（多图谱并列，不止最大者）
     return best
+
+
+def _sense_stats() -> dict:
+    """lh_sense v2.0 感知审计统计（三色闭环 · 读 ~/.longhun/sense_audit.jsonl）"""
+    p = Path.home() / ".longhun" / "sense_audit.jsonl"
+    s = {"ok": p.is_file(), "total": 0, "green": 0, "yellow": 0, "red": 0,
+         "last": "", "where": "~/.longhun/sense_audit.jsonl"}
+    if not p.is_file():
+        return s
+    try:
+        for line in p.read_text(encoding="utf-8").splitlines():
+            try:
+                e = json.loads(line)
+            except Exception:
+                continue
+            s["total"] += 1
+            c = e.get("color")
+            if c == "🟢":
+                s["green"] += 1
+            elif c == "🟡":
+                s["yellow"] += 1
+            elif c == "🔴":
+                s["red"] += 1
+            s["last"] = e.get("ts", "") or s["last"]
+    except Exception:
+        pass
+    return s
+
+
+def _ledger_stats() -> dict:
+    """📒 龍魂账法统计（读 ~/.longhun/ledger/ · 2026-09-04）"""
+    root = Path.home() / ".longhun" / "ledger"
+    s = {"ok": False, "tx_total": 0, "pending": 0, "meltdown": 0,
+         "last_dna": "", "last_ts": "", "balance_ok": None,
+         "where": "~/.longhun/ledger/"}
+    tx_p = root / "transactions.jsonl"
+    if not tx_p.is_file():
+        return s
+    s["ok"] = True
+    try:
+        last = None
+        for line in tx_p.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                e = json.loads(line)
+            except Exception:
+                continue
+            s["tx_total"] += 1
+            last = e
+        if last:
+            s["last_dna"] = last.get("dna", "")
+            s["last_ts"] = last.get("created_at", "")
+        f_pend = root / "pending.jsonl"
+        if f_pend.is_file():
+            s["pending"] = sum(1 for ln in f_pend.read_text(encoding="utf-8")
+                               .splitlines() if ln.strip())
+        f_melt = root / "meltdown.jsonl"
+        if f_melt.is_file():
+            s["meltdown"] = sum(1 for ln in f_melt.read_text(encoding="utf-8")
+                                .splitlines() if ln.strip())
+    except Exception:
+        pass
+    return s
+
+
+def _topo_root_check() -> tuple:
+    """拓扑根哈希持续自检(v2.2·2026-09-05): 本地重算 vs 线上公开 uid9622.cn/api/topo/status.json
+    算法与 lh_topo.topo_root_hash 同口径: group|name|dna 行排序聚合 → SHA-256 前 16 位
+    一致🟢 / 不一致🔴(篡改或未同步·立即 export-page) / 线上不可达🟡(待复查·不计硬失败)"""
+    import hashlib as _h
+    import urllib.request as _u
+    p = TOPO_DIR / "对外交付_legion_topo.json"
+    if not p.is_file():
+        return ("拓扑根哈希在线一致", False, "本地图谱缺失",
+                "docs/topology/对外交付_legion_topo.json · lh topo sync 对外交付", "🔴")
+    try:
+        data = json.loads(p.read_text(encoding="utf-8"))
+        lines = []
+        for g in data.get("groups", []):
+            for a in g.get("assets", []):
+                lines.append(f"{g.get('name')}|{a.get('name')}|{a.get('dna') or ''}")
+        local = _h.sha256("\n".join(sorted(lines)).encode("utf-8")).hexdigest()[:16].upper()
+    except Exception as e:  # noqa: BLE001
+        return ("拓扑根哈希在线一致", False, f"本地重算失败 {e}",
+                "docs/topology/对外交付_legion_topo.json", "🔴")
+    try:
+        req = _u.Request("https://uid9622.cn/api/topo/status.json",
+                         headers={"User-Agent": "longhun-health/2.2"})
+        with _u.urlopen(req, timeout=8) as r:
+            online = str((json.loads(r.read().decode("utf-8")) or {}).get("root_hash", ""))
+    except Exception as e:  # noqa: BLE001
+        return ("拓扑根哈希在线一致", False,
+                f"本地 {local} · 线上不可达({type(e).__name__})",
+                "uid9622.cn/api/topo/status.json · lh health 下次复查", "🟡")
+    if online.upper() == local:
+        return ("拓扑根哈希在线一致", True, f"{local} · 本地 = 线上 ✓",
+                "docs/topology ↔ uid9622.cn/api/topo/status.json", "🟢")
+    return ("拓扑根哈希在线一致", False,
+            f"本地 {local} ≠ 线上 {online}",
+            "不一致=篡改/未同步 · 立即 lh topo export-page 对外交付", "🔴")
+
+
+def _topo_event_state() -> dict:
+    """拓扑变更事件审计（v1.9 耻辱墙联动 · 读 ~/.longhun/shame_wall/topo_audit.jsonl）
+    最近一条事件为移除/告警（warning）→ 🟡 提醒查看 events；否则 🟢（自愈式，下次正常变更即恢复）"""
+    base = {"name": "拓扑变更审计(耻辱墙)", "ok": True, "mark": "🟢",
+            "detail": "无未处理事件 · 事件流 append-only",
+            "where": "~/.longhun/shame_wall/topo_audit.jsonl · lh topo 对外交付 events"}
+    p = Path.home() / ".longhun" / "shame_wall" / "topo_audit.jsonl"
+    if not p.is_file():
+        return {**base, "detail": "事件流未建立（拓扑首次变更后自动生成）"}
+    rows = []
+    with contextlib.suppress(Exception):
+        for line in p.read_text(encoding="utf-8", errors="ignore").splitlines():
+            line = line.strip()
+            if line:
+                rows.append(json.loads(line))
+    if not rows:
+        return base
+    last = rows[-1]
+    color = last.get("color", "🟢")
+    sev = last.get("severity") or (("warning" if (last.get("warn") or last.get("bad")) else "info"))
+    detail = str(last.get("detail", ""))
+    ts_txt = str(last.get("ts", ""))
+    removed = any(o.get("op") == "remove" for o in (last.get("ops") or []))
+    removed = removed or bool(re.search(r"移除[1-9]", detail))
+    is_warn = sev == "warning" or color in ("🟡", "🔴") or removed
+    if is_warn:
+        return {**base, "mark": "🟡",
+                "detail": f"⚠️ 最近事件需查看 · {ts_txt} · {detail[:56]}",
+                "where": "lh topo 对外交付 events（查看明细；下一次正常变更自动恢复 🟢）"}
+    return {**base, "detail": f"最近 {ts_txt} · {detail[:64]}"}
 
 
 def run_checks() -> list:
@@ -232,23 +386,45 @@ def run_checks() -> list:
         results.append(("收款钱包(SOL/USDC)", False,
                         "未初始化(lh wallet init)", "~/.longhun/crypto.json"))
 
+    # ── 11. 感知审计（lh_sense v2.0 · 识别→决策→编排→反馈 闭环）──
+    sa = _sense_stats()
+    if sa["total"]:
+        detail = (f"共 {sa['total']} 条 · 🟢{sa['green']} · 🟡{sa['yellow']} · "
+                  f"🔴{sa['red']}" + (f" · 最近 {sa['last'][:16]}" if sa["last"] else ""))
+        results.append(("感知审计(v2.0)", True, detail,
+                        "~/.longhun/sense_audit.jsonl · lh sense --auto"))
+    else:
+        results.append(("感知审计(v2.0)", True, "0 条（lh sense <文件> --auto 启用）",
+                        "~/.longhun/sense_audit.jsonl"))
+
+    # ── 12. 拓扑变更事件（v1.9 耻辱墙联动 · 移除/告警未处理 → 🟡）──
+    te = _topo_event_state()
+    results.append((te["name"], te["ok"], te["detail"], te["where"], te["mark"]))
+
+    # ── 13. 拓扑根哈希持续自检（v2.2 · 本地重算 vs 线上公开 API）──
+    results.append(_topo_root_check())
+
     return results
 
 
 def render_table(results) -> str:
+    """v1.9 支持 5 元结果 (name, ok, detail, where, mark)；mark 显式 🟢/🟡/🔴（缺省按 ok 派生）"""
     lines = ["", "  🏥 龍魂系统自检 · lh health"]
     lines.append("  " + "=" * 52)
     greens = reds = yellows = 0
-    for name, ok, detail, where in results:
-        mark = "🟢" if ok else "🔴"
-        if ok:
+    for it in results:
+        name, ok, detail, where = it[0], it[1], it[2], it[3]
+        mark = it[4] if len(it) > 4 else ("🟢" if ok else "🔴")
+        if mark == "🟢":
             greens += 1
+        elif mark == "🟡":
+            yellows += 1
         else:
             reds += 1
         lines.append(f"  {mark} {name:<22} {detail}")
         lines.append(f"      ↳ {where}")
     lines.append("  " + "=" * 52)
-    lines.append(f"  ✅ {greens} 项就绪 · ❌ {reds} 项缺失")
+    lines.append(f"  ✅ {greens} 项就绪 · 🟡 {yellows} 项关注 · ❌ {reds} 项缺失")
     lines.append("")
     return "\n".join(lines)
 
@@ -260,9 +436,9 @@ def main():
 
     results = run_checks()
 
-    # ── v2.2 Webhook 钩子: 健康检查失败 → health 事件推送（失败不影响主流程）
+    # ── v2.2 Webhook 钩子: 健康检查失败 → health 事件推送（失败不影响主流程 · 🟡 关注不算失败）
     try:
-        fails = [(n, w) for n, ok, d, w in results if not ok]
+        fails = [(it[0], it[3]) for it in results if not it[1]]
         if fails:
             from lh_webhook import fire_event
             fire_event("health", f"健康异常 {len(fails)} 项: "
@@ -275,21 +451,28 @@ def main():
             "tool": "lh-health",
             "version": "1.2",
             "checks": [
-                {"name": n, "ok": ok, "detail": d, "where": w}
-                for n, ok, d, w in results
+                {"name": it[0], "ok": it[1], "detail": it[2], "where": it[3],
+                 "mark": it[4] if len(it) > 4 else ("🟢" if it[1] else "🔴")}
+                for it in results
             ],
             "summary": {
-                "ok": sum(1 for _, ok, _, _ in results if ok),
-                "fail": sum(1 for _, ok, _, _ in results if not ok),
+                "ok": sum(1 for it in results if it[1]),
+                "fail": sum(1 for it in results if not it[1]),
+                "warn": sum(1 for it in results
+                            if (it[4] if len(it) > 4 else "") == "🟡"),
                 "total": len(results),
             },
-            "knowledge_graph": kg_stats(),
+            "topo_events": {"has_warn": any(
+                it[4] == "🟡" for it in results if len(it) > 4)},
+            "knowledge_graph": {**kg_stats(), "docs_version": _docs_version()},
+            "sense_audit": _sense_stats(),
+            "ledger_status": _ledger_stats(),
         }
         print(json.dumps(out, ensure_ascii=False, indent=2))
         sys.exit(0 if out["summary"]["fail"] == 0 else 1)
 
     print(render_table(results))
-    sys.exit(0 if all(ok for _, ok, _, _ in results) else 1)
+    sys.exit(0 if all(it[1] for it in results) else 1)
 
 
 if __name__ == "__main__":
