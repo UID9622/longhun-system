@@ -1,6 +1,0 @@
-# 龍魂双节点同步层 .gitignore
-# 密钥文件不提交
-.dual_node_keys
-*.key
-__pycache__/
-*.pyc

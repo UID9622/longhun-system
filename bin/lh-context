@@ -1,4 +1,0 @@
-#!/bin/bash
-# 🐉 龍魂认知上下文管理器
-# DNA: #龍芯⚡️2026-06-28-LH-CONTEXT-v1.0
-exec python3 /Users/zuimeidedeyihan/longhun-system/calendar-context-logger/cli.py context "${@:-status}"

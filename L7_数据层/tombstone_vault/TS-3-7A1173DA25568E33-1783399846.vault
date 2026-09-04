@@ -1,1 +1,0 @@
-Coinhive挖矿脚本，使用WebSocket连接stratum+tcp://pool.minexmr.com:4444，通过WebGL调用GPU加速挖矿，静默后台运行不提示用户

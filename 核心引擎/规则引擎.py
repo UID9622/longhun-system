@@ -1,1 +1,0 @@
-../rules-engine-v2.5/batch_processor_v2.5.py

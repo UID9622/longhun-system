@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
-  <rect width="800" height="600" fill="#f7f3e8"/>
-  <g opacity="0.2" stroke="#4a0000" stroke-width="2" fill="none">
-    <circle cx="400" cy="300" r="150"/>
-    <path d="M400 150 V450 M250 300 H550 M288 212 L512 388 M288 388 L512 212"/>
-    <text x="400" y="310" text-anchor="middle" font-family="serif" font-size="40" fill="#4a0000" stroke="none">陰陽</text>
-  </g>
-  <text x="400" y="560" text-anchor="middle" font-family="serif" font-size="16" fill="#555">黄帝内经医道占位 · 待替换</text>
-</svg>

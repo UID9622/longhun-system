@@ -1,4 +1,0 @@
-#!/bin/bash
-# 🐉 龍魂 Notion 实时记录器
-# DNA: #龍芯⚡️2026-06-28-LH-LOGGER-v1.0
-exec python3 /Users/zuimeidedeyihan/longhun-system/calendar-context-logger/cli.py logger "${@:-stats}"

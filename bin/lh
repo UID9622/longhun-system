@@ -1,7 +1,0 @@
-# #龍芯⚡️2026-07-03-MODULE-LONGHUN-v1.0
-# 君子協議: 本文件受龍魂DNA追溯保護
-
-#!/bin/bash
-# 🐉 龍魂统一交互入口 · LH 看板（系统级 longhun 代理）
-# DNA: #龍芯⚡️20260629-LONGHUN-LONGHUN-PROXY-v2.0
-exec python3 "$HOME/.longhun/bin/lh_dashboard.py" "$@"

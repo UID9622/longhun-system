@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
-  <rect width="800" height="600" fill="#f7f3e8"/>
-  <g transform="translate(400,300)" stroke="#3a0000" stroke-width="2" fill="none">
-    <circle r="180"/><circle r="120"/><circle r="60"/>
-    <line x1="-180" y1="0" x2="180" y2="0"/><line x1="0" y1="-180" x2="0" y2="180"/>
-    <line x1="-127" y1="-127" x2="127" y2="127"/><line x1="-127" y1="127" x2="127" y2="-127"/>
-  </g>
-  <text x="400" y="560" text-anchor="middle" font-family="serif" font-size="16" fill="#555">河图洛书 · 九宫数理占位 · 待替换</text>
-</svg>

@@ -1,5 +1,0 @@
-#!/bin/bash
-# 🐉 龍魂八卦决策调度器入口
-# DNA: #龍芯⚡️2026-06-28-LH-BAGUA-ENTRY-v1.0
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-exec python3 "$SCRIPT_DIR/longhun-bagua.py" "$@"

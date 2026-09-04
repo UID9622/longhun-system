@@ -1,4 +1,0 @@
-#!/bin/bash
-# 🐉 龍魂万年历 · 系统集成入口
-# DNA: #龍芯⚡️2026-06-28-LH-CALENDAR-v1.0
-exec python3 /Users/zuimeidedeyihan/longhun-system/calendar-context-logger/cli.py "${@:-status}"
