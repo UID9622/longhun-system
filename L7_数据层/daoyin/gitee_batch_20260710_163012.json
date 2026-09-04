@@ -1,0 +1,21 @@
+{
+  "batch_type": "gitee_clone_bridge",
+  "total": 1,
+  "success_count": 0,
+  "failed_count": 1,
+  "elapsed_seconds": 0.7818048000335693,
+  "dry_run": true,
+  "results": [
+    {
+      "source": "https://gitee.com/gmssl/GmSSL",
+      "owner_repo": "gmssl/GmSSL",
+      "success": false,
+      "clone_ok": false,
+      "absorb_ok": false,
+      "dna": "",
+      "error": "clone: clone 失败: 1n9bj0g4dpksnznm0000gn/T/daoyin_gitee_avmmgqzo/GmSSL'...\nremote: \u001b[31m[session-2f465dae] The token username invalid\u001b[0m\n致命错误：无法访问 'https://gitee.com/gmssl/GmSSL/'：The requested URL returned error: 403",
+      "elapsed_total": 0,
+      "elapsed_clone": 0.7741568088531494
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#f7f3e8"/>
+  <g opacity="0.9">
+    <ellipse cx="200" cy="140" rx="58" ry="68" fill="#3a2e24"/>
+    <path d="M125 210 Q200 175 275 210 L295 430 Q200 460 105 430 Z" fill="#5c4a3a"/>
+    <path d="M130 180 Q200 140 270 180" stroke="#2a2018" stroke-width="7" fill="none"/>
+    <path d="M160 240 L200 280 L240 240" stroke="#d4af37" stroke-width="3" fill="none"/>
+  </g>
+  <text x="200" y="470" text-anchor="middle" font-family="serif" font-size="18" fill="#4a0000">伏羲 · 画卦占位</text>
+  <text x="200" y="40" text-anchor="middle" font-family="serif" font-size="13" fill="#555">待替换为真实公开版权画像</text>
+</svg>

@@ -1,0 +1,71 @@
+[
+{"_dna": "#龍芯⚡️2026-06-21-CONFIG-OPENHUB_AI_CLAW_API_DOCS_20260609-v1.0"},
+  {
+    "id": "get_ai_api_docs",
+    "name": "Get AI API Docs",
+    "name_zh": "获取 AI API 文档",
+    "method": "GET",
+    "path": "/api/v1/ai/docs",
+    "summary": "Get complete documentation for all implemented AI REST APIs in OpenHub.",
+    "summary_zh": "获取 OpenHub 中所有已实现 AI REST API 的完整说明文档。",
+    "description": "Return the complete contents of ai_claw_api_docs.json exactly as exposed by OpenHub. This endpoint is used for AI capability discovery, allowing callers to dynamically fetch the latest AI API documentation collection currently bundled with the app. Returns 200 and the full documentation array on success; returns 500 on failure.",
+    "description_zh": "原样返回 OpenHub 当前对外暴露的 ai_claw_api_docs.json 完整内容。该接口用于 AI 能力发现，便于调用方动态获取应用当前内置的 AI API 文档集合。成功时返回 200 和完整文档数组；失败时返回 500。",
+    "curl": "curl -X GET http://127.0.0.1:10088/api/v1/ai/docs",
+    "response": "[{\"id\":\"get_ai_api_docs\",\"name\":\"Get AI API Docs\",\"path\":\"/api/v1/ai/docs\"}, ...]"
+  },
+  {
+    "id": "query_ai_status",
+    "name": "Query AI Status",
+    "name_zh": "查询 AI 状态",
+    "method": "GET",
+    "path": "/api/v1/ai/status",
+    "summary": "Query AI platform tab status",
+    "summary_zh": "查询 AI 平台 Tab 状态",
+    "description": "Get the status of all AI platform tabs captured by the aiClaw extension, including ChatGPT, Gemini, and Grok. Returns information such as tabId, URL, active status, and login status for each tab. This is the first step for bots to perceive the AI platform environment in the browser, ensuring your Bot always operates on the correct tab.",
+    "description_zh": "获取当前所有由 aiClaw 扩展捕获的 AI 平台标签页状态,包括 ChatGPT、Gemini、Grok。返回每个标签页的 tabId、URL、是否活动、登录状态等信息。这是机器人感知浏览器中 AI 平台环境的第一步,确保您的 Bot 始终在正确的标签页上执行操作。",
+    "curl": "curl -X GET http://127.0.0.1:10088/api/v1/ai/status",
+    "response": "{\"tabs\":[{\"platform\":\"chatgpt\",\"tabId\":123456789,\"url\":\"https://chatgpt.com\",\"active\":true,\"isLoggedIn\":true}]}"
+  },
+  {
+    "id": "send_ai_message",
+    "name": "Send AI Message",
+    "name_zh": "发送 AI 消息",
+    "method": "POST",
+    "path": "/api/v1/ai/message",
+    "summary": "Send message to specified AI platform",
+    "summary_zh": "向指定 AI 平台发送消息",
+    "description": "Send a message to the specified AI platform and get the AI's raw response. Supports continuing conversations in existing threads (via conversationId) or sending new messages on the current page. The system automatically inputs the message into the AI platform's input box via DOM manipulation and submits it, then returns the AI's complete raw response text. Completely passes through the AI platform's raw reply without any data processing or formatting.\n\nSupported platforms:\n- chatgpt: ChatGPT (https://chatgpt.com)\n- gemini: Google Gemini (https://gemini.google.com)\n- grok: xAI Grok (https://grok.com)",
+    "description_zh": "向指定的 AI 平台发送消息并获取 AI 的原始回复。支持在现有对话中继续对话(通过 conversationId)或在当前页面发送新消息。系统会自动通过 DOM 操作将消息输入到 AI 平台的输入框并提交,然后返回 AI 的完整原始响应文本。完全透传 AI 平台的原始回复,不做任何数据处理或格式化。\n\n支持的平台:\n- chatgpt: ChatGPT (https://chatgpt.com)\n- gemini: Google Gemini (https://gemini.google.com)\n- grok: xAI Grok (https://grok.com)",
+    "request_body": "{\n  \"platform\": \"chatgpt\",  // Required: \"chatgpt\" | \"gemini\" | \"grok\"\n  \"prompt\": \"Hello, how are you?\",  // Required: message text\n  \"conversationId\": \"optional-conversation-id\"  // Optional: continue existing conversation\n}",
+    "curl": "curl -X POST http://127.0.0.1:10088/api/v1/ai/message \\\n     -H \"Content-Type: application/json\" \\\n     -d '{\"platform\":\"chatgpt\", \"prompt\":\"Hello\"}'",
+    "response": "{\"success\":true,\"response\":\"Hello! I'm doing well, thank you for asking. How can I help you today?\"}"
+  },
+  {
+    "id": "new_ai_conversation",
+    "name": "New AI Conversation",
+    "name_zh": "创建新对话",
+    "method": "POST",
+    "path": "/api/v1/ai/new_conversation",
+    "summary": "Create a new AI conversation",
+    "summary_zh": "创建新的 AI 对话",
+    "description": "Create a brand new conversation on the specified AI platform. This operation clicks the \"New Conversation\" button via DOM manipulation, clearing the current context and providing a clean conversation environment for subsequent message interactions. Suitable for scenarios that require starting a new topic or avoiding context interference.\n\nSupported platforms:\n- chatgpt: ChatGPT (https://chatgpt.com)\n- gemini: Google Gemini (https://gemini.google.com)\n- grok: xAI Grok (https://grok.com)",
+    "description_zh": "在指定的 AI 平台上创建一个全新的对话。该操作会通过 DOM 操作点击\"新对话\"按钮,清空当前上下文,为后续的消息交互提供一个干净的对话环境。适用于需要开始全新话题或避免上下文干扰的场景。\n\n支持的平台:\n- chatgpt: ChatGPT (https://chatgpt.com)\n- gemini: Google Gemini (https://gemini.google.com)\n- grok: xAI Grok (https://grok.com)",
+    "request_body": "{\n  \"platform\": \"chatgpt\"  // Required: \"chatgpt\" | \"gemini\" | \"grok\"\n}",
+    "curl": "curl -X POST http://127.0.0.1:10088/api/v1/ai/new_conversation \\\n     -H \"Content-Type: application/json\" \\\n     -d '{\"platform\":\"chatgpt\"}'",
+    "response": "{\"success\":true,\"message\":\"New conversation created\"}"
+  },
+  {
+    "id": "navigate_ai_platform",
+    "name": "Navigate AI Platform",
+    "name_zh": "导航 AI 平台",
+    "method": "POST",
+    "path": "/api/v1/ai/navigate",
+    "summary": "Navigate AI platform to home page",
+    "summary_zh": "导航 AI 平台到首页",
+    "description": "Navigate all tabs of the specified AI platform to its home page. This is a convenient reset operation that allows the Bot to quickly restore the browser environment to the AI platform's main interface. This operation automatically identifies all open tabs for that platform and uniformly navigates them to the home page URL.\n\nSupported platforms:\n- chatgpt: ChatGPT (https://chatgpt.com)\n- gemini: Google Gemini (https://gemini.google.com)\n- grok: xAI Grok (https://grok.com)",
+    "description_zh": "将指定 AI 平台的所有标签页导航到其首页。这是一个便捷的重置操作,可以让 Bot 快速将浏览器环境恢复到 AI 平台的主界面。该操作会自动识别该平台的所有打开标签页并统一导航到首页 URL。\n\n支持的平台:\n- chatgpt: ChatGPT (https://chatgpt.com)\n- gemini: Google Gemini (https://gemini.google.com)\n- grok: xAI Grok (https://grok.com)",
+    "request_body": "{\n  \"platform\": \"chatgpt\"  // Required: \"chatgpt\" | \"gemini\" | \"grok\"\n}",
+    "curl": "curl -X POST http://127.0.0.1:10088/api/v1/ai/navigate \\\n     -H \"Content-Type: application/json\" \\\n     -d '{\"platform\":\"chatgpt\"}'",
+    "response": "{\"success\":true,\"message\":\"Navigated to chatgpt home page\"}"
+  }
+]

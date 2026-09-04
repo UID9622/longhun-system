@@ -1,0 +1,39 @@
+##龍芯⚡️2026-06-21-CNSH-REQUIREMENTS-FILE2-v1.0-3
+# 君子协议: 本文件受龍魂DNA追溯保护
+
+# CNSH多语言编辑器终端v5.0 依赖列表
+# 🐉 龍芯⚡️2026-06-18-CNSH-TERMINAL-v5.0
+# 🤝 君子协议: CC BY-NC-SA 4.0 · UID9622 · 龍芯北辰 · 诸葛鑫
+
+# ========== 必需依赖 ==========
+# Python 3.10+ (内置 tkinter)
+
+# ========== 核心加密 ==========
+cryptography>=41.0.0      # AES-256-GCM + RSA-2048 加密
+gnupg>=0.5.0              # GPG密钥管理（可选）
+
+# ========== 向量数据库 ==========
+chromadb>=0.4.0           # 中央藏经阁向量存储（可选）
+
+# ========== 嵌入模型 ==========
+sentence-transformers>=2.2.0  # 术语向量嵌入（可选）
+
+# ========== 多模态感知（可选） ==========
+edge-tts>=6.1.0           # 在线语音合成（优先）
+pyttsx3>=2.90             # 离线语音合成（降级）
+Pillow>=10.0.0            # 图像处理
+opencv-python>=4.8.0      # 计算机视觉预处理
+pytesseract>=0.3.10       # OCR文字识别
+openai-whisper            # 语音转文字（可选，模型较大）
+soundfile>=0.12.0         # 音频读写（配合whisper）
+
+# ========== 开发依赖 ==========
+pytest>=7.4.0             # 测试框架
+pytest-cov>=4.1.0         # 测试覆盖率
+
+# ========== 安装命令 ==========
+# 基础安装（核心功能）:
+#   pip install cryptography
+#
+# 完整安装（所有功能）:
+#   pip install -r requirements.txt

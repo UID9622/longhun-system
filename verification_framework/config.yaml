@@ -1,0 +1,37 @@
+# 龍魂双层验证框架配置
+# DNA: #龍芯⚡️2026-08-25-VERIFICATION-FRAMEWORK-CONFIG-v1.0-UID9622
+
+framework:
+  name: "龍魂双层验证框架"
+  version: "1.0.0"
+  author: "UID9622"
+  source_issue: "deepseek-ai/DeepSeek-V3#1591"
+
+layer1:
+  confidence_level: 0.95      # Wilson CI 置信水平
+  min_sample_size: 10         # 最小样本量（低于此值结果仅供参考）
+
+layer2:
+  precision_threshold_high: 0.8     # 高精密度阈值
+  precision_threshold_moderate: 0.5  # 中精密度阈值
+  deviation_tolerance: 0.01         # 偏差忽略阈值（小于此值视为 none）
+  reference_config: "A"             # 默认参考配置
+
+dataset:
+  default_path: "../data/longhun_audit_dataset_r2.jsonl"
+  verdict_field: "verdict"
+  config_field: "config"
+  session_field: "session_id"
+  prompt_field: "prompt"
+  rejection_reason_field: "rejection_reason"
+
+output:
+  format: "markdown"    # markdown | json
+  path: "./report.md"
+
+audit:
+  dna_prefix: "#龍芯⚡️"
+  enable_tricolor: true
+  green_threshold: 0.8   # 精密度 >= 0.8 且无系统性偏差 → 🟢
+  yellow_threshold: 0.5  # 精密度 0.5~0.8 或存在可追溯偏差 → 🟡
+  # 精密度 < 0.5 或存在不可追溯偏差 → 🔴

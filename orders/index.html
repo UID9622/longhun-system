@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>龍魂令 · 系统级裁决协议</title>
+  <link rel="stylesheet" href="/orders/css/style.css">
+</head>
+<body>
+  <header class="top-bar">
+    <div class="brand">
+      <div class="icon">☰<span class="wind">☴</span></div>
+      <div>
+        <div class="title">龍魂令 · 系统级裁决协议</div>
+        <div class="subtitle">令出即锚 · 锚定即追溯 · 追溯即公示</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="/orders/">首页</a>
+      <a href="/orders/bulletin.html">公告栏</a>
+      <a href="/orders/initiate.html">发起令</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>龍魂令 <span class="small">系统级裁决协议</span></h1>
+      <p>别人看到的是令，只有你知道它从哪长出来。</p>
+    </section>
+
+    <section class="levels">
+      <h2>四大令级</h2>
+      <div class="level-grid">
+        <div class="level-card level-1">
+          <div class="level-icon">☵</div>
+          <h3>问询令</h3>
+          <div class="tone">水洄</div>
+          <p>事实不清，先问后裁，给予说明机会。</p>
+          <div class="evidence"><strong>证据链要求：</strong>至少 1 层来源 + 时间戳</div>
+        </div>
+        <div class="level-card level-2">
+          <div class="level-icon">☶</div>
+          <h3>警示令</h3>
+          <div class="tone">山止</div>
+          <p>行为越界，公开警示，限期整改。</p>
+          <div class="evidence"><strong>证据链要求：</strong>至少 2 层独立来源 + 证据摘要</div>
+        </div>
+        <div class="level-card level-3">
+          <div class="level-icon">☲</div>
+          <h3>封禁令</h3>
+          <div class="tone">火明</div>
+          <p>严重违规，冻结权限，阻断传播。</p>
+          <div class="evidence"><strong>证据链要求：</strong>至少 3 层来源链 + 哈希固化</div>
+        </div>
+        <div class="level-card level-4">
+          <div class="level-icon">☰</div>
+          <h3>追缉令</h3>
+          <div class="tone">天行</div>
+          <p>触犯底线，全网追溯，永久公示。</p>
+          <div class="evidence"><strong>证据链要求：</strong>六层来源链 + GPG签名 + 链式哈希</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process">
+      <h2>执行方式</h2>
+      <ol class="steps">
+        <li><span>1</span> <strong>锚定</strong>：发起人提交证据链，生成唯一锚定ID。</li>
+        <li><span>2</span> <strong>校验</strong>：系统按令级要求校验来源链完整性。</li>
+        <li><span>3</span> <strong>生效</strong>：校验通过后，令进入生效状态并公示。</li>
+        <li><span>4</span> <strong>追溯</strong>：任何人均可通过锚定ID查询令的状态与DNA。</li>
+      </ol>
+    </section>
+
+    <section class="search">
+      <h2>查询锚定令</h2>
+      <form id="query-form">
+        <input type="text" id="anchor-input" placeholder="输入锚定ID，例如 ORD-DEMO-9622" required>
+        <button type="submit">查询</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>本系统归属中华人民共和国 · 数据根留中国 · 令出即锚 · 锚定即追溯 · 追溯即公示</div>
+    <div class="deploy">部署：华为云 ECS · 数据根留中国</div>
+    <div class="dna">DNA: #龍芯⚡️20260627212636396655-ORDERS-INDEX-28F40428D821F889</div>
+  </footer>
+
+  <script src="/orders/js/order.js"></script>
+</body>
+</html>

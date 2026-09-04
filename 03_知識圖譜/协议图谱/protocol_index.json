@@ -1,0 +1,372 @@
+{
+  "protocol_nodes": [
+    {
+      "id": "protocol_anti_algorithmic_harvest",
+      "label": "反算法收割协议",
+      "layer": "L1",
+      "type": "protocol",
+      "file": "protocol_anti_algorithmic_harvest.md",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·申时·剥-LONGHUN-PROTOCOL-ANTI-HARVEST-4D8E1A6B",
+      "claim": "任何直播/内容系统不得用PK对立、倒计时压迫、打赏抽成、排名虚荣制造情绪收割；人民注意力与数据主权不容被算法编程。",
+      "based_on": [
+        "data_sovereignty_in_user",
+        "no_human_rights_violation",
+        "three_color_audit",
+        "dragon_vein_trace"
+      ],
+      "reasoning": [
+        "PK=囚徒困境：理性=自杀，非理性=生存",
+        "倒计时剥夺思考，3倍加成放大贪婪",
+        "平台不创造价值只收割情绪，反人民"
+      ],
+      "conclusion": "协议+引擎+审计三件套落地，禁PK/倒计时/打赏/排名。",
+      "why": "不是人疯，是算法把人逼疯，必须拆机器放人。",
+      "related": [
+        "clause_no_pk",
+        "clause_no_countdown",
+        "clause_no_tip_skimming",
+        "clause_harvest_audit",
+        "protocol_speech_freedom",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ],
+      "immutable": true
+    },
+    {
+      "id": "clause_no_pk",
+      "label": "禁止PK对立机制",
+      "layer": "L2",
+      "type": "clause",
+      "file": "clause_no_pk.md",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·申时·同人-LONGHUN-CLAUSE-NO-PK-2C5F9D3A",
+      "claim": "任何系统不得用PK比拼、双屏对立、站队制造竞争焦虑；以协作对话替代对抗。",
+      "based_on": [
+        "data_sovereignty_in_user",
+        "no_human_rights_violation"
+      ],
+      "reasoning": [
+        "PK=囚徒困境，理性选择=自杀",
+        "双屏对立=镜像神经元代入，观众觉得在参战"
+      ],
+      "conclusion": "禁PK/双屏对立/站队，以协作对话替代。",
+      "why": "制造对立收割情绪，反人民。",
+      "related": [
+        "protocol_anti_algorithmic_harvest",
+        "clause_no_countdown",
+        "clause_no_tip_skimming",
+        "clause_harvest_audit"
+      ],
+      "immutable": false
+    },
+    {
+      "id": "clause_no_countdown",
+      "label": "禁止倒计时压迫机制",
+      "layer": "L2",
+      "type": "clause",
+      "file": "clause_no_countdown.md",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·申时·渐-LONGHUN-CLAUSE-NO-COUNTDOWN-8B1E4C7D",
+      "claim": "禁止用倒计时、3倍加成、限时福利制造紧迫感剥夺理性思考；随时进出无时间压迫。",
+      "based_on": [
+        "data_sovereignty_in_user",
+        "no_human_rights_violation"
+      ],
+      "reasoning": [
+        "18秒倒计时=冲动决策，没空想为何花钱",
+        "3倍加成=收益幻觉掩盖成本"
+      ],
+      "conclusion": "禁倒计时/限时/加成，消费前强制30秒冷静。",
+      "why": "稀缺性+紧迫感=理性暂停，被编程。",
+      "related": [
+        "protocol_anti_algorithmic_harvest",
+        "clause_no_pk",
+        "clause_no_tip_skimming",
+        "clause_harvest_audit"
+      ],
+      "immutable": false
+    },
+    {
+      "id": "clause_no_tip_skimming",
+      "label": "禁止打赏抽成收割",
+      "layer": "L2",
+      "type": "clause",
+      "file": "clause_no_tip_skimming.md",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·申时·谦-LONGHUN-CLAUSE-NO-TIP-SKIMMING-6A3D2E9F",
+      "claim": "禁止打赏抽成、礼物变现单向收割；创作者以补贴/订阅支撑，零抽成割韭菜。",
+      "based_on": [
+        "data_sovereignty_in_user",
+        "no_human_rights_violation"
+      ],
+      "reasoning": [
+        "用户花钱买虚拟存在感非实物",
+        "平台抽成50%+不创造价值",
+        "成瘾→人格异化五层收割"
+      ],
+      "conclusion": "禁打赏抽成，创作者以公共基金+订阅支撑。",
+      "why": "单向财富转移，反人民。",
+      "related": [
+        "protocol_anti_algorithmic_harvest",
+        "clause_no_pk",
+        "clause_no_countdown",
+        "clause_harvest_audit"
+      ],
+      "immutable": false
+    },
+    {
+      "id": "clause_harvest_audit",
+      "label": "收割信号自动审计",
+      "layer": "L3",
+      "type": "clause",
+      "file": "clause_harvest_audit.md",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·申时·观-LONGHUN-CLAUSE-HARVEST-AUDIT-1F7A8B4C",
+      "claim": "引擎自动扫描内容识别收割信号(PK/倒计时/加成/排名)，打分评级，🔴高危进审查，DNA追溯归档。",
+      "based_on": [
+        "three_color_audit",
+        "dragon_vein_trace"
+      ],
+      "reasoning": [
+        "自动化识别才能规模化反制",
+        "🔴高危复用三色审计R值阈值进伦理队列"
+      ],
+      "conclusion": "bin/lh_anti_algorithmic_harvest.py 真跑，报告归档 state/threshold_trigger/harvest_audit/。",
+      "why": "协议要真执行不是纸面。",
+      "related": [
+        "protocol_anti_algorithmic_harvest",
+        "clause_no_pk",
+        "clause_no_countdown",
+        "clause_no_tip_skimming"
+      ],
+      "immutable": false
+    },
+    {
+      "id": "protocol_knowledge_sovereignty",
+      "label": "数据主权与知识贡献协议",
+      "type": "protocol",
+      "layer": "L1",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
+      "file": "03_知識圖譜/协议图谱/protocol_knowledge_sovereignty.md"
+    },
+    {
+      "id": "protocol_speech_freedom",
+      "label": "言论自由协议",
+      "type": "protocol",
+      "layer": "L1",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "file": "03_知識圖譜/协议图谱/protocol_speech_freedom.md"
+    },
+    {
+      "id": "clause_zero_conscription",
+      "label": "零征用原则",
+      "type": "clause",
+      "layer": "L2",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
+      "file": "03_知識圖譜/协议图谱/clause_zero_conscription.md"
+    },
+    {
+      "id": "clause_voluntary_contribution",
+      "label": "自愿贡献与DNA归属",
+      "type": "clause",
+      "layer": "L2",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
+      "file": "03_知識圖譜/协议图谱/clause_voluntary_contribution.md"
+    },
+    {
+      "id": "clause_sovereign_recall",
+      "label": "主权撤回（随时插停）",
+      "type": "clause",
+      "layer": "L2",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
+      "file": "03_知識圖譜/协议图谱/clause_sovereign_recall.md"
+    },
+    {
+      "id": "clause_knowledge_pricing",
+      "label": "知识定价与段位分成",
+      "type": "clause",
+      "layer": "L2",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
+      "file": "03_知識圖譜/协议图谱/clause_knowledge_pricing.md"
+    },
+    {
+      "id": "clause_speech_grading",
+      "label": "骂权分级",
+      "type": "clause",
+      "layer": "L2",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "file": "03_知識圖譜/协议图谱/clause_speech_grading.md"
+    },
+    {
+      "id": "clause_weight_eval",
+      "label": "社会贡献权重评估",
+      "type": "clause",
+      "layer": "L2",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "file": "03_知識圖譜/协议图谱/clause_weight_eval.md"
+    },
+    {
+      "id": "clause_self_censure",
+      "label": "自骂优先·自省机制",
+      "type": "clause",
+      "layer": "L2",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "file": "03_知識圖譜/协议图谱/clause_self_censure.md"
+    },
+    {
+      "id": "clause_dna_trace",
+      "label": "言论DNA追溯与风险评级",
+      "type": "clause",
+      "layer": "L2",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "file": "03_知識圖譜/协议图谱/clause_dna_trace.md"
+    },
+    {
+      "id": "clause_dispute_resolution",
+      "label": "争议处理·红蓝对抗",
+      "type": "clause",
+      "layer": "L2",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "file": "03_知識圖譜/协议图谱/clause_dispute_resolution.md"
+    },
+    {
+      "id": "clause_auto_audit",
+      "label": "自动审计与归档",
+      "type": "clause",
+      "layer": "L3",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
+      "file": "03_知識圖譜/协议图谱/clause_auto_audit.md"
+    },
+    {
+      "id": "clause_true_openness",
+      "label": "真开放批判",
+      "type": "clause",
+      "layer": "L2",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·同人-LONGHUN-CLAUSE-TRUE-OPENNESS-3B7E9C1A",
+      "file": "03_知識圖譜/协议图谱/clause_true_openness.md"
+    },
+    {
+      "id": "protocol_currency_culture_sovereignty",
+      "label": "货币·文化主权与收纳不霸占协议",
+      "layer": "L1",
+      "type": "protocol",
+      "file": "protocol_currency_culture_sovereignty.md",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-CURRENCY-CULTURE-EE44F2FB",
+      "claim": "货币是主权、文化是世界的；尊重各国法币与语言，数字人民币只是干净可追溯的标杆而非围墙；生态收纳创作但不霸占。",
+      "based_on": [
+        "sovereign_currency_in_user",
+        "cultural_openness",
+        "data_sovereignty_in_user",
+        "three_color_audit",
+        "dragon_vein_trace"
+      ],
+      "reasoning": [
+        "从『唯一』升级为『直达标准』：达标法币(含美金)皆可流动",
+        "数字人民币是标杆非围墙：点对点·干净·可追溯·不可篡改",
+        "文化是世界的，历史不可篡改",
+        "收纳不霸占：保管非占有，主权随时撤回"
+      ],
+      "conclusion": "货币直达标准+文化尊重+收纳不霸占三章焊死，闭环至数据主权/言论自由协议。",
+      "why": "货币是主权、文化是世界的，我们替人类收纳智慧而非开当铺。",
+      "related": [
+        "clause_currency_direct_settlement",
+        "clause_cultural_respect",
+        "clause_keep_not_seize",
+        "protocol_knowledge_sovereignty",
+        "protocol_speech_freedom",
+        "BEICHEN-MOTHER-PROTOCOL",
+        "l0-core"
+      ],
+      "immutable": true
+    },
+    {
+      "id": "clause_currency_direct_settlement",
+      "label": "货币直达标准（非唯一·标杆制）",
+      "layer": "L2",
+      "type": "clause",
+      "file": "clause_currency_direct_settlement.md",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-CLAUSE-CURRENCY-DIRECT-0B44E48D",
+      "claim": "任何法币(含美金)满足『直达·点对点·不走第三方·干净可追溯·不可篡改』即达标流通；数字人民币是标杆非围墙；拒第三方抽水与投机收割。",
+      "based_on": [
+        "sovereign_currency_in_user",
+        "data_sovereignty_in_user",
+        "three_color_audit"
+      ],
+      "reasoning": [
+        "旧『唯一』是挡资本权宜话，现升级为直达标准",
+        "唯一门槛=与数字人民币同标准",
+        "比特币式投机抽水不奉陪"
+      ],
+      "conclusion": "新支付模块过『直达标准』校验，未达标🟡，第三方抽水🔴拦截。",
+      "why": "货币是主权，要清清爽爽点对点直达，不请资本开收割机。",
+      "related": [
+        "protocol_currency_culture_sovereignty",
+        "clause_cultural_respect",
+        "clause_keep_not_seize",
+        "clause_no_tip_skimming"
+      ],
+      "immutable": false
+    },
+    {
+      "id": "clause_cultural_respect",
+      "label": "文化主权与历史不可篡改",
+      "layer": "L2",
+      "type": "clause",
+      "file": "clause_cultural_respect.md",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·同人-LONGHUN-CLAUSE-CULTURAL-RESPECT-662318E7",
+      "claim": "各国语言文化一律尊重；文化是世界的，历史不能篡改；古人智慧须翻译·沟通·忠实记录，方能被人类继承。",
+      "based_on": [
+        "cultural_openness",
+        "data_sovereignty_in_user",
+        "no_human_rights_violation"
+      ],
+      "reasoning": [
+        "不凌驾不贬低不强制同化",
+        "改写历史/抹除文明记忆一律拒绝",
+        "古人智慧须被记录否则人类不知聪明丢哪"
+      ],
+      "conclusion": "入库/翻译/引用保留原文语境与出处，禁改写历史式加工。",
+      "why": "文化属全人类，连尊重别人语言历史都做不到就没资格谈主权。",
+      "related": [
+        "protocol_currency_culture_sovereignty",
+        "clause_currency_direct_settlement",
+        "clause_keep_not_seize",
+        "protocol_speech_freedom"
+      ],
+      "immutable": false
+    },
+    {
+      "id": "clause_keep_not_seize",
+      "label": "收纳不霸占（Keep, Never Seize）",
+      "layer": "L2",
+      "type": "clause",
+      "file": "clause_keep_not_seize.md",
+      "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·谦-LONGHUN-CLAUSE-KEEP-NOT-SEIZE-3746CADD",
+      "claim": "生态替每个人保管创作——只为收纳，不为霸占；每个发明都值得被好好留痕；主权随时可撤回。",
+      "based_on": [
+        "data_sovereignty_in_user",
+        "dragon_vein_trace"
+      ],
+      "reasoning": [
+        "收纳非占有，创作DNA归属清晰",
+        "主权随时撤回=不霸占前提",
+        "与零征用/主权撤回同线"
+      ],
+      "conclusion": "创作入库即打DNA归属标记归创作者，平台仅保管不持有。",
+      "why": "替人类收纳智慧是为征服宇宙，不是开当铺赚差价。",
+      "related": [
+        "protocol_currency_culture_sovereignty",
+        "clause_currency_direct_settlement",
+        "clause_cultural_respect",
+        "clause_zero_conscription",
+        "clause_sovereign_recall"
+      ],
+      "immutable": false
+    }
+  ],
+  "layers": {
+    "L0": "顶层契约（焊死，引用哲学伦理图谱节点）",
+    "L1": "核心协议（体系级可执行契约）",
+    "L2": "子机制/条款（协议下的具体规则）",
+    "L3": "执行/自动化（触发、归档、审计）"
+  },
+  "count": 22,
+  "root_dna": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "note": "L0 哲学节点见 03_知識圖譜/哲学伦理图谱/ 。本地服务器挂载本目录即可通过相对路径点开每个节点 md，引用格式 [[id]]·DNA:..."
+}

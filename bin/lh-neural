@@ -1,0 +1,200 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+🧬 龍魂神经网络赋能CLI · v1.0
+
+一键接入神经网络路由：
+  longhun-neural route "帮我写代码"     → 神经网络路由最优Agent
+  longhun-neural health                 → 神经网络+Agents健康全景
+  longhun-neural agents                 → 列出所有可用Agents
+  longhun-neural shell                  → 进入交互模式
+  longhun-neural help                   → 帮助
+
+DNA: #龍芯⚡️2026-07-06-NEURAL-CLI-v1.0
+"""
+
+import json
+import sys
+import os
+from pathlib import Path
+
+# 将项目根目录加入路径
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "cnsh-core"))
+sys.path.insert(0, str(ROOT / "agents"))
+
+try:
+    from neural_agent_bridge import NeuralAgentBridge
+except ImportError:
+    print("❌ 无法加载 neural_agent_bridge，请确保 cnsh-core/neural_agent_bridge.py 存在")
+    sys.exit(1)
+
+
+def cmd_route(bridge: NeuralAgentBridge, text: str):
+    """通过神经网络路由Agent"""
+    print(f"\n🧬 神经网络路由中... 输入: {text[:100]}")
+    result = bridge.execute(text)
+
+    print(f"\n{'='*50}")
+    print(f"  共生路由结果")
+    print(f"{'='*50}")
+
+    routing = result["routing"]
+    neural_emoji = "🟢" if routing["neural_status"] == "online" else "🔴"
+    print(f"  神经网络: {neural_emoji} {routing['neural_status']}")
+    print(f"  网络健康: {routing['network_health']}%")
+    print(f"  宪法层:   {'🟢 通过' if routing['constitution_ok'] else '🔴 异常'}")
+    if routing["wuxing_flow"]:
+        print(f"  五行流:   {routing['wuxing_flow']}")
+    if routing["routing_path"]:
+        print(f"  路由路径: {' → '.join(routing['routing_path'])}")
+
+    print(f"\n  ── 推荐Agent ──")
+    primary = result.get("primary_agent")
+    if primary:
+        print(f"  🎯 主Agent: {primary['name']} [{primary['layer']}]")
+        print(f"     类型: {primary['type']} · 逻辑: {primary['logic']}")
+        print(f"     描述: {primary.get('description', '—')}")
+        if primary.get("keywords"):
+            print(f"     触发词: {', '.join(primary['keywords'][:5])}")
+    else:
+        print("  ⚠️ 未匹配到Agent")
+
+    matched = result.get("matched_agents", [])[1:3]
+    if matched:
+        print(f"\n  ── 备选Agent ──")
+        for m in matched:
+            print(f"  · {m['name']} [{m['layer']}] — {m['logic']}")
+
+    print(f"\n  {result['advice']}")
+    print(f"\n  ⚡ 处理时间: {result['processing_ms']}ms · DNA: {result['dna']}")
+    print(f"{'='*50}\n")
+
+
+def cmd_health(bridge: NeuralAgentBridge):
+    """健康全景"""
+    pano = bridge.health_panorama()
+    print(f"\n🧬 龍魂共生体 · 健康全景")
+    print(f"{'='*50}")
+
+    nn = pano.get("neural", {})
+    print(f"  神经网络: {'🟢 在线' if pano['neural_online'] else '🔴 离线'}")
+    if nn:
+        print(f"  节点: {nn['nodes_total']} · 健康: {nn['healthy']} · 待启: {nn['standby']} · 异常: {nn['error']}")
+        print(f"  健康率: {nn['health_rate']}% · 宪法层: {'🟢' if nn['constitution_ok'] else '🔴'}")
+        wx = nn.get("wuxing_health", {})
+        if wx:
+            print(f"  五行分布:")
+            for wx_name, stats in wx.items():
+                bar = "█" * int(stats['rate'] / 10) + "░" * (10 - int(stats['rate'] / 10))
+                print(f"    {wx_name:6s} {bar} {stats['rate']}% ({stats['healthy']}/{stats['total']})")
+
+    print(f"\n  Agents: {pano['agents_total']} 个已注册")
+    layers = pano.get("agents_layers", {})
+    print(f"    L1常驻: {layers.get('L1', 0)} · L2技能: {layers.get('L2', 0)} · L3人格: {layers.get('L3', 0)}")
+    print(f"{'='*50}\n")
+
+
+def cmd_agents(bridge: NeuralAgentBridge):
+    """列出所有Agent"""
+    print(f"\n🧬 龍魂Agents · 共 {len(bridge.agents)} 个\n")
+    for a in bridge.agents[:20]:  # 只显示前20个
+        print(f"  [{a.get('layer', '?')}] {a['id']:25s} {a['name']:12s} {a.get('logic', '')}")
+    if len(bridge.agents) > 20:
+        print(f"  ... 还有 {len(bridge.agents) - 20} 个Agent，使用 --all 查看全部")
+
+
+def cmd_shell(bridge: NeuralAgentBridge):
+    """交互模式"""
+    print("╔══════════════════════════════════════════════════════════╗")
+    print("║  🧬 龍魂神经网络赋能 · 共生体交互模式                    ║")
+    print("║  输入你的需求，神经网络自动路由最优Agent                  ║")
+    print("║  命令: h=健康全景 | a=Agents列表 | q=退出               ║")
+    print("╚══════════════════════════════════════════════════════════╝")
+
+    while True:
+        try:
+            text = input("\n🐉 >>> ").strip()
+        except (EOFError, KeyboardInterrupt):
+            print("\n共生体待命。")
+            break
+
+        if not text:
+            continue
+        if text.lower() in ("q", "quit", "exit"):
+            print("共生体待命。")
+            break
+        if text.lower() in ("h", "health"):
+            cmd_health(bridge)
+            continue
+        if text.lower() in ("a", "agents"):
+            cmd_agents(bridge)
+            continue
+
+        cmd_route(bridge, text)
+
+
+def print_help():
+    print("""
+🧬 龍魂神经网络赋能CLI · v1.0
+
+用法:
+  longhun-neural route <你的需求>    神经网络路由最优Agent
+  longhun-neural health              神经网络+Agents健康全景
+  longhun-neural agents              列出所有可用Agents
+  longhun-neural shell               进入交互模式
+  longhun-neural help                显示此帮助
+
+示例:
+  longhun-neural route "帮我审一下这段代码"
+  longhun-neural route "写一个自动备份脚本"
+  longhun-neural route "检查系统安全状态"
+
+共生体宣言:
+  神经网络不是3D装饰品——它是你的路由引擎。
+  每一次查询都在神经网络拓扑中留下痕迹。
+  使用即学习、查询即反馈、异常即进化。
+
+DNA: #龍芯⚡️2026-07-06-NEURAL-CLI-v1.0
+""")
+
+
+def main():
+    if len(sys.argv) < 2:
+        print_help()
+        return
+
+    cmd = sys.argv[1].lower()
+    bridge = NeuralAgentBridge()
+
+    if cmd == "route":
+        if len(sys.argv) < 3:
+            print("❌ 请提供要路由的文本: longhun-neural route <你的需求>")
+            return
+        text = " ".join(sys.argv[2:])
+        cmd_route(bridge, text)
+
+    elif cmd == "health":
+        cmd_health(bridge)
+
+    elif cmd == "agents":
+        if "--all" in sys.argv:
+            for a in bridge.agents:
+                print(f"[{a.get('layer', '?')}] {a['id']:25s} {a['name']:12s} {a.get('logic', '')}")
+        else:
+            cmd_agents(bridge)
+
+    elif cmd == "shell":
+        cmd_shell(bridge)
+
+    elif cmd in ("help", "--help", "-h"):
+        print_help()
+
+    else:
+        # 未知命令，当作路由文本
+        text = " ".join(sys.argv[1:])
+        cmd_route(bridge, text)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,85 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "",
+          "storePassword": "",
+          "keyAlias": "",
+          "keyPassword": "",
+          "profile": "",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": ""
+        }
+      },
+      {
+        "name": "longhun_release",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "./certs/longhun_release.cer",
+          "storePassword": "@@STORE_PASSWORD@@",
+          "keyAlias": "longhun_release",
+          "keyPassword": "@@KEY_PASSWORD@@",
+          "profile": "./certs/longhun_release.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "./certs/longhun_release.p12"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compileSdkVersion": "5.0.0(12)",
+        "compatibleSdkVersion": "5.0.0(12)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": true
+          }
+        }
+      },
+      {
+        "name": "longhun_global",
+        "signingConfig": "longhun_release",
+        "compileSdkVersion": "5.0.0(12)",
+        "compatibleSdkVersion": "5.0.0(12)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": true
+          }
+        }
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug"
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": ["default", "longhun_global"]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "longhun_dna": "#龍芯⚡️2026-06-18-LONGHUN-HARMONYOS-v1.0",
+    "project": "龍魂AI HarmonyOS元服务",
+    "version": "5.0.0"
+  }
+}
