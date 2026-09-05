@@ -1,0 +1,26 @@
+{
+  "name": "cnsh-bridge",
+  "version": "0.1.0",
+  "dna": "#龍芯⚡️2026-09-05-CNSH-BRIDGE-v0.1-UID9622",
+  "creator": "诸葛鑫 (UID9622)",
+  "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+  "license": "MulanPSL v2",
+  "target": "harmony-ndk",
+  "syntax_authority": "tests/cnsh_samples/ (CNSH 基线 P0 · PR#95)",
+  "toolchain": {
+    "translator": "08_BIN/cnsh_cgen.py v0.1",
+    "bridge": "cpp/cnsh_napi.cpp",
+    "logic_generated": "cpp/cnsh_logic.c"
+  },
+  "structure": {
+    "cnsh": "CNSH 源码（真实语法）",
+    "cpp": "CNSH 逻辑 + N-API 桥 + CMake",
+    "arkts": "ArkTS 调用示例"
+  },
+  "usage": [
+    "python3 08_BIN/cnsh_cgen.py cnsh/hello.cnsh --no-main --out cpp/cnsh_logic.c",
+    "复制 cpp/ 至 entry/src/main/cpp/ 并指向 CMakeLists.txt",
+    "DevEco Studio 打开工程，构建运行（需 HarmonyOS API 12+ / DevEco 5.0.3.900+）"
+  ],
+  "tri_color": "🟡 鸿蒙端 .so 需 DevEco 实机验证（本机已验证 CNSH→C 全链路与逻辑层 clang 冒烟）"
+}
