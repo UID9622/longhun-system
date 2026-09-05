@@ -5,6 +5,10 @@
 // 用途: 鸿蒙 N-API(C API) 桥接层 —— 把 CNSH 逻辑（cnsh_logic.c，cnsh_cgen.py 生成）
 //       导出为 ArkTS 可调用的原生方法。需 DevEco/HarmonyOS NDK 实机构建（本机无法编译）。
 // 关键点: unity build —— #include "cnsh_logic.c" 使 CNSH 的 static 函数在同一编译单元可见。
+// 环境:   N-API v12（HarmonyOS API 12+ / DevEco 5.0.3.900+）· CMake 编译标准 C++17（见 CMakeLists.txt）
+// 日志:   本桥为同步纯函数无日志调用；如确需打点请引入 #include "hilog/log.h" 后使用 HiLogPrint/OH_LOG_Print
+// 线程:   本桥方法均同步纯函数（无共享可变状态），无需 napi_create_threadsafe_function；
+//         若未来加入后台大计算/异步回调再按 N-API threadsafe 模式扩展。
 
 #include "napi/native_api.h"
 #include <string.h>
@@ -19,11 +23,15 @@ static napi_value Bridge_问候(napi_env env, napi_callback_info info)
     napi_value args[1] = {nullptr};
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
 
-    char name[256] = "";
-    if (argc >= 1) {
-        size_t len = 0;
-        napi_get_value_string_utf8(env, args[0], name, sizeof(name), &len);
+    // ArkTS 侧错误可捕获：参数缺失时抛异常（try/catch 于 .ets 侧）
+    if (argc < 1) {
+        napi_throw_error(env, nullptr, "问候: 需要一个字符串参数");
+        return nullptr;
     }
+
+    char name[256] = "";
+    size_t len = 0;
+    napi_get_value_string_utf8(env, args[0], name, sizeof(name), &len);
     // 调用 CNSH 翻译产物（同一编译单元内 static 可见）
     const char *out = cnsh_问候(name);
     napi_value ret = nullptr;
@@ -38,11 +46,14 @@ static napi_value Bridge_三色审计(napi_env env, napi_callback_info info)
     napi_value args[1] = {nullptr};
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
 
-    char input[512] = "";
-    if (argc >= 1) {
-        size_t len = 0;
-        napi_get_value_string_utf8(env, args[0], input, sizeof(input), &len);
+    if (argc < 1) {
+        napi_throw_error(env, nullptr, "三色审计: 需要一个字符串参数");
+        return nullptr;
     }
+
+    char input[512] = "";
+    size_t len = 0;
+    napi_get_value_string_utf8(env, args[0], input, sizeof(input), &len);
     const char *out = cnsh_三色审计(input);
     napi_value ret = nullptr;
     napi_create_string_utf8(env, out, NAPI_AUTO_LENGTH, &ret);

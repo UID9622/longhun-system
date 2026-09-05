@@ -9,6 +9,10 @@
 cmake_minimum_required(VERSION 3.5.0)
 project(cnsh_bridge)
 
+# 与 DevEco 默认工程一致的编译标准（N-API v12 / HarmonyOS API 12+）
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 # cnsh_logic.c 由 cnsh_napi.cpp unity include，故只编译桥文件
 add_library(cnsh_bridge SHARED cnsh_napi.cpp)
 

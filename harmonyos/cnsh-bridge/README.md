@@ -43,6 +43,52 @@ clang -c -O0 -o /tmp/cnsh_logic.o harmonyos/cnsh-bridge/cpp/cnsh_logic.c
 3. ArkTS 侧：`import cnshBridge from 'libcnsh_bridge.so'`（示例见 `arkts/CnshBridgeDemo.ets`）
 4. 要求：DevEco Studio 5.0.3.900+ / HarmonyOS SDK API 12+ / 支持 N-API
 
+## 工程化配置（v0.1.1 · 小艺AI评审吸收）
+
+> 评审基线：小艺AI 对《鸿蒙原生集成方案》外部稿的审稿；本表对照**真实模块**逐条裁决。
+
+| 评审建议 | 落地裁决 |
+|:---|:---|
+| 包名/加载写法 | 模块名=`cnsh_bridge`（`nm_modname`）→ ArkTS `import cnshBridge from 'libcnsh_bridge.so'`（官方规范） |
+| N-API 版本标注 | N-API v12 · HarmonyOS API 12+（`cnsh_napi.cpp` 头注释已标） |
+| C++ 标准 | `set(CMAKE_CXX_STANDARD 17)`（`CMakeLists.txt` 已落） |
+| 日志头文件 | 本桥同步纯函数零日志；如需打点按头注释引入 `hilog/log.h`（无未用头） |
+| 错误处理 | ✅ 已补 `napi_throw_error` 参数校验（问候/三色审计 · `.ets` 侧可 try/catch） |
+| 线程安全 | 本桥无共享可变状态→无需 threadsafe；异步大计算再按 N-API threadsafe 扩展（头注释已声明边界） |
+| 性能数据 | 无编造：本桥无设备基准；仅本机 clang 语义实测（见上节），DevEco 实机后如实补录 |
+| 构建产物/ABI | `build-profile.json5` `abiFilters` 见下方范例 |
+
+`entry/build-profile.json5`（参考 `harmonyos/apps/tricolor-audit/` 真实工程格式）：
+
+```json5
+"buildOption": {
+  "externalNativeOptions": {
+    "path": "./src/main/cpp/CMakeLists.txt",
+    "arguments": "-DUSE_HUGE_PAGES=OFF",
+    "cppFlags": "-O2",
+    "abiFilters": ["arm64-v8a", "x86_64"]   // 真机+模拟器；纯真机发布可只留 arm64-v8a
+  }
+}
+```
+
+GitHub Actions 参考（fork 到独立仓库后启用 · monorepo 内不生效）：
+
+```yaml
+name: cnsh-bridge-build
+on: [push, pull_request]
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          python3 08_BIN/cnsh_cgen.py harmonyos/cnsh-bridge/cnsh/hello.cnsh --out /tmp/x.c
+          gcc /tmp/x.c -o /tmp/x && /tmp/x    # CNSH→C 全链路冒烟
+      # 鸿蒙 .so 构建需 HarmonyOS NDK/DevEco（API 12+），另行配置 ohos 矩阵
+```
+
+仓库工程化：LICENSE=MulanPSL v2（monorepo 根已置，本模块复用不重复）· CHANGELOG/CONTRIBUTING 本目录已补。
+
 ## 与 UID9622 生态仓库的对应（诚实版）
 
 - **不存在** `github.com/UID9622/cnsh-compiler` / `cnsh-runtime` / `cnsh-harmony-demo`（外部文章常误引，v0.1 本模块即 monorepo 内落地物）
