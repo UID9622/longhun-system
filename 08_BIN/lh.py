@@ -822,6 +822,8 @@ def _run_fixed_cmd(cmd: str):
 # 格式: flag_name → (script, emoji, description, [default_args], [smart_default])
 # smart_default: 当用户传自由文本时自动插入的子命令（如 search engine 需要 "search" 子命令）
 SUB_DISPATCH = {
+    # 🧬 AI 产出幻觉量化自检 v2.0 — 对齐规则第二十一层(2026-09-05焊死·老大指令:焊死启动·常驻·所有AI对准): H综合指数三色(混淆F1+TokenF1+EM+五维度+ECE)·「已验证」仅限实机跑过·seed9622验收可复现·独立数学验证器
+    'halluc':               ('lh_hallucination_metrics.py',    '🧬', 'AI产出幻觉量化自检·run验收基线/Engine多步API(报告含H三色+runDNA+确认码·引擎DNA v∞·_公式可复算)', [], 'acceptance'),
     # 🧠 Harness 融合内核 v1.1 — 插件契约/EffectScope副作用逆转/四种分发/wrap_legacy存量引擎插件化/AI模型插件化（吸收 DeepSeek Harness·Cordis 哲学）
     'harness':              ('lh_harness_core.py',            '🧠', 'Harness融合内核·插件契约/副作用逆转/四种分发/存量引擎插件化/AI模型插件化', [], '--all'),
     'trajectory':           ('lh_trajectory.py',              '🛤️', 'Trajectory轨迹视图·append-only轨迹检索/分叉/回放(对齐Harness可追溯性)', [], 'show'),
@@ -845,6 +847,8 @@ SUB_DISPATCH = {
     'council':              ('lh_council.py',                 '⚖️', '无后台审批团公开决策·propose/vote/list/view/ledger/verify/wall/export/status/rotate（三色🟡自动升级提案·机器委员GD无票·超时默认拒绝·公示墙+哈希链·~/.longhun/council/）', [], ''),
     # 🚦 三色治理指挥层 v2.1 — 决策权与声誉绑定×贡献门槛×中国主权红线·薄胶水复用既有引擎(M77零重复): status聚合health/council/耻辱墙·propose/vote/audit转发council·sync扫ledger自动信誉(一致+1/不一致−2/连续±)·score+dr数字根·redline系统主权红线R001-R006(2026-09-04·协议 LH-TRICOLOR-GOVERNANCE-v2.1)
     'gov':                  ('lh_governance.py',              '🚦', '三色治理指挥层·status/propose/vote/audit/trace/score/score-log/check/trust/sync/leaderboard/redline/dashboard（决策绑定声誉·贡献门槛·主权红线·数据~/.longhun/governance/）', [], 'status'),
+    # 🧬 生态证据链 v1.0 — 龍魂开源生态承诺/协作证据：URL快照+SHA256+三色状态机+数字人四审回写(2026-09-05·LH-AUDIT-CHAIN阶段A·协议 07_AUDIT/LH-AUDIT-CHAIN-AUDIT-REPORT-2026-09-05.md)
+    'evidence':             ('lh_evidence_sync.py',          '🧬', '生态证据链·add/list/sync/review/status/verify（URL快照+SHA-256+三色状态机+超时升级+数字人四审JSON回写·Notion承诺追踪库3d27125a…98c5+协作节点库3d27125a…bc07·台账~/.longhun/evidence/·数据主权端导出data/evidence.json镜像）', [], 'status'),
     # 🕵️ 作假行为检测引擎 v1.0 — 反诈总库(2026-09-04)焊入·7类作假(无DNA/伪签名/时间戳篡改/水印抹除/克隆无DNA/虚假贡献/AI内容伪造)·GPG核验·单文件或目录扫描
     'fraud':                ('lh_fraud_detector.py',          '🕵️', '作假行为检测·scan <路径> [--报告]/status（7类作假·GPG核验·反诈总库2026-09-04）', [], 'status'),
     'fraud-glossary':       ('lh_fraud_detector.py',          '📖', '反诈知识词条库·glossary --list / --search <关键词>（学术词语·心理机制·技术漏洞·检测引擎 20词条·数据~/.longhun/fraud/glossary.json·2026-09-04）', [], 'glossary'),
@@ -1009,7 +1013,7 @@ SUB_DISPATCH = {
     'merchant-serve':       ('lh_merchant_api_gateway.py',     '🚀', '启动商户API网关', ['serve']),
     'gateway-quickstart':   ('lh_merchant_gateway_quickstart.py', '⚡', '商户API一键启动+测试+接入信息', ['--full']),
     'pipeline_3d':           ('lh_3d_pipeline.py',             '🎨', '3D管线'),
-    'browser':              ('lh_browser_historian.py',       '📖', '浏览器史官'),
+    'browser':              ('lh_browser_historian.py',       '📖', '浏览器史官 v2.2(AI共生桥): collect|query|export|verify|validate|status + 🆕observe(CDP实时监听老大浏览器)/coflow(AI评估浏览活动给协作建议)/run(无头浏览器抓取·隔离profile不动老大真实浏览器) (lh browser <子命令>)'),
     # 🐉 Mac浏览器开发者模式 v1.0 — Chrome CDP零依赖·参数/功能/安全防御/监控/史官/HTTP服务（2026-08-15）
     'browser-dev':          ('../08_BIN/lh_browser_controller.py', '🖥️', '浏览器开发者模式·start/stop/status/snapshot/open/参数/反指纹/隐私/server(9766)', ['--status']),
     'browserctl':           ('../08_BIN/lh_browser_controller.py', '🖥️', '浏览器开发者模式(别名·同 browser-dev)', ['--status']),
@@ -1087,7 +1091,7 @@ SUB_DISPATCH = {
     'notion-architect':     ('lh_notion_architect.py',        '🏗️', 'Notion架构管理器'),
     'notion-link':          ('lh_notion_autolinker.py',        '🔗', 'Notion自动关联器'),
     'notion-bridge':        ('lh_notion_chat_bridge.py',       '💬', 'Notion对话桥', [], 'serve'),
-    'wallet':               ('lh_wallet.py',                   '💰', '自托管收款钱包·SOL地址·二维码·种子冷备份(init/address/qr/status/show-seed)·读~/.longhun/crypto.json(600)·周一公司账户换地址零代码', [], 'status'),
+    'wallet':               ('lh_wallet.py',                   '💰', '多链收款钱包·TRON官方(USDT-TRC20·TokenPocket自持)+SOL自托管·二维码·种子冷备份(init/register/address/qr/status/show-seed)·读~/.longhun/crypto.json(600)·周一公司账户换地址零代码', [], 'status'),
     'landing':              ('lh_landing_engine.py',           '🛬', '落地焊死引擎·知识→落地→执行(scan/run/dashboard)', [], 'dashboard'),
     'naming':               ('lh_naming_engine.py',            '📛', '统一命名引擎·检查/修复/cnsh映射(check/fix/convert/dashboard)', [], 'dashboard'),
     'portal':               ('lh_portal_api.py',               '🌐', '统一门户官网', [], '--port 8778'),
@@ -1138,6 +1142,10 @@ SUB_DISPATCH = {
     'health':               ('lh_health.py',                    '🏥', '龍魂系统自检·引擎/GPG/索引/全局三色状态表·kg含kb_loaded (lh health [--json])', [], ''),
     # 📡 Notion 数据主控镜像 v1.0 — Mac主控层(持token·主权) → 目录级快照 → 鲲鹏8768只读端点(鸿蒙连接点)·只推元数据正文主权留主控 (2026-09-04)
     'notion':               ('lh_notion_mirror.py',             '📡', 'Notion数据主控镜像·sync推目录快照/status镜像状态(--no-push本地/--topo附推·目标鲲鹏8768·正文留主控)', [], 'status'),
+    # 📡 Notion Publish 半自动 v1.0 — API无publish能力·浏览器Share→Publish=唯一人闸·工具闭环: open直达库页→link收公开链接→deploy嵌iframe看板页上线 (2026-09-06)
+    'notion-publish':       ('lh_notion_publish.py',            '📡', 'Notion Publish 半自动·open <key>一键打开库页(Share→Publish)/link <key> <公开链接>登记/check <url>|--all探测/deploy生成notion-live.md看板(mkdocs+rsync鲲鹏)/list·status·reset (lh notion-publish <子命令>)', [], 'status'),
+    # 📡 龍魂全量 Notion 公开化 v1.1 — 通用公开化同步引擎·模块注册表驱动(2026-09-06) · 10模块全解锁(账本白名单/模型/运维/反馈)
+    'sync':                 ('lh_notion_sync.py',              '📡', '龍魂Notion公开化同步 v1.3·<shamewall|topo|pipeline|sense|ledger|model|deploy|feedback|memory|all>→公开库·子命令: init/status/list/dashboard/serve(8780仪表盘)/route list|test/diff/verify/rollback|clean(--yes)/参数--limit|--retry|--batch-size|--format|--since-file|--fill(关键字主题回填既有行·永不建新·语义键防重复)·5标准属性+4公式字段·记忆主题关键字提取(_kw_extract·65行全语义化)·采集=08_BIN/lh_notion_collect.py (lh sync <子命令|模块|all>)', [], 'all'),
     # 📱 鸿蒙接入脚手架 v1.0 — ArkTS SDK/Demo 生成·结构自检·真构建需 DevEco Studio (2026-09-04)
     'harmony':              ('lh_harmony.py',                   '📱', '鸿蒙接入脚手架·init生成SDK+Demo到目录/check结构自检/guide打印指南路径 (lh harmony <init|check|guide> [--out DIR])', [], 'guide'),
     'backup':               ('lh_backup.py',                    '💾', '龍魂状态一键备份→~/backups/longhun·SQLite图谱库/耻辱墙/topo全打包 (lh backup [--keep N]) · 任务C生态(2026-09-03)', [], ''),
@@ -1159,7 +1167,10 @@ SUB_DISPATCH = {
     'strategy':             ('lh_validation_strategy.py',       '🧪', '验证策略引擎·generate|run|report|list|thresholds（召回率/FPR/阈值扫描·复用lh_judge指纹检测·正负样本→TPR/FPR报告）', [], 'list'),
     'response':             ('lh_response_builder.py',          '📮', '质疑响应生成器·build|post|wall|status（致谢+验证摘要+数据链接+结论+可复现指令·post发GitHub评论·验证事件墙append-only）', [], 'status'),
     # 🛡️ 安全侦查与审计 v1.0 — DeepSeek 五漏洞侦查·零受害面确认+加固模板（2026-09-04·QVD-2026-57410/CVE-2026-55604/55605/DS-V3#1350/#1307）
-    'security':             ('lh_security.py',                  '🛡️', '安全侦查与审计·status|audit deepseek（五漏洞侦查→~/.longhun/security/*.log append-only·零三方·说真话不伪造修复）', [], 'status'),
+    'security':             ('lh_security.py',                  '🛡️', '安全侦查与审计·status|audit deepseek|poc [--issue <n>]（五漏洞侦查→~/.longhun/security/*.log append-only·poc=#1627 PoC集合 security/poc/·零三方·说真话不伪造修复）', [], 'status'),
+    # ⚙️ 本地模型执行层 v1.0 — CodeBuddy=调度层·本地模型=执行层（2026-09-05·老大焊死·无边界执行架构）
+    'execute':              ('lh_executor.py',                  '⚙️', '本地模型执行·execute "<任务>" [--model]（调度层CodeBuddy→执行层本地模型·Ollama推理·三色审计落盘~/.longhun/execution_logs/·诚实边界:文本LLM不伪造文件/网络操作）', [], ''),
+    'executor':             ('lh_executor.py',                  '🔩', '本地执行器管理·status|list|register|log（ollama在线/运行中/注册模型~/.longhun/local_executor.json·register接llamacpp/vllm）', [], 'status'),
     # 🧠 会话记忆/断点/社区聚合 v1.0 — 老大需求1-3: 对话自动恢复上次状态·断点续接·社区Issue周报（2026-09-04）
     'session':              ('lh_session.py',                   '🧠', '会话记忆自动恢复·status|save [--task|--note|--decision|--todo]|history|restore --id N|clear（数据~/.longhun/session_context.json+session_history/·每次lh命令自动记last_command·AI每会话首轮读=对话自动恢复）', [], 'status'),
     'checkpoint':           ('lh_checkpoint.py',                '📍', '任务断点恢复·save <任务> [--step|--next|--artifacts|--ctx]|list [--all]|resume <任务>|done|drop（数据~/.longhun/checkpoints/·中断续接·AI里程碑自动save）', [], 'list'),
@@ -1367,8 +1378,9 @@ def _brain_hook_post():
 def _session_auto_save(command_name: str):
     """🧠 会话记忆·执行后自动记录最后命令(静默·零输出·不覆盖 active_task·2026-09-04)"""
     try:
-        from datetime import UTC as _UTC, datetime as _dt
         import json as _json
+        from datetime import UTC as _UTC
+        from datetime import datetime as _dt
         from pathlib import Path
         _p = Path.home() / ".longhun" / "session_context.json"
         d = {}
@@ -1390,8 +1402,8 @@ def _state_hook_post(command_name: str):
     """🗄️ 全局状态总线+⏱️时间轴·执行后钩子(静默·零输出·不阻塞·2026-09-04):
     global_state.json 命令计数/last_command + timeline JSONL 追加(含干支戳)"""
     try:
-        from datetime import datetime as _dt
         import json as _json
+        from datetime import datetime as _dt
         from pathlib import Path
         _d = Path.home() / ".longhun"
         (_d / "state").mkdir(parents=True, exist_ok=True)
