@@ -178,8 +178,13 @@ def main():
     if args.quick:
         try:
             ratings = json.loads(args.quick)
-        except:
-            ratings = eval(args.quick)
+        except Exception:
+            # 安全降级：仅解析 Python 字面量（防 --quick 变 RCE 入口）
+            try:
+                import ast
+                ratings = ast.literal_eval(args.quick)
+            except Exception:
+                sys.exit("❌ --quick 需为 JSON 或 Python 字面量（如 [8,7,9,6,8]）")
         result = score_quick(ratings)
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return

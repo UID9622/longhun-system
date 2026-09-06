@@ -1,8 +1,14 @@
 blank_issues_enabled: false
 contact_links:
+  - name: 🛡️ 防空壳达标声明（提交前必填 · 五关自检）
+    url: https://github.com/UID9622/longhun-system/issues/new?template=anti_empty_shell.yml
+    about: 提交代码/模型/论文/数据集前，先填防空壳五关自检（PoC→真实运行→复现→数据→完整性）。防空壳标准 v1.1。
   - name: 💬 社区讨论 / Community Discussion
     url: https://github.com/UID9622/longhun-system/discussions
     about: 欢迎提问和讨论 / Ask questions and discuss here
+  - name: 📚 防空壳标准 v1.1（上位协议）
+    url: https://github.com/UID9622/longhun-system/blob/main/01_protocols/LH-ANTI-EMPTY-SHELL-STANDARD-v1.1.md
+    about: 防空壳提交标准 · 五关定义 · 回复质疑模板 / Read the anti-empty-shell standard
   - name: 📚 项目主页 / Project Hub
     url: https://github.com/UID9622
     about: 查看所有 UID9622 项目 / Browse all UID9622 projects

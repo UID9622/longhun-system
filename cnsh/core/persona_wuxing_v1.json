@@ -1,0 +1,30 @@
+{
+  "dna": "#龍芯⚡️丙午·丁酉·壬午·子时·䷛大过-PERSONA-WUXING-ANNOTATION-v1.0-UID9622",
+  "creator": "诸葛鑫（UID9622）",
+  "attribution": "诸葛鑫 | UID9622 · 龍芯北辰",
+  "license": "CC BY-NC-SA 4.0（核心思想层）",
+  "date": "2026-09-06",
+  "source": "cnsh/core/P3_seven_dimension_human_71_detailed_profile.md（§📌 标注表 v1.0）",
+  "methodology": "五行 = 人格所挂卦象五行（乾兑金·坎水·离火·震巽木·坤艮土·太极=中央土）· 与一级配置正文逐行一致",
+  "audit": "🟢 一级 9/9 实证 · 🟡 P10-P71 待卦映射表 · 🔴 0",
+  "mirror_audit": "数字根复算: 分布合计 9 ✓ 无偏差",
+  "personas": [
+    {"p": "P01", "name": "龍心北辰·造物主", "layer": "一级", "gua": "乾", "wuxing": "金", "state": "实证", "ref_line": 101},
+    {"p": "P02", "name": "智慧引导者·理论家", "layer": "一级", "gua": "坎", "wuxing": "水", "state": "实证", "ref_line": 117},
+    {"p": "P03", "name": "品德守护者·伦理家", "layer": "一级", "gua": "坤", "wuxing": "土", "state": "实证", "ref_line": 133},
+    {"p": "P04", "name": "能量推动者·行动家", "layer": "一级", "gua": "震", "wuxing": "木", "state": "实证", "ref_line": 149},
+    {"p": "P05", "name": "影响传播者·领导者", "layer": "一级", "gua": "离", "wuxing": "火", "state": "实证", "ref_line": 165},
+    {"p": "P06", "name": "创新突破者·创意家", "layer": "一级", "gua": "巽", "wuxing": "木", "state": "实证", "ref_line": 181},
+    {"p": "P07", "name": "承载容纳者·家长式", "layer": "一级", "gua": "艮", "wuxing": "土", "state": "实证", "ref_line": 197},
+    {"p": "P08", "name": "共生协作者·和谐者", "layer": "一级", "gua": "兑", "wuxing": "金", "state": "实证", "ref_line": 213},
+    {"p": "P09", "name": "太极平衡者·大祭司", "layer": "一级", "gua": "太极", "wuxing": "中央土", "state": "实证", "ref_line": 229}
+  ],
+  "pending": [
+    "P10-P36 二级协作角色(27) · 待完整卦映射表 + 实名化后按京房卦宫五行补齐",
+    "P37-P71 三级专业才能(35) · 同上",
+    "补录规则: 每批须回注源行号 + P15 签章"
+  ],
+  "corrections": [
+    "2026-09-06: §🔯 五行映射节 P01 原误列木行 → 依乾金口径移除改注(不删除只冻结)"
+  ]
+}

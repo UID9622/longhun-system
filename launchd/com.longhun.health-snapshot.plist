@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+DNA: #龍芯⚡️2026-09-05-HEALTH-SNAPSHOT-PLIST-v1.0-UID9622
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+协议: CC BY-NC-SA 4.0（核心思想层）
+任务: 每日健康快照 早07:00 / 晚21:00（08_BIN/lh_health_snapshot.py snapshot --quiet·静默）
+      复用 topo-archive 模式 · 快照存 ~/.longhun/health_snapshots/YYYY-MM-DD/HH.json
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.longhun.health-snapshot</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/zuimeidedeyihan/longhun-system/08_BIN/lh_health_snapshot_daily.sh</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/zuimeidedeyihan/longhun-system</string>
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict>
+            <key>Hour</key>
+            <integer>7</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+        <dict>
+            <key>Hour</key>
+            <integer>21</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+    </array>
+    <key>RunAtLoad</key>
+    <false/>
+    <key>ThrottleInterval</key>
+    <integer>300</integer>
+    <key>StandardOutPath</key>
+    <string>/Users/zuimeidedeyihan/longhun-system/logs/health_snapshot_launchd.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/zuimeidedeyihan/longhun-system/logs/health_snapshot_launchd.err.log</string>
+</dict>
+</plist>

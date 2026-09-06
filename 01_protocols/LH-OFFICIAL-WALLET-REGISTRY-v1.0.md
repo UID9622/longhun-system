@@ -54,6 +54,23 @@
 - 老大只需：① 把地址/二维码甩给人收款 ② 链上操作时点一下「确认」。
 - 查账/存证/配脚本 = AI 全代劳。
 
+## 六、CLI 统一管理（v1.1 · 2026-09-05 纳入 lh wallet 多链）
+
+> 本 TRON 官方地址已并入 `lh wallet` 多链管理，与 SOL 自托管钱包统一登记于
+> `~/.longhun/crypto.json`（权限 600）。QR 生成：默认链（tron）→ `donate.png`（兼容 /donate.png 静态路由）· 次链 → `donate-<net>.png`。
+
+| 命令 | 动作 |
+|:---|:---|
+| `lh wallet status` | 全部链状态（默认收款=tron · solana 自托管） |
+| `lh wallet address` | 输出全部链公开地址（永不输出私钥） |
+| `lh wallet qr` | 刷新全部链二维码 |
+| `lh wallet register <net> <地址> [--default]` | 登记新外部钱包公开地址 |
+| `lh wallet show-seed solana` | 仅自托管链可显示种子（外部钱包密钥在 TokenPocket） |
+
+**多链现状（2026-09-05）**：默认收款 = **TRON USDT-TRC20**（TokenPocket·老大自持）
+· 次链 = **SOL/USDC**（自托管·种子本地 600）。
+MCP 只读服务与拓扑页/健康检查均已升级为多链展示。
+
 ---
 
 **DNA 签名**

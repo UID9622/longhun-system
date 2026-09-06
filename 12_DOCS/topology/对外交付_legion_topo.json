@@ -4,7 +4,7 @@
   "display": "📢 对外交付图谱 v1.0",
   "owner": "诸葛鑫 | UID9622 · 龍芯北辰",
   "created": "2026-09-05T01:45:13+08:00",
-  "last_sync": "2026-09-05T03:51:35+08:00",
+  "last_sync": "2026-09-05T13:51:33+08:00",
   "sync_from": "live-check",
   "groups": [
     {
@@ -17,7 +17,20 @@
     },
     {
       "name": "工具层",
-      "assets": []
+      "assets": [
+        {
+          "name": "CNSH规范",
+          "type": "framework",
+          "dna": "#龍芯⚡️2026-09-05-TOPO-CNSH-SPEC-UID9622",
+          "status": "🟢 可用",
+          "link": "01_protocols/LH-SYNTAX-SPEC-v3.0.md",
+          "source": "community-pr",
+          "desc": "CNSH 语法规范全集 v3.0（P0·繁体龍焊死）· 绑定动作=图谱状态只读自检（lh 白名单）",
+          "action": "lh topo status 对外交付",
+          "registered_at": "2026-09-05T23:04:51+08:00",
+          "pr_ref": "pr_0001"
+        }
+      ]
     },
     {
       "name": "A反馈",
@@ -165,7 +178,7 @@
           "link": "12_DOCS/DEPENDENCIES.md",
           "path": "12_DOCS/DEPENDENCIES.md",
           "size": 3350,
-          "mtime": "2026-09-05T01:00:44.444608+08:00",
+          "mtime": "2026-09-05T04:15:49.174705+08:00",
           "signed": true,
           "version": "v5.2.0",
           "title": "龍魂系统·依赖清单总览 / Longhun System · Dependency Overview",
@@ -181,7 +194,7 @@
           "link": "12_DOCS/INSTALL.md",
           "path": "12_DOCS/INSTALL.md",
           "size": 3848,
-          "mtime": "2026-09-05T01:00:44.444771+08:00",
+          "mtime": "2026-09-05T04:15:49.178545+08:00",
           "signed": true,
           "version": "v5.2.0",
           "title": "龍魂系统·安装指南 / Longhun System · Installation Guide",
@@ -197,7 +210,7 @@
           "link": "12_DOCS/USAGE.md",
           "path": "12_DOCS/USAGE.md",
           "size": 4841,
-          "mtime": "2026-09-05T02:09:19.294175+08:00",
+          "mtime": "2026-09-05T04:15:49.192256+08:00",
           "signed": true,
           "version": "v5.2.0",
           "title": "龍魂系统·使用指南 / Longhun System · Usage Guide",
@@ -213,7 +226,7 @@
           "link": "12_DOCS/API_REFERENCE.md",
           "path": "12_DOCS/API_REFERENCE.md",
           "size": 4627,
-          "mtime": "2026-09-05T02:09:19.298555+08:00",
+          "mtime": "2026-09-05T04:15:49.169150+08:00",
           "signed": true,
           "version": "v5.2.0",
           "title": "龍魂系统·API 技术文档 / Longhun System · API Reference",
@@ -229,7 +242,7 @@
           "link": "12_DOCS/JSONRPC.md",
           "path": "12_DOCS/JSONRPC.md",
           "size": 2863,
-          "mtime": "2026-09-05T01:00:44.445287+08:00",
+          "mtime": "2026-09-05T04:15:49.179577+08:00",
           "signed": true,
           "version": "v5.2.0",
           "title": "龍魂系统·JSON-RPC 接口文档 / Longhun System · JSON-RPC Reference",
@@ -245,7 +258,7 @@
           "link": "12_DOCS/MCP_GUIDE.md",
           "path": "12_DOCS/MCP_GUIDE.md",
           "size": 2954,
-          "mtime": "2026-09-05T01:00:44.445395+08:00",
+          "mtime": "2026-09-05T04:15:49.184003+08:00",
           "signed": true,
           "version": "v5.2.0",
           "title": "龍魂系统·MCP 接入指南 / Longhun System · MCP Integration Guide",
@@ -261,7 +274,7 @@
           "link": "12_DOCS/NOTION_MCP_GUIDE.md",
           "path": "12_DOCS/NOTION_MCP_GUIDE.md",
           "size": 3382,
-          "mtime": "2026-09-05T01:00:44.445552+08:00",
+          "mtime": "2026-09-05T04:15:49.185252+08:00",
           "signed": true,
           "version": "v5.2.0",
           "title": "龍魂系统·Notion MCP 接入指南 / Longhun System · Notion MCP Guide",
@@ -277,7 +290,7 @@
           "link": "12_DOCS/TROUBLESHOOTING.md",
           "path": "12_DOCS/TROUBLESHOOTING.md",
           "size": 4854,
-          "mtime": "2026-09-05T02:09:19.301920+08:00",
+          "mtime": "2026-09-05T04:15:49.190867+08:00",
           "signed": true,
           "version": "v5.2.0",
           "title": "龍魂系统·故障排查指南 / Longhun System · Troubleshooting Guide",
@@ -293,7 +306,7 @@
           "link": "12_DOCS/龍魂对外交付文档体系-v1.0.md",
           "path": "12_DOCS/龍魂对外交付文档体系-v1.0.md",
           "size": 2878,
-          "mtime": "2026-09-05T01:00:44.445856+08:00",
+          "mtime": "2026-09-05T04:15:49.649777+08:00",
           "signed": true,
           "version": "v5.2.0",
           "title": "📚 龍魂系统·对外交付文档体系 v1.0（总索引）",
@@ -309,7 +322,7 @@
           "link": "12_DOCS/30分钟接入龙魂系统.md",
           "path": "12_DOCS/30分钟接入龙魂系统.md",
           "size": 3449,
-          "mtime": "2026-09-05T01:00:44.445761+08:00",
+          "mtime": "2026-09-05T04:15:49.167553+08:00",
           "signed": true,
           "version": "v5.2.0",
           "title": "⚡ 30 分钟接入龍魂系统（从 git clone 到第一条命令）",
@@ -325,7 +338,7 @@
           "link": "12_DOCS/QUICKSTART.md",
           "path": "12_DOCS/QUICKSTART.md",
           "size": 3409,
-          "mtime": "2026-09-05T01:00:44.444900+08:00",
+          "mtime": "2026-09-05T04:15:49.186094+08:00",
           "signed": true,
           "version": "v5.2.0",
           "title": "龍魂系统·快速开始 / Longhun System · Quick Start（5 分钟上手）",
@@ -370,6 +383,13 @@
       "type": "relates_to",
       "registered_at": "2026-09-05T01:45:47+08:00",
       "label": "发布稿=公告扩展"
+    },
+    {
+      "source": "CNSH规范",
+      "target": "对外发布稿_2026-09-05",
+      "type": "governs",
+      "registered_at": "2026-09-05T23:04:51+08:00",
+      "pr_ref": "pr_0001"
     }
   ],
   "auto_docs_sync": true,
@@ -381,5 +401,34 @@
     "copy": "平台扩散文案（v2ex/osc/zhihu/hackernews）",
     "endpoint": "反馈入口/耻辱墙（反馈链路端点）",
     "issue": "GitHub Issue（#99 对外文档上线公告）"
-  }
+  },
+  "rules": [
+    {
+      "id": "R1-DELIVER-GPG",
+      "schema": "longhun-topo-rule-v1",
+      "condition": "对外交付物存在未GPG签名文件",
+      "action": "lh gpg-sign scan .",
+      "threshold": "未签名=0",
+      "status": "🟢 可用",
+      "dna": "#龍芯⚡️2026-09-05-TOPO-RULE-R1-DELIVER-GPG-UID9622",
+      "created": "2026-09-05T23:04:57+08:00",
+      "updated": "2026-09-05T23:04:57+08:00",
+      "desc": "交付物签名完整性铁律·发布前必经"
+    },
+    {
+      "id": "R2-DOCS-SYNC",
+      "schema": "longhun-topo-rule-v1",
+      "condition": "12_DOCS 交付文档变更",
+      "action": "lh topo sync 对外交付",
+      "threshold": "文档节点数>=11",
+      "status": "🟢 可用",
+      "dna": "#龍芯⚡️2026-09-05-TOPO-RULE-R2-DOCS-SYNC-UID9622",
+      "created": "2026-09-05T23:04:57+08:00",
+      "updated": "2026-09-05T23:04:57+08:00",
+      "depends": [
+        "R1-DELIVER-GPG"
+      ],
+      "desc": "文档变更后自动同步图谱·依赖 R1 签名合规"
+    }
+  ]
 }

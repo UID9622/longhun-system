@@ -2,7 +2,7 @@
 
 > 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 > License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
-> DNA: #龍芯⚡️2026-08-30-TOPOLOGY-VIEWER-v1.1-BUILD-UID9622
+> DNA: #龍芯⚡️2026-08-30-TOPOLOGY-VIEWER-v1.5-BUILD-UID9622
 
 龍魂系统神经网络拓扑的**三端离线可视化**，一份产物 macOS / iOS / 鸿蒙通用。
 
@@ -74,7 +74,7 @@ bash bin/lh_topology_publish.sh --deploy root@鲲鹏:/路径   # 发布+部署
 A: dmg 是 macOS 专属格式；iOS 装 ipa、鸿蒙装 hap。本方案用「离线单页 + PWA 添加到主屏」，三端行为一致且无需签名证书。
 
 **Q: 离线真的可靠吗？**
-A: 是。数据本身内嵌在 HTML；Service Worker 额外缓存全量资源（v1.1 修复）。前提是至少首次在线打开过一次。
+A: 是。数据本身内嵌在 HTML；Service Worker 额外缓存全量资源（离线缓存自 v1.1 加固引入 · 当前产物 v1.5）。前提是至少首次在线打开过一次。
 
 **Q: 数据会泄露吗？**
 A: 不会。单页内嵌、零请求、零 SDK、零埋点。源码可审。
@@ -86,5 +86,6 @@ A: 拓扑 JSON 有变 → 重跑 `lh_topology_publish.sh` 即可；dmg 内说明
 
 | 版本 | 日期 | 说明 |
 |:---|:---|:---|
+| v1.5 | 2026-09-05 | 版本标签全链统一：SW 注释对齐缓存键 v1.5 · manifest/index 与构建器 VERSION 一致 |
 | v1.1 | 2026-08-30 | 审计修复：真 SW 离线缓存 · PNG 位图图标 · 边图自适应布局（真实 edges 驱动）· 全段错误边界 · 契约校验内置 · 校验/发布流程新增 |
 | v1.0 | 2026-08-30 | 首版：单页 + PWA 清单 + dmg |

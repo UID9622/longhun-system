@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 # DNA: #龍芯⚡️丙午·丁酉·乙亥·巳时·䷝离-CIL-API-GATEWAY-V2.2-OPEN-PLATFORM
 # 创建者: 诸葛鑫（UID9622）
 # 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
@@ -8,6 +7,18 @@
 # 协议配套: docs/对外接口协议-v1.0.md（§7 归一审计）
 """
 🐉 龍魂 CIL API 网关 v2.2 — 开放平台（默认只监听 127.0.0.1）
+
+v4.4 Registry 融合（2026-09-05 · M99 融合第二笔实账）:
+  - 原 :9623 龍魂注册中心 v2.0(registry_server.py·纯内存无状态薄壳)挂载至 /v1/reg/{health,nodes,stats,audit,node/<id>}
+  - POST 写面保留: /v1/reg/heartbeat · /v1/reg/audit/report（节点心跳通道不可断）
+  - 懒加载 importlib 跨目录加载 deploy/longhun-registry/registry_server.py（模块级内存态·易失·心跳恢复）
+  - 心跳客户端 com.longhun.heartbeat → localhost:9622/v1/reg（plist 双改: ProgramArguments + EnvironmentVariables）
+  - 原 com.longhun.registry 停用 → 进程 -1 · 端口 -1 · 数据语义零变化(127.0.0.1 内网·无确认码闸门)
+
+v2.3 ADS 融合（2026-09-05 · M99 最小融合·总账 P0 Item1 第一笔实账）:
+  - 原 :9626 自描述子系统(ADS v4.0)只读六端点挂载至 /v1/self/{health,describe,history,diagnose,boundary,roles}
+  - 懒加载模块(首次请求才 import)·复用网关归一审计·确认码闸门语义保持(无码403=在线探针可用)
+  - 写面(evolve/rollback)不挂载 · 原 com.longhun.ads 停用 → 进程 -1 · 端口 -1
 
 v2.2 开放集成（2026-09-04 · Open Platform）:
   - 对外前缀 /api/v1/*（nginx 反代 · 后端内部路径归一 /api/v1 → /）
@@ -59,6 +70,7 @@ import time
 import urllib.parse
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from typing import Any
 
 ROOT = Path(__file__).resolve().parent.parent
 LH = ROOT / "bin" / "lh.py"
@@ -77,12 +89,13 @@ ROLE_CN = {"viewer": "只读", "auditor": "审计可触发", "admin": "全权"}
 # 数据镜像目录：鲲鹏部署 = /apps/lh-api/data（只读快照·Mac rsync 同步）
 DATA_DIR = ROOT / "data"
 SHAME_MIRROR = DATA_DIR / "shame_wall.json"           # 耻辱墙镜像（Mac ~/.longhun/shame_wall）
+EVIDENCE_MIRROR = DATA_DIR / "evidence.json"          # 生态证据链镜像（Mac lh evidence seal 导出·v1.0）
 MEMORIAL_MIRROR = DATA_DIR / "contributor_memorial.json"  # 铭碑镜像（Mac 07_AUDIT）
 SCAN_REQ_LOG = DATA_DIR / "scan_requests.log"         # judge/scan 登记（append-only）
 DH_REQ_LOG = DATA_DIR / "dh_dispatch.log"             # dh/dispatch 登记（append-only）
 
 HOST = "127.0.0.1"  # 🔒 默认只监听本地 · 永不默认 0.0.0.0
-VERSION = "4.2"
+VERSION = "4.4"
 DNA = "#龍芯⚡️丙午·丁酉·乙亥·巳时·䷝离-CIL-API-GATEWAY-v2.0"
 START_TIME = time.time()
 
@@ -126,6 +139,42 @@ def _make_node(command: str) -> dict:
         "action": "enter" if dr <= 4 else "stay",
         "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
     }
+
+
+# ── ADS 自描述懒加载（v2.3 融合 · 首次请求才 import，不污染网关启动）────
+_ADS_SYS: Any | None = None
+
+
+def _get_ads() -> Any:
+    """懒加载 SelfDescribingSystem（模块级单例）。失败抛回 Handler 兜底。"""
+    global _ADS_SYS
+    if _ADS_SYS is None:
+        from lh_self_describing import SelfDescribingSystem  # noqa: PLC0415
+        _ADS_SYS = SelfDescribingSystem()
+    return _ADS_SYS
+
+
+# ── Registry 注册中心懒加载（v4.4 融合 · 原 :9623 → /v1/reg/*）────
+_REG: Any = None
+_REG_PATH = ROOT / "deploy" / "longhun-registry" / "registry_server.py"
+
+
+def _get_reg() -> Any:
+    """importlib 跨目录加载 registry_server.py（模块级单例·纯内存态·无副作用）。
+
+    复用其 nodes/node_history/node_audit_results/常量——网关零复制数据源。
+    原进程停用后：注册数据易失(心跳≤300s 自动恢复)·与独立运行语义一致。
+    """
+    global _REG
+    if _REG is None:
+        import importlib.util  # noqa: PLC0415
+        spec = importlib.util.spec_from_file_location("lh_registry_embed", _REG_PATH)
+        assert spec is not None and spec.loader is not None
+        mod = importlib.util.module_from_spec(spec)
+        sys.modules["lh_registry_embed"] = mod
+        spec.loader.exec_module(mod)
+        _REG = mod
+    return _REG
 
 
 def _extract_node(stdout: str, command: str) -> dict:
@@ -272,11 +321,11 @@ def run_lh(command: str) -> dict:
 
 
 class Handler(BaseHTTPRequestHandler):
-    logger = None  # main 注入
+    logger: "logging.Logger | None" = None  # main 注入
 
-    def log_message(self, fmt, *args):  # 访问日志按级别入文件（不刷终端）
+    def log_message(self, format: str, *args: Any) -> None:  # 访问日志按级别入文件（不刷终端）
         if self.logger:
-            self.logger.debug("%s %s", self.address_string(), fmt % args)
+            self.logger.debug("%s %s", self.address_string(), format % args)
 
     # ── 归一回流（v2.1 焊死）────────────────────────────────
     def _dna_line(self, node: dict | None) -> str:
@@ -338,7 +387,7 @@ class Handler(BaseHTTPRequestHandler):
     def _topo(self, raw_path: str):
         """GET /v1/topo → 图谱索引 · /v1/topo/<名> → 节点树 JSON · /v1/topo/<名>/html → 页面"""
         try:
-            import lh_topo   # 同目录引擎模块（复用本地缓存/渲染·零重复实现）
+            import lh_topo  # noqa: I001  同目录引擎模块（懒加载·复用本地缓存/渲染·零重复实现）
         except Exception as e:  # noqa: BLE001
             self._json({"error": f"lh_topo 不可用: {e}"}, 500, node=_make_node("500"))
             return
@@ -390,9 +439,11 @@ class Handler(BaseHTTPRequestHandler):
         except SystemExit as e:
             self._json({"error": str(e)}, 404, node=_make_node("TOPO-9622-404"))
 
-    # ── 路径归一 v2.2：对外 /api/v1/* → 内部 /v1/*（兼容 nginx 剥或不剥）──
+    # ── 路径归一 v2.3：对外 /api/v1/* → 内部 /v1/*（兼容 nginx 剥或不剥）
+    #   先 urlparse 剥 query 再 unquote——路由判定只认路径，query 由端点自取
+    #   （2026-09-05 现场修复焊死：带 ?confirm 请求曾致 seg 失配 404）
     def _norm(self, raw_path: str) -> str:
-        p = urllib.parse.unquote(raw_path).rstrip("/") or "/"
+        p = urllib.parse.unquote(urllib.parse.urlparse(raw_path).path).rstrip("/") or "/"
         for pre in ("/api/v1", "/api"):
             if p.startswith(pre):
                 rest = p[len(pre):]
@@ -421,15 +472,26 @@ class Handler(BaseHTTPRequestHandler):
                        node=_make_node("SHAMEWALL-9622-EMPTY"))
             return
         mtime = ""
-        try:
+        with contextlib.suppress(OSError):
             mtime = time.strftime("%Y-%m-%dT%H:%M:%S%z",
                                   time.localtime(SHAME_MIRROR.stat().st_mtime))
-        except OSError:
-            pass
         total = len(m.get("records", [])) if isinstance(m, dict) else None
         self._json({"tool": "lh-judge-api", "mirror": "shame_wall.json",
                     "mirror_synced_at": mtime, "total": total, "data": m},
                    node=_make_node("SHAMEWALL-9622-GET"))
+
+    # ── 生态证据链只读镜像（v1.0 · LH-AUDIT-CHAIN 阶段A · 2026-09-05）────
+    def _evidence(self):
+        m = read_mirror(EVIDENCE_MIRROR)
+        if m is None:
+            self._json({"tool": "lh-evidence-api", "status": "empty",
+                        "note": "证据镜像未同步（数据主权端 lh evidence add/sync 自动导出后 rsync）"},
+                       node=_make_node("EVIDENCE-9622-EMPTY"))
+            return
+        self._json({"tool": "lh-evidence-api", "count": m.get("count", 0),
+                    "root_hash": m.get("root_hash", ""),
+                    "sealed_at": m.get("sealed_at", ""), "data": m},
+                   node=_make_node("EVIDENCE-9622-GET"))
 
     # ── 铭碑验证（只读镜像存档根哈希）────────────────────────
     def _memorial(self):
@@ -448,6 +510,129 @@ class Handler(BaseHTTPRequestHandler):
             "verify_note": "存档根哈希只读镜像。完整重算校验在数据主权端: lh memorial --verify",
         }, node=_make_node("MEMORIAL-9622-VERIFY"))
 
+    # ── ADS 自省挂载（v2.3 融合 · 原 :9626 只读六端点 → /v1/self/*）──────
+    def _serve_self(self, path: str):
+        """ADS v4.0 只读内省挂载。懒加载·网关审计头·确认码闸门语义保持。"""
+        # path 入参经 _norm 已剥 query（v2.3 焊死）·seg 干净不含 ?query
+        seg = path
+        for pre in ("/v1/self", "/self"):
+            if seg.startswith(pre):
+                seg = seg[len(pre):].strip("/") or "health"
+                break
+        qs = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
+        confirm = qs.get("confirm", [""])[0]
+        try:
+            sys_ = _get_ads()
+            fns = {
+                "health": lambda c: sys_.introspect(c),
+                "describe": lambda c: sys_.describe("api", c),
+                "history": lambda c: sys_.historian(c),
+                "diagnose": lambda c: sys_.diagnose(c),
+                "boundary": lambda c: sys_.boundary(c),
+                "roles": lambda c: {r: fn(c) for r, fn in
+                                    [("introspect", sys_.introspect),
+                                     ("historian", sys_.historian),
+                                     ("diagnose", sys_.diagnose),
+                                     ("boundary", sys_.boundary)]},
+            }
+            fn = fns.get(seg)
+            if fn is None:
+                self._json({"error": "not found"}, 404, node=_make_node("404"))
+                return
+            result = fn(confirm)
+            status = 403 if isinstance(result, dict) and result.get("code") == 403 else 200
+            self._json(result, status=status, node=_make_node(f"SELF-9622-{seg.upper()}"))
+        except Exception as e:  # noqa: BLE001
+            if self.logger:
+                self.logger.error("self/%s %s", seg, e)
+            self._json({"error": str(e), "status": "🔴"}, 500,
+                       node=_make_node("SELF-9622-ERR"))
+
+    # ── Registry 注册中心挂载（v4.4 融合 · 原 :9623 → /v1/reg/*）──────
+    def _reg_cst(self, reg) -> str:
+        try:
+            from datetime import datetime  # noqa: PLC0415
+            return datetime.now(reg.CST).isoformat()
+        except Exception:  # noqa: BLE001
+            return ""
+
+    def _reg_split(self, path: str) -> str:
+        seg = path
+        for pre in ("/v1/reg", "/reg"):
+            if seg.startswith(pre):
+                seg = seg[len(pre):].strip("/")
+                break
+        return seg
+
+    def _reg_online(self, reg) -> dict:
+        now = time.time()
+        return {k: v for k, v in reg.nodes.items()
+                if now - v.get("timestamp", 0) < reg.NODE_TIMEOUT_SECONDS}
+
+    def _reg_node_view(self, reg, nid: str) -> dict:
+        n = reg.nodes.get(nid, {})
+        online = nid in self._reg_online(reg)
+        return {
+            "last_seen": n.get("timestamp_iso", ""),
+            "metrics": n.get("metrics", {}),
+            "signature_valid": n.get("signature_valid", False),
+            "status": "online" if online else "offline",
+        }
+
+    def _serve_reg(self, path: str):
+        """GET 只读面：health/nodes/stats/audit/node/<id>（数据=registry 模块内存态）。"""
+        try:
+            reg = _get_reg()
+        except Exception as e:  # noqa: BLE001
+            self._json({"error": f"registry 不可用: {e}"}, 500,
+                       node=_make_node("REG-9622-ERR"))
+            return
+        seg = self._reg_split(path)
+        cst = self._reg_cst(reg)
+        online = self._reg_online(reg)
+        offline = {k: v for k, v in reg.nodes.items() if k not in online}
+        if not seg or seg == "health":
+            self._json({"status": "ok",
+                        "registry": "longhun-registry-v2.0 (embedded @lh-api)",
+                        "dna": reg.DNA_ANCHOR[:40] + "...",
+                        "uptime_seconds": int(time.time() - reg.START_TIME),
+                        "cst_time": cst}, node=_make_node("REG-9622-HEALTH"))
+        elif seg == "nodes":
+            self._json({"total_nodes": len(reg.nodes), "online": len(online),
+                        "offline": len(offline),
+                        "nodes": {nid: self._reg_node_view(reg, nid)
+                                  for nid in reg.nodes}},
+                       node=_make_node("REG-9622-NODES"))
+        elif seg == "stats":
+            total_storage = sum(n.get("metrics", {}).get("storage_used_gb", 0)
+                                for n in reg.nodes.values())
+            total_requests = sum(n.get("metrics", {}).get("requests_handled", 0)
+                                 for n in reg.nodes.values())
+            total_crawls = sum(n.get("metrics", {}).get("crawl_sessions", 0)
+                               for n in reg.nodes.values())
+            self._json({"total_nodes": len(reg.nodes), "online_nodes": len(online),
+                        "total_storage_gb": round(total_storage, 2),
+                        "total_requests": total_requests,
+                        "total_crawl_sessions": total_crawls,
+                        "dna": reg.DNA_ANCHOR[:40] + "...",
+                        "cst_time": cst}, node=_make_node("REG-9622-STATS"))
+        elif seg == "audit":
+            self._json({"total_audited": len(reg.node_audit_results),
+                        "results": reg.node_audit_results},
+                       node=_make_node("REG-9622-AUDIT"))
+        elif seg.startswith("node/"):
+            nid = seg.split("node/")[-1]
+            if nid in reg.nodes:
+                self._json({"node_id": nid, "latest": reg.nodes[nid],
+                            "history_count": len(reg.node_history.get(nid, [])),
+                            "recent_history": reg.node_history.get(nid, [])[-5:]},
+                           node=_make_node("REG-9622-NODE"))
+            else:
+                self._json({"error": "node not found"}, 404,
+                           node=_make_node("REG-9622-404"))
+        else:
+            self._json({"error": "not found"}, 404, node=_make_node("REG-9622-404"))
+
     def do_GET(self):
         path = self._norm(self.path)
         if self.logger:
@@ -465,6 +650,12 @@ class Handler(BaseHTTPRequestHandler):
             self._shamewall()
         elif self._m(path, "/memorial/verify"):
             self._memorial()
+        elif self._m(path, "/evidence"):
+            self._evidence()
+        elif path.startswith("/v1/self") or path.startswith("/self"):
+            self._serve_self(path)
+        elif path.startswith("/v1/reg") or path.startswith("/reg"):
+            self._serve_reg(path)
         else:
             if self.logger:
                 self.logger.warning("GET %s 404", self.path)
@@ -548,9 +739,66 @@ class Handler(BaseHTTPRequestHandler):
                        status=202, node=_make_node("DH-9622-ACCEPT"))
             return
 
+        if path.startswith("/v1/reg") or path.startswith("/reg"):
+            self._serve_reg_post(path)
+            return
+
         if self.logger:
             self.logger.warning("POST %s 404", self.path)
         self._json({"error": "not found"}, 404, node=_make_node("404"))
+
+    # ── Registry 注册中心 POST 写面（v4.4 · heartbeat/audit-report 通道保留）─
+    def _serve_reg_post(self, path: str):
+        try:
+            reg = _get_reg()
+        except Exception as e:  # noqa: BLE001
+            self._json({"error": f"registry 不可用: {e}"}, 500,
+                       node=_make_node("REG-9622-ERR"))
+            return
+        seg = self._reg_split(path)
+        body = self._read_json_body()
+        if seg == "heartbeat":
+            try:
+                node_id = str(body.get("node_id", "unknown"))[:80]
+                sig = str(body.pop("signature", ""))[:64]
+                payload = {k: v for k, v in body.items() if k != "signature"}
+                expected = hashlib.sha256(
+                    (json.dumps(payload, sort_keys=True, ensure_ascii=False)
+                     + reg.DNA_ANCHOR + reg.CONFIRM).encode()).hexdigest()[:32]
+                payload["signature_valid"] = (sig == expected)
+                from datetime import datetime  # noqa: PLC0415
+                payload["received_at"] = datetime.now(reg.CST).isoformat()
+                reg.nodes[node_id] = payload
+                reg.node_history[node_id].append(
+                    {"timestamp": payload.get("timestamp", 0),
+                     "timestamp_iso": payload.get("received_at", ""),
+                     "metrics": payload.get("metrics", {})})
+                if len(reg.node_history[node_id]) > 100:
+                    reg.node_history[node_id] = reg.node_history[node_id][-100:]
+                online = self._reg_online(reg)
+                self._json({"status": "received", "node_id": node_id,
+                            "nodes_online": len(online),
+                            "total_nodes": len(reg.nodes)},
+                           node=_make_node("REG-9622-HB"))
+            except Exception as e:  # noqa: BLE001
+                self._json({"error": str(e)[:80]}, 500,
+                           node=_make_node("REG-9622-ERR"))
+        elif seg == "audit/report":
+            try:
+                nid = str(body.get("node_id", "unknown"))[:80]
+                summary = body.get("summary", {})
+                reg.node_audit_results[nid] = {
+                    "score": summary.get("score", 0),
+                    "passed": summary.get("passed", 0),
+                    "failed": summary.get("failed", 0),
+                    "audited_at": str(body.get("audited_at", ""))[:40]}
+                self._json({"status": "received", "node_id": nid},
+                           node=_make_node("REG-9622-AUDIT-RPT"))
+            except Exception as e:  # noqa: BLE001
+                self._json({"error": str(e)[:80]}, 400,
+                           node=_make_node("REG-9622-ERR"))
+        else:
+            self._json({"error": "not found"}, 404, node=_make_node("REG-9622-404"))
 
 
 def daemonize() -> None:
@@ -616,7 +864,8 @@ def main() -> None:
         logger.warning("⚠️ 网关绑定 %s 对外开放——外部调用自动写入 %s (归一审计)",
                        args.host, EXTERNAL_LOG)
 
-    server = ThreadingHTTPServer((args.host, args.port), Handler)
+    server = ThreadingHTTPServer(server_address=(args.host, args.port),
+                                 RequestHandlerClass=Handler)
     logger.info("🐉 lh-api v%s 已启动 http://%s:%s/v1/lh (log=%s pid=%s 归一审计=%s)",
                 VERSION, args.host, args.port, LOG_FILE, pidfile,
                 "外部" if args.host not in ("127.0.0.1", "::1") else "本机")

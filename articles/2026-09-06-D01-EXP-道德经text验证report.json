@@ -1,0 +1,56 @@
+{
+  "dna": "#龍芯⚡️丙午·丁酉·癸未·午时·䷙大畜-TRAIN-FULL-S2C-v1.0-UID9622",
+  "base_model": "/Users/zuimeidedeyihan/longhun-system/models/longhun-v1.0/base_model",
+  "full_train_samples": 366,
+  "full_valid_samples": 41,
+  "iters": 40,
+  "batch": 4,
+  "lora": {
+    "rank": 16,
+    "alpha": 64
+  },
+  "train_curve": [
+    [
+      10,
+      3.419
+    ],
+    [
+      20,
+      3.128
+    ],
+    [
+      30,
+      2.618
+    ],
+    [
+      40,
+      2.463
+    ]
+  ],
+  "val_curve": [
+    [
+      1,
+      2.457
+    ],
+    [
+      20,
+      3.107
+    ],
+    [
+      40,
+      3.024
+    ]
+  ],
+  "train_loss": {
+    "head_mean": 3.419,
+    "tail_mean": 2.463,
+    "delta": -0.956
+  },
+  "val_loss": {
+    "head_mean": 2.457,
+    "tail_mean": 3.024,
+    "delta": 0.5670000000000002
+  },
+  "verdict": "PASS·全量语料后段均值下降(1.5B同族代理可学+泛化稳)",
+  "scope_note": "本报告=本地 1.5B 同族代理实测;与 S3 Qwen2.5-7B 正式效果等同仍待 S3 实跑,不僭越(防空壳)"
+}

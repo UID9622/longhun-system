@@ -143,7 +143,7 @@
 - `metaverse/🌌 龍魂工作间·万国算法仓库 v1 0 d44f3eceab2b42caa76f88bb6841927b.md`
 - `metaverse/🌟 龍魂工作间·公开展示入口 v1 0｜UID9622 ddd11c78e1c647c09a3c7a9febcae186.md`
 - `metaverse/🎨 龍魂终端 v5 0｜水墨东方·禅意全交互入口 01771cdbbdc94aebb4e726c3aec21bce.md`
-- `metaverse/🏛️ 龍魂基金会·元世界消费保障体系 v1 0 ec275238b87e4e6186e3b34a2806417a.md`
+- `metaverse/🏛️ 消费保障基金·元世界消费保障体系 v1 0 ec275238b87e4e6186e3b34a2806417a.md`
 - `metaverse/🐉 龍魂终端 v4 0 ｜赛博互动入口 1c386feb520e4488a1ae314a3f6ed79e.md`
 - `metaverse/🐉 龍魂终端 v7 0 · 深海亚特兰蒂斯·生物发光交互版 db2412d00afa4a548c07f252fe63df2e.md`
 - `metaverse/🚀 龍魂终端 v6 0 · 星际宇航·全息交互版 c77a0992bc2f466ca752d76071f6bce9.md`

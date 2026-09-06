@@ -51,7 +51,7 @@ fn longhun_core(m: &Bound<'_, PyModule>) -> PyResult<()> {
 // 核心
 // ═══════════════════════════════════════════════════════════════
 
-#[pyclass(name = "SupervisionConfig")]
+#[pyclass(name = "SupervisionConfig", from_py_object)]
 #[derive(Clone)]
 struct PySupervisionConfig {
     #[pyo3(get, set)]
@@ -67,7 +67,7 @@ impl PySupervisionConfig {
 }
 
 #[pyfunction]
-fn py_run_supervision(config: Option<PySupervisionConfig>) -> PyResult<PyObject> {
+fn py_run_supervision(config: Option<PySupervisionConfig>) -> PyResult<Py<PyAny>> {
     let cfg = SupervisionConfig {
         sensitivity: config.map(|c| c.sensitivity).unwrap_or(0.7),
         dna_verify: true,
@@ -75,21 +75,21 @@ fn py_run_supervision(config: Option<PySupervisionConfig>) -> PyResult<PyObject>
         max_deviation: 20.0,
     };
     let report = run_supervision(&cfg);
-    Python::with_gil(|py| {
+    Python::attach(|py| {
         let dict = PyDict::new(py);
         dict.set_item("score", report.score)?;
         dict.set_item("audit", format!("{:?}", report.audit))?;
         dict.set_item("dna_valid", report.dna_valid)?;
         dict.set_item("timestamp", report.timestamp)?;
         dict.set_item("recommendations", report.recommendations)?;
-        Ok(dict.into())
+        Ok(dict.into_any().unbind())
     })
 }
 
 #[pyfunction]
-fn py_get_health() -> PyResult<PyObject> {
+fn py_get_health() -> PyResult<Py<PyAny>> {
     let h = get_health();
-    Python::with_gil(|py| {
+    Python::attach(|py| {
         let dict = PyDict::new(py);
         dict.set_item("status", h.status)?;
         dict.set_item("cpu_percent", h.cpu_percent)?;
@@ -97,7 +97,7 @@ fn py_get_health() -> PyResult<PyObject> {
         dict.set_item("memory_total_mb", h.memory_total_mb)?;
         dict.set_item("uptime_seconds", h.uptime_seconds)?;
         dict.set_item("active_services", h.active_services)?;
-        Ok(dict.into())
+        Ok(dict.into_any().unbind())
     })
 }
 
@@ -106,9 +106,9 @@ fn py_get_health() -> PyResult<PyObject> {
 // ═══════════════════════════════════════════════════════════════
 
 #[pyfunction]
-fn py_query_memory(query_str: &str) -> PyResult<Vec<PyObject>> {
+fn py_query_memory(query_str: &str) -> PyResult<Vec<Py<PyAny>>> {
     let results = memory_query(query_str);
-    Python::with_gil(|py| {
+    Python::attach(|py| {
         results.entries.iter().map(|e| {
             let dict = PyDict::new(py);
             dict.set_item("id", &e.id)?;
@@ -118,15 +118,15 @@ fn py_query_memory(query_str: &str) -> PyResult<Vec<PyObject>> {
             dict.set_item("tags", &e.tags)?;
             dict.set_item("created_at", &e.created_at)?;
             dict.set_item("frozen", e.frozen)?;
-            Ok(dict.into())
+            Ok(dict.into_any().unbind())
         }).collect()
     })
 }
 
 #[pyfunction]
-fn py_create_memory(content: &str, tags: Vec<String>) -> PyResult<PyObject> {
+fn py_create_memory(content: &str, tags: Vec<String>) -> PyResult<Py<PyAny>> {
     let e = create_memory(content, tags);
-    Python::with_gil(|py| {
+    Python::attach(|py| {
         let dict = PyDict::new(py);
         dict.set_item("id", &e.id)?;
         dict.set_item("priority", format!("{:?}", e.priority))?;
@@ -135,7 +135,7 @@ fn py_create_memory(content: &str, tags: Vec<String>) -> PyResult<PyObject> {
         dict.set_item("tags", &e.tags)?;
         dict.set_item("created_at", &e.created_at)?;
         dict.set_item("frozen", e.frozen)?;
-        Ok(dict.into())
+        Ok(dict.into_any().unbind())
     })
 }
 
@@ -143,7 +143,7 @@ fn py_create_memory(content: &str, tags: Vec<String>) -> PyResult<PyObject> {
 // 治理
 // ═══════════════════════════════════════════════════════════════
 
-#[pyclass(name = "MeltdownState")]
+#[pyclass(name = "MeltdownState", skip_from_py_object)]
 #[derive(Clone)]
 struct PyMeltdownState {
     #[pyo3(get)]
@@ -214,9 +214,9 @@ fn py_check_blackhole(content: &str) -> Option<(u8, String)> {
 }
 
 #[pyfunction]
-fn py_governance_check(content: &str) -> PyResult<PyObject> {
+fn py_governance_check(content: &str) -> PyResult<Py<PyAny>> {
     let r = governance_self_check(content);
-    Python::with_gil(|py| {
+    Python::attach(|py| {
         let dict = PyDict::new(py);
         dict.set_item("audit_mark", &r.audit_mark)?;
         dict.set_item("veto_clean", r.veto_clean)?;
@@ -225,15 +225,15 @@ fn py_governance_check(content: &str) -> PyResult<PyObject> {
         dict.set_item("recommendations", &r.recommendations)?;
         dict.set_item("timestamp", &r.timestamp)?;
         dict.set_item("dna", &r.dna)?;
-        Ok(dict.into())
+        Ok(dict.into_any().unbind())
     })
 }
 
 #[pyfunction]
-fn py_gate_check(content: &str) -> PyResult<PyObject> {
+fn py_gate_check(content: &str) -> PyResult<Py<PyAny>> {
     let mut runner = GateRunner::new();
     let report = runner.run_all(content, "python-gate-check");
-    Python::with_gil(|py| {
+    Python::attach(|py| {
         let dict = PyDict::new(py);
         dict.set_item("total", report.total)?;
         dict.set_item("passed", report.passed)?;
@@ -241,6 +241,6 @@ fn py_gate_check(content: &str) -> PyResult<PyObject> {
         dict.set_item("pending", report.pending)?;
         dict.set_item("is_clean", report.is_clean())?;
         dict.set_item("timestamp", &report.timestamp)?;
-        Ok(dict.into())
+        Ok(dict.into_any().unbind())
     })
 }

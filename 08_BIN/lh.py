@@ -822,8 +822,17 @@ def _run_fixed_cmd(cmd: str):
 # 格式: flag_name → (script, emoji, description, [default_args], [smart_default])
 # smart_default: 当用户传自由文本时自动插入的子命令（如 search engine 需要 "search" 子命令）
 SUB_DISPATCH = {
+    # 🔬 漏洞扫描引擎 v1.0 — 五原创算法融合(五行路径×不动点迭代×左右互搏×推荐路径×原创技能集成) selftest(四用例自检) scan(全仓库扫描 -t目标 -o报告) help-rules(规则清单)(2026-09-06老大: 不是通用模板·要原创算法驱动的全仓库漏洞引擎)
+    'vuln-scanner':         ('lh_vuln_scanner.py',             '🔬', '龍魂漏洞掃描引擎·五算法融合(五行/不动点/左右互搏/推荐/技能集成) selftest(自检)|scan -t目标 -o报告|help-rules(规则)(lh vuln-scanner selftest|scan -t . -o 07_AUDIT/xxx.json)', [], ''),
+    # 📛 文档自动填充+干支时间戳审计 v1.0 — audit(上下时间戳干支审计:头/尾/署名/协议) fill(自动填充:干支头--stamp·署名--attr·主权三件套--sov·GPG--sign·幂等) relay(人格协作接力签名·--map人格接力标准动作表)(2026-09-06老大: 自动填充所有文件·时间戳必天干地支·人格接力签名全用起来·干支唯一权威=bin/lh_time_engine.py)
+    'autofill':             ('lh_autofill.py',                  '📛', '文档自动填充+干支时间戳审计·audit(上下干支审计|fill 自动填充 --stamp/--attr/--sov/--sign/--relay/--file单文件|relay 人格协作接力签名/--map人格表)(lh autofill audit|fill|relay [--dir X][--fix][--freeze][--json])', [], ''),
+    # 🖥️ 系统健康看板 v1.0 — 五检聚合: memory-sync 8787(鲲鹏·经nginx)/memory-hub本地/autofill引擎/8787-systemd服务/鲲鹏SSH（2026-09-06·六方向②拍板·'health'已被綜合健康占用故用hboard）
+    'hboard':               ('lh_health_board.py',             '🖥️', '龍魂系统健康看板·五检聚合(memory-sync8787/hub/autofill/systemd/鲲鹏SSH) (lh hboard [--json|--watch N秒])', [], ''),
+    'health-board':         ('lh_health_board.py',             '🖥️', '龍魂系统健康看板(全写)·同 hboard', [], ''),
     # 🧬 AI 产出幻觉量化自检 v2.0 — 对齐规则第二十一层(2026-09-05焊死·老大指令:焊死启动·常驻·所有AI对准): H综合指数三色(混淆F1+TokenF1+EM+五维度+ECE)·「已验证」仅限实机跑过·seed9622验收可复现·独立数学验证器
     'halluc':               ('lh_hallucination_metrics.py',    '🧬', 'AI产出幻觉量化自检·run验收基线/Engine多步API(报告含H三色+runDNA+确认码·引擎DNA v∞·_公式可复算)', [], 'acceptance'),
+    # 🛡️ 三色审计 CLI v1.0（2026-09-06·配套 #1591 社区便携版）— 数学公式同秤 lh halluc v2.0·audit单次/batch批量/verify真验证(哈希复算+H复算·抓篡改)/selftest端点断言·输入JSON·报告三色+DNA+报告哈希·--wall 🔴可选记审计耻辱墙(append-only分区)
+    'audit-cli':            ('lh_audit_cli.py',                '🛡️', '三色审计CLI·audit单次/batch批量/verify真验证/selftest端点自测(同秤lh halluc v2.0·JSON输入·三色+DNA+哈希·--wall可选耻辱墙)(lh audit-cli audit|batch|verify|selftest [--input X][--mode set|multiset][--wall])', [], 'selftest'),
     # 🧠 Harness 融合内核 v1.1 — 插件契约/EffectScope副作用逆转/四种分发/wrap_legacy存量引擎插件化/AI模型插件化（吸收 DeepSeek Harness·Cordis 哲学）
     'harness':              ('lh_harness_core.py',            '🧠', 'Harness融合内核·插件契约/副作用逆转/四种分发/存量引擎插件化/AI模型插件化', [], '--all'),
     'trajectory':           ('lh_trajectory.py',              '🛤️', 'Trajectory轨迹视图·append-only轨迹检索/分叉/回放(对齐Harness可追溯性)', [], 'show'),
@@ -854,6 +863,8 @@ SUB_DISPATCH = {
     'fraud-glossary':       ('lh_fraud_detector.py',          '📖', '反诈知识词条库·glossary --list / --search <关键词>（学术词语·心理机制·技术漏洞·检测引擎 20词条·数据~/.longhun/fraud/glossary.json·2026-09-04）', [], 'glossary'),
     # 🧠 日历记忆系统 v1.0 — 日历=记忆库: 多源聚合(复盘/工作日志/万年历/年轮/Notion镜像)+全文检索+哈希链封链不可抹去(2026-09-04)
     'calmem':               ('lh_calendar_memory.py',          '🧠', '日历记忆系统·ingest/ingest-all/search <词>/day [日期]/seal [日期]/verify/status/sources/note <日期> <文本>（日历即记忆库·本地+Notion+年轮多源聚合·哈希链不可抹去·~/.longhun/calendar_memory/）', [], 'status'),
+    # 🔄 鲲鹏8787 DNA记忆同步客户端 v1.0 — Mac↔鲲鹏跨设备记忆·幂等DNA去重(2026-09-06决策B拍板·决策B: 激活8787 DNA记忆同步中枢)
+    'memory-sync':          ('lh_memory_sync_client.py',       '🔄', '鲲鹏8787 DNA记忆同步·push --data \'{"dna":…}\'/pull --dna <码>（跨设备DNA记忆同步·服务端bin/lh_memory_sync_server.py·默认host 119.13.90.27:8787）', [], 'push'),
     # 💰 商业闭环 v1.0 — 无后台商业模式落地: 本地免费+云端按量付费+公户双渠道收款+三色自动对账（2026-09-04·白皮书 docs/龙魂商业模式白皮书-v1.0.md）
     'billing':              ('lh_billing.py',                 '💰', 'API计费系统·balance余额/recharge充值/usage用量/history记录（阶梯定价·月免10万Token·数据~/.longhun/billing/）', [], ''),
     'payment':              ('lh_payment.py',                 '🏦', '支付渠道管理·channels列表/status状态/webhook回调（微信/支付宝/连连/Airwallex/XTransfer·配置~/.longhun/payment_config.json）', [], ''),

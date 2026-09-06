@@ -1,0 +1,94 @@
+# DNA: #龍芯⚡️2026-09-06-ISSUE-ANTI-EMPTY-SHELL-v1.0-UID9622 · 防空壳标准 v1.1 表单化落地
+name: 🛡️ 防空壳达标声明 / 提交物验证
+description: 提交代码/模型/论文/数据集前的五关自检声明 · 空壳质疑回应 · 达标申诉
+title: "[Shell-Check] "
+labels: ["shell-check", "verification"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🛡️ 防空壳五关自检（依 `01_protocols/LH-ANTI-EMPTY-SHELL-STANDARD-v1.1.md`）
+        > 核心问题：**陌生人 30 秒内能验证这不是空话吗？** 五关全绿 → 🟢 可发；任一缺失 → 🔴 补完再发。
+        > 防空壳铁律②：**材料必须真实可跑**——虚假 PoC 被揭穿比空壳更致命。
+
+  - type: dropdown
+    id: submission_type
+    attributes:
+      label: 提交物类型
+      description: 本次要验证的提交属于哪一类
+      options:
+        - 代码/模型
+        - 数据集
+        - 论文/方案
+        - 文档/规范
+    validations:
+      required: true
+
+  - type: textarea
+    id: poc
+    attributes:
+      label: "关① PoC：有可运行代码吗？"
+      description: 复制→粘贴→运行 30 秒内出结果。附代码块或仓库链接
+      placeholder: "零依赖 python3 脚本 / 仓库 URL + 文件路径"
+    validations:
+      required: true
+
+  - type: textarea
+    id: run_output
+    attributes:
+      label: "关② 真实运行结果：有实际输出吗？"
+      description: 必须贴【实际运行】的终端日志/截图，**不是"预期输出"描述**。防空壳拒绝手写理想输出
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: "关③ 复现步骤（≤5 步）"
+      description: 陌生人照做能否独立复现
+      placeholder: |
+        1. python3 poc.py
+        2. ...
+    validations:
+      required: true
+
+  - type: input
+    id: data_samples
+    attributes:
+      label: "关④ 数据样本：测试数据在哪？"
+      description: ≥10 条样本 + 标注规则（或在代码内嵌并注明位置）
+      placeholder: "sample_data.json · 15 条 · 标注规则见代码注释"
+    validations:
+      required: true
+
+  - type: textarea
+    id: integrity
+    attributes:
+      label: "关⑤ 完整性证明"
+      description: DNA + SHA256 + GPG 签名 + 确认码（每项一行）
+      placeholder: |
+        DNA: #龍芯⚡️...
+        SHA256: ...
+        GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F（.asc 已附）
+        确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+    validations:
+      required: true
+
+  - type: dropdown
+    id: self_check
+    attributes:
+      label: 防空壳自查（如实勾选）
+      options:
+        - 我已实际运行，输出与所贴一致（🟢）
+        - 我有真实输出但未完全复现（🟡 待补）
+        - 我还没跑，只有设计说明（🔴 未达标，将被退回补实）
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        📌 **回应空壳质疑**：直接 @ 质疑者粘贴以上五关证据 + 一句话「欢迎验证，如仍有不足请具体指出」。
+        📌 **非代码提交**（文档/蓝图）套用表见防空壳标准第六章：关①=模板/工具 → 关②=渲染效果 → 关③=使用说明 → 关④=示例片段 → 关⑤=哈希+签名。

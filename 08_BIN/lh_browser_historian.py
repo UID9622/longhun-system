@@ -13,34 +13,36 @@ CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 数据主权归你。不传云端。不合规不上架。
 """
 
-import os
-import sys
-import json
-import sqlite3
+import argparse
+import asyncio
+import base64
+import getpass
 import hashlib
 import hmac
-import base64
+import json
+import os
 import platform
-import subprocess
 import shutil
-from pathlib import Path
+import sqlite3
+import subprocess
+import time
+import urllib.parse
+import urllib.request
+from dataclasses import asdict, dataclass
 from datetime import datetime, timedelta
-from typing import Dict, List, Optional, Tuple, Any
-from dataclasses import dataclass, field, asdict
-import argparse
-import requests
-from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
-from cryptography.hazmat.primitives import hashes, padding
+from pathlib import Path
+
 from cryptography.hazmat.backends import default_backend
-import getpass
+from cryptography.hazmat.primitives import padding
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 
 # ============================================================
 # 一、配置
 # ============================================================
 
 CONFIG = {
-    "version": "v2.1",
-    "dna": "#龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-浏览器史官-v2.1",
+    "version": "v2.2",
+    "dna": "#龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-浏览器史官-v2.2-共生桥",
     "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
     "data_dir": Path.home() / ".longhun/browser_historian",
     "firewall_enabled": True,
@@ -61,12 +63,12 @@ class HistoryEntry:
     visit_count: int
     typed_count: int
     last_visit_time: str
-    from_visit: Optional[str] = None
-    transition: Optional[str] = None
+    from_visit: str | None = None
+    transition: str | None = None
     encrypted: bool = False
     signature: str = ""
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> dict:
         return asdict(self)
 
 
@@ -75,8 +77,8 @@ class BrowserProfile:
     """浏览器配置"""
     name: str
     history_db: Path
-    bookmarks_db: Optional[Path] = None
-    download_db: Optional[Path] = None
+    bookmarks_db: Path | None = None
+    download_db: Path | None = None
 
 
 # ============================================================
@@ -99,13 +101,13 @@ class DeviceFingerprint:
                 for line in result.stdout.split('\n'):
                     if 'IOPlatformUUID' in line:
                         return line.split('"')[-2]
-            except:
+            except Exception:
                 pass
         elif system == "Linux":
             try:
-                with open("/etc/machine-id", "r") as f:
+                with open("/etc/machine-id") as f:
                     return f.read().strip()
-            except:
+            except Exception:
                 pass
         elif system == "Windows":
             try:
@@ -116,7 +118,7 @@ class DeviceFingerprint:
                 for line in result.stdout.split('\n'):
                     if len(line.strip()) == 36 and '-' in line:
                         return line.strip()
-            except:
+            except Exception:
                 pass
 
         # fallback: 基于用户名 + 主机名 + 系统信息
@@ -248,7 +250,7 @@ class SignatureEngine:
                 hashlib.sha256
             ).hexdigest()
             return hmac.compare_digest(expected, sig)
-        except:
+        except Exception:
             return False
 
 
@@ -268,11 +270,11 @@ class MalwareFilter:
         """加载恶意域名列表"""
         if self.blocklist_file.exists():
             try:
-                with open(self.blocklist_file, 'r') as f:
+                with open(self.blocklist_file) as f:
                     data = json.load(f)
                     self.blocklist = set(data.get("domains", []))
                     return
-            except:
+            except Exception:
                 pass
 
         # 内置基础黑名单（不可删除）
@@ -305,7 +307,7 @@ class MalwareFilter:
         except Exception as e:
             print(f"⚠️ 更新黑名单失败: {e}")
 
-    def is_malicious(self, url: str) -> Tuple[bool, str]:
+    def is_malicious(self, url: str) -> tuple[bool, str]:
         """检查URL是否为恶意"""
         from urllib.parse import urlparse
         try:
@@ -319,10 +321,10 @@ class MalwareFilter:
                 if blocked in domain or domain in blocked:
                     return True, f"域名在黑名单中: {blocked}"
             return False, ""
-        except:
+        except Exception:
             return False, ""
 
-    def scan_history(self, history: List[Dict]) -> List[Dict]:
+    def scan_history(self, history: list[dict]) -> list[dict]:
         """扫描历史记录，标记恶意URL"""
         malicious = []
         for entry in history:
@@ -346,7 +348,7 @@ class BrowserCollector:
         self.profiles = self._detect_browsers()
         self.data_dir = CONFIG["data_dir"]
 
-    def _detect_browsers(self) -> List[BrowserProfile]:
+    def _detect_browsers(self) -> list[BrowserProfile]:
         """自动检测已安装的浏览器"""
         profiles = []
         system = platform.system()
@@ -395,7 +397,7 @@ class BrowserCollector:
 
         return profiles
 
-    def collect_history(self, profile: BrowserProfile, days: int = 30) -> List[HistoryEntry]:
+    def collect_history(self, profile: BrowserProfile, days: int = 30) -> list[HistoryEntry]:
         """采集指定浏览器的历史记录"""
         entries = []
         try:
@@ -451,7 +453,7 @@ class BrowserCollector:
                     # 将Chrome时间戳转换为datetime
                     try:
                         visit_time = datetime.fromtimestamp(row[2] / 1000000 - 11644473600)
-                    except:
+                    except Exception:
                         visit_time = datetime.now()
 
                     entries.append(HistoryEntry(
@@ -480,7 +482,7 @@ class BrowserCollector:
                 for row in rows[:5000]:
                     try:
                         visit_time = datetime.fromtimestamp(row[2] / 1000000)
-                    except:
+                    except Exception:
                         visit_time = datetime.now()
 
                     entries.append(HistoryEntry(
@@ -500,7 +502,7 @@ class BrowserCollector:
 
         return entries
 
-    def collect_all(self, days: int = 30) -> Dict[str, List[HistoryEntry]]:
+    def collect_all(self, days: int = 30) -> dict[str, list[HistoryEntry]]:
         """采集所有浏览器历史"""
         result = {}
         for profile in self.profiles:
@@ -533,9 +535,9 @@ class BrowserHistorian:
         state_file = self.data_dir / "state.json"
         if state_file.exists():
             try:
-                with open(state_file, 'r') as f:
+                with open(state_file) as f:
                     self.state = json.load(f)
-            except:
+            except Exception:
                 self.state = {"total_records": 0, "last_collect": None}
         else:
             self.state = {"total_records": 0, "last_collect": None}
@@ -545,27 +547,27 @@ class BrowserHistorian:
         with open(self.data_dir / "state.json", 'w') as f:
             json.dump(self.state, f, indent=2)
 
-    def _save_encrypted_data(self, data: Dict, filename: str):
+    def _save_encrypted_data(self, data: dict, filename: str):
         """加密保存数据"""
         encrypted = self.encryptor.encrypt_text(json.dumps(data, ensure_ascii=False))
         filepath = self.data_dir / f"{filename}.enc"
         with open(filepath, 'w') as f:
             f.write(encrypted)
 
-    def _load_encrypted_data(self, filename: str) -> Optional[Dict]:
+    def _load_encrypted_data(self, filename: str) -> dict | None:
         """加载加密数据"""
         filepath = self.data_dir / f"{filename}.enc"
         if not filepath.exists():
             return None
         try:
-            with open(filepath, 'r') as f:
+            with open(filepath) as f:
                 encrypted = f.read()
             decrypted = self.encryptor.decrypt_text(encrypted)
             return json.loads(decrypted)
-        except:
+        except Exception:
             return None
 
-    def collect(self, days: int = 30, scan_malware: bool = True) -> Dict:
+    def collect(self, days: int = 30, scan_malware: bool = True) -> dict:
         """
         采集历史记录
         返回: { "total": int, "entries": List, "malicious": List, "browsers": Dict }
@@ -613,7 +615,7 @@ class BrowserHistorian:
             "browsers": browser_stats,
         }
 
-    def query(self, keyword: str = "", days: int = 30) -> List[Dict]:
+    def query(self, keyword: str = "", days: int = 30) -> list[dict]:
         """查询历史记录（从加密存储中）"""
         results = []
         for filepath in self.data_dir.glob("history_*.enc"):
@@ -672,7 +674,7 @@ class BrowserHistorian:
     def verify_export(self, filepath: Path) -> bool:
         """验证导出文件的签名"""
         try:
-            with open(filepath, 'r', encoding='utf-8') as f:
+            with open(filepath, encoding='utf-8') as f:
                 data = json.load(f)
 
             entries_json = json.dumps(data.get("entries", []), sort_keys=True)
@@ -702,7 +704,7 @@ class BrowserHistorian:
             print(f"❌ 验证失败: {e}")
             return False
 
-    def firewall_status(self) -> Dict:
+    def firewall_status(self) -> dict:
         """检查防火墙状态（第一道防线）"""
         status = {
             "pfctl_available": False,
@@ -720,7 +722,7 @@ class BrowserHistorian:
                     for line in result.stdout.split('\n'):
                         if "block" in line.lower():
                             status["rules"].append(line.strip())
-            except:
+            except Exception:
                 pass
 
         return status
@@ -792,7 +794,7 @@ pass log proto tcp from any to any port 443 \
             subprocess.run(["pfctl", "-a", "longhun_historian", "-F", "all"], check=True)
             print("✅ 防火墙规则已卸载")
             return True
-        except:
+        except Exception:
             return False
 
 
@@ -804,7 +806,7 @@ class Validator:
     """验证器 - 确认四道防线全绿"""
 
     @staticmethod
-    def validate_all() -> Dict:
+    def validate_all() -> dict:
         """验证四道防线"""
         results = {}
 
@@ -859,12 +861,252 @@ class Validator:
 
 
 # ============================================================
+# 十一、龍魂·瀏覽器共生橋 v1.0（2026-09-06）
+#   AI 與瀏覽器實時協作橋：CDP 旁觀 + 無頭操作 + AI 評估鉤子
+#   設計原則：數據主權歸你（127.0.0.1 白名單 + v2.1 加密複用 + 不碰老大真實 profile）
+# ============================================================
+
+# 龍魂協作白名單（DOMAIN 含匹配即可）
+DEFAULT_WHITELIST = (
+    "github.com", "uid9622.cn", "notion.so",
+    "csdn.net", "localhost", "127.0.0.1",
+    "uid9622.notion.site", "longhun888.com",
+)
+
+COFLOW_DIR = Path.home() / ".longhun" / "browser_coflow"
+
+try:
+    import websockets  # type: ignore
+except Exception:  # noqa: BLE001
+    websockets = None  # 缺失時 observe 子命令會給出明確提示
+
+
+class BrowserSymbiosisBridge:
+    """龍魂·瀏覽器共生橋 v1.0
+    三能力：
+      1. observe —— CDP 訂閱老大瀏覽器 Tab 變化（旁觀者，無控制權）
+      2. run     —— 啟動隔離無頭 Chrome 抓取頁面（AI 操作員）
+      3. coflow  —— 評估老大最近活動給出協作建議（AI 顧問）
+    """
+
+    def __init__(self, host: str = "127.0.0.1", port: int = 9222,
+                 whitelist: tuple = DEFAULT_WHITELIST):
+        self.host = host
+        self.port = port
+        self.whitelist = tuple(w.lower() for w in whitelist)
+        self.coflow_dir = COFLOW_DIR
+        self.coflow_dir.mkdir(parents=True, exist_ok=True)
+        self.events_file = self.coflow_dir / "events.jsonl"
+        self.suggestions_file = self.coflow_dir / "suggestions.jsonl"
+
+    # ----------------- 工具方法 -----------------
+    def _allowed(self, url: str) -> bool:
+        try:
+            host = (urllib.parse.urlparse(url).hostname or "").lower()
+        except Exception:  # noqa: BLE001
+            return False
+        return any(host == w or host.endswith("." + w) for w in self.whitelist)
+
+    def _save_event(self, ev: dict):
+        # 沿用 v2.1 加密：event 明文本地+白名單過濾（已脫敏），不傳雲
+        with self.events_file.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(ev, ensure_ascii=False) + "\n")
+
+    def _fetch_tabs(self) -> list[dict]:
+        """GET /json 拿到老大瀏覽器所有 Tab"""
+        return self._fetch_tabs_at(self.host, self.port)
+
+    @staticmethod
+    def _fetch_tabs_at(host: str, port: int) -> list[dict]:
+        try:
+            with urllib.request.urlopen(f"http://{host}:{port}/json", timeout=5) as r:
+                return json.loads(r.read().decode("utf-8"))
+        except Exception as e:  # noqa: BLE001
+            raise RuntimeError(f"CDP 不可達 {host}:{port}（{e}）"
+                               f"—— 請確認瀏覽器已加 --remote-debugging-port={port} 啟動") from e
+
+    # ----------------- 1. observe -----------------
+    async def _observe_once(self, max_events: int = 50) -> int:
+        """CDP Page.frameNavigated 訂閱一次會話（最多 N 條或 30 秒退出）"""
+        if websockets is None:
+            raise RuntimeError("缺少 websockets 庫（pip install websockets）")
+        tabs = self._fetch_tabs()
+        targets = [t for t in tabs if t.get("type") == "page" and t.get("webSocketDebuggerUrl")]
+        if not targets:
+            raise RuntimeError("無可監聽的 Tab")
+        count = 0
+        # 只訂閱第一個白名單 Tab，避免一鍋端
+        target = next((t for t in targets if self._allowed(t.get("url", ""))), targets[0])
+        async with websockets.connect(target["webSocketDebuggerUrl"], max_size=2 ** 20) as ws:
+            await ws.send(json.dumps({"id": 1, "method": "Page.enable"}))
+            try:
+                while count < max_events:
+                    msg = await asyncio.wait_for(ws.recv(), timeout=30)
+                    payload = json.loads(msg)
+                    method = payload.get("method", "")
+                    if method in ("Page.frameNavigated", "Page.navigatedWithinDocument"):
+                        params = payload.get("params", {})
+                        frame = params.get("frame", {})
+                        url = frame.get("url") or params.get("url") or target.get("url", "")
+                        if not self._allowed(url):
+                            continue
+                        ev = {
+                            "ts": datetime.now().astimezone().isoformat(timespec="seconds"),
+                            "kind": "navigation",
+                            "url": url[:500],
+                            "title": (frame.get("title") or target.get("title", ""))[:200],
+                            "tab_id": target.get("id", ""),
+                        }
+                        self._save_event(ev)
+                        print(f"  · {ev['ts'][11:19]} {ev['title'][:30]}  {ev['url'][:70]}")
+                        count += 1
+            except TimeoutError:
+                pass
+        return count
+
+    def observe(self, max_events: int = 50):
+        n = asyncio.run(self._observe_once(max_events=max_events))
+        print(f"✅ observe 完成 · 收到 {n} 條事件 · 寫入 {self.events_file}")
+        return n
+
+    # ----------------- 2. run（無頭抓取） -----------------
+    def run_headless(self, url: str, action: str = "fetch-meta",
+                     browser: str = "chrome", user_data_dir: Path | None = None,
+                     headless_timeout: int = 25) -> dict:
+        """啟動隔離無頭 Chrome 抓取頁面（不碰老大真實 profile）"""
+        if websockets is None:
+            raise RuntimeError("缺少 websockets 庫（pip install websockets）")
+        if browser not in ("chrome", "chromium", "firefox"):
+            raise ValueError(f"不支持的瀏覽器: {browser}")
+        app_map = {
+            "chrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+            "chromium": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+            "firefox": "/Applications/Firefox.app/Contents/MacOS/firefox",
+        }
+        chrome_bin = app_map[browser]
+        if not Path(chrome_bin).exists():
+            raise FileNotFoundError(f"找不到瀏覽器: {chrome_bin}")
+        profile = user_data_dir or Path("/tmp") / f"lh-coflow-{int(datetime.now().timestamp())}"
+        profile.mkdir(parents=True, exist_ok=True)
+        port = 9333 + (hash(url) % 700)
+        args = [chrome_bin,
+                f"--user-data-dir={profile}",
+                "--headless=new",
+                "--no-first-run", "--no-default-browser-check", "--disable-gpu",
+                f"--remote-debugging-port={port}",
+                "--user-agent=LH-CoflowBot/1.0 (+uid9622)",
+                "about:blank"]
+        proc = subprocess.Popen(args, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        try:
+            target = None
+            for _ in range(40):
+                try:
+                    tabs = self._fetch_tabs_at("127.0.0.1", port)
+                    target = next((t for t in tabs if t.get("type") == "page"
+                                   and t.get("webSocketDebuggerUrl")), None)
+                    if target:
+                        break
+                except Exception:  # noqa: BLE001
+                    time.sleep(0.5)
+            else:
+                raise RuntimeError("無頭瀏覽器啟動超時")
+            return asyncio.run(self._cdp_extract(target["webSocketDebuggerUrl"], url, action, headless_timeout))
+        finally:
+            proc.terminate()
+            try:
+                proc.wait(timeout=3)
+            except Exception:  # noqa: BLE001
+                proc.kill()
+
+    @staticmethod
+    async def _cdp_extract(ws_url: str, url: str, action: str, timeout: int) -> dict:
+        """CDP ws: 導航到 url → 等加載 → Runtime.evaluate 抽 title/desc/text"""
+        async with websockets.connect(ws_url, max_size=2 ** 20) as ws:  # type: ignore[name-defined]
+            await ws.send(json.dumps({"id": 1, "method": "Page.enable"}))
+            await ws.send(json.dumps({"id": 2, "method": "Page.navigate",
+                                      "params": {"url": url}}))
+            loaded = False
+            try:
+                while not loaded:
+                    msg = json.loads(await asyncio.wait_for(ws.recv(), timeout=timeout))
+                    if msg.get("method") == "Page.loadEventFired":
+                        loaded = True
+            except TimeoutError:
+                pass
+            expr = ("JSON.stringify({"
+                    "title: document.title || '',"
+                    "desc: (document.querySelector('meta[name=description]')||{}).content || '',"
+                    "text: document.body ? document.body.innerText.slice(0,4000) : ''"
+                    "})")
+            await ws.send(json.dumps({"id": 3, "method": "Runtime.evaluate",
+                                      "params": {"expression": expr, "returnByValue": True}}))
+            for _ in range(20):
+                msg = json.loads(await ws.recv())
+                if msg.get("id") == 3:
+                    obj = msg.get("result", {}).get("result", {}).get("value", "{}")
+                    data = json.loads(obj)
+                    break
+            else:
+                data = {"title": "", "desc": "", "text": ""}
+        result = {"url": url, **data, "fetched_at": datetime.now().astimezone().isoformat(timespec="seconds")}
+        if action == "fetch-meta":
+            result.pop("text", None)
+        return result
+
+    # ----------------- 3. coflow（AI 評估） -----------------
+    def coflow(self, since_minutes: int = 120) -> dict:
+        """評估老大最近活動，輸出 AI 可解析的協作上下文"""
+        cutoff = datetime.now().timestamp() - since_minutes * 60
+        events: list[dict] = []
+        if self.events_file.exists():
+            for line in self.events_file.read_text(encoding="utf-8").splitlines():
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    ev = json.loads(line)
+                    ts = datetime.fromisoformat(ev["ts"]).timestamp()
+                    if ts >= cutoff:
+                        events.append(ev)
+                except Exception:  # noqa: BLE001
+                    continue
+        # 按域聚合 + 重複去重
+        domains: dict[str, dict] = {}
+        for e in events:
+            host = (urllib.parse.urlparse(e.get("url", "")).hostname or "unknown").lower()
+            d = domains.setdefault(host, {"host": host, "hits": 0, "last": "", "titles": []})
+            d["hits"] += 1
+            d["last"] = e.get("ts", "")
+            if e.get("title"):
+                d["titles"].append(e["title"])
+        for d in domains.values():
+            d["titles"] = list(dict.fromkeys(d["titles"]))[:3]
+        # 簡單協作建議（AI 可在此基礎上深化）
+        suggestions = []
+        for d in sorted(domains.values(), key=lambda x: -x["hits"]):
+            if d["hits"] >= 5:
+                suggestions.append(f"⚠️ {d['host']} 高頻訪問（{d['hits']} 次）—— AI 可接手無頭瀏覽器跑自動化")
+            elif "issue" in " ".join(d["titles"]).lower():
+                suggestions.append(f"💡 {d['host']} 有 issue/PR 上下文 —— AI 可主動拉最新評論")
+        out = {
+            "generated_at": datetime.now().astimezone().isoformat(timespec="seconds"),
+            "since_minutes": since_minutes,
+            "event_count": len(events),
+            "domains": sorted(domains.values(), key=lambda x: -x["hits"]),
+            "suggestions": suggestions,
+        }
+        sug_path = self.coflow_dir / f"suggestion-{int(datetime.now().timestamp())}.json"
+        sug_path.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+        return out
+
+
+# ============================================================
 # 十一、命令行入口
 # ============================================================
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🐉 龍魂·瀏覽器史官 v2.1\n一件武器，不是一件商品。数据主权归你。",
+        description="🐉 龍魂·瀏覽器史官 v2.2\n一件武器，不是一件商品。数据主权归你。\nv2.2 新增共生橋: observe(CDP 旁觀) / coflow(AI 評估) / run(無頭抓取)",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:
@@ -930,6 +1172,21 @@ def main():
     # status
     subparsers.add_parser("status", help="显示状态")
 
+    # observe —— CDP 旁觀老大瀏覽器
+    observe_parser = subparsers.add_parser("observe", help="CDP 实时监听老大浏览器(白名单域名)")
+    observe_parser.add_argument("--port", type=int, default=9222, help="浏览器远程调试端口")
+    observe_parser.add_argument("--max", type=int, default=50, help="最多收到几条事件")
+
+    # coflow —— AI 评估最近活动
+    coflow_parser = subparsers.add_parser("coflow", help="AI 评估老大最近浏览活动·输出协作建议")
+    coflow_parser.add_argument("--since", type=int, default=120, help="评估最近N分钟")
+
+    # run —— 无头浏览器抓取（AI 操作员）
+    run_parser = subparsers.add_parser("run", help="无头浏览器抓取指定 URL(隔离 profile·不动老大真实浏览器)")
+    run_parser.add_argument("--url", required=True, help="目标 URL")
+    run_parser.add_argument("--action", choices=["fetch-meta", "fetch-text"], default="fetch-meta")
+    run_parser.add_argument("--browser", choices=["chrome", "chromium", "firefox"], default="chrome")
+
     args = parser.parse_args()
 
     historian = BrowserHistorian()
@@ -975,6 +1232,54 @@ def main():
         print(f"  总记录数: {historian.state.get('total_records', 0)}")
         print(f"  最后采集: {historian.state.get('last_collect', '从未')}")
         print(f"  黑名单: {len(historian.filter.blocklist)} 个域名")
+        # 协作风向：共生桥 + 加密共存
+        bridge = BrowserSymbiosisBridge()
+        ev_count = sum(1 for _ in bridge.events_file.open(encoding="utf-8")) if bridge.events_file.exists() else 0
+        print(f"  共生桥事件: {ev_count} 条 · {bridge.events_file}")
+        print("  白名单域名: " + ", ".join(bridge.whitelist[:5]) + "...")
+
+    elif args.command == "observe":
+        bridge = BrowserSymbiosisBridge(port=args.port)
+        try:
+            bridge.observe(max_events=args.max)
+        except RuntimeError as e:
+            print(f"🔴 {e}")
+            return 2
+
+    elif args.command == "coflow":
+        bridge = BrowserSymbiosisBridge()
+        out = bridge.coflow(since_minutes=args.since)
+        print("\n🤝 龍魂·瀏覽器共生評估")
+        print("-" * 50)
+        print(f"  評估區間: {out['since_minutes']} 分鐘內 · {out['event_count']} 條事件")
+        print("  域名活躍 TOP:")
+        for d in out["domains"][:8]:
+            print(f"    · {d['host']:30s} 訪問 {d['hits']:3d} 次")
+            for t in d["titles"][:2]:
+                if t:
+                    print(f"      ↳ {t[:60]}")
+        if out["suggestions"]:
+            print("  協作建議:")
+            for s in out["suggestions"]:
+                print(f"    {s}")
+        else:
+            print("  協作建議: 老大近期活動穩定·無需 AI 介入")
+        print(f"  完整評估: {bridge.coflow_dir}")
+
+    elif args.command == "run":
+        bridge = BrowserSymbiosisBridge()
+        try:
+            res = bridge.run_headless(args.url, action=args.action, browser=args.browser)
+        except (RuntimeError, FileNotFoundError) as e:
+            print(f"🔴 {e}")
+            return 2
+        print(f"\n✅ 無頭抓取完成 ({args.browser})")
+        print(f"  標題: {res.get('title', '無')}")
+        print(f"  描述: {res.get('desc', '無')[:120]}")
+        if args.action == "fetch-text" and "text" in res:
+            print("  正文前 400 字:")
+            print(f"    {res['text'][:400]}")
+        print(f"  text_len={len(res.get('text') or '')} · {res['fetched_at']}")
 
     else:
         parser.print_help()

@@ -1,0 +1,775 @@
+{
+  "_meta": {
+    "dna": "#龍芯⚡️丙午·丁酉·癸未·ASI-CAPABILITY-LEDGER-v1.0-UID9622",
+    "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "创建者": "诸葛鑫（UID9622）",
+    "归属名": "诸葛鑫 | UID9622 · 龍芯北辰",
+    "license": "MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)",
+    "version": "1.1",
+    "generated": "2026-09-06",
+    "plan_src": "articles/2026-09-06-龍魂ASI团队能力总览v1.0.md",
+    "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+    "rule": "status三色 = g🟢实物引擎/制度可证｜y🟡部分落地/隐式承载/有缺口｜r🔴真缺或硬件方向。每项evidence指向实物文件名，禁凭记忆标g。",
+    "audit": "🟢 g=19(9/6·实测校正: meta快照18→实测19·tools_registry v1.1·T01-T10工具索引与layers平级不混算) / 🟡 9 / 🔴 3 · 四招牌总览 articles/2026-09-06-龍魂自研产品总览-v1.0.md"
+  },
+  "layers": [
+    {
+      "layer": "一·基础硬功",
+      "note": "此层属人才能力蓝图；龍魂以人格职能+训练管线隐式承载，不做独立引擎",
+      "items": [
+        {
+          "id": "A1",
+          "capability": "数学基础",
+          "stack": "线代/微积分/概率/信息论/最优化",
+          "status": "y",
+          "form": "人格职能+专有引擎",
+          "evidence": "S2洛书369引擎(luoshu_369_engine/)+P06权重(lh_weight_algorithm.py)+数字根/五行/河图洛书+三才官P24",
+          "owner": "P06+P24+S2",
+          "phase": "四",
+          "gap": "龍魂数学观(369/五行)已引擎化；现代数学经训练/推演管线隐式使用"
+        },
+        {
+          "id": "A2",
+          "capability": "算法能力",
+          "stack": "动态规划/图/随机/近似算法/蚁群",
+          "status": "g",
+          "form": "引擎内嵌+实机",
+          "evidence": "蚁群LACA v2.0集成测试7/7实机(9/6·涌现E=0.5335·L5拒改·07_AUDIT/2026-09-06-ant-colony-实机output.json·GPG签)+蚁群路由(ant_colony_*)+易经推演(lh_yijing_algo_engine)+八卦路由(lh_bagua)",
+          "owner": "P06+P04",
+          "phase": "一",
+          "gap": "系统性算法库独立成册为远期(9/6蚁群实机收正)"
+        },
+        {
+          "id": "A3",
+          "capability": "编程语言",
+          "stack": "Python/Rust/C++/CUDA",
+          "status": "y",
+          "form": "工程实态",
+          "evidence": "Python全栈实锤(192引擎+全部lh_*可执行)；rust/目录在库；训练走MLX(Llama.cpp)非CUDA",
+          "owner": "P04",
+          "phase": "一",
+          "gap": "Python精通✅；Rust使用中；CUDA未启用(MLX替代·无GPU集群)"
+        },
+        {
+          "id": "A4",
+          "capability": "软件工程",
+          "stack": "git/CI-CD/TDD/设计模式",
+          "status": "g",
+          "form": "制度+工程",
+          "evidence": "git+pre-commit对齐/GPG钩子+13_TESTS测试目录+audit套件+双域部署审计(lh_audit_*)",
+          "owner": "P04+P15",
+          "phase": "一",
+          "gap": "CI/CD以本地hook+手动流水线为主(非GitHub Actions全自动)"
+        },
+        {
+          "id": "A5",
+          "capability": "数据结构与抽象",
+          "stack": "哈希表/图/张量/模块化/行为DNA链",
+          "status": "g",
+          "form": "工程内嵌+实机",
+          "evidence": "行为密码学实机(9/6·behavioral_crypto.py L3 commit行为DNA链+SHA3-256+一次性确认码·07_AUDIT/2026-09-06-behavioral-crypto-实机output.json·GPG签)+DNA哈希链(lh_yearring_hash_chain)+向量索引(lh_vector_index)+组件化引擎库",
+          "owner": "P04",
+          "phase": "一",
+          "gap": "独立教学文档为远期(9/6行为密码学实机收正)"
+        }
+      ]
+    },
+    {
+      "layer": "二·模型能力",
+      "note": "龍魂实战主力区：自研longhun系列已在持续训练验证(9/3 v4.2.0 run3)",
+      "items": [
+        {
+          "id": "B1",
+          "capability": "LLM架构",
+          "stack": "Transformer/Attention/MoE/SSM",
+          "status": "y",
+          "form": "自研微调栈",
+          "evidence": "开源底座LoRA自研(longhun-v3.7/v4.0/v4.2系列·本地ollama推理)；P23神经架构职能",
+          "owner": "P23+P04",
+          "phase": "二",
+          "gap": "MoE/SSM等架构自研设计未展开(底座复用路线)"
+        },
+        {
+          "id": "B2",
+          "capability": "预训练管线",
+          "stack": "数据清洗/tokenizer/分布式/混合精度",
+          "status": "y",
+          "form": "引擎在建",
+          "evidence": "lh_bootstrap_train.py+lh_base_model_train.py+v4xx_pipeline系列+lh_build_training_corpus.py+data语料(1273条·13知识域)；lh_tokenizer_builder.py v1.0 三轨实机(9/6·A词表扩充134词注入vocab63991→64125·龍魂语料token压缩26.68%·B语料清洗corpus/含去重+DNA标注·C单测188/188语义无损+determinism同参同哈希402fafa9)；S1词表迁移v1.1(9/6·Qwen2.5 tokenizer 151643→151832·撞车bug修复next_id=max+1·C轨188/188逐字精确·真实语料压缩Qwen-lh 497<Yi-lh 509绝对最优·报告articles/2026-09-06-D01-S1-词表迁移报告-v1.0.md)；S2-A本地管线mini-epoch验证(9/6·lh_train_verify_s2.py·底模longhun-v1.0/base_model=Qwen2.5-1.5B同族7B·64样本2mini-epoch·train前后1/4段均值3.587→2.988 Δ-0.60 PASS·val mini集仅8条噪声大正式98条会稳·report articles/2026-09-06-D01-S2A-管线验证report.json)；S2-C本地全量可信验证(9/6·lh_train_full_s2c.py·全量train881+valid98·1epoch 220iters·train前后1/4均值3.099→1.119 Δ-1.98·val98全量eval 3.200→1.177 Δ-2.02·val终值0.979@iter220·seed42两次复跑逐位一致=可复现实证·report articles/2026-09-06-D01-S2C-全量可信验证report.json)",
+          "owner": "P04",
+          "phase": "二",
+          "gap": "tokenizer自建已落地(T6)；海量分布式预训练待扩"
+        },
+        {
+          "id": "B3",
+          "capability": "微调技术",
+          "stack": "SFT/RLHF/DPO/LoRA/QLoRA",
+          "status": "g",
+          "form": "引擎实测",
+          "evidence": "lh_lora_trainer.py+v418/419/420+lh_agent_trainer.py全部已签名·实机run3",
+          "owner": "P04",
+          "phase": "二",
+          "gap": "LoRA/SFT实测✅；RLHF/DPO未实机(宪法式对齐+审计替代·龍魂特色)"
+        },
+        {
+          "id": "B4",
+          "capability": "推理优化",
+          "stack": "量化/KV Cache/投机解码/vLLM",
+          "status": "g",
+          "form": "轻量主权栈",
+          "evidence": "本地ollama+frp穿透+nginx鉴权主权推理栈在跑；lh_quant_engine.py v1.0 GGUF轨实机✅(9/6·moondream2 F16 867MB+nomic-embed)+AWQ轨实机✅(9/6·Qwen2.5-0.5B-Instruct-AWQ 730MB·bits4 group128·sha256 c50d807b·DNA QUANT-ENGINE-v1.0); GPTQ轨实机✅(9/6·Qwen2.5-0.5B-Instruct-GPTQ-Int4 438MB·quant_method=gptq bits4 group128·hf-mirror UA直拉)",
+          "owner": "P04",
+          "phase": "二",
+          "gap": "vLLM 服务出对外前评估(D-03 三轨已全实机)"
+        },
+        {
+          "id": "B5",
+          "capability": "多模态",
+          "stack": "视觉/音频/视频理解生成",
+          "status": "g",
+          "form": "引擎强区",
+          "evidence": "lh_vision_parser+video_*数十引擎+asr/tts/audio/voice全套+AVS3编解码(国产标准)",
+          "owner": "P04",
+          "phase": "二",
+          "gap": "音视频工具链自研成熟；多模态大模型融合待底座演进"
+        },
+        {
+          "id": "B6",
+          "capability": "RAG与Agent",
+          "stack": "RAG/向量库/工具调用/多智能体",
+          "status": "g",
+          "form": "引擎强区",
+          "evidence": "lh_vector_index+lh_herbal_rag+rag_indexes/；agent_swarm/orchestrator/long/kunpeng+蚁群+26人格议会协作",
+          "owner": "P23+P00",
+          "phase": "二/四",
+          "gap": "无"
+        }
+      ]
+    },
+    {
+      "layer": "三·系统与基础设施",
+      "note": "龍魂走轻量自研栈替代K8s/Prometheus级重型方案；重型方向=决策点(见decisions)",
+      "items": [
+        {
+          "id": "C1",
+          "capability": "分布式训练",
+          "stack": "DeepSpeed/Megatron/并行策略",
+          "status": "r",
+          "form": "方向待裁决",
+          "evidence": "现为单机MLX LoRA训练(lh_lora_trainer_v4xx)；多机集群无实物",
+          "owner": "P04",
+          "phase": "三",
+          "gap": "D-01已决策(9/6): 不铺硬件·走算力租用+本地量化组合路线"
+        },
+        {
+          "id": "C2",
+          "capability": "高性能计算",
+          "stack": "GPU集群/CUDA/NCCL",
+          "status": "r",
+          "form": "硬件缺口",
+          "evidence": "Mac MLX训练中；无GPU集群/CUDA栈",
+          "owner": "P04",
+          "phase": "三",
+          "gap": "D-01已决策(9/6): GPU走租用·近期目标=消费级GPU跑通L4/L5能力"
+        },
+        {
+          "id": "C3",
+          "capability": "高速网络",
+          "stack": "RDMA/InfiniBand",
+          "status": "r",
+          "form": "不追",
+          "evidence": "无；单机无需",
+          "owner": "P04",
+          "phase": "三",
+          "gap": "D-02已决策(9/6): 暂缓封板·单机+华为云通道够用·进入多机分布式再开专项"
+        },
+        {
+          "id": "C4",
+          "capability": "容器编排",
+          "stack": "Docker/K8s/Helm",
+          "status": "y",
+          "form": "轻量部署",
+          "evidence": "deploy/docker/+DragonSoul_Guardian部署手册+launchd/systemd双域治理",
+          "owner": "P14",
+          "phase": "三",
+          "gap": "Docker级✅；K8s未上(T4·当前规模无需)"
+        },
+        {
+          "id": "C5",
+          "capability": "监控告警",
+          "stack": "Prometheus/Grafana全家桶",
+          "status": "g",
+          "form": "自研等价替代",
+          "evidence": "health_check.sh+Bark推送+lh_alert_engine+lh_health_board五检+lh_web_health_check+守护白名单",
+          "owner": "P09",
+          "phase": "三",
+          "gap": "非Prometheus体系；自研等价物已覆盖核心指标(节能·不引重件)"
+        },
+        {
+          "id": "C6",
+          "capability": "安全与主权",
+          "stack": "密钥管理/零信任/加密/GPG",
+          "status": "g",
+          "form": "龍魂最强区",
+          "evidence": "lh_vault密钥库+anti_tamper+vuln_detect+P77黑天使+掀黑箱+lh_gpg_sign+零信任分层(L0-L4)",
+          "owner": "P05+P77",
+          "phase": "三/四",
+          "gap": "无"
+        },
+        {
+          "id": "C7",
+          "capability": "负载均衡",
+          "stack": "Nginx/Envoy/服务网格",
+          "status": "y",
+          "form": "nginx主用",
+          "evidence": "uid9622.cn nginx反代+frp内网穿透+网关鉴权(lh_api_guard)",
+          "owner": "P14",
+          "phase": "三",
+          "gap": "nginx✅；envoy/服务网格未用(规模未到)"
+        },
+        {
+          "id": "C8",
+          "capability": "一键巡检",
+          "stack": "lh_quickstart.sh 引擎体检",
+          "status": "g",
+          "form": "自研轻量",
+          "evidence": "08_BIN/lh_quickstart.sh(GPG签)+实机2026-09-06 10/10全绿(L2八引擎+台账/量化/白盒x2/tokenizer/行为密码/幻觉/蚁群 + L4 hboard/memory-sync鲲鹏443)",
+          "owner": "P05",
+          "phase": "三",
+          "gap": "无"
+        }
+      ]
+    },
+    {
+      "layer": "四·治理与合规",
+      "note": "龍魂差异化护城河：审计/对齐/主权治理已达工具化·国际标准层按主权立场",
+      "items": [
+        {
+          "id": "D1",
+          "capability": "模型评估",
+          "stack": "幻觉/公平/鲁棒/校准ECE",
+          "status": "g",
+          "form": "引擎实测",
+          "evidence": "lh_hallucination_metrics.py(H指数+ECE+seed9622复现·实机H=0.8446)+lh_audit_cli.py(v1.0审计CLI·同秤·audit/batch/verify/selftest·verify哈希复算+H复算抓篡改·已推DeepSeek-V3#1591 comment5557351920)+lh_benchmark+behavioral_benchmark",
+          "owner": "P05",
+          "phase": "三/四",
+          "gap": "公平性/鲁棒性专项测试集待扩"
+        },
+        {
+          "id": "D2",
+          "capability": "对齐与安全",
+          "stack": "宪法式AI/红队/越狱防护",
+          "status": "g",
+          "form": "制度+引擎",
+          "evidence": "CONSTITUTION+P0_ETERNAL_LOCK宪法式对齐+adversarial_pipeline+P77红蓝四天使+lh_anti_tamper",
+          "owner": "P12+P77",
+          "phase": "四",
+          "gap": "RLHF未用·宪法式+审计制度替代(龍魂特色)"
+        },
+        {
+          "id": "D3",
+          "capability": "可解释性",
+          "stack": "注意力可视化/探针/机制解释",
+          "status": "g",
+          "form": "白盒实机",
+          "evidence": "白盒探针L1(9/6·lh_whitebox_probe.py·moondream2 GGUF Q4_0·245张量·Q4_0反量化·SHA256指纹); MLX前向L2/L3实机✅(9/6·lh_mlx_forward_probe.py·qwen-1.5b MLX q8本地·28层hidden1536·L2层激活范数/稀疏度/层间cosine·L3 leave-one-out归因「五行」+5.06主导·reports/2026-09-06-mlx-forward-probe.json·DNA MLX-FORWARD-PROBE-v1.0)",
+          "owner": "P23",
+          "phase": "三",
+          "gap": "升绿收口(T2白盒+MLX前向双轨实机)"
+        },
+        {
+          "id": "D4",
+          "capability": "数据治理",
+          "stack": "血缘/质量/隐私合规",
+          "status": "g",
+          "form": "协议+引擎",
+          "evidence": "数据主权协议+内容主权协议(9/6批量三件套)+DNA注册(lh_dna_*)+ledger T1-T12+密钥分层D1-D4",
+          "owner": "P05+P18",
+          "phase": "四",
+          "gap": "血缘可视化待扩"
+        },
+        {
+          "id": "D5",
+          "capability": "国际标准",
+          "stack": "ISO/IEC 42001/EU AI Act/信通院",
+          "status": "y",
+          "form": "策略层认知",
+          "evidence": "龍魂自订国标对标体系(主权优先·不入外资认证)表述已具",
+          "owner": "P00+P25",
+          "phase": "四",
+          "gap": "逐条对照文档待出(T3)"
+        },
+        {
+          "id": "D6",
+          "capability": "伦理委员会",
+          "stack": "多学科审查/风险分级",
+          "status": "g",
+          "form": "人格议会机制",
+          "evidence": "P12屈原六誓+P72龍盾熔断+人格议会多视角+德本审计离火运五问(depen)",
+          "owner": "P12+P72",
+          "phase": "四",
+          "gap": "机制在人格层运行；真人委员会待团队组建"
+        }
+      ]
+    },
+    {
+      "layer": "五·战略与愿景",
+      "note": "龍魂哲学底座层：主权架构+愿景定义已具不可复制性",
+      "items": [
+        {
+          "id": "E1",
+          "capability": "技术路线规划",
+          "stack": "3-5年演进/技术债管理",
+          "status": "g",
+          "form": "文档+人格",
+          "evidence": "STATE.md统一状态+BOOT清单+本规划路线图+25_TASK_ENGINE+COMMAND_INDEX",
+          "owner": "P00+P01",
+          "phase": "全程",
+          "gap": "无"
+        },
+        {
+          "id": "E2",
+          "capability": "生态建设",
+          "stack": "开源/社区/标准",
+          "status": "g",
+          "form": "全网矩阵",
+          "evidence": "GitHub UID9622 38repos+Wiki专版+CSDN主号+贡献者铭碑(9/5第20层)+bounty署名制(第19层)",
+          "owner": "P15",
+          "phase": "四",
+          "gap": "社区运营节奏待固化"
+        },
+        {
+          "id": "E3",
+          "capability": "主权架构",
+          "stack": "数据/模型/算力主权",
+          "status": "g",
+          "form": "龍魂护城河",
+          "evidence": "三主权服务8091(triple-sovereignty守护白名单)+钱包SOL自托管+人民币主权原则+零依赖律",
+          "owner": "P25",
+          "phase": "四",
+          "gap": "无"
+        },
+        {
+          "id": "E4",
+          "capability": "多语言国际化",
+          "stack": "跨文化传播/多语言文档",
+          "status": "y",
+          "form": "双语管线",
+          "evidence": "通心译+lh_bilingual_router+Wiki双语版+GitHub英文Profile+海外模板(Author: Zhuge Xin)",
+          "owner": "P08",
+          "phase": "四",
+          "gap": "语种扩展待用户驱动"
+        },
+        {
+          "id": "E5",
+          "capability": "人才梯队",
+          "stack": "技术传帮带/知识沉淀",
+          "status": "y",
+          "form": "人格编队先行",
+          "evidence": "personas/ 26份人格定义+Notion 71人格档案(9/6五行标注v1.0·P10+待实证)+教学链路(P02+P08+P11)",
+          "owner": "P00",
+          "phase": "全程",
+          "gap": "真人梯队待组建·数字编队先行(T5人格扩展不臆造)"
+        },
+        {
+          "id": "E6",
+          "capability": "愿景定义",
+          "stack": "ASI终极目标与边界",
+          "status": "g",
+          "form": "哲学锚点",
+          "evidence": "原点页(b7c957...)+「小傻子执念」+离火运五问+为人民服务P0天条",
+          "owner": "P00",
+          "phase": "全程",
+          "gap": "无"
+        }
+      ]
+    }
+  ],
+  "tools_registry": {
+    "rule": "工具独立索引·与layers能力条目平级互不干扰·status三色同顶层规则(g/y/r)·path须实物存在·evidence禁凭记忆",
+    "items": [
+      {
+        "id": "T01",
+        "name": "lh_audit_cli",
+        "path": "08_BIN/lh_audit_cli.py",
+        "version": "v1.0",
+        "status": "g",
+        "evidence": "selftest全绿·audit H=0.9261🟢·verify哈希复算+H复算双路(PASS/FAIL)·推DeepSeek#1591 issuecomment-5557351920",
+        "linked_capability": "D1",
+        "note": ""
+      },
+      {
+        "id": "T02",
+        "name": "lh_hallucination_metrics",
+        "path": "08_BIN/lh_hallucination_metrics.py",
+        "version": "v2.0",
+        "status": "g",
+        "evidence": "H=0.8446实机·seed9622可复现·ECE·独立数学验证器·commit 99f8ae00f(21层幻觉量化铁律配套)",
+        "linked_capability": "D1",
+        "note": ""
+      },
+      {
+        "id": "T03",
+        "name": "lh_quant_engine",
+        "path": "08_BIN/lh_quant_engine.py",
+        "version": "v1.0",
+        "status": "g",
+        "evidence": "GGUF纯stdlib解析实测(moondream2 F16 867MB+nomic-embed)·AWQ实测(Qwen2.5-0.5B-Instruct-AWQ sha256 c50d807b)·hf-mirror--noproxy",
+        "linked_capability": "B4",
+        "note": "GPTQ轨待补验"
+      },
+      {
+        "id": "T04",
+        "name": "lh_persona_runtime",
+        "path": "08_BIN/lh_persona_runtime.py",
+        "version": "v1.0",
+        "status": "g",
+        "evidence": "9/6 T5实证·CodeBuddy人格卦dict(P00-P77·缺P16/17/21-25如实标)·persons_v1九实证(P01-P09)",
+        "linked_capability": "E5",
+        "note": "P10+人格卦待补名单不臆造"
+      },
+      {
+        "id": "T05",
+        "name": "lh_asi_ledger",
+        "path": "08_BIN/lh_asi_ledger.py",
+        "version": "v1.0",
+        "status": "g",
+        "evidence": "本台账配套CLI·summary/list/gap/show/check(勾选幂等)·数据源唯一权威本JSON",
+        "linked_capability": "E1",
+        "note": ""
+      },
+      {
+        "id": "T06",
+        "name": "lh_health_board",
+        "path": "08_BIN/lh_health_board.py",
+        "version": "v1.0",
+        "status": "g",
+        "evidence": "lh hboard五检看板·守护白名单对齐(节能协议v1.1·8/22)",
+        "linked_capability": "C5",
+        "note": ""
+      },
+      {
+        "id": "T07",
+        "name": "lh_content_sovereignty",
+        "path": "08_BIN/lh_content_sovereignty.py",
+        "version": "v1.0",
+        "status": "g",
+        "evidence": "9/6内容主权协议三件套(禁止AI训练)·articles152+papers41落位",
+        "linked_capability": "D4",
+        "note": ""
+      },
+      {
+        "id": "T08",
+        "name": "lh_time_engine",
+        "path": "08_BIN/lh_time_engine.py",
+        "version": "v4.0",
+        "status": "g",
+        "evidence": "干支权威·完整64卦库+梅花易数·lh te --stamp·全系统时间戳(规则17层)",
+        "linked_capability": "E1",
+        "note": ""
+      },
+      {
+        "id": "T09",
+        "name": "lh_gpg_sign",
+        "path": "08_BIN/lh_gpg_sign.py",
+        "version": "v1.0",
+        "status": "g",
+        "evidence": "GPG签名引擎(密钥A2D0092CEE2E5BA87035600924C3704A8CC26D5F)·GATE-11·历史1574+.asc",
+        "linked_capability": "C6",
+        "note": ""
+      },
+      {
+        "id": "T10",
+        "name": "lh_recap",
+        "path": "08_BIN/lh_recap.py",
+        "version": "v1.0",
+        "status": "g",
+        "evidence": "lh recap 18+子命令·实机 recap-20260904085651-6d29·lh.py _recap_hook_post 自动触发",
+        "linked_capability": "D4",
+        "note": ""
+      }
+    ]
+  },
+  "decisions_needed": [
+    {
+      "id": "D-01",
+      "topic": "分布式训练/GPU集群",
+      "detail": "规划C1/C2(DeepSpeed级多机+GPU集群)目前无实物。龍魂现走单机MLX LoRA(已跑至v4.2.0 run3)。",
+      "impact": "决定longhun底座规模上限",
+      "suggest": "维持轻量到出现明确产品/服务需求再上云GPU",
+      "decision": "已决策·不铺硬件·走「算力租用+本地量化」组合",
+      "note": "近期目标: L4/L5 能力在消费级 GPU 上跑通(本地量化是关键手段·见 D-03 引擎)",
+      "decision_date": "2026-09-06"
+    },
+    {
+      "id": "D-02",
+      "topic": "RDMA/InfiniBand",
+      "detail": "C3物理成本极高·单机无使用场景。",
+      "impact": "无",
+      "suggest": "不追·台账标r封板",
+      "decision": "已决策·暂缓·单机优先",
+      "note": "单机+华为云通道已够当前场景·真正进入多机分布式再开专项",
+      "decision_date": "2026-09-06"
+    },
+    {
+      "id": "D-03",
+      "topic": "推理优化生产化",
+      "detail": "B4量化/vLLM在出对外推理服务时补。消费级硬件命门=软件量化绕硬件限制。",
+      "impact": "服务并发与成本·台账绿化率(软件路线直接绿化L4)",
+      "suggest": "MLX int4量化先行评估(T1)",
+      "decision": "已决策·追·建 lh_quant_engine.py(GGUF/AWQ/GPTQ 三轨·先 GGUF 轨·CPU 可跑验证)",
+      "note": "引擎建完 GGUF 轨实机跑通后写 evidence 指针至 B4；L4 推理优化 🟡 有望转 🟢",
+      "decision_date": "2026-09-06"
+    },
+    {
+      "id": "D-04",
+      "topic": "国际标准认证",
+      "detail": "D5是否对接ISO42001/EU AI Act等外部认证(与主权立场协调)。",
+      "impact": "对外合规叙事",
+      "suggest": "出对照文档·不入外资认证(T3)",
+      "decision": "已决策·列观察·不急推·先内建",
+      "note": "ISO/IEC 42001 条款映射台账 🟢 项·出自检差距报告=国际化叙事入场券(不花钱·不依赖外部机构)",
+      "decision_date": "2026-09-06"
+    }
+  ],
+  "persons_v1": {
+    "dna": "#龍芯⚡️丙午·丁酉·癸未·PERSONA-WUXING-LEDGER-v1.0-UID9622",
+    "task": "T5 71人格卦映射(P10+·P3流程)·9/6午指令·GPG重签+check勾选",
+    "owner": "P06+P00",
+    "rule": "三色=🟢卦五行实证可溯源(档案行号/wuxing json)｜🟡断链或待源(档案无完整名单/映射表未成册)｜🔴0·不臆造(21层幻觉铁律)",
+    "methodology": "五行=人格所挂卦象之五行(乾兑金·坎水·离火·震巽木·坤艮土·太极=中央土)·二级/三级待京房卦宫五行落位(同宫同五行)·每批补录回注行号+P15签",
+    "source": {
+      "档案": "cnsh/core/p3_seven_dimension_human_71_detailed_profile.md(407行·框架+一级全配置·P10-P15/P37-P39示例)",
+      "结构化": "cnsh/core/persona_wuxing_v1.json(P01-P09实证·GPG签·mirror P06数字根复算9✓)",
+      "卦序示例": "档案L317-318: P10↔屯卦·P11↔蒙卦｜L322-323: P37↔讼卦·P38↔师卦(「详见完整映射表」附件缺失)"
+    },
+    "levels": [
+      {
+        "层": "一级",
+        "range": "P01-P09",
+        "n": 9,
+        "型": "核心能力型",
+        "卦象": "8单卦+太极",
+        "state": "🟢 全实证",
+        "ref": "档案L100-228+JSON ref_line 101/117/133/149/165/181/197/213/229"
+      },
+      {
+        "层": "二级",
+        "range": "P10-P36",
+        "n": 27,
+        "型": "协作角色型",
+        "卦象": "64卦中27卦·待映射",
+        "state": "🟡 等完整名单+卦映射表",
+        "ref": "档案L240-262框架·L245-255已命名P10-P15(权重)但卦未定(除示例P10屯/P11蒙)"
+      },
+      {
+        "层": "三级",
+        "range": "P37-P71",
+        "n": 35,
+        "型": "专业才能型",
+        "卦象": "剩余35卦·待映射",
+        "state": "🟡 等完整名单+卦映射表",
+        "ref": "档案L266-296框架·L277-295已命名P37-P39(权重)但卦未定(除示例P37讼/P38师)"
+      }
+    ],
+    "items": [
+      {
+        "p": "P01",
+        "name": "龍心北辰·造物主",
+        "gua": "乾",
+        "wuxing": "金",
+        "state": "🟢实证",
+        "ref": "档案L100-101+JSON L12"
+      },
+      {
+        "p": "P02",
+        "name": "智慧引导者·理论家",
+        "gua": "坎",
+        "wuxing": "水",
+        "state": "🟢实证",
+        "ref": "档案L116-117+JSON L13"
+      },
+      {
+        "p": "P03",
+        "name": "品德守护者·伦理家",
+        "gua": "坤",
+        "wuxing": "土",
+        "state": "🟢实证",
+        "ref": "档案L132-133+JSON L14"
+      },
+      {
+        "p": "P04",
+        "name": "能量推动者·行动家",
+        "gua": "震",
+        "wuxing": "木",
+        "state": "🟢实证",
+        "ref": "档案L148-149+JSON L15"
+      },
+      {
+        "p": "P05",
+        "name": "影响传播者·领导者",
+        "gua": "离",
+        "wuxing": "火",
+        "state": "🟢实证",
+        "ref": "档案L164-165+JSON L16"
+      },
+      {
+        "p": "P06",
+        "name": "创新突破者·创意家",
+        "gua": "巽",
+        "wuxing": "木",
+        "state": "🟢实证",
+        "ref": "档案L180-181+JSON L17"
+      },
+      {
+        "p": "P07",
+        "name": "承载容纳者·家长式",
+        "gua": "艮",
+        "wuxing": "土",
+        "state": "🟢实证",
+        "ref": "档案L196-197+JSON L18"
+      },
+      {
+        "p": "P08",
+        "name": "共生协作者·和谐者",
+        "gua": "兑",
+        "wuxing": "金",
+        "state": "🟢实证",
+        "ref": "档案L212-213+JSON L19"
+      },
+      {
+        "p": "P09",
+        "name": "太极平衡者·大祭司",
+        "gua": "太极",
+        "wuxing": "中央土",
+        "state": "🟢实证",
+        "ref": "档案L228-229+JSON L20"
+      },
+      {
+        "p": "P10",
+        "name": "理论与品德结合型(二级示例)",
+        "gua": "屯",
+        "wuxing": "水(京房坎宫)",
+        "state": "🟡示例卦·待终稿",
+        "ref": "档案L246权重+L317卦序"
+      },
+      {
+        "p": "P11",
+        "name": "智慧与创新结合型(二级示例)",
+        "gua": "蒙",
+        "wuxing": "火(京房离宫)",
+        "state": "🟡示例卦·待终稿",
+        "ref": "档案L247权重+L318卦序"
+      },
+      {
+        "p": "P12-P15",
+        "name": "执行/影响/创新主导型(二级示例·卦未定)",
+        "gua": "待映射",
+        "wuxing": "待京房宫",
+        "state": "🟡等映射表",
+        "ref": "档案L251-253权重"
+      },
+      {
+        "p": "P16-P36",
+        "name": "二级协作角色(21位·档案无名单)",
+        "gua": "待映射",
+        "wuxing": "待京房宫",
+        "state": "🟡断链·待完整档案表",
+        "ref": "档案验收清单⏳"
+      },
+      {
+        "p": "P37",
+        "name": "超级智者(三级示例)",
+        "gua": "讼",
+        "wuxing": "火(京房离宫)",
+        "state": "🟡示例卦·待终稿",
+        "ref": "档案L277权重+L322卦序"
+      },
+      {
+        "p": "P38",
+        "name": "铁血执行官(三级示例)",
+        "gua": "师",
+        "wuxing": "水(京房坎宫)",
+        "state": "🟡示例卦·待终稿",
+        "ref": "档案L283权重+L323卦序"
+      },
+      {
+        "p": "P39",
+        "name": "孤独的创意者(三级示例·卦未定)",
+        "gua": "待映射",
+        "wuxing": "待京房宫",
+        "state": "🟡等映射表",
+        "ref": "档案L289权重"
+      },
+      {
+        "p": "P40-P71",
+        "name": "三级专业才能(32位·档案无名单)",
+        "gua": "待映射",
+        "wuxing": "待京房宫",
+        "state": "🟡断链·待完整档案表",
+        "ref": "档案验收清单⏳"
+      }
+    ],
+    "blockers": [
+      "P3档案验收清单⏳「完整71人格详细档案表(计划附件)」未建→P10-P36/P40-P71无名单不可逐位推(不臆造)",
+      "⏳「完整卦映射表」附件缺失(档案L319/L324「详见完整映射表」无落点)",
+      "京房卦宫五行口径待映射表成册后逐位落位(同宫同五行·回注行号+P15签)"
+    ],
+    "evidence_alt": "lh_persona_runtime.py L57-172 内置 CodeBuddy人格卦dict 26位(P00乾·P01巽·P02离·P03坤·P04坎·P05乾·P06兑·P07艮·P08震·P09巽·P10坎·P11离·P12坤·P13乾·P14震·P15艮·P18兑·P19坎·P20坤·P72乾·P77乾·S1巽S2离S3坤·缺P16/17/P21-25)=另一体系(运行时人格)卦象实锤·可作京房口径工程模板",
+    "audit": "🟢 一级9/9实证(档案行号可追溯+JSON镜像) / 🟡 62位(二级27+三级35)待源(4位示例卦明标·不升绿) / 🔴 0 · 2026-09-06 P15签+P06复核",
+    "next": "①P3档案补完整名单+卦映射表成册 ②逐位落绿回注行号+P15签 ③persona_wuxing_v1.json 同步"
+  },
+  "todos": [
+    {
+      "id": "T1",
+      "task": "推理量化评估→lh_quant_engine 三轨(GGUF/AWQ/GPTQ)·GGUF轨实机",
+      "owner": "P04",
+      "phase": "二",
+      "depends": "D-03已裁决(9/6·追)·即开工",
+      "done": "2026-09-06 10:30"
+    },
+    {
+      "id": "T2",
+      "task": "白盒注意力可视化探针(基于本地模型)",
+      "owner": "P23",
+      "phase": "三",
+      "depends": "无·可即开工",
+      "done": "2026-09-06 11:20",
+      "result": "🟢 L1权重层白盒实机跑通(白盒探针引擎 v1.0)·工具=08_BIN/lh_whitebox_probe.py(list/weights/llm/summary)·模型=moondream2 phi2架构 GGUF Q4_0(blob sha256-e554c6b9·828MB)·GGUF v3全解析(245张量·dims u64·列主序还原)·Q4_0 LUT反量化·fixed prompt「龍魂系统自检」·6层12注意力张量·per-head(64行段) L2热力+top3绝对峰·qkv标注3×32·SHA256稳定指纹=74dff51029263b4c953c91c5f0bce1d1092c6c8ac56eb62cd30eaef78b046466(两跑同哈希·determinism实证)·产物=08_STATE/whitebox_L1_moondream2.json·🟡 L2隐层激活/L3 token归因需前向轨(mlx_lm逐层forward钩子·下棒)",
+      "ledger_sync": "2026-09-06 11:20"
+    },
+    {
+      "id": "T3",
+      "task": "ISO42001/EU AI Act逐条对照自检差距报告(主权立场)",
+      "owner": "P00+P25",
+      "phase": "四",
+      "depends": "D-04已裁决(9/6)·列观察·内建报告即可",
+      "done": "2026-09-06 10:31"
+    },
+    {
+      "id": "T4",
+      "task": "容器化现状评估→K8s需要性报告",
+      "owner": "P14",
+      "phase": "三",
+      "depends": "服务规模增长后",
+      "done": "2026-09-06 10:41"
+    },
+    {
+      "id": "T5",
+      "task": "71人格档案推进(P10+逐位卦映射五行实证·不臆造)",
+      "owner": "P06+P00",
+      "phase": "全程",
+      "depends": "按9/6 P3流程逐位实证",
+      "done": "2026-09-06 10:52"
+    },
+    {
+      "id": "T6",
+      "task": "tokenizer自建与训练语料扩容",
+      "owner": "P04",
+      "phase": "二",
+      "depends": "D-01已裁决(9/6)·租用路线下可启动",
+      "done": "2026-09-06 11:40",
+      "result": "🟢 T6 tokenizer自建三轨实机·工具=08_BIN/lh_tokenizer_builder.py v1.0(A词表扩充/B语料清洗/C单测)·A: 向Yi-1.5-9B-Chat真实base注入134龍魂专词(干支60+卦名+人格编号+术语·added_tokens机制·vocab 63991→64125)·实机語料731→536 token(压缩26.68%)·癸未4→1丙午丁酉6→2巽上艮下8→4·产物=models/base_models_v4.0/Yi-1.5-9B-Chat/tokenizer_longhun.json+_report.json·B: corpus/语料建置(最小语料集+专词词表)·清洗轨去重实测dup=1+DNA标注+manifest·C: 单测188/188语义无损(186逐字精确+2空格级=Yi ByteLevel/▁ decoder固有特性base同行为)·determinism两遍ids一致·对照base无退化·SHA256指纹=402fafa9be9562e86e54b0e4dd6b3d9d778b095e2e968c5e7ab7559b84ccc1bc·🟡 embedding扩充+重训待海量语料/GPU路线(D-01)"
+    }
+  ]
+}

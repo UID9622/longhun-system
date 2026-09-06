@@ -55,6 +55,7 @@ extra:
 nav:
   - 🏠 首页: index.md
   - 🗺️ 拓扑状态: topology/index.md
+  - 📡 龍魂实时看板: notion-live.md
   - 📋 依赖清单: DEPENDENCIES.md
   - 🛠️ 安装指南: INSTALL.md
   - ⚡ 快速开始: QUICKSTART.md

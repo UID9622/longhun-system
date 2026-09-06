@@ -58,28 +58,33 @@ STORE_DIR.mkdir(parents=True, exist_ok=True)
 AUDIT_LOG = DATA_DIR / "audit_log.jsonl"
 API_LOG = PROJECT_ROOT / "logs" / "memory_sync_api.log"
 
-# Token 与现有记忆 API 共用
+# Token 与现有记忆 API 共用(env 优先·专用文件次之·防呆中文文件兜底)
 TOKEN_FILE = Path.home() / ".longhun" / ".memory_token"
 ALT_TOKEN_FILE = PROJECT_ROOT / ".codebuddy" / "memory" / ".api_token"
+SYNC_TOKEN_FILE = PROJECT_ROOT / ".codebuddy" / "memory" / ".memory_sync_token"
+HOME_SYNC_TOKEN_FILE = Path.home() / ".longhun" / ".memory_sync_token"
 
 CONFIRM_CODE = (
     "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
     "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 )
 
-VERSION = "v1.0"
-SERVER_DNA = "#龍芯⚡️丙午·乙未·戊戌·未时·䷜坎-MEMORY-SYNC-SERVER-v1.0-a1b2c3d4"
+VERSION = "v1.1"
+SERVER_DNA = "#龍芯⚡️丙午·丁酉·癸未·丑时·䷞咸-MEMORY-SYNC-SERVER-v1.1-UID9622"
 
 # ═══════════════════════════════════════════════
 # Token 管理
 # ═══════════════════════════════════════════════
 
 def load_token() -> str:
-    """加载与记忆 API 共用的 Token"""
-    for f in (TOKEN_FILE, ALT_TOKEN_FILE):
+    """Token 加载: env LH_MEMORY_TOKEN > 专用文件 > 共用文件(仅 ASCII 可用)"""
+    env_token = os.environ.get("LH_MEMORY_TOKEN", "").strip()
+    if env_token:
+        return env_token
+    for f in (SYNC_TOKEN_FILE, HOME_SYNC_TOKEN_FILE, TOKEN_FILE, ALT_TOKEN_FILE):
         if f.exists():
             token = f.read_text().strip()
-            if token:
+            if token and token.isascii():
                 return token
     return ""
 
@@ -172,9 +177,18 @@ def append_audit(action: str, dna: str, device: str, detail: str):
 # ═══════════════════════════════════════════════
 
 def verify(request: Request) -> bool:
-    """Token 验证: 本地免认证，远程需 X-API-Token"""
-    client = request.client.host if request.client else ""
-    if client in ("127.0.0.1", "::1", "localhost"):
+    """Token 验证: 本机直连免认证，远程(含经 nginx 反代)需 X-API-Token
+
+    修复(2026-09-06 决策B): nginx 反代后 request.client 恒为 127.0.0.1，
+    原逻辑导致公网 /sync/ 全免认证 —— 现取 X-Forwarded-For/X-Real-IP 真实客户端 IP。
+    """
+    real = request.headers.get("X-Forwarded-For", "").split(",")[0].strip()
+    if not real:
+        real = request.headers.get("X-Real-IP", "") or ""
+    if not real:
+        real = request.client.host if request.client else ""
+    real = real.split(":")[0]
+    if real in ("127.0.0.1", "::1", "localhost"):
         return True
     provided = request.headers.get("X-API-Token", "")
     if not AUTH_TOKEN:

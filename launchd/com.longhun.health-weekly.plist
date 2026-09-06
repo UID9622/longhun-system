@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+DNA: #龍芯⚡️2026-09-05-HEALTH-WEEKLY-PLIST-v1.0-UID9622
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+协议: CC BY-NC-SA 4.0（核心思想层）
+任务: 每周日 23:00 一周健康报告（08_BIN/lh_health_snapshot.py report --quiet·静默）
+      → ~/.longhun/health_weekly/health_report_YYYY-MM-DD.md + 自动GPG签名 + 耻辱墙health_weekly
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.longhun.health-weekly</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/zuimeidedeyihan/longhun-system/08_BIN/lh_health_snapshot_weekly.sh</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/zuimeidedeyihan/longhun-system</string>
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Weekday</key>
+        <integer>0</integer>
+        <key>Hour</key>
+        <integer>23</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+    <key>RunAtLoad</key>
+    <false/>
+    <key>ThrottleInterval</key>
+    <integer>300</integer>
+    <key>StandardOutPath</key>
+    <string>/Users/zuimeidedeyihan/longhun-system/logs/health_weekly_launchd.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/zuimeidedeyihan/longhun-system/logs/health_weekly_launchd.err.log</string>
+</dict>
+</plist>

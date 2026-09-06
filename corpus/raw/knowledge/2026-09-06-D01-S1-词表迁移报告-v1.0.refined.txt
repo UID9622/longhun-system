@@ -1,0 +1,70 @@
+# src: articles/2026-09-06-D01-S1-词表迁移报告-v1.0.md
+# paras: 17 | dna: f6c320c1
+
+# D-01 Step1 词表迁移报告 · Yi → Qwen2.5 v1.0
+
+> 创建者: 诸葛鑫（UID9622）
+> 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+> 协议: CC BY-NC-SA 4.0（核心思想层）
+> 背景: D-01 五步序 Step1（老大 2026-09-06 拍板基座=Qwen2.5-7B）
+> 时间: 2026-09-06 申时
+
+把 T6 A 轨产物 `tokenizer_longhun.json`（134 龍魂专词·Yi-1.5-9B 词表 64125）
+迁移到 Qwen2.5 词表（vocab 151643），重建 A 轨 → C 轨单测 → 压缩回测。
+
+| 项 | Yi 版(旧) | Qwen2 版(新) |
+|:---|:---|:---|
+| base tokenizer | Yi-1.5-9B-Chat (vocab 63991) | Qwen2.5 (vocab 151643) |
+| 注入专词 | 181 词(原 lex 全量·Yi 已含 47) | 181 词(Qwen 已含 0) |
+| 产物 vocab | 64125 | 151832 |
+| 注入词 id | 0-64124 无撞车 | 151657-151845 无撞车 |
+| special 保全 | ✓ 232 个 | ✓ 14 个(<|im_start|> 等) |
+| 产物 | models/base_models_v4.0/Yi-1.5-9B-Chat/tokenizer_longhun.json | models/base_models_v4.0/Qwen2.5-7B-Instruct/tokenizer_longhun.json |
+
+## 二、🔴 真实缺陷暴露与修复（判据④：不重跑带病迁移）
+
+**Qwen2 tokenizer 结构坑**：model.vocab=151643，但 added_tokens 段另有 22 项
+（14 个 special `<|im_start|>` 等 + 8 control），id 从 151643 起占用高位。
+旧 A 轨 `next_id=len(vocab)`=151643 → **注入词与 special 撞 id 22 个**
+（龍魂 151643 直接覆写 `<|im_start|>` 151643 等 chat 必需 token）。
+
+- 修复: `lh_tokenizer_builder.py` v1.0→v1.1 · 起始 id = max(全量已有 id)+1
+- 核验: 撞 special 22→**0** · 重复 id 0 · special 保全 True
+- Yi 旧产物带病排查: **健康**(无 special 撞车·added 段结构不同) → T6 产物不受影响
+
+## 三、C 轨单测（语义无损 + Determinism）
+
+| 项 | Yi 版(T6) | Qwen2 版(S1) |
+|:---|:---|:---|
+| 语义无损往返 | 188/188(含空格级差异) | **188/188 逐字精确**(零空格级) |
+| Determinism | 两跑 ids 一致 | 两跑 ids 一致 · 指纹 f9976597f0c8504b… |
+| base 对照 | 无退化 | 无退化(188/188 精确) |
+
+> Qwen2 tiktoken decoder 精确恢复空格——比 Yi ByteLevel/▁ 混合 decoder 更干净。
+
+## 四、压缩回测（真实语料 corpus/clean/龍魂最小语料集 696 字符）
+
+| tokenizer | tokens | 相对压缩率 |
+|:---|:---|:---|
+| Yi-base | 703 | — |
+| Yi-longhun | 509 | 27.60%（复现 T6 26.68% 同量级 ✓） |
+| Qwen-base | 615 | — |
+| **Qwen-longhun** | **497** | **19.19% · 四者绝对最低** |
+
+**结论**: Qwen2 迁移后绝对 token 最少（497 < Yi 509）→ 每 token 信息密度最高。
+Qwen base 中文分词本身优于 Yi（615<703），专词注入边际收益 19.19% 低于 Yi 的
+27.60%，但绝对水平最优。**老大选 Qwen2.5-7B + 词表迁移的决策获实机数据支持。**
+
+- `08_BIN/lh_tokenizer_builder.py` v1.1（撞车 bug 修复·DNA TOKENIZER-BUILDER-v1.1）
+- `models/base_models_v4.0/Qwen2.5-7B-Instruct/tokenizer.json`（base·自 0.5B 同款复制）
+- `models/base_models_v4.0/Qwen2.5-7B-Instruct/tokenizer_longhun.json`（v1.1 产物·SHA256 49d499d4）
+- `models/base_models_v4.0/Qwen2.5-7B-Instruct/tokenizer_longhun_report.json`
+
+## 六、下一步（D-01 Step2·AutoDL 注册+3060 环境验证）
+
+- 待老大完成 AutoDL 注册+充值后，租 3060 验证环境（mlx/transformers/PEFT）
+- Qwen2.5-7B 权重由 AutoDL 端拉取（非本地传输）
+- 本产物随训练脚本上传，先 hello-world 前向
+
+**三色**: 🟢 迁移+C 轨+回测全实证 · 🟡 Step2 AutoDL 待老大开户 · 🔴 0
+**GPG**: A2D0092CEE2E5BA87035600924C3704A8CC26D5F

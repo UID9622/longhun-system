@@ -144,6 +144,30 @@ def audit_deepseek(verbose: bool = True) -> int:
     sec(f"  📝 汇总: ~/.longhun/security/audit_summary.json")
     return 0
 
+# ---------- poc ----------
+POC_ROOT = Path(__file__).resolve().parent.parent / "security" / "poc"
+
+def poc(issue: str = None) -> int:
+    """列出 Issue #1627 PoC 集合(security/poc/)·展示证据摘要·不走网络零依赖"""
+    print("🐉 龍魂·Security PoC v1.1（回应 #1627「无 PoC 不可证伪」批评）")
+    if not POC_ROOT.exists():
+        print(f"  ℹ️  无 PoC 目录: {POC_ROOT}")
+        return 1
+    files = sorted(POC_ROOT.iterdir())
+    print(f"\n  📂 {POC_ROOT} ({len(files)} 文件)")
+    for f in files:
+        print(f"  · {f.name}")
+    print("""
+  实测(2026-09-05·真跑非推断):
+  · CVE-2026-55604  @arikusi/deepseek-mcp-server<1.7.0  SessionStore 进程级单例·sessionId
+     无主体绑定 → caller B 仅凭 id 越权读到 A 会话(poc_55604_sessionstore.mjs)
+  · CVE-2026-55605  <1.8.0  createMcpExpressApp 无 authProvider → POST /mcp 零认证
+     初始化 200 发会话·他人凭 id 接管握手 202·/health 泄露版本(poc_55605_noauth.sh)
+  复现环境: 隔离 mktemp+官方包源码·绑 127.0.0.1·dummy key·零触碰宿主依赖
+  修复对照: ≥1.7.0 绑主体 / ≥1.8.0 authProvider / 宿主仅内网暴露·复跑 PoC 应全失败
+""")
+    return 0
+
 # ---------- status ----------
 def status() -> int:
     print("🐉 龍魂·安全状态\n" + "=" * 52)
@@ -174,7 +198,12 @@ def main() -> int:
         return status()
     if cmd == "audit" and len(argv) >= 2 and argv[1] == "deepseek":
         return audit_deepseek()
-    print("用法: lh security status | audit deepseek")
+    if cmd == "poc":
+        issue = None
+        if len(argv) >= 3 and argv[1] == "--issue":
+            issue = argv[2]
+        return poc(issue)
+    print("用法: lh security status | audit deepseek | poc [--issue <n>]")
     return 1
 
 if __name__ == "__main__":

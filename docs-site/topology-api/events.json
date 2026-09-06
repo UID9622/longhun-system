@@ -1,8 +1,199 @@
 {
   "api": "topo/v2.0",
-  "updated_at": "2026-09-05T04:10:07+08:00",
+  "updated_at": "2026-09-06T00:10:05+08:00",
   "genesis": "DA5E84F817CEFFC3",
   "events": [
+    {
+      "ts": "2026-09-05T23:05:04+08:00",
+      "type": "topo_story",
+      "color": "🟢",
+      "bad": 0,
+      "warn": 0,
+      "severity": "info",
+      "ops": [],
+      "detail": "故事线生成 · 📢 对外交付图谱 v1.0 · 35 节点/事件 · 2026-09-01→2026-09-05",
+      "seq": 8,
+      "prev_hash": "120C2B78C6DE96AA",
+      "hash": "A66A2B2EF8C3042D"
+    },
+    {
+      "ts": "2026-09-05T23:04:57+08:00",
+      "type": "topo_rule_change",
+      "color": "🟢",
+      "bad": 0,
+      "warn": 0,
+      "severity": "info",
+      "ops": [
+        {
+          "op": "add",
+          "rule": "R2-DOCS-SYNC"
+        }
+      ],
+      "detail": "规则变更 · 📢 对外交付图谱 v1.0·R2-DOCS-SYNC",
+      "seq": 7,
+      "prev_hash": "1301B883CBF610BB",
+      "hash": "120C2B78C6DE96AA"
+    },
+    {
+      "ts": "2026-09-05T23:04:57+08:00",
+      "type": "topo_rule_change",
+      "color": "🟢",
+      "bad": 0,
+      "warn": 0,
+      "severity": "info",
+      "ops": [
+        {
+          "op": "add",
+          "rule": "R1-DELIVER-GPG"
+        }
+      ],
+      "detail": "规则变更 · 📢 对外交付图谱 v1.0·R1-DELIVER-GPG",
+      "seq": 6,
+      "prev_hash": "2EA76ECBE7C9E66A",
+      "hash": "1301B883CBF610BB"
+    },
+    {
+      "ts": "2026-09-05T23:04:54+08:00",
+      "type": "topo_action",
+      "color": "🟢",
+      "bad": 0,
+      "warn": 0,
+      "severity": "info",
+      "ops": [
+        {
+          "op": "run",
+          "node": "CNSH规范",
+          "action": "lh topo status 对外交付",
+          "exit": 0,
+          "ts": "2026-09-05T23:04:53+08:00"
+        }
+      ],
+      "detail": "✅ 节点动作 · 📢 对外交付图谱 v1.0·CNSH规范 · lh topo status 对外交付",
+      "seq": 5,
+      "prev_hash": "318248E5FDFB06E2",
+      "hash": "2EA76ECBE7C9E66A"
+    },
+    {
+      "ts": "2026-09-05T23:04:51+08:00",
+      "type": "topo_pr_merge",
+      "color": "🟢",
+      "bad": 0,
+      "warn": 0,
+      "severity": "info",
+      "ops": [
+        {
+          "op": "merge",
+          "pr": 1,
+          "add": 1,
+          "update": 0,
+          "edge": 1,
+          "freeze": 0
+        }
+      ],
+      "detail": "PR 合并 · 📢 对外交付图谱 v1.0 · 1增/0更/1边/0冻结",
+      "seq": 4,
+      "prev_hash": "90CC86ACF0C54B44",
+      "hash": "318248E5FDFB06E2"
+    },
+    {
+      "ts": "2026-09-05T23:04:48+08:00",
+      "type": "topo_pr_submit",
+      "color": "🟢",
+      "bad": 0,
+      "warn": 0,
+      "severity": "info",
+      "ops": [
+        {
+          "op": "submit",
+          "file": "topo_demo_community.topo",
+          "pr": 1
+        }
+      ],
+      "detail": "PR 提交 · topo_demo_community.topo → 📢 对外交付图谱 v1.0 (pr_0001)",
+      "seq": 3,
+      "prev_hash": "39A28FF0A7950C87",
+      "hash": "90CC86ACF0C54B44"
+    },
+    {
+      "ts": "2026-09-05T11:42:00+08:00",
+      "type": "topo_change",
+      "color": "🟢",
+      "bad": 0,
+      "warn": 0,
+      "severity": "info",
+      "ops": [
+        {
+          "name": "30分钟接入龙魂系统",
+          "type": "article",
+          "op": "update",
+          "severity": "info"
+        },
+        {
+          "name": "API_REFERENCE",
+          "type": "document",
+          "op": "update",
+          "severity": "info"
+        },
+        {
+          "name": "DEPENDENCIES",
+          "type": "document",
+          "op": "update",
+          "severity": "info"
+        },
+        {
+          "name": "INSTALL",
+          "type": "document",
+          "op": "update",
+          "severity": "info"
+        },
+        {
+          "name": "JSONRPC",
+          "type": "document",
+          "op": "update",
+          "severity": "info"
+        },
+        {
+          "name": "MCP_GUIDE",
+          "type": "document",
+          "op": "update",
+          "severity": "info"
+        },
+        {
+          "name": "NOTION_MCP_GUIDE",
+          "type": "document",
+          "op": "update",
+          "severity": "info"
+        },
+        {
+          "name": "QUICKSTART",
+          "type": "document",
+          "op": "update",
+          "severity": "info"
+        },
+        {
+          "name": "TROUBLESHOOTING",
+          "type": "document",
+          "op": "update",
+          "severity": "info"
+        },
+        {
+          "name": "USAGE",
+          "type": "document",
+          "op": "update",
+          "severity": "info"
+        },
+        {
+          "name": "龍魂对外交付文档体系-v1.0",
+          "type": "document",
+          "op": "update",
+          "severity": "info"
+        }
+      ],
+      "detail": "对外交付图谱拓扑变更 → 新增0·更新11·移除0 · 节点22 · verify ✅通过",
+      "seq": 2,
+      "prev_hash": "C2DE948D11460670",
+      "hash": "39A28FF0A7950C87"
+    },
     {
       "ts": "2026-09-05T03:50:11+08:00",
       "type": "topo_change",

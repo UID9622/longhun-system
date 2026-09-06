@@ -1,0 +1,6 @@
+# src: articles/2026-09-06-龍魂ASI团队能力总览-Wiki首页Home.md
+# paras: 2 | dna: b3541c89
+
+![龍魂 ASI 团队核心能力五层总览图](assets/asi_capability_overview.png)
+
+> 注：Wiki 平台不渲染 Mermaid 图，已内嵌为 PNG 图片（任何地方可显示）。以下保留 Mermaid 源码供本地/API 渲染参考：

@@ -1,0 +1,88 @@
+# DNA: #龍芯⚡️2026-09-06-ISSUE-BUG-REPORT-v2.0-UID9622 · 防空壳五关字段内嵌(对标 ollama 表单驱动)
+name: 🐛 Bug 报告
+description: 报告系统缺陷或异常行为（防空壳关②③：需真实复现与真实日志）
+title: "[Bug] "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你花时间报告 Bug！请按防空壳标准填写——**关② 运行结果必须是真实日志，不是"预期"描述**。
+        防空壳标准: `01_protocols/LH-ANTI-EMPTY-SHELL-STANDARD-v1.1.md` · 30 秒可验证才算有效报告。
+
+  - type: input
+    id: version
+    attributes:
+      label: 龍魂版本
+      description: 你使用的龍魂系统版本号（防空壳关③ 可复现的前提）
+      placeholder: "v5.0.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug 描述
+      description: 清晰简洁地描述发生了什么问题
+      placeholder: "执行 lh-start 后，gatekeeper 服务报错..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤（防空壳关③ · ≤5 步）
+      description: 陌生人照做 30 秒内能否复现？
+      placeholder: |
+        1. 执行 `python3 龍魂体系v5-一键启动.py`
+        2. 选择模块 'xxx'
+        3. 输入参数 'yyy'
+        4. 看到错误...
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 真实运行输出 / 日志（防空壳关② · 必填）
+      description: 粘贴【实际运行】得到的日志或截图。⚠️ 只写"应该会报错"而没有真实日志 = 报告无效，会被退回
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+      description: 你期望发生什么
+
+  - type: dropdown
+    id: shell_check
+    attributes:
+      label: 防空壳自查（如实勾选）
+      description: 防空壳铁律②：材料必须真实可跑，虚假日志比空壳更致命
+      options:
+        - 我跑过了，上面贴的是真实输出
+        - 我没跑过，只有预期描述（报告将被标记 🟡 待补实）
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: 操作系统
+      options:
+        - macOS
+        - Linux (鲲鹏/openEuler)
+        - Linux (其他)
+        - Windows
+    validations:
+      required: true
+
+  - type: input
+    id: python_version
+    attributes:
+      label: Python 版本
+      placeholder: "3.12.4"
+    validations:
+      required: true

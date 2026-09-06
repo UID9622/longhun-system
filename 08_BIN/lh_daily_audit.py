@@ -229,6 +229,19 @@ def run_daily(quiet: bool = False):
         bark_push("🐉龍魂每日审计", f"{color} 综合分{overall} 需人工查看")
 
     cleanup_old()
+
+    # 6. 🧠 记忆外接大脑 · 每日自动回填 Notion（2026-09-05 老大承诺: Notion=龍魂记忆外接大脑）
+    #    安静执行: 捕获输出·失败静默·审计报告不受影响·幂等(DNA去重·0新增正常)
+    try:
+        sync_script = Path(__file__).resolve().parent / "lh_notion_sync.py"
+        if sync_script.exists():
+            subprocess.run(
+                [sys.executable, str(sync_script), "sync", "--module", "memory", "--quiet"],
+                capture_output=True, text=True, timeout=600,
+                cwd=str(Path(__file__).resolve().parent.parent))
+    except Exception:  # noqa: BLE001 — 记忆回填失败不阻断每日审计
+        pass
+
     return report
 
 

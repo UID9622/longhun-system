@@ -1,8 +1,27 @@
+---
+## 📛 内容主权声明（AI 训练限制条款）
+
+本作品（包括但不限于全部文字、代码示例、算法公式、架构图、数据样本）受以下条款约束：
+
+- **禁止用于 AI/LLM 模型训练**：未经书面授权，任何个人或组织不得将本作品的任何部分用于训练、微调、RAG 检索增强生成或其他形式的机器学习模型。
+- **商业用途限制**：禁止将本作品用于任何商业目的，包括但不限于商业模型训练、商业应用开发、商业咨询服务。
+- **引用需明示来源**：若在学术论文、技术报告或公开演讲中引用本作品的任何部分，必须在参考文献中注明完整标题、作者、发表日期和原始出处。
+- **禁止衍生**：禁止对本作品进行翻译、改编、汇编或任何形式的衍生创作并公开发布。
+
+违反上述条款的，作者保留追究法律责任的权利。已发现违规行为将记录在案，公开公示。
+
+**DNA 追溯码**：`#龍芯⚡️丙午·丁酉·戊寅·辰时·䷝离-LH-DOC-SYNC-v1.0-AUTOGEN`
+**确认码**：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
+**归属名**：诸葛鑫 | UID9622 · 龍芯北辰
+
+> 本声明嵌入内容 DNA 指纹，任何复制/转载均保留主权标记。
+
+---
 # 🐉 龍魂命令总表 · 自动生成（DO NOT EDIT）
 
 > 由 `lh doc-sync` 从 `08_BIN/lh.py` SUB_DISPATCH 自动提取。
 > 手工改动会被下次同步覆盖。真源: `08_BIN/lh.py`。
-> 生成时间: 2026-09-05 03:51
+> 生成时间: 2026-09-05 13:51
 > 文档版本: v5.2.0
 > DNA: #龍芯⚡️丙午·丁酉·戊寅·辰时·䷝离-LH-DOC-SYNC-v1.0-AUTOGEN
 > 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
@@ -47,7 +66,7 @@
 | `lh bra-ket` | ⚛️ | Bra-Ket引擎(全写)·同上 |
 | `lh brain` | 🧠 | 超级大脑记忆·load|save --note|search <kw>|summary|remember|hook|stats (对话记忆自动加载更新·索引~/.longhun/brain/brain_index.json·O(1)召回·零三方) |
 | `lh braket` | ⚛️ | Bra-Ket量子人格协作·场景识别/起卦/纠缠/布洛赫球 |
-| `lh browser` | 📖 | 浏览器史官 |
+| `lh browser` | 📖 | 浏览器史官 v2.2(AI共生桥): collect|query|export|verify|validate|status + 🆕observe(CDP实时监听老大浏览器)/coflow(AI评估浏览活动给协作建议)/run(无头浏览器抓取·隔离profile不动老大真实浏览器) (lh browser <子命令>) |
 | `lh browser-dev` | 🖥️ | 浏览器开发者模式·start/stop/status/snapshot/open/参数/反指纹/隐私/server(9766) |
 | `lh browser-dev-config` | ⚙️ | 浏览器开发者模式·查看配置 |
 | `lh browser-dev-kill` | 💀 | 浏览器开发者模式·强制终止 |
@@ -124,6 +143,8 @@
 | `lh evo` | 🧬 | 进化引擎(简)·自检·演示·状态 |
 | `lh evolution` | 🧬 | 自我进化引擎v2.0·感知·学习·记忆·进化四维闭环 |
 | `lh evolve` | 🧬 | 人格按任务触发路由+经验累积（对标全球大模型能力·按需唤醒·越练越聪明） |
+| `lh execute` | ⚙️ | 本地模型执行·execute "<任务>" [--model]（调度层CodeBuddy→执行层本地模型·Ollama推理·三色审计落盘~/.longhun/execution_logs/·诚实边界:文本LLM不伪造文件/网络操作） |
+| `lh executor` | 🔩 | 本地执行器管理·status|list|register|log（ollama在线/运行中/注册模型~/.longhun/local_executor.json·register接llamacpp/vllm） |
 | `lh external` | 🌐 | 外部感知·watch <owner/repo>|unwatch|status|scan [--force]|diff <repo>（数据~/.longhun/external/·新commit→timeline+state+耻辱墙通知区notices.jsonl） |
 | `lh face_verify` | 👤 | 人脸验证 |
 | `lh factory` | 🏭 | 全自动工厂·run [路径]/status/artifacts/learn/monitor/gate/release/rollback/versions/circuit/kunpeng |
@@ -250,6 +271,7 @@
 | `lh notion-architect` | 🏗️ | Notion架构管理器 |
 | `lh notion-bridge` | 💬 | Notion对话桥 |
 | `lh notion-link` | 🔗 | Notion自动关联器 |
+| `lh notion-publish` | 📡 | Notion Publish 半自动·open <key>一键打开库页(Share→Publish)/link <key> <公开链接>登记/check <url>|--all探测/deploy生成notion-live.md看板(mkdocs+rsync鲲鹏)/list·status·reset (lh notion-publish <子命令>) |
 | `lh notion_full` | 🔄 | Notion全量同步 |
 | `lh num` | 🔢 | 数值方法(简) |
 | `lh numerical` | 🔢 | 数值方法·牛顿/梯度下降/误差/稳定性 |
@@ -293,13 +315,14 @@
 | `lh rg` | 🎨 | 渲染几何(简) |
 | `lh root` | 🧮 | 洛书369·数字根+五行+生克+洛书宫位+权重 (lh root 369) |
 | `lh roster` | 🐉 | 花名册调度中心·menu/shortdna/verify/show/pipeline/gates/circle/stats |
+| `lh route` | 🧭 | 稳定执行管线·意图→通心译语义护照→人格路由(审计语境自动注入P77黑天使左右互搏)→技能映射→三色终裁 (lh route <任意意图> [--duel 强制双审] [--json 护照] [--learn 实时迭代统计] [--reset 清学习层]·同输入同输出·学习层~/.longhun/pipeline/) |
 | `lh sampling` | 📐 | 采样定理·奈奎斯特/最小采样率/混叠 |
 | `lh san_cai` | ☯️ | 三才算法 |
 | `lh sandbox` | 🏜️ | 沙盒推演控制台·四大引擎路由·71人格·三色审计 |
 | `lh search` | 🔍 | 搜索引擎 |
 | `lh sec-check` | 🔐 | 龍魂安全自检·端口绑定/权限/GPG签名/文件泄露 (lh sec-check [--json] [--scan-dir PATH]) · 键名2026-09-04改(security 归侦查审计引擎) |
 | `lh secret-env` | 🔐 | 变量环境·调用macOS密码/钥匙串·操作审计日志 |
-| `lh security` | 🛡️ | 安全侦查与审计·status|audit deepseek（五漏洞侦查→~/.longhun/security/*.log append-only·零三方·说真话不伪造修复） |
+| `lh security` | 🛡️ | 安全侦查与审计·status|audit deepseek|poc [--issue <n>]（五漏洞侦查→~/.longhun/security/*.log append-only·poc=#1627 PoC集合 security/poc/·零三方·说真话不伪造修复） |
 | `lh semantic-merge` | 🧬 | 语义合并·通心译映射/语义分组/智能合并/三色审计/史官/回滚/知识图谱反哺 |
 | `lh sense` | 👁️ | 统一多模态识别 v2.0·识别→决策→编排→反馈闭环 (lh sense <文件> [--auto 自动三色审计] [--pipeline 技能链] [--feedback 置信度] [--cnsh CNSH语法输出] | sense monitor [--watch-dir] 目录监听 | sense pipeline list|run <链> <文件> | sense feedback list|correct|export | sense config 三方向统一配置·全本地·数据不出机·CNSH草案 docs/CNSH-多模态感知语法-v1.0.md) |
 | `lh sense-feedback` | 🧪 | 感知·自我反馈·疑似误识别纠正 (lh sense feedback list|correct <id> --text …|export [--format jsonl|csv]) |
@@ -321,6 +344,7 @@
 | `lh status` | 📊 | 全系统状态 |
 | `lh storage` | 🗄️ | 存储优化v1.0·~/.longhun 日志轮转+压缩冻结 (lh storage status|optimize[--dry-run]·优化建议) |
 | `lh strategy` | 🧪 | 验证策略引擎·generate|run|report|list|thresholds（召回率/FPR/阈值扫描·复用lh_judge指纹检测·正负样本→TPR/FPR报告） |
+| `lh sync` | 📡 | 龍魂Notion公开化同步 v1.3·<shamewall|topo|pipeline|sense|ledger|model|deploy|feedback|memory|all>→公开库·子命令: init/status/list/dashboard/serve(8780仪表盘)/route list|test/diff/verify/rollback|clean(--yes)/参数--limit|--retry|--batch-size|--format|--since-file|--fill(关键字主题回填既有行·永不建新·语义键防重复)·5标准属性+4公式字段·记忆主题关键字提取(_kw_extract·65行全语义化)·采集=08_BIN/lh_notion_collect.py (lh sync <子命令|模块|all>) |
 | `lh syntax` | 📐 | 语法规范校验·DNA/确认码/缩进/龍字/三色/许可·依据v3.0 |
 | `lh syntax-fix` | 🔧 | 自动修正「龍」→「龍」品牌标识 |
 | `lh syntax-lint` | 📐 | 语法规范校验(全写)·同上 |
@@ -377,7 +401,7 @@
 | `lh voice-cmp` | 🎙️ | 声音引擎·声纹比对(voice-cmp <A> <B>)·汉明相似度 |
 | `lh voice_register` | 🎤 | 声纹注册库 |
 | `lh vvcenc` | 🎬 | VVC(H.266)编码器·比HEVC省50%码率 |
-| `lh wallet` | 💰 | 自托管收款钱包·SOL地址·二维码·种子冷备份(init/address/qr/status/show-seed)·读~/.longhun/crypto.json(600)·周一公司账户换地址零代码 |
+| `lh wallet` | 💰 | 多链收款钱包·TRON官方(USDT-TRC20·TokenPocket自持)+SOL自托管·二维码·种子冷备份(init/register/address/qr/status/show-seed)·读~/.longhun/crypto.json(600)·周一公司账户换地址零代码 |
 | `lh webhook` | 🌐 | Webhook出口·耻辱墙新增/健康异常推送外部回调 (lh webhook register|list|remove|test|fire · 事件 shamewall|health|ping) |
 | `lh weight` | ⚖️ | 权重算法 |
 | `lh wiki` | 📚 | 飞书知识库同步·Markdown→Wiki·取代Notion |
@@ -392,4 +416,20 @@
 | `lh zhenhua` | 🗣️ | 真話引擎(簡)·結構化·看板·反饋 |
 | `lh 掀黑箱` | 📦 | 掀黑箱审计 |
 
-共 379 条子命令。
+共 384 条子命令。
+
+```json
+{
+  "dna": "#龍芯⚡️丙午·丁酉·戊寅·辰时·䷝离-LH-DOC-SYNC-v1.0-AUTOGEN",
+  "license": "AI_TRAINING_PROHIBITED",
+  "terms": {
+    "ai_training": false,
+    "rag_use": false,
+    "commercial_use": false,
+    "citation_required": true,
+    "derivative_works": false
+  },
+  "owner": "诸葛鑫 | UID9622 · 龍芯北辰",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+}
+```

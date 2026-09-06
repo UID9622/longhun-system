@@ -1,0 +1,82 @@
+{
+  "dna": "#龍芯⚡️丙午·癸未·甲子·申时-MLX-FORWARD-PROBE-v1.0-UID9622",
+  "model": "_work/mlx-qwen1.5b-q8",
+  "prompt": "龍魂系统自检 五行平衡",
+  "n_tokens": 8,
+  "architecture": "Model",
+  "layers": 28,
+  "hidden": 1536,
+  "L2_layer_stats": {
+    "0": {
+      "l2_norm": 22.875,
+      "l1_sum": 616.0,
+      "sparsity": 0.0,
+      "mean": 0.011353,
+      "max_abs": 5.0,
+      "cos_to_prev": null
+    },
+    "7": {
+      "l2_norm": 51.5,
+      "l1_sum": 1152.0,
+      "sparsity": 0.001953,
+      "mean": -0.037598,
+      "max_abs": 26.25,
+      "cos_to_prev": 0.044434
+    },
+    "14": {
+      "l2_norm": 64.0,
+      "l1_sum": 1272.0,
+      "sparsity": 0.001302,
+      "mean": -0.027588,
+      "max_abs": 33.75,
+      "cos_to_prev": 1.0
+    },
+    "21": {
+      "l2_norm": 123.0,
+      "l1_sum": 2480.0,
+      "sparsity": 0.001302,
+      "mean": -0.075195,
+      "max_abs": 57.5,
+      "cos_to_prev": 0.996094
+    },
+    "27": {
+      "l2_norm": 350.0,
+      "l1_sum": 6144.0,
+      "sparsity": 0.0,
+      "mean": -0.141602,
+      "max_abs": 177.0,
+      "cos_to_prev": 0.079102
+    },
+    "final_norm": {
+      "l2_norm": 129.0,
+      "mean": -0.095215
+    }
+  },
+  "L3_attr": {
+    "0": 0.1875,
+    "1": -0.0625,
+    "2": 1.0,
+    "3": 1.3125,
+    "4": 1.8125,
+    "5": 1.0625,
+    "6": 5.0625
+  },
+  "L3_top3": [
+    [
+      "t6='五行'",
+      "+5.0625"
+    ],
+    [
+      "t4='检'",
+      "+1.8125"
+    ],
+    [
+      "t3='自'",
+      "+1.3125"
+    ]
+  ],
+  "L3_method": "leave-one-out·replace-id0·v1.0",
+  "base_logprob": -4.8125,
+  "duration_sec": 0.64,
+  "status": "🟢 实机跑通(L2/L3 前向)·方法学 v1.0"
+}

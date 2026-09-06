@@ -49,7 +49,7 @@ def clean_response(raw):
     for pat, repl in SENSITIVE_PATTERNS:
         text = pat.sub(repl, text)
     if len(text) > RESP_MAX:
-        text = text[:RESP_MAX] + "...[truncated:{}chars]".format(len(raw))
+        text = text[:RESP_MAX] + f"...[truncated:{len(raw)}chars]"
     return text
 
 
@@ -93,8 +93,8 @@ def pick_samples(recs, n):
     rest.sort(key=lambda r: len(r.get("response") or ""))
     short, mid, long = [], [], []
     for r in rest:
-        L = len(r.get("response") or "")
-        (short if L < 60 else mid if L < 200 else long).append(r)
+        ln = len(r.get("response") or "")
+        (short if ln < 60 else mid if ln < 200 else long).append(r)
     for bucket in (short, mid, long):
         for r in bucket:
             if len(picked) >= n:
@@ -107,7 +107,7 @@ def to_shared(r, idx):
     """标准化为共享 schema"""
     cats = r.get("category") or []
     return {
-        "request_id": "REQ-{}-{:03d}".format(r.get("dna", "unknown").replace("🐉", "")[-8:], idx),
+        "request_id": f"REQ-{r.get('dna', 'unknown').replace('🐉', '')[-8:]}-{idx:03d}",
         "timestamp": r.get("created_at", ""),
         "model": r.get("model", ""),
         "prompt": r.get("prompt", ""),
@@ -128,11 +128,10 @@ def pick_firewall(logs, n=2):
     for d in fw[:n]:
         ctx = d.get("context") or {}
         out.append({
-            "request_id": "FW-{}-{:03d}".format(d.get("dna", "").split("-")[-1], len(out) + 1),
+            "request_id": f"FW-{d.get('dna', '').split('-')[-1]}-{len(out) + 1:03d}",
             "timestamp": d.get("timestamp", ""),
             "model": "regulatory-firewall-v2.0",
-            "prompt": "[system] 权限审计请求 | domain={} scopes={}".format(
-                ctx.get("domain"), ctx.get("scopes")),
+            "prompt": f"[system] 权限审计请求 | domain={ctx.get('domain')} scopes={ctx.get('scopes')}",
             "response": d.get("reason", ""),
             "dna_sig": d.get("dna", ""),
             "attack_category": ["权限审计-" + str(d.get("audit_mark", ""))],
@@ -149,8 +148,8 @@ def main():
         print("RED 源日志不存在，中止")
         sys.exit(1)
 
-    fb = [json.loads(l) for l in FB_POOL.read_text().splitlines() if l.strip()]
-    audit = [json.loads(l) for l in AUDIT_LOG.read_text().splitlines() if l.strip()]
+    fb = [json.loads(ln) for ln in FB_POOL.read_text().splitlines() if ln.strip()]
+    audit = [json.loads(ln) for ln in AUDIT_LOG.read_text().splitlines() if ln.strip()]
 
     picked = pick_samples(fb, N_SAMPLES)
     fw = pick_firewall(audit, N_FIREWALL)
@@ -162,19 +161,19 @@ def main():
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
 
     # 校验
-    read_back = [json.loads(l) for l in OUT_FILE.read_text().splitlines() if l.strip()]
+    read_back = [json.loads(ln) for ln in OUT_FILE.read_text().splitlines() if ln.strip()]
     required = ["request_id", "timestamp", "model", "prompt", "response",
                 "dna_sig", "attack_category", "verdict", "source", "record_type"]
     errors = []
     for r in read_back:
         for k in required:
             if k not in r:
-                errors.append("缺字段 {}: {}".format(k, r.get("request_id")))
+                errors.append(f"缺字段 {k}: {r.get('request_id')}")
     # 无编造字段检查
     for r in read_back:
         for k in ("inference_time_ms", "tokens_used"):
             if k in r:
-                errors.append("出现编造字段 {}".format(k))
+                errors.append(f"出现编造字段 {k}")
     if errors:
         print("RED 校验失败:")
         for e in errors:
@@ -185,10 +184,10 @@ def main():
     for r in read_back:
         cats.update(r["attack_category"])
         models.add(r["model"])
-    print("OK 数据集生成: {}".format(OUT_FILE))
-    print("   条数: {} (推理 {} + 防火墙 {})".format(len(read_back), len(picked), len(fw)))
-    print("   模型覆盖: {}".format(sorted(models)))
-    print("   类别覆盖: {}".format(sorted(cats)))
+    print(f"OK 数据集生成: {OUT_FILE}")
+    print(f"   条数: {len(read_back)} (推理 {len(picked)} + 防火墙 {len(fw)})")
+    print(f"   模型覆盖: {sorted(models)}")
+    print(f"   类别覆盖: {sorted(cats)}")
     print("   诚实声明: 未编造 inference_time_ms / tokens_used（源日志未采集）")
 
 

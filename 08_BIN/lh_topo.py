@@ -18,9 +18,10 @@
 #   lh topo cite <资产名>             返回资产完整引用格式（含 DNA+链接 · 引用溯源）
 #   lh topo frameworks                列出龍魂引擎依赖的开源框架清单(M77 下近空)
 # 缓存: docs/topology/<图谱名>_legion_topo.json · 校验: ~/.longhun/topo/{source}_verify.json
-# 版本: v1.5 (2026-09-03 · 通心译深度拓扑: 顶层 subgraphs 子图谱层(关联库+Obsidian 镜像)
-#       + iter_nodes 统一节点遍历(组资产+子图谱+内嵌笔记)→ stats/verify/root_hash/list/HTML 同步
-#       + v1.4 sync --live · v1.3 register/node · v1.2 多数据源) · 零三方依赖（原生 urllib）
+# 版本: v2.1 (2026-09-05 · 深度拓扑五向: 行动拓扑 run(节点 action 白名单执行)
+#       + 社区图谱 pr(.topo 增量提交/三色合并) + 规则图谱 rule/rules(规则链可校验)
+#       + 故事线 story(Mermaid timeline 演进) · v2.0 可验证神经中枢
+#       + v1.5 subgraphs · v1.4 sync --live · v1.3 register/node · v1.2 多数据源) · 零三方依赖
 
 import argparse
 import contextlib
@@ -35,7 +36,7 @@ import sys
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -182,27 +183,31 @@ def load_kb_index(keyword: str = "通心译") -> dict:
 
 
 def _wallet_banner() -> str:
-    """收款区块(可降级): 读 ~/.longhun/crypto.json 的 SOL 地址·二维码走 /donate.png 静态路由。
+    """收款区块(可降级): 读 ~/.longhun/crypto.json 全部已登记链·默认链二维码走 /donate.png 静态路由。
     无配置/无地址 → 返回空串,页面不出现收款区块(优雅降级·不显示假收款)。"""
     try:
         with open(os.path.expanduser("~/.longhun/crypto.json"), encoding="utf-8") as fh:
             cfg = json.loads(fh.read())
-        addr = (cfg.get("networks", {}) or {}).get("solana", {}).get("address", "")
-        if not addr:
+        nets = cfg.get("networks", {}) or {}
+        lines = [(k, v.get("symbol", k), v.get("address", ""))
+                 for k, v in nets.items() if v.get("address")]
+        if not lines:
             return ""
     except Exception:
         return ""
     esc = html_mod.escape
+    addr_html = "".join(
+        '<span class="da">' + esc(sym) + ': <code>' + esc(addr) + '</code>'
+        '<button type="button" onclick="navigator.clipboard.writeText(\'' + esc(addr) + '\')">复制</button></span>'
+        for _, sym, addr in lines)
     return ('<div class="donate">'
             '<span class="dh">💛 支持龍魂 · 纯自愿 · 零黑箱 · 款项仅用于服务器与开发</span> '
-            '<img src="/donate.png" alt="支持龍魂二维码" class="dq">'
-            '<span class="da">SOL / USDC: <code>' + esc(addr) + '</code>'
-            '<button type="button" onclick="navigator.clipboard.writeText(\'' + esc(addr) + '\')">复制</button>'
-            '</span></div>')
+            '<img src="/donate.png" alt="支持龍魂二维码" class="dq">' + addr_html + '</div>')
 
 
-def render_topo_html(keyword: str = "通心译") -> str:
-    """生成人类可读拓扑页：6 组树形 + 19 节点（名称/ID/DNA/状态）+ 页脚主权声明与根哈希"""
+def render_topo_html(keyword: str = "通心译", show_run: bool = False) -> str:
+    """生成人类可读拓扑页：6 组树形 + 19 节点（名称/ID/DNA/状态）+ 页脚主权声明与根哈希
+    v2.1 show_run=True(本机回环)时含 action 节点显示「⚡ 执行」按钮 → /topo/run"""
     f, data = _find_topo_file(keyword)
     green, yellow, neutral = asset_stats(data)
     total = green + yellow + neutral
@@ -219,6 +224,12 @@ def render_topo_html(keyword: str = "通心译") -> str:
             name = esc(a.get("name", "?"))
             name_html = (f'<a href="{esc(a.get("link", ""))}" target="_blank">{name}</a>'
                          if a.get("link") else name)
+            if show_run and (a.get("action") or "").strip():
+                name_html += (f' <a style="display:inline-block;margin-left:8px;padding:1px 10px;'
+                              f'border:1px solid #2ea043;border-radius:10px;color:#2ea043;'
+                              f'font-size:11px;text-decoration:none" '
+                              f'href="/topo/run?kw={esc(keyword)}&node={esc(a.get("name",""))}">'
+                              f'⚡ 执行</a>')
             rows.append(
                 f'<li class="asset">'
                 f'<div class="row1"><span class="dot">{dot}</span> {name_html}'
@@ -379,8 +390,30 @@ class TopoHandler(BaseHTTPRequestHandler):
             return self._send(200, fp.read_bytes(), ctype)
         if path.startswith("/holo"):
             return self._send(404, b"holo route: /holo /holo/data /holo/vendor/*", "text/plain; charset=utf-8")
+        loop = self.client_address[0] in ("127.0.0.1", "::1", "::ffff:127.0.0.1")
         if path == "/dashboard":
             body = render_dashboard_html().encode("utf-8")
+            return self._send(200, body, "text/html; charset=utf-8")
+        if path.startswith("/topo/run"):   # v2.1 行动拓扑：节点执行（仅本机回环·防对外命令触发）
+            if not loop:
+                return self._send(403, b"run action requires loopback access",
+                                  "text/plain; charset=utf-8")
+            qs = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
+            kw = (qs.get("kw") or [self.keyword])[0]
+            nd = (qs.get("node") or [""])[0]
+            try:
+                out = cmd_topo_run(kw, node=nd)
+                body = (f"<meta charset=utf-8><title>⚡ 行动执行</title>"
+                        f"<body style='background:#0a0e17;color:#c9d1d9;font-family:sans-serif;padding:24px'>"
+                        f"<pre style='white-space:pre-wrap'>{html_mod.escape(out)}</pre>"
+                        f"<p><a href='/topo/{urllib.parse.quote(kw)}/html'>← 返回图谱</a></p></body>"
+                        ).encode()
+            except SystemExit as e:
+                body = (f"<meta charset=utf-8><title>⚡ 行动失败</title>"
+                        f"<body style='background:#0a0e17;color:#ff6b6b;font-family:sans-serif;padding:24px'>"
+                        f"<pre>{html_mod.escape(str(e))}</pre>"
+                        f"<p><a href='/topo/{urllib.parse.quote(kw)}/html'>← 返回图谱</a></p></body>"
+                        ).encode()
             return self._send(200, body, "text/html; charset=utf-8")
         if path == "/donate.png":   # 收款二维码静态路由(读 ~/.longhun/static/donate.png)
             qr = os.path.expanduser("~/.longhun/static/donate.png")
@@ -409,7 +442,7 @@ class TopoHandler(BaseHTTPRequestHandler):
             if is_json:
                 body = json.dumps(kb, ensure_ascii=False, indent=2).encode()
                 return self._send(200, body, "application/json; charset=utf-8")
-            page = render_topo_html(name).encode()
+            page = render_topo_html(name, show_run=loop).encode()
             self._send(200, page, "text/html; charset=utf-8")
         except SystemExit as e:
             msg = f"404 · 图谱「{name}」本地缓存缺失，请先 lh topo sync {name}\n{e}".encode()
@@ -455,8 +488,60 @@ def _live_snapshots() -> list:
     return out
 
 
+def _evidence_dashboard_html() -> str:
+    """🧬 证据链看板区块（v1.0·2026-09-05 拓扑交付·引用 data/evidence.json 镜像·lh evidence add/sync 自动导出）"""
+    p = ROOT / "data" / "evidence.json"
+    if not p.is_file():
+        return ("<h2>🧬 证据链（data/evidence.json）</h2>"
+                "<table><tr><td style='color:#888'>镜像未同步 · lh evidence add/sync 自动导出后刷新</td></tr></table>")
+    try:
+        d = json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        return "<h2>🧬 证据链</h2><table><tr><td style='color:#ff4444'>镜像损坏</td></tr></table>"
+    recs = d.get("records", [])
+
+    def _mark(r):
+        s = r.get("status", "")
+        return next((k for k in ("🔴", "⏳", "🟡", "🟢") if s.startswith(k)), "?")
+
+    ap, an = [0, 0, 0, 0, 0], [0, 0]   # pledge: 总/🟢/🟡/⏳/🔴 · node: 总/活跃
+    for r in recs:
+        if r.get("kind") == "pledge":
+            ap[0] += 1
+            m = _mark(r)
+            if m == "🟢":
+                ap[1] += 1
+            elif m == "🟡":
+                ap[2] += 1
+            elif m == "⏳":
+                ap[3] += 1
+            elif m == "🔴":
+                ap[4] += 1
+        else:
+            an[0] += 1
+            if _mark(r) == "🟢":
+                an[1] += 1
+    cards = (f"总承诺 <b>{ap[0]}</b> · 🟢已锚定 <b>{ap[1]}</b> · 🟡审核中 <b>{ap[2]}</b> · "
+             f"⏳逾期 <b>{ap[3]}</b> · 🔴冻结 <b>{ap[4]}</b> ｜ 协作节点 <b>{an[0]}</b>(活跃 {an[1]}) ｜ "
+             f"链根 <code>{html_mod.escape(str(d.get('root_hash',''))[:20])}</code>")
+    rows = "".join(
+        f"<tr><td style='color:#00d4ff'>{html_mod.escape(r.get('id',''))}</td>"
+        f"<td>{html_mod.escape(r.get('status',''))}</td>"
+        f"<td style='max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap'>"
+        f"{html_mod.escape(r.get('title',''))}</td>"
+        f"<td style='color:#888;font-size:11px'>{html_mod.escape(r.get('sha256',''))}</td>"
+        f"<td style='color:#888'>{html_mod.escape(str(r.get('updated',''))[:16])}</td></tr>"
+        for r in recs) or "<tr><td colspan=5 style='color:#888'>空台账</td></tr>"
+    return (f"<h2>🧬 证据链 · <span style='font-size:11px;color:#888'>hashchain-v1 封链 "
+            f"{html_mod.escape(str(d.get('sealed_at',''))[:16])} · DNA 前缀 "
+            f"#龍芯⚡️2026-09-05-EVIDENCE-</span></h2>"
+            f"<div class=box style='color:#7ee787;font-size:12px'>{cards}</div>"
+            f"<table><tr><th>追溯码</th><th>状态</th><th>条目</th><th>证据哈希</th>"
+            f"<th>最后更新</th></tr>{rows}</table>")
+
+
 def render_dashboard_html(refresh: int = 60) -> str:
-    """统一看板: 全部图谱状态 + 耻辱墙最新 + 服务健康（60s 自动刷新·零三方依赖）"""
+    """统一看板: 全部图谱状态 + 耻辱墙最新 + 证据链 + 服务健康（60s 自动刷新·零三方依赖）"""
     graphs = []
     for f in sorted(TOPO_DIR.glob("*_legion_topo.json")):
         try:
@@ -519,6 +604,7 @@ def render_dashboard_html(refresh: int = 60) -> str:
         f"<td style='color:#888;max-width:320px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap'>"
         f"{html_mod.escape(str(s['match']))}</td></tr>"
         for s in shame) or "<tr><td colspan=5 style='color:#888'>耻辱墙 0 记录 · 清白</td></tr>"
+    ev_html = _evidence_dashboard_html()
     return f"""<!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -557,6 +643,7 @@ td{{padding:6px;border-bottom:1px solid #10121f}}
 <span class="health g">topo-serve · 本页在线</span>
 <span class="health o">网关 API · 9622（容器内自检）</span>
 </div>
+{ev_html}
 <h2>🧱 耻辱墙 · 最近 {len(shame)} 条</h2>
 <table><tr><th>色</th><th>源名称</th><th>指纹</th><th>发现时间</th><th>匹配</th></tr>{shame_rows}</table>
 {donate_html}
@@ -755,9 +842,10 @@ def cmd_register_graph(name: str, display: str = ""):
 
 def cmd_node_add(keyword: str, group: str = "", name: str = "", ntype: str = "other",
                  dna: str = "", status: str = "🟢 可用", path: str = "",
-                 source: str = "", desc: str = "", link: str = ""):
+                 source: str = "", desc: str = "", link: str = "", action: str = ""):
     """lh topo node <图谱名> --group <层> --name <节点> --type <type> --dna <DNA>
     [--status 状态] [--path 路径] [--source 来源] [--desc 描述] [--link 链接]
+    [--action "lh …"]  ← v2.1 行动拓扑：节点绑定动作（lh topo run 白名单执行）
     同名节点=更新；组不存在自动创建；link 缺省回退 path/source（保 verify 无缺链接）"""
     if not keyword.strip():
         raise SystemExit("  ❌ 用法: lh topo node <图谱名> --group … --name … --type … --dna …")
@@ -776,6 +864,8 @@ def cmd_node_add(keyword: str, group: str = "", name: str = "", ntype: str = "ot
         "status": status.strip() or "🟢 可用",
         "link": (link.strip() or path.strip() or source.strip() or ""),
     }
+    if action.strip():
+        asset["action"] = action.strip()
     for k, v in (("path", path), ("source", source), ("desc", desc)):
         if v.strip():
             asset[k] = v.strip()
@@ -783,6 +873,8 @@ def cmd_node_add(keyword: str, group: str = "", name: str = "", ntype: str = "ot
     updated = False
     for i, a in enumerate(g["assets"]):
         if a.get("name") == name.strip():
+            if not action.strip():
+                asset["action"] = a.get("action", "")  # 未提供 action 时保留旧绑定
             g["assets"][i] = asset
             updated = True
             break
@@ -793,7 +885,8 @@ def cmd_node_add(keyword: str, group: str = "", name: str = "", ntype: str = "ot
         print(f"  ✅ 节点「{name.strip()}」注册 → {group.strip()}")
     f.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     green, yellow, neutral = asset_stats(data)
-    print(f"     图谱 {data.get('display')} · 节点 {green+yellow+neutral} · 🟢{green} 🟡{yellow}")
+    print(f"     图谱 {data.get('display')} · 节点 {green+yellow+neutral} · 🟢{green} 🟡{yellow}"
+          + (f"\n     ⚡ 已绑定动作: {asset['action']}" if asset.get("action") else ""))
 
 
 # ── v1.7 对外交付文档自动拓扑同步（12_DOCS ↔ 图谱）─────────────────
@@ -852,6 +945,11 @@ TOPO_ROOT_DECL = SITE_TOPO_DIR / "ROOT_HASH_DECLARATION.md"  # 根哈希公开�
 GPG_SIGN_BIN = ROOT / "08_BIN" / "lh_gpg_sign.py"          # GPG 分离签名引擎
 GH_API_BASE = "https://api.github.com/repos/UID9622/longhun-system"  # 本仓库 GitHub API 基址
 STALE_HOURS = 24                                     # 🟡 持续阈值 → 自响应（heal）
+# ── v2.1 深度拓扑（2026-09-05·行动/社区/规则/故事）──
+PR_DIR = STATE_DIR / "topo_prs"                      # 社区图谱 PR 草稿/合并队列（pr submit/merge）
+ACTION_LOG = STATE_DIR / "topo_action_log.jsonl"     # 节点动作执行日志 append-only（run）
+DELTA_SCHEMA = "longhun-topo-delta-v1"               # 社区图谱增量文件 schema（.topo）
+RULE_SCHEMA = "longhun-topo-rule-v1"                 # 规则条目 schema 版本
 
 # ── v1.9 文档站交互检索前端（export-page 每次生成 topo_live.js·纯前端零后端）──
 _TOPO_LIVE_JS = r'''(function () {
@@ -1307,7 +1405,7 @@ def _topo_auto_deploy(keyword: str) -> bool:
             if _api_src.is_dir():
                 r = subprocess.run(
                     ["rsync", "-az", "-e", ssh, "topology-api/",
-                     f"root@119.13.90.27:/opt/longhun-system/docs-site/topology-api/"],
+                     "root@119.13.90.27:/opt/longhun-system/docs-site/topology-api/"],
                     cwd=str(ROOT / "docs-site"), capture_output=True, text=True, timeout=120)
                 notes.append("rsync topo-api ✅" if r.returncode == 0
                              else f"topo-api rsync ❌ {r.stderr.strip()[:160]}")
@@ -1542,7 +1640,7 @@ def cmd_topo_audit_chain(keyword: str = "", limit: int = 10, json_out: bool = Fa
     print(f"\n  ⛓️  Merkle 审计链 · 共 {len(_chain_display()[1])} 条链事件 · {TOPO_AUDIT_LOG}")
     print(f"     🧬 创世根(legacy 聚合) {genesis}")
     for r in rows:
-        print(f"     #{int(r.get('seq')):>3} [{r.get('ts')}] {r.get('type')} {r.get('color')} ·"
+        print(f"     #{int(r.get('seq') or 0):>3} [{r.get('ts')}] {r.get('type')} {r.get('color')} ·"
               f" ←{str(r.get('prev_hash'))[:8]}… 自证 {r.get('hash')} · {str(r.get('detail'))[:52]}")
     print()
 
@@ -1757,7 +1855,7 @@ def cmd_topo_weekly_report(keyword: str = "", json_out: bool = False):
              "", "## 二、近期事件流（最近 30 条）", "",
              f"链事件总数 {len(chain_rows)} · 含告警/异常 {warn_cnt} 条", ""]
     for e in reversed(recent):
-        lines.append(f"- `#{int(e.get('seq'))}` [{e.get('ts')}] {e.get('type')}"
+        lines.append(f"- `#{int(e.get('seq') or 0)}` [{e.get('ts')}] {e.get('type')}"
                      f" {e.get('color')} · {str(e.get('detail'))[:76]}")
     lines += ["", "## 三、完整性验证", "",
               f"- 创世根: `{genesis}`",
@@ -1799,12 +1897,12 @@ def cmd_topo_serve_api(keyword: str = "", port: int = 8873, host: str = "127.0.0
             self.end_headers()
             self.wfile.write(body)
 
-        def log_message(self, *_a):
+        def log_message(self, *_a):  # type: ignore[reportIncompatibleMethodOverride]
             pass
 
     srv = ThreadingHTTPServer((host, port), _ApiHandler)
     print(f"\n  🌐 拓扑公共 API 静态服务 · http://{host}:{port}/api/topo/ · Ctrl-C 退出")
-    print(f"     端点: 对外交付.json / status.json / events.json（内容自含根哈希 · 可独立验证）\n")
+    print("     端点: 对外交付.json / status.json / events.json（内容自含根哈希 · 可独立验证）\n")
     try:
         srv.serve_forever()
     except KeyboardInterrupt:
@@ -2193,11 +2291,9 @@ def cmd_topo_archive(keyword: str = "对外交付"):
     idx_p.write_text("\n".join(_lines) + "\n", encoding="utf-8")
     # ── GPG 签名（本地快照 + 站点副本 + 列表页 · 失败不阻断）──
     for _p in (home_p, site_p, idx_p):
-        try:
+        with contextlib.suppress(Exception):  # GPG 签名失败不阻断归档
             subprocess.run([sys.executable, str(GPG_SIGN_BIN), "sign", str(_p)],
                            capture_output=True, text=True, timeout=120)
-        except Exception:   # noqa: BLE001
-            pass
     # ── 自动上线（export-page 刷新声明 + mkdocs build + rsync 鲲鹏）──
     _topo_auto_deploy(data.get("topo_name") or keyword)
     print(f"\n  📦 拓扑归档快照已生成 · {_fname}")
@@ -2430,7 +2526,7 @@ def cmd_topo_export_page(keyword: str = "", json_out: bool = False):
            "| # | 时间 | 类型 | 自证哈希 | 上一链 | 事件 |",
            "|:---|:---|:---|:---|:---|:---|"]
     for _r in _aud_rows:
-        _al.append(f"| {int(_r.get('seq'))} | {_r.get('ts')} | {_r.get('type')} | "
+        _al.append(f"| {int(_r.get('seq') or 0)} | {_r.get('ts')} | {_r.get('type')} | "
                    f"`{_r.get('hash')}` | `{str(_r.get('prev_hash'))[:8]}…` | "
                    f"{str(_r.get('detail'))[:60]} |")
     _al += ["", "## 验证", "",
@@ -3566,6 +3662,456 @@ def _sync_from_yuque(keyword: str, namespace: str, dry_run: bool = False):
                           f"https://www.yuque.com/{ns}", groups, "yuque-api-live", dry_run)
 
 
+# ═══ v2.1 深度拓扑五向（2026-09-05·行动 run / 社区 pr / 规则 rule-rules / 故事 story）═══
+_RUN_LH_PREFIX = "lh "          # 白名单前缀：action 以 lh 开头 = 安全命令；其余须 --force 显式授权
+
+
+def _find_node(data: dict, node_kw: str):
+    """按名称子串定位节点 → (组标签, node dict)；未命中抛 SystemExit"""
+    kw = (node_kw or "").strip()
+    if not kw:
+        raise SystemExit("  ❌ 缺节点名，例: lh topo run 对外交付 --node CNSH规范")
+    hits = [(g, n) for g, n in iter_nodes(data)
+            if kw == (n.get("name") or "") or kw in (n.get("name") or "")]
+    if not hits:
+        raise SystemExit(f"  ❌ 未找到节点「{kw}」，先 lh topo list <图谱名> 核对名称")
+    return hits[0] if len(hits) == 1 else hits[0]
+
+
+def _action_log(ev: dict):
+    with contextlib.suppress(Exception):
+        ACTION_LOG.parent.mkdir(parents=True, exist_ok=True)
+        with ACTION_LOG.open("a", encoding="utf-8") as lf:
+            lf.write(json.dumps(ev, ensure_ascii=False) + "\n")
+
+
+def cmd_topo_run(keyword: str, node: str = "", force: bool = False) -> str:
+    """lh topo run <图谱名> --node <节点> [--force]
+    v2.1 行动拓扑：执行节点绑定 action（lh … 白名单；非 lh 需 --force 本地显式授权）
+    执行日志 → ~/.longhun/topo_action_log.jsonl · 结果事件 topo_action 入 Merkle 耻辱墙"""
+    f, data = _find_topo_file(keyword)
+    glab, node_d = _find_node(data, node)
+    action = (node_d.get("action") or "").strip()
+    if not action:
+        raise SystemExit(f"  ❌ 节点「{node}」未绑定 action（lh topo node … --action \"lh …\"）")
+    if not action.startswith(_RUN_LH_PREFIX) and not force:
+        raise SystemExit(f"  ❌ 动作「{action}」非 lh 白名单命令；本地显式 --force 才执行")
+    if action.startswith(_RUN_LH_PREFIX):
+        argv = [sys.executable, str(ROOT / "bin" / "lh.py")] + action[3:].split()
+    else:
+        import shlex
+        argv = shlex.split(action)
+    rc = -1
+    out = err = ""
+    ts = datetime.now().astimezone()
+    try:
+        proc = subprocess.run(argv, capture_output=True, text=True, timeout=120)
+        rc, out, err = proc.returncode, proc.stdout or "", proc.stderr or ""
+    except subprocess.TimeoutExpired:
+        err = "超时(120s)"
+    ok = rc == 0
+    body = (out or err or "").strip()
+    _action_log({"ts": ts.isoformat(timespec="seconds"), "topo": data.get("topo_name"),
+                 "node": node_d.get("name"), "group": glab, "action": action, "ok": ok,
+                 "exit": rc, "dna": node_d.get("dna", ""),
+                 "summary": "\n".join(body.splitlines()[-6:])[:800]})
+    _shame_topo_append("topo_action",
+                       f"{'✅' if ok else '❌'} 节点动作 · {data.get('display')}·{node_d.get('name')} · {action}",
+                       color="🟢" if ok else "🔴", bad=0 if ok else 1,
+                       severity="info" if ok else "error",
+                       ops=[{"op": "run", "node": node_d.get("name"), "action": action,
+                             "exit": rc, "ts": ts.isoformat(timespec="seconds")}])
+    print(f"\n  ⚡ 行动执行 · {data.get('display')} · 节点「{node_d.get('name')}」[{glab}]")
+    print(f"     action: {action}")
+    tail = "\n".join(body.splitlines()[-6:])
+    if ok:
+        print("  ✅ 退出码 0")
+        if tail:
+            print("  ── 输出尾部 ──")
+            print("\n".join("    " + ln for ln in tail.splitlines()))
+            print("  ─────────────")
+    print("     日志 ~/.longhun/topo_action_log.jsonl · 事件 topo_action 已入链")
+    if not ok:
+        raise SystemExit(f"❌ 退出码 {rc}\n{tail}" if tail else f"❌ 退出码 {rc}")
+    return body[:3000]
+
+
+def cmd_rule_add(keyword: str, name: str = "", condition: str = "", bind: str = "",
+                 threshold: str = "", depends: str = "", dna: str = "",
+                 status: str = "🟢 生效", desc: str = "", link: str = ""):
+    """lh topo rule <图谱名> --name R1 --condition … --action(绑定动作) --threshold …
+    [--depends R2,R3] [--dna …] v2.1 规则图谱：注册/更新规则条目（data['rules'][]）"""
+    if not keyword.strip() or not name.strip():
+        raise SystemExit("  ❌ 用法: lh topo rule <图谱名> --name <规则ID> "
+                         "--condition … --action … --threshold … [--depends R2]")
+    if not condition.strip() or not bind.strip() or not threshold.strip():
+        raise SystemExit("  ❌ condition / action / threshold 必填（规则须可验证、可触发、有阈值）")
+    f, data = _find_topo_file(keyword)
+    rules = data.setdefault("rules", [])
+    dna = dna.strip() or f"#龍芯⚡️2026-09-05-TOPO-RULE-{name.strip().upper()}-UID9622"
+    ts = datetime.now().astimezone().isoformat(timespec="seconds")
+    rule: dict = {"id": name.strip(), "schema": RULE_SCHEMA, "condition": condition.strip(),
+            "action": bind.strip(), "threshold": threshold.strip(),
+            "status": status.strip() or "🟢 生效", "dna": dna,
+            "created": ts, "updated": ts}
+    if depends.strip():
+        rule["depends"] = [x.strip() for x in depends.split(",") if x.strip()]
+    if desc.strip():
+        rule["desc"] = desc.strip()
+    if link.strip():
+        rule["link"] = link.strip()
+    updated = False
+    for i, r in enumerate(rules):
+        if r.get("id") == name.strip():
+            rule["created"] = r.get("created", ts)
+            rules[i] = rule
+            updated = True
+            break
+    if updated:
+        print(f"  🔄 规则「{name.strip()}」已更新")
+    else:
+        rules.append(rule)
+        print(f"  ✅ 规则「{name.strip()}」注册")
+    f.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    _shame_topo_append("topo_rule_change", f"规则变更 · {data.get('display')}·{name.strip()}",
+                       color="🟢", ops=[{"op": "update" if updated else "add", "rule": name.strip()}])
+    print(f"     图谱 {data.get('display')} · 规则 {len(rules)} 条 · 变更事件 topo_rule_change 入链")
+
+
+def _rule_chain_check(rules: list):
+    """规则链完整性校验 → 错误列表：必备字段 / depends 引用 / 环检测(DFS) / DNA 格式"""
+    errs = []
+    by_id = {r.get("id"): r for r in rules if r.get("id")}
+    for r in rules:
+        rid = r.get("id", "?")
+        for k in ("condition", "action", "threshold"):
+            if not str(r.get(k) or "").strip():
+                errs.append(f"[{rid}] 缺字段 {k}")
+        if not str(r.get("dna") or "").startswith("#龍芯⚡️"):
+            errs.append(f"[{rid}] DNA 缺失/格式异常")
+        for dep in r.get("depends") or []:
+            if dep not in by_id:
+                errs.append(f"[{rid}] depends 引用不存在: {dep}")
+    visiting, done = set(), set()
+    def _dfs(rid, path):
+        if rid in done:
+            return
+        if rid in visiting:
+            errs.append(f"[规则链] 存在环: {'→'.join(path + [rid])}")
+            return
+        visiting.add(rid)
+        for dep in by_id.get(rid, {}).get("depends") or []:
+            if dep in by_id:
+                _dfs(dep, path + [rid])
+        visiting.discard(rid)
+        done.add(rid)
+    for rid in by_id:
+        _dfs(rid, [])
+    return errs
+
+
+def cmd_rules_verify(keyword: str = "", json_out: bool = False):
+    """lh topo verify rules（或 lh topo rules）— 规则链完整性校验（全库/单图谱）
+    校验不过自动入耻辱墙 topo_rule_alert；全绿 ✅ 退出码 0"""
+    files = list_topos()
+    if keyword and keyword not in ("verify", "rules"):
+        try:
+            files = [_find_topo_file(keyword)[0]]
+        except SystemExit:
+            files = list_topos()
+    total_rules = total_errs = 0
+    rows = []
+    for f in files:
+        try:
+            data = json.loads(f.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        rules = data.get("rules") or []
+        if not rules:
+            continue
+        errs = _rule_chain_check(rules)
+        total_rules += len(rules)
+        total_errs += len(errs)
+        rows.append({"topo": data.get("topo_name"), "display": data.get("display"),
+                     "rules": len(rules), "ok": not errs, "errors": errs})
+        if errs:
+            _shame_topo_append("topo_rule_alert",
+                               f"规则链校验失败 · {data.get('display')} · {len(errs)}条",
+                               color="🔴", bad=len(errs),
+                               ops=[{"op": "rule_alert", "errors": errs[:10]}])
+    ok = total_errs == 0
+    if json_out:
+        print(json.dumps({"rules": total_rules, "ok": ok, "errors": total_errs, "rows": rows},
+                         ensure_ascii=False, indent=2))
+        sys.exit(0 if ok else 1)
+    print(f"\n  🧭 规则链校验 · 规则 {total_rules} 条 · {'✅ 全绿' if ok else f'🔴 {total_errs} 缺口'}")
+    for r in rows:
+        mark = "🟢" if r["ok"] else "🔴"
+        extra = "" if r["ok"] else f" · {'; '.join(r['errors'])}"
+        print(f"    {mark} {r['display']} · {r['rules']} 条规则{extra}")
+    print()
+    sys.exit(0 if ok else 1)
+
+
+def _delta_validate(d: dict):
+    """社区图谱增量文件三色校验 → 错误列表"""
+    errs = []
+    if d.get("schema") != DELTA_SCHEMA:
+        errs.append(f"schema 须为 {DELTA_SCHEMA}")
+    if not str(d.get("target") or "").strip():
+        errs.append("缺 target 图谱名")
+    if not isinstance(d.get("ops"), list) or not d["ops"]:
+        errs.append("ops 为空数组（至少 1 条 add/update/edge/remove）")
+    for i, op in enumerate(d.get("ops") or []):
+        kind = op.get("op")
+        if kind not in ("add", "update", "edge", "remove"):
+            errs.append(f"op[{i}] 非法操作类型: {kind}")
+            continue
+        if kind in ("add", "update"):
+            nd = op.get("node") or {}
+            for k in ("name", "dna", "status"):
+                if not str(nd.get(k) or "").strip():
+                    errs.append(f"op[{i}] 节点缺 {k}")
+            s = str(nd.get("status") or "")
+            if s and not (s.startswith("🟢") or s.startswith("🟡") or s.startswith("🔴")):
+                errs.append(f"op[{i}] 状态须三色开头: {s}")
+            if nd.get("action") and not str(nd.get("action")).startswith("lh "):
+                errs.append(f"op[{i}] 节点 action 须 lh 白名单前缀")
+        elif kind == "edge":
+            for k in ("source", "target"):
+                if not str(op.get(k) or "").strip():
+                    errs.append(f"op[{i}] edge 缺 {k}")
+        elif kind == "remove" and not str(op.get("name") or "").strip():
+            errs.append(f"op[{i}] remove 缺 name")
+    return errs
+
+
+def _pr_body_md(pr: dict) -> str:
+    lines = []
+    for op in pr["delta"].get("ops") or []:
+        if op["op"] in ("add", "update"):
+            nd = op["node"]
+            lines.append(f"- [{op['op']}] 节点「{nd.get('name')}」{nd.get('type','other')} · {nd.get('status','')}")
+        elif op["op"] == "edge":
+            lines.append(f"- [edge] {op.get('source')} → {op.get('target')} [{op.get('type','relates_to')}]")
+        elif op["op"] == "remove":
+            lines.append(f"- [remove] 冻结「{op.get('name')}」（不删除只冻结）")
+    return (f"## 🌐 社区图谱增量提交（{DELTA_SCHEMA}）\n\n"
+            f"- 目标图谱: **{pr['display']}**\n- 提交者: {pr['submitter']}\n"
+            f"- 提交时间: {pr['created']}\n- 目标根哈希: `{pr['root_hash']}`\n\n"
+            f"### 变更明细\n" + "\n".join(lines) + "\n\n"
+            f"> 龍魂开源生态 · 无偿署名贡献 · 合并流程 lh topo pr merge {pr['seq']}")
+
+
+def _github_pr_push(pr: dict, body_md: str):
+    """真实推送 GitHub PR（需 GITHUB_TOKEN 环境变量·直连 API）。社区 fork 分支留待生态就绪"""
+    tok = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    if not tok:
+        return None
+    req = urllib.request.Request(
+        GH_API_BASE + "/pulls",
+        data=json.dumps({"title": f"🌐 社区图谱 PR · {pr['display']} · {pr['created'][:16]}",
+                         "head": "main", "base": "main",
+                         "body": body_md[:20000]}).encode("utf-8"),
+        headers={"Authorization": f"token {tok}", "Accept": "application/vnd.github+json",
+                 "User-Agent": "longhun-topo-pr"})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            return json.loads(resp.read().decode("utf-8")).get("number")
+    except Exception:
+        return None
+
+
+def cmd_pr_submit(file_p: str = "", push: bool = False):
+    """lh topo pr submit <增量文件> [--push]
+    v2.1 社区图谱：校验 .topo 增量(schema longhun-topo-delta-v1) → 草稿落盘
+    ~/.longhun/topo_prs/pr_NNNN.json(+PR body md) · --push 且 GITHUB_TOKEN 可用时真实建 PR"""
+    if not file_p:
+        raise SystemExit("  ❌ 用法: lh topo pr submit <增量文件.topo>  （schema=longhun-topo-delta-v1）")
+    fp = Path(file_p).expanduser()
+    if not fp.is_file():
+        raise SystemExit(f"  ❌ 增量文件不存在: {fp}")
+    try:
+        d = json.loads(fp.read_text(encoding="utf-8"))
+    except Exception as e:
+        raise SystemExit(f"  ❌ 增量文件非 JSON: {e}") from None
+    errs = _delta_validate(d)
+    if errs:
+        _shame_topo_append("topo_pr_reject", f"PR 增量校验拒绝 · {fp.name} · {len(errs)}条",
+                           color="🔴", bad=len(errs))
+        print("\n  🔴 增量校验未过:")
+        for e in errs:
+            print(f"     - {e}")
+        raise SystemExit(1)
+    try:
+        tf, tdata = _find_topo_file(d["target"])
+    except SystemExit as se:
+        raise SystemExit(f"  ❌ 目标图谱「{d['target']}」不存在: {se}") from None
+    PR_DIR.mkdir(parents=True, exist_ok=True)
+    seq = max([int(p.stem.split("_")[-1]) for p in PR_DIR.glob("pr_*.json")] or [0]) + 1
+    ts = datetime.now().astimezone()
+    pr = {"seq": seq, "schema": DELTA_SCHEMA, "target": tdata.get("topo_name"),
+          "display": tdata.get("display"), "delta": d,
+          "submitter": str(d.get("author") or "UID9622"),
+          "created": ts.isoformat(timespec="seconds"), "status": "pending",
+          "root_hash": topo_root_hash(tdata)}
+    pr_f = PR_DIR / f"pr_{seq:04d}.json"
+    pr_f.write_text(json.dumps(pr, ensure_ascii=False, indent=2), encoding="utf-8")
+    body_md = _pr_body_md(pr)
+    md_f = PR_DIR / f"pr_{seq:04d}.md"
+    md_f.write_text(body_md, encoding="utf-8")
+    _shame_topo_append("topo_pr_submit",
+                       f"PR 提交 · {fp.name} → {tdata.get('display')} (pr_{seq:04d})",
+                       color="🟢", ops=[{"op": "submit", "file": fp.name, "pr": seq}])
+    print(f"\n  📮 社区图谱 PR 已生成 · pr_{seq:04d} → {tdata.get('display')}")
+    print(f"     增量文件: {fp} · 目标根哈希 {pr['root_hash']}")
+    print(f"     草稿落盘: {pr_f}")
+    print(f"     PR body : {md_f}")
+    if push:
+        gh = _github_pr_push(pr, body_md)
+        if gh:
+            print(f"     ✅ GitHub PR #{gh} 已创建")
+        else:
+            print("     🟡 GITHUB_TOKEN 不可用/推送未成 → 保持本地草稿（--push 重试）")
+    print(f"     三色合并: lh topo pr merge {seq}")
+
+
+def cmd_pr_merge(pr_id: str = ""):
+    """lh topo pr merge <pr编号> — 三色审计通过后把增量并入目标图谱
+    add/update 节点 upsert · edge 补边 · remove 冻结标记(不删除只冻结)
+    → 重算根哈希 → export-page 重生成公开页 → 事件 topo_pr_merge 入链"""
+    if not pr_id:
+        raise SystemExit("  ❌ 用法: lh topo pr merge <pr编号>（先 lh topo pr submit <文件>）")
+    p = PR_DIR / f"pr_{str(pr_id).zfill(4)}.json"
+    if not p.is_file():
+        pp = Path(pr_id).expanduser()
+        if pp.is_file():
+            p = pp
+        else:
+            raise SystemExit(f"  ❌ 草稿不存在: pr_{pr_id}（先 lh topo pr submit 生成）")
+    pr = json.loads(p.read_text(encoding="utf-8"))
+    errs = _delta_validate(pr["delta"])
+    if errs:
+        print("  🔴 合并前增量校验未过:")
+        for e in errs:
+            print(f"     - {e}")
+        raise SystemExit(1)
+    try:
+        f, data = _find_topo_file(pr["target"])
+    except SystemExit as se:
+        raise SystemExit(f"  ❌ 目标图谱缺失: {se}") from None
+    n_add = n_up = n_edge = n_rm = 0
+    ts = datetime.now().astimezone().isoformat(timespec="seconds")
+    for op in pr["delta"].get("ops") or []:
+        kind = op["op"]
+        if kind in ("add", "update"):
+            nd = dict(op.get("node") or {})
+            gname = str(op.get("group") or "社区贡献")
+            groups = data.setdefault("groups", [])
+            g = next((x for x in groups if x.get("name") == gname), None)
+            if g is None:
+                g = {"name": gname, "assets": []}
+                groups.append(g)
+            asset = {**nd, "registered_at": ts, "pr_ref": f"pr_{pr['seq']:04d}"}
+            old = next((a for a in g["assets"] if a.get("name") == nd.get("name")), None)
+            if old:
+                asset["registered_at"] = old.get("registered_at", ts)
+                g["assets"][g["assets"].index(old)] = asset
+                n_up += 1
+            else:
+                g["assets"].append(asset)
+                n_add += 1
+        elif kind == "edge":
+            edges = data.setdefault("edges", [])
+            if not any(e.get("source") == op.get("source") and e.get("target") == op.get("target")
+                       for e in edges):
+                edges.append({"source": op.get("source"), "target": op.get("target"),
+                              "type": op.get("type") or "relates_to",
+                              "registered_at": ts, "pr_ref": f"pr_{pr['seq']:04d}"})
+                n_edge += 1
+        elif kind == "remove":
+            for g in data.get("groups", []):
+                for a in g["assets"]:
+                    if a.get("name") == op.get("name"):
+                        a["status"] = "🔴 冻结(社区PR移除·不删除只冻结)"
+                        a["pr_ref"] = f"pr_{pr['seq']:04d}"
+                        n_rm += 1
+    f.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    pr["status"] = "merged"
+    pr["merged_at"] = ts
+    p.write_text(json.dumps(pr, ensure_ascii=False, indent=2), encoding="utf-8")
+    root = topo_root_hash(data)
+    _shame_topo_append("topo_pr_merge",
+                       f"PR 合并 · {pr['display']} · {n_add}增/{n_up}更/{n_edge}边/{n_rm}冻结",
+                       color="🟢", ops=[{"op": "merge", "pr": pr["seq"], "add": n_add,
+                                         "update": n_up, "edge": n_edge, "freeze": n_rm}])
+    print(f"\n  ✅ 社区图谱 PR 已合并 · pr_{pr['seq']:04d} → {pr['display']}")
+    print(f"     变更 {n_add}增 / {n_up}更 / {n_edge}边 / {n_rm}冻结 · 新根哈希 {root}")
+    print("     事件 topo_pr_merge 已入链 · export-page 重生成公开页:")
+    cmd_topo_export_page(pr["target"], json_out=False)
+
+
+def cmd_topo_story(keyword: str = "", from_dt: str = "", to_dt: str = "",
+                   json_out: bool = False):
+    """lh topo story <图谱名> [--from-dt YYYY-MM-DD] [--to-dt YYYY-MM-DD]
+    v2.1 时序拓扑：节点注册点 + 审计事件流 → Mermaid timeline 演进图（落盘 docs/topology/）"""
+    if not keyword.strip():
+        raise SystemExit("  ❌ 用法: lh topo story <图谱名> [--from-dt 2026-09-01] [--to-dt …]")
+    f, data = _find_topo_file(keyword)
+    try:
+        d_from = date.fromisoformat(from_dt) if from_dt else None
+        d_to = date.fromisoformat(to_dt) if to_dt else date.today()
+    except ValueError as e:
+        raise SystemExit(f"  ❌ 日期须 YYYY-MM-DD: {e}") from None
+    if d_from and d_to and d_from > d_to:
+        raise SystemExit(f"  ❌ --from-dt({d_from}) 晚于 --to-dt({d_to})")
+    events = []
+    for glab, n in iter_nodes(data):
+        ts_raw = str(n.get("registered_at") or n.get("created") or "")
+        if ts_raw:
+            with contextlib.suppress(Exception):
+                evt = datetime.fromisoformat(ts_raw).astimezone()
+                if (not d_from or evt.date() >= d_from) and evt.date() <= d_to:
+                    events.append((evt, "节点注册", f"{glab}·{n.get('name')}"))
+    if TOPO_AUDIT_LOG.is_file():
+        for line in TOPO_AUDIT_LOG.read_text(encoding="utf-8").splitlines()[-1000:]:
+            with contextlib.suppress(Exception):
+                ev = json.loads(line)
+                evt = datetime.fromisoformat(ev["ts"]).astimezone()
+                if (d_from and evt.date() < d_from) or evt.date() > d_to:
+                    continue
+                detail = str(ev.get("detail") or "").strip()
+                if not detail:
+                    continue
+                if len(detail) > 70:
+                    detail = detail[:70] + "…"
+                events.append((evt, f"事件·{ev.get('type','?')}", detail))
+    events.sort(key=lambda x: x[0])
+    if not events:
+        print(f"\n  ⏳ 时间线为空 · {data.get('display')} · {d_from or '起始'} → {d_to}")
+        return
+    lines = ["```mermaid", "timeline",
+             f"    title {data.get('display')} · 拓扑演进 {d_from or '—'} → {d_to}"]
+    for evt, cat, det in events:
+        day = evt.date().isoformat()
+        safe = det.replace("|", "／").replace("\n", " ").strip()
+        lines.append(f"    {day} : [{cat}] {safe}")
+    lines.append("```")
+    md = "\n".join(lines)
+    out_f = TOPO_DIR / f"{data.get('topo_name')}_story_{d_to.isoformat()}.md"
+    out_f.write_text(md + "\n", encoding="utf-8")
+    _shame_topo_append("topo_story",
+                       f"故事线生成 · {data.get('display')} · {len(events)} 节点/事件 · {d_from or '—'}→{d_to}",
+                       color="🟢")
+    print(f"\n  🎬 故事线 · {data.get('display')} · {len(events)} 节点/事件 · {d_from or '—'} → {d_to}")
+    print(md)
+    print(f"\n     已落盘: {out_f}")
+    if json_out:
+        print(json.dumps({"topo": data.get("topo_name"), "events": len(events),
+                          "from": str(d_from), "to": d_to.isoformat(),
+                          "file": str(out_f)}, ensure_ascii=False, indent=2))
+
+
 # ─────────────────────────── main ───────────────────────────
 
 _ACTIONS = ["list", "verify", "sync", "stats", "serve", "kb-status",
@@ -3573,10 +4119,14 @@ _ACTIONS = ["list", "verify", "sync", "stats", "serve", "kb-status",
             "subgraph", "obsidian", "edge", "status", "summary", "export",
             "export-page", "audit-log", "search", "ask", "events",
             "audit-chain", "audit-verify", "history", "heal",
-            "weekly-report", "serve-api", "feedback", "archive"]
+            "weekly-report", "serve-api", "feedback", "archive",
+            "run", "rule", "rules", "pr", "story"]
 
 
 def main():
+    # v2.1 防呆: 「verify rules」=规则链校验（rules 非图谱名）→ 归一 lh topo rules
+    if len(sys.argv) == 3 and sys.argv[1] == "verify" and sys.argv[2] == "rules":
+        sys.argv = [sys.argv[0], "rules", ""]
     # 口语化词序规整 v1.8: 「lh topo <图谱名> <action> [关键词/--flags]」
     #   → 「lh topo <action> <图谱名> [--kw 关键词/--flags]」· search 裸关键词转 --kw
     if len(sys.argv) >= 3 and sys.argv[1] not in _ACTIONS and sys.argv[2] in _ACTIONS:
@@ -3595,6 +4145,8 @@ def main():
     ap.add_argument("action", nargs="?", default="list", choices=_ACTIONS,
                     help="list/verify/sync/serve/kb-status/cite/frameworks/register/node/diff/db/subgraph/obsidian/edge/status/summary/search/export/export-page/audit-log/audit-chain/audit-verify/history/heal/weekly-report/serve-api")
     ap.add_argument("keyword", nargs="?", default="", help="图谱名/资产名关键词（如 通心译）")
+    ap.add_argument("operand", nargs="?", default="",
+                    help="第三位参数（pr 增量文件等，如 demo.topo）")
     ap.add_argument("--query", default="", help="search 搜索关键词（名称/类型/DNA/描述）")
     ap.add_argument("--format", default="json", choices=["json"],
                     help="export 导出格式（当前 json）")
@@ -3631,6 +4183,17 @@ def main():
     ap.add_argument("--chats", action="store_true", help="obsidian 含 EditorChats 会话存档")
     ap.add_argument("--target", default="", help="edge 目标节点")
     ap.add_argument("--label", default="", help="edge 标签/说明")
+    # ── v2.1 深度拓扑 flags ──
+    ap.add_argument("--action", dest="bind", default="",
+                    help="node/rule 绑定动作（lh … 白名单·lh topo run 执行）")
+    ap.add_argument("--node", default="", help="run 指定节点名")
+    ap.add_argument("--condition", default="", help="rule 触发条件")
+    ap.add_argument("--threshold", default="", help="rule 阈值")
+    ap.add_argument("--depends", default="", help="rule 依赖规则 id（逗号分隔）")
+    ap.add_argument("--force", action="store_true", help="run 允许非 lh 开头动作（本地显式授权）")
+    ap.add_argument("--push", action="store_true", help="pr submit 真实推送 GitHub（默认本地草稿）")
+    ap.add_argument("--from-dt", default="", help="story 起始日期 YYYY-MM-DD")
+    ap.add_argument("--to-dt", default="", help="story 截止日期 YYYY-MM-DD")
     args = ap.parse_args()
 
     if args.action == "list":
@@ -3656,7 +4219,7 @@ def main():
     elif args.action == "node":
         cmd_node_add(args.keyword, group=args.group, name=args.name, ntype=args.type,
                      dna=args.dna, status=args.status, path=args.path,
-                     source=args.source, desc=args.desc, link=args.link)
+                     source=args.source, desc=args.desc, link=args.link, action=args.bind)
     elif args.action == "edge":
         cmd_edge_add(args.keyword, source=args.source, target=args.target,
                      etype=(args.type if args.type and args.type != "other" else ""),
@@ -3702,6 +4265,25 @@ def main():
         cmd_subgraph_register(args.keyword, name=args.name, db_id=args.db_id,
                               dna=args.dna, status=args.status, link=args.link,
                               meta=args.meta, ntype=args.type)
+    elif args.action == "run":            # v2.1 行动拓扑
+        cmd_topo_run(args.keyword or "对外交付", node=args.node, force=args.force)
+    elif args.action == "rule":           # v2.1 规则图谱（注册规则）
+        cmd_rule_add(args.keyword or "对外交付", name=args.name, condition=args.condition,
+                     bind=args.bind, threshold=args.threshold, depends=args.depends,
+                     dna=args.dna, status=args.status, desc=args.desc, link=args.link)
+    elif args.action == "rules":          # v2.1 规则图谱（链完整性校验）
+        cmd_rules_verify(args.keyword, json_out=args.json)
+    elif args.action == "pr":             # v2.1 社区图谱
+        sub = args.keyword or "submit"
+        if sub == "submit":
+            cmd_pr_submit(args.operand, push=args.push)
+        elif sub == "merge":
+            cmd_pr_merge(args.operand)
+        else:
+            raise SystemExit("  ❌ pr 子命令: submit <增量文件> | merge <pr编号>")
+    elif args.action == "story":          # v2.1 故事线
+        cmd_topo_story(args.keyword or "对外交付", from_dt=args.from_dt,
+                       to_dt=args.to_dt, json_out=args.json)
     elif args.action == "obsidian":
         mode = args.keyword if args.keyword in ("scan", "sync") else "scan"
         kw = args.kw or "通心译"

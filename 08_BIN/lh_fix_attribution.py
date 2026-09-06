@@ -45,6 +45,7 @@ HAS_ATTRIBUTION_MARK = ("诸葛鑫", "归属名", "ZHUGEXIN")
 # 严格插入的归属名行（按文件类型）
 ATTR_LINE_MD = "**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰"
 ATTR_LINE_CODE = "# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰"
+ATTR_LINE_JS = "// 归属名: 诸葛鑫 | UID9622 · 龍芯北辰"
 ATTR_LINE_PLAIN = "归属名: 诸葛鑫 | UID9622 · 龍芯北辰"
 
 NON_TEXT_EXT = {".png", ".jpg", ".jpeg", ".gif", ".ico", ".pdf", ".zip",
@@ -57,6 +58,7 @@ NON_TEXT_EXT = {".png", ".jpg", ".jpeg", ".gif", ".ico", ".pdf", ".zip",
 
 # 代码类后缀（用 # 注释）
 CODE_SUFFIX = {".py", ".sh", ".js", ".ts", ".yaml", ".yml", ".toml", ".plist"}
+JS_SUFFIX = {".js", ".ts", ".jsx", ".tsx", ".mjs", ".cjs"}  # JS 系注释符是 //（曾用 # 写坏 sw.js）
 # Markdown
 MD_SUFFIX = {".md", ".markdown"}
 
@@ -106,6 +108,8 @@ def _insert_index(lines: list) -> int:
 def _attr_line(p: Path) -> str:
     if p.suffix in MD_SUFFIX:
         return ATTR_LINE_MD
+    if p.suffix in JS_SUFFIX:
+        return ATTR_LINE_JS
     if p.suffix in CODE_SUFFIX:
         return ATTR_LINE_CODE
     return ATTR_LINE_PLAIN

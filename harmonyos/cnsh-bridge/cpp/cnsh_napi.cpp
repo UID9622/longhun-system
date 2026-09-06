@@ -10,7 +10,14 @@
 // 线程:   本桥方法均同步纯函数（无共享可变状态），无需 napi_create_threadsafe_function；
 //         若未来加入后台大计算/异步回调再按 N-API threadsafe 模式扩展。
 
+// ── N-API 头加载（双模式）──
+// 真机构建（DevEco/HarmonyOS NDK）: __has_include 命中 NDK 真头 napi/native_api.h；
+// 本机（无 NDK·仅静态检查/语法校验）: 回退到内置 napi_stub_native.h 形态占位（不参与真机构建）。
+#if __has_include("napi/native_api.h")
 #include "napi/native_api.h"
+#else
+#include "napi_stub_native.h"
+#endif
 #include <string.h>
 
 // ── CNSH 逻辑同源引入（cnsh_cgen.py --no-main 生成，含 CNSH_DNA / CNSH_GPG 常量）──

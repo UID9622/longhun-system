@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️2026-08-30-丙午·丙申·丙子·未时-TOPOLOGY-VIEWER-v1.1-BUILD-UID9622
+# DNA: #龍芯⚡️2026-08-30-丙午·丙申·丙子·未时-TOPOLOGY-VIEWER-v1.5-BUILD-UID9622
 # 创建者: 诸葛鑫（UID9622）
 # 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
-龍魂 · 拓扑可视化构建器 v1.1
+龍魂 · 拓扑可视化构建器 v1.5
 ────────────────────────────────────────────
 读取 .codebuddy/longhun_neural_net.json，生成三端可用的离线单页应用：
   web/topology-viewer/index.html            ← 单页应用（内嵌数据·可离线）
@@ -92,7 +92,7 @@ ICON_SVG = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 </svg>"""
 
 # ── Service Worker（PWA 真离线缓存）─────────────────────────────
-SW_JS = """// 龍魂拓扑 · Service Worker v1.1 · 离线缓存
+SW_JS = """// 龍魂拓扑 · Service Worker v1.5 · 离线缓存
 const C = 'longhun-topology-v1.5';
 const ASSETS = ['./', './index.html', './manifest.webmanifest',
   './icon.svg', './icon-180.png', './icon-192.png', './icon-512.png'];

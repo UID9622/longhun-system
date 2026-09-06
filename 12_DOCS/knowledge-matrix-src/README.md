@@ -804,7 +804,7 @@
 - `🎯 AI情报分析模板库 快速启动工作流.md` ← `docs/longhun-tech/operations/🎯 AI情报分析模板库 快速启动工作流.md`
 - `🎯 UID9622系统导航优化中心 主要路径优化.md` ← `docs/longhun-tech/navigation/🎯 UID9622系统导航优化中心 主要路径优化.md`
 - `🎯 龙魂创作占位系统·总览 UID9622完整知识网络.md` ← `docs/private-shared-imports/memory-dna/🎯 龙魂创作占位系统·总览 UID9622完整知识网络.md`
-- `🏛️ 龍魂基金会·元世界消费保障体系 v1 0 ec275238b87e4e6186e3b34a2806417a.md` ← `docs/dragon-soul-open-hub/metaverse/🏛️ 龍魂基金会·元世界消费保障体系 v1 0 ec275238b87e4e6186e3b34a2806417a.md`
+- `🏛️ 消费保障基金·元世界消费保障体系 v1 0 ec275238b87e4e6186e3b34a2806417a.md` ← `docs/dragon-soul-open-hub/metaverse/🏛️ 消费保障基金·元世界消费保障体系 v1 0 ec275238b87e4e6186e3b34a2806417a.md`
 - `🏷️ UID9622统一视觉标识系统 完整设计规范.md` ← `docs/longhun-tech/general/🏷️ UID9622统一视觉标识系统 完整设计规范.md`
 - `🐉 CSDN专题首页图设计｜军魂·人民·量子融合 53c0240152bf4271a0fdcd15b2da3af0.md` ← `docs/dragon-soul-open-hub/tutorials/🐉 CSDN专题首页图设计｜军魂·人民·量子融合 53c0240152bf4271a0fdcd15b2da3af0.md`
 - `🐉 UID9622愿景闭环总纲 从理念到实现的完整蓝图.md` ← `docs/longhun-tech/metaverse/🐉 UID9622愿景闭环总纲 从理念到实现的完整蓝图.md`

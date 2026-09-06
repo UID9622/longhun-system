@@ -42,10 +42,10 @@
 
 <div class="topo-summary" style="border:1px solid #e2e8f0;border-radius:12px;padding:16px 20px;margin:16px 0;background:linear-gradient(180deg,#f8fafc,#ffffff)">
 <table style="width:100%;border-collapse:collapse">
-<tr><td style="padding:6px 12px;width:110px;white-space:nowrap;color:#64748b">🧮 节点总数</td><td style="padding:6px 12px"><strong>22</strong> · 🟢22 · 🟡0</td></tr>
-<tr><td style="padding:6px 12px;white-space:nowrap;color:#64748b">🔗 关联边</td><td style="padding:6px 12px"><strong>5</strong></td></tr>
-<tr><td style="padding:6px 12px;white-space:nowrap;color:#64748b">🏷️ 类型分布</td><td style="padding:6px 12px"><code>article</code>×3 · <code>asset</code>×1 · <code>copy</code>×4 · <code>document</code>×10 · <code>endpoint</code>×2 · <code>issue</code>×1 · <code>report</code>×1</td></tr>
-<tr><td style="padding:6px 12px;white-space:nowrap;color:#64748b">⏱️ 最后同步</td><td style="padding:6px 12px"><code>2026-09-05T03:51:35+08:00</code></td></tr>
+<tr><td style="padding:6px 12px;width:110px;white-space:nowrap;color:#64748b">🧮 节点总数</td><td style="padding:6px 12px"><strong>23</strong> · 🟢23 · 🟡0</td></tr>
+<tr><td style="padding:6px 12px;white-space:nowrap;color:#64748b">🔗 关联边</td><td style="padding:6px 12px"><strong>6</strong></td></tr>
+<tr><td style="padding:6px 12px;white-space:nowrap;color:#64748b">🏷️ 类型分布</td><td style="padding:6px 12px"><code>article</code>×3 · <code>asset</code>×1 · <code>copy</code>×4 · <code>document</code>×10 · <code>endpoint</code>×2 · <code>framework</code>×1 · <code>issue</code>×1 · <code>report</code>×1</td></tr>
+<tr><td style="padding:6px 12px;white-space:nowrap;color:#64748b">⏱️ 最后同步</td><td style="padding:6px 12px"><code>2026-09-05T13:51:33+08:00</code></td></tr>
 <tr><td style="padding:6px 12px;white-space:nowrap;color:#64748b">✅ 自动校验</td><td style="padding:6px 12px">🟢 全绿（22 节点）</td></tr>
 </table>
 <p style="margin:8px 0 0">📈 <a href="topology/">查看完整拓扑 → /docs/topology/</a> · 💻 <code>lh topo summary 对外交付 --json</code></p>

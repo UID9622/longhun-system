@@ -251,8 +251,6 @@ pub extern "system" fn Java_com_longhun_LonghunCore_getVersion(
 
 #[cfg(test)]
 mod tests {
-    use super::*;
-
     #[test]
     fn test_jni_bindings_exist() {
         // 验证所有 JNI 函数名正确导出

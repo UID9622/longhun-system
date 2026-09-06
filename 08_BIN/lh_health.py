@@ -365,26 +365,28 @@ def run_checks() -> list:
             ".longhun", "notion_audit.jsonl").is_file() else "缺失",
         "~/.longhun/notion_audit.jsonl"))
 
-    # ── 10. 收款钱包（lh wallet v1.0·SOL 自托管·crypto.json 权限600·链上余额不造假）──
+    # ── 10. 收款钱包（lh wallet v1.1·多链·TRON官方+SOL自托管·crypto.json 权限600·链上余额不造假）──
     import json as _json
     _cf = Path.home() / ".longhun" / "crypto.json"
-    _waddr = ""
+    _waddrs: list[str] = []
     try:
         if _cf.is_file():
             _cfg = _json.loads(_cf.read_text(encoding="utf-8"))
-            _waddr = ((_cfg.get("networks") or {}).get("solana") or {}).get("address", "")
+            _nets = (_cfg.get("networks") or {})
+            _waddrs = [f"{k}={v.get('address', '')[:10]}…{v.get('address', '')[-4:]}"
+                       for k, v in _nets.items() if v.get("address")]
     except Exception:
         pass
     _wq = Path.home() / ".longhun" / "static" / "donate.png"
     results.append(check_file(BIN / "lh_wallet.py", "引擎 lh_wallet"))
-    if _waddr:
-        results.append(("收款钱包(SOL/USDC)", True,
-                        f"{_waddr[:10]}…{_waddr[-6:]} · QR "
+    if _waddrs:
+        results.append(("收款钱包(多链)", True,
+                        " · ".join(_waddrs) + f" · QR "
                         f"{'✅' if _wq.is_file() else '未生成(lh wallet qr)'}",
-                        "~/.longhun/crypto.json(600)·种子仅本地永不外传·链上余额需钱包App"))
+                        "~/.longhun/crypto.json(600)·私钥仅本地/钱包App永不外传·链上余额需钱包App"))
     else:
-        results.append(("收款钱包(SOL/USDC)", False,
-                        "未初始化(lh wallet init)", "~/.longhun/crypto.json"))
+        results.append(("收款钱包(多链)", False,
+                        "未初始化(lh wallet init/register)", "~/.longhun/crypto.json"))
 
     # ── 11. 感知审计（lh_sense v2.0 · 识别→决策→编排→反馈 闭环）──
     sa = _sense_stats()
@@ -430,6 +432,19 @@ def render_table(results) -> str:
 
 
 def main():
+    # 🔭 子命令转发 v1.4 (2026-09-06): snapshot/report → 快照引擎; sync* → Notion 同步引擎
+    if len(sys.argv) > 1 and sys.argv[1] in ("snapshot", "report"):
+        engine = BIN / "lh_health_snapshot.py"
+        sys.exit(subprocess.call([sys.executable, str(engine)] + sys.argv[1:],
+                                 cwd=str(ROOT)))
+    if len(sys.argv) > 1 and (sys.argv[1].startswith("sync") or sys.argv[1] in ("status", "list")):
+        engine = BIN / "lh_health_sync.py"
+        args = sys.argv[1:]
+        if args[0] == "sync-init":
+            args = ["init"] + args[1:]
+        sys.exit(subprocess.call([sys.executable, str(engine)] + args,
+                                 cwd=str(ROOT)))
+
     ap = argparse.ArgumentParser(description="龍魂系统自检 v1.0 (lh health)")
     ap.add_argument("--json", action="store_true", help="JSON 输出（AI 可解析）")
     args = ap.parse_args()

@@ -39,6 +39,9 @@ import urllib.error
 from datetime import datetime, timezone
 from pathlib import Path
 
+# 直连 Notion（禁全局 socks5h 代理毒化 · 2026-09-06 决策C修复 · 与 memory-sync 客户端同源）
+_NO_PROXY = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+
 # ────────────────────────────────────────────
 # 常量
 # ────────────────────────────────────────────
@@ -110,11 +113,14 @@ def notion_call(token, path, method="GET", data=None):
             "Content-Type": "application/json",
         })
     try:
-        with urllib.request.urlopen(req, timeout=30) as r:
+        with _NO_PROXY.open(req, timeout=30) as r:
             return json.loads(r.read())
     except urllib.error.HTTPError as e:
         detail = e.read().decode()[:600]
         return {"error": e.code, "detail": detail}
+    except OSError as e:
+        # 网络不可达/超时(含裸 TimeoutError·非 URLError 包装) → 优雅降级为 error 返回(不崩溃)
+        return {"error": "network", "detail": str(e)[:300]}
 
 
 def now_iso():

@@ -45,3 +45,11 @@ type = "tcp"
 localIP = "127.0.0.1"
 localPort = 18880
 remotePort = 18880
+
+# v2.2 (2026-09-05): llm-gate 本地大模型 ollama(11434) 穿透 → 鲲鹏 nginx /v1/ 反代
+[[proxies]]
+name = "llm-gate"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 11434
+remotePort = 21434

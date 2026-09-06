@@ -1,0 +1,27 @@
+# DNA: #龍芯⚡️2026-09-06-ISSUE-QUESTION-v2.0-UID9622 · 防空壳关③ 轻量版
+name: ❓ 使用咨询
+description: 使用龍魂系统时遇到的问题（非 Bug）
+title: "[Question] "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        如果是使用方式上的疑问，建议先看看 [QUICKSTART.md](./QUICKSTART.md) 和 [文档导航](./docs/DIRECTORY_INDEX.md)。
+        **防空壳提示**：咨询类问题也应给出「你已经实际尝试过什么 + 真实输出」，纯概念提问会先收到文档指引。
+
+  - type: textarea
+    id: question
+    attributes:
+      label: 你的问题
+      description: 详细描述你遇到的问题或想了解的内容
+      placeholder: "我想用龍魂的 CNSH 语言写一个..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: 你已经尝试了什么
+      description: 你已经看了哪些文档、试了哪些方法
+      placeholder: "已经看了 CNSH-PROTOCOL.md 第三章，试了..."

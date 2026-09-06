@@ -435,3 +435,6 @@ archive/
 
 # mkdocs 构建产物（不入仓·源码 docs-site/docs 保留）
 docs-site/site/
+
+# --- Playwright CLI 临时产物 (2026-09-06) ---
+.playwright-cli/

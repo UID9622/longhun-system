@@ -2,6 +2,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 🐉 龍魂 · 天眼可视化生态总成引擎 v2.3（国家交接级合规底座）
 DNA: [[GENERATED_BY_LH_DNA_GENERATOR_V3]]-TIANYAN-ENGINE-v2.3
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -516,12 +517,12 @@ class StatusAggregator:
             last_heartbeat=datetime.now().isoformat(),
             version="v4.0",
             metadata={"category": "自指层", "weight": 0.6,
-                      "probe": "http://127.0.0.1:9626/api/v1/health"}
+                      "probe": "http://127.0.0.1:9622/v1/self/health"}
         )
         from urllib.error import HTTPError, URLError
         try:
             try:
-                req = urllib.request.Request("http://127.0.0.1:9626/api/v1/health", method="GET")
+                req = urllib.request.Request("http://127.0.0.1:9622/v1/self/health", method="GET")
                 with urllib.request.urlopen(req, timeout=2) as resp:
                     code = resp.status
             except HTTPError as e:  # 4xx/5xx 会抛异常，需单独捕获（403=确认码闸门=在线）

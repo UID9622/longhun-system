@@ -25,6 +25,7 @@ DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-ASI-ENHANCED-V2.0-NEURA
 import json
 import sys
 import os
+import re
 import time
 import uuid
 import hashlib
@@ -41,6 +42,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 import uvicorn
+import urllib.request
+import urllib.error
 
 # 🧠 神经补全模块
 from lh_asi_neural import (
@@ -58,7 +61,15 @@ PROJECT_ROOT = Path.home() / "longhun-system"
 BIN_DIR = PROJECT_ROOT / "bin"
 DNA_PREFIX = "#龍芯⚡️"
 
+# 双路径注入：模块级(lh_dag_engine)走 bin/，包级(bin.lh_intent_engine)走 PROJECT_ROOT
 sys.path.insert(0, str(BIN_DIR))
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+# ── Notion 任务池（龍魂三端接通·对话填任务落点·database 3d27125a-9c9f-811e-b211-c301b7124586）──
+NOTION_TASK_DB_ID = "3d27125a-9c9f-811e-b211-c301b7124586"
+NOTION_TASK_SOURCE = "对话"   # 任务来源标识：对话/ASI/CodeBuddy/Notion
+_DEFAULT_MODEL_CACHE = {"name": None, "ts": 0.0}   # 默认模型探测缓存
 
 # ============================================================
 # 一、数据模型
@@ -199,14 +210,167 @@ def 路由DAG引擎(trigger: str) -> Dict[str, Any]:
         }
 
 # ============================================================
+# 四点五、模型探测 & Notion 任务桥（三端接通·对话→任务池→本地模型）
+# ============================================================
+
+_OLLAMA_CACHE = {"path": None}
+
+def _ollama_path() -> str:
+    """ollama 可执行文件绝对路径（launchd 守护 PATH 精简·须显式定位）"""
+    if _OLLAMA_CACHE["path"]:
+        return _OLLAMA_CACHE["path"]
+    for c in ("/usr/local/bin/ollama", "/opt/homebrew/bin/ollama",
+              os.path.expanduser("~/.local/bin/ollama")):
+        if os.path.exists(c):
+            _OLLAMA_CACHE["path"] = c
+            return c
+    return "ollama"
+
+def 探测默认模型() -> str:
+    """探测 ollama 实际可用模型（ASI 默认名 longhun-v4.0 在库中不存在·取最新部署版）"""
+    if time.time() - _DEFAULT_MODEL_CACHE["ts"] < 300 and _DEFAULT_MODEL_CACHE["name"]:
+        return _DEFAULT_MODEL_CACHE["name"]
+    try:
+        p = subprocess.run([_ollama_path(), "list"], capture_output=True, text=True, timeout=10)
+        if p.returncode == 0:
+            for want in ("longhun-v4.2.0", "longhun-v4.1.8", "longhun-v4.1.9", "longhun-v3.8.1"):
+                if want in p.stdout:
+                    _DEFAULT_MODEL_CACHE.update({"name": want, "ts": time.time()})
+                    return want
+    except Exception:
+        pass
+    return "longhun-v4.0"
+
+def 归一模型(model: str) -> str:
+    """把请求里的占位/旧名模型映射到实际可用模型"""
+    if not model or model in ("longhun-v4.0", "auto", "default"):
+        return 探测默认模型()
+    return model
+
+def _notion_token() -> Optional[str]:
+    """取 Notion 集成 token：环境变量 → Keychain(longhun-vault)。不打印、不落盘。"""
+    if os.environ.get("NOTION_TOKEN"):
+        return os.environ["NOTION_TOKEN"]
+    try:
+        p = subprocess.run(
+            ["security", "find-generic-password", "-a", "NOTION_TOKEN", "-s", "longhun-vault", "-w"],
+            capture_output=True, text=True, timeout=10,
+        )
+        if p.returncode == 0 and p.stdout.strip():
+            return p.stdout.strip()
+    except Exception:
+        pass
+    return None
+
+def _notion_api(method: str, url: str, payload: Optional[Dict] = None) -> Dict[str, Any]:
+    """Notion REST 调用·零三方依赖（urllib）"""
+    token = _notion_token()
+    if not token:
+        return {"ok": False, "error": "NOTION_TOKEN 不可用（Keychain/vault 未就绪）"}
+    req = urllib.request.Request(url, method=method)
+    req.add_header("Authorization", f"Bearer {token}")
+    req.add_header("Notion-Version", "2022-06-28")
+    req.add_header("Content-Type", "application/json")
+    body = json.dumps(payload).encode() if payload is not None else None
+    try:
+        with urllib.request.urlopen(req, data=body, timeout=20) as r:
+            return json.loads(r.read().decode())
+    except urllib.error.HTTPError as e:
+        return {"ok": False, "error": f"Notion {e.code}: {e.read().decode()[:200]}"}
+    except Exception as e:
+        return {"ok": False, "error": f"Notion 调用异常: {e}"}
+
+def Notion任务(动作: str, 内容: str = "", 来源: str = NOTION_TASK_SOURCE, 优先级: str = "中", 行id: str = "") -> Dict[str, Any]:
+    """动作: create / list / done · 读写「🧭 龍魂任务池」库"""
+    base = "https://api.notion.com/v1"
+    if 动作 == "create":
+        标题 = 内容.strip()
+        if not 标题:
+            return {"ok": False, "error": "任务内容为空"}
+        dna = 生成DNA("任务池", "登记")
+        today = datetime.datetime.now().strftime("%Y-%m-%d")
+        payload = {
+            "parent": {"database_id": NOTION_TASK_DB_ID},
+            "properties": {
+                "任务": {"title": [{"text": {"content": 标题[:180]}}]},
+                "状态": {"select": {"name": "待办"}},
+                "来源": {"select": {"name": 来源}},
+                "优先级": {"select": {"name": 优先级}},
+                "DNA": {"rich_text": [{"text": {"content": dna}}]},
+                "登记时间": {"date": {"start": today}},
+            },
+        }
+        r = _notion_api("POST", f"{base}/pages", payload)
+        if r.get("id"):
+            return {"ok": True, "dna": dna, "task_id": r["id"].replace("-", ""), "title": 标题}
+        return {"ok": False, "error": r.get("error", "未知错误")}
+    if 动作 == "list":
+        n = min(int(内容 or 10), 30)
+        r = _notion_api("POST", f"{base}/databases/{NOTION_TASK_DB_ID}/query",
+                        {"sorts": [{"property": "登记时间", "direction": "descending"}], "page_size": n})
+        rows = []
+        for item in r.get("results", []):
+            props = item.get("properties", {})
+
+            def _txt(k):
+                t = props.get(k, {}).get("title") or props.get(k, {}).get("rich_text")
+                return "".join(x.get("plain_text", "") for x in (t or []))
+
+            def _sel(k):
+                s = props.get(k, {})
+                return s.get("select", {}).get("name") if isinstance(s.get("select"), dict) else ""
+
+            rows.append({
+                "id": item.get("id", "").replace("-", ""),
+                "title": _txt("任务"),
+                "status": _sel("状态"),
+                "source": _sel("来源"),
+                "priority": _sel("优先级"),
+                "dna": _txt("DNA"),
+                "created": (props.get("登记时间", {}).get("date") or {}).get("start", ""),
+            })
+        return {"ok": True, "rows": rows, "total": len(rows)}
+    if 动作 == "done":
+        if not 行id:
+            return {"ok": False, "error": "缺少任务行 id"}
+        r = _notion_api("PATCH", f"{base}/pages/{行id}",
+                        {"properties": {"状态": {"select": {"name": "完成"}}}})
+        if r.get("id"):
+            return {"ok": True, "task_id": r["id"].replace("-", ""), "status": "完成"}
+        return {"ok": False, "error": r.get("error", "未知错误")}
+    return {"ok": False, "error": f"未知动作: {动作}"}
+
+def 解析任务意图(trigger: str) -> Optional[Dict[str, str]]:
+    """识别对话里的填任务指令 → {内容, 优先级}；非任务指令返回 None（走正常路由）"""
+    if not trigger:
+        return None
+    m = re.match(r"^(?:任务|todo|安排|记录|登记|添加|创建)\s*[:：]\s*(.+)$", trigger, re.I)
+    if not m:
+        m = re.match(r"^(?:记一下|安排个|加个|记个|添加任务|创建任务|登记任务)\s*(.+)$", trigger, re.I)
+    if not m:
+        return None
+    内容 = m.group(1).strip()
+    if not 内容:
+        return None
+    优先级 = "中"
+    hm = re.match(r"^(高|紧急|重要)[:：,，\s]*", 内容)
+    lm = re.match(r"^(低|不急|稍后|有空)[:：,，\s]*", 内容)
+    if hm:
+        优先级, 内容 = "高", re.sub(r"^(高|紧急|重要)[:：,，\s]*", "", 内容)
+    elif lm:
+        优先级, 内容 = "低", re.sub(r"^(低|不急|稍后|有空)[:：,，\s]*", "", 内容)
+    return {"内容": 内容, "优先级": 优先级}
+
+# ============================================================
 # 五、Ollama 模型调用
 # ============================================================
 
 def 调用Ollama(prompt: str, model: str = "longhun-v4.0", timeout: int = 60) -> str:
     """直接调用 ollama 模型"""
+    model = 归一模型(model)
     try:
         proc = subprocess.run(
-            ["ollama", "run", model],
+            [_ollama_path(), "run", model],
             input=prompt,
             capture_output=True,
             text=True,
@@ -371,6 +535,29 @@ async def run_trigger(req: TriggerRequest):
     global total_requests
     with request_lock:
         total_requests += 1
+    t0 = time.time()
+
+    # ── 任务意图前置：对话填任务 → Notion 任务池（不入意图引擎）──
+    任务 = 解析任务意图(req.trigger)
+    if 任务:
+        r = Notion任务("create", 任务["内容"], 优先级=任务["优先级"])
+        if r.get("ok"):
+            resp = (f"✅ 已登记到 Notion「🧭 龍魂任务池」：{r['title']}"
+                    f"（优先级：{任务['优先级']}·DNA {r.get('dna','')}）")
+            status, mark = "🟢 通过", "🟢"
+        else:
+            resp = f"🟡 任务登记失败：{r.get('error','')}"
+            status, mark = "🟡 待核", "🟡"
+        return TriggerResponse(
+            status=status,
+            response=resp,
+            dna=生成DNA("任务池", "对话登记"),
+            卦象=起卦(),
+            audit_mark=mark,
+            execution_time_ms=(time.time() - t0) * 1000,
+            mode="task",
+            steps=1,
+        ).model_dump()
 
     result = 智能路由(req.trigger, req.model)
 
@@ -407,11 +594,28 @@ async def run_trigger_get(
     req = TriggerRequest(trigger=trigger, model=model)
     return await run_trigger(req)
 
+@app.post("/task")
+@app.get("/task")
+async def task_api(action: str = Query(..., description="create/list/done"),
+                   title: str = Query("", description="任务内容(create)"),
+                   priority: str = Query("中", description="高/中/低(create)"),
+                   source: str = Query(NOTION_TASK_SOURCE, description="任务来源"),
+                   row_id: str = Query("", description="任务行id(done)")):
+    """龍魂三端接通·Notion 任务池 API"""
+    global total_requests
+    with request_lock:
+        total_requests += 1
+    if action not in ("create", "list", "done"):
+        return {"ok": False, "error": "action 仅支持 create/list/done"}
+    r = Notion任务(动作=action, 内容=title, 优先级=priority, 来源=source, 行id=row_id)
+    return r
+
 @app.post("/ollama")
 async def ollama_call(req: TriggerRequest):
-    """直接调用 ollama 模型"""
-    response = 调用Ollama(req.trigger, req.model)
-    return {"model": req.model, "prompt": req.trigger, "response": response}
+    """直接调用 ollama 本地模型（对话即生成）"""
+    real = 归一模型(req.model)
+    response = 调用Ollama(req.trigger, real)
+    return {"model": real, "prompt": req.trigger, "response": response}
 
 @app.get("/health")
 async def health():

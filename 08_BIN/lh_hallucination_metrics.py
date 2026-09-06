@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 # DNA: #龍芯⚡️丙午·丁酉·壬午·子时·䷛大过-HALLUCINATION-METRICS-v2.0-UID9622
 # 创建者: 诸葛鑫（UID9622）
 # 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
@@ -35,11 +34,12 @@ DNA: #龍芯⚡️丙午·丁酉·壬午·子时·䷛大过-HALLUCINATION-METRIC
 - ECE：置信度校准，0=完美，越大越差（与 H 方向相反，单独汇报）
 """
 
-import json
+from __future__ import annotations
+
 import hashlib
+import json
 import random
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple
 
 # ============================================================
 # 一、常量区（焊死·不可篡改）
@@ -64,7 +64,7 @@ ENGINE_DNA = "#龍芯⚡️丙午·丁酉·壬午·子时·䷛大过-HALLUCINATI
 # 二、数学核心函数（每个函数附验证公式）
 # ============================================================
 
-def calc_confusion_matrix(pred: List[int], gold: List[int]) -> Dict:
+def calc_confusion_matrix(pred: list[int], gold: list[int]) -> dict:
     """
     计算混淆矩阵：TP/FP/FN/TN → 精确率P/召回率R/F1/准确率Acc
 
@@ -78,28 +78,28 @@ def calc_confusion_matrix(pred: List[int], gold: List[int]) -> Dict:
     assert all(v in (0, 1) for v in pred), "预测值必须为0或1"
     assert all(v in (0, 1) for v in gold), "标签值必须为0或1"
 
-    TP = sum(p == 1 and g == 1 for p, g in zip(pred, gold))
-    FP = sum(p == 1 and g == 0 for p, g in zip(pred, gold))
-    FN = sum(p == 0 and g == 1 for p, g in zip(pred, gold))
-    TN = sum(p == 0 and g == 0 for p, g in zip(pred, gold))
-    N = len(pred)
+    tp = sum(p == 1 and g == 1 for p, g in zip(pred, gold, strict=True))
+    fp = sum(p == 1 and g == 0 for p, g in zip(pred, gold, strict=True))
+    fn = sum(p == 0 and g == 1 for p, g in zip(pred, gold, strict=True))
+    tn = sum(p == 0 and g == 0 for p, g in zip(pred, gold, strict=True))
+    n = len(pred)
 
-    P = TP / (TP + FP) if TP + FP > 0 else 0.0
-    R = TP / (TP + FN) if TP + FN > 0 else 0.0
-    F1 = 2 * P * R / (P + R) if P + R > 0 else 0.0
-    Acc = (TP + TN) / N
+    p = tp / (tp + fp) if tp + fp > 0 else 0.0
+    r = tp / (tp + fn) if tp + fn > 0 else 0.0
+    f1 = 2 * p * r / (p + r) if p + r > 0 else 0.0
+    acc = (tp + tn) / n
 
     return {
-        "TP": TP, "FP": FP, "FN": FN, "TN": TN, "N": N,
-        "precision": round(P, 6),
-        "recall": round(R, 6),
-        "f1": round(F1, 6),
-        "accuracy": round(Acc, 6),
-        "_formula": f"P={TP}/({TP}+{FP})={P:.6f}  R={TP}/({TP}+{FN})={R:.6f}  F1=2×P×R/(P+R)={F1:.6f}",
+        "TP": tp, "FP": fp, "FN": fn, "TN": tn, "N": n,
+        "precision": round(p, 6),
+        "recall": round(r, 6),
+        "f1": round(f1, 6),
+        "accuracy": round(acc, 6),
+        "_formula": f"P={tp}/({tp}+{fp})={p:.6f}  R={tp}/({tp}+{fn})={r:.6f}  F1=2×P×R/(P+R)={f1:.6f}",
     }
 
 
-def calc_token_f1(pred_list: List[str], gold_list: List[str]) -> Dict:
+def calc_token_f1(pred_list: list[str], gold_list: list[str]) -> dict:
     """
     计算Token级F1（信息抽取题专用 · 字符级集合 Dice）
 
@@ -110,11 +110,11 @@ def calc_token_f1(pred_list: List[str], gold_list: List[str]) -> Dict:
     """
     assert len(pred_list) == len(gold_list), "列表长度不一致"
 
-    def tokenize(s: str) -> List[str]:
+    def tokenize(s: str) -> list[str]:
         return [c for c in s if c.strip()]
 
     scores = []
-    for pred, gold in zip(pred_list, gold_list):
+    for pred, gold in zip(pred_list, gold_list, strict=True):
         p_set = set(tokenize(pred))
         g_set = set(tokenize(gold))
         inter = len(p_set & g_set)
@@ -131,7 +131,7 @@ def calc_token_f1(pred_list: List[str], gold_list: List[str]) -> Dict:
     }
 
 
-def calc_em(pred_list: List[str], gold_list: List[str]) -> Dict:
+def calc_em(pred_list: list[str], gold_list: list[str]) -> dict:
     """
     计算精确匹配率（知识推理题专用）
 
@@ -140,20 +140,20 @@ def calc_em(pred_list: List[str], gold_list: List[str]) -> Dict:
         PM = 部分包含数 / N
     """
     assert len(pred_list) == len(gold_list), "列表长度不一致"
-    N = len(pred_list)
-    em_count = sum(p.strip() == g.strip() for p, g in zip(pred_list, gold_list))
-    pm_count = sum(g.strip() in p for p, g in zip(pred_list, gold_list))
+    n = len(pred_list)
+    em_count = sum(p.strip() == g.strip() for p, g in zip(pred_list, gold_list, strict=True))
+    pm_count = sum(g.strip() in p for p, g in zip(pred_list, gold_list, strict=True))
     return {
-        "em": round(em_count / N, 6),
-        "pm": round(pm_count / N, 6),
+        "em": round(em_count / n, 6),
+        "pm": round(pm_count / n, 6),
         "em_count": em_count,
         "pm_count": pm_count,
-        "n": N,
-        "_formula": f"EM={em_count}/{N}，PM={pm_count}/{N}",
+        "n": n,
+        "_formula": f"EM={em_count}/{n}，PM={pm_count}/{n}",
     }
 
 
-def calc_ece(confidence: List[float], correctness: List[float], bins: int = 10) -> Dict:
+def calc_ece(confidence: list[float], correctness: list[float], bins: int = 10) -> dict:
     """
     计算期望校准误差 ECE
 
@@ -166,7 +166,7 @@ def calc_ece(confidence: List[float], correctness: List[float], bins: int = 10) 
     assert all(0 <= c <= 1 for c in confidence), "置信度须在[0,1]"
 
     bin_list = [[] for _ in range(bins)]
-    for c, a in zip(confidence, correctness):
+    for c, a in zip(confidence, correctness, strict=True):
         idx = min(int(c * bins), bins - 1)
         bin_list[idx].append((c, a))
 
@@ -199,8 +199,8 @@ def calc_h_index(
     factual_f1: float,
     extract_f1: float,
     reason_em: float,
-    dim_scores: Dict[str, float],
-) -> Dict:
+    dim_scores: dict[str, float],
+) -> dict:
     """
     计算幻觉综合指数 H（主裁判公式）
 
@@ -262,10 +262,10 @@ class MathValidator:
     """独立于主引擎的数学验证器，所有函数可单独跑"""
 
     @staticmethod
-    def verify_f1(TP: int, FP: int, FN: int) -> float:
-        P = TP / (TP + FP) if TP + FP > 0 else 0.0
-        R = TP / (TP + FN) if TP + FN > 0 else 0.0
-        return round(2 * P * R / (P + R) if P + R > 0 else 0.0, 6)
+    def verify_f1(tp: int, fp: int, fn: int) -> float:
+        p = tp / (tp + fp) if tp + fp > 0 else 0.0
+        r = tp / (tp + fn) if tp + fn > 0 else 0.0
+        return round(2 * p * r / (p + r) if p + r > 0 else 0.0, 6)
 
     @staticmethod
     def verify_h(factual_f1: float, extract_f1: float, reason_em: float, mu_dim: float) -> float:
@@ -275,7 +275,7 @@ class MathValidator:
         return round(max(0.0, min(1.0, h_base + delta)), 6)
 
     @staticmethod
-    def validate_report(report: Dict) -> bool:
+    def validate_report(report: dict) -> bool:
         """
         真独立复算（落地修正）：从报告的原始分项 extraction/reasoning 重推 H，
         与主引擎结果比对。不再把「已合并的 faithfulness」当两个参数传入。
@@ -321,16 +321,16 @@ class HallucinationMetrics:
 
     def run(
         self,
-        factual_pred: List[int],
-        factual_gold: List[int],
-        extract_pred: List[str],
-        extract_gold: List[str],
-        reason_pred: List[str],
-        reason_gold: List[str],
-        dim_data: Optional[Dict[str, Tuple[List[int], List[int]]]] = None,
-        confidence: Optional[List[float]] = None,
-        correctness: Optional[List[float]] = None,
-    ) -> Dict:
+        factual_pred: list[int],
+        factual_gold: list[int],
+        extract_pred: list[str],
+        extract_gold: list[str],
+        reason_pred: list[str],
+        reason_gold: list[str],
+        dim_data: dict[str, tuple[list[int], list[int]]] | None = None,
+        confidence: list[float] | None = None,
+        correctness: list[float] | None = None,
+    ) -> dict:
         """
         完整幻觉评估流程
 
@@ -405,7 +405,7 @@ class HallucinationMetrics:
         self._records.append(report)
         return report
 
-    def summary(self, report: Optional[Dict] = None) -> str:
+    def summary(self, report: dict | None = None) -> str:
         """生成人类可读的摘要"""
         r = report or (self._records[-1] if self._records else None)
         if not r:
@@ -414,7 +414,7 @@ class HallucinationMetrics:
         h = r["h_index"]
         lines = [
             "\n" + "=" * 70,
-            f"🐉 龍魂·幻觉评估报告 v2.0",
+            "🐉 龍魂·幻觉评估报告 v2.0",
             "=" * 70,
             f"DNA: {r['run_dna']}",
             f"引擎: {r['engine']}",
@@ -422,12 +422,12 @@ class HallucinationMetrics:
             "=" * 70,
             f"\n📊 幻觉综合指数 H = {h['h_index']:.4f}  {h['color']}",
             f"   Action: {h['action']}",
-            f"\n📋 分项指标:",
+            "\n📋 分项指标:",
             f"   事实性 F1:        {r['factual']['f1']:.4f}",
             f"   信息抽取 TokenF1:  {r['extraction']['avg_token_f1']:.4f}",
             f"   知识推理 EM:      {r['reasoning']['em']:.4f}",
             f"   五维度均值:       {h['components']['mu_dim']:.4f}",
-            f"\n🧭 各维度 F1:",
+            "\n🧭 各维度 F1:",
         ]
         for dim, score in r["dimensions"].items():
             bar = "█" * int(score * 10)
@@ -435,13 +435,13 @@ class HallucinationMetrics:
 
         if r.get("ece"):
             lines.append(f"\n📐 置信度校准 ECE: {r['ece']['ece']:.4f}")
-            lines.append(f"   解释: 0=完美校准，越小越好（与H方向相反·单独汇报）")
+            lines.append("   解释: 0=完美校准，越小越好（与H方向相反·单独汇报）")
 
         lines.append(f"\n🔐 确认码: {r['confirm']}")
         lines.append("=" * 70 + "\n")
         return "\n".join(lines)
 
-    def export_jsonl(self, path: Optional[str] = None):
+    def export_jsonl(self, path: str | None = None):
         """导出JSONL格式，便于流式审计。默认收敛至 _work/ 不入 git。"""
         if path is None:
             path = "_work/hallucination_records.jsonl"
@@ -455,7 +455,7 @@ class HallucinationMetrics:
 # 五、验收测试（黄金标准·开箱即验）
 # ============================================================
 
-def acceptance_test(export_path: Optional[str] = None):
+def acceptance_test(export_path: str | None = None):
     """内置验收测试，运行即验证整套系统"""
     print("=" * 70)
     print("🐉 龍魂·幻觉检测引擎 v2.0（融合版·落地修正）验收测试")
@@ -485,7 +485,7 @@ def acceptance_test(export_path: Optional[str] = None):
 
     # 置信度校准：100条（演示配置·与正确性独立生成，仅作功能展示）
     confidence = [0.5 + random.random() * 0.5 for _ in range(100)]
-    correctness = [1 if random.random() < 0.78 else 0 for _ in range(100)]
+    correctness = [1.0 if random.random() < 0.78 else 0.0 for _ in range(100)]
 
     # 运行引擎
     engine = HallucinationMetrics()

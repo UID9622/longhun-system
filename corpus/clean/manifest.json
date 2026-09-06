@@ -1,0 +1,108 @@
+{
+ "dna": "#龍芯⚡️丙午·丁酉·癸未·午时-CORPUS-CLEAN-v1.0-UID9622",
+ "engine": "lh_tokenizer_builder.py v1.1",
+ "src": "corpus/raw",
+ "out": "corpus/clean",
+ "files": [
+  {
+   "src": "龍魂最小语料集_v1.txt",
+   "out": "龍魂最小语料集_v1.clean.txt",
+   "paras": 5,
+   "dna": "4d934f3d"
+  },
+  {
+   "src": "knowledge/2026-07-03-行为密码学七因子视角-老实人与算计者.refined.txt",
+   "out": "2026-07-03-行为密码学七因子视角-老实人与算计者.refined.clean.txt",
+   "paras": 51,
+   "dna": "35eeb774"
+  },
+  {
+   "src": "knowledge/2026-09-06-D01-S1-词表迁移报告-v1.0.refined.txt",
+   "out": "2026-09-06-D01-S1-词表迁移报告-v1.0.refined.clean.txt",
+   "paras": 12,
+   "dna": "935b3be9"
+  },
+  {
+   "src": "knowledge/2026-09-06-D01-gpu-route-v1.0.refined.txt",
+   "out": "2026-09-06-D01-gpu-route-v1.0.refined.clean.txt",
+   "paras": 11,
+   "dna": "fec7ba78"
+  },
+  {
+   "src": "knowledge/2026-09-06-ISO42001-gap-v1.0.refined.txt",
+   "out": "2026-09-06-ISO42001-gap-v1.0.refined.clean.txt",
+   "paras": 9,
+   "dna": "64fb47dd"
+  },
+  {
+   "src": "knowledge/2026-09-06-龍魂ASI团队能力总览-Wiki专版.refined.txt",
+   "out": "2026-09-06-龍魂ASI团队能力总览-Wiki专版.refined.clean.txt",
+   "paras": 26,
+   "dna": "0c9a0e95"
+  },
+  {
+   "src": "knowledge/2026-09-06-龍魂ASI团队能力总览-Wiki首页Home.refined.txt",
+   "out": "2026-09-06-龍魂ASI团队能力总览-Wiki首页Home.refined.clean.txt",
+   "paras": 2,
+   "dna": "b3541c89"
+  },
+  {
+   "src": "knowledge/2026-09-06-龍魂ASI团队能力总览-内部README.refined.txt",
+   "out": "2026-09-06-龍魂ASI团队能力总览-内部README.refined.clean.txt",
+   "paras": 14,
+   "dna": "943881bb"
+  },
+  {
+   "src": "knowledge/2026-09-06-龍魂ASI能力落地台账v1.0.refined.txt",
+   "out": "2026-09-06-龍魂ASI能力落地台账v1.0.refined.clean.txt",
+   "paras": 11,
+   "dna": "2d4f653c"
+  },
+  {
+   "src": "knowledge/2026-09-06-龍魂自研产品总览-v1.0.refined.txt",
+   "out": "2026-09-06-龍魂自研产品总览-v1.0.refined.clean.txt",
+   "paras": 7,
+   "dna": "11ab2547"
+  },
+  {
+   "src": "knowledge/P3-seven-dimension-human-71-detailed-profile.refined.txt",
+   "out": "P3-seven-dimension-human-71-detailed-profile.refined.clean.txt",
+   "paras": 55,
+   "dna": "d2093394"
+  },
+  {
+   "src": "knowledge/行为密码学-统一框架-v3.0.refined.txt",
+   "out": "行为密码学-统一框架-v3.0.refined.clean.txt",
+   "paras": 61,
+   "dna": "1fceb803"
+  },
+  {
+   "src": "knowledge/行为密码学csdn.refined.txt",
+   "out": "行为密码学csdn.refined.clean.txt",
+   "paras": 2924,
+   "dna": "5e22d2a6"
+  },
+  {
+   "src": "daodejing/道德经81章-龍魂系统大白话解读-v4.1-结构化增强版.refined.txt",
+   "out": "道德经81章-龍魂系统大白话解读-v4.1-结构化增强版.refined.clean.txt",
+   "paras": 39,
+   "dna": "ca7a2711"
+  },
+  {
+   "src": "daodejing/道德经81章-龍魂系统大白话解读-完整版-v4.1-多维度注解.refined.txt",
+   "out": "道德经81章-龍魂系统大白话解读-完整版-v4.1-多维度注解.refined.clean.txt",
+   "paras": 8,
+   "dna": "323633f6"
+  },
+  {
+   "src": "daodejing/道德经81章-龍魂系统大白话解读-完整版-v5.0.refined.txt",
+   "out": "道德经81章-龍魂系统大白话解读-完整版-v5.0.refined.clean.txt",
+   "paras": 265,
+   "dna": "e6f1da7d"
+  }
+ ],
+ "input_files": 16,
+ "dup_paras": 0,
+ "short_paras": 0,
+ "out_chars": 381418
+}
