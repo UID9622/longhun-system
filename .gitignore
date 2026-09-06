@@ -438,3 +438,5 @@ docs-site/site/
 
 # --- Playwright CLI 临时产物 (2026-09-06) ---
 .playwright-cli/
+# 融合备份不入仓
+*.bak-*
