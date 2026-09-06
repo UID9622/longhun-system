@@ -49,6 +49,10 @@
 
 五层递进：**基础硬功 → 模型能力 → 系统与基础设施 → 治理与合规 → 战略与愿景**。下层是上层的底座，每一层都向上层输送可靠性。
 
+![龍魂 ASI 团队核心能力五层总览图](assets/asi_capability_overview.png)
+
+> 注：Wiki 平台不渲染 Mermaid 图，已内嵌为 PNG 图片（任何地方可显示）。以下保留 Mermaid 源码供本地/API 渲染参考：
+
 ```mermaid
 flowchart TD
     subgraph 基础层["第一层：基础硬功"]
