@@ -34,8 +34,8 @@
 
 | 链 | 地址 | 二维码 |
 |:---|:---|:---|
-| 🟡 TRON（默认）· USDT-TRC20 / TRX | `TCMCteHzdduQfpUrAdmmsnHEVH8MFCyXDq` | [![donate](assets/donate.png)](assets/donate.png) |
-| 🔵 Solana · SOL / USDC | `9E81MBxht5AXCCC3r74oaKBAJu6MfA2SP7VwE5KRkRDg` | [![donate-solana](assets/donate-solana.png)](assets/donate-solana.png) |
+| 🟡 TRON（默认）· USDT-TRC20 / TRX | `TCMCteHzdduQfpUrAdmmsnHEVH8MFCyXDq` | [![donate](https://raw.githubusercontent.com/UID9622/longhun-system/v5.3.0/12_DOCS/assets/donate.png)](https://raw.githubusercontent.com/UID9622/longhun-system/v5.3.0/12_DOCS/assets/donate.png) |
+| 🔵 Solana · SOL / USDC | `9E81MBxht5AXCCC3r74oaKBAJu6MfA2SP7VwE5KRkRDg` | [![donate-solana](https://raw.githubusercontent.com/UID9622/longhun-system/v5.3.0/12_DOCS/assets/donate-solana.png)](https://raw.githubusercontent.com/UID9622/longhun-system/v5.3.0/12_DOCS/assets/donate-solana.png) |
 
 > 地址由 `lh wallet` 统一管理（公司账户落地后自动切换 · 以 [uid9622.cn](https://uid9622.cn) 底部「支持龍魂」区为准）· 龍魂不诱导、不施压、不道德绑架。捐与不捐，开放与尊重不变。
 
