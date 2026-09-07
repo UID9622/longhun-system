@@ -2,6 +2,6 @@
 # DNA: #龍芯⚡️2026-07-04-CNSH-API-REQUIREMENTS-v1.0
 fastapi>=0.110.0
 uvicorn[standard]>=0.27.0
-pydantic>=2.0.0
+pydantic>=2.13.5
 # longhun-chinese-editor 请通过本地路径安装：
 #   pip install -e ../../dev-env/chinese-editor
