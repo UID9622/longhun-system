@@ -1,14 +1,16 @@
-# 龍魂系统 · 赞助支持
-# DNA: #龍芯⚡️丙午·丙申·癸丑·未时·䷔噬嗑-FUNDING-v1.0
-# 创建者: 诸葛鑫（UID9622）
+# 龍魂 · GitHub Sponsor 按钮
+# DNA: #龍芯⚡️2026-09-07-FUNDING-YML-UID9622
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# custom 列表项 = 可点击 URL（GitHub 物理规则，非纯文本地址）。
+# 官网 #support 为唯一权威落点：真地址 + 二维码 + 微信/支付宝渠道，自动随公司账户切换。
 
-# 自定义赞助链接
 custom:
-  - https://uid9622.cn/support
-  - https://uid9622.cn/xpay
+  - "https://uid9622.cn/#support"
 
-# 社区支持
-community_bridge: longhun-system
-
-# 开源集体（如适用）
-# open_collective: longhun-system
+# ── 收款真地址（完整·不掩码·存证参考，以官网 #support 为准）──
+# TRON 主链（默认）· USDT-TRC20 / TRX:
+#   TCMCteHzdduQfpUrAdmmsnHEVH8MFCyXDq
+#   （二维码: https://uid9622.cn/donate.png）
+# Solana 次链 · SOL / USDC:
+#   9E81MBxht5AXCCC3r74oaKBAJu6MfA2SP7VwE5KRkRDg
+#   （二维码: https://uid9622.cn/donate-solana.png）
