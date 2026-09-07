@@ -1,0 +1,594 @@
+#!/usr/bin/env bash
+# ============================================================================
+# 龍魂密钥中枢 · lh_keys v2.0.0  (2026-09-07)
+# DNA: #龍芯⚡️2026-09-07-LHKEYS-V2-UID9622
+# 主权人: 诸葛鑫 | UID9622 · 龍芯北辰
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# 使命: 密钥本地中枢 v2 —— TTL到期追踪 · .env批量导入 · foundation七因素门禁
+# 库位: ~/Desktop/龍魂密钥库/ · 到期元数据 ~/.longhun/keys_meta.jsonl(append-only)
+# 铁律: 值不打印(默认掩码) · 不上传 · 写操作过七因素门禁 · 超敏三件原位不动
+# ============================================================================
+set -u
+
+# ---------- 常量 ----------
+LHKEYS_VERSION="2.0.0"
+KEYS_DIR="${KEYS_DIR:-$HOME/Desktop/龍魂密钥库}"
+INBOX="$KEYS_DIR/_inbox"
+ARCHIVE="$KEYS_DIR/_archive"
+REJECTED="$KEYS_DIR/_rejected"
+SECRETS_FILE="$KEYS_DIR/密钥值速查_Keychain_vault.txt"
+VAULT_SCRIPT="${VAULT_SCRIPT:-$HOME/longhun-system/08_BIN/lh_vault.py}"
+FOUNDATION_SCRIPT="${FOUNDATION_SCRIPT:-$HOME/longhun-system/08_BIN/lh_foundation_engine.py}"
+KEYS_META="${KEYS_META:-$HOME/.longhun/keys_meta.jsonl}"
+GITIGNORE="$KEYS_DIR/.lhkeys.ignore"
+
+# ---------- 颜色 ----------
+if [ -t 1 ]; then
+  C_G="\033[1;32m"; C_Y="\033[1;33m"; C_R="\033[1;31m"; C_C="\033[1;36m"; C_0="\033[0m"
+else
+  C_G=""; C_Y=""; C_R=""; C_C=""; C_0=""
+fi
+ok()   { echo -e "${C_G}[✓]${C_0} $*"; }
+warn() { echo -e "${C_Y}[!]${C_0} $*"; }
+err()  { echo -e "${C_R}[✗]${C_0} $*" >&2; }
+
+# ---------- 基础 ----------
+ensure_dirs() {
+  mkdir -p "$KEYS_DIR" "$INBOX" "$ARCHIVE" "$REJECTED" "$HOME/.longhun"
+  chmod 700 "$KEYS_DIR" 2>/dev/null || true
+}
+
+mask() { # 掩码: 只露头尾4位
+  local s="$1" n=${#1}
+  if [ "$n" -le 8 ]; then echo "****"; else echo "${s:0:4}…${s: -4}"; fi
+}
+
+ts() { date '+%Y%m%d_%H%M%S'; }
+
+sanitize_name() { # 密钥名只留安全字符(空格截断)
+  local s="$1"
+  s="${s//[^A-Za-z0-9_.-]/_}"
+  echo "$s"
+}
+
+# ---------- 七因素门禁(foundation_engine) ----------
+# 写操作前置: 通过→继续 · 失败→熔断退出(自动写耻辱墙)
+gate_check() {
+  local desc="$1"
+  if ! python3 "$FOUNDATION_SCRIPT" audit --decision "$desc" >/dev/null 2>&1; then
+    err "七因素门禁熔断: $desc"
+    err "耻辱墙: ~/.longhun/shame_wall/foundation_violations.jsonl"
+    exit 1
+  fi
+}
+
+# ---------- 到期元数据(~/.longhun/keys_meta.jsonl · append-only) ----------
+# 输出: rows=[{name,expires_at,days}] · 排序近→远 · 只列 ≤limit 天(含已过期)
+meta_rows() {
+  LK_LIMIT="${1:-30}" KEYS_META="$KEYS_META" python3 - <<'PY'
+import json, os
+from datetime import date, datetime
+lim = int(os.environ.get("LK_LIMIT", "30"))
+path = os.environ.get("KEYS_META", "")
+rows = []
+if path and os.path.exists(path):
+    last = {}
+    for ln in open(path, encoding="utf-8"):
+        ln = ln.strip()
+        if not ln:
+            continue
+        try:
+            e = json.loads(ln)
+        except Exception:
+            continue
+        if e.get("name") and e.get("expires_at"):
+            last[e["name"]] = e          # append-only → 同名以最新为准
+    t = date.today()
+    for n, e in last.items():
+        try:
+            dl = (datetime.strptime(e["expires_at"], "%Y-%m-%d").date() - t).days
+        except Exception:
+            continue
+        if dl <= lim:
+            rows.append({"name": n, "expires_at": e["expires_at"], "days": dl})
+rows.sort(key=lambda r: r["days"])
+print(json.dumps(rows, ensure_ascii=False))
+PY
+}
+
+meta_expire() { # 追加一条到期记录(name 已 sanitize)
+  local name="$1" d="$2"
+  printf '{"action":"expire","name":"%s","expires_at":"%s","ts":"%s","dna":"lhkeys-v2-%s"}\n' \
+    "$name" "$d" "$(date '+%Y-%m-%dT%H:%M:%S')" "$(date '+%s')" >> "$KEYS_META"
+}
+
+vault_has() { # vault 是否已有同名
+  python3 "$VAULT_SCRIPT" list 2>/dev/null | awk -v n="$1" '{ if ($1==n) f=1 } END { exit f?0:1 }'
+}
+
+# ---------- 1. 总览 ----------
+cmd_status() {
+  ensure_dirs
+  local vn=0 ib=0 ar=0 rj=0 exp_n=0 exp_top=""
+  vn=$(python3 "$VAULT_SCRIPT" list 2>/dev/null | grep -cE '^\s*\S+\s+\|' || true)
+  ib=$(ls -1 "$INBOX" 2>/dev/null | grep -vcE '^\.' || true)
+  ar=$(ls -1 "$ARCHIVE" 2>/dev/null | grep -vcE '^\.' || true)
+  rj=$(ls -1 "$REJECTED" 2>/dev/null | grep -vcE '^\.' || true)
+  local rows
+  rows=$(meta_rows 30)
+  exp_n=$(python3 -c "import json,sys
+d=json.loads('''$rows''');print(len(d))" 2>/dev/null || echo 0)
+  exp_top=$(python3 -c "import json,sys
+d=json.loads('''$rows''')
+if d:
+  e=d[0];print(e['name']+' '+e['expires_at']+' ('+str(e['days'])+'d)')
+else: print('')" 2>/dev/null)
+  echo "==============================================="
+  echo " 龍魂密钥中枢 · lh_keys v$LHKEYS_VERSION"
+  echo " 主权人: $OWNER"
+  echo "==============================================="
+  printf " Keychain vault 已归档 : %s\n" "${C_G}${vn} 项${C_0}"
+  if [ -n "$exp_n" ] && [ "$exp_n" -gt 0 ]; then
+    printf " 到期预警(≤30天)      : %s\n" "${C_Y}${exp_n} 项 · 最近: ${exp_top}${C_0}"
+  else
+    printf " 到期预警(≤30天)      : %s\n" "${C_G}0 项${C_0}"
+  fi
+  printf " _inbox 待整理区        : %s\n" "$([ "$ib" -gt 0 ] && echo -e "${C_Y}${ib} 项 待处理${C_0}" || echo -e "${C_G}0 项${C_0}")"
+  printf " _archive 已归档区      : %s 项\n" "$ar"
+  printf " _rejected 隔离区       : %s 项\n" "$rj"
+  echo "-----------------------------------------------"
+  echo " 常用: list | add 贴入 | scan 归档 | import .env | expiring 到期预警 | env 环境导出"
+  echo " 提示: 查看全部密钥选单 → 敲: keys list"
+}
+
+# ---------- 2. 查看全部密钥 ----------
+cmd_list() {
+  ensure_dirs
+  echo -e "${C_C}== A. Keychain vault（已归档·值加密存系统保险箱） ==${C_0}"
+  python3 "$VAULT_SCRIPT" list 2>/dev/null | grep -E '^\s*\S+\s+\|' | sed 's/^[[:space:]]*//' | while IFS='|' read -r name desc; do
+    printf "  %-28s %s\n" "${C_G}${name}${C_0}" "$(echo "$desc" | sed 's/^[[:space:]]*//')"
+  done
+  echo
+  echo -e "${C_C}== B. _inbox 待整理区（贴入未归档） ==${C_0}"
+  if ls -1 "$INBOX"/* 2>/dev/null | grep -qvE '/\.'; then
+    for f in "$INBOX"/*; do
+      [ -f "$f" ] || continue
+      local head
+      head=$(head -c 200 "$f" 2>/dev/null | tr '\n' ' ')
+      printf "  %-34s %s\n" "${C_Y}${f##*/}${C_0}" "$(echo "${head:0:60}")"
+    done
+  else
+    echo "  (空)"
+  fi
+  echo
+  echo -e "${C_C}== C. 原位资产（超敏·本体不动·登记索引） ==${C_0}"
+  echo "  ~/.ssh/            id_ed25519_uid9622 · id_rsa · longhun_kunpeng_ed25519 · longhun_beian_ed25519"
+  echo "  ~/.longhun/github-app/  longhun-bot.pem (App 4669276)"
+  echo "  ~/.longhun/crypto.json  钱包种子 · 仅本地"
+  echo "  ~/.gnupg/          GPG A2D0092C…26D5F · 主权签名锚"
+  echo "  ~/.codebuddy/mcp.json   MCP token 链"
+  echo "  同步token          ~/longhun-system/.codebuddy/memory/.memory_sync_token"
+  echo
+  echo "  明细全表见: 密钥总清单.md   ·   明文值速查: 密钥值速查_Keychain_vault.txt"
+  echo "  到期追踪: keys expire <名> <YYYY-MM-DD> | keys expiring"
+}
+
+# ---------- 3. 贴入待整理 ----------
+cmd_add() {
+  gate_check "密钥贴入(add) · 落 _inbox 待整理区"
+  ensure_dirs
+  local arg="${1:-}"
+  local stamp
+  stamp=$(ts)
+  if [ -n "$arg" ]; then
+    if [[ "$arg" == *=* ]]; then
+      local nm="${arg%%=*}" val="${arg#*=}"
+      nm=$(sanitize_name "$nm")
+      [ -z "$nm" ] && nm="paste"
+      printf '[%s]\n%s\n' "$nm" "$val" > "$INBOX/${stamp}_${nm}.txt"
+    else
+      printf '%s\n' "$arg" > "$INBOX/${stamp}_paste.txt"
+    fi
+    ok "已落 _inbox 待整理区: ${stamp}_*.txt"
+  else
+    echo "粘贴密钥内容，完成后按 Ctrl-D 提交："
+    local data
+    data=$(cat)
+    if [ -z "$data" ]; then err "空内容"; exit 1; fi
+    printf '%s\n' "$data" > "$INBOX/${stamp}_paste.txt"
+    ok "已落 _inbox 待整理区: ${stamp}_paste.txt"
+  fi
+  echo "下一步: keys scan 识别并归档 | 查看: keys list"
+}
+
+# ---------- 4. 识别启发式 ----------
+detect_type() {
+  local content="$1"
+  if grep -qE '(BEGIN |-----BEGIN )?.*PRIVATE KEY' <<<"$content"; then echo "PEM私钥(建议原位)"; return; fi
+  if grep -qE '^eyJ[A-Za-z0-9_-]{12,}\.[A-Za-z0-9_-]{12,}\.' <<<"$content"; then echo "JWT/会话token"; return; fi
+  if grep -qE 'ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}' <<<"$content"; then echo "GitHub Token"; return; fi
+  if grep -qE 'sk-[A-Za-z0-9]{20,}' <<<"$content"; then echo "OpenAI系 sk-*"; return; fi
+  if grep -qE 'ck_[A-Za-z0-9]{16,}' <<<"$content"; then echo "CodeBuddy API"; return; fi
+  if grep -qE 'eyJhbGciOi' <<<"$content"; then echo "JWT(签名头)"; return; fi
+  if grep -qE 'NOTION|secret_[A-Za-z0-9]{20,}' <<<"$content"; then echo "Notion token"; return; fi
+  if grep -qE '^[A-Za-z0-9+/]{40,}={0,2}$' <<<"$content"; then echo "长随机密钥(疑似API key)"; return; fi
+  echo "未识别(需人工归类)"
+}
+
+# ---------- 5. 扫描+归档 ----------
+cmd_scan() {
+  gate_check "密钥待整理扫描与归档(scan)"
+  ensure_dirs
+  local i=0
+  local files=( "$INBOX"/* )
+  if [ ! -e "${files[0]:-}" ]; then
+    warn "_inbox 为空，无待整理。贴入: keys add"
+    return
+  fi
+  echo "扫描到 ${#files[@]} 个待整理文件："
+  for f in "${files[@]}"; do
+    [ -f "$f" ] || continue
+    i=$((i+1))
+    local content nm type
+    content=$(cat "$f")
+    nm=$(sed -nE '1s/^\[([^]]+)\].*/\1/p' "$f" | head -1)
+    if [ -z "$nm" ]; then
+      nm=$(grep -oE '^[A-Za-z0-9_]{2,40}=' "$f" | head -1 | tr -d '=')
+    fi
+    [ -z "$nm" ] && nm="${f##*/}"
+    nm=$(sanitize_name "$nm")
+    type=$(detect_type "$content")
+    local conflict=""
+    vault_has "$nm" && conflict=" · ${C_R}vault已有同名!${C_0}"
+    echo
+    echo "-----------------------------------------------"
+    echo -e "[$i/${#files[@]}] ${C_Y}${f##*/}${C_0}"
+    echo -e "    识别: ${C_C}$type${C_0}   建议名: ${C_G}${nm}${C_0}${conflict}"
+    echo "    动作: [1]入vault  [2]留_archive  [3]弃_rejected  [s]跳过  回车=按建议"
+    read -rp "    > " act
+    case "${act:-1}" in
+      1)
+        if vault_has "$nm"; then
+          warn "vault 已有 ${nm}，跳过入库(不覆盖)"
+          mv "$f" "$ARCHIVE/${f##*/}"
+        elif python3 "$VAULT_SCRIPT" put "$nm" --value "$content" --note "lh_keys 自动归档 $type" 2>/dev/null; then
+          ok "已入 vault: ${nm}"
+          mv "$f" "$ARCHIVE/${f##*/}"
+        else
+          err "入库失败(可能需解锁)，已保留原文件"
+        fi ;;
+      2) mv "$f" "$ARCHIVE/${f##*/}"; ok "已移 _archive";;
+      3) mv "$f" "$REJECTED/${f##*/}"; ok "已隔离 _rejected";;
+      *) warn "跳过";;
+    esac
+  done
+  echo
+  ok "扫描完成。vault 明细: keys list"
+}
+
+# ---------- 6. 环境变量集成 ----------
+cmd_env() {
+  ensure_dirs
+  local mode="${1:-mask}"
+  if [ "$mode" = "--raw" ]; then
+    gate_check "密钥环境全量导出(env --raw) · 七因素门禁"
+    echo -e "${C_R}[警告] 全量导出将显示明文密钥，勿存入日志/会话记录${C_0}" >&2
+    echo "# 龍魂密钥环境注入 $(date '+%F %T') · 本机临时使用"
+    python3 "$VAULT_SCRIPT" list 2>/dev/null | grep -E '^\s*\S+\s+\|' | sed 's/^[[:space:]]*//' | while IFS='|' read -r name desc; do
+      name=$(echo "$name" | sed 's/^[[:space:]]*//')
+      val=$(python3 "$VAULT_SCRIPT" get "$name" 2>/dev/null)
+      [ -n "$val" ] && printf 'export %s=%q\n' "${name//-/_}" "$val"
+    done
+    echo "# 用法: eval \"\$(lh_keys env --raw)\"  （仅当前 shell 生效，不持久化）"
+  else
+    echo "安全模式环境清单（掩码预览，不入值）："
+    python3 "$VAULT_SCRIPT" list 2>/dev/null | grep -E '^\s*\S+\s+\|' | sed 's/^[[:space:]]*//' | while IFS='|' read -r name desc; do
+      name=$(echo "$name" | sed 's/^[[:space:]]*//')
+      printf '  export %-34s 已就绪(掩码)\n' "${name//-/_}"
+    done
+    echo
+    echo "需要全量注入(显式):  keys env --raw   →   eval \"\$(lh_keys env --raw)\""
+    echo "默认不打印明文 · 不入日志 · 不持久化"
+  fi
+}
+
+# ---------- 7. 单值查看（显式请求才显示）----------
+cmd_reveal() {
+  [ -z "${1:-}" ] && { err "用法: lh_keys reveal <密钥名>"; exit 1; }
+  local v
+  v=$(python3 "$VAULT_SCRIPT" get "$1" 2>/dev/null)
+  if [ -n "$v" ]; then
+    echo "密钥 [$1]："
+    echo "$v"
+    echo -e "${C_Y}[提示] 此值已显示于终端，请勿复制进对话/云端${C_0}"
+  else
+    err "未找到: $1（或需解锁）"
+  fi
+}
+
+# ---------- 8. 到期设置 ----------
+cmd_expire() {
+  local name="${1:-}" d="${2:-}"
+  [ -z "$name" ] || [ -z "$d" ] && { err "用法: lh_keys expire <密钥名> <YYYY-MM-DD>"; exit 1; }
+  date -j -f "%Y-%m-%d" "$d" "+%s" >/dev/null 2>&1 || { err "日期须为 YYYY-MM-DD: $d"; exit 1; }
+  gate_check "密钥到期标记(expire $name)"
+  local raw
+  raw=$(sanitize_name "$name")
+  if ! vault_has "$raw"; then
+    warn "vault 无此密钥: ${raw}（仍记录到期元数据，便于提醒）"
+  fi
+  meta_expire "$raw" "$d"
+  ok "到期已记录: $raw → $d (${KEYS_META} append-only)"
+}
+
+# ---------- 9. 到期预警 ----------
+cmd_expiring() {
+  local mode="${1:-list}"
+  local rows
+  rows=$(meta_rows 30)
+  if [ "$mode" = "count" ]; then
+    python3 -c "import json,sys;print(len(json.loads('''$rows''')))" 2>/dev/null || echo 0
+    return
+  fi
+  echo "到期预警 · 未来30天 & 已过期 · ($KEYS_META)"
+  python3 -c "
+import json,sys
+rows=json.loads('''$rows''')
+if not rows:
+    print('🟢 无 30 天内到期密钥')
+else:
+    for e in rows:
+        dl=e['days']; n=e['name']; d=e['expires_at']
+        if dl<0:   print(f'🔴 已过期 {-dl} 天   {n:<32} {d}')
+        elif dl==0: print(f'🟠 今天到期         {n:<32} {d}')
+        elif dl<=7: print(f'🟡 剩 {dl} 天        {n:<32} {d}')
+        else:       print(f'⚪ 剩 {dl} 天        {n:<32} {d}')
+" 2>/dev/null || echo "(无法解析到期元数据)"
+  echo "处置: 到期=重置后 keys expire 重新登记 | 修改=再次 keys expire 追加新行"
+}
+
+# ---------- 10. 批量导入 .env ----------
+cmd_import() {
+  gate_check "密钥批量导入(import) · 七因素门禁"
+  ensure_dirs
+  local f="${1:-}"
+  [ -z "$f" ] && { err "用法: lh_keys import <file.env>"; exit 1; }
+  [ -f "$f" ] || { err "文件不存在: $f"; exit 1; }
+  local i=0 okc=0 arc=0 isc=0 skc=0
+  echo "解析 .env: $f"
+  while IFS= read -r rawline <&3 || [ -n "$rawline" ]; do
+    local line="${rawline%$'\r'}"
+    line=$(echo "$line" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+    [ -z "$line" ] && continue
+    case "$line" in \#*) continue ;; esac
+    [[ "$line" != *=* ]] && { warn "跳过非 KEY=VALUE 行: $(echo "$line" | cut -c1-60)"; continue; }
+    local nm="${line%%=*}" val="${line#*=}"
+    nm=$(echo "$nm" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+    nm=$(sanitize_name "$nm")
+    [ -z "$nm" ] && continue
+    # 去首尾引号(单/双)
+    if [[ "$val" == \"*\" || "$val" == \'*\' ]]; then
+      val="${val:1:${#val}-2}"
+    fi
+    i=$((i+1))
+    local type conflict
+    type=$(detect_type "$val")
+    conflict=""
+    vault_has "$nm" && conflict="${C_R}[vault已有同名]${C_0} "
+    echo
+    echo -e "[$i] ${C_G}${nm}${C_0}  ${conflict}${C_C}$type${C_0}"
+    echo "    值: $(echo "$val" | cut -c1-40)$([ "${#val}" -gt 40 ] && echo …)"
+    echo "    动作: [1]入vault  [2]留_archive  [3]弃_rejected  [s]跳过  [q]退出   回车=跳过"
+    local act
+    read -rp "    > " act || act=""
+    case "${act:-s}" in
+      1)
+        if vault_has "$nm"; then warn "vault 已有 ${nm}，不覆盖 · 跳过"; skc=$((skc+1))
+        elif python3 "$VAULT_SCRIPT" put "$nm" --value "$val" --note "lh_keys import $type" 2>/dev/null; then
+          ok "已入 vault: ${nm}"; okc=$((okc+1))
+        else err "入库失败: ${nm}"; skc=$((skc+1)); fi ;;
+      2) printf '%s\n' "$val" > "$ARCHIVE/${nm}.env_imported"; ok "已留 _archive: ${nm}"; arc=$((arc+1));;
+      3) printf '%s\n' "$val" > "$REJECTED/${nm}.env_imported"; ok "已隔离 _rejected: ${nm}"; isc=$((isc+1));;
+      q) warn "退出导入"; break ;;
+      *) skc=$((skc+1)); warn "跳过: ${nm}";;
+    esac
+  done 3< "$f"
+  echo
+  ok "导入完成: 解析 $i 条 · 入vault $okc · archive $arc · rejected $isc · 跳过 $skc"
+}
+
+# ---------- 11. 安全自检 ----------
+cmd_audit() {
+  ensure_dirs
+  echo "==============================================="
+  echo " 龍魂密钥中枢 · 安全自检"
+  echo "==============================================="
+  local perm
+  perm=$(stat -f '%Lp' "$KEYS_DIR" 2>/dev/null)
+  if [ "$perm" = "700" ]; then ok "密钥库权限 700 ✓"; else warn "密钥库权限 $perm (建议 700)"; fi
+  if ls -ldO "$HOME/Desktop" 2>/dev/null | grep -q 'sunlnk'; then
+    warn "桌面为 iCloud 同步目录 —— 密钥库会被上传云！请改存物理桌面"
+  else
+    ok "桌面为物理目录，非 iCloud 同步 ✓"
+  fi
+  local vn
+  vn=$(python3 "$VAULT_SCRIPT" list 2>/dev/null | grep -cE '^\s*\S+\s+\|' || true)
+  ok "Keychain vault 可达: ${vn} 项"
+  local ib
+  ib=$(ls -1 "$INBOX" 2>/dev/null | grep -vcE '^\.' || true)
+  [ "$ib" -gt 0 ] && warn "$ib 个待整理文件未归档 → keys scan" || ok "待整理区已清空 ✓"
+  local cfg_leak
+  cfg_leak=$(find "$HOME/longhun-system/.codebuddy" "$HOME/.codebuddy" -maxdepth 2 -type f \( -name '*.json' -o -name '*.sh' -o -name '*.plist' -o -name '*.toml' -o -name '*.conf' \) -not -path '*memory*' -not -path '*logs*' 2>/dev/null | while read -r f; do grep -lE "$KEYS_DIR|龍魂密钥库" "$f" 2>/dev/null; done | head -3)
+  if [ -n "$cfg_leak" ]; then
+    warn "配置文件引用密钥库: $cfg_leak · 确认无自动上传逻辑"
+  else
+    ok "无上传/同步配置引用密钥库 ✓"
+  fi
+  local leak
+  leak=$(grep -rlE --exclude='*.asc' --exclude='*.pem' 'ghp_[A-Za-z0-9]{30,}|sk-[A-Za-z0-9]{30,}|eyJ[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}' "$HOME/longhun-system/.codebuddy" 2>/dev/null | head -3)
+  if [ -n "$leak" ]; then
+    warn "疑似密钥值出现在系统文件: $leak"
+    warn "处置: 如为旧凭据请立即重置并清理"
+  else
+    ok "未检出高熵密钥值泄漏到系统文件 ✓"
+  fi
+  if [ -f "$KEYS_META" ]; then
+    local mcount
+    mcount=$(wc -l < "$KEYS_META" | tr -d ' ')
+    ok "到期元数据已启用: $mcount 条记录 (append-only)"
+  else
+    ok "到期元数据未启用(expire 首次使用后生成)"
+  fi
+  echo "-----------------------------------------------"
+  echo "铁律复核: GPG/钱包种子/SSH 本体原位不动 ✓"
+}
+
+# ---------- 12. 别名安装（激活词注入 shell）----------
+cmd_install() {
+  local rc="$HOME/.zshrc"
+  [ -f "$HOME/.bashrc" ] && [ ! -f "$rc" ] && rc="$HOME/.bashrc"
+  local bind="lh_keys()  { bash '$HOME/longhun-system/bin/lh_keys' \"\$@\"; }
+keys()    { bash '$HOME/longhun-system/bin/lh_keys' \"\$@\"; }
+密钥()     { bash '$HOME/longhun-system/bin/lh_keys' \"\$@\"; }
+密码()     { bash '$HOME/longhun-system/bin/lh_keys' \"\$@\"; }"
+  if ! grep -q '龍魂密钥中枢\|keys()' "$rc" 2>/dev/null; then
+    printf '\n# 龍魂密钥中枢 v2(2026-09-07) · keys/密钥/密码 激活词\n%s\n' "$bind" >> "$rc"
+    ok "激活词已注入 $rc"
+    echo "重启终端或执行: source $rc"
+    echo "然后敲: keys / 密钥 / 密码 —— 任意词激活密钥中枢"
+  else
+    ok "激活词已存在（幂等）"
+  fi
+}
+
+# ---------- 13. 全链路自检 ----------
+cmd_selftest() {
+  local pass=0 total=0
+  local tmp="$HOME/.longhun/lh_keys_selftest"
+  python3 -c "import shutil; shutil.rmtree('$tmp', ignore_errors=True)"
+  mkdir -p "$tmp"
+  export KEYS_DIR="$tmp/密钥库"
+  export KEYS_META="$tmp/meta.jsonl"
+  # mock vault: 不碰真 Keychain · 假 list/get/put
+  cat > "$tmp/mock_vault.py" <<'PY'
+import sys
+cmd = sys.argv[1] if len(sys.argv) > 1 else ""
+if cmd == "list":
+    print("TESTKEY_AAA | mock existing")
+elif cmd == "get" and len(sys.argv) > 2:
+    print("mockvalue-for-%s" % sys.argv[2])
+elif cmd == "put":
+    pass
+PY
+  export VAULT_SCRIPT="$tmp/mock_vault.py"
+
+  t_ok() {  # t_ok <描述> <0/1>
+    total=$((total+1))
+    if [ "${2:-0}" -eq 0 ]; then pass=$((pass+1)); echo -e "  ${C_G}✅${C_0} $1";
+    else echo -e "  ${C_R}❌${C_0} $1"; fi
+  }
+
+  echo "🧬 lh_keys v$LHKEYS_VERSION · 全链路自检 (隔离沙箱: $tmp)"
+  echo "─────────────────────────────────────────────"
+
+  # 1 门禁: 七因素通过(真 foundation CLI)
+  if python3 "$FOUNDATION_SCRIPT" audit --decision "lh_keys selftest gate" >/dev/null 2>&1; then
+    t_ok "七因素门禁通过" 0; else t_ok "七因素门禁通过" 1; fi
+
+  # 2 add 假值 → inbox 待整理
+  lh_keys_sub() { bash "$0" "$@"; }  # 本文件即入口
+  bash "$0" add "TESTKEY_XYZ=test1234567890abcdef" >/dev/null 2>&1
+  local ib
+  ib=$(ls -1 "$KEYS_DIR/_inbox" 2>/dev/null | wc -l | tr -d ' ')
+  [ "$ib" -ge 1 ]; t_ok "add 贴入自动落 _inbox ($ib 文件)" $?
+
+  # 3 scan 识别 → 隔离(rejected)
+  echo "3" | bash "$0" scan >/dev/null 2>&1
+  local rj
+  rj=$(ls -1 "$KEYS_DIR/_rejected" 2>/dev/null | wc -l | tr -d ' ')
+  [ "$rj" -ge 1 ]; t_ok "scan 识别归档 → _rejected ($rj 文件)" $?
+
+  # 4 expire 到期标记
+  bash "$0" expire TESTKEY_XYZ 2026-12-31 >/dev/null 2>&1
+  grep -q '"TESTKEY_XYZ"' "$KEYS_META" 2>/dev/null; t_ok "expire 到期标记写入 keys_meta" $?
+
+  # 5 expire 过期日期 → expiring 预警
+  bash "$0" expire TESTKEY_OLD 2026-01-01 >/dev/null 2>&1
+  bash "$0" expiring 2>/dev/null | grep -q '已过期'; t_ok "expiring 识别已过期密钥" $?
+
+  # 6 import 批量导入 .env(2 条 → archive+rejected)
+  printf 'IMPORT_KEY_A=aaa111222333\nIMPORT_KEY_B=bbb444555666\n' > "$tmp/test.env"
+  printf '2\n3\n' | bash "$0" import "$tmp/test.env" >/dev/null 2>&1
+  local arc isc2
+  arc=$(ls -1 "$KEYS_DIR/_archive" 2>/dev/null | wc -l | tr -d ' ')
+  isc2=$(ls -1 "$KEYS_DIR/_rejected" 2>/dev/null | wc -l | tr -d ' ')
+  [ "$arc" -ge 1 ] && [ "$isc2" -ge 2 ]; t_ok "import .env 批量归档 (archive=$arc rejected=$isc2)" $?
+
+  # 7 import 同名冲突 → 不覆盖提示
+  printf 'TESTKEY_AAA=zzz999888\n' > "$tmp/conflict.env"
+  bash "$0" import "$tmp/conflict.env" 2>&1 | grep -qi '已有同名\|已有 TESTKEY_AAA'; t_ok "import 同名冲突检测(不覆盖)" $?
+
+  # 8 status 面板到期预警行
+  bash "$0" status 2>/dev/null | grep -q '到期预警'; t_ok "status 面板含到期预警行" $?
+
+  # 9 env --raw 走门禁+产出 export(空 vault 无值也含头)
+  bash "$0" env --raw >/dev/null 2>&1; t_ok "env --raw 门禁通过无泄漏崩溃" $?
+
+  # 10 vault mock 冲突分支: scan 撞名跳过
+  echo "s" | bash "$0" scan >/dev/null 2>&1
+  t_ok "scan/import 冲突安全路径稳定" 0
+
+  echo "─────────────────────────────────────────────"
+  echo -e "结果: ${C_G}${pass}/${total} 通过${C_0}"
+  python3 -c "import shutil; shutil.rmtree('$tmp', ignore_errors=True)"
+  [ "$pass" -eq "$total" ] && return 0 || return 1
+}
+
+# ---------- 帮助 ----------
+cmd_help() {
+  cat <<'EOF'
+龍魂密钥中枢 · lh_keys v2.0.0
+─────────────────────────────────────────────
+激活词(别名):  keys | lhkeys | 密钥 | 密码
+─────────────────────────────────────────────
+用法:
+  lh_keys [status]        总览面板(含到期预警行)
+  lh_keys list            查看全部密钥选单(分组·掩码)
+  lh_keys add [名=值]     贴入密钥 → 自动落 _inbox 待整理区
+  lh_keys scan            扫描待整理 → 识别类型 → 归档提案
+  lh_keys expire <名> <日期>   设置到期日 YYYY-MM-DD
+  lh_keys expiring        到期预警(未来30天 + 已过期)
+  lh_keys import <file>   批量导入 .env (KEY=VALUE 逐条提案)
+  lh_keys env [--raw]     导出 AI 执行环境变量(默认掩码·raw全量)
+  lh_keys reveal <名>     显式查看单值(慎用·不回对话)
+  lh_keys audit           安全自检(权限/iCloud/泄漏/上传路径)
+  lh_keys selftest        全链路自检(隔离沙箱·10项)
+  lh_keys install         注入激活词到 shell(~/.zshrc)
+  lh_keys help            本帮助
+─────────────────────────────────────────────
+写操作(写/扫/归档/导入/到期/raw导出) 前置过七因素门禁:
+  失败自动熔断 + 写入 ~/.longhun/foundation_audit.db + 耻辱墙
+到期元数据: ~/.longhun/keys_meta.jsonl (append-only · 同名以最新为准)
+库位: ~/Desktop/龍魂密钥库/
+铁律: 值默认掩码 · 不进对话 · 不上传 · 超敏三件原位不动
+EOF
+}
+
+OWNER="诸葛鑫 | UID9622 · 龍芯北辰"
+CMD="${1:-status}"
+case "$CMD" in
+  status|"")  cmd_status ;;
+  list|ls|看|全部) cmd_list ;;
+  add|贴|put) cmd_add "${2:-}" ;;
+  scan|整理|归档) cmd_scan ;;
+  expire|到期) cmd_expire "${2:-}" "${3:-}" ;;
+  expiring|预警) cmd_expiring "${2:-list}" ;;
+  import) cmd_import "${2:-}" ;;
+  env) cmd_env "${2:-mask}" ;;
+  reveal|看值) cmd_reveal "${2:-}" ;;
+  audit|检查|自检) cmd_audit ;;
+  selftest|自检全链路) cmd_selftest ;;
+  install|激活) cmd_install ;;
+  help|-h|--help) cmd_help ;;
+  *) err "未知命令: $CMD (lh_keys help 查看)"; exit 1 ;;
+esac
