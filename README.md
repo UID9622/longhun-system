@@ -43,5 +43,16 @@ gpg --verify README.md.asc README.md   # 验签本文件
 君子协议（德在技术前）· 数据主权（本地存储·不出境）· 许可证分层（思想层 CC BY-NC-SA 4.0 / 工程层 MulanPSL v2）· 内容主权（禁止 AI 训练·详见各文档头部）
 官网 [uid9622.cn](https://uid9622.cn) · 文档 [uid9622.cn/docs](https://uid9622.cn/docs) · 旧版 README（709 行含社区/铭碑/徽章）见 [归档](12_DOCS/README-archive-v5.2.0-2026-09-06.md)
 
+## 💛 支持龍魂（纯自愿 · 零黑箱）
+
+龍魂的一切免费开放。若你认可「让技术为人、为普通人生长」，可自愿支持——款项仅用于服务器与开发成本，不留一分私账。
+
+| 链 | 地址 | 二维码 |
+|:---|:---|:---|
+| 🟡 TRON（默认）· USDT-TRC20 / TRX | `TCMCteHzdduQfpUrAdmmsnHEVH8MFCyXDq` | [![donate](12_DOCS/assets/donate.png)](12_DOCS/assets/donate.png) |
+| 🔵 Solana · SOL / USDC | `9E81MBxht5AXCCC3r74oaKBAJu6MfA2SP7VwE5KRkRDg` | [![donate-solana](12_DOCS/assets/donate-solana.png)](12_DOCS/assets/donate-solana.png) |
+
+> 地址由 `lh wallet` 统一管理（公司账户落地后自动切换 · 以 [uid9622.cn](https://uid9622.cn) 底部「支持龍魂」区为准）· 龍魂不诱导、不施压、不道德绑架。捐与不捐，开放与尊重不变。
+
 ---
 *一个人建造。逻辑驱动。AI 执行。社区一起看。* 归属名：诸葛鑫 | UID9622 · 龍芯北辰

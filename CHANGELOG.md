@@ -1,14 +1,39 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丁酉·癸未·CHANGELOG-v5.3.0-LHKEYS-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · 变更日志
 
-> DNA: `#龍芯⚡️2026-09-03-CHANGELOG-v5.2.0-ECOLOGY-DELIVERY-UID9622`
+> DNA: `#龍芯⚡️2026-09-07-CHANGELOG-v5.3.0-KEYS-AI-GOVERNANCE-UID9622`
 > 协议: CC BY-NC-SA 4.0 + 君子协议
 
 本文档记录龍魂系统所有重要变更。
 
 格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)。
+
+---
+
+## [v5.3.0] — 2026-09-07 · 密钥中枢与 AI 治理深化
+
+### 新增
+- 🧬 **lh_keys v2.0 密钥中枢** `08_BIN/lh_keys`（TTL 生命周期·批量导入 `.env`·MCP 桥接 `lh_keys_bridge`·vuln 扫描器反向关联·foundation 七因素门禁·selftest 10/10·双 GPG 签）
+- 🧬 **幻觉量化引擎 v2.0** `08_BIN/lh_hallucination_metrics.py`（`lh halluc`·H 三色指数·ECE·seed9622 实测 🟢 H=0.8446·21 层焊死启动必载）
+- 🛡️ **防空壳提交标准 v1.1**（五关自检：PoC/真实运行/复现/数据/完整性·RULE-ANTI-EMPTY-001 双镜像登记）
+- 🧬 **鸿蒙 CNSH 原生桥** `cnsh_cgen.py`（CNSH→C·N-API unity 桥·实机对拍 3 语法样本）
+- 🕵️ **反诈体系** 作假行为检测引擎 v1.0（7 类·GPG 核验）+ 反诈词条库 v1.0（20 词条·四维）
+- 🎨 **龍魂全息可视化 v1.0**（Three.js+WebXR·/holo 路由）+ Vision Pro 适配 v1.1
+- 🚀 **发布工具链** `lh publish`（PUB-20260904-02）+ 龍魂开放 API 网关 v2.2 + Webhook 出口
+- 🧠 **稳定执行管线 v1.0**（意图→通心译语义护照→人格路由→技能映射→三色终裁）+ 训练/测试回滚守护 v1.0
+- ⚖️ governance 自适应调节器 v2.0 + 联动桥 + CodeQL 自动响应闭环
+
+### 变更
+- 📝 对齐规则 v2.9 第二十一层焊入（AI 产出幻觉量化自检·AGENTS.md §6.10 联动）
+- 🔒 全量 GPG 重签（3050 文件·v5.2.0 后收口 2026-09-06）
+- 🌐 默认分支正式切 main · 拓扑公开入口对齐 v2.2
+- 💛 README 新增「支持龍魂」区（TRON 默认 + SOL 次链·真地址与二维码入库 `docs/assets/`）
+
+### 生态
+- Issue #1627 防空壳实证回帖（真实运行 DNA 6A07B196·extract 0.690948·五关全证）
+- 龍魂 ASI 能力总览图（Mermaid→PNG 内嵌·修复 Wiki 黑块）+ 能力台账 🟢18/30
 
 ---
 
